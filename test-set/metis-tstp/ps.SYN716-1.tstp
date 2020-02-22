@@ -1,0 +1,286 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% SZS status Unsatisfiable for SYN716-1.tptp
+
+% SZS output start CNFRefutation for SYN716-1.tptp
+cnf(p32_20, negated_conjecture, (p32(X92, X92))).
+
+cnf(p2_28, negated_conjecture, (p2(X44, X44))).
+
+cnf(not_p62_34, negated_conjecture, (~ p62(c67, c72))).
+
+cnf(p62_68, negated_conjecture,
+    (p62(X199, X200) | ~ p4(X202, X199) | ~ p62(X202, X201) |
+     ~ p32(X201, X200))).
+
+cnf(p4_86, negated_conjecture,
+    (p4(f5(X123, X124), f5(X125, X126)) | ~ p2(X123, X125) |
+     ~ p3(X124, X126))).
+
+cnf(p62_97, negated_conjecture,
+    (p62(X203, X204) |
+     ~ p62(f5(c64, f16(f19(f21(c66, X203), X205), X206)), X204))).
+
+cnf(p62_99, negated_conjecture,
+    (p62(X7, X12) |
+     ~ p62(f23(f25(f27(f29(f31(c74, X7), X8), X9), X10), X11), X12))).
+
+cnf(p62_100, negated_conjecture,
+    (p62(f5(c64,
+         f8(f11(f13(c65, f16(f19(f21(c66, c67), c68), c69)), c70), c71)),
+       c72))).
+
+cnf(p3_106, negated_conjecture,
+    (p3(f8(f11(f13(c65, f16(f19(f21(c66, X7), X8), X9)), X10), X11),
+       f16(f19(f21(c66,
+             f23(f25(f27(f29(f31(c74, X7), X8), X9), X10), X11)),
+           f43(f45(f47(f49(f51(c75, X7), X8), X9), X10), X11)),
+         f53(f55(f57(f59(f61(c76, X7), X8), X9), X10), X11))))).
+
+cnf(refute_0_0, plain,
+    (~ p62(f23(f25(f27(f29(f31(c74, c67), c68), c69), c70), c71), c72) |
+     p62(c67, c72)),
+    inference(subst, [],
+              [p62_99 :
+               [bind(X10, $fot(c70)), bind(X11, $fot(c71)),
+                bind(X12, $fot(c72)), bind(X7, $fot(c67)),
+                bind(X8, $fot(c68)), bind(X9, $fot(c69))]])).
+
+cnf(refute_0_1, plain,
+    (~
+       p62(f5(c64,
+           f16(f19(f21(c66,
+                 f23(f25(f27(f29(f31(c74, c67), c68), c69), c70), c71)),
+               f43(f45(f47(f49(f51(c75, c67), c68), c69), c70), c71)),
+             f53(f55(f57(f59(f61(c76, c67), c68), c69), c70), c71))),
+         c72) |
+     p62(f23(f25(f27(f29(f31(c74, c67), c68), c69), c70), c71), c72)),
+    inference(subst, [],
+              [p62_97 :
+               [bind(X203,
+                     $fot(f23(f25(f27(f29(f31(c74, c67), c68), c69), c70),
+                            c71))), bind(X204, $fot(c72)),
+                bind(X205,
+                     $fot(f43(f45(f47(f49(f51(c75, c67), c68), c69), c70),
+                            c71))),
+                bind(X206,
+                     $fot(f53(f55(f57(f59(f61(c76, c67), c68), c69), c70),
+                            c71)))]])).
+
+cnf(refute_0_2, plain, (p32(X_493, X_493)),
+    inference(subst, [], [p32_20 : [bind(X92, $fot(X_493))]])).
+
+cnf(refute_0_3, plain,
+    (~ p32(X_493, X_493) | ~ p4(X_495, X_492) | ~ p62(X_495, X_493) |
+     p62(X_492, X_493)),
+    inference(subst, [],
+              [p62_68 :
+               [bind(X199, $fot(X_492)), bind(X200, $fot(X_493)),
+                bind(X201, $fot(X_493)), bind(X202, $fot(X_495))]])).
+
+cnf(refute_0_4, plain,
+    (~ p4(X_495, X_492) | ~ p62(X_495, X_493) | p62(X_492, X_493)),
+    inference(resolve, [$cnf(p32(X_493, X_493))],
+              [refute_0_2, refute_0_3])).
+
+cnf(refute_0_5, plain,
+    (~
+       p4(f5(c64,
+           f8(f11(f13(c65, f16(f19(f21(c66, c67), c68), c69)), c70), c71)),
+         X_496) |
+     ~
+       p62(f5(c64,
+           f8(f11(f13(c65, f16(f19(f21(c66, c67), c68), c69)), c70), c71)),
+         c72) | p62(X_496, c72)),
+    inference(subst, [],
+              [refute_0_4 :
+               [bind(X_492, $fot(X_496)), bind(X_493, $fot(c72)),
+                bind(X_495,
+                     $fot(f5(c64,
+                            f8(f11(f13(c65,
+                                  f16(f19(f21(c66, c67), c68), c69)), c70),
+                              c71))))]])).
+
+cnf(refute_0_6, plain,
+    (~
+       p4(f5(c64,
+           f8(f11(f13(c65, f16(f19(f21(c66, c67), c68), c69)), c70), c71)),
+         X_496) | p62(X_496, c72)),
+    inference(resolve,
+              [$cnf(p62(f5(c64,
+                        f8(f11(f13(c65, f16(f19(f21(c66, c67), c68), c69)),
+                            c70), c71)), c72))], [p62_100, refute_0_5])).
+
+cnf(refute_0_7, plain,
+    (~
+       p4(f5(c64,
+           f8(f11(f13(c65, f16(f19(f21(c66, c67), c68), c69)), c70), c71)),
+         f5(c64,
+           f16(f19(f21(c66,
+                 f23(f25(f27(f29(f31(c74, c67), c68), c69), c70), c71)),
+               f43(f45(f47(f49(f51(c75, c67), c68), c69), c70), c71)),
+             f53(f55(f57(f59(f61(c76, c67), c68), c69), c70), c71)))) |
+     p62(f5(c64,
+         f16(f19(f21(c66,
+               f23(f25(f27(f29(f31(c74, c67), c68), c69), c70), c71)),
+             f43(f45(f47(f49(f51(c75, c67), c68), c69), c70), c71)),
+           f53(f55(f57(f59(f61(c76, c67), c68), c69), c70), c71))), c72)),
+    inference(subst, [],
+              [refute_0_6 :
+               [bind(X_496,
+                     $fot(f5(c64,
+                            f16(f19(f21(c66,
+                                  f23(f25(f27(f29(f31(c74, c67), c68),
+                                        c69), c70), c71)),
+                                f43(f45(f47(f49(f51(c75, c67), c68), c69),
+                                    c70), c71)),
+                              f53(f55(f57(f59(f61(c76, c67), c68), c69),
+                                  c70), c71)))))]])).
+
+cnf(refute_0_8, plain, (p2(X_378, X_378)),
+    inference(subst, [], [p2_28 : [bind(X44, $fot(X_378))]])).
+
+cnf(refute_0_9, plain,
+    (~ p2(X_378, X_378) | ~ p3(X_377, X_379) |
+     p4(f5(X_378, X_377), f5(X_378, X_379))),
+    inference(subst, [],
+              [p4_86 :
+               [bind(X123, $fot(X_378)), bind(X124, $fot(X_377)),
+                bind(X125, $fot(X_378)), bind(X126, $fot(X_379))]])).
+
+cnf(refute_0_10, plain,
+    (~ p3(X_377, X_379) | p4(f5(X_378, X_377), f5(X_378, X_379))),
+    inference(resolve, [$cnf(p2(X_378, X_378))],
+              [refute_0_8, refute_0_9])).
+
+cnf(refute_0_11, plain,
+    (~
+       p3(f8(f11(f13(c65, f16(f19(f21(c66, X_524), X_525), X_526)), X_522),
+           X_523),
+         f16(f19(f21(c66,
+               f23(f25(f27(f29(f31(c74, X_524), X_525), X_526), X_522),
+                 X_523)),
+             f43(f45(f47(f49(f51(c75, X_524), X_525), X_526), X_522),
+               X_523)),
+           f53(f55(f57(f59(f61(c76, X_524), X_525), X_526), X_522),
+             X_523))) |
+     p4(f5(X_378,
+         f8(f11(f13(c65, f16(f19(f21(c66, X_524), X_525), X_526)), X_522),
+           X_523)),
+       f5(X_378,
+         f16(f19(f21(c66,
+               f23(f25(f27(f29(f31(c74, X_524), X_525), X_526), X_522),
+                 X_523)),
+             f43(f45(f47(f49(f51(c75, X_524), X_525), X_526), X_522),
+               X_523)),
+           f53(f55(f57(f59(f61(c76, X_524), X_525), X_526), X_522),
+             X_523))))),
+    inference(subst, [],
+              [refute_0_10 :
+               [bind(X_377,
+                     $fot(f8(f11(f13(c65,
+                                f16(f19(f21(c66, X_524), X_525), X_526)),
+                              X_522), X_523))),
+                bind(X_379,
+                     $fot(f16(f19(f21(c66,
+                                f23(f25(f27(f29(f31(c74, X_524), X_525),
+                                      X_526), X_522), X_523)),
+                              f43(f45(f47(f49(f51(c75, X_524), X_525),
+                                    X_526), X_522), X_523)),
+                            f53(f55(f57(f59(f61(c76, X_524), X_525),
+                                  X_526), X_522), X_523))))]])).
+
+cnf(refute_0_12, plain,
+    (p3(f8(f11(f13(c65, f16(f19(f21(c66, X_524), X_525), X_526)), X_522),
+         X_523),
+       f16(f19(f21(c66,
+             f23(f25(f27(f29(f31(c74, X_524), X_525), X_526), X_522),
+               X_523)),
+           f43(f45(f47(f49(f51(c75, X_524), X_525), X_526), X_522),
+             X_523)),
+         f53(f55(f57(f59(f61(c76, X_524), X_525), X_526), X_522),
+           X_523)))),
+    inference(subst, [],
+              [p3_106 :
+               [bind(X10, $fot(X_522)), bind(X11, $fot(X_523)),
+                bind(X7, $fot(X_524)), bind(X8, $fot(X_525)),
+                bind(X9, $fot(X_526))]])).
+
+cnf(refute_0_13, plain,
+    (p4(f5(X_378,
+         f8(f11(f13(c65, f16(f19(f21(c66, X_524), X_525), X_526)), X_522),
+           X_523)),
+       f5(X_378,
+         f16(f19(f21(c66,
+               f23(f25(f27(f29(f31(c74, X_524), X_525), X_526), X_522),
+                 X_523)),
+             f43(f45(f47(f49(f51(c75, X_524), X_525), X_526), X_522),
+               X_523)),
+           f53(f55(f57(f59(f61(c76, X_524), X_525), X_526), X_522),
+             X_523))))),
+    inference(resolve,
+              [$cnf(p3(f8(f11(f13(c65,
+                            f16(f19(f21(c66, X_524), X_525), X_526)),
+                          X_522), X_523),
+                      f16(f19(f21(c66,
+                            f23(f25(f27(f29(f31(c74, X_524), X_525),
+                                  X_526), X_522), X_523)),
+                          f43(f45(f47(f49(f51(c75, X_524), X_525), X_526),
+                              X_522), X_523)),
+                        f53(f55(f57(f59(f61(c76, X_524), X_525), X_526),
+                            X_522), X_523))))],
+              [refute_0_12, refute_0_11])).
+
+cnf(refute_0_14, plain,
+    (p4(f5(c64,
+         f8(f11(f13(c65, f16(f19(f21(c66, c67), c68), c69)), c70), c71)),
+       f5(c64,
+         f16(f19(f21(c66,
+               f23(f25(f27(f29(f31(c74, c67), c68), c69), c70), c71)),
+             f43(f45(f47(f49(f51(c75, c67), c68), c69), c70), c71)),
+           f53(f55(f57(f59(f61(c76, c67), c68), c69), c70), c71))))),
+    inference(subst, [],
+              [refute_0_13 :
+               [bind(X_378, $fot(c64)), bind(X_522, $fot(c70)),
+                bind(X_523, $fot(c71)), bind(X_524, $fot(c67)),
+                bind(X_525, $fot(c68)), bind(X_526, $fot(c69))]])).
+
+cnf(refute_0_15, plain,
+    (p62(f5(c64,
+         f16(f19(f21(c66,
+               f23(f25(f27(f29(f31(c74, c67), c68), c69), c70), c71)),
+             f43(f45(f47(f49(f51(c75, c67), c68), c69), c70), c71)),
+           f53(f55(f57(f59(f61(c76, c67), c68), c69), c70), c71))), c72)),
+    inference(resolve,
+              [$cnf(p4(f5(c64,
+                        f8(f11(f13(c65, f16(f19(f21(c66, c67), c68), c69)),
+                            c70), c71)),
+                      f5(c64,
+                        f16(f19(f21(c66,
+                              f23(f25(f27(f29(f31(c74, c67), c68), c69),
+                                  c70), c71)),
+                            f43(f45(f47(f49(f51(c75, c67), c68), c69),
+                                c70), c71)),
+                          f53(f55(f57(f59(f61(c76, c67), c68), c69), c70),
+                            c71)))))], [refute_0_14, refute_0_7])).
+
+cnf(refute_0_16, plain,
+    (p62(f23(f25(f27(f29(f31(c74, c67), c68), c69), c70), c71), c72)),
+    inference(resolve,
+              [$cnf(p62(f5(c64,
+                        f16(f19(f21(c66,
+                              f23(f25(f27(f29(f31(c74, c67), c68), c69),
+                                  c70), c71)),
+                            f43(f45(f47(f49(f51(c75, c67), c68), c69),
+                                c70), c71)),
+                          f53(f55(f57(f59(f61(c76, c67), c68), c69), c70),
+                            c71))), c72))], [refute_0_15, refute_0_1])).
+
+cnf(refute_0_17, plain, (p62(c67, c72)),
+    inference(resolve,
+              [$cnf(p62(f23(f25(f27(f29(f31(c74, c67), c68), c69), c70),
+                        c71), c72))], [refute_0_16, refute_0_0])).
+
+cnf(refute_0_18, plain, ($false),
+    inference(resolve, [$cnf(p62(c67, c72))], [refute_0_17, not_p62_34])).
+% SZS output end CNFRefutation for SYN716-1.tptp
+

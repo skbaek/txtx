@@ -1,0 +1,216 @@
+% Refutation found. Thanks to Tanya!
+% SZS status Theorem for SWC373+1
+% SZS output start Proof for SWC373+1
+fof(f65051,plain,(
+  $false),
+  inference(avatar_sat_refutation,[],[f2836,f4193,f4595,f65050])).
+fof(f65050,plain,(
+  ~spl57_109 | ~spl57_233),
+  inference(avatar_contradiction_clause,[],[f65049])).
+fof(f65049,plain,(
+  $false | (~spl57_109 | ~spl57_233)),
+  inference(subsumption_resolution,[],[f65048,f4590])).
+fof(f4590,plain,(
+  ssList(sK54) | ~spl57_233),
+  inference(avatar_component_clause,[],[f4589])).
+fof(f4589,plain,(
+  spl57_233 <=> ssList(sK54)),
+  introduced(avatar_definition,[new_symbols(naming,[spl57_233])])).
+fof(f65048,plain,(
+  ~ssList(sK54) | ~spl57_109),
+  inference(forward_demodulation,[],[f65047,f842])).
+fof(f842,plain,(
+  sK54 = app(sK54,nil)),
+  inference(resolution,[],[f533,f591])).
+fof(f591,plain,(
+  ssList(sK54)),
+  inference(forward_demodulation,[],[f550,f551])).
+fof(f551,plain,(
+  sK54 = sK56),
+  inference(cnf_transformation,[],[f347])).
+fof(f347,plain,(
+  (((~segmentP(sK54,sK53) & rearsegP(sK56,sK55) & sK53 = sK55 & sK54 = sK56 & ssList(sK56)) & ssList(sK55)) & ssList(sK54)) & ssList(sK53)),
+  inference(skolemisation,[status(esa),new_symbols(skolem,[sK53,sK54,sK55,sK56])],[f222,f346,f345,f344,f343])).
+fof(f343,plain,(
+  ? [X0] : (? [X1] : (? [X2] : (? [X3] : (~segmentP(X1,X0) & rearsegP(X3,X2) & X0 = X2 & X1 = X3 & ssList(X3)) & ssList(X2)) & ssList(X1)) & ssList(X0)) => (? [X1] : (? [X2] : (? [X3] : (~segmentP(X1,sK53) & rearsegP(X3,X2) & sK53 = X2 & X1 = X3 & ssList(X3)) & ssList(X2)) & ssList(X1)) & ssList(sK53))),
+  introduced(choice_axiom,[])).
+fof(f344,plain,(
+  ? [X1] : (? [X2] : (? [X3] : (~segmentP(X1,sK53) & rearsegP(X3,X2) & sK53 = X2 & X1 = X3 & ssList(X3)) & ssList(X2)) & ssList(X1)) => (? [X2] : (? [X3] : (~segmentP(sK54,sK53) & rearsegP(X3,X2) & sK53 = X2 & sK54 = X3 & ssList(X3)) & ssList(X2)) & ssList(sK54))),
+  introduced(choice_axiom,[])).
+fof(f345,plain,(
+  ? [X2] : (? [X3] : (~segmentP(sK54,sK53) & rearsegP(X3,X2) & sK53 = X2 & sK54 = X3 & ssList(X3)) & ssList(X2)) => (? [X3] : (~segmentP(sK54,sK53) & rearsegP(X3,sK55) & sK53 = sK55 & sK54 = X3 & ssList(X3)) & ssList(sK55))),
+  introduced(choice_axiom,[])).
+fof(f346,plain,(
+  ? [X3] : (~segmentP(sK54,sK53) & rearsegP(X3,sK55) & sK53 = sK55 & sK54 = X3 & ssList(X3)) => (~segmentP(sK54,sK53) & rearsegP(sK56,sK55) & sK53 = sK55 & sK54 = sK56 & ssList(sK56))),
+  introduced(choice_axiom,[])).
+fof(f222,plain,(
+  ? [X0] : (? [X1] : (? [X2] : (? [X3] : (~segmentP(X1,X0) & rearsegP(X3,X2) & X0 = X2 & X1 = X3 & ssList(X3)) & ssList(X2)) & ssList(X1)) & ssList(X0))),
+  inference(flattening,[],[f221])).
+fof(f221,plain,(
+  ? [X0] : (? [X1] : (? [X2] : (? [X3] : ((~segmentP(X1,X0) & rearsegP(X3,X2) & X0 = X2 & X1 = X3) & ssList(X3)) & ssList(X2)) & ssList(X1)) & ssList(X0))),
+  inference(ennf_transformation,[],[f97])).
+fof(f97,negated_conjecture,(
+  ~! [X0] : (ssList(X0) => ! [X1] : (ssList(X1) => ! [X2] : (ssList(X2) => ! [X3] : (ssList(X3) => (segmentP(X1,X0) | ~rearsegP(X3,X2) | X0 != X2 | X1 != X3)))))),
+  inference(negated_conjecture,[],[f96])).
+fof(f96,conjecture,(
+  ! [X0] : (ssList(X0) => ! [X1] : (ssList(X1) => ! [X2] : (ssList(X2) => ! [X3] : (ssList(X3) => (segmentP(X1,X0) | ~rearsegP(X3,X2) | X0 != X2 | X1 != X3)))))),
+  file('SWC373+1.tptp',unknown)).
+fof(f550,plain,(
+  ssList(sK56)),
+  inference(cnf_transformation,[],[f347])).
+fof(f533,plain,(
+  ( ! [X0] : (~ssList(X0) | app(X0,nil) = X0) )),
+  inference(cnf_transformation,[],[f201])).
+fof(f201,plain,(
+  ! [X0] : (app(X0,nil) = X0 | ~ssList(X0))),
+  inference(ennf_transformation,[],[f84])).
+fof(f84,axiom,(
+  ! [X0] : (ssList(X0) => app(X0,nil) = X0)),
+  file('SWC373+1.tptp',unknown)).
+fof(f65047,plain,(
+  ~ssList(app(sK54,nil)) | ~spl57_109),
+  inference(subsumption_resolution,[],[f65046,f440])).
+fof(f440,plain,(
+  ssList(nil)),
+  inference(cnf_transformation,[],[f17])).
+fof(f17,axiom,(
+  ssList(nil)),
+  file('SWC373+1.tptp',unknown)).
+fof(f65046,plain,(
+  ~ssList(nil) | ~ssList(app(sK54,nil)) | ~spl57_109),
+  inference(subsumption_resolution,[],[f64989,f554])).
+fof(f554,plain,(
+  ~segmentP(sK54,sK53)),
+  inference(cnf_transformation,[],[f347])).
+fof(f64989,plain,(
+  segmentP(sK54,sK53) | ~ssList(nil) | ~ssList(app(sK54,nil)) | ~spl57_109),
+  inference(superposition,[],[f2835,f842])).
+fof(f2835,plain,(
+  ( ! [X11] : (segmentP(app(sK54,X11),sK53) | ~ssList(X11) | ~ssList(app(sK54,X11))) ) | ~spl57_109),
+  inference(avatar_component_clause,[],[f2834])).
+fof(f2834,plain,(
+  spl57_109 <=> ! [X11] : (~ssList(app(sK54,X11)) | ~ssList(X11) | segmentP(app(sK54,X11),sK53))),
+  introduced(avatar_definition,[new_symbols(naming,[spl57_109])])).
+fof(f4595,plain,(
+  spl57_233),
+  inference(avatar_split_clause,[],[f591,f4589])).
+fof(f4193,plain,(
+  spl57_99),
+  inference(avatar_contradiction_clause,[],[f4192])).
+fof(f4192,plain,(
+  $false | spl57_99),
+  inference(subsumption_resolution,[],[f4191,f591])).
+fof(f4191,plain,(
+  ~ssList(sK54) | spl57_99),
+  inference(subsumption_resolution,[],[f4190,f592])).
+fof(f592,plain,(
+  ssList(sK53)),
+  inference(forward_demodulation,[],[f549,f552])).
+fof(f552,plain,(
+  sK53 = sK55),
+  inference(cnf_transformation,[],[f347])).
+fof(f549,plain,(
+  ssList(sK55)),
+  inference(cnf_transformation,[],[f347])).
+fof(f4190,plain,(
+  ~ssList(sK53) | ~ssList(sK54) | spl57_99),
+  inference(subsumption_resolution,[],[f4189,f590])).
+fof(f590,plain,(
+  rearsegP(sK54,sK53)),
+  inference(backward_demodulation,[],[f551,f589])).
+fof(f589,plain,(
+  rearsegP(sK56,sK53)),
+  inference(backward_demodulation,[],[f552,f553])).
+fof(f553,plain,(
+  rearsegP(sK56,sK55)),
+  inference(cnf_transformation,[],[f347])).
+fof(f4189,plain,(
+  ~rearsegP(sK54,sK53) | ~ssList(sK53) | ~ssList(sK54) | spl57_99),
+  inference(resolution,[],[f2779,f363])).
+fof(f363,plain,(
+  ( ! [X0,X1] : (ssList(sK12(X0,X1)) | ~rearsegP(X0,X1) | ~ssList(X1) | ~ssList(X0)) )),
+  inference(cnf_transformation,[],[f252])).
+fof(f252,plain,(
+  ! [X0] : (! [X1] : (((rearsegP(X0,X1) | ! [X2] : (app(X2,X1) != X0 | ~ssList(X2))) & ((app(sK12(X0,X1),X1) = X0 & ssList(sK12(X0,X1))) | ~rearsegP(X0,X1))) | ~ssList(X1)) | ~ssList(X0))),
+  inference(skolemisation,[status(esa),new_symbols(skolem,[sK12])],[f250,f251])).
+fof(f251,plain,(
+  ! [X1,X0] : (? [X3] : (app(X3,X1) = X0 & ssList(X3)) => (app(sK12(X0,X1),X1) = X0 & ssList(sK12(X0,X1))))),
+  introduced(choice_axiom,[])).
+fof(f250,plain,(
+  ! [X0] : (! [X1] : (((rearsegP(X0,X1) | ! [X2] : (app(X2,X1) != X0 | ~ssList(X2))) & (? [X3] : (app(X3,X1) = X0 & ssList(X3)) | ~rearsegP(X0,X1))) | ~ssList(X1)) | ~ssList(X0))),
+  inference(rectify,[],[f249])).
+fof(f249,plain,(
+  ! [X0] : (! [X1] : (((rearsegP(X0,X1) | ! [X2] : (app(X2,X1) != X0 | ~ssList(X2))) & (? [X2] : (app(X2,X1) = X0 & ssList(X2)) | ~rearsegP(X0,X1))) | ~ssList(X1)) | ~ssList(X0))),
+  inference(nnf_transformation,[],[f102])).
+fof(f102,plain,(
+  ! [X0] : (! [X1] : ((rearsegP(X0,X1) <=> ? [X2] : (app(X2,X1) = X0 & ssList(X2))) | ~ssList(X1)) | ~ssList(X0))),
+  inference(ennf_transformation,[],[f6])).
+fof(f6,axiom,(
+  ! [X0] : (ssList(X0) => ! [X1] : (ssList(X1) => (rearsegP(X0,X1) <=> ? [X2] : (app(X2,X1) = X0 & ssList(X2)))))),
+  file('SWC373+1.tptp',unknown)).
+fof(f2779,plain,(
+  ~ssList(sK12(sK54,sK53)) | spl57_99),
+  inference(avatar_component_clause,[],[f2777])).
+fof(f2777,plain,(
+  spl57_99 <=> ssList(sK12(sK54,sK53))),
+  introduced(avatar_definition,[new_symbols(naming,[spl57_99])])).
+fof(f2836,plain,(
+  ~spl57_99 | spl57_109),
+  inference(avatar_split_clause,[],[f2832,f2834,f2777])).
+fof(f2832,plain,(
+  ( ! [X11] : (~ssList(app(sK54,X11)) | segmentP(app(sK54,X11),sK53) | ~ssList(X11) | ~ssList(sK12(sK54,sK53))) )),
+  inference(forward_demodulation,[],[f2831,f1497])).
+fof(f1497,plain,(
+  sK54 = app(sK12(sK54,sK53),sK53)),
+  inference(subsumption_resolution,[],[f1496,f591])).
+fof(f1496,plain,(
+  sK54 = app(sK12(sK54,sK53),sK53) | ~ssList(sK54)),
+  inference(subsumption_resolution,[],[f1490,f592])).
+fof(f1490,plain,(
+  sK54 = app(sK12(sK54,sK53),sK53) | ~ssList(sK53) | ~ssList(sK54)),
+  inference(resolution,[],[f364,f590])).
+fof(f364,plain,(
+  ( ! [X0,X1] : (~rearsegP(X0,X1) | app(sK12(X0,X1),X1) = X0 | ~ssList(X1) | ~ssList(X0)) )),
+  inference(cnf_transformation,[],[f252])).
+fof(f2831,plain,(
+  ( ! [X11] : (segmentP(app(sK54,X11),sK53) | ~ssList(X11) | ~ssList(sK12(sK54,sK53)) | ~ssList(app(app(sK12(sK54,sK53),sK53),X11))) )),
+  inference(subsumption_resolution,[],[f2774,f592])).
+fof(f2774,plain,(
+  ( ! [X11] : (segmentP(app(sK54,X11),sK53) | ~ssList(X11) | ~ssList(sK12(sK54,sK53)) | ~ssList(sK53) | ~ssList(app(app(sK12(sK54,sK53),sK53),X11))) )),
+  inference(superposition,[],[f560,f1497])).
+fof(f560,plain,(
+  ( ! [X2,X3,X1] : (segmentP(app(app(X2,X1),X3),X1) | ~ssList(X3) | ~ssList(X2) | ~ssList(X1) | ~ssList(app(app(X2,X1),X3))) )),
+  inference(equality_resolution,[],[f369])).
+fof(f369,plain,(
+  ( ! [X2,X0,X3,X1] : (segmentP(X0,X1) | app(app(X2,X1),X3) != X0 | ~ssList(X3) | ~ssList(X2) | ~ssList(X1) | ~ssList(X0)) )),
+  inference(cnf_transformation,[],[f257])).
+fof(f257,plain,(
+  ! [X0] : (! [X1] : (((segmentP(X0,X1) | ! [X2] : (! [X3] : (app(app(X2,X1),X3) != X0 | ~ssList(X3)) | ~ssList(X2))) & (((app(app(sK13(X0,X1),X1),sK14(X0,X1)) = X0 & ssList(sK14(X0,X1))) & ssList(sK13(X0,X1))) | ~segmentP(X0,X1))) | ~ssList(X1)) | ~ssList(X0))),
+  inference(skolemisation,[status(esa),new_symbols(skolem,[sK13,sK14])],[f254,f256,f255])).
+fof(f255,plain,(
+  ! [X1,X0] : (? [X4] : (? [X5] : (app(app(X4,X1),X5) = X0 & ssList(X5)) & ssList(X4)) => (? [X5] : (app(app(sK13(X0,X1),X1),X5) = X0 & ssList(X5)) & ssList(sK13(X0,X1))))),
+  introduced(choice_axiom,[])).
+fof(f256,plain,(
+  ! [X1,X0] : (? [X5] : (app(app(sK13(X0,X1),X1),X5) = X0 & ssList(X5)) => (app(app(sK13(X0,X1),X1),sK14(X0,X1)) = X0 & ssList(sK14(X0,X1))))),
+  introduced(choice_axiom,[])).
+fof(f254,plain,(
+  ! [X0] : (! [X1] : (((segmentP(X0,X1) | ! [X2] : (! [X3] : (app(app(X2,X1),X3) != X0 | ~ssList(X3)) | ~ssList(X2))) & (? [X4] : (? [X5] : (app(app(X4,X1),X5) = X0 & ssList(X5)) & ssList(X4)) | ~segmentP(X0,X1))) | ~ssList(X1)) | ~ssList(X0))),
+  inference(rectify,[],[f253])).
+fof(f253,plain,(
+  ! [X0] : (! [X1] : (((segmentP(X0,X1) | ! [X2] : (! [X3] : (app(app(X2,X1),X3) != X0 | ~ssList(X3)) | ~ssList(X2))) & (? [X2] : (? [X3] : (app(app(X2,X1),X3) = X0 & ssList(X3)) & ssList(X2)) | ~segmentP(X0,X1))) | ~ssList(X1)) | ~ssList(X0))),
+  inference(nnf_transformation,[],[f103])).
+fof(f103,plain,(
+  ! [X0] : (! [X1] : ((segmentP(X0,X1) <=> ? [X2] : (? [X3] : (app(app(X2,X1),X3) = X0 & ssList(X3)) & ssList(X2))) | ~ssList(X1)) | ~ssList(X0))),
+  inference(ennf_transformation,[],[f7])).
+fof(f7,axiom,(
+  ! [X0] : (ssList(X0) => ! [X1] : (ssList(X1) => (segmentP(X0,X1) <=> ? [X2] : (? [X3] : (app(app(X2,X1),X3) = X0 & ssList(X3)) & ssList(X2)))))),
+  file('SWC373+1.tptp',unknown)).
+% SZS output end Proof for SWC373+1
+% ------------------------------
+% Version: Vampire 4.4.0 (commit d98a3d53 on 2020-01-14 21:02:12 +0100)
+% Termination reason: Refutation
+
+% Memory used [KB]: 57440
+% Time elapsed: 0.817 s
+% ------------------------------
+% ------------------------------

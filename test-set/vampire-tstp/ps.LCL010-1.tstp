@@ -1,0 +1,96 @@
+% Refutation found. Thanks to Tanya!
+% SZS status Unsatisfiable for LCL010-1
+% SZS output start Proof for LCL010-1
+fof(f476447,plain,(
+  $false),
+  inference(resolution,[],[f135644,f3])).
+fof(f3,axiom,(
+  ~is_a_theorem(equivalent(equivalent(a,b),equivalent(equivalent(c,b),equivalent(a,c))))),
+  file('LCL010-1.tptp',unknown)).
+fof(f135644,plain,(
+  ( ! [X810,X811,X809] : (is_a_theorem(equivalent(equivalent(X809,X810),equivalent(equivalent(X811,X810),equivalent(X809,X811))))) )),
+  inference(resolution,[],[f15718,f175])).
+fof(f175,plain,(
+  ( ! [X12,X13,X11] : (is_a_theorem(equivalent(equivalent(equivalent(X11,X12),equivalent(X12,X13)),equivalent(X11,X13)))) )),
+  inference(resolution,[],[f77,f2])).
+fof(f2,axiom,(
+  ( ! [X2,X0,X1] : (is_a_theorem(equivalent(equivalent(X0,X1),equivalent(equivalent(X0,X2),equivalent(X2,X1))))) )),
+  file('LCL010-1.tptp',unknown)).
+fof(f77,plain,(
+  ( ! [X28,X29] : (~is_a_theorem(equivalent(X28,X29)) | is_a_theorem(equivalent(X29,X28))) )),
+  inference(resolution,[],[f56,f1])).
+fof(f1,axiom,(
+  ( ! [X0,X1] : (~is_a_theorem(equivalent(X0,X1)) | ~is_a_theorem(X0) | is_a_theorem(X1)) )),
+  file('LCL010-1.tptp',unknown)).
+fof(f56,plain,(
+  ( ! [X0,X1] : (is_a_theorem(equivalent(equivalent(X0,X1),equivalent(X1,X0)))) )),
+  inference(resolution,[],[f49,f2])).
+fof(f49,plain,(
+  ( ! [X14,X13] : (~is_a_theorem(equivalent(equivalent(X14,X14),X13)) | is_a_theorem(X13)) )),
+  inference(resolution,[],[f18,f17])).
+fof(f17,plain,(
+  ( ! [X4,X5,X3] : (is_a_theorem(equivalent(equivalent(X3,equivalent(X4,X3)),X5)) | ~is_a_theorem(equivalent(X4,X5))) )),
+  inference(resolution,[],[f13,f4])).
+fof(f4,plain,(
+  ( ! [X2,X0,X1] : (is_a_theorem(equivalent(equivalent(X0,X2),equivalent(X2,X1))) | ~is_a_theorem(equivalent(X0,X1))) )),
+  inference(resolution,[],[f2,f1])).
+fof(f13,plain,(
+  ( ! [X2,X0,X1] : (~is_a_theorem(equivalent(equivalent(X0,equivalent(X1,equivalent(X0,X1))),X2)) | is_a_theorem(X2)) )),
+  inference(resolution,[],[f9,f2])).
+fof(f9,plain,(
+  ( ! [X6,X8,X7,X5] : (~is_a_theorem(equivalent(equivalent(X5,X8),equivalent(X8,X6))) | ~is_a_theorem(equivalent(equivalent(X5,X6),X7)) | is_a_theorem(X7)) )),
+  inference(resolution,[],[f6,f1])).
+fof(f6,plain,(
+  ( ! [X2,X0,X3,X1] : (is_a_theorem(equivalent(equivalent(equivalent(X0,X3),equivalent(X3,X1)),X2)) | ~is_a_theorem(equivalent(equivalent(X0,X1),X2))) )),
+  inference(resolution,[],[f5,f2])).
+fof(f5,plain,(
+  ( ! [X2,X0,X1] : (~is_a_theorem(equivalent(X0,X2)) | ~is_a_theorem(equivalent(X0,X1)) | is_a_theorem(equivalent(X2,X1))) )),
+  inference(resolution,[],[f4,f1])).
+fof(f18,plain,(
+  ( ! [X6,X8,X7] : (~is_a_theorem(equivalent(equivalent(X7,equivalent(equivalent(X7,X8),X8)),X6)) | is_a_theorem(X6)) )),
+  inference(resolution,[],[f13,f6])).
+fof(f15718,plain,(
+  ( ! [X204,X205,X203] : (~is_a_theorem(equivalent(equivalent(X205,X204),X203)) | is_a_theorem(equivalent(X203,equivalent(X204,X205)))) )),
+  inference(resolution,[],[f4578,f98])).
+fof(f98,plain,(
+  ( ! [X6,X4,X5,X3] : (~is_a_theorem(equivalent(equivalent(equivalent(X4,X5),equivalent(X6,X4)),X3)) | is_a_theorem(X3) | ~is_a_theorem(equivalent(X5,X6))) )),
+  inference(resolution,[],[f15,f10])).
+fof(f10,plain,(
+  ( ! [X2,X0,X3,X1] : (is_a_theorem(equivalent(equivalent(X0,X1),equivalent(equivalent(X2,X3),equivalent(X3,X0)))) | ~is_a_theorem(equivalent(X2,X1))) )),
+  inference(resolution,[],[f7,f2])).
+fof(f7,plain,(
+  ( ! [X6,X4,X7,X5] : (~is_a_theorem(equivalent(equivalent(X4,X5),X6)) | is_a_theorem(equivalent(equivalent(X5,X7),X6)) | ~is_a_theorem(equivalent(X4,X7))) )),
+  inference(resolution,[],[f5,f4])).
+fof(f15,plain,(
+  ( ! [X6,X10,X8,X7,X9] : (~is_a_theorem(equivalent(equivalent(X6,X10),equivalent(equivalent(X7,X10),X8))) | is_a_theorem(X9) | ~is_a_theorem(equivalent(equivalent(equivalent(X6,X7),X8),X9))) )),
+  inference(resolution,[],[f9,f6])).
+fof(f4578,plain,(
+  ( ! [X83,X84,X82] : (is_a_theorem(equivalent(equivalent(equivalent(equivalent(X82,X83),equivalent(X83,X82)),X84),X84))) )),
+  inference(resolution,[],[f1464,f1317])).
+fof(f1317,plain,(
+  ( ! [X10,X11,X9] : (is_a_theorem(equivalent(equivalent(X9,X9),equivalent(equivalent(X10,X11),equivalent(X11,X10))))) )),
+  inference(resolution,[],[f508,f2])).
+fof(f508,plain,(
+  ( ! [X30,X31,X29] : (~is_a_theorem(equivalent(equivalent(X31,X31),X30)) | is_a_theorem(equivalent(equivalent(X29,X29),X30))) )),
+  inference(resolution,[],[f97,f4])).
+fof(f97,plain,(
+  ( ! [X2,X0,X1] : (~is_a_theorem(equivalent(equivalent(equivalent(X1,X1),equivalent(X2,X2)),X0)) | is_a_theorem(X0)) )),
+  inference(resolution,[],[f15,f2])).
+fof(f1464,plain,(
+  ( ! [X83,X81,X82] : (~is_a_theorem(equivalent(equivalent(X82,X83),X81)) | is_a_theorem(equivalent(equivalent(X81,X82),X83))) )),
+  inference(resolution,[],[f546,f98])).
+fof(f546,plain,(
+  ( ! [X2,X0,X1] : (is_a_theorem(equivalent(equivalent(equivalent(X0,equivalent(X0,X1)),X2),equivalent(X2,X1)))) )),
+  inference(resolution,[],[f21,f2])).
+fof(f21,plain,(
+  ( ! [X12,X10,X11,X9] : (~is_a_theorem(equivalent(X9,equivalent(X10,equivalent(X11,X10)))) | is_a_theorem(equivalent(equivalent(X9,X12),equivalent(X12,X11)))) )),
+  inference(resolution,[],[f10,f13])).
+% SZS output end Proof for LCL010-1
+% ------------------------------
+% Version: Vampire 4.4.0 (commit d98a3d53 on 2020-01-14 21:02:12 +0100)
+% Termination reason: Refutation
+
+% Memory used [KB]: 172449
+% Time elapsed: 34.172 s
+% ------------------------------
+% ------------------------------

@@ -1,0 +1,77 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% SZS status Unsatisfiable for SWC411-1.tptp
+
+% SZS output start CNFRefutation for SWC411-1.tptp
+cnf(co1_5, negated_conjecture, (sk2 = sk4)).
+
+cnf(co1_6, negated_conjecture, (sk1 = sk3)).
+
+cnf(co1_7, negated_conjecture,
+    (~ ssItem(A) | memberP(sk3, A) | ~ memberP(sk4, A))).
+
+cnf(co1_8, negated_conjecture, (ssItem(sk5))).
+
+cnf(co1_9, negated_conjecture, (memberP(sk2, sk5))).
+
+cnf(co1_10, negated_conjecture, (~ memberP(sk1, sk5))).
+
+cnf(refute_0_0, plain, (X = X), introduced(tautology, [refl, [$fot(X)]])).
+
+cnf(refute_0_1, plain, (X != X | X != Y | Y = X),
+    introduced(tautology, [equality, [$cnf($equal(X, X)), [0], $fot(Y)]])).
+
+cnf(refute_0_2, plain, (X != Y | Y = X),
+    inference(resolve, [$cnf($equal(X, X))], [refute_0_0, refute_0_1])).
+
+cnf(refute_0_3, plain, (sk2 != sk4 | sk4 = sk2),
+    inference(subst, [],
+              [refute_0_2 : [bind(X, $fot(sk2)), bind(Y, $fot(sk4))]])).
+
+cnf(refute_0_4, plain, (sk4 = sk2),
+    inference(resolve, [$cnf($equal(sk2, sk4))], [co1_5, refute_0_3])).
+
+cnf(refute_0_5, plain, (sk4 != sk2 | ~ memberP(sk2, A) | memberP(sk4, A)),
+    introduced(tautology,
+               [equality, [$cnf(~ memberP(sk4, A)), [0], $fot(sk2)]])).
+
+cnf(refute_0_6, plain, (~ memberP(sk2, A) | memberP(sk4, A)),
+    inference(resolve, [$cnf($equal(sk4, sk2))],
+              [refute_0_4, refute_0_5])).
+
+cnf(refute_0_7, plain, (~ memberP(sk2, A) | ~ ssItem(A) | memberP(sk3, A)),
+    inference(resolve, [$cnf(memberP(sk4, A))], [refute_0_6, co1_7])).
+
+cnf(refute_0_8, plain, (sk1 != sk3 | sk3 = sk1),
+    inference(subst, [],
+              [refute_0_2 : [bind(X, $fot(sk1)), bind(Y, $fot(sk3))]])).
+
+cnf(refute_0_9, plain, (sk3 = sk1),
+    inference(resolve, [$cnf($equal(sk1, sk3))], [co1_6, refute_0_8])).
+
+cnf(refute_0_10, plain, (sk3 != sk1 | ~ memberP(sk3, A) | memberP(sk1, A)),
+    introduced(tautology,
+               [equality, [$cnf(memberP(sk3, A)), [0], $fot(sk1)]])).
+
+cnf(refute_0_11, plain, (~ memberP(sk3, A) | memberP(sk1, A)),
+    inference(resolve, [$cnf($equal(sk3, sk1))],
+              [refute_0_9, refute_0_10])).
+
+cnf(refute_0_12, plain,
+    (~ memberP(sk2, A) | ~ ssItem(A) | memberP(sk1, A)),
+    inference(resolve, [$cnf(memberP(sk3, A))],
+              [refute_0_7, refute_0_11])).
+
+cnf(refute_0_13, plain,
+    (~ memberP(sk2, sk5) | ~ ssItem(sk5) | memberP(sk1, sk5)),
+    inference(subst, [], [refute_0_12 : [bind(A, $fot(sk5))]])).
+
+cnf(refute_0_14, plain, (~ ssItem(sk5) | memberP(sk1, sk5)),
+    inference(resolve, [$cnf(memberP(sk2, sk5))], [co1_9, refute_0_13])).
+
+cnf(refute_0_15, plain, (memberP(sk1, sk5)),
+    inference(resolve, [$cnf(ssItem(sk5))], [co1_8, refute_0_14])).
+
+cnf(refute_0_16, plain, ($false),
+    inference(resolve, [$cnf(memberP(sk1, sk5))], [refute_0_15, co1_10])).
+% SZS output end CNFRefutation for SWC411-1.tptp
+

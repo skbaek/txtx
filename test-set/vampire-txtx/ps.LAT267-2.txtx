@@ -1,0 +1,1 @@
+proof(f(c_in(v_x^[],v_S^[],t_a^[]),x(1,0),f(~c_in(v_x^[],v_S^[],t_a^[]),x(3,0),f($false,f(c_in(v_x^[],v_S^[],t_a^[]),x(3,0),n(2,x(1,0))),h((- $false),neg_false,x(1,0)))))).

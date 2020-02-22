@@ -1,0 +1,948 @@
+% Refutation found. Thanks to Tanya!
+% SZS status Unsatisfiable for SWC188-1
+% SZS output start Proof for SWC188-1
+fof(f575684,plain,(
+  $false),
+  inference(avatar_sat_refutation,[],[f245,f261,f276,f2046,f2568,f2956,f5538,f6426,f11115,f11477,f13810,f13817,f14456,f16004,f18661,f18678,f46926,f47183,f49233,f155068,f165868,f289691,f452667,f462833,f497246,f507236,f520639,f520665,f522328,f522389,f533705,f534065,f537924,f539105])).
+fof(f539105,plain,(
+  ~spl0_567 | ~spl0_4891),
+  inference(avatar_contradiction_clause,[],[f539104])).
+fof(f539104,plain,(
+  $false | (~spl0_567 | ~spl0_4891)),
+  inference(subsumption_resolution,[],[f539103,f197])).
+fof(f197,axiom,(
+  sk5 != sk6),
+  file('SWC188-1.tptp',unknown)).
+fof(f539103,plain,(
+  sk5 = sk6 | (~spl0_567 | ~spl0_4891)),
+  inference(backward_demodulation,[],[f15510,f308888])).
+fof(f308888,plain,(
+  sk6 = sk9 | ~spl0_4891),
+  inference(avatar_component_clause,[],[f308886])).
+fof(f308886,plain,(
+  spl0_4891 <=> sk6 = sk9),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_4891])])).
+fof(f15510,plain,(
+  sk5 = sk9 | ~spl0_567),
+  inference(avatar_component_clause,[],[f15508])).
+fof(f15508,plain,(
+  spl0_567 <=> sk5 = sk9),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_567])])).
+fof(f537924,plain,(
+  spl0_127 | ~spl0_6 | ~spl0_4891),
+  inference(avatar_split_clause,[],[f535300,f308886,f263,f3819])).
+fof(f3819,plain,(
+  spl0_127 <=> sk3 = cons(sk6,nil)),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_127])])).
+fof(f263,plain,(
+  spl0_6 <=> sk3 = cons(sk9,nil)),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_6])])).
+fof(f535300,plain,(
+  sk3 = cons(sk6,nil) | (~spl0_6 | ~spl0_4891)),
+  inference(backward_demodulation,[],[f308888,f265])).
+fof(f265,plain,(
+  sk3 = cons(sk9,nil) | ~spl0_6),
+  inference(avatar_component_clause,[],[f263])).
+fof(f534065,plain,(
+  spl0_4891 | ~spl0_2 | ~spl0_22 | ~spl0_27 | ~spl0_243 | ~spl0_501 | ~spl0_3263),
+  inference(avatar_split_clause,[],[f532818,f165820,f11447,f5477,f2124,f2093,f243,f308886])).
+fof(f243,plain,(
+  spl0_2 <=> ! [X1] : ssItem(X1)),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_2])])).
+fof(f2093,plain,(
+  spl0_22 <=> ssList(app(app(sk7,cons(sk5,nil)),cons(sk6,nil)))),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_22])])).
+fof(f2124,plain,(
+  spl0_27 <=> ssList(app(sk7,cons(sk5,nil)))),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_27])])).
+fof(f5477,plain,(
+  spl0_243 <=> ! [X1] : (~memberP(sk3,X1) | sk9 = X1 | ~ssItem(X1))),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_243])])).
+fof(f11447,plain,(
+  spl0_501 <=> ! [X2] : (memberP(sk3,X2) | ~memberP(app(app(sk7,cons(sk5,nil)),cons(sk6,nil)),X2))),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_501])])).
+fof(f165820,plain,(
+  spl0_3263 <=> ssItem(sk6)),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_3263])])).
+fof(f532818,plain,(
+  sk6 = sk9 | (~spl0_2 | ~spl0_22 | ~spl0_27 | ~spl0_243 | ~spl0_501 | ~spl0_3263)),
+  inference(resolution,[],[f532811,f318798])).
+fof(f318798,plain,(
+  ( ! [X1] : (~memberP(sk3,X1) | sk9 = X1) ) | (~spl0_2 | ~spl0_243)),
+  inference(subsumption_resolution,[],[f5478,f244])).
+fof(f244,plain,(
+  ( ! [X1] : (ssItem(X1)) ) | ~spl0_2),
+  inference(avatar_component_clause,[],[f243])).
+fof(f5478,plain,(
+  ( ! [X1] : (~memberP(sk3,X1) | sk9 = X1 | ~ssItem(X1)) ) | ~spl0_243),
+  inference(avatar_component_clause,[],[f5477])).
+fof(f532811,plain,(
+  memberP(sk3,sk6) | (~spl0_22 | ~spl0_27 | ~spl0_501 | ~spl0_3263)),
+  inference(subsumption_resolution,[],[f532810,f8])).
+fof(f8,axiom,(
+  ssList(nil)),
+  file('SWC188-1.tptp',unknown)).
+fof(f532810,plain,(
+  memberP(sk3,sk6) | ~ssList(nil) | (~spl0_22 | ~spl0_27 | ~spl0_501 | ~spl0_3263)),
+  inference(subsumption_resolution,[],[f532809,f2125])).
+fof(f2125,plain,(
+  ssList(app(sk7,cons(sk5,nil))) | ~spl0_27),
+  inference(avatar_component_clause,[],[f2124])).
+fof(f532809,plain,(
+  memberP(sk3,sk6) | ~ssList(app(sk7,cons(sk5,nil))) | ~ssList(nil) | (~spl0_22 | ~spl0_501 | ~spl0_3263)),
+  inference(subsumption_resolution,[],[f532808,f165821])).
+fof(f165821,plain,(
+  ssItem(sk6) | ~spl0_3263),
+  inference(avatar_component_clause,[],[f165820])).
+fof(f532808,plain,(
+  memberP(sk3,sk6) | ~ssItem(sk6) | ~ssList(app(sk7,cons(sk5,nil))) | ~ssList(nil) | (~spl0_22 | ~spl0_501)),
+  inference(subsumption_resolution,[],[f532805,f2094])).
+fof(f2094,plain,(
+  ssList(app(app(sk7,cons(sk5,nil)),cons(sk6,nil))) | ~spl0_22),
+  inference(avatar_component_clause,[],[f2093])).
+fof(f532805,plain,(
+  memberP(sk3,sk6) | ~ssList(app(app(sk7,cons(sk5,nil)),cons(sk6,nil))) | ~ssItem(sk6) | ~ssList(app(sk7,cons(sk5,nil))) | ~ssList(nil) | ~spl0_501),
+  inference(resolution,[],[f11448,f224])).
+fof(f224,plain,(
+  ( ! [X2,X0,X1] : (memberP(app(X0,cons(X1,X2)),X1) | ~ssList(app(X0,cons(X1,X2))) | ~ssItem(X1) | ~ssList(X0) | ~ssList(X2)) )),
+  inference(equality_resolution,[],[f175])).
+fof(f175,axiom,(
+  ( ! [X2,X0,X3,X1] : (memberP(X3,X1) | ~ssList(X3) | ~ssItem(X1) | ~ssList(X0) | ~ssList(X2) | app(X0,cons(X1,X2)) != X3) )),
+  file('SWC188-1.tptp',unknown)).
+fof(f11448,plain,(
+  ( ! [X2] : (~memberP(app(app(sk7,cons(sk5,nil)),cons(sk6,nil)),X2) | memberP(sk3,X2)) ) | ~spl0_501),
+  inference(avatar_component_clause,[],[f11447])).
+fof(f533705,plain,(
+  spl0_184 | spl0_9),
+  inference(avatar_split_clause,[],[f533704,f570,f4327])).
+fof(f4327,plain,(
+  spl0_184 <=> sk7 = cons(skaf83(sk7),skaf82(sk7))),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_184])])).
+fof(f570,plain,(
+  spl0_9 <=> nil = sk7),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_9])])).
+fof(f533704,plain,(
+  nil = sk7 | sk7 = cons(skaf83(sk7),skaf82(sk7))),
+  inference(forward_demodulation,[],[f39410,f2056])).
+fof(f2056,plain,(
+  sk7 = skaf46(sk7,nil)),
+  inference(resolution,[],[f194,f902])).
+fof(f902,plain,(
+  ( ! [X0] : (~ssList(X0) | skaf46(X0,nil) = X0) )),
+  inference(forward_demodulation,[],[f901,f306])).
+fof(f306,plain,(
+  ( ! [X26,X25] : (skaf46(X25,X26) = app(skaf46(X25,X26),nil)) )),
+  inference(resolution,[],[f73,f50])).
+fof(f50,axiom,(
+  ( ! [X0,X1] : (ssList(skaf46(X0,X1))) )),
+  file('SWC188-1.tptp',unknown)).
+fof(f73,axiom,(
+  ( ! [X0] : (~ssList(X0) | app(X0,nil) = X0) )),
+  file('SWC188-1.tptp',unknown)).
+fof(f901,plain,(
+  ( ! [X0] : (~ssList(X0) | app(skaf46(X0,nil),nil) = X0) )),
+  inference(subsumption_resolution,[],[f900,f8])).
+fof(f900,plain,(
+  ( ! [X0] : (~ssList(X0) | ~ssList(nil) | app(skaf46(X0,nil),nil) = X0) )),
+  inference(duplicate_literal_removal,[],[f895])).
+fof(f895,plain,(
+  ( ! [X0] : (~ssList(X0) | ~ssList(nil) | app(skaf46(X0,nil),nil) = X0 | ~ssList(X0)) )),
+  inference(resolution,[],[f131,f58])).
+fof(f58,axiom,(
+  ( ! [X0] : (rearsegP(X0,nil) | ~ssList(X0)) )),
+  file('SWC188-1.tptp',unknown)).
+fof(f131,axiom,(
+  ( ! [X0,X1] : (~rearsegP(X0,X1) | ~ssList(X0) | ~ssList(X1) | app(skaf46(X0,X1),X1) = X0) )),
+  file('SWC188-1.tptp',unknown)).
+fof(f194,axiom,(
+  ssList(sk7)),
+  file('SWC188-1.tptp',unknown)).
+fof(f39410,plain,(
+  sk7 = cons(skaf83(sk7),skaf82(sk7)) | nil = skaf46(sk7,nil)),
+  inference(superposition,[],[f619,f2056])).
+fof(f619,plain,(
+  ( ! [X26,X25] : (skaf46(X25,X26) = cons(skaf83(skaf46(X25,X26)),skaf82(skaf46(X25,X26))) | nil = skaf46(X25,X26)) )),
+  inference(resolution,[],[f109,f50])).
+fof(f109,axiom,(
+  ( ! [X0] : (~ssList(X0) | cons(skaf83(X0),skaf82(X0)) = X0 | nil = X0) )),
+  file('SWC188-1.tptp',unknown)).
+fof(f522389,plain,(
+  ~spl0_22 | spl0_501 | ~spl0_2 | ~spl0_5541),
+  inference(avatar_split_clause,[],[f522388,f507203,f243,f11447,f2093])).
+fof(f507203,plain,(
+  spl0_5541 <=> ssList(sk8)),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_5541])])).
+fof(f522388,plain,(
+  ( ! [X2] : (memberP(sk3,X2) | ~ssList(app(app(sk7,cons(sk5,nil)),cons(sk6,nil))) | ~memberP(app(app(sk7,cons(sk5,nil)),cons(sk6,nil)),X2)) ) | (~spl0_2 | ~spl0_5541)),
+  inference(subsumption_resolution,[],[f507195,f507204])).
+fof(f507204,plain,(
+  ssList(sk8) | ~spl0_5541),
+  inference(avatar_component_clause,[],[f507203])).
+fof(f507195,plain,(
+  ( ! [X2] : (memberP(sk3,X2) | ~ssList(app(app(sk7,cons(sk5,nil)),cons(sk6,nil))) | ~ssList(sk8) | ~memberP(app(app(sk7,cons(sk5,nil)),cons(sk6,nil)),X2)) ) | ~spl0_2),
+  inference(subsumption_resolution,[],[f3531,f244])).
+fof(f3531,plain,(
+  ( ! [X2] : (memberP(sk3,X2) | ~ssItem(X2) | ~ssList(app(app(sk7,cons(sk5,nil)),cons(sk6,nil))) | ~ssList(sk8) | ~memberP(app(app(sk7,cons(sk5,nil)),cons(sk6,nil)),X2)) )),
+  inference(superposition,[],[f140,f208])).
+fof(f208,plain,(
+  sk3 = app(app(app(sk7,cons(sk5,nil)),cons(sk6,nil)),sk8)),
+  inference(definition_unfolding,[],[f196,f191])).
+fof(f191,axiom,(
+  sk1 = sk3),
+  file('SWC188-1.tptp',unknown)).
+fof(f196,axiom,(
+  sk1 = app(app(app(sk7,cons(sk5,nil)),cons(sk6,nil)),sk8)),
+  file('SWC188-1.tptp',unknown)).
+fof(f140,axiom,(
+  ( ! [X2,X0,X1] : (memberP(app(X0,X2),X1) | ~ssItem(X1) | ~ssList(X0) | ~ssList(X2) | ~memberP(X0,X1)) )),
+  file('SWC188-1.tptp',unknown)).
+fof(f522328,plain,(
+  ~spl0_3 | ~spl0_6 | ~spl0_22 | ~spl0_127 | ~spl0_506 | spl0_2714 | ~spl0_4888 | ~spl0_4891 | ~spl0_5541),
+  inference(avatar_contradiction_clause,[],[f522327])).
+fof(f522327,plain,(
+  $false | (~spl0_3 | ~spl0_6 | ~spl0_22 | ~spl0_127 | ~spl0_506 | spl0_2714 | ~spl0_4888 | ~spl0_4891 | ~spl0_5541)),
+  inference(subsumption_resolution,[],[f522265,f519911])).
+fof(f519911,plain,(
+  frontsegP(sk3,skaf46(sk3,sk8)) | (~spl0_22 | ~spl0_127 | ~spl0_506 | ~spl0_5541)),
+  inference(backward_demodulation,[],[f519886,f507187])).
+fof(f507187,plain,(
+  frontsegP(sk3,app(app(sk7,cons(sk5,nil)),sk3)) | (~spl0_127 | ~spl0_506)),
+  inference(forward_demodulation,[],[f11476,f3821])).
+fof(f3821,plain,(
+  sk3 = cons(sk6,nil) | ~spl0_127),
+  inference(avatar_component_clause,[],[f3819])).
+fof(f11476,plain,(
+  frontsegP(sk3,app(app(sk7,cons(sk5,nil)),cons(sk6,nil))) | ~spl0_506),
+  inference(avatar_component_clause,[],[f11474])).
+fof(f11474,plain,(
+  spl0_506 <=> frontsegP(sk3,app(app(sk7,cons(sk5,nil)),cons(sk6,nil)))),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_506])])).
+fof(f519886,plain,(
+  skaf46(sk3,sk8) = app(app(sk7,cons(sk5,nil)),sk3) | (~spl0_22 | ~spl0_127 | ~spl0_5541)),
+  inference(subsumption_resolution,[],[f519885,f50])).
+fof(f519885,plain,(
+  skaf46(sk3,sk8) = app(app(sk7,cons(sk5,nil)),sk3) | ~ssList(skaf46(sk3,sk8)) | (~spl0_22 | ~spl0_127 | ~spl0_5541)),
+  inference(trivial_inequality_removal,[],[f519847])).
+fof(f519847,plain,(
+  sk3 != sk3 | skaf46(sk3,sk8) = app(app(sk7,cons(sk5,nil)),sk3) | ~ssList(skaf46(sk3,sk8)) | (~spl0_22 | ~spl0_127 | ~spl0_5541)),
+  inference(superposition,[],[f507232,f507633])).
+fof(f507633,plain,(
+  sk3 = app(skaf46(sk3,sk8),sk8) | (~spl0_22 | ~spl0_127 | ~spl0_5541)),
+  inference(subsumption_resolution,[],[f507632,f507204])).
+fof(f507632,plain,(
+  ~ssList(sk8) | sk3 = app(skaf46(sk3,sk8),sk8) | (~spl0_22 | ~spl0_127)),
+  inference(subsumption_resolution,[],[f507627,f206])).
+fof(f206,plain,(
+  ssList(sk3)),
+  inference(definition_unfolding,[],[f186,f191])).
+fof(f186,axiom,(
+  ssList(sk1)),
+  file('SWC188-1.tptp',unknown)).
+fof(f507627,plain,(
+  ~ssList(sk3) | ~ssList(sk8) | sk3 = app(skaf46(sk3,sk8),sk8) | (~spl0_22 | ~spl0_127)),
+  inference(resolution,[],[f507225,f131])).
+fof(f507225,plain,(
+  rearsegP(sk3,sk8) | (~spl0_22 | ~spl0_127)),
+  inference(subsumption_resolution,[],[f507224,f507191])).
+fof(f507191,plain,(
+  ssList(app(app(sk7,cons(sk5,nil)),sk3)) | (~spl0_22 | ~spl0_127)),
+  inference(forward_demodulation,[],[f2094,f3821])).
+fof(f507224,plain,(
+  ~ssList(app(app(sk7,cons(sk5,nil)),sk3)) | rearsegP(sk3,sk8) | ~spl0_127),
+  inference(forward_demodulation,[],[f3949,f3821])).
+fof(f3949,plain,(
+  rearsegP(sk3,sk8) | ~ssList(app(app(sk7,cons(sk5,nil)),cons(sk6,nil)))),
+  inference(subsumption_resolution,[],[f3540,f195])).
+fof(f195,axiom,(
+  ssList(sk8)),
+  file('SWC188-1.tptp',unknown)).
+fof(f3540,plain,(
+  rearsegP(sk3,sk8) | ~ssList(sk8) | ~ssList(app(app(sk7,cons(sk5,nil)),cons(sk6,nil)))),
+  inference(superposition,[],[f246,f208])).
+fof(f246,plain,(
+  ( ! [X0,X1] : (rearsegP(app(X0,X1),X1) | ~ssList(X1) | ~ssList(X0)) )),
+  inference(subsumption_resolution,[],[f219,f85])).
+fof(f85,axiom,(
+  ( ! [X0,X1] : (ssList(app(X1,X0)) | ~ssList(X1) | ~ssList(X0)) )),
+  file('SWC188-1.tptp',unknown)).
+fof(f219,plain,(
+  ( ! [X0,X1] : (rearsegP(app(X0,X1),X1) | ~ssList(app(X0,X1)) | ~ssList(X1) | ~ssList(X0)) )),
+  inference(equality_resolution,[],[f143])).
+fof(f143,axiom,(
+  ( ! [X2,X0,X1] : (rearsegP(X2,X1) | ~ssList(X2) | ~ssList(X1) | ~ssList(X0) | app(X0,X1) != X2) )),
+  file('SWC188-1.tptp',unknown)).
+fof(f507232,plain,(
+  ( ! [X7] : (sk3 != app(X7,sk8) | app(app(sk7,cons(sk5,nil)),sk3) = X7 | ~ssList(X7)) ) | (~spl0_22 | ~spl0_127)),
+  inference(forward_demodulation,[],[f507231,f3821])).
+fof(f507231,plain,(
+  ( ! [X7] : (sk3 != app(X7,sk8) | ~ssList(X7) | app(app(sk7,cons(sk5,nil)),cons(sk6,nil)) = X7) ) | (~spl0_22 | ~spl0_127)),
+  inference(subsumption_resolution,[],[f507230,f507191])).
+fof(f507230,plain,(
+  ( ! [X7] : (~ssList(app(app(sk7,cons(sk5,nil)),sk3)) | sk3 != app(X7,sk8) | ~ssList(X7) | app(app(sk7,cons(sk5,nil)),cons(sk6,nil)) = X7) ) | ~spl0_127),
+  inference(forward_demodulation,[],[f3971,f3821])).
+fof(f3971,plain,(
+  ( ! [X7] : (sk3 != app(X7,sk8) | ~ssList(app(app(sk7,cons(sk5,nil)),cons(sk6,nil))) | ~ssList(X7) | app(app(sk7,cons(sk5,nil)),cons(sk6,nil)) = X7) )),
+  inference(subsumption_resolution,[],[f3536,f195])).
+fof(f3536,plain,(
+  ( ! [X7] : (sk3 != app(X7,sk8) | ~ssList(app(app(sk7,cons(sk5,nil)),cons(sk6,nil))) | ~ssList(sk8) | ~ssList(X7) | app(app(sk7,cons(sk5,nil)),cons(sk6,nil)) = X7) )),
+  inference(superposition,[],[f151,f208])).
+fof(f151,axiom,(
+  ( ! [X2,X0,X1] : (app(X0,X1) != app(X2,X1) | ~ssList(X2) | ~ssList(X1) | ~ssList(X0) | X0 = X2) )),
+  file('SWC188-1.tptp',unknown)).
+fof(f522265,plain,(
+  ~frontsegP(sk3,skaf46(sk3,sk8)) | (~spl0_3 | ~spl0_6 | ~spl0_22 | ~spl0_127 | spl0_2714 | ~spl0_4888 | ~spl0_4891 | ~spl0_5541)),
+  inference(backward_demodulation,[],[f522161,f501438])).
+fof(f501438,plain,(
+  ~frontsegP(sk3,cons(sk6,sk3)) | (spl0_2714 | ~spl0_4891)),
+  inference(backward_demodulation,[],[f308888,f155067])).
+fof(f155067,plain,(
+  ~frontsegP(sk3,cons(sk9,sk3)) | spl0_2714),
+  inference(avatar_component_clause,[],[f155065])).
+fof(f155065,plain,(
+  spl0_2714 <=> frontsegP(sk3,cons(sk9,sk3))),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_2714])])).
+fof(f522161,plain,(
+  skaf46(sk3,sk8) = cons(sk6,sk3) | (~spl0_3 | ~spl0_6 | ~spl0_22 | ~spl0_127 | ~spl0_4888 | ~spl0_4891 | ~spl0_5541)),
+  inference(backward_demodulation,[],[f522103,f501225])).
+fof(f501225,plain,(
+  cons(sk6,sk3) = app(sk3,sk3) | (~spl0_3 | ~spl0_6 | ~spl0_4891)),
+  inference(backward_demodulation,[],[f308888,f10393])).
+fof(f10393,plain,(
+  cons(sk9,sk3) = app(sk3,sk3) | (~spl0_3 | ~spl0_6)),
+  inference(resolution,[],[f6522,f206])).
+fof(f6522,plain,(
+  ( ! [X2] : (~ssList(X2) | app(sk3,X2) = cons(sk9,X2)) ) | (~spl0_3 | ~spl0_6)),
+  inference(forward_demodulation,[],[f6519,f265])).
+fof(f6519,plain,(
+  ( ! [X2] : (~ssList(X2) | cons(sk9,X2) = app(cons(sk9,nil),X2)) ) | ~spl0_3),
+  inference(resolution,[],[f251,f120])).
+fof(f120,axiom,(
+  ( ! [X0,X1] : (~ssItem(X0) | ~ssList(X1) | cons(X0,X1) = app(cons(X0,nil),X1)) )),
+  file('SWC188-1.tptp',unknown)).
+fof(f251,plain,(
+  ssItem(sk9) | ~spl0_3),
+  inference(avatar_component_clause,[],[f249])).
+fof(f249,plain,(
+  spl0_3 <=> ssItem(sk9)),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_3])])).
+fof(f522103,plain,(
+  skaf46(sk3,sk8) = app(sk3,sk3) | (~spl0_22 | ~spl0_127 | ~spl0_4888 | ~spl0_5541)),
+  inference(backward_demodulation,[],[f308664,f519886])).
+fof(f308664,plain,(
+  sk3 = app(sk7,cons(sk5,nil)) | ~spl0_4888),
+  inference(avatar_component_clause,[],[f308662])).
+fof(f308662,plain,(
+  spl0_4888 <=> sk3 = app(sk7,cons(sk5,nil))),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_4888])])).
+fof(f520665,plain,(
+  spl0_628 | ~spl0_27 | ~spl0_127 | ~spl0_485 | ~spl0_506),
+  inference(avatar_split_clause,[],[f520664,f11474,f11046,f3819,f2124,f18675])).
+fof(f18675,plain,(
+  spl0_628 <=> frontsegP(sk3,sk7)),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_628])])).
+fof(f11046,plain,(
+  spl0_485 <=> ssList(cons(sk5,nil))),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_485])])).
+fof(f520664,plain,(
+  frontsegP(sk3,sk7) | (~spl0_27 | ~spl0_127 | ~spl0_485 | ~spl0_506)),
+  inference(subsumption_resolution,[],[f520663,f11047])).
+fof(f11047,plain,(
+  ssList(cons(sk5,nil)) | ~spl0_485),
+  inference(avatar_component_clause,[],[f11046])).
+fof(f520663,plain,(
+  frontsegP(sk3,sk7) | ~ssList(cons(sk5,nil)) | (~spl0_27 | ~spl0_127 | ~spl0_506)),
+  inference(subsumption_resolution,[],[f520622,f206])).
+fof(f520622,plain,(
+  frontsegP(sk3,sk7) | ~ssList(sk3) | ~ssList(cons(sk5,nil)) | (~spl0_27 | ~spl0_127 | ~spl0_506)),
+  inference(subsumption_resolution,[],[f520613,f194])).
+fof(f520613,plain,(
+  ~ssList(sk7) | frontsegP(sk3,sk7) | ~ssList(sk3) | ~ssList(cons(sk5,nil)) | (~spl0_27 | ~spl0_127 | ~spl0_506)),
+  inference(resolution,[],[f512269,f1293])).
+fof(f1293,plain,(
+  ( ! [X6,X4,X5] : (~frontsegP(X4,app(X5,X6)) | ~ssList(X5) | frontsegP(X4,X5) | ~ssList(X4) | ~ssList(X6)) )),
+  inference(subsumption_resolution,[],[f1290,f85])).
+fof(f1290,plain,(
+  ( ! [X6,X4,X5] : (~ssList(X4) | ~ssList(app(X5,X6)) | ~ssList(X5) | frontsegP(X4,X5) | ~frontsegP(X4,app(X5,X6)) | ~ssList(X6)) )),
+  inference(duplicate_literal_removal,[],[f1287])).
+fof(f1287,plain,(
+  ( ! [X6,X4,X5] : (~ssList(X4) | ~ssList(app(X5,X6)) | ~ssList(X5) | frontsegP(X4,X5) | ~frontsegP(X4,app(X5,X6)) | ~ssList(X5) | ~ssList(X6)) )),
+  inference(resolution,[],[f154,f247])).
+fof(f247,plain,(
+  ( ! [X0,X1] : (frontsegP(app(X0,X1),X0) | ~ssList(X0) | ~ssList(X1)) )),
+  inference(subsumption_resolution,[],[f220,f85])).
+fof(f220,plain,(
+  ( ! [X0,X1] : (frontsegP(app(X0,X1),X0) | ~ssList(app(X0,X1)) | ~ssList(X0) | ~ssList(X1)) )),
+  inference(equality_resolution,[],[f144])).
+fof(f144,axiom,(
+  ( ! [X2,X0,X1] : (frontsegP(X2,X0) | ~ssList(X2) | ~ssList(X0) | ~ssList(X1) | app(X0,X1) != X2) )),
+  file('SWC188-1.tptp',unknown)).
+fof(f154,axiom,(
+  ( ! [X2,X0,X1] : (~frontsegP(X1,X2) | ~ssList(X0) | ~ssList(X1) | ~ssList(X2) | frontsegP(X0,X2) | ~frontsegP(X0,X1)) )),
+  file('SWC188-1.tptp',unknown)).
+fof(f512269,plain,(
+  frontsegP(sk3,app(sk7,cons(sk5,nil))) | (~spl0_27 | ~spl0_127 | ~spl0_506)),
+  inference(subsumption_resolution,[],[f512268,f206])).
+fof(f512268,plain,(
+  frontsegP(sk3,app(sk7,cons(sk5,nil))) | ~ssList(sk3) | (~spl0_27 | ~spl0_127 | ~spl0_506)),
+  inference(subsumption_resolution,[],[f512263,f2125])).
+fof(f512263,plain,(
+  ~ssList(app(sk7,cons(sk5,nil))) | frontsegP(sk3,app(sk7,cons(sk5,nil))) | ~ssList(sk3) | (~spl0_127 | ~spl0_506)),
+  inference(duplicate_literal_removal,[],[f512257])).
+fof(f512257,plain,(
+  ~ssList(app(sk7,cons(sk5,nil))) | frontsegP(sk3,app(sk7,cons(sk5,nil))) | ~ssList(sk3) | ~ssList(sk3) | (~spl0_127 | ~spl0_506)),
+  inference(resolution,[],[f507187,f1293])).
+fof(f520639,plain,(
+  spl0_4888 | ~spl0_621 | ~spl0_27 | ~spl0_127 | ~spl0_485 | ~spl0_506),
+  inference(avatar_split_clause,[],[f520638,f11474,f11046,f3819,f2124,f18108,f308662])).
+fof(f18108,plain,(
+  spl0_621 <=> frontsegP(sk7,sk3)),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_621])])).
+fof(f520638,plain,(
+  ~frontsegP(sk7,sk3) | sk3 = app(sk7,cons(sk5,nil)) | (~spl0_27 | ~spl0_127 | ~spl0_485 | ~spl0_506)),
+  inference(subsumption_resolution,[],[f520637,f194])).
+fof(f520637,plain,(
+  ~frontsegP(sk7,sk3) | sk3 = app(sk7,cons(sk5,nil)) | ~ssList(sk7) | (~spl0_27 | ~spl0_127 | ~spl0_485 | ~spl0_506)),
+  inference(subsumption_resolution,[],[f520636,f11047])).
+fof(f520636,plain,(
+  ~ssList(cons(sk5,nil)) | ~frontsegP(sk7,sk3) | sk3 = app(sk7,cons(sk5,nil)) | ~ssList(sk7) | (~spl0_27 | ~spl0_127 | ~spl0_506)),
+  inference(subsumption_resolution,[],[f520612,f206])).
+fof(f520612,plain,(
+  ~ssList(sk3) | ~ssList(cons(sk5,nil)) | ~frontsegP(sk7,sk3) | sk3 = app(sk7,cons(sk5,nil)) | ~ssList(sk7) | (~spl0_27 | ~spl0_127 | ~spl0_506)),
+  inference(resolution,[],[f512269,f1090])).
+fof(f1090,plain,(
+  ( ! [X4,X5,X3] : (~frontsegP(X4,app(X3,X5)) | ~ssList(X4) | ~ssList(X5) | ~frontsegP(X3,X4) | app(X3,X5) = X4 | ~ssList(X3)) )),
+  inference(subsumption_resolution,[],[f1087,f85])).
+fof(f1087,plain,(
+  ( ! [X4,X5,X3] : (~ssList(X3) | ~ssList(X4) | ~ssList(X5) | ~frontsegP(X3,X4) | ~ssList(app(X3,X5)) | app(X3,X5) = X4 | ~frontsegP(X4,app(X3,X5))) )),
+  inference(duplicate_literal_removal,[],[f1041])).
+fof(f1041,plain,(
+  ( ! [X4,X5,X3] : (~ssList(X3) | ~ssList(X4) | ~ssList(X5) | ~frontsegP(X3,X4) | ~ssList(app(X3,X5)) | ~ssList(X4) | app(X3,X5) = X4 | ~frontsegP(X4,app(X3,X5))) )),
+  inference(resolution,[],[f137,f129])).
+fof(f129,axiom,(
+  ( ! [X0,X1] : (~frontsegP(X1,X0) | ~ssList(X1) | ~ssList(X0) | X0 = X1 | ~frontsegP(X0,X1)) )),
+  file('SWC188-1.tptp',unknown)).
+fof(f137,axiom,(
+  ( ! [X2,X0,X1] : (frontsegP(app(X0,X2),X1) | ~ssList(X0) | ~ssList(X1) | ~ssList(X2) | ~frontsegP(X0,X1)) )),
+  file('SWC188-1.tptp',unknown)).
+fof(f507236,plain,(
+  spl0_5541),
+  inference(avatar_split_clause,[],[f195,f507203])).
+fof(f497246,plain,(
+  ~spl0_1093 | ~spl0_1847),
+  inference(avatar_contradiction_clause,[],[f497245])).
+fof(f497245,plain,(
+  $false | (~spl0_1093 | ~spl0_1847)),
+  inference(subsumption_resolution,[],[f497244,f34])).
+fof(f34,axiom,(
+  ( ! [X0] : (ssList(skaf61(X0))) )),
+  file('SWC188-1.tptp',unknown)).
+fof(f497244,plain,(
+  ~ssList(skaf61(sk3)) | (~spl0_1093 | ~spl0_1847)),
+  inference(subsumption_resolution,[],[f497243,f33])).
+fof(f33,axiom,(
+  ( ! [X0] : (ssList(skaf62(X0))) )),
+  file('SWC188-1.tptp',unknown)).
+fof(f497243,plain,(
+  ~ssList(skaf62(sk3)) | ~ssList(skaf61(sk3)) | (~spl0_1093 | ~spl0_1847)),
+  inference(subsumption_resolution,[],[f497127,f36])).
+fof(f36,axiom,(
+  ( ! [X0] : (ssItem(skaf59(X0))) )),
+  file('SWC188-1.tptp',unknown)).
+fof(f497127,plain,(
+  ~ssItem(skaf59(sk3)) | ~ssList(skaf62(sk3)) | ~ssList(skaf61(sk3)) | (~spl0_1093 | ~spl0_1847)),
+  inference(resolution,[],[f46925,f29727])).
+fof(f29727,plain,(
+  ssList(app(skaf61(sk3),cons(skaf59(sk3),skaf62(sk3)))) | ~spl0_1093),
+  inference(avatar_component_clause,[],[f29726])).
+fof(f29726,plain,(
+  spl0_1093 <=> ssList(app(skaf61(sk3),cons(skaf59(sk3),skaf62(sk3))))),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_1093])])).
+fof(f46925,plain,(
+  ( ! [X2,X0,X1] : (~ssList(app(X1,cons(X0,X2))) | ~ssItem(X0) | ~ssList(X2) | ~ssList(X1)) ) | ~spl0_1847),
+  inference(avatar_component_clause,[],[f46924])).
+fof(f46924,plain,(
+  spl0_1847 <=> ! [X1,X0,X2] : (~ssItem(X0) | ~ssList(app(X1,cons(X0,X2))) | ~ssList(X2) | ~ssList(X1))),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_1847])])).
+fof(f462833,plain,(
+  spl0_1093 | ~spl0_1119),
+  inference(avatar_contradiction_clause,[],[f462832])).
+fof(f462832,plain,(
+  $false | (spl0_1093 | ~spl0_1119)),
+  inference(subsumption_resolution,[],[f462831,f29863])).
+fof(f29863,plain,(
+  ssList(cons(skaf59(sk3),skaf62(sk3))) | ~spl0_1119),
+  inference(avatar_component_clause,[],[f29862])).
+fof(f29862,plain,(
+  spl0_1119 <=> ssList(cons(skaf59(sk3),skaf62(sk3)))),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_1119])])).
+fof(f462831,plain,(
+  ~ssList(cons(skaf59(sk3),skaf62(sk3))) | spl0_1093),
+  inference(subsumption_resolution,[],[f462830,f34])).
+fof(f462830,plain,(
+  ~ssList(skaf61(sk3)) | ~ssList(cons(skaf59(sk3),skaf62(sk3))) | spl0_1093),
+  inference(resolution,[],[f29728,f85])).
+fof(f29728,plain,(
+  ~ssList(app(skaf61(sk3),cons(skaf59(sk3),skaf62(sk3)))) | spl0_1093),
+  inference(avatar_component_clause,[],[f29726])).
+fof(f452667,plain,(
+  spl0_1119),
+  inference(avatar_contradiction_clause,[],[f452666])).
+fof(f452666,plain,(
+  $false | spl0_1119),
+  inference(subsumption_resolution,[],[f452665,f36])).
+fof(f452665,plain,(
+  ~ssItem(skaf59(sk3)) | spl0_1119),
+  inference(subsumption_resolution,[],[f452664,f33])).
+fof(f452664,plain,(
+  ~ssList(skaf62(sk3)) | ~ssItem(skaf59(sk3)) | spl0_1119),
+  inference(resolution,[],[f29864,f86])).
+fof(f86,axiom,(
+  ( ! [X0,X1] : (ssList(cons(X0,X1)) | ~ssList(X1) | ~ssItem(X0)) )),
+  file('SWC188-1.tptp',unknown)).
+fof(f29864,plain,(
+  ~ssList(cons(skaf59(sk3),skaf62(sk3))) | spl0_1119),
+  inference(avatar_component_clause,[],[f29862])).
+fof(f289691,plain,(
+  ~spl0_2713 | ~spl0_3 | spl0_5 | ~spl0_6),
+  inference(avatar_split_clause,[],[f289690,f263,f258,f249,f155058])).
+fof(f155058,plain,(
+  spl0_2713 <=> sk3 = cons(sk9,sk3)),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_2713])])).
+fof(f258,plain,(
+  spl0_5 <=> nil = sk3),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_5])])).
+fof(f289690,plain,(
+  sk3 != cons(sk9,sk3) | (~spl0_3 | spl0_5 | ~spl0_6)),
+  inference(subsumption_resolution,[],[f289689,f259])).
+fof(f259,plain,(
+  nil != sk3 | spl0_5),
+  inference(avatar_component_clause,[],[f258])).
+fof(f289689,plain,(
+  sk3 != cons(sk9,sk3) | nil = sk3 | (~spl0_3 | ~spl0_6)),
+  inference(subsumption_resolution,[],[f289635,f206])).
+fof(f289635,plain,(
+  sk3 != cons(sk9,sk3) | ~ssList(sk3) | nil = sk3 | (~spl0_3 | ~spl0_6)),
+  inference(superposition,[],[f3716,f10393])).
+fof(f3716,plain,(
+  ( ! [X4] : (sk3 != app(sk3,X4) | ~ssList(X4) | nil = X4) )),
+  inference(subsumption_resolution,[],[f3715,f8])).
+fof(f3715,plain,(
+  ( ! [X4] : (sk3 != app(sk3,X4) | ~ssList(X4) | ~ssList(nil) | nil = X4) )),
+  inference(subsumption_resolution,[],[f3704,f206])).
+fof(f3704,plain,(
+  ( ! [X4] : (sk3 != app(sk3,X4) | ~ssList(X4) | ~ssList(sk3) | ~ssList(nil) | nil = X4) )),
+  inference(superposition,[],[f150,f2961])).
+fof(f2961,plain,(
+  sk3 = app(sk3,nil)),
+  inference(resolution,[],[f206,f73])).
+fof(f150,axiom,(
+  ( ! [X2,X0,X1] : (app(X0,X1) != app(X0,X2) | ~ssList(X2) | ~ssList(X0) | ~ssList(X1) | X1 = X2) )),
+  file('SWC188-1.tptp',unknown)).
+fof(f165868,plain,(
+  spl0_3263),
+  inference(avatar_split_clause,[],[f193,f165820])).
+fof(f193,axiom,(
+  ssItem(sk6)),
+  file('SWC188-1.tptp',unknown)).
+fof(f155068,plain,(
+  ~spl0_2714 | spl0_2713 | ~spl0_3 | ~spl0_6),
+  inference(avatar_split_clause,[],[f155063,f263,f249,f155058,f155065])).
+fof(f155063,plain,(
+  sk3 = cons(sk9,sk3) | ~frontsegP(sk3,cons(sk9,sk3)) | (~spl0_3 | ~spl0_6)),
+  inference(forward_demodulation,[],[f155062,f10393])).
+fof(f155062,plain,(
+  ~frontsegP(sk3,cons(sk9,sk3)) | sk3 = app(sk3,sk3) | (~spl0_3 | ~spl0_6)),
+  inference(subsumption_resolution,[],[f155018,f206])).
+fof(f155018,plain,(
+  ~frontsegP(sk3,cons(sk9,sk3)) | sk3 = app(sk3,sk3) | ~ssList(sk3) | (~spl0_3 | ~spl0_6)),
+  inference(duplicate_literal_removal,[],[f154989])).
+fof(f154989,plain,(
+  ~frontsegP(sk3,cons(sk9,sk3)) | sk3 = app(sk3,sk3) | ~ssList(sk3) | ~ssList(sk3) | (~spl0_3 | ~spl0_6)),
+  inference(superposition,[],[f813,f10393])).
+fof(f813,plain,(
+  ( ! [X2,X3] : (~frontsegP(X2,app(X2,X3)) | app(X2,X3) = X2 | ~ssList(X2) | ~ssList(X3)) )),
+  inference(subsumption_resolution,[],[f810,f85])).
+fof(f810,plain,(
+  ( ! [X2,X3] : (~ssList(app(X2,X3)) | ~ssList(X2) | app(X2,X3) = X2 | ~frontsegP(X2,app(X2,X3)) | ~ssList(X3)) )),
+  inference(duplicate_literal_removal,[],[f809])).
+fof(f809,plain,(
+  ( ! [X2,X3] : (~ssList(app(X2,X3)) | ~ssList(X2) | app(X2,X3) = X2 | ~frontsegP(X2,app(X2,X3)) | ~ssList(X2) | ~ssList(X3)) )),
+  inference(resolution,[],[f129,f247])).
+fof(f49233,plain,(
+  spl0_621 | ~spl0_184 | ~spl0_253 | ~spl0_625),
+  inference(avatar_split_clause,[],[f49232,f18130,f5536,f4327,f18108])).
+fof(f5536,plain,(
+  spl0_253 <=> ! [X19] : (frontsegP(cons(sk9,X19),sk3) | ~ssList(X19))),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_253])])).
+fof(f18130,plain,(
+  spl0_625 <=> sk9 = skaf83(sk7)),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_625])])).
+fof(f49232,plain,(
+  frontsegP(sk7,sk3) | (~spl0_184 | ~spl0_253 | ~spl0_625)),
+  inference(subsumption_resolution,[],[f49130,f13])).
+fof(f13,axiom,(
+  ( ! [X0] : (ssList(skaf82(X0))) )),
+  file('SWC188-1.tptp',unknown)).
+fof(f49130,plain,(
+  frontsegP(sk7,sk3) | ~ssList(skaf82(sk7)) | (~spl0_184 | ~spl0_253 | ~spl0_625)),
+  inference(superposition,[],[f5537,f49085])).
+fof(f49085,plain,(
+  sk7 = cons(sk9,skaf82(sk7)) | (~spl0_184 | ~spl0_625)),
+  inference(backward_demodulation,[],[f18132,f4329])).
+fof(f4329,plain,(
+  sk7 = cons(skaf83(sk7),skaf82(sk7)) | ~spl0_184),
+  inference(avatar_component_clause,[],[f4327])).
+fof(f18132,plain,(
+  sk9 = skaf83(sk7) | ~spl0_625),
+  inference(avatar_component_clause,[],[f18130])).
+fof(f5537,plain,(
+  ( ! [X19] : (frontsegP(cons(sk9,X19),sk3) | ~ssList(X19)) ) | ~spl0_253),
+  inference(avatar_component_clause,[],[f5536])).
+fof(f47183,plain,(
+  ~spl0_1846),
+  inference(avatar_contradiction_clause,[],[f47065])).
+fof(f47065,plain,(
+  $false | ~spl0_1846),
+  inference(resolution,[],[f46922,f8])).
+fof(f46922,plain,(
+  ( ! [X3] : (~ssList(X3)) ) | ~spl0_1846),
+  inference(avatar_component_clause,[],[f46921])).
+fof(f46921,plain,(
+  spl0_1846 <=> ! [X3] : ~ssList(X3)),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_1846])])).
+fof(f46926,plain,(
+  spl0_1846 | spl0_1847 | ~spl0_1),
+  inference(avatar_split_clause,[],[f46919,f240,f46924,f46921])).
+fof(f240,plain,(
+  spl0_1 <=> ! [X0] : (duplicatefreeP(X0) | ~ssList(X0))),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_1])])).
+fof(f46919,plain,(
+  ( ! [X2,X0,X3,X1] : (~ssItem(X0) | ~ssList(X1) | ~ssList(X2) | ~ssList(X3) | ~ssList(app(X1,cons(X0,X2)))) ) | ~spl0_1),
+  inference(subsumption_resolution,[],[f46918,f86])).
+fof(f46918,plain,(
+  ( ! [X2,X0,X3,X1] : (~ssItem(X0) | ~ssList(X1) | ~ssList(X2) | ~ssList(X3) | ~ssList(app(X1,cons(X0,X2))) | ~ssList(cons(X0,X3))) ) | ~spl0_1),
+  inference(duplicate_literal_removal,[],[f46789])).
+fof(f46789,plain,(
+  ( ! [X2,X0,X3,X1] : (~ssItem(X0) | ~ssList(X1) | ~ssList(X2) | ~ssList(X3) | ~ssList(app(X1,cons(X0,X2))) | ~ssList(app(X1,cons(X0,X2))) | ~ssList(cons(X0,X3))) ) | ~spl0_1),
+  inference(resolution,[],[f5452,f14005])).
+fof(f14005,plain,(
+  ( ! [X35,X36] : (duplicatefreeP(app(X35,X36)) | ~ssList(X35) | ~ssList(X36)) ) | ~spl0_1),
+  inference(resolution,[],[f241,f85])).
+fof(f241,plain,(
+  ( ! [X0] : (~ssList(X0) | duplicatefreeP(X0)) ) | ~spl0_1),
+  inference(avatar_component_clause,[],[f240])).
+fof(f5452,plain,(
+  ( ! [X2,X0,X3,X1] : (~duplicatefreeP(app(app(X0,cons(X1,X2)),cons(X1,X3))) | ~ssItem(X1) | ~ssList(X0) | ~ssList(X2) | ~ssList(X3) | ~ssList(app(X0,cons(X1,X2)))) )),
+  inference(subsumption_resolution,[],[f3563,f86])).
+fof(f3563,plain,(
+  ( ! [X2,X0,X3,X1] : (~duplicatefreeP(app(app(X0,cons(X1,X2)),cons(X1,X3))) | ~ssItem(X1) | ~ssList(X0) | ~ssList(X2) | ~ssList(X3) | ~ssList(app(X0,cons(X1,X2))) | ~ssList(cons(X1,X3))) )),
+  inference(resolution,[],[f226,f85])).
+fof(f226,plain,(
+  ( ! [X2,X0,X3,X1] : (~ssList(app(app(X0,cons(X1,X2)),cons(X1,X3))) | ~duplicatefreeP(app(app(X0,cons(X1,X2)),cons(X1,X3))) | ~ssItem(X1) | ~ssList(X0) | ~ssList(X2) | ~ssList(X3)) )),
+  inference(equality_resolution,[],[f179])).
+fof(f179,axiom,(
+  ( ! [X4,X2,X0,X3,X1] : (~ssList(X4) | ~duplicatefreeP(X4) | ~ssItem(X1) | ~ssList(X0) | ~ssList(X2) | ~ssList(X3) | app(app(X0,cons(X1,X2)),cons(X1,X3)) != X4) )),
+  file('SWC188-1.tptp',unknown)).
+fof(f18678,plain,(
+  spl0_625 | ~spl0_628 | ~spl0_184 | ~spl0_255),
+  inference(avatar_split_clause,[],[f18673,f5547,f4327,f18675,f18130])).
+fof(f5547,plain,(
+  spl0_255 <=> ! [X15,X14] : (~frontsegP(sk3,cons(X14,X15)) | sk9 = X14 | ~ssList(X15) | ~ssItem(X14))),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_255])])).
+fof(f18673,plain,(
+  ~frontsegP(sk3,sk7) | sk9 = skaf83(sk7) | (~spl0_184 | ~spl0_255)),
+  inference(subsumption_resolution,[],[f18672,f12])).
+fof(f12,axiom,(
+  ( ! [X0] : (ssItem(skaf83(X0))) )),
+  file('SWC188-1.tptp',unknown)).
+fof(f18672,plain,(
+  ~frontsegP(sk3,sk7) | sk9 = skaf83(sk7) | ~ssItem(skaf83(sk7)) | (~spl0_184 | ~spl0_255)),
+  inference(subsumption_resolution,[],[f18656,f13])).
+fof(f18656,plain,(
+  ~frontsegP(sk3,sk7) | sk9 = skaf83(sk7) | ~ssList(skaf82(sk7)) | ~ssItem(skaf83(sk7)) | (~spl0_184 | ~spl0_255)),
+  inference(superposition,[],[f5548,f4329])).
+fof(f5548,plain,(
+  ( ! [X14,X15] : (~frontsegP(sk3,cons(X14,X15)) | sk9 = X14 | ~ssList(X15) | ~ssItem(X14)) ) | ~spl0_255),
+  inference(avatar_component_clause,[],[f5547])).
+fof(f18661,plain,(
+  spl0_567 | ~spl0_17 | ~spl0_255 | ~spl0_493),
+  inference(avatar_split_clause,[],[f18660,f11257,f5547,f2022,f15508])).
+fof(f2022,plain,(
+  spl0_17 <=> ssList(cons(sk6,nil))),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_17])])).
+fof(f11257,plain,(
+  spl0_493 <=> frontsegP(sk3,app(cons(sk5,nil),cons(sk6,nil)))),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_493])])).
+fof(f18660,plain,(
+  sk5 = sk9 | (~spl0_17 | ~spl0_255 | ~spl0_493)),
+  inference(subsumption_resolution,[],[f18659,f192])).
+fof(f192,axiom,(
+  ssItem(sk5)),
+  file('SWC188-1.tptp',unknown)).
+fof(f18659,plain,(
+  sk5 = sk9 | ~ssItem(sk5) | (~spl0_17 | ~spl0_255 | ~spl0_493)),
+  inference(subsumption_resolution,[],[f18651,f2023])).
+fof(f2023,plain,(
+  ssList(cons(sk6,nil)) | ~spl0_17),
+  inference(avatar_component_clause,[],[f2022])).
+fof(f18651,plain,(
+  sk5 = sk9 | ~ssList(cons(sk6,nil)) | ~ssItem(sk5) | (~spl0_17 | ~spl0_255 | ~spl0_493)),
+  inference(resolution,[],[f5548,f17091])).
+fof(f17091,plain,(
+  frontsegP(sk3,cons(sk5,cons(sk6,nil))) | (~spl0_17 | ~spl0_493)),
+  inference(backward_demodulation,[],[f17078,f11259])).
+fof(f11259,plain,(
+  frontsegP(sk3,app(cons(sk5,nil),cons(sk6,nil))) | ~spl0_493),
+  inference(avatar_component_clause,[],[f11257])).
+fof(f17078,plain,(
+  cons(sk5,cons(sk6,nil)) = app(cons(sk5,nil),cons(sk6,nil)) | ~spl0_17),
+  inference(resolution,[],[f745,f2023])).
+fof(f745,plain,(
+  ( ! [X36] : (~ssList(X36) | cons(sk5,X36) = app(cons(sk5,nil),X36)) )),
+  inference(resolution,[],[f120,f192])).
+fof(f16004,plain,(
+  ~spl0_17 | spl0_22 | ~spl0_27),
+  inference(avatar_contradiction_clause,[],[f16003])).
+fof(f16003,plain,(
+  $false | (~spl0_17 | spl0_22 | ~spl0_27)),
+  inference(subsumption_resolution,[],[f16002,f2023])).
+fof(f16002,plain,(
+  ~ssList(cons(sk6,nil)) | (spl0_22 | ~spl0_27)),
+  inference(subsumption_resolution,[],[f16001,f2125])).
+fof(f16001,plain,(
+  ~ssList(app(sk7,cons(sk5,nil))) | ~ssList(cons(sk6,nil)) | spl0_22),
+  inference(resolution,[],[f2095,f85])).
+fof(f2095,plain,(
+  ~ssList(app(app(sk7,cons(sk5,nil)),cons(sk6,nil))) | spl0_22),
+  inference(avatar_component_clause,[],[f2093])).
+fof(f14456,plain,(
+  spl0_493 | ~spl0_9 | ~spl0_485 | ~spl0_506),
+  inference(avatar_split_clause,[],[f14367,f11474,f11046,f570,f11257])).
+fof(f14367,plain,(
+  frontsegP(sk3,app(cons(sk5,nil),cons(sk6,nil))) | (~spl0_9 | ~spl0_485 | ~spl0_506)),
+  inference(forward_demodulation,[],[f14198,f11153])).
+fof(f11153,plain,(
+  cons(sk5,nil) = app(nil,cons(sk5,nil)) | ~spl0_485),
+  inference(resolution,[],[f11047,f74])).
+fof(f74,axiom,(
+  ( ! [X0] : (~ssList(X0) | app(nil,X0) = X0) )),
+  file('SWC188-1.tptp',unknown)).
+fof(f14198,plain,(
+  frontsegP(sk3,app(app(nil,cons(sk5,nil)),cons(sk6,nil))) | (~spl0_9 | ~spl0_506)),
+  inference(backward_demodulation,[],[f572,f11476])).
+fof(f572,plain,(
+  nil = sk7 | ~spl0_9),
+  inference(avatar_component_clause,[],[f570])).
+fof(f13817,plain,(
+  ~spl0_3 | spl0_243 | ~spl0_6),
+  inference(avatar_split_clause,[],[f13816,f263,f5477,f249])).
+fof(f13816,plain,(
+  ( ! [X1] : (~memberP(sk3,X1) | ~ssItem(X1) | ~ssItem(sk9) | sk9 = X1) ) | ~spl0_6),
+  inference(subsumption_resolution,[],[f13815,f71])).
+fof(f71,axiom,(
+  ( ! [X0] : (~memberP(nil,X0) | ~ssItem(X0)) )),
+  file('SWC188-1.tptp',unknown)).
+fof(f13815,plain,(
+  ( ! [X1] : (~memberP(sk3,X1) | memberP(nil,X1) | ~ssItem(X1) | ~ssItem(sk9) | sk9 = X1) ) | ~spl0_6),
+  inference(subsumption_resolution,[],[f9923,f8])).
+fof(f9923,plain,(
+  ( ! [X1] : (~memberP(sk3,X1) | memberP(nil,X1) | ~ssItem(X1) | ~ssItem(sk9) | ~ssList(nil) | sk9 = X1) ) | ~spl0_6),
+  inference(superposition,[],[f161,f265])).
+fof(f161,axiom,(
+  ( ! [X2,X0,X1] : (~memberP(cons(X0,X1),X2) | memberP(X1,X2) | ~ssItem(X2) | ~ssItem(X0) | ~ssList(X1) | X0 = X2) )),
+  file('SWC188-1.tptp',unknown)).
+fof(f13810,plain,(
+  ~spl0_3 | spl0_255 | ~spl0_6),
+  inference(avatar_split_clause,[],[f13809,f263,f5547,f249])).
+fof(f13809,plain,(
+  ( ! [X14,X15] : (~frontsegP(sk3,cons(X14,X15)) | ~ssItem(sk9) | ~ssItem(X14) | ~ssList(X15) | sk9 = X14) ) | ~spl0_6),
+  inference(subsumption_resolution,[],[f9930,f8])).
+fof(f9930,plain,(
+  ( ! [X14,X15] : (~frontsegP(sk3,cons(X14,X15)) | ~ssItem(sk9) | ~ssItem(X14) | ~ssList(nil) | ~ssList(X15) | sk9 = X14) ) | ~spl0_6),
+  inference(superposition,[],[f176,f265])).
+fof(f176,axiom,(
+  ( ! [X2,X0,X3,X1] : (~frontsegP(cons(X0,X1),cons(X2,X3)) | ~ssItem(X0) | ~ssItem(X2) | ~ssList(X1) | ~ssList(X3) | X0 = X2) )),
+  file('SWC188-1.tptp',unknown)).
+fof(f11477,plain,(
+  ~spl0_22 | spl0_506),
+  inference(avatar_split_clause,[],[f3943,f11474,f2093])).
+fof(f3943,plain,(
+  frontsegP(sk3,app(app(sk7,cons(sk5,nil)),cons(sk6,nil))) | ~ssList(app(app(sk7,cons(sk5,nil)),cons(sk6,nil)))),
+  inference(subsumption_resolution,[],[f3541,f195])).
+fof(f3541,plain,(
+  frontsegP(sk3,app(app(sk7,cons(sk5,nil)),cons(sk6,nil))) | ~ssList(app(app(sk7,cons(sk5,nil)),cons(sk6,nil))) | ~ssList(sk8)),
+  inference(superposition,[],[f247,f208])).
+fof(f11115,plain,(
+  spl0_485),
+  inference(avatar_contradiction_clause,[],[f11114])).
+fof(f11114,plain,(
+  $false | spl0_485),
+  inference(subsumption_resolution,[],[f11113,f192])).
+fof(f11113,plain,(
+  ~ssItem(sk5) | spl0_485),
+  inference(subsumption_resolution,[],[f11112,f8])).
+fof(f11112,plain,(
+  ~ssList(nil) | ~ssItem(sk5) | spl0_485),
+  inference(resolution,[],[f11048,f86])).
+fof(f11048,plain,(
+  ~ssList(cons(sk5,nil)) | spl0_485),
+  inference(avatar_component_clause,[],[f11046])).
+fof(f6426,plain,(
+  ~spl0_5 | ~spl0_17 | ~spl0_27 | spl0_28),
+  inference(avatar_contradiction_clause,[],[f6425])).
+fof(f6425,plain,(
+  $false | (~spl0_5 | ~spl0_17 | ~spl0_27 | spl0_28)),
+  inference(subsumption_resolution,[],[f6424,f2143])).
+fof(f2143,plain,(
+  nil != cons(sk6,nil) | spl0_28),
+  inference(avatar_component_clause,[],[f2142])).
+fof(f2142,plain,(
+  spl0_28 <=> nil = cons(sk6,nil)),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_28])])).
+fof(f6424,plain,(
+  nil = cons(sk6,nil) | (~spl0_5 | ~spl0_17 | ~spl0_27)),
+  inference(subsumption_resolution,[],[f6420,f2023])).
+fof(f6420,plain,(
+  ~ssList(cons(sk6,nil)) | nil = cons(sk6,nil) | (~spl0_5 | ~spl0_17 | ~spl0_27)),
+  inference(resolution,[],[f5743,f80])).
+fof(f80,axiom,(
+  ( ! [X0] : (~segmentP(nil,X0) | ~ssList(X0) | nil = X0) )),
+  file('SWC188-1.tptp',unknown)).
+fof(f5743,plain,(
+  segmentP(nil,cons(sk6,nil)) | (~spl0_5 | ~spl0_17 | ~spl0_27)),
+  inference(forward_demodulation,[],[f3548,f260])).
+fof(f260,plain,(
+  nil = sk3 | ~spl0_5),
+  inference(avatar_component_clause,[],[f258])).
+fof(f3548,plain,(
+  segmentP(sk3,cons(sk6,nil)) | (~spl0_17 | ~spl0_27)),
+  inference(subsumption_resolution,[],[f3547,f206])).
+fof(f3547,plain,(
+  ~ssList(sk3) | segmentP(sk3,cons(sk6,nil)) | (~spl0_17 | ~spl0_27)),
+  inference(forward_demodulation,[],[f3546,f208])).
+fof(f3546,plain,(
+  segmentP(sk3,cons(sk6,nil)) | ~ssList(app(app(app(sk7,cons(sk5,nil)),cons(sk6,nil)),sk8)) | (~spl0_17 | ~spl0_27)),
+  inference(subsumption_resolution,[],[f3545,f195])).
+fof(f3545,plain,(
+  segmentP(sk3,cons(sk6,nil)) | ~ssList(app(app(app(sk7,cons(sk5,nil)),cons(sk6,nil)),sk8)) | ~ssList(sk8) | (~spl0_17 | ~spl0_27)),
+  inference(subsumption_resolution,[],[f3544,f2125])).
+fof(f3544,plain,(
+  segmentP(sk3,cons(sk6,nil)) | ~ssList(app(app(app(sk7,cons(sk5,nil)),cons(sk6,nil)),sk8)) | ~ssList(app(sk7,cons(sk5,nil))) | ~ssList(sk8) | ~spl0_17),
+  inference(subsumption_resolution,[],[f3542,f2023])).
+fof(f3542,plain,(
+  segmentP(sk3,cons(sk6,nil)) | ~ssList(app(app(app(sk7,cons(sk5,nil)),cons(sk6,nil)),sk8)) | ~ssList(cons(sk6,nil)) | ~ssList(app(sk7,cons(sk5,nil))) | ~ssList(sk8)),
+  inference(superposition,[],[f223,f208])).
+fof(f223,plain,(
+  ( ! [X2,X0,X1] : (segmentP(app(app(X0,X1),X2),X1) | ~ssList(app(app(X0,X1),X2)) | ~ssList(X1) | ~ssList(X0) | ~ssList(X2)) )),
+  inference(equality_resolution,[],[f173])).
+fof(f173,axiom,(
+  ( ! [X2,X0,X3,X1] : (segmentP(X3,X1) | ~ssList(X3) | ~ssList(X1) | ~ssList(X0) | ~ssList(X2) | app(app(X0,X1),X2) != X3) )),
+  file('SWC188-1.tptp',unknown)).
+fof(f5538,plain,(
+  ~spl0_3 | spl0_253 | ~spl0_6),
+  inference(avatar_split_clause,[],[f5534,f263,f5536,f249])).
+fof(f5534,plain,(
+  ( ! [X19] : (frontsegP(cons(sk9,X19),sk3) | ~ssItem(sk9) | ~ssList(X19)) ) | ~spl0_6),
+  inference(subsumption_resolution,[],[f5533,f60])).
+fof(f60,axiom,(
+  ( ! [X0] : (frontsegP(X0,nil) | ~ssList(X0)) )),
+  file('SWC188-1.tptp',unknown)).
+fof(f5533,plain,(
+  ( ! [X19] : (frontsegP(cons(sk9,X19),sk3) | ~ssItem(sk9) | ~ssList(X19) | ~frontsegP(X19,nil)) ) | ~spl0_6),
+  inference(subsumption_resolution,[],[f3480,f8])).
+fof(f3480,plain,(
+  ( ! [X19] : (frontsegP(cons(sk9,X19),sk3) | ~ssItem(sk9) | ~ssList(X19) | ~ssList(nil) | ~frontsegP(X19,nil)) ) | ~spl0_6),
+  inference(superposition,[],[f233,f265])).
+fof(f233,plain,(
+  ( ! [X0,X3,X1] : (frontsegP(cons(X3,X0),cons(X3,X1)) | ~ssItem(X3) | ~ssList(X0) | ~ssList(X1) | ~frontsegP(X0,X1)) )),
+  inference(duplicate_literal_removal,[],[f225])).
+fof(f225,plain,(
+  ( ! [X0,X3,X1] : (frontsegP(cons(X3,X0),cons(X3,X1)) | ~ssItem(X3) | ~ssItem(X3) | ~ssList(X0) | ~ssList(X1) | ~frontsegP(X0,X1)) )),
+  inference(equality_resolution,[],[f178])).
+fof(f178,axiom,(
+  ( ! [X2,X0,X3,X1] : (frontsegP(cons(X2,X0),cons(X3,X1)) | ~ssItem(X2) | ~ssItem(X3) | ~ssList(X0) | ~ssList(X1) | X2 != X3 | ~frontsegP(X0,X1)) )),
+  file('SWC188-1.tptp',unknown)).
+fof(f2956,plain,(
+  spl0_27),
+  inference(avatar_contradiction_clause,[],[f2955])).
+fof(f2955,plain,(
+  $false | spl0_27),
+  inference(subsumption_resolution,[],[f2954,f192])).
+fof(f2954,plain,(
+  ~ssItem(sk5) | spl0_27),
+  inference(subsumption_resolution,[],[f2953,f8])).
+fof(f2953,plain,(
+  ~ssList(nil) | ~ssItem(sk5) | spl0_27),
+  inference(resolution,[],[f2900,f86])).
+fof(f2900,plain,(
+  ~ssList(cons(sk5,nil)) | spl0_27),
+  inference(subsumption_resolution,[],[f2899,f194])).
+fof(f2899,plain,(
+  ~ssList(sk7) | ~ssList(cons(sk5,nil)) | spl0_27),
+  inference(resolution,[],[f2126,f85])).
+fof(f2126,plain,(
+  ~ssList(app(sk7,cons(sk5,nil))) | spl0_27),
+  inference(avatar_component_clause,[],[f2124])).
+fof(f2568,plain,(
+  ~spl0_28),
+  inference(avatar_contradiction_clause,[],[f2567])).
+fof(f2567,plain,(
+  $false | ~spl0_28),
+  inference(subsumption_resolution,[],[f2566,f8])).
+fof(f2566,plain,(
+  ~ssList(nil) | ~spl0_28),
+  inference(subsumption_resolution,[],[f2559,f193])).
+fof(f2559,plain,(
+  ~ssItem(sk6) | ~ssList(nil) | ~spl0_28),
+  inference(trivial_inequality_removal,[],[f2540])).
+fof(f2540,plain,(
+  nil != nil | ~ssItem(sk6) | ~ssList(nil) | ~spl0_28),
+  inference(superposition,[],[f99,f2144])).
+fof(f2144,plain,(
+  nil = cons(sk6,nil) | ~spl0_28),
+  inference(avatar_component_clause,[],[f2142])).
+fof(f99,axiom,(
+  ( ! [X0,X1] : (cons(X0,X1) != X1 | ~ssItem(X0) | ~ssList(X1)) )),
+  file('SWC188-1.tptp',unknown)).
+fof(f2046,plain,(
+  spl0_17),
+  inference(avatar_contradiction_clause,[],[f2045])).
+fof(f2045,plain,(
+  $false | spl0_17),
+  inference(subsumption_resolution,[],[f2044,f193])).
+fof(f2044,plain,(
+  ~ssItem(sk6) | spl0_17),
+  inference(subsumption_resolution,[],[f2043,f8])).
+fof(f2043,plain,(
+  ~ssList(nil) | ~ssItem(sk6) | spl0_17),
+  inference(resolution,[],[f2024,f86])).
+fof(f2024,plain,(
+  ~ssList(cons(sk6,nil)) | spl0_17),
+  inference(avatar_component_clause,[],[f2022])).
+fof(f276,plain,(
+  spl0_6 | spl0_5),
+  inference(avatar_split_clause,[],[f203,f258,f263])).
+fof(f203,axiom,(
+  nil = sk3 | sk3 = cons(sk9,nil)),
+  file('SWC188-1.tptp',unknown)).
+fof(f261,plain,(
+  spl0_3 | spl0_5),
+  inference(avatar_split_clause,[],[f199,f258,f249])).
+fof(f199,axiom,(
+  nil = sk3 | ssItem(sk9)),
+  file('SWC188-1.tptp',unknown)).
+fof(f245,plain,(
+  spl0_1 | spl0_2),
+  inference(avatar_split_clause,[],[f72,f243,f240])).
+fof(f72,axiom,(
+  ( ! [X0,X1] : (ssItem(X1) | duplicatefreeP(X0) | ~ssList(X0)) )),
+  file('SWC188-1.tptp',unknown)).
+% SZS output end Proof for SWC188-1
+% ------------------------------
+% Version: Vampire 4.4.0 (commit d98a3d53 on 2020-01-14 21:02:12 +0100)
+% Termination reason: Refutation
+
+% Memory used [KB]: 344258
+% Time elapsed: 24.112 s
+% ------------------------------
+% ------------------------------

@@ -1,0 +1,1535 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% SZS status Unsatisfiable for LCL370-1.tptp
+
+% SZS output start CNFRefutation for LCL370-1.tptp
+cnf(condensed_detachment, axiom,
+    (~ is_a_theorem(implies(X, Y)) | ~ is_a_theorem(X) | is_a_theorem(Y))).
+
+cnf(cn_1, axiom,
+    (is_a_theorem(implies(implies(X, Y),
+         implies(implies(Y, Z), implies(X, Z)))))).
+
+cnf(cn_2, axiom, (is_a_theorem(implies(implies(not(X), X), X)))).
+
+cnf(cn_3, axiom, (is_a_theorem(implies(X, implies(not(X), Y))))).
+
+cnf(prove_cn_26, negated_conjecture,
+    (~
+       is_a_theorem(implies(implies(implies(x, y), z),
+           implies(implies(z, x), x))))).
+
+cnf(refute_0_0, plain,
+    (~
+       is_a_theorem(implies(implies(implies(X_62, X_63),
+             implies(X_61, X_63)), X_64)) |
+     ~
+       is_a_theorem(implies(implies(implies(implies(X_62, X_63),
+               implies(X_61, X_63)), X_64),
+           implies(implies(X_61, X_62), X_64))) |
+     is_a_theorem(implies(implies(X_61, X_62), X_64))),
+    inference(subst, [],
+              [condensed_detachment :
+               [bind(X,
+                     $fot(implies(implies(implies(X_62, X_63),
+                              implies(X_61, X_63)), X_64))),
+                bind(Y, $fot(implies(implies(X_61, X_62), X_64)))]])).
+
+cnf(refute_0_1, plain,
+    (~ is_a_theorem(implies(X, Y)) |
+     ~
+       is_a_theorem(implies(implies(X, Y),
+           implies(implies(Y, Z), implies(X, Z)))) |
+     is_a_theorem(implies(implies(Y, Z), implies(X, Z)))),
+    inference(subst, [],
+              [condensed_detachment :
+               [bind(X, $fot(implies(X, Y))),
+                bind(Y, $fot(implies(implies(Y, Z), implies(X, Z))))]])).
+
+cnf(refute_0_2, plain,
+    (~ is_a_theorem(implies(X, Y)) |
+     is_a_theorem(implies(implies(Y, Z), implies(X, Z)))),
+    inference(resolve,
+              [$cnf(is_a_theorem(implies(implies(X, Y),
+                        implies(implies(Y, Z), implies(X, Z)))))],
+              [cn_1, refute_0_1])).
+
+cnf(refute_0_3, plain,
+    (~
+       is_a_theorem(implies(implies(X, Y),
+           implies(implies(Y, Z), implies(X, Z)))) |
+     is_a_theorem(implies(implies(implies(implies(Y, Z), implies(X, Z)),
+           X_21), implies(implies(X, Y), X_21)))),
+    inference(subst, [],
+              [refute_0_2 :
+               [bind(X, $fot(implies(X, Y))),
+                bind(Y, $fot(implies(implies(Y, Z), implies(X, Z)))),
+                bind(Z, $fot(X_21))]])).
+
+cnf(refute_0_4, plain,
+    (is_a_theorem(implies(implies(implies(implies(Y, Z), implies(X, Z)),
+           X_21), implies(implies(X, Y), X_21)))),
+    inference(resolve,
+              [$cnf(is_a_theorem(implies(implies(X, Y),
+                        implies(implies(Y, Z), implies(X, Z)))))],
+              [cn_1, refute_0_3])).
+
+cnf(refute_0_5, plain,
+    (is_a_theorem(implies(implies(implies(implies(X_62, X_63),
+             implies(X_61, X_63)), X_64),
+         implies(implies(X_61, X_62), X_64)))),
+    inference(subst, [],
+              [refute_0_4 :
+               [bind(X, $fot(X_61)), bind(Y, $fot(X_62)),
+                bind(Z, $fot(X_63)), bind(X_21, $fot(X_64))]])).
+
+cnf(refute_0_6, plain,
+    (~
+       is_a_theorem(implies(implies(implies(X_62, X_63),
+             implies(X_61, X_63)), X_64)) |
+     is_a_theorem(implies(implies(X_61, X_62), X_64))),
+    inference(resolve,
+              [$cnf(is_a_theorem(implies(implies(implies(implies(X_62,
+                              X_63), implies(X_61, X_63)), X_64),
+                        implies(implies(X_61, X_62), X_64))))],
+              [refute_0_5, refute_0_0])).
+
+cnf(refute_0_7, plain,
+    (~
+       is_a_theorem(implies(implies(implies(X_62, X_29651),
+             implies(implies(X_29651, X_29652), X_29651)),
+           implies(implies(X_62, X_29651), X_29651))) |
+     is_a_theorem(implies(implies(implies(X_29651, X_29652), X_62),
+         implies(implies(X_62, X_29651), X_29651)))),
+    inference(subst, [],
+              [refute_0_6 :
+               [bind(X_61, $fot(implies(X_29651, X_29652))),
+                bind(X_63, $fot(X_29651)),
+                bind(X_64,
+                     $fot(implies(implies(X_62, X_29651), X_29651)))]])).
+
+cnf(refute_0_8, plain,
+    (~
+       is_a_theorem(implies(implies(implies(implies(implies(X_21968,
+                   X_21969), X_21968), X_21968), implies(X_61, X_21968)),
+           implies(X_61, X_21968))) |
+     is_a_theorem(implies(implies(X_61,
+           implies(implies(X_21968, X_21969), X_21968)),
+         implies(X_61, X_21968)))),
+    inference(subst, [],
+              [refute_0_6 :
+               [bind(X_62,
+                     $fot(implies(implies(X_21968, X_21969), X_21968))),
+                bind(X_63, $fot(X_21968)),
+                bind(X_64, $fot(implies(X_61, X_21968)))]])).
+
+cnf(refute_0_9, plain,
+    (~
+       is_a_theorem(implies(implies(implies(not(not(X_1441)), X_1442),
+             X_1441), X_1441)) |
+     ~ is_a_theorem(implies(implies(not(not(X_1441)), X_1442), X_1441)) |
+     is_a_theorem(X_1441)),
+    inference(subst, [],
+              [condensed_detachment :
+               [bind(X,
+                     $fot(implies(implies(not(not(X_1441)), X_1442),
+                            X_1441))), bind(Y, $fot(X_1441))]])).
+
+cnf(refute_0_10, plain,
+    (is_a_theorem(implies(implies(not(X_1437), X_1437), X_1437))),
+    inference(subst, [], [cn_2 : [bind(X, $fot(X_1437))]])).
+
+cnf(refute_0_11, plain,
+    (~ is_a_theorem(implies(implies(X_33, X_34), X_31)) |
+     ~
+       is_a_theorem(implies(implies(implies(X_33, X_34), X_31),
+           implies(implies(implies(not(X_33), X_32), X_34), X_31))) |
+     is_a_theorem(implies(implies(implies(not(X_33), X_32), X_34), X_31))),
+    inference(subst, [],
+              [condensed_detachment :
+               [bind(X, $fot(implies(implies(X_33, X_34), X_31))),
+                bind(Y,
+                     $fot(implies(implies(implies(not(X_33), X_32), X_34),
+                            X_31)))]])).
+
+cnf(refute_0_12, plain,
+    (~
+       is_a_theorem(implies(implies(implies(not(X_29), X_28), X_30),
+           implies(X_29, X_30))) |
+     is_a_theorem(implies(implies(implies(X_29, X_30), Z),
+         implies(implies(implies(not(X_29), X_28), X_30), Z)))),
+    inference(subst, [],
+              [refute_0_2 :
+               [bind(X, $fot(implies(implies(not(X_29), X_28), X_30))),
+                bind(Y, $fot(implies(X_29, X_30)))]])).
+
+cnf(refute_0_13, plain,
+    (is_a_theorem(implies(X_19, implies(not(X_19), Y)))),
+    inference(subst, [], [cn_3 : [bind(X, $fot(X_19))]])).
+
+cnf(refute_0_14, plain,
+    (~ is_a_theorem(implies(X_19, implies(not(X_19), Y))) |
+     is_a_theorem(implies(implies(implies(not(X_19), Y), X_21),
+         implies(X_19, X_21)))),
+    inference(subst, [],
+              [refute_0_2 :
+               [bind(X, $fot(X_19)), bind(Y, $fot(implies(not(X_19), Y))),
+                bind(Z, $fot(X_21))]])).
+
+cnf(refute_0_15, plain,
+    (is_a_theorem(implies(implies(implies(not(X_19), Y), X_21),
+         implies(X_19, X_21)))),
+    inference(resolve,
+              [$cnf(is_a_theorem(implies(X_19, implies(not(X_19), Y))))],
+              [refute_0_13, refute_0_14])).
+
+cnf(refute_0_16, plain,
+    (is_a_theorem(implies(implies(implies(not(X_29), X_28), X_30),
+         implies(X_29, X_30)))),
+    inference(subst, [],
+              [refute_0_15 :
+               [bind(Y, $fot(X_28)), bind(X_19, $fot(X_29)),
+                bind(X_21, $fot(X_30))]])).
+
+cnf(refute_0_17, plain,
+    (is_a_theorem(implies(implies(implies(X_29, X_30), Z),
+         implies(implies(implies(not(X_29), X_28), X_30), Z)))),
+    inference(resolve,
+              [$cnf(is_a_theorem(implies(implies(implies(not(X_29), X_28),
+                          X_30), implies(X_29, X_30))))],
+              [refute_0_16, refute_0_12])).
+
+cnf(refute_0_18, plain,
+    (is_a_theorem(implies(implies(implies(X_33, X_34), X_31),
+         implies(implies(implies(not(X_33), X_32), X_34), X_31)))),
+    inference(subst, [],
+              [refute_0_17 :
+               [bind(Z, $fot(X_31)), bind(X_28, $fot(X_32)),
+                bind(X_29, $fot(X_33)), bind(X_30, $fot(X_34))]])).
+
+cnf(refute_0_19, plain,
+    (~ is_a_theorem(implies(implies(X_33, X_34), X_31)) |
+     is_a_theorem(implies(implies(implies(not(X_33), X_32), X_34), X_31))),
+    inference(resolve,
+              [$cnf(is_a_theorem(implies(implies(implies(X_33, X_34),
+                          X_31),
+                        implies(implies(implies(not(X_33), X_32), X_34),
+                          X_31))))], [refute_0_18, refute_0_11])).
+
+cnf(refute_0_20, plain,
+    (~ is_a_theorem(implies(implies(not(X_1437), X_1437), X_1437)) |
+     is_a_theorem(implies(implies(implies(not(not(X_1437)), X_1438),
+           X_1437), X_1437))),
+    inference(subst, [],
+              [refute_0_19 :
+               [bind(X_31, $fot(X_1437)), bind(X_32, $fot(X_1438)),
+                bind(X_33, $fot(not(X_1437))),
+                bind(X_34, $fot(X_1437))]])).
+
+cnf(refute_0_21, plain,
+    (is_a_theorem(implies(implies(implies(not(not(X_1437)), X_1438),
+           X_1437), X_1437))),
+    inference(resolve,
+              [$cnf(is_a_theorem(implies(implies(not(X_1437), X_1437),
+                        X_1437)))], [refute_0_10, refute_0_20])).
+
+cnf(refute_0_22, plain,
+    (is_a_theorem(implies(implies(implies(not(not(X_1441)), X_1442),
+           X_1441), X_1441))),
+    inference(subst, [],
+              [refute_0_21 :
+               [bind(X_1437, $fot(X_1441)), bind(X_1438, $fot(X_1442))]])).
+
+cnf(refute_0_23, plain,
+    (~ is_a_theorem(implies(implies(not(not(X_1441)), X_1442), X_1441)) |
+     is_a_theorem(X_1441)),
+    inference(resolve,
+              [$cnf(is_a_theorem(implies(implies(implies(not(not(X_1441)),
+                            X_1442), X_1441), X_1441)))],
+              [refute_0_22, refute_0_9])).
+
+cnf(refute_0_24, plain,
+    (~
+       is_a_theorem(implies(implies(not(not(implies(implies(implies(implies(implies(X_21475,
+                           X_21476), X_21475), X_21475), X_21477),
+                   X_21477))), X_1442),
+           implies(implies(implies(implies(implies(X_21475, X_21476),
+                   X_21475), X_21475), X_21477), X_21477))) |
+     is_a_theorem(implies(implies(implies(implies(implies(X_21475,
+                 X_21476), X_21475), X_21475), X_21477), X_21477))),
+    inference(subst, [],
+              [refute_0_23 :
+               [bind(X_1441,
+                     $fot(implies(implies(implies(implies(implies(X_21475,
+                                    X_21476), X_21475), X_21475), X_21477),
+                            X_21477)))]])).
+
+cnf(refute_0_25, plain,
+    (~ is_a_theorem(implies(X_687, implies(not(X_688), X_688))) |
+     ~
+       is_a_theorem(implies(implies(X_687, implies(not(X_688), X_688)),
+           implies(X_686, implies(X_687, X_688)))) |
+     is_a_theorem(implies(X_686, implies(X_687, X_688)))),
+    inference(subst, [],
+              [condensed_detachment :
+               [bind(X, $fot(implies(X_687, implies(not(X_688), X_688)))),
+                bind(Y, $fot(implies(X_686, implies(X_687, X_688))))]])).
+
+cnf(refute_0_26, plain,
+    (~
+       is_a_theorem(implies(implies(implies(implies(not(X_52), X_52),
+               X_53), X_51), implies(implies(X_52, X_53), X_51))) |
+     ~
+       is_a_theorem(implies(implies(implies(not(X_52), X_52), X_53),
+           X_51)) | is_a_theorem(implies(implies(X_52, X_53), X_51))),
+    inference(subst, [],
+              [condensed_detachment :
+               [bind(X,
+                     $fot(implies(implies(implies(not(X_52), X_52), X_53),
+                            X_51))),
+                bind(Y, $fot(implies(implies(X_52, X_53), X_51)))]])).
+
+cnf(refute_0_27, plain,
+    (~
+       is_a_theorem(implies(implies(X_22, X_23),
+           implies(implies(not(X_22), X_22), X_23))) |
+     is_a_theorem(implies(implies(implies(implies(not(X_22), X_22), X_23),
+           Z), implies(implies(X_22, X_23), Z)))),
+    inference(subst, [],
+              [refute_0_2 :
+               [bind(X, $fot(implies(X_22, X_23))),
+                bind(Y, $fot(implies(implies(not(X_22), X_22), X_23)))]])).
+
+cnf(refute_0_28, plain,
+    (is_a_theorem(implies(implies(not(X_20), X_20), X_20))),
+    inference(subst, [], [cn_2 : [bind(X, $fot(X_20))]])).
+
+cnf(refute_0_29, plain,
+    (~ is_a_theorem(implies(implies(not(X_20), X_20), X_20)) |
+     is_a_theorem(implies(implies(X_20, X_21),
+         implies(implies(not(X_20), X_20), X_21)))),
+    inference(subst, [],
+              [refute_0_2 :
+               [bind(X, $fot(implies(not(X_20), X_20))),
+                bind(Y, $fot(X_20)), bind(Z, $fot(X_21))]])).
+
+cnf(refute_0_30, plain,
+    (is_a_theorem(implies(implies(X_20, X_21),
+         implies(implies(not(X_20), X_20), X_21)))),
+    inference(resolve,
+              [$cnf(is_a_theorem(implies(implies(not(X_20), X_20),
+                        X_20)))], [refute_0_28, refute_0_29])).
+
+cnf(refute_0_31, plain,
+    (is_a_theorem(implies(implies(X_22, X_23),
+         implies(implies(not(X_22), X_22), X_23)))),
+    inference(subst, [],
+              [refute_0_30 :
+               [bind(X_20, $fot(X_22)), bind(X_21, $fot(X_23))]])).
+
+cnf(refute_0_32, plain,
+    (is_a_theorem(implies(implies(implies(implies(not(X_22), X_22), X_23),
+           Z), implies(implies(X_22, X_23), Z)))),
+    inference(resolve,
+              [$cnf(is_a_theorem(implies(implies(X_22, X_23),
+                        implies(implies(not(X_22), X_22), X_23))))],
+              [refute_0_31, refute_0_27])).
+
+cnf(refute_0_33, plain,
+    (is_a_theorem(implies(implies(implies(implies(not(X_52), X_52), X_53),
+           X_51), implies(implies(X_52, X_53), X_51)))),
+    inference(subst, [],
+              [refute_0_32 :
+               [bind(Z, $fot(X_51)), bind(X_22, $fot(X_52)),
+                bind(X_23, $fot(X_53))]])).
+
+cnf(refute_0_34, plain,
+    (~
+       is_a_theorem(implies(implies(implies(not(X_52), X_52), X_53),
+           X_51)) | is_a_theorem(implies(implies(X_52, X_53), X_51))),
+    inference(resolve,
+              [$cnf(is_a_theorem(implies(implies(implies(implies(not(X_52),
+                              X_52), X_53), X_51),
+                        implies(implies(X_52, X_53), X_51))))],
+              [refute_0_33, refute_0_26])).
+
+cnf(refute_0_35, plain,
+    (~
+       is_a_theorem(implies(implies(implies(not(implies(implies(not(X_365),
+                     X_365), X_365)),
+               implies(implies(not(X_365), X_365), X_365)), X_364),
+           implies(X_367, X_364))) |
+     is_a_theorem(implies(implies(implies(implies(not(X_365), X_365),
+             X_365), X_364), implies(X_367, X_364)))),
+    inference(subst, [],
+              [refute_0_34 :
+               [bind(X_51, $fot(implies(X_367, X_364))),
+                bind(X_52,
+                     $fot(implies(implies(not(X_365), X_365), X_365))),
+                bind(X_53, $fot(X_364))]])).
+
+cnf(refute_0_36, plain,
+    (~
+       is_a_theorem(implies(X_145,
+           implies(not(implies(implies(not(X_143), X_143), X_143)),
+             X_144))) |
+     is_a_theorem(implies(implies(implies(not(implies(implies(not(X_143),
+                   X_143), X_143)), X_144), Z), implies(X_145, Z)))),
+    inference(subst, [],
+              [refute_0_2 :
+               [bind(X, $fot(X_145)),
+                bind(Y,
+                     $fot(implies(not(implies(implies(not(X_143), X_143),
+                                X_143)), X_144)))]])).
+
+cnf(refute_0_37, plain, (is_a_theorem(implies(X_6, implies(not(X_6), Y)))),
+    inference(subst, [], [cn_3 : [bind(X, $fot(X_6))]])).
+
+cnf(refute_0_38, plain,
+    (~ is_a_theorem(X_6) |
+     ~ is_a_theorem(implies(X_6, implies(not(X_6), Y))) |
+     is_a_theorem(implies(not(X_6), Y))),
+    inference(subst, [],
+              [condensed_detachment :
+               [bind(X, $fot(X_6)),
+                bind(Y, $fot(implies(not(X_6), Y)))]])).
+
+cnf(refute_0_39, plain,
+    (~ is_a_theorem(X_6) | is_a_theorem(implies(not(X_6), Y))),
+    inference(resolve,
+              [$cnf(is_a_theorem(implies(X_6, implies(not(X_6), Y))))],
+              [refute_0_37, refute_0_38])).
+
+cnf(refute_0_40, plain,
+    (~ is_a_theorem(implies(implies(not(X), X), X)) |
+     is_a_theorem(implies(not(implies(implies(not(X), X), X)), X_9))),
+    inference(subst, [],
+              [refute_0_39 :
+               [bind(Y, $fot(X_9)),
+                bind(X_6, $fot(implies(implies(not(X), X), X)))]])).
+
+cnf(refute_0_41, plain,
+    (is_a_theorem(implies(not(implies(implies(not(X), X), X)), X_9))),
+    inference(resolve,
+              [$cnf(is_a_theorem(implies(implies(not(X), X), X)))],
+              [cn_2, refute_0_40])).
+
+cnf(refute_0_42, plain,
+    (is_a_theorem(implies(not(implies(implies(not(X), X), X)), X_20))),
+    inference(subst, [], [refute_0_41 : [bind(X_9, $fot(X_20))]])).
+
+cnf(refute_0_43, plain,
+    (~ is_a_theorem(implies(not(implies(implies(not(X), X), X)), X_20)) |
+     is_a_theorem(implies(implies(X_20, X_21),
+         implies(not(implies(implies(not(X), X), X)), X_21)))),
+    inference(subst, [],
+              [refute_0_2 :
+               [bind(X, $fot(not(implies(implies(not(X), X), X)))),
+                bind(Y, $fot(X_20)), bind(Z, $fot(X_21))]])).
+
+cnf(refute_0_44, plain,
+    (is_a_theorem(implies(implies(X_20, X_21),
+         implies(not(implies(implies(not(X), X), X)), X_21)))),
+    inference(resolve,
+              [$cnf(is_a_theorem(implies(not(implies(implies(not(X), X),
+                            X)), X_20)))], [refute_0_42, refute_0_43])).
+
+cnf(refute_0_45, plain,
+    (is_a_theorem(implies(implies(not(X_123), X_122),
+         implies(not(implies(implies(not(X), X), X)), X_122)))),
+    inference(subst, [],
+              [refute_0_44 :
+               [bind(X_20, $fot(not(X_123))), bind(X_21, $fot(X_122))]])).
+
+cnf(refute_0_46, plain,
+    (~
+       is_a_theorem(implies(implies(implies(not(X_29), X_28), X_30),
+           implies(X_29, X_30))) |
+     ~ is_a_theorem(implies(implies(not(X_29), X_28), X_30)) |
+     is_a_theorem(implies(X_29, X_30))),
+    inference(subst, [],
+              [condensed_detachment :
+               [bind(X, $fot(implies(implies(not(X_29), X_28), X_30))),
+                bind(Y, $fot(implies(X_29, X_30)))]])).
+
+cnf(refute_0_47, plain,
+    (~ is_a_theorem(implies(implies(not(X_29), X_28), X_30)) |
+     is_a_theorem(implies(X_29, X_30))),
+    inference(resolve,
+              [$cnf(is_a_theorem(implies(implies(implies(not(X_29), X_28),
+                          X_30), implies(X_29, X_30))))],
+              [refute_0_16, refute_0_46])).
+
+cnf(refute_0_48, plain,
+    (~
+       is_a_theorem(implies(implies(not(X_123), X_122),
+           implies(not(implies(implies(not(X), X), X)), X_122))) |
+     is_a_theorem(implies(X_123,
+         implies(not(implies(implies(not(X), X), X)), X_122)))),
+    inference(subst, [],
+              [refute_0_47 :
+               [bind(X_28, $fot(X_122)), bind(X_29, $fot(X_123)),
+                bind(X_30,
+                     $fot(implies(not(implies(implies(not(X), X), X)),
+                            X_122)))]])).
+
+cnf(refute_0_49, plain,
+    (is_a_theorem(implies(X_123,
+         implies(not(implies(implies(not(X), X), X)), X_122)))),
+    inference(resolve,
+              [$cnf(is_a_theorem(implies(implies(not(X_123), X_122),
+                        implies(not(implies(implies(not(X), X), X)),
+                          X_122))))], [refute_0_45, refute_0_48])).
+
+cnf(refute_0_50, plain,
+    (is_a_theorem(implies(X_145,
+         implies(not(implies(implies(not(X_143), X_143), X_143)),
+           X_144)))),
+    inference(subst, [],
+              [refute_0_49 :
+               [bind(X, $fot(X_143)), bind(X_122, $fot(X_144)),
+                bind(X_123, $fot(X_145))]])).
+
+cnf(refute_0_51, plain,
+    (is_a_theorem(implies(implies(implies(not(implies(implies(not(X_143),
+                   X_143), X_143)), X_144), Z), implies(X_145, Z)))),
+    inference(resolve,
+              [$cnf(is_a_theorem(implies(X_145,
+                        implies(not(implies(implies(not(X_143), X_143),
+                              X_143)), X_144))))],
+              [refute_0_50, refute_0_36])).
+
+cnf(refute_0_52, plain,
+    (is_a_theorem(implies(implies(implies(not(implies(implies(not(X_365),
+                   X_365), X_365)),
+             implies(implies(not(X_365), X_365), X_365)), X_364),
+         implies(X_367, X_364)))),
+    inference(subst, [],
+              [refute_0_51 :
+               [bind(Z, $fot(X_364)), bind(X_143, $fot(X_365)),
+                bind(X_144,
+                     $fot(implies(implies(not(X_365), X_365), X_365))),
+                bind(X_145, $fot(X_367))]])).
+
+cnf(refute_0_53, plain,
+    (is_a_theorem(implies(implies(implies(implies(not(X_365), X_365),
+             X_365), X_364), implies(X_367, X_364)))),
+    inference(resolve,
+              [$cnf(is_a_theorem(implies(implies(implies(not(implies(implies(not(X_365),
+                                  X_365), X_365)),
+                            implies(implies(not(X_365), X_365), X_365)),
+                          X_364), implies(X_367, X_364))))],
+              [refute_0_52, refute_0_35])).
+
+cnf(refute_0_54, plain,
+    (is_a_theorem(implies(implies(implies(implies(not(X_655), X_655),
+             X_655), implies(X_653, X_655)),
+         implies(X_367, implies(X_653, X_655))))),
+    inference(subst, [],
+              [refute_0_53 :
+               [bind(X_364, $fot(implies(X_653, X_655))),
+                bind(X_365, $fot(X_655))]])).
+
+cnf(refute_0_55, plain,
+    (~
+       is_a_theorem(implies(implies(implies(implies(not(X_655), X_655),
+               X_655), implies(X_653, X_655)),
+           implies(X_367, implies(X_653, X_655)))) |
+     is_a_theorem(implies(implies(X_653, implies(not(X_655), X_655)),
+         implies(X_367, implies(X_653, X_655))))),
+    inference(subst, [],
+              [refute_0_6 :
+               [bind(X_61, $fot(X_653)),
+                bind(X_62, $fot(implies(not(X_655), X_655))),
+                bind(X_63, $fot(X_655)),
+                bind(X_64,
+                     $fot(implies(X_367, implies(X_653, X_655))))]])).
+
+cnf(refute_0_56, plain,
+    (is_a_theorem(implies(implies(X_653, implies(not(X_655), X_655)),
+         implies(X_367, implies(X_653, X_655))))),
+    inference(resolve,
+              [$cnf(is_a_theorem(implies(implies(implies(implies(not(X_655),
+                              X_655), X_655), implies(X_653, X_655)),
+                        implies(X_367, implies(X_653, X_655)))))],
+              [refute_0_54, refute_0_55])).
+
+cnf(refute_0_57, plain,
+    (is_a_theorem(implies(implies(X_687, implies(not(X_688), X_688)),
+         implies(X_686, implies(X_687, X_688))))),
+    inference(subst, [],
+              [refute_0_56 :
+               [bind(X_367, $fot(X_686)), bind(X_653, $fot(X_687)),
+                bind(X_655, $fot(X_688))]])).
+
+cnf(refute_0_58, plain,
+    (~ is_a_theorem(implies(X_687, implies(not(X_688), X_688))) |
+     is_a_theorem(implies(X_686, implies(X_687, X_688)))),
+    inference(resolve,
+              [$cnf(is_a_theorem(implies(implies(X_687,
+                          implies(not(X_688), X_688)),
+                        implies(X_686, implies(X_687, X_688)))))],
+              [refute_0_57, refute_0_25])).
+
+cnf(refute_0_59, plain,
+    (~
+       is_a_theorem(implies(implies(implies(implies(implies(X_21425,
+                   X_21426), X_21425), X_21425), X_21428),
+           implies(not(X_21428), X_21428))) |
+     is_a_theorem(implies(X_686,
+         implies(implies(implies(implies(implies(X_21425, X_21426),
+                 X_21425), X_21425), X_21428), X_21428)))),
+    inference(subst, [],
+              [refute_0_58 :
+               [bind(X_687,
+                     $fot(implies(implies(implies(implies(X_21425,
+                                  X_21426), X_21425), X_21425), X_21428))),
+                bind(X_688, $fot(X_21428))]])).
+
+cnf(refute_0_60, plain,
+    (~ is_a_theorem(X_2397) |
+     ~ is_a_theorem(implies(X_2397, implies(X_2396, X_2397))) |
+     is_a_theorem(implies(X_2396, X_2397))),
+    inference(subst, [],
+              [condensed_detachment :
+               [bind(X, $fot(X_2397)),
+                bind(Y, $fot(implies(X_2396, X_2397)))]])).
+
+cnf(refute_0_61, plain,
+    (~
+       is_a_theorem(implies(implies(not(not(implies(X_2395,
+                   implies(X_2393, X_2395)))), X_1442),
+           implies(X_2395, implies(X_2393, X_2395)))) |
+     is_a_theorem(implies(X_2395, implies(X_2393, X_2395)))),
+    inference(subst, [],
+              [refute_0_23 :
+               [bind(X_1441,
+                     $fot(implies(X_2395, implies(X_2393, X_2395))))]])).
+
+cnf(refute_0_62, plain,
+    (~
+       is_a_theorem(implies(implies(not(X_1627), not(X_1625)),
+           implies(X_1626, implies(X_1625, X_1627)))) |
+     is_a_theorem(implies(X_1627,
+         implies(X_1626, implies(X_1625, X_1627))))),
+    inference(subst, [],
+              [refute_0_47 :
+               [bind(X_28, $fot(not(X_1625))), bind(X_29, $fot(X_1627)),
+                bind(X_30,
+                     $fot(implies(X_1626, implies(X_1625, X_1627))))]])).
+
+cnf(refute_0_63, plain,
+    (~
+       is_a_theorem(implies(implies(implies(not(X_1622), X_1624),
+             implies(not(X_1624), X_1624)),
+           implies(X_1623, implies(X_1622, X_1624)))) |
+     is_a_theorem(implies(implies(not(X_1624), not(X_1622)),
+         implies(X_1623, implies(X_1622, X_1624))))),
+    inference(subst, [],
+              [refute_0_6 :
+               [bind(X_61, $fot(not(X_1624))),
+                bind(X_62, $fot(not(X_1622))), bind(X_63, $fot(X_1624)),
+                bind(X_64,
+                     $fot(implies(X_1623, implies(X_1622, X_1624))))]])).
+
+cnf(refute_0_64, plain,
+    (is_a_theorem(implies(implies(X_1439, implies(not(X_655), X_655)),
+         implies(X_367, implies(X_1439, X_655))))),
+    inference(subst, [], [refute_0_56 : [bind(X_653, $fot(X_1439))]])).
+
+cnf(refute_0_65, plain,
+    (~
+       is_a_theorem(implies(implies(X_1439, implies(not(X_655), X_655)),
+           implies(X_367, implies(X_1439, X_655)))) |
+     is_a_theorem(implies(implies(implies(not(X_1439), X_1438),
+           implies(not(X_655), X_655)),
+         implies(X_367, implies(X_1439, X_655))))),
+    inference(subst, [],
+              [refute_0_19 :
+               [bind(X_31, $fot(implies(X_367, implies(X_1439, X_655)))),
+                bind(X_32, $fot(X_1438)), bind(X_33, $fot(X_1439)),
+                bind(X_34, $fot(implies(not(X_655), X_655)))]])).
+
+cnf(refute_0_66, plain,
+    (is_a_theorem(implies(implies(implies(not(X_1439), X_1438),
+           implies(not(X_655), X_655)),
+         implies(X_367, implies(X_1439, X_655))))),
+    inference(resolve,
+              [$cnf(is_a_theorem(implies(implies(X_1439,
+                          implies(not(X_655), X_655)),
+                        implies(X_367, implies(X_1439, X_655)))))],
+              [refute_0_64, refute_0_65])).
+
+cnf(refute_0_67, plain,
+    (is_a_theorem(implies(implies(implies(not(X_1622), X_1624),
+           implies(not(X_1624), X_1624)),
+         implies(X_1623, implies(X_1622, X_1624))))),
+    inference(subst, [],
+              [refute_0_66 :
+               [bind(X_1438, $fot(X_1624)), bind(X_1439, $fot(X_1622)),
+                bind(X_367, $fot(X_1623)), bind(X_655, $fot(X_1624))]])).
+
+cnf(refute_0_68, plain,
+    (is_a_theorem(implies(implies(not(X_1624), not(X_1622)),
+         implies(X_1623, implies(X_1622, X_1624))))),
+    inference(resolve,
+              [$cnf(is_a_theorem(implies(implies(implies(not(X_1622),
+                            X_1624), implies(not(X_1624), X_1624)),
+                        implies(X_1623, implies(X_1622, X_1624)))))],
+              [refute_0_67, refute_0_63])).
+
+cnf(refute_0_69, plain,
+    (is_a_theorem(implies(implies(not(X_1627), not(X_1625)),
+         implies(X_1626, implies(X_1625, X_1627))))),
+    inference(subst, [],
+              [refute_0_68 :
+               [bind(X_1622, $fot(X_1625)), bind(X_1623, $fot(X_1626)),
+                bind(X_1624, $fot(X_1627))]])).
+
+cnf(refute_0_70, plain,
+    (is_a_theorem(implies(X_1627,
+         implies(X_1626, implies(X_1625, X_1627))))),
+    inference(resolve,
+              [$cnf(is_a_theorem(implies(implies(not(X_1627), not(X_1625)),
+                        implies(X_1626, implies(X_1625, X_1627)))))],
+              [refute_0_69, refute_0_62])).
+
+cnf(refute_0_71, plain,
+    (is_a_theorem(implies(X_2391,
+         implies(not(implies(X_1625, X_2391)), implies(X_1625, X_2391))))),
+    inference(subst, [],
+              [refute_0_70 :
+               [bind(X_1626, $fot(not(implies(X_1625, X_2391)))),
+                bind(X_1627, $fot(X_2391))]])).
+
+cnf(refute_0_72, plain,
+    (~
+       is_a_theorem(implies(X_2391,
+           implies(not(implies(X_1625, X_2391)),
+             implies(X_1625, X_2391)))) |
+     is_a_theorem(implies(X_2390,
+         implies(X_2391, implies(X_1625, X_2391))))),
+    inference(subst, [],
+              [refute_0_58 :
+               [bind(X_686, $fot(X_2390)), bind(X_687, $fot(X_2391)),
+                bind(X_688, $fot(implies(X_1625, X_2391)))]])).
+
+cnf(refute_0_73, plain,
+    (is_a_theorem(implies(X_2390,
+         implies(X_2391, implies(X_1625, X_2391))))),
+    inference(resolve,
+              [$cnf(is_a_theorem(implies(X_2391,
+                        implies(not(implies(X_1625, X_2391)),
+                          implies(X_1625, X_2391)))))],
+              [refute_0_71, refute_0_72])).
+
+cnf(refute_0_74, plain,
+    (is_a_theorem(implies(implies(not(not(implies(X_2395,
+                 implies(X_2393, X_2395)))), X_1442),
+         implies(X_2395, implies(X_2393, X_2395))))),
+    inference(subst, [],
+              [refute_0_73 :
+               [bind(X_1625, $fot(X_2393)),
+                bind(X_2390,
+                     $fot(implies(not(not(implies(X_2395,
+                                  implies(X_2393, X_2395)))), X_1442))),
+                bind(X_2391, $fot(X_2395))]])).
+
+cnf(refute_0_75, plain,
+    (is_a_theorem(implies(X_2395, implies(X_2393, X_2395)))),
+    inference(resolve,
+              [$cnf(is_a_theorem(implies(implies(not(not(implies(X_2395,
+                                implies(X_2393, X_2395)))), X_1442),
+                        implies(X_2395, implies(X_2393, X_2395)))))],
+              [refute_0_74, refute_0_61])).
+
+cnf(refute_0_76, plain,
+    (is_a_theorem(implies(X_2397, implies(X_2396, X_2397)))),
+    inference(subst, [],
+              [refute_0_75 :
+               [bind(X_2393, $fot(X_2396)), bind(X_2395, $fot(X_2397))]])).
+
+cnf(refute_0_77, plain,
+    (~ is_a_theorem(X_2397) | is_a_theorem(implies(X_2396, X_2397))),
+    inference(resolve,
+              [$cnf(is_a_theorem(implies(X_2397,
+                        implies(X_2396, X_2397))))],
+              [refute_0_76, refute_0_60])).
+
+cnf(refute_0_78, plain,
+    (~
+       is_a_theorem(implies(X_11053,
+           implies(implies(implies(X_11051, X_11052), X_11051),
+             X_11051))) |
+     is_a_theorem(implies(X_2396,
+         implies(X_11053,
+           implies(implies(implies(X_11051, X_11052), X_11051),
+             X_11051))))),
+    inference(subst, [],
+              [refute_0_77 :
+               [bind(X_2397,
+                     $fot(implies(X_11053,
+                            implies(implies(implies(X_11051, X_11052),
+                                X_11051), X_11051))))]])).
+
+cnf(refute_0_79, plain,
+    (~
+       is_a_theorem(implies(implies(implies(X_11044, X_11046), X_11044),
+           implies(not(X_11044), X_11044))) |
+     is_a_theorem(implies(X_686,
+         implies(implies(implies(X_11044, X_11046), X_11044), X_11044)))),
+    inference(subst, [],
+              [refute_0_58 :
+               [bind(X_687,
+                     $fot(implies(implies(X_11044, X_11046), X_11044))),
+                bind(X_688, $fot(X_11044))]])).
+
+cnf(refute_0_80, plain,
+    (~ is_a_theorem(implies(not(X_2521), implies(X_2521, X_2522))) |
+     is_a_theorem(implies(X_2396,
+         implies(not(X_2521), implies(X_2521, X_2522))))),
+    inference(subst, [],
+              [refute_0_77 :
+               [bind(X_2397,
+                     $fot(implies(not(X_2521),
+                            implies(X_2521, X_2522))))]])).
+
+cnf(refute_0_81, plain,
+    (~
+       is_a_theorem(implies(implies(not(not(X_2519)), not(X_2519)),
+           implies(X_2519, X_2520))) |
+     is_a_theorem(implies(not(X_2519), implies(X_2519, X_2520)))),
+    inference(subst, [],
+              [refute_0_47 :
+               [bind(X_28, $fot(not(X_2519))),
+                bind(X_29, $fot(not(X_2519))),
+                bind(X_30, $fot(implies(X_2519, X_2520)))]])).
+
+cnf(refute_0_82, plain,
+    (~ is_a_theorem(implies(X_703, implies(not(not(X_702)), not(X_702)))) |
+     ~
+       is_a_theorem(implies(implies(X_703,
+             implies(not(not(X_702)), not(X_702))),
+           implies(X_702, implies(X_703, X_704)))) |
+     is_a_theorem(implies(X_702, implies(X_703, X_704)))),
+    inference(subst, [],
+              [condensed_detachment :
+               [bind(X,
+                     $fot(implies(X_703,
+                            implies(not(not(X_702)), not(X_702))))),
+                bind(Y, $fot(implies(X_702, implies(X_703, X_704))))]])).
+
+cnf(refute_0_83, plain,
+    (~
+       is_a_theorem(implies(X_129,
+           implies(implies(not(not(X_129)), not(X_129)), X_128))) |
+     is_a_theorem(implies(implies(implies(implies(not(not(X_129)),
+               not(X_129)), X_128), Z), implies(X_129, Z)))),
+    inference(subst, [],
+              [refute_0_2 :
+               [bind(X, $fot(X_129)),
+                bind(Y,
+                     $fot(implies(implies(not(not(X_129)), not(X_129)),
+                            X_128)))]])).
+
+cnf(refute_0_84, plain,
+    (is_a_theorem(implies(implies(not(X_123), X_122),
+         implies(implies(not(not(X_123)), not(X_123)), X_122)))),
+    inference(subst, [],
+              [refute_0_30 :
+               [bind(X_20, $fot(not(X_123))), bind(X_21, $fot(X_122))]])).
+
+cnf(refute_0_85, plain,
+    (~
+       is_a_theorem(implies(implies(not(X_123), X_122),
+           implies(implies(not(not(X_123)), not(X_123)), X_122))) |
+     is_a_theorem(implies(X_123,
+         implies(implies(not(not(X_123)), not(X_123)), X_122)))),
+    inference(subst, [],
+              [refute_0_47 :
+               [bind(X_28, $fot(X_122)), bind(X_29, $fot(X_123)),
+                bind(X_30,
+                     $fot(implies(implies(not(not(X_123)), not(X_123)),
+                            X_122)))]])).
+
+cnf(refute_0_86, plain,
+    (is_a_theorem(implies(X_123,
+         implies(implies(not(not(X_123)), not(X_123)), X_122)))),
+    inference(resolve,
+              [$cnf(is_a_theorem(implies(implies(not(X_123), X_122),
+                        implies(implies(not(not(X_123)), not(X_123)),
+                          X_122))))], [refute_0_84, refute_0_85])).
+
+cnf(refute_0_87, plain,
+    (is_a_theorem(implies(X_129,
+         implies(implies(not(not(X_129)), not(X_129)), X_128)))),
+    inference(subst, [],
+              [refute_0_86 :
+               [bind(X_122, $fot(X_128)), bind(X_123, $fot(X_129))]])).
+
+cnf(refute_0_88, plain,
+    (is_a_theorem(implies(implies(implies(implies(not(not(X_129)),
+               not(X_129)), X_128), Z), implies(X_129, Z)))),
+    inference(resolve,
+              [$cnf(is_a_theorem(implies(X_129,
+                        implies(implies(not(not(X_129)), not(X_129)),
+                          X_128))))], [refute_0_87, refute_0_83])).
+
+cnf(refute_0_89, plain,
+    (is_a_theorem(implies(implies(implies(implies(not(not(X_129)),
+               not(X_129)), X_655), implies(X_653, X_655)),
+         implies(X_129, implies(X_653, X_655))))),
+    inference(subst, [],
+              [refute_0_88 :
+               [bind(Z, $fot(implies(X_653, X_655))),
+                bind(X_128, $fot(X_655))]])).
+
+cnf(refute_0_90, plain,
+    (~
+       is_a_theorem(implies(implies(implies(implies(not(not(X_129)),
+                 not(X_129)), X_655), implies(X_653, X_655)),
+           implies(X_129, implies(X_653, X_655)))) |
+     is_a_theorem(implies(implies(X_653,
+           implies(not(not(X_129)), not(X_129))),
+         implies(X_129, implies(X_653, X_655))))),
+    inference(subst, [],
+              [refute_0_6 :
+               [bind(X_61, $fot(X_653)),
+                bind(X_62, $fot(implies(not(not(X_129)), not(X_129)))),
+                bind(X_63, $fot(X_655)),
+                bind(X_64,
+                     $fot(implies(X_129, implies(X_653, X_655))))]])).
+
+cnf(refute_0_91, plain,
+    (is_a_theorem(implies(implies(X_653,
+           implies(not(not(X_129)), not(X_129))),
+         implies(X_129, implies(X_653, X_655))))),
+    inference(resolve,
+              [$cnf(is_a_theorem(implies(implies(implies(implies(not(not(X_129)),
+                              not(X_129)), X_655), implies(X_653, X_655)),
+                        implies(X_129, implies(X_653, X_655)))))],
+              [refute_0_89, refute_0_90])).
+
+cnf(refute_0_92, plain,
+    (is_a_theorem(implies(implies(X_703,
+           implies(not(not(X_702)), not(X_702))),
+         implies(X_702, implies(X_703, X_704))))),
+    inference(subst, [],
+              [refute_0_91 :
+               [bind(X_129, $fot(X_702)), bind(X_653, $fot(X_703)),
+                bind(X_655, $fot(X_704))]])).
+
+cnf(refute_0_93, plain,
+    (~ is_a_theorem(implies(X_703, implies(not(not(X_702)), not(X_702)))) |
+     is_a_theorem(implies(X_702, implies(X_703, X_704)))),
+    inference(resolve,
+              [$cnf(is_a_theorem(implies(implies(X_703,
+                          implies(not(not(X_702)), not(X_702))),
+                        implies(X_702, implies(X_703, X_704)))))],
+              [refute_0_92, refute_0_82])).
+
+cnf(refute_0_94, plain,
+    (~
+       is_a_theorem(implies(X_2517,
+           implies(not(not(implies(not(not(X_2517)), not(X_2517)))),
+             not(implies(not(not(X_2517)), not(X_2517)))))) |
+     is_a_theorem(implies(implies(not(not(X_2517)), not(X_2517)),
+         implies(X_2517, X_704)))),
+    inference(subst, [],
+              [refute_0_93 :
+               [bind(X_702, $fot(implies(not(not(X_2517)), not(X_2517)))),
+                bind(X_703, $fot(X_2517))]])).
+
+cnf(refute_0_95, plain,
+    (~
+       is_a_theorem(implies(not(not(implies(not(not(X_702)), not(X_702)))),
+           implies(not(not(X_702)), not(X_702)))) |
+     is_a_theorem(implies(X_702,
+         implies(not(not(implies(not(not(X_702)), not(X_702)))), X_704)))),
+    inference(subst, [],
+              [refute_0_93 :
+               [bind(X_703,
+                     $fot(not(not(implies(not(not(X_702)),
+                                not(X_702))))))]])).
+
+cnf(refute_0_96, plain,
+    (~
+       is_a_theorem(implies(implies(not(not(implies(not(not(implies(X_2500,
+                         X_2501))), implies(X_2500, X_2501)))), X_1442),
+           implies(not(not(implies(X_2500, X_2501))),
+             implies(X_2500, X_2501)))) |
+     is_a_theorem(implies(not(not(implies(X_2500, X_2501))),
+         implies(X_2500, X_2501)))),
+    inference(subst, [],
+              [refute_0_23 :
+               [bind(X_1441,
+                     $fot(implies(not(not(implies(X_2500, X_2501))),
+                            implies(X_2500, X_2501))))]])).
+
+cnf(refute_0_97, plain,
+    (~
+       is_a_theorem(implies(implies(not(not(X_2273)), not(X_2274)),
+           implies(X_2273, implies(X_2274, X_2275)))) |
+     is_a_theorem(implies(not(X_2273),
+         implies(X_2273, implies(X_2274, X_2275))))),
+    inference(subst, [],
+              [refute_0_47 :
+               [bind(X_28, $fot(not(X_2274))),
+                bind(X_29, $fot(not(X_2273))),
+                bind(X_30,
+                     $fot(implies(X_2273, implies(X_2274, X_2275))))]])).
+
+cnf(refute_0_98, plain,
+    (~
+       is_a_theorem(implies(implies(implies(not(X_2271), not(X_2269)),
+             implies(not(not(X_2269)), not(X_2269))),
+           implies(X_2269, implies(X_2271, X_2272)))) |
+     is_a_theorem(implies(implies(not(not(X_2269)), not(X_2271)),
+         implies(X_2269, implies(X_2271, X_2272))))),
+    inference(subst, [],
+              [refute_0_6 :
+               [bind(X_61, $fot(not(not(X_2269)))),
+                bind(X_62, $fot(not(X_2271))),
+                bind(X_63, $fot(not(X_2269))),
+                bind(X_64,
+                     $fot(implies(X_2269, implies(X_2271, X_2272))))]])).
+
+cnf(refute_0_99, plain,
+    (is_a_theorem(implies(implies(X_1439,
+           implies(not(not(X_129)), not(X_129))),
+         implies(X_129, implies(X_1439, X_655))))),
+    inference(subst, [], [refute_0_91 : [bind(X_653, $fot(X_1439))]])).
+
+cnf(refute_0_100, plain,
+    (~
+       is_a_theorem(implies(implies(X_1439,
+             implies(not(not(X_129)), not(X_129))),
+           implies(X_129, implies(X_1439, X_655)))) |
+     is_a_theorem(implies(implies(implies(not(X_1439), X_1438),
+           implies(not(not(X_129)), not(X_129))),
+         implies(X_129, implies(X_1439, X_655))))),
+    inference(subst, [],
+              [refute_0_19 :
+               [bind(X_31, $fot(implies(X_129, implies(X_1439, X_655)))),
+                bind(X_32, $fot(X_1438)), bind(X_33, $fot(X_1439)),
+                bind(X_34, $fot(implies(not(not(X_129)), not(X_129))))]])).
+
+cnf(refute_0_101, plain,
+    (is_a_theorem(implies(implies(implies(not(X_1439), X_1438),
+           implies(not(not(X_129)), not(X_129))),
+         implies(X_129, implies(X_1439, X_655))))),
+    inference(resolve,
+              [$cnf(is_a_theorem(implies(implies(X_1439,
+                          implies(not(not(X_129)), not(X_129))),
+                        implies(X_129, implies(X_1439, X_655)))))],
+              [refute_0_99, refute_0_100])).
+
+cnf(refute_0_102, plain,
+    (is_a_theorem(implies(implies(implies(not(X_2271), not(X_2269)),
+           implies(not(not(X_2269)), not(X_2269))),
+         implies(X_2269, implies(X_2271, X_2272))))),
+    inference(subst, [],
+              [refute_0_101 :
+               [bind(X_129, $fot(X_2269)), bind(X_1438, $fot(not(X_2269))),
+                bind(X_1439, $fot(X_2271)), bind(X_655, $fot(X_2272))]])).
+
+cnf(refute_0_103, plain,
+    (is_a_theorem(implies(implies(not(not(X_2269)), not(X_2271)),
+         implies(X_2269, implies(X_2271, X_2272))))),
+    inference(resolve,
+              [$cnf(is_a_theorem(implies(implies(implies(not(X_2271),
+                            not(X_2269)),
+                          implies(not(not(X_2269)), not(X_2269))),
+                        implies(X_2269, implies(X_2271, X_2272)))))],
+              [refute_0_102, refute_0_98])).
+
+cnf(refute_0_104, plain,
+    (is_a_theorem(implies(implies(not(not(X_2273)), not(X_2274)),
+         implies(X_2273, implies(X_2274, X_2275))))),
+    inference(subst, [],
+              [refute_0_103 :
+               [bind(X_2269, $fot(X_2273)), bind(X_2271, $fot(X_2274)),
+                bind(X_2272, $fot(X_2275))]])).
+
+cnf(refute_0_105, plain,
+    (is_a_theorem(implies(not(X_2273),
+         implies(X_2273, implies(X_2274, X_2275))))),
+    inference(resolve,
+              [$cnf(is_a_theorem(implies(implies(not(not(X_2273)),
+                          not(X_2274)),
+                        implies(X_2273, implies(X_2274, X_2275)))))],
+              [refute_0_104, refute_0_97])).
+
+cnf(refute_0_106, plain,
+    (is_a_theorem(implies(not(not(implies(X_2274, X_2275))),
+         implies(not(implies(X_2274, X_2275)), implies(X_2274, X_2275))))),
+    inference(subst, [],
+              [refute_0_105 :
+               [bind(X_2273, $fot(not(implies(X_2274, X_2275))))]])).
+
+cnf(refute_0_107, plain,
+    (~
+       is_a_theorem(implies(not(not(implies(X_2274, X_2275))),
+           implies(not(implies(X_2274, X_2275)),
+             implies(X_2274, X_2275)))) |
+     is_a_theorem(implies(X_2390,
+         implies(not(not(implies(X_2274, X_2275))),
+           implies(X_2274, X_2275))))),
+    inference(subst, [],
+              [refute_0_58 :
+               [bind(X_686, $fot(X_2390)),
+                bind(X_687, $fot(not(not(implies(X_2274, X_2275))))),
+                bind(X_688, $fot(implies(X_2274, X_2275)))]])).
+
+cnf(refute_0_108, plain,
+    (is_a_theorem(implies(X_2390,
+         implies(not(not(implies(X_2274, X_2275))),
+           implies(X_2274, X_2275))))),
+    inference(resolve,
+              [$cnf(is_a_theorem(implies(not(not(implies(X_2274, X_2275))),
+                        implies(not(implies(X_2274, X_2275)),
+                          implies(X_2274, X_2275)))))],
+              [refute_0_106, refute_0_107])).
+
+cnf(refute_0_109, plain,
+    (is_a_theorem(implies(implies(not(not(implies(not(not(implies(X_2500,
+                       X_2501))), implies(X_2500, X_2501)))), X_1442),
+         implies(not(not(implies(X_2500, X_2501))),
+           implies(X_2500, X_2501))))),
+    inference(subst, [],
+              [refute_0_108 :
+               [bind(X_2274, $fot(X_2500)), bind(X_2275, $fot(X_2501)),
+                bind(X_2390,
+                     $fot(implies(not(not(implies(not(not(implies(X_2500,
+                                        X_2501))),
+                                  implies(X_2500, X_2501)))),
+                            X_1442)))]])).
+
+cnf(refute_0_110, plain,
+    (is_a_theorem(implies(not(not(implies(X_2500, X_2501))),
+         implies(X_2500, X_2501)))),
+    inference(resolve,
+              [$cnf(is_a_theorem(implies(implies(not(not(implies(not(not(implies(X_2500,
+                                      X_2501))),
+                                implies(X_2500, X_2501)))), X_1442),
+                        implies(not(not(implies(X_2500, X_2501))),
+                          implies(X_2500, X_2501)))))],
+              [refute_0_109, refute_0_96])).
+
+cnf(refute_0_111, plain,
+    (is_a_theorem(implies(not(not(implies(not(not(X_702)), not(X_702)))),
+         implies(not(not(X_702)), not(X_702))))),
+    inference(subst, [],
+              [refute_0_110 :
+               [bind(X_2500, $fot(not(not(X_702)))),
+                bind(X_2501, $fot(not(X_702)))]])).
+
+cnf(refute_0_112, plain,
+    (is_a_theorem(implies(X_702,
+         implies(not(not(implies(not(not(X_702)), not(X_702)))), X_704)))),
+    inference(resolve,
+              [$cnf(is_a_theorem(implies(not(not(implies(not(not(X_702)),
+                              not(X_702)))),
+                        implies(not(not(X_702)), not(X_702)))))],
+              [refute_0_111, refute_0_95])).
+
+cnf(refute_0_113, plain,
+    (is_a_theorem(implies(X_2517,
+         implies(not(not(implies(not(not(X_2517)), not(X_2517)))),
+           not(implies(not(not(X_2517)), not(X_2517))))))),
+    inference(subst, [],
+              [refute_0_112 :
+               [bind(X_702, $fot(X_2517)),
+                bind(X_704,
+                     $fot(not(implies(not(not(X_2517)),
+                              not(X_2517)))))]])).
+
+cnf(refute_0_114, plain,
+    (is_a_theorem(implies(implies(not(not(X_2517)), not(X_2517)),
+         implies(X_2517, X_704)))),
+    inference(resolve,
+              [$cnf(is_a_theorem(implies(X_2517,
+                        implies(not(not(implies(not(not(X_2517)),
+                                not(X_2517)))),
+                          not(implies(not(not(X_2517)), not(X_2517)))))))],
+              [refute_0_113, refute_0_94])).
+
+cnf(refute_0_115, plain,
+    (is_a_theorem(implies(implies(not(not(X_2519)), not(X_2519)),
+         implies(X_2519, X_2520)))),
+    inference(subst, [],
+              [refute_0_114 :
+               [bind(X_2517, $fot(X_2519)), bind(X_704, $fot(X_2520))]])).
+
+cnf(refute_0_116, plain,
+    (is_a_theorem(implies(not(X_2519), implies(X_2519, X_2520)))),
+    inference(resolve,
+              [$cnf(is_a_theorem(implies(implies(not(not(X_2519)),
+                          not(X_2519)), implies(X_2519, X_2520))))],
+              [refute_0_115, refute_0_81])).
+
+cnf(refute_0_117, plain,
+    (is_a_theorem(implies(not(X_2521), implies(X_2521, X_2522)))),
+    inference(subst, [],
+              [refute_0_116 :
+               [bind(X_2519, $fot(X_2521)), bind(X_2520, $fot(X_2522))]])).
+
+cnf(refute_0_118, plain,
+    (is_a_theorem(implies(X_2396,
+         implies(not(X_2521), implies(X_2521, X_2522))))),
+    inference(resolve,
+              [$cnf(is_a_theorem(implies(not(X_2521),
+                        implies(X_2521, X_2522))))],
+              [refute_0_117, refute_0_80])).
+
+cnf(refute_0_119, plain,
+    (is_a_theorem(implies(not(implies(not(X_2521),
+             implies(X_2521, X_2522))),
+         implies(not(X_2521), implies(X_2521, X_2522))))),
+    inference(subst, [],
+              [refute_0_118 :
+               [bind(X_2396,
+                     $fot(not(implies(not(X_2521),
+                              implies(X_2521, X_2522)))))]])).
+
+cnf(refute_0_120, plain,
+    (~
+       is_a_theorem(implies(implies(not(implies(X_236, X_237)),
+             implies(X_236, X_237)),
+           implies(implies(X_237, X_238), implies(X_236, X_238)))) |
+     ~
+       is_a_theorem(implies(not(implies(X_236, X_237)),
+           implies(X_236, X_237))) |
+     is_a_theorem(implies(implies(X_237, X_238), implies(X_236, X_238)))),
+    inference(subst, [],
+              [condensed_detachment :
+               [bind(X,
+                     $fot(implies(not(implies(X_236, X_237)),
+                            implies(X_236, X_237)))),
+                bind(Y,
+                     $fot(implies(implies(X_237, X_238),
+                            implies(X_236, X_238))))]])).
+
+cnf(refute_0_121, plain,
+    (~ is_a_theorem(implies(X_22, X_23)) |
+     ~
+       is_a_theorem(implies(implies(X_22, X_23),
+           implies(implies(not(X_22), X_22), X_23))) |
+     is_a_theorem(implies(implies(not(X_22), X_22), X_23))),
+    inference(subst, [],
+              [condensed_detachment :
+               [bind(X, $fot(implies(X_22, X_23))),
+                bind(Y, $fot(implies(implies(not(X_22), X_22), X_23)))]])).
+
+cnf(refute_0_122, plain,
+    (~ is_a_theorem(implies(X_22, X_23)) |
+     is_a_theorem(implies(implies(not(X_22), X_22), X_23))),
+    inference(resolve,
+              [$cnf(is_a_theorem(implies(implies(X_22, X_23),
+                        implies(implies(not(X_22), X_22), X_23))))],
+              [refute_0_31, refute_0_121])).
+
+cnf(refute_0_123, plain,
+    (~
+       is_a_theorem(implies(implies(X, Y),
+           implies(implies(Y, Z), implies(X, Z)))) |
+     is_a_theorem(implies(implies(not(implies(X, Y)), implies(X, Y)),
+         implies(implies(Y, Z), implies(X, Z))))),
+    inference(subst, [],
+              [refute_0_122 :
+               [bind(X_22, $fot(implies(X, Y))),
+                bind(X_23,
+                     $fot(implies(implies(Y, Z), implies(X, Z))))]])).
+
+cnf(refute_0_124, plain,
+    (is_a_theorem(implies(implies(not(implies(X, Y)), implies(X, Y)),
+         implies(implies(Y, Z), implies(X, Z))))),
+    inference(resolve,
+              [$cnf(is_a_theorem(implies(implies(X, Y),
+                        implies(implies(Y, Z), implies(X, Z)))))],
+              [cn_1, refute_0_123])).
+
+cnf(refute_0_125, plain,
+    (is_a_theorem(implies(implies(not(implies(X_236, X_237)),
+           implies(X_236, X_237)),
+         implies(implies(X_237, X_238), implies(X_236, X_238))))),
+    inference(subst, [],
+              [refute_0_124 :
+               [bind(X, $fot(X_236)), bind(Y, $fot(X_237)),
+                bind(Z, $fot(X_238))]])).
+
+cnf(refute_0_126, plain,
+    (~
+       is_a_theorem(implies(not(implies(X_236, X_237)),
+           implies(X_236, X_237))) |
+     is_a_theorem(implies(implies(X_237, X_238), implies(X_236, X_238)))),
+    inference(resolve,
+              [$cnf(is_a_theorem(implies(implies(not(implies(X_236,
+                              X_237)), implies(X_236, X_237)),
+                        implies(implies(X_237, X_238),
+                          implies(X_236, X_238)))))],
+              [refute_0_125, refute_0_120])).
+
+cnf(refute_0_127, plain,
+    (~
+       is_a_theorem(implies(not(implies(not(X_2521),
+               implies(X_2521, X_2522))),
+           implies(not(X_2521), implies(X_2521, X_2522)))) |
+     is_a_theorem(implies(implies(implies(X_2521, X_2522), X_11006),
+         implies(not(X_2521), X_11006)))),
+    inference(subst, [],
+              [refute_0_126 :
+               [bind(X_236, $fot(not(X_2521))),
+                bind(X_237, $fot(implies(X_2521, X_2522))),
+                bind(X_238, $fot(X_11006))]])).
+
+cnf(refute_0_128, plain,
+    (is_a_theorem(implies(implies(implies(X_2521, X_2522), X_11006),
+         implies(not(X_2521), X_11006)))),
+    inference(resolve,
+              [$cnf(is_a_theorem(implies(not(implies(not(X_2521),
+                            implies(X_2521, X_2522))),
+                        implies(not(X_2521), implies(X_2521, X_2522)))))],
+              [refute_0_119, refute_0_127])).
+
+cnf(refute_0_129, plain,
+    (is_a_theorem(implies(implies(implies(X_11044, X_11046), X_11044),
+         implies(not(X_11044), X_11044)))),
+    inference(subst, [],
+              [refute_0_128 :
+               [bind(X_11006, $fot(X_11044)), bind(X_2521, $fot(X_11044)),
+                bind(X_2522, $fot(X_11046))]])).
+
+cnf(refute_0_130, plain,
+    (is_a_theorem(implies(X_686,
+         implies(implies(implies(X_11044, X_11046), X_11044), X_11044)))),
+    inference(resolve,
+              [$cnf(is_a_theorem(implies(implies(implies(X_11044, X_11046),
+                          X_11044), implies(not(X_11044), X_11044))))],
+              [refute_0_129, refute_0_79])).
+
+cnf(refute_0_131, plain,
+    (is_a_theorem(implies(X_11053,
+         implies(implies(implies(X_11051, X_11052), X_11051), X_11051)))),
+    inference(subst, [],
+              [refute_0_130 :
+               [bind(X_11044, $fot(X_11051)), bind(X_11046, $fot(X_11052)),
+                bind(X_686, $fot(X_11053))]])).
+
+cnf(refute_0_132, plain,
+    (is_a_theorem(implies(X_2396,
+         implies(X_11053,
+           implies(implies(implies(X_11051, X_11052), X_11051),
+             X_11051))))),
+    inference(resolve,
+              [$cnf(is_a_theorem(implies(X_11053,
+                        implies(implies(implies(X_11051, X_11052),
+                            X_11051), X_11051))))],
+              [refute_0_131, refute_0_78])).
+
+cnf(refute_0_133, plain,
+    (is_a_theorem(implies(X_21417,
+         implies(not(implies(implies(implies(X_11051, X_11052), X_11051),
+               X_11051)),
+           implies(implies(implies(X_11051, X_11052), X_11051),
+             X_11051))))),
+    inference(subst, [],
+              [refute_0_132 :
+               [bind(X_11053,
+                     $fot(not(implies(implies(implies(X_11051, X_11052),
+                                X_11051), X_11051)))),
+                bind(X_2396, $fot(X_21417))]])).
+
+cnf(refute_0_134, plain,
+    (~ is_a_theorem(implies(X_690, implies(not(X_689), X_689))) |
+     ~
+       is_a_theorem(implies(implies(X_690, implies(not(X_689), X_689)),
+           implies(implies(X_689, X_691), implies(X_690, X_691)))) |
+     is_a_theorem(implies(implies(X_689, X_691), implies(X_690, X_691)))),
+    inference(subst, [],
+              [condensed_detachment :
+               [bind(X, $fot(implies(X_690, implies(not(X_689), X_689)))),
+                bind(Y,
+                     $fot(implies(implies(X_689, X_691),
+                            implies(X_690, X_691))))]])).
+
+cnf(refute_0_135, plain,
+    (is_a_theorem(implies(implies(implies(implies(not(X_22), X_22), X_655),
+           implies(X_653, X_655)),
+         implies(implies(X_22, X_655), implies(X_653, X_655))))),
+    inference(subst, [],
+              [refute_0_32 :
+               [bind(Z, $fot(implies(X_653, X_655))),
+                bind(X_23, $fot(X_655))]])).
+
+cnf(refute_0_136, plain,
+    (~
+       is_a_theorem(implies(implies(implies(implies(not(X_22), X_22),
+               X_655), implies(X_653, X_655)),
+           implies(implies(X_22, X_655), implies(X_653, X_655)))) |
+     is_a_theorem(implies(implies(X_653, implies(not(X_22), X_22)),
+         implies(implies(X_22, X_655), implies(X_653, X_655))))),
+    inference(subst, [],
+              [refute_0_6 :
+               [bind(X_61, $fot(X_653)),
+                bind(X_62, $fot(implies(not(X_22), X_22))),
+                bind(X_63, $fot(X_655)),
+                bind(X_64,
+                     $fot(implies(implies(X_22, X_655),
+                            implies(X_653, X_655))))]])).
+
+cnf(refute_0_137, plain,
+    (is_a_theorem(implies(implies(X_653, implies(not(X_22), X_22)),
+         implies(implies(X_22, X_655), implies(X_653, X_655))))),
+    inference(resolve,
+              [$cnf(is_a_theorem(implies(implies(implies(implies(not(X_22),
+                              X_22), X_655), implies(X_653, X_655)),
+                        implies(implies(X_22, X_655),
+                          implies(X_653, X_655)))))],
+              [refute_0_135, refute_0_136])).
+
+cnf(refute_0_138, plain,
+    (is_a_theorem(implies(implies(X_690, implies(not(X_689), X_689)),
+         implies(implies(X_689, X_691), implies(X_690, X_691))))),
+    inference(subst, [],
+              [refute_0_137 :
+               [bind(X_22, $fot(X_689)), bind(X_653, $fot(X_690)),
+                bind(X_655, $fot(X_691))]])).
+
+cnf(refute_0_139, plain,
+    (~ is_a_theorem(implies(X_690, implies(not(X_689), X_689))) |
+     is_a_theorem(implies(implies(X_689, X_691), implies(X_690, X_691)))),
+    inference(resolve,
+              [$cnf(is_a_theorem(implies(implies(X_690,
+                          implies(not(X_689), X_689)),
+                        implies(implies(X_689, X_691),
+                          implies(X_690, X_691)))))],
+              [refute_0_138, refute_0_134])).
+
+cnf(refute_0_140, plain,
+    (~
+       is_a_theorem(implies(X_21417,
+           implies(not(implies(implies(implies(X_11051, X_11052), X_11051),
+                 X_11051)),
+             implies(implies(implies(X_11051, X_11052), X_11051),
+               X_11051)))) |
+     is_a_theorem(implies(implies(implies(implies(implies(X_11051,
+                 X_11052), X_11051), X_11051), X_21418),
+         implies(X_21417, X_21418)))),
+    inference(subst, [],
+              [refute_0_139 :
+               [bind(X_689,
+                     $fot(implies(implies(implies(X_11051, X_11052),
+                              X_11051), X_11051))),
+                bind(X_690, $fot(X_21417)), bind(X_691, $fot(X_21418))]])).
+
+cnf(refute_0_141, plain,
+    (is_a_theorem(implies(implies(implies(implies(implies(X_11051,
+                 X_11052), X_11051), X_11051), X_21418),
+         implies(X_21417, X_21418)))),
+    inference(resolve,
+              [$cnf(is_a_theorem(implies(X_21417,
+                        implies(not(implies(implies(implies(X_11051,
+                                  X_11052), X_11051), X_11051)),
+                          implies(implies(implies(X_11051, X_11052),
+                              X_11051), X_11051)))))],
+              [refute_0_133, refute_0_140])).
+
+cnf(refute_0_142, plain,
+    (is_a_theorem(implies(implies(implies(implies(implies(X_21425,
+                 X_21426), X_21425), X_21425), X_21428),
+         implies(not(X_21428), X_21428)))),
+    inference(subst, [],
+              [refute_0_141 :
+               [bind(X_11051, $fot(X_21425)), bind(X_11052, $fot(X_21426)),
+                bind(X_21417, $fot(not(X_21428))),
+                bind(X_21418, $fot(X_21428))]])).
+
+cnf(refute_0_143, plain,
+    (is_a_theorem(implies(X_686,
+         implies(implies(implies(implies(implies(X_21425, X_21426),
+                 X_21425), X_21425), X_21428), X_21428)))),
+    inference(resolve,
+              [$cnf(is_a_theorem(implies(implies(implies(implies(implies(X_21425,
+                                X_21426), X_21425), X_21425), X_21428),
+                        implies(not(X_21428), X_21428))))],
+              [refute_0_142, refute_0_59])).
+
+cnf(refute_0_144, plain,
+    (is_a_theorem(implies(implies(not(not(implies(implies(implies(implies(implies(X_21475,
+                         X_21476), X_21475), X_21475), X_21477),
+                 X_21477))), X_1442),
+         implies(implies(implies(implies(implies(X_21475, X_21476),
+                 X_21475), X_21475), X_21477), X_21477)))),
+    inference(subst, [],
+              [refute_0_143 :
+               [bind(X_21425, $fot(X_21475)), bind(X_21426, $fot(X_21476)),
+                bind(X_21428, $fot(X_21477)),
+                bind(X_686,
+                     $fot(implies(not(not(implies(implies(implies(implies(implies(X_21475,
+                                          X_21476), X_21475), X_21475),
+                                    X_21477), X_21477))), X_1442)))]])).
+
+cnf(refute_0_145, plain,
+    (is_a_theorem(implies(implies(implies(implies(implies(X_21475,
+                 X_21476), X_21475), X_21475), X_21477), X_21477))),
+    inference(resolve,
+              [$cnf(is_a_theorem(implies(implies(not(not(implies(implies(implies(implies(implies(X_21475,
+                                        X_21476), X_21475), X_21475),
+                                  X_21477), X_21477))), X_1442),
+                        implies(implies(implies(implies(implies(X_21475,
+                                  X_21476), X_21475), X_21475), X_21477),
+                          X_21477))))], [refute_0_144, refute_0_24])).
+
+cnf(refute_0_146, plain,
+    (is_a_theorem(implies(implies(implies(implies(implies(X_21968,
+                 X_21969), X_21968), X_21968), implies(X_61, X_21968)),
+         implies(X_61, X_21968)))),
+    inference(subst, [],
+              [refute_0_145 :
+               [bind(X_21475, $fot(X_21968)), bind(X_21476, $fot(X_21969)),
+                bind(X_21477, $fot(implies(X_61, X_21968)))]])).
+
+cnf(refute_0_147, plain,
+    (is_a_theorem(implies(implies(X_61,
+           implies(implies(X_21968, X_21969), X_21968)),
+         implies(X_61, X_21968)))),
+    inference(resolve,
+              [$cnf(is_a_theorem(implies(implies(implies(implies(implies(X_21968,
+                                X_21969), X_21968), X_21968),
+                          implies(X_61, X_21968)),
+                        implies(X_61, X_21968))))],
+              [refute_0_146, refute_0_8])).
+
+cnf(refute_0_148, plain,
+    (is_a_theorem(implies(implies(implies(X_62, X_29651),
+           implies(implies(X_29651, X_29652), X_29651)),
+         implies(implies(X_62, X_29651), X_29651)))),
+    inference(subst, [],
+              [refute_0_147 :
+               [bind(X_21968, $fot(X_29651)), bind(X_21969, $fot(X_29652)),
+                bind(X_61, $fot(implies(X_62, X_29651)))]])).
+
+cnf(refute_0_149, plain,
+    (is_a_theorem(implies(implies(implies(X_29651, X_29652), X_62),
+         implies(implies(X_62, X_29651), X_29651)))),
+    inference(resolve,
+              [$cnf(is_a_theorem(implies(implies(implies(X_62, X_29651),
+                          implies(implies(X_29651, X_29652), X_29651)),
+                        implies(implies(X_62, X_29651), X_29651))))],
+              [refute_0_148, refute_0_7])).
+
+cnf(refute_0_150, plain,
+    (is_a_theorem(implies(implies(implies(x, y), z),
+         implies(implies(z, x), x)))),
+    inference(subst, [],
+              [refute_0_149 :
+               [bind(X_29651, $fot(x)), bind(X_29652, $fot(y)),
+                bind(X_62, $fot(z))]])).
+
+cnf(refute_0_151, plain, ($false),
+    inference(resolve,
+              [$cnf(is_a_theorem(implies(implies(implies(x, y), z),
+                        implies(implies(z, x), x))))],
+              [refute_0_150, prove_cn_26])).
+% SZS output end CNFRefutation for LCL370-1.tptp
+

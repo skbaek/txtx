@@ -1,0 +1,110 @@
+%------------------------------------------------------------------------------
+% File     : KLE027+4 : TPTP v7.3.0. Released v4.0.0.
+% Domain   : Kleene Algebra (Idempotent Test Semirings)
+% Problem  : Simplify conditional
+% Version  : [Hoe08] axioms : Augmented.
+% English  : Simplify conditional: if p then (if p then x else y) else
+%            z = if p then x else z.
+
+% Refs     : [Hoe08] Hoefner (2008), Email to G. Sutcliffe
+% Source   : [Hoe08]
+% Names    :
+
+% Status   : Theorem
+% Rating   : 0.40 v7.3.0, 0.45 v7.2.0, 0.48 v7.1.0, 0.39 v7.0.0, 0.47 v6.4.0, 0.42 v6.3.0, 0.38 v6.2.0, 0.44 v6.1.0, 0.53 v6.0.0, 0.48 v5.5.0, 0.56 v5.4.0, 0.57 v5.3.0, 0.63 v5.2.0, 0.50 v5.1.0, 0.52 v5.0.0, 0.46 v4.1.0, 0.43 v4.0.1, 0.48 v4.0.0
+% Syntax   : Number of formulae    :   19 (  11 unit)
+%            Number of atoms       :   34 (  19 equality)
+%            Maximal formula depth :    8 (   4 average)
+%            Number of connectives :   16 (   1   ~;   0   |;   6   &)
+%                                         (   4 <=>;   5  =>;   0  <=;   0 <~>)
+%                                         (   0  ~|;   0  ~&)
+%            Number of predicates  :    4 (   0 propositional; 1-2 arity)
+%            Number of functors    :    5 (   2 constant; 0-2 arity)
+%            Number of variables   :   38 (   0 sgn;  37   !;   1   ?)
+%            Maximal term depth    :    6 (   2 average)
+% SPC      : FOF_THM_RFO_SEQ
+
+% Comments : Inequational encoding : additionally the de Morgan laws : proof
+%            goal is split into 2 inequations.
+%          : tptp2X 
+%------------------------------------------------------------------------------
+fof(additive_commutativity,axiom,(
+    ! [A,B] : addition(A,B) = addition(B,A) )).
+
+fof(additive_associativity,axiom,(
+    ! [C,B,A] : addition(A,addition(B,C)) = addition(addition(A,B),C) )).
+
+fof(additive_identity,axiom,(
+    ! [A] : addition(A,zero) = A )).
+
+fof(additive_idempotence,axiom,(
+    ! [A] : addition(A,A) = A )).
+
+fof(multiplicative_associativity,axiom,(
+    ! [A,B,C] : multiplication(A,multiplication(B,C)) = multiplication(multiplication(A,B),C) )).
+
+fof(multiplicative_right_identity,axiom,(
+    ! [A] : multiplication(A,one) = A )).
+
+fof(multiplicative_left_identity,axiom,(
+    ! [A] : multiplication(one,A) = A )).
+
+fof(right_distributivity,axiom,(
+    ! [A,B,C] : multiplication(A,addition(B,C)) = addition(multiplication(A,B),multiplication(A,C)) )).
+
+fof(left_distributivity,axiom,(
+    ! [A,B,C] : multiplication(addition(A,B),C) = addition(multiplication(A,C),multiplication(B,C)) )).
+
+fof(right_annihilation,axiom,(
+    ! [A] : multiplication(A,zero) = zero )).
+
+fof(left_annihilation,axiom,(
+    ! [A] : multiplication(zero,A) = zero )).
+
+fof(order,axiom,(
+    ! [A,B] : 
+      ( leq(A,B)
+    <=> addition(A,B) = B ) )).
+
+fof(test_1,axiom,(
+    ! [X0] : 
+      ( test(X0)
+    <=> ? [X1] : complement(X1,X0) ) )).
+
+fof(test_2,axiom,(
+    ! [X0,X1] : 
+      ( complement(X1,X0)
+    <=> ( multiplication(X0,X1) = zero
+        & multiplication(X1,X0) = zero
+        & addition(X0,X1) = one ) ) )).
+
+fof(test_3,axiom,(
+    ! [X0,X1] : 
+      ( test(X0)
+     => ( c(X0) = X1
+      <=> complement(X0,X1) ) ) )).
+
+fof(test_4,axiom,(
+    ! [X0] : 
+      ( ~ test(X0)
+     => c(X0) = zero ) )).
+
+fof(test_deMorgan1,axiom,(
+    ! [X0,X1] : 
+      ( ( test(X0)
+        & test(X1) )
+     => c(addition(X0,X1)) = multiplication(c(X0),c(X1)) ) )).
+
+fof(test_deMorgan2,axiom,(
+    ! [X0,X1] : 
+      ( ( test(X0)
+        & test(X1) )
+     => c(multiplication(X0,X1)) = addition(c(X0),c(X1)) ) )).
+
+fof(goals,conjecture,(
+    ! [X0,X1,X2,X3,X4] : 
+      ( ( test(X3)
+        & test(X4) )
+     => ( leq(addition(multiplication(X3,addition(multiplication(X3,X0),multiplication(c(X3),X1))),multiplication(c(X3),X2)),addition(multiplication(X3,X0),multiplication(c(X3),X2)))
+        & leq(addition(multiplication(X3,X0),multiplication(c(X3),X2)),addition(multiplication(X3,addition(multiplication(X3,X0),multiplication(c(X3),X1))),multiplication(c(X3),X2))) ) ) )).
+%------------------------------------------------------------------------------

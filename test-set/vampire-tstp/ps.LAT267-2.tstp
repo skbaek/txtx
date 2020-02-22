@@ -1,0 +1,21 @@
+% Refutation found. Thanks to Tanya!
+% SZS status Unsatisfiable for LAT267-2
+% SZS output start Proof for LAT267-2
+fof(f3,plain,(
+  $false),
+  inference(subsumption_resolution,[],[f2,f1])).
+fof(f1,axiom,(
+  c_in(v_x,v_S,t_a)),
+  file('LAT267-2.tptp',unknown)).
+fof(f2,axiom,(
+  ~c_in(v_x,v_S,t_a)),
+  file('LAT267-2.tptp',unknown)).
+% SZS output end Proof for LAT267-2
+% ------------------------------
+% Version: Vampire 4.4.0 (commit d98a3d53 on 2020-01-14 21:02:12 +0100)
+% Termination reason: Refutation
+
+% Memory used [KB]: 4861
+% Time elapsed: 0.0000 s
+% ------------------------------
+% ------------------------------

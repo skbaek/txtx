@@ -1,0 +1,99 @@
+%------------------------------------------------------------------------------
+% File     : KLE148+2 : TPTP v7.3.0. Released v4.0.0.
+% Domain   : Kleene Algebra (Demonic Refinement Algebra)
+% Problem  : Blocking law
+% Version  : [Hoe08] axioms.
+% English  : If y is blocked by x then x before strong iteration of y reduces
+%            to x.
+
+% Refs     : [vW02]  von Wright (2002), From Kleene Algebra to Refinement A
+%          : [HS07]  Hoefner & Struth (2007), Automated Reasoning in Kleene
+%          : [Hoe08] Hoefner (2008), Email to G. Sutcliffe
+% Source   : [Hoe08]
+% Names    :
+
+% Status   : Theorem
+% Rating   : 0.20 v7.3.0, 0.34 v7.2.0, 0.38 v7.1.0, 0.30 v6.4.0, 0.35 v6.3.0, 0.33 v6.2.0, 0.40 v6.1.0, 0.47 v6.0.0, 0.48 v5.5.0, 0.59 v5.4.0, 0.57 v5.3.0, 0.67 v5.2.0, 0.55 v5.1.0, 0.57 v5.0.0, 0.50 v4.1.0, 0.48 v4.0.0
+% Syntax   : Number of formulae    :   19 (  14 unit)
+%            Number of atoms       :   25 (  16 equality)
+%            Maximal formula depth :    5 (   3 average)
+%            Number of connectives :    6 (   0   ~;   0   |;   1   &)
+%                                         (   1 <=>;   4  =>;   0  <=;   0 <~>)
+%                                         (   0  ~|;   0  ~&)
+%            Number of predicates  :    2 (   0 propositional; 2-2 arity)
+%            Number of functors    :    6 (   2 constant; 0-2 arity)
+%            Number of variables   :   36 (   0 sgn;  36   !;   0   ?)
+%            Maximal term depth    :    4 (   2 average)
+% SPC      : FOF_THM_RFO_SEQ
+
+% Comments :
+%          : tptp2X 
+%------------------------------------------------------------------------------
+fof(additive_commutativity,axiom,(
+    ! [A,B] : addition(A,B) = addition(B,A) )).
+
+fof(additive_associativity,axiom,(
+    ! [C,B,A] : addition(A,addition(B,C)) = addition(addition(A,B),C) )).
+
+fof(additive_identity,axiom,(
+    ! [A] : addition(A,zero) = A )).
+
+fof(idempotence,axiom,(
+    ! [A] : addition(A,A) = A )).
+
+fof(multiplicative_associativity,axiom,(
+    ! [A,B,C] : multiplication(A,multiplication(B,C)) = multiplication(multiplication(A,B),C) )).
+
+fof(multiplicative_right_identity,axiom,(
+    ! [A] : multiplication(A,one) = A )).
+
+fof(multiplicative_left_identity,axiom,(
+    ! [A] : multiplication(one,A) = A )).
+
+fof(distributivity1,axiom,(
+    ! [A,B,C] : multiplication(A,addition(B,C)) = addition(multiplication(A,B),multiplication(A,C)) )).
+
+fof(distributivity2,axiom,(
+    ! [A,B,C] : multiplication(addition(A,B),C) = addition(multiplication(A,C),multiplication(B,C)) )).
+
+fof(left_annihilation,axiom,(
+    ! [A] : multiplication(zero,A) = zero )).
+
+fof(star_unfold1,axiom,(
+    ! [A] : addition(one,multiplication(A,star(A))) = star(A) )).
+
+fof(star_unfold2,axiom,(
+    ! [A] : addition(one,multiplication(star(A),A)) = star(A) )).
+
+fof(star_induction1,axiom,(
+    ! [A,B,C] : 
+      ( leq(addition(multiplication(A,C),B),C)
+     => leq(multiplication(star(A),B),C) ) )).
+
+fof(star_induction2,axiom,(
+    ! [A,B,C] : 
+      ( leq(addition(multiplication(C,A),B),C)
+     => leq(multiplication(B,star(A)),C) ) )).
+
+fof(infty_unfold1,axiom,(
+    ! [A] : strong_iteration(A) = addition(multiplication(A,strong_iteration(A)),one) )).
+
+fof(infty_coinduction,axiom,(
+    ! [A,B,C] : 
+      ( leq(C,addition(multiplication(A,C),B))
+     => leq(C,multiplication(strong_iteration(A),B)) ) )).
+
+fof(isolation,axiom,(
+    ! [A] : strong_iteration(A) = addition(star(A),multiplication(strong_iteration(A),zero)) )).
+
+fof(order,axiom,(
+    ! [A,B] : 
+      ( leq(A,B)
+    <=> addition(A,B) = B ) )).
+
+fof(goals,conjecture,(
+    ! [X0,X1] : 
+      ( ( multiplication(X0,X1) = zero
+       => leq(multiplication(X0,strong_iteration(X1)),X0) )
+      & leq(X0,multiplication(X0,strong_iteration(X1))) ) )).
+%------------------------------------------------------------------------------

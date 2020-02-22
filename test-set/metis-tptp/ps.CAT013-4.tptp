@@ -1,0 +1,64 @@
+%------------------------------------------------------------------------------
+% File     : CAT013-4 : TPTP v7.3.0. Released v1.0.0.
+% Domain   : Category Theory
+% Problem  : domain(codomain(x)) = codomain(x)
+% Version  : [Sco79] axioms : Reduced > Complete.
+% English  :
+
+% Refs     : [Sco79] Scott (1979), Identity and Existence in Intuitionist L
+% Source   : [TPTP]
+% Names    :
+
+% Status   : Unsatisfiable
+% Rating   : 0.00 v5.5.0, 0.06 v5.4.0, 0.07 v5.3.0, 0.17 v5.2.0, 0.00 v2.0.0
+% Syntax   : Number of clauses     :   13 (   0 non-Horn;   5 unit;  10 RR)
+%            Number of atoms       :   23 (   8 equality)
+%            Maximal clause size   :    3 (   2 average)
+%            Number of predicates  :    3 (   0 propositional; 1-2 arity)
+%            Number of functors    :    4 (   1 constant; 0-2 arity)
+%            Number of variables   :   19 (   2 singleton)
+%            Maximal term depth    :    3 (   2 average)
+% SPC      : CNF_UNS_RFO_SEQ_HRN
+
+% Comments : The dependent axioms have been removed.
+%          : tptp2X 
+%------------------------------------------------------------------------------
+cnf(equivalence_implies_existence1,axiom,
+    ( ~ equivalent(X,Y) | there_exists(X) )).
+
+cnf(equivalence_implies_existence2,axiom,
+    ( ~ equivalent(X,Y) | X = Y )).
+
+cnf(existence_and_equality_implies_equivalence1,axiom,
+    ( ~ there_exists(X) | X != Y | equivalent(X,Y) )).
+
+cnf(domain_has_elements,axiom,
+    ( ~ there_exists(domain(X)) | there_exists(X) )).
+
+cnf(codomain_has_elements,axiom,
+    ( ~ there_exists(codomain(X)) | there_exists(X) )).
+
+cnf(composition_implies_domain,axiom,
+    ( ~ there_exists(compose(X,Y)) | there_exists(domain(X)) )).
+
+cnf(domain_codomain_composition1,axiom,
+    ( ~ there_exists(compose(X,Y)) | domain(X) = codomain(Y) )).
+
+cnf(domain_codomain_composition2,axiom,
+    ( ~ there_exists(domain(X)) | domain(X) != codomain(Y) | there_exists(compose(X,Y)) )).
+
+cnf(associativity_of_compose,axiom,
+    ( compose(X,compose(Y,Z)) = compose(compose(X,Y),Z) )).
+
+cnf(compose_domain,axiom,
+    ( compose(X,domain(X)) = X )).
+
+cnf(compose_codomain,axiom,
+    ( compose(codomain(X),X) = X )).
+
+cnf(assume_codomain_exists,hypothesis,
+    ( there_exists(codomain(a)) )).
+
+cnf(prove_domain_of_codomain_is_codomain,negated_conjecture,
+    ( domain(codomain(a)) != codomain(a) )).
+%------------------------------------------------------------------------------

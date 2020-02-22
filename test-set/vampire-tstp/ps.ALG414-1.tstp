@@ -1,0 +1,21 @@
+% Refutation found. Thanks to Tanya!
+% SZS status Unsatisfiable for ALG414-1
+% SZS output start Proof for ALG414-1
+fof(f861,plain,(
+  $false),
+  inference(subsumption_resolution,[],[f663,f662])).
+fof(f662,axiom,(
+  c_RealVector_Onorm__class_Onorm(c_HOL_Otimes__class_Otimes(c_RealVector_Oof__real(v_x____,tc_Complex_Ocomplex),c_Polynomial_Opoly(v_ds____,c_RealVector_Oof__real(v_x____,tc_Complex_Ocomplex),tc_Complex_Ocomplex),tc_Complex_Ocomplex),tc_Complex_Ocomplex) != c_RealVector_Onorm__class_Onorm(v_d____,tc_Complex_Ocomplex)),
+  file('ALG414-1.tptp',unknown)).
+fof(f663,axiom,(
+  c_RealVector_Onorm__class_Onorm(c_HOL_Otimes__class_Otimes(c_RealVector_Oof__real(v_x____,tc_Complex_Ocomplex),c_Polynomial_Opoly(v_ds____,c_RealVector_Oof__real(v_x____,tc_Complex_Ocomplex),tc_Complex_Ocomplex),tc_Complex_Ocomplex),tc_Complex_Ocomplex) = c_RealVector_Onorm__class_Onorm(v_d____,tc_Complex_Ocomplex)),
+  file('ALG414-1.tptp',unknown)).
+% SZS output end Proof for ALG414-1
+% ------------------------------
+% Version: Vampire 4.4.0 (commit d98a3d53 on 2020-01-14 21:02:12 +0100)
+% Termination reason: Refutation
+
+% Memory used [KB]: 5884
+% Time elapsed: 0.018 s
+% ------------------------------
+% ------------------------------

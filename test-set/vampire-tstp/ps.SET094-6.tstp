@@ -1,0 +1,42 @@
+% Refutation found. Thanks to Tanya!
+% SZS status Unsatisfiable for SET094-6
+% SZS output start Proof for SET094-6
+fof(f365,plain,(
+  $false),
+  inference(subsumption_resolution,[],[f346,f94])).
+fof(f94,axiom,(
+  member_of(x) != y),
+  file('SET094-6.tptp',unknown)).
+fof(f346,plain,(
+  member_of(x) = y),
+  inference(resolution,[],[f263,f93])).
+fof(f93,axiom,(
+  member(y,x)),
+  file('SET094-6.tptp',unknown)).
+fof(f263,plain,(
+  ( ! [X0] : (~member(X0,x) | member_of(x) = X0) )),
+  inference(duplicate_literal_removal,[],[f262])).
+fof(f262,plain,(
+  ( ! [X0] : (~member(X0,x) | member_of(x) = X0 | member_of(x) = X0) )),
+  inference(superposition,[],[f8,f143])).
+fof(f143,plain,(
+  x = unordered_pair(member_of(x),member_of(x))),
+  inference(definition_unfolding,[],[f92,f12])).
+fof(f12,axiom,(
+  ( ! [X0] : (unordered_pair(X0,X0) = singleton(X0)) )),
+  file('SET094-6.tptp',unknown)).
+fof(f92,axiom,(
+  x = singleton(member_of(x))),
+  file('SET094-6.tptp',unknown)).
+fof(f8,axiom,(
+  ( ! [X2,X0,X1] : (~member(X2,unordered_pair(X0,X1)) | X0 = X2 | X1 = X2) )),
+  file('SET094-6.tptp',unknown)).
+% SZS output end Proof for SET094-6
+% ------------------------------
+% Version: Vampire 4.4.0 (commit d98a3d53 on 2020-01-14 21:02:12 +0100)
+% Termination reason: Refutation
+
+% Memory used [KB]: 5500
+% Time elapsed: 0.006 s
+% ------------------------------
+% ------------------------------

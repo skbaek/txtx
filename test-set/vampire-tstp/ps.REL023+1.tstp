@@ -1,0 +1,129 @@
+% Refutation found. Thanks to Tanya!
+% SZS status Theorem for REL023+1
+% SZS output start Proof for REL023+1
+fof(f3489,plain,(
+  $false),
+  inference(trivial_inequality_removal,[],[f3488])).
+fof(f3488,plain,(
+  composition(sK0,complement(join(complement(sK1),complement(sK2)))) != composition(sK0,complement(join(complement(sK1),complement(sK2))))),
+  inference(backward_demodulation,[],[f3483,f178])).
+fof(f178,plain,(
+  composition(sK0,complement(join(complement(sK1),complement(sK2)))) != composition(join(sK0,complement(join(complement(sK0),complement(converse(sK1))))),complement(join(complement(sK1),complement(sK2))))),
+  inference(forward_demodulation,[],[f175,f19])).
+fof(f19,plain,(
+  ( ! [X0,X1] : (join(X0,X1) = join(X1,X0)) )),
+  inference(cnf_transformation,[],[f1])).
+fof(f1,axiom,(
+  ! [X0,X1] : join(X0,X1) = join(X1,X0)),
+  file('REL023+1.tptp',unknown)).
+fof(f175,plain,(
+  composition(sK0,complement(join(complement(sK1),complement(sK2)))) != composition(join(complement(join(complement(sK0),complement(converse(sK1)))),sK0),complement(join(complement(sK1),complement(sK2))))),
+  inference(superposition,[],[f34,f25])).
+fof(f25,plain,(
+  ( ! [X2,X0,X1] : (composition(join(X0,X1),X2) = join(composition(X0,X2),composition(X1,X2))) )),
+  inference(cnf_transformation,[],[f7])).
+fof(f7,axiom,(
+  ! [X0,X1,X2] : composition(join(X0,X1),X2) = join(composition(X0,X2),composition(X1,X2))),
+  file('REL023+1.tptp',unknown)).
+fof(f34,plain,(
+  composition(sK0,complement(join(complement(sK1),complement(sK2)))) != join(composition(complement(join(complement(sK0),complement(converse(sK1)))),complement(join(complement(sK1),complement(sK2)))),composition(sK0,complement(join(complement(sK1),complement(sK2)))))),
+  inference(definition_unfolding,[],[f32,f22,f22,f22,f22])).
+fof(f22,plain,(
+  ( ! [X0,X1] : (complement(join(complement(X0),complement(X1))) = meet(X0,X1)) )),
+  inference(cnf_transformation,[],[f4])).
+fof(f4,axiom,(
+  ! [X0,X1] : complement(join(complement(X0),complement(X1))) = meet(X0,X1)),
+  file('REL023+1.tptp',unknown)).
+fof(f32,plain,(
+  composition(sK0,meet(sK1,sK2)) != join(composition(meet(sK0,converse(sK1)),meet(sK1,sK2)),composition(sK0,meet(sK1,sK2)))),
+  inference(cnf_transformation,[],[f18])).
+fof(f18,plain,(
+  composition(sK0,meet(sK1,sK2)) != join(composition(meet(sK0,converse(sK1)),meet(sK1,sK2)),composition(sK0,meet(sK1,sK2)))),
+  inference(skolemisation,[status(esa),new_symbols(skolem,[sK0,sK1,sK2])],[f16,f17])).
+fof(f17,plain,(
+  ? [X0,X1,X2] : composition(X0,meet(X1,X2)) != join(composition(meet(X0,converse(X1)),meet(X1,X2)),composition(X0,meet(X1,X2))) => composition(sK0,meet(sK1,sK2)) != join(composition(meet(sK0,converse(sK1)),meet(sK1,sK2)),composition(sK0,meet(sK1,sK2)))),
+  introduced(choice_axiom,[])).
+fof(f16,plain,(
+  ? [X0,X1,X2] : composition(X0,meet(X1,X2)) != join(composition(meet(X0,converse(X1)),meet(X1,X2)),composition(X0,meet(X1,X2)))),
+  inference(ennf_transformation,[],[f15])).
+fof(f15,negated_conjecture,(
+  ~! [X0,X1,X2] : composition(X0,meet(X1,X2)) = join(composition(meet(X0,converse(X1)),meet(X1,X2)),composition(X0,meet(X1,X2)))),
+  inference(negated_conjecture,[],[f14])).
+fof(f14,conjecture,(
+  ! [X0,X1,X2] : composition(X0,meet(X1,X2)) = join(composition(meet(X0,converse(X1)),meet(X1,X2)),composition(X0,meet(X1,X2)))),
+  file('REL023+1.tptp',unknown)).
+fof(f3483,plain,(
+  ( ! [X17,X16] : (join(X16,complement(join(complement(X16),X17))) = X16) )),
+  inference(forward_demodulation,[],[f3339,f21])).
+fof(f21,plain,(
+  ( ! [X0,X1] : (join(complement(join(complement(X0),complement(X1))),complement(join(complement(X0),X1))) = X0) )),
+  inference(cnf_transformation,[],[f3])).
+fof(f3,axiom,(
+  ! [X0,X1] : join(complement(join(complement(X0),complement(X1))),complement(join(complement(X0),X1))) = X0),
+  file('REL023+1.tptp',unknown)).
+fof(f3339,plain,(
+  ( ! [X17,X16] : (join(complement(join(complement(X16),complement(X17))),complement(join(complement(X16),X17))) = join(X16,complement(join(complement(X16),X17)))) )),
+  inference(superposition,[],[f156,f487])).
+fof(f487,plain,(
+  ( ! [X1] : (complement(X1) = join(complement(X1),complement(X1))) )),
+  inference(forward_demodulation,[],[f476,f485])).
+fof(f485,plain,(
+  ( ! [X2] : (composition(one,X2) = X2) )),
+  inference(backward_demodulation,[],[f473,f433])).
+fof(f433,plain,(
+  ( ! [X2] : (composition(converse(one),X2) = X2) )),
+  inference(forward_demodulation,[],[f412,f26])).
+fof(f26,plain,(
+  ( ! [X0] : (converse(converse(X0)) = X0) )),
+  inference(cnf_transformation,[],[f8])).
+fof(f8,axiom,(
+  ! [X0] : converse(converse(X0)) = X0),
+  file('REL023+1.tptp',unknown)).
+fof(f412,plain,(
+  ( ! [X2] : (composition(converse(one),X2) = converse(converse(X2))) )),
+  inference(superposition,[],[f44,f24])).
+fof(f24,plain,(
+  ( ! [X0] : (composition(X0,one) = X0) )),
+  inference(cnf_transformation,[],[f6])).
+fof(f6,axiom,(
+  ! [X0] : composition(X0,one) = X0),
+  file('REL023+1.tptp',unknown)).
+fof(f44,plain,(
+  ( ! [X0,X1] : (converse(composition(converse(X0),X1)) = composition(converse(X1),X0)) )),
+  inference(superposition,[],[f28,f26])).
+fof(f28,plain,(
+  ( ! [X0,X1] : (converse(composition(X0,X1)) = composition(converse(X1),converse(X0))) )),
+  inference(cnf_transformation,[],[f10])).
+fof(f10,axiom,(
+  ! [X0,X1] : converse(composition(X0,X1)) = composition(converse(X1),converse(X0))),
+  file('REL023+1.tptp',unknown)).
+fof(f473,plain,(
+  one = converse(one)),
+  inference(superposition,[],[f433,f24])).
+fof(f476,plain,(
+  ( ! [X1] : (complement(X1) = join(complement(composition(one,X1)),complement(X1))) )),
+  inference(superposition,[],[f29,f433])).
+fof(f29,plain,(
+  ( ! [X0,X1] : (complement(X1) = join(composition(converse(X0),complement(composition(X0,X1))),complement(X1))) )),
+  inference(cnf_transformation,[],[f11])).
+fof(f11,axiom,(
+  ! [X0,X1] : complement(X1) = join(composition(converse(X0),complement(composition(X0,X1))),complement(X1))),
+  file('REL023+1.tptp',unknown)).
+fof(f156,plain,(
+  ( ! [X2,X0,X1] : (join(X0,X2) = join(complement(join(complement(X0),complement(X1))),join(complement(join(complement(X0),X1)),X2))) )),
+  inference(superposition,[],[f20,f21])).
+fof(f20,plain,(
+  ( ! [X2,X0,X1] : (join(X0,join(X1,X2)) = join(join(X0,X1),X2)) )),
+  inference(cnf_transformation,[],[f2])).
+fof(f2,axiom,(
+  ! [X0,X1,X2] : join(X0,join(X1,X2)) = join(join(X0,X1),X2)),
+  file('REL023+1.tptp',unknown)).
+% SZS output end Proof for REL023+1
+% ------------------------------
+% Version: Vampire 4.4.0 (commit d98a3d53 on 2020-01-14 21:02:12 +0100)
+% Termination reason: Refutation
+
+% Memory used [KB]: 8059
+% Time elapsed: 0.055 s
+% ------------------------------
+% ------------------------------

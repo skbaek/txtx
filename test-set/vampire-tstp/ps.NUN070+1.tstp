@@ -1,0 +1,243 @@
+% Refutation found. Thanks to Tanya!
+% SZS status Theorem for NUN070+1
+% SZS output start Proof for NUN070+1
+fof(f3804,plain,(
+  $false),
+  inference(avatar_sat_refutation,[],[f3437,f3801,f3803])).
+fof(f3803,plain,(
+  ~spl20_15),
+  inference(avatar_contradiction_clause,[],[f3802])).
+fof(f3802,plain,(
+  $false | ~spl20_15),
+  inference(resolution,[],[f3800,f3056])).
+fof(f3056,plain,(
+  r1(sK5(sK0,sK13(sK0)))),
+  inference(resolution,[],[f3012,f530])).
+fof(f530,plain,(
+  ( ! [X0,X1] : (~r1(sK2(X0,X1)) | r1(sK5(X0,X1))) )),
+  inference(resolution,[],[f205,f107])).
+fof(f107,plain,(
+  ( ! [X0,X1] : (r3(X0,X1,sK5(X0,X1))) )),
+  inference(cnf_transformation,[],[f52])).
+fof(f52,plain,(
+  ! [X0,X1] : ((r3(X0,X1,sK5(X0,X1)) & r2(sK5(X0,X1),sK4(X0,X1))) & ((r3(X0,sK7(X0,X1),sK6(X0,X1)) & r2(X1,sK7(X0,X1))) & id(sK6(X0,X1),sK4(X0,X1))))),
+  inference(skolemisation,[status(esa),new_symbols(skolem,[sK4,sK5,sK6,sK7])],[f31,f51,f50,f49,f48])).
+fof(f48,plain,(
+  ! [X1,X0] : (? [X2] : (? [X3] : (r3(X0,X1,X3) & r2(X3,X2)) & ? [X4] : (? [X5] : (r3(X0,X5,X4) & r2(X1,X5)) & id(X4,X2))) => (? [X3] : (r3(X0,X1,X3) & r2(X3,sK4(X0,X1))) & ? [X4] : (? [X5] : (r3(X0,X5,X4) & r2(X1,X5)) & id(X4,sK4(X0,X1)))))),
+  introduced(choice_axiom,[])).
+fof(f49,plain,(
+  ! [X1,X0] : (? [X3] : (r3(X0,X1,X3) & r2(X3,sK4(X0,X1))) => (r3(X0,X1,sK5(X0,X1)) & r2(sK5(X0,X1),sK4(X0,X1))))),
+  introduced(choice_axiom,[])).
+fof(f50,plain,(
+  ! [X1,X0] : (? [X4] : (? [X5] : (r3(X0,X5,X4) & r2(X1,X5)) & id(X4,sK4(X0,X1))) => (? [X5] : (r3(X0,X5,sK6(X0,X1)) & r2(X1,X5)) & id(sK6(X0,X1),sK4(X0,X1))))),
+  introduced(choice_axiom,[])).
+fof(f51,plain,(
+  ! [X1,X0] : (? [X5] : (r3(X0,X5,sK6(X0,X1)) & r2(X1,X5)) => (r3(X0,sK7(X0,X1),sK6(X0,X1)) & r2(X1,sK7(X0,X1))))),
+  introduced(choice_axiom,[])).
+fof(f31,plain,(
+  ! [X0,X1] : ? [X2] : (? [X3] : (r3(X0,X1,X3) & r2(X3,X2)) & ? [X4] : (? [X5] : (r3(X0,X5,X4) & r2(X1,X5)) & id(X4,X2)))),
+  inference(rectify,[],[f12])).
+fof(f12,axiom,(
+  ! [X37,X38] : ? [X39] : (? [X42] : (r3(X37,X38,X42) & r2(X42,X39)) & ? [X40] : (? [X41] : (r3(X37,X41,X40) & r2(X38,X41)) & id(X40,X39)))),
+  file('NUN070+1.tptp',unknown)).
+fof(f205,plain,(
+  ( ! [X4,X5,X3] : (~r3(X3,X4,X5) | ~r1(sK2(X3,X4)) | r1(X5)) )),
+  inference(resolution,[],[f76,f88])).
+fof(f88,plain,(
+  ( ! [X0,X1] : (~id(X0,X1) | ~r1(X1) | r1(X0)) )),
+  inference(cnf_transformation,[],[f27])).
+fof(f27,plain,(
+  ! [X0,X1] : ((r1(X1) & r1(X0)) | (~r1(X1) & ~r1(X0)) | ~id(X0,X1))),
+  inference(rectify,[],[f8])).
+fof(f8,axiom,(
+  ! [X19,X20] : ((r1(X20) & r1(X19)) | (~r1(X20) & ~r1(X19)) | ~id(X19,X20))),
+  file('NUN070+1.tptp',unknown)).
+fof(f76,plain,(
+  ( ! [X0,X3,X1] : (id(X3,sK2(X0,X1)) | ~r3(X0,X1,X3)) )),
+  inference(cnf_transformation,[],[f45])).
+fof(f45,plain,(
+  ! [X0,X1] : ! [X3] : ((~id(X3,sK2(X0,X1)) & ~r3(X0,X1,X3)) | (r3(X0,X1,X3) & id(X3,sK2(X0,X1))))),
+  inference(skolemisation,[status(esa),new_symbols(skolem,[sK2])],[f22,f44])).
+fof(f44,plain,(
+  ! [X1,X0] : (? [X2] : ! [X3] : ((~id(X3,X2) & ~r3(X0,X1,X3)) | (r3(X0,X1,X3) & id(X3,X2))) => ! [X3] : ((~id(X3,sK2(X0,X1)) & ~r3(X0,X1,X3)) | (r3(X0,X1,X3) & id(X3,sK2(X0,X1)))))),
+  introduced(choice_axiom,[])).
+fof(f22,plain,(
+  ! [X0,X1] : ? [X2] : ! [X3] : ((~id(X3,X2) & ~r3(X0,X1,X3)) | (r3(X0,X1,X3) & id(X3,X2)))),
+  inference(rectify,[],[f3])).
+fof(f3,axiom,(
+  ! [X5,X6] : ? [X7] : ! [X8] : ((~id(X8,X7) & ~r3(X5,X6,X8)) | (r3(X5,X6,X8) & id(X8,X7)))),
+  file('NUN070+1.tptp',unknown)).
+fof(f3012,plain,(
+  r1(sK2(sK0,sK13(sK0)))),
+  inference(resolution,[],[f3003,f71])).
+fof(f71,plain,(
+  ( ! [X1] : (~id(X1,sK0) | r1(X1)) )),
+  inference(cnf_transformation,[],[f41])).
+fof(f41,plain,(
+  ! [X1] : ((~id(X1,sK0) & ~r1(X1)) | (r1(X1) & id(X1,sK0)))),
+  inference(skolemisation,[status(esa),new_symbols(skolem,[sK0])],[f1,f40])).
+fof(f40,plain,(
+  ? [X0] : ! [X1] : ((~id(X1,X0) & ~r1(X1)) | (r1(X1) & id(X1,X0))) => ! [X1] : ((~id(X1,sK0) & ~r1(X1)) | (r1(X1) & id(X1,sK0)))),
+  introduced(choice_axiom,[])).
+fof(f1,axiom,(
+  ? [X0] : ! [X1] : ((~id(X1,X0) & ~r1(X1)) | (r1(X1) & id(X1,X0)))),
+  file('NUN070+1.tptp',unknown)).
+fof(f3003,plain,(
+  ( ! [X2] : (id(sK2(X2,sK13(X2)),X2)) )),
+  inference(resolution,[],[f493,f116])).
+fof(f116,plain,(
+  ( ! [X0] : (r3(X0,sK13(X0),sK12(X0))) )),
+  inference(cnf_transformation,[],[f60])).
+fof(f60,plain,(
+  ! [X0] : ((r3(X0,sK13(X0),sK12(X0)) & r1(sK13(X0))) & id(sK12(X0),X0))),
+  inference(skolemisation,[status(esa),new_symbols(skolem,[sK12,sK13])],[f34,f59,f58])).
+fof(f58,plain,(
+  ! [X0] : (? [X1] : (? [X2] : (r3(X0,X2,X1) & r1(X2)) & id(X1,X0)) => (? [X2] : (r3(X0,X2,sK12(X0)) & r1(X2)) & id(sK12(X0),X0)))),
+  introduced(choice_axiom,[])).
+fof(f59,plain,(
+  ! [X0] : (? [X2] : (r3(X0,X2,sK12(X0)) & r1(X2)) => (r3(X0,sK13(X0),sK12(X0)) & r1(sK13(X0))))),
+  introduced(choice_axiom,[])).
+fof(f34,plain,(
+  ! [X0] : ? [X1] : (? [X2] : (r3(X0,X2,X1) & r1(X2)) & id(X1,X0))),
+  inference(rectify,[],[f15])).
+fof(f15,axiom,(
+  ! [X53] : ? [X54] : (? [X55] : (r3(X53,X55,X54) & r1(X55)) & id(X54,X53))),
+  file('NUN070+1.tptp',unknown)).
+fof(f493,plain,(
+  ( ! [X45,X46,X44] : (~r3(X44,X45,sK12(X46)) | id(sK2(X44,X45),X46)) )),
+  inference(resolution,[],[f206,f237])).
+fof(f237,plain,(
+  ( ! [X4,X5] : (~id(X4,sK12(X5)) | id(X4,X5)) )),
+  inference(resolution,[],[f86,f114])).
+fof(f114,plain,(
+  ( ! [X0] : (id(sK12(X0),X0)) )),
+  inference(cnf_transformation,[],[f60])).
+fof(f86,plain,(
+  ( ! [X2,X0,X1] : (~id(X1,X2) | id(X0,X2) | ~id(X0,X1)) )),
+  inference(cnf_transformation,[],[f26])).
+fof(f26,plain,(
+  ! [X0,X1,X2] : (~id(X1,X2) | id(X0,X2) | ~id(X0,X1))),
+  inference(rectify,[],[f7])).
+fof(f7,axiom,(
+  ! [X16,X17,X18] : (~id(X17,X18) | id(X16,X18) | ~id(X16,X17))),
+  file('NUN070+1.tptp',unknown)).
+fof(f206,plain,(
+  ( ! [X6,X8,X7] : (id(sK2(X6,X7),X8) | ~r3(X6,X7,X8)) )),
+  inference(resolution,[],[f76,f85])).
+fof(f85,plain,(
+  ( ! [X0,X1] : (~id(X0,X1) | id(X1,X0)) )),
+  inference(cnf_transformation,[],[f25])).
+fof(f25,plain,(
+  ! [X0,X1] : (id(X1,X0) | ~id(X0,X1))),
+  inference(rectify,[],[f6])).
+fof(f6,axiom,(
+  ! [X14,X15] : (id(X15,X14) | ~id(X14,X15))),
+  file('NUN070+1.tptp',unknown)).
+fof(f3800,plain,(
+  ( ! [X31,X32] : (~r1(sK5(X31,X32))) ) | ~spl20_15),
+  inference(avatar_component_clause,[],[f3799])).
+fof(f3799,plain,(
+  spl20_15 <=> ! [X32,X31] : ~r1(sK5(X31,X32))),
+  introduced(avatar_definition,[new_symbols(naming,[spl20_15])])).
+fof(f3801,plain,(
+  spl20_13 | spl20_15),
+  inference(avatar_split_clause,[],[f3797,f3799,f3334])).
+fof(f3334,plain,(
+  spl20_13 <=> ! [X166] : ~r1(X166)),
+  introduced(avatar_definition,[new_symbols(naming,[spl20_13])])).
+fof(f3797,plain,(
+  ( ! [X30,X31,X32] : (~r1(sK5(X31,X32)) | ~r1(X30)) )),
+  inference(subsumption_resolution,[],[f3789,f853])).
+fof(f853,plain,(
+  ( ! [X2,X0,X1] : (~r2(X1,X2) | ~r1(X0) | ~r1(X1) | ~r2(X0,X2)) )),
+  inference(resolution,[],[f316,f114])).
+fof(f316,plain,(
+  ( ! [X12,X10,X13,X11] : (~id(sK12(X11),X12) | ~r1(X10) | ~r2(X13,X11) | ~r1(X13) | ~r2(X10,X12)) )),
+  inference(subsumption_resolution,[],[f313,f115])).
+fof(f115,plain,(
+  ( ! [X0] : (r1(sK13(X0))) )),
+  inference(cnf_transformation,[],[f60])).
+fof(f313,plain,(
+  ( ! [X12,X10,X13,X11] : (~r1(X10) | ~id(sK12(X11),X12) | ~r2(X13,X11) | ~r1(X13) | ~r2(X10,X12) | ~r1(sK13(X11))) )),
+  inference(resolution,[],[f126,f116])).
+fof(f126,plain,(
+  ( ! [X4,X2,X0,X5,X3,X1] : (~r3(X3,X5,X0) | ~r1(X2) | ~id(X0,X1) | ~r2(X4,X3) | ~r1(X4) | ~r2(X2,X1) | ~r1(X5)) )),
+  inference(cnf_transformation,[],[f39])).
+fof(f39,plain,(
+  ! [X0] : (! [X1] : (! [X2] : (~r2(X2,X1) | ~r1(X2)) | ~id(X0,X1)) | ! [X3] : (! [X4] : (~r2(X4,X3) | ~r1(X4)) | ! [X5] : (~r3(X3,X5,X0) | ~r1(X5))))),
+  inference(ennf_transformation,[],[f38])).
+fof(f38,plain,(
+  ~? [X0] : (? [X1] : (? [X2] : (r2(X2,X1) & r1(X2)) & id(X0,X1)) & ? [X3] : (? [X4] : (r2(X4,X3) & r1(X4)) & ? [X5] : (r3(X3,X5,X0) & r1(X5))))),
+  inference(rectify,[],[f20])).
+fof(f20,negated_conjecture,(
+  ~? [X62] : (? [X46] : (? [X48] : (r2(X48,X46) & r1(X48)) & id(X62,X46)) & ? [X45] : (? [X40] : (r2(X40,X45) & r1(X40)) & ? [X39] : (r3(X45,X39,X62) & r1(X39))))),
+  inference(negated_conjecture,[],[f19])).
+fof(f19,conjecture,(
+  ? [X62] : (? [X46] : (? [X48] : (r2(X48,X46) & r1(X48)) & id(X62,X46)) & ? [X45] : (? [X40] : (r2(X40,X45) & r1(X40)) & ? [X39] : (r3(X45,X39,X62) & r1(X39))))),
+  file('NUN070+1.tptp',unknown)).
+fof(f3789,plain,(
+  ( ! [X30,X31,X32] : (r2(X30,sK6(X31,X32)) | ~r1(sK5(X31,X32)) | ~r1(X30)) )),
+  inference(resolution,[],[f791,f1471])).
+fof(f1471,plain,(
+  ( ! [X0,X1] : (id(X0,X1) | ~r1(X1) | ~r1(X0)) )),
+  inference(resolution,[],[f236,f68])).
+fof(f68,plain,(
+  ( ! [X1] : (id(X1,sK0) | ~r1(X1)) )),
+  inference(cnf_transformation,[],[f41])).
+fof(f236,plain,(
+  ( ! [X2,X3] : (~id(X2,sK0) | id(X2,X3) | ~r1(X3)) )),
+  inference(resolution,[],[f86,f132])).
+fof(f132,plain,(
+  ( ! [X2] : (id(sK0,X2) | ~r1(X2)) )),
+  inference(resolution,[],[f85,f68])).
+fof(f791,plain,(
+  ( ! [X2,X0,X1] : (~id(X0,sK5(X1,X2)) | r2(X0,sK6(X1,X2))) )),
+  inference(resolution,[],[f260,f103])).
+fof(f103,plain,(
+  ( ! [X0,X1] : (id(sK6(X0,X1),sK4(X0,X1))) )),
+  inference(cnf_transformation,[],[f52])).
+fof(f260,plain,(
+  ( ! [X14,X17,X15,X16] : (~id(X15,sK4(X16,X17)) | r2(X14,X15) | ~id(X14,sK5(X16,X17))) )),
+  inference(resolution,[],[f92,f106])).
+fof(f106,plain,(
+  ( ! [X0,X1] : (r2(sK5(X0,X1),sK4(X0,X1))) )),
+  inference(cnf_transformation,[],[f52])).
+fof(f92,plain,(
+  ( ! [X2,X0,X3,X1] : (~r2(X2,X3) | r2(X0,X1) | ~id(X1,X3) | ~id(X0,X2)) )),
+  inference(cnf_transformation,[],[f28])).
+fof(f28,plain,(
+  ! [X0,X1,X2,X3] : ((r2(X2,X3) & r2(X0,X1)) | (~r2(X2,X3) & ~r2(X0,X1)) | ~id(X1,X3) | ~id(X0,X2))),
+  inference(rectify,[],[f9])).
+fof(f9,axiom,(
+  ! [X21,X22,X23,X24] : ((r2(X23,X24) & r2(X21,X22)) | (~r2(X23,X24) & ~r2(X21,X22)) | ~id(X22,X24) | ~id(X21,X23))),
+  file('NUN070+1.tptp',unknown)).
+fof(f3437,plain,(
+  ~spl20_13),
+  inference(avatar_contradiction_clause,[],[f3356])).
+fof(f3356,plain,(
+  $false | ~spl20_13),
+  inference(resolution,[],[f3335,f128])).
+fof(f128,plain,(
+  r1(sK0)),
+  inference(resolution,[],[f71,f84])).
+fof(f84,plain,(
+  ( ! [X0] : (id(X0,X0)) )),
+  inference(cnf_transformation,[],[f24])).
+fof(f24,plain,(
+  ! [X0] : id(X0,X0)),
+  inference(rectify,[],[f5])).
+fof(f5,axiom,(
+  ! [X13] : id(X13,X13)),
+  file('NUN070+1.tptp',unknown)).
+fof(f3335,plain,(
+  ( ! [X166] : (~r1(X166)) ) | ~spl20_13),
+  inference(avatar_component_clause,[],[f3334])).
+% SZS output end Proof for NUN070+1
+% ------------------------------
+% Version: Vampire 4.4.0 (commit d98a3d53 on 2020-01-14 21:02:12 +0100)
+% Termination reason: Refutation
+
+% Memory used [KB]: 6908
+% Time elapsed: 0.047 s
+% ------------------------------
+% ------------------------------

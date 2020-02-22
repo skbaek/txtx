@@ -1,0 +1,183 @@
+%------------------------------------------------------------------------------
+% File     : SYO659-1 : TPTP v7.3.0. Released v7.3.0.
+% Domain   : Syntactic
+% Problem  : GSM_2_1_4
+% Version  : Especial.
+% English  :
+
+% Refs     : [EH+16] Ebner et al. (2016), System Description: GAPT 2.0
+%          : [Cer18] Cerna (2018), Email to Geoff Sutcliffe
+% Source   : [Cer18]
+% Names    : GSM_2_1_4 [Cer18]
+
+% Status   : Unsatisfiable
+% Rating   : 0.17 v7.3.0
+% Syntax   : Number of clauses     :   52 (  34 non-Horn;   2 unit;  51 RR)
+%            Number of atoms       :  486 (   0 equality)
+%            Maximal clause size   :   17 (   9 average)
+%            Number of predicates  :    3 (   0 propositional; 2-2 arity)
+%            Number of functors    :    5 (   2 constant; 0-1 arity)
+%            Number of variables   :   83 (   1 singleton)
+%            Maximal term depth    :    6 (   3 average)
+% SPC      : CNF_UNS_RFO_NEQ_NHN
+
+% Comments : Created using the GAPT system - https://github.com/gapt/gapt/blob/
+%            master/examples/schema/GradedStrictMonotoneSequenceSchema.scala
+%          : tptp2X 
+%------------------------------------------------------------------------------
+cnf(clause_603,axiom,
+    ( ~ iLEQ(suc(A_1),suc(B_3)) | ~ 'E'(s('0'),f(suc(suc(A_1)))) | ~ 'E'(s('0'),f(A_1)) | ~ 'E'(s('0'),f(suc(suc(B_3)))) | ~ 'E'(f(A_1),f(suc(suc(suc(A_1))))) | ~ 'E'(s('0'),f(suc(A_1))) | ~ 'E'(s('0'),f(suc(suc(suc(suc(A_1)))))) | ~ 'E'(s('0'),f(suc(suc(suc(B_3))))) | ~ 'E'(s('0'),f(suc(B_3))) | ~ 'E'(s('0'),f(B_3)) | ~ 'E'(f(A_1),f(suc(suc(A_1)))) | ~ 'E'(f(B_3),f(suc(B_3))) | ~ 'E'(f(A_1),f(suc(A_1))) | ~ 'E'(s('0'),f(suc(suc(suc(A_1))))) | ~ 'E'(f(B_3),f(suc(suc(B_3)))) | 'E'(f(B_3),f(suc(suc(suc(B_3))))) )).
+
+cnf(clause_307,axiom,
+    ( ~ 'E'(s('0'),f(A_1)) | ~ 'E'(s('0'),f(suc(A_1))) | 'E'(f(A_1),f(suc(A_1))) | iLEQ(suc(A_1),suc(A_1)) )).
+
+cnf(clause_575,axiom,
+    ( ~ 'LE'(f(suc(suc(suc(B_5)))),s('0')) | 'E'('0',f(suc(suc(suc(B_5))))) | 'LE'(f(B_5),'0') )).
+
+cnf(clause_490,axiom,
+    ( ~ 'LE'(f(suc(suc(B_2))),s(s('0'))) | 'E'(s('0'),f(suc(suc(B_2)))) | 'LE'(f(B_2),s('0')) )).
+
+cnf(clause_417,axiom,
+    ( ~ 'E'('0',f(suc(A_2))) | ~ 'E'('0',f(suc(suc(A_2)))) | ~ 'E'('0',f(A_2)) | ~ iLEQ(suc(A_2),suc(B_6)) | ~ 'E'('0',f(B_6)) | ~ 'E'(f(A_2),f(suc(A_2))) | ~ 'E'('0',f(suc(B_6))) | 'E'(f(A_2),f(suc(suc(A_2)))) | 'E'(f(B_6),f(suc(B_6))) )).
+
+cnf(clause_475,axiom,
+    ( ~ 'E'('0',f(suc(A_2))) | ~ 'E'('0',f(suc(suc(B_6)))) | ~ 'E'('0',f(A_2)) | ~ iLEQ(suc(A_2),suc(B_6)) | ~ 'E'('0',f(suc(suc(suc(B_6))))) | ~ 'E'('0',f(suc(suc(suc(suc(B_6)))))) | ~ 'E'(f(B_6),f(suc(suc(suc(B_6))))) | ~ 'E'('0',f(B_6)) | ~ 'E'(f(B_6),f(suc(suc(B_6)))) | ~ 'E'(f(B_6),f(suc(B_6))) | ~ 'E'('0',f(suc(B_6))) | 'E'(f(A_2),f(suc(A_2))) )).
+
+cnf(clause_14,axiom,
+    ( ~ 'E'('0',f(suc(suc(A_2)))) | ~ 'E'('0',f(suc(A_2))) | ~ 'E'(f(A_2),f(suc(A_2))) | ~ 'E'('0',f(A_2)) | 'E'(f(A_2),f(suc(suc(A_2)))) | iLEQ(suc(A_2),suc(A_2)) )).
+
+cnf(clause_600,axiom,
+    ( ~ 'E'(s('0'),f(suc(suc(A_1)))) | ~ 'E'(s('0'),f(A_1)) | ~ 'E'(s('0'),f(suc(A_1))) | ~ 'E'(f(A_1),f(suc(suc(A_1)))) | ~ 'E'(f(A_1),f(suc(A_1))) | ~ 'E'(s('0'),f(suc(suc(suc(A_1))))) | 'E'(f(A_1),f(suc(suc(suc(A_1))))) | iLEQ(suc(A_1),suc(A_1)) )).
+
+cnf(clause_352,axiom,
+    ( ~ iLEQ(suc(A_1),suc(B_3)) | ~ 'E'(s('0'),f(suc(suc(suc(suc(B_3)))))) | ~ 'E'(s('0'),f(A_1)) | ~ 'E'(s('0'),f(suc(suc(B_3)))) | ~ 'E'(s('0'),f(suc(A_1))) | ~ 'E'(s('0'),f(suc(suc(suc(B_3))))) | ~ 'E'(s('0'),f(suc(B_3))) | ~ 'E'(s('0'),f(B_3)) | ~ 'E'(f(B_3),f(suc(B_3))) | ~ 'E'(f(B_3),f(suc(suc(suc(B_3))))) | ~ 'E'(f(B_3),f(suc(suc(B_3)))) | 'E'(f(A_1),f(suc(A_1))) )).
+
+cnf(clause_200,axiom,
+    ( ~ 'LE'(f(B_2),s(s('0'))) | 'E'(s('0'),f(B_2)) | 'LE'(f(B_2),s('0')) )).
+
+cnf(clause_494,axiom,
+    ( ~ 'E'('0',f(suc(A_2))) | ~ 'E'('0',f(suc(suc(A_2)))) | ~ 'E'(f(A_2),f(suc(suc(A_2)))) | ~ 'E'('0',f(A_2)) | ~ iLEQ(suc(A_2),suc(B_6)) | ~ 'E'('0',f(suc(suc(suc(A_2))))) | ~ 'E'('0',f(B_6)) | ~ 'E'(f(A_2),f(suc(A_2))) | ~ 'E'('0',f(suc(B_6))) | 'E'(f(A_2),f(suc(suc(suc(A_2))))) | 'E'(f(B_6),f(suc(B_6))) )).
+
+cnf(clause_91,axiom,
+    ( ~ 'LE'(f(suc(suc(suc(suc(B_2))))),s(s('0'))) | 'E'(s('0'),f(suc(suc(suc(suc(B_2)))))) | 'LE'(f(B_2),s('0')) )).
+
+cnf(clause_538,axiom,
+    ( ~ iLEQ(suc(A_1),suc(B_3)) | ~ 'E'(s('0'),f(A_1)) | ~ 'E'(s('0'),f(suc(A_1))) | ~ 'E'(s('0'),f(suc(B_3))) | ~ 'E'(s('0'),f(B_3)) | 'E'(f(A_1),f(suc(A_1))) | 'E'(f(B_3),f(suc(B_3))) )).
+
+cnf(clause_582,axiom,
+    ( ~ iLEQ(suc(A_1),suc(B_3)) | ~ 'E'(s('0'),f(suc(suc(A_1)))) | ~ 'E'(s('0'),f(A_1)) | ~ 'E'(s('0'),f(suc(suc(B_3)))) | ~ 'E'(s('0'),f(suc(A_1))) | ~ 'E'(s('0'),f(suc(B_3))) | ~ 'E'(s('0'),f(B_3)) | ~ 'E'(f(A_1),f(suc(suc(A_1)))) | ~ 'E'(f(B_3),f(suc(B_3))) | ~ 'E'(f(A_1),f(suc(A_1))) | ~ 'E'(s('0'),f(suc(suc(suc(A_1))))) | 'E'(f(A_1),f(suc(suc(suc(A_1))))) | 'E'(f(B_3),f(suc(suc(B_3)))) )).
+
+cnf(clause_529,axiom,
+    ( ~ iLEQ(suc(A_1),suc(B_3)) | ~ 'E'(s('0'),f(suc(suc(A_1)))) | ~ 'E'(s('0'),f(A_1)) | ~ 'E'(s('0'),f(suc(suc(B_3)))) | ~ 'E'(s('0'),f(suc(A_1))) | ~ 'E'(s('0'),f(suc(suc(suc(B_3))))) | ~ 'E'(s('0'),f(suc(B_3))) | ~ 'E'(s('0'),f(B_3)) | ~ 'E'(f(A_1),f(suc(suc(A_1)))) | ~ 'E'(f(B_3),f(suc(B_3))) | ~ 'E'(f(A_1),f(suc(A_1))) | ~ 'E'(s('0'),f(suc(suc(suc(A_1))))) | ~ 'E'(f(B_3),f(suc(suc(B_3)))) | 'E'(f(A_1),f(suc(suc(suc(A_1))))) | 'E'(f(B_3),f(suc(suc(suc(B_3))))) )).
+
+cnf(clause_636,axiom,
+    ( ~ 'E'('0',f(suc(A_2))) | ~ 'E'('0',f(suc(suc(B_6)))) | ~ 'E'('0',f(suc(suc(A_2)))) | ~ 'E'('0',f(A_2)) | ~ iLEQ(suc(A_2),suc(B_6)) | ~ 'E'('0',f(suc(suc(suc(B_6))))) | ~ 'E'('0',f(suc(suc(suc(suc(B_6)))))) | ~ 'E'(f(B_6),f(suc(suc(suc(B_6))))) | ~ 'E'('0',f(B_6)) | ~ 'E'(f(B_6),f(suc(suc(B_6)))) | ~ 'E'(f(A_2),f(suc(A_2))) | ~ 'E'(f(B_6),f(suc(B_6))) | ~ 'E'('0',f(suc(B_6))) | 'E'(f(A_2),f(suc(suc(A_2)))) )).
+
+cnf(clause_660,axiom,
+    ( ~ 'E'('0',f(suc(A_2))) | ~ 'E'('0',f(suc(suc(B_6)))) | ~ 'E'('0',f(suc(suc(A_2)))) | ~ 'E'(f(A_2),f(suc(suc(A_2)))) | ~ 'E'('0',f(A_2)) | ~ iLEQ(suc(A_2),suc(B_6)) | ~ 'E'('0',f(suc(suc(suc(B_6))))) | ~ 'E'('0',f(suc(suc(suc(suc(B_6)))))) | ~ 'E'(f(B_6),f(suc(suc(suc(B_6))))) | ~ 'E'('0',f(suc(suc(suc(A_2))))) | ~ 'E'('0',f(B_6)) | ~ 'E'(f(B_6),f(suc(suc(B_6)))) | ~ 'E'(f(A_2),f(suc(A_2))) | ~ 'E'(f(B_6),f(suc(B_6))) | ~ 'E'('0',f(suc(B_6))) | 'E'(f(A_2),f(suc(suc(suc(A_2))))) )).
+
+cnf(clause_667,axiom,
+    ( ~ 'E'('0',f(suc(A_2))) | ~ 'E'('0',f(suc(suc(A_2)))) | ~ 'E'(f(A_2),f(suc(suc(A_2)))) | ~ 'E'('0',f(A_2)) | ~ 'E'('0',f(suc(suc(suc(suc(A_2)))))) | ~ 'E'(f(A_2),f(suc(suc(suc(A_2))))) | ~ 'E'('0',f(suc(suc(suc(A_2))))) | ~ 'E'(f(A_2),f(suc(A_2))) | iLEQ(suc(A_2),suc(A_2)) )).
+
+cnf(clause_460,axiom,
+    ( ~ 'LE'(f(suc(B_5)),s('0')) | 'E'('0',f(suc(B_5))) | 'LE'(f(B_5),'0') )).
+
+cnf(clause_423,axiom,
+    ( ~ 'LE'(f(B_5),s('0')) | 'E'('0',f(B_5)) | 'LE'(f(B_5),'0') )).
+
+cnf(clause_332,axiom,
+    ( ~ 'LE'(f(z),'0') )).
+
+cnf(clause_246,axiom,
+    ( ~ 'E'('0',f(suc(A_2))) | ~ 'E'('0',f(suc(suc(B_6)))) | ~ 'E'('0',f(A_2)) | ~ iLEQ(suc(A_2),suc(B_6)) | ~ 'E'('0',f(suc(suc(suc(B_6))))) | ~ 'E'('0',f(B_6)) | ~ 'E'(f(B_6),f(suc(suc(B_6)))) | ~ 'E'(f(B_6),f(suc(B_6))) | ~ 'E'('0',f(suc(B_6))) | 'E'(f(A_2),f(suc(A_2))) | 'E'(f(B_6),f(suc(suc(suc(B_6))))) )).
+
+cnf(clause_66,axiom,
+    ( ~ 'E'(s('0'),f(suc(suc(A_1)))) | ~ 'E'(s('0'),f(suc(A_1))) | ~ 'E'(f(A_1),f(suc(A_1))) | ~ 'E'(s('0'),f(A_1)) | 'E'(f(A_1),f(suc(suc(A_1)))) | iLEQ(suc(A_1),suc(A_1)) )).
+
+cnf(clause_271,axiom,
+    ( 'LE'(f(A),s(s('0'))) )).
+
+cnf(clause_165,axiom,
+    ( ~ iLEQ(suc(A_1),suc(B_3)) | ~ 'E'(s('0'),f(suc(suc(A_1)))) | ~ 'E'(s('0'),f(A_1)) | ~ 'E'(f(A_1),f(suc(suc(suc(A_1))))) | ~ 'E'(s('0'),f(suc(A_1))) | ~ 'E'(s('0'),f(suc(suc(suc(suc(A_1)))))) | ~ 'E'(s('0'),f(suc(B_3))) | ~ 'E'(s('0'),f(B_3)) | ~ 'E'(f(A_1),f(suc(suc(A_1)))) | ~ 'E'(f(A_1),f(suc(A_1))) | ~ 'E'(s('0'),f(suc(suc(suc(A_1))))) | 'E'(f(B_3),f(suc(B_3))) )).
+
+cnf(clause_551,axiom,
+    ( ~ 'E'(s('0'),f(suc(suc(A_1)))) | ~ 'E'(s('0'),f(A_1)) | ~ 'E'(f(A_1),f(suc(suc(suc(A_1))))) | ~ 'E'(s('0'),f(suc(A_1))) | ~ 'E'(s('0'),f(suc(suc(suc(suc(A_1)))))) | ~ 'E'(f(A_1),f(suc(suc(A_1)))) | ~ 'E'(f(A_1),f(suc(A_1))) | ~ 'E'(s('0'),f(suc(suc(suc(A_1))))) | iLEQ(suc(A_1),suc(A_1)) )).
+
+cnf(clause_451,axiom,
+    ( ~ 'E'('0',f(suc(A_2))) | ~ 'E'('0',f(suc(suc(B_6)))) | ~ 'E'('0',f(suc(suc(A_2)))) | ~ 'E'(f(A_2),f(suc(suc(A_2)))) | ~ 'E'('0',f(A_2)) | ~ iLEQ(suc(A_2),suc(B_6)) | ~ 'E'('0',f(suc(suc(suc(suc(A_2)))))) | ~ 'E'('0',f(suc(suc(suc(B_6))))) | ~ 'E'(f(A_2),f(suc(suc(suc(A_2))))) | ~ 'E'('0',f(suc(suc(suc(A_2))))) | ~ 'E'('0',f(B_6)) | ~ 'E'(f(B_6),f(suc(suc(B_6)))) | ~ 'E'(f(A_2),f(suc(A_2))) | ~ 'E'(f(B_6),f(suc(B_6))) | ~ 'E'('0',f(suc(B_6))) | 'E'(f(B_6),f(suc(suc(suc(B_6))))) )).
+
+cnf(clause_366,axiom,
+    ( ~ iLEQ(suc(A_1),suc(B_3)) | ~ 'E'(s('0'),f(suc(suc(A_1)))) | ~ 'E'(s('0'),f(A_1)) | ~ 'E'(s('0'),f(suc(suc(B_3)))) | ~ 'E'(f(A_1),f(suc(suc(suc(A_1))))) | ~ 'E'(s('0'),f(suc(A_1))) | ~ 'E'(s('0'),f(suc(suc(suc(suc(A_1)))))) | ~ 'E'(s('0'),f(suc(B_3))) | ~ 'E'(s('0'),f(B_3)) | ~ 'E'(f(A_1),f(suc(suc(A_1)))) | ~ 'E'(f(B_3),f(suc(B_3))) | ~ 'E'(f(A_1),f(suc(A_1))) | ~ 'E'(s('0'),f(suc(suc(suc(A_1))))) | 'E'(f(B_3),f(suc(suc(B_3)))) )).
+
+cnf(clause_399,axiom,
+    ( ~ 'E'('0',f(suc(A_2))) | ~ 'E'('0',f(suc(suc(B_6)))) | ~ 'E'('0',f(suc(suc(A_2)))) | ~ 'E'('0',f(A_2)) | ~ iLEQ(suc(A_2),suc(B_6)) | ~ 'E'('0',f(suc(suc(suc(B_6))))) | ~ 'E'('0',f(B_6)) | ~ 'E'(f(B_6),f(suc(suc(B_6)))) | ~ 'E'(f(A_2),f(suc(A_2))) | ~ 'E'(f(B_6),f(suc(B_6))) | ~ 'E'('0',f(suc(B_6))) | 'E'(f(A_2),f(suc(suc(A_2)))) | 'E'(f(B_6),f(suc(suc(suc(B_6))))) )).
+
+cnf(clause_253,axiom,
+    ( ~ iLEQ(suc(A_1),suc(B_3)) | ~ 'E'(s('0'),f(suc(suc(A_1)))) | ~ 'E'(s('0'),f(A_1)) | ~ 'E'(s('0'),f(suc(A_1))) | ~ 'E'(s('0'),f(suc(B_3))) | ~ 'E'(s('0'),f(B_3)) | ~ 'E'(f(A_1),f(suc(A_1))) | 'E'(f(A_1),f(suc(suc(A_1)))) | 'E'(f(B_3),f(suc(B_3))) )).
+
+cnf(clause_128,axiom,
+    ( ~ iLEQ(suc(A_1),suc(B_3)) | ~ 'E'(s('0'),f(suc(suc(A_1)))) | ~ 'E'(s('0'),f(A_1)) | ~ 'E'(s('0'),f(suc(A_1))) | ~ 'E'(s('0'),f(suc(B_3))) | ~ 'E'(s('0'),f(B_3)) | ~ 'E'(f(A_1),f(suc(suc(A_1)))) | ~ 'E'(f(A_1),f(suc(A_1))) | ~ 'E'(s('0'),f(suc(suc(suc(A_1))))) | 'E'(f(A_1),f(suc(suc(suc(A_1))))) | 'E'(f(B_3),f(suc(B_3))) )).
+
+cnf(clause_374,axiom,
+    ( ~ iLEQ(suc(A_1),suc(B_3)) | ~ 'E'(s('0'),f(suc(suc(A_1)))) | ~ 'E'(s('0'),f(A_1)) | ~ 'E'(s('0'),f(suc(suc(B_3)))) | ~ 'E'(s('0'),f(suc(A_1))) | ~ 'E'(s('0'),f(suc(suc(suc(B_3))))) | ~ 'E'(s('0'),f(suc(B_3))) | ~ 'E'(s('0'),f(B_3)) | ~ 'E'(f(B_3),f(suc(B_3))) | ~ 'E'(f(A_1),f(suc(A_1))) | ~ 'E'(f(B_3),f(suc(suc(B_3)))) | 'E'(f(A_1),f(suc(suc(A_1)))) | 'E'(f(B_3),f(suc(suc(suc(B_3))))) )).
+
+cnf(clause_217,axiom,
+    ( ~ 'E'('0',f(suc(A_2))) | ~ 'E'('0',f(A_2)) | ~ iLEQ(suc(A_2),suc(B_6)) | ~ 'E'('0',f(B_6)) | ~ 'E'('0',f(suc(B_6))) | 'E'(f(A_2),f(suc(A_2))) | 'E'(f(B_6),f(suc(B_6))) )).
+
+cnf(clause_162,axiom,
+    ( ~ iLEQ(suc(A_1),suc(B_3)) | ~ 'E'(s('0'),f(suc(suc(A_1)))) | ~ 'E'(s('0'),f(A_1)) | ~ 'E'(s('0'),f(suc(suc(B_3)))) | ~ 'E'(s('0'),f(suc(A_1))) | ~ 'E'(s('0'),f(suc(B_3))) | ~ 'E'(s('0'),f(B_3)) | ~ 'E'(f(B_3),f(suc(B_3))) | ~ 'E'(f(A_1),f(suc(A_1))) | 'E'(f(A_1),f(suc(suc(A_1)))) | 'E'(f(B_3),f(suc(suc(B_3)))) )).
+
+cnf(clause_618,axiom,
+    ( ~ 'E'('0',f(suc(A_2))) | ~ 'E'('0',f(suc(suc(B_6)))) | ~ 'E'('0',f(suc(suc(A_2)))) | ~ 'E'(f(A_2),f(suc(suc(A_2)))) | ~ 'E'('0',f(A_2)) | ~ iLEQ(suc(A_2),suc(B_6)) | ~ 'E'('0',f(suc(suc(suc(suc(A_2)))))) | ~ 'E'('0',f(suc(suc(suc(B_6))))) | ~ 'E'(f(A_2),f(suc(suc(suc(A_2))))) | ~ 'E'('0',f(suc(suc(suc(suc(B_6)))))) | ~ 'E'(f(B_6),f(suc(suc(suc(B_6))))) | ~ 'E'('0',f(suc(suc(suc(A_2))))) | ~ 'E'('0',f(B_6)) | ~ 'E'(f(B_6),f(suc(suc(B_6)))) | ~ 'E'(f(A_2),f(suc(A_2))) | ~ 'E'(f(B_6),f(suc(B_6))) | ~ 'E'('0',f(suc(B_6))) )).
+
+cnf(clause_290,axiom,
+    ( ~ 'E'('0',f(suc(A_2))) | ~ 'E'('0',f(suc(suc(B_6)))) | ~ 'E'('0',f(suc(suc(A_2)))) | ~ 'E'('0',f(A_2)) | ~ iLEQ(suc(A_2),suc(B_6)) | ~ 'E'('0',f(B_6)) | ~ 'E'(f(A_2),f(suc(A_2))) | ~ 'E'(f(B_6),f(suc(B_6))) | ~ 'E'('0',f(suc(B_6))) | 'E'(f(A_2),f(suc(suc(A_2)))) | 'E'(f(B_6),f(suc(suc(B_6)))) )).
+
+cnf(clause_347,axiom,
+    ( ~ 'E'('0',f(suc(A_2))) | ~ 'E'('0',f(suc(suc(B_6)))) | ~ 'E'('0',f(suc(suc(A_2)))) | ~ 'E'(f(A_2),f(suc(suc(A_2)))) | ~ 'E'('0',f(A_2)) | ~ iLEQ(suc(A_2),suc(B_6)) | ~ 'E'('0',f(suc(suc(suc(B_6))))) | ~ 'E'('0',f(suc(suc(suc(A_2))))) | ~ 'E'('0',f(B_6)) | ~ 'E'(f(B_6),f(suc(suc(B_6)))) | ~ 'E'(f(A_2),f(suc(A_2))) | ~ 'E'(f(B_6),f(suc(B_6))) | ~ 'E'('0',f(suc(B_6))) | 'E'(f(A_2),f(suc(suc(suc(A_2))))) | 'E'(f(B_6),f(suc(suc(suc(B_6))))) )).
+
+cnf(clause_282,axiom,
+    ( ~ 'LE'(f(suc(suc(suc(B_2)))),s(s('0'))) | 'E'(s('0'),f(suc(suc(suc(B_2))))) | 'LE'(f(B_2),s('0')) )).
+
+cnf(clause_112,axiom,
+    ( ~ 'LE'(f(suc(suc(suc(suc(B_5))))),s('0')) | 'E'('0',f(suc(suc(suc(suc(B_5)))))) | 'LE'(f(B_5),'0') )).
+
+cnf(clause_531,axiom,
+    ( ~ iLEQ(suc(A_1),suc(B_3)) | ~ 'E'(s('0'),f(suc(suc(A_1)))) | ~ 'E'(s('0'),f(suc(suc(suc(suc(B_3)))))) | ~ 'E'(s('0'),f(A_1)) | ~ 'E'(s('0'),f(suc(suc(B_3)))) | ~ 'E'(f(A_1),f(suc(suc(suc(A_1))))) | ~ 'E'(s('0'),f(suc(A_1))) | ~ 'E'(s('0'),f(suc(suc(suc(suc(A_1)))))) | ~ 'E'(s('0'),f(suc(suc(suc(B_3))))) | ~ 'E'(s('0'),f(suc(B_3))) | ~ 'E'(s('0'),f(B_3)) | ~ 'E'(f(A_1),f(suc(suc(A_1)))) | ~ 'E'(f(B_3),f(suc(B_3))) | ~ 'E'(f(A_1),f(suc(A_1))) | ~ 'E'(f(B_3),f(suc(suc(suc(B_3))))) | ~ 'E'(s('0'),f(suc(suc(suc(A_1))))) | ~ 'E'(f(B_3),f(suc(suc(B_3)))) )).
+
+cnf(clause_359,axiom,
+    ( ~ 'E'('0',f(A_2)) | ~ 'E'('0',f(suc(A_2))) | 'E'(f(A_2),f(suc(A_2))) | iLEQ(suc(A_2),suc(A_2)) )).
+
+cnf(clause_402,axiom,
+    ( ~ 'LE'(f(suc(B_2)),s(s('0'))) | 'E'(s('0'),f(suc(B_2))) | 'LE'(f(B_2),s('0')) )).
+
+cnf(clause_465,axiom,
+    ( ~ 'E'('0',f(suc(A_2))) | ~ 'E'('0',f(suc(suc(A_2)))) | ~ 'E'(f(A_2),f(suc(suc(A_2)))) | ~ 'E'('0',f(A_2)) | ~ 'E'('0',f(suc(suc(suc(A_2))))) | ~ 'E'(f(A_2),f(suc(A_2))) | 'E'(f(A_2),f(suc(suc(suc(A_2))))) | iLEQ(suc(A_2),suc(A_2)) )).
+
+cnf(clause_409,axiom,
+    ( ~ 'E'('0',f(suc(A_2))) | ~ 'E'('0',f(suc(suc(B_6)))) | ~ 'E'('0',f(suc(suc(A_2)))) | ~ 'E'(f(A_2),f(suc(suc(A_2)))) | ~ 'E'('0',f(A_2)) | ~ iLEQ(suc(A_2),suc(B_6)) | ~ 'E'('0',f(suc(suc(suc(A_2))))) | ~ 'E'('0',f(B_6)) | ~ 'E'(f(A_2),f(suc(A_2))) | ~ 'E'(f(B_6),f(suc(B_6))) | ~ 'E'('0',f(suc(B_6))) | 'E'(f(A_2),f(suc(suc(suc(A_2))))) | 'E'(f(B_6),f(suc(suc(B_6)))) )).
+
+cnf(clause_145,axiom,
+    ( ~ iLEQ(suc(A_1),suc(B_3)) | ~ 'E'(s('0'),f(suc(suc(A_1)))) | ~ 'E'(s('0'),f(suc(suc(suc(suc(B_3)))))) | ~ 'E'(s('0'),f(A_1)) | ~ 'E'(s('0'),f(suc(suc(B_3)))) | ~ 'E'(s('0'),f(suc(A_1))) | ~ 'E'(s('0'),f(suc(suc(suc(B_3))))) | ~ 'E'(s('0'),f(suc(B_3))) | ~ 'E'(s('0'),f(B_3)) | ~ 'E'(f(B_3),f(suc(B_3))) | ~ 'E'(f(A_1),f(suc(A_1))) | ~ 'E'(f(B_3),f(suc(suc(suc(B_3))))) | ~ 'E'(f(B_3),f(suc(suc(B_3)))) | 'E'(f(A_1),f(suc(suc(A_1)))) )).
+
+cnf(clause_267,axiom,
+    ( ~ iLEQ(suc(A_1),suc(B_3)) | ~ 'E'(s('0'),f(A_1)) | ~ 'E'(s('0'),f(suc(suc(B_3)))) | ~ 'E'(s('0'),f(suc(A_1))) | ~ 'E'(s('0'),f(suc(B_3))) | ~ 'E'(s('0'),f(B_3)) | ~ 'E'(f(B_3),f(suc(B_3))) | 'E'(f(A_1),f(suc(A_1))) | 'E'(f(B_3),f(suc(suc(B_3)))) )).
+
+cnf(clause_604,axiom,
+    ( ~ 'E'('0',f(suc(A_2))) | ~ 'E'('0',f(suc(suc(A_2)))) | ~ 'E'(f(A_2),f(suc(suc(A_2)))) | ~ 'E'('0',f(A_2)) | ~ iLEQ(suc(A_2),suc(B_6)) | ~ 'E'('0',f(suc(suc(suc(suc(A_2)))))) | ~ 'E'(f(A_2),f(suc(suc(suc(A_2))))) | ~ 'E'('0',f(suc(suc(suc(A_2))))) | ~ 'E'('0',f(B_6)) | ~ 'E'(f(A_2),f(suc(A_2))) | ~ 'E'('0',f(suc(B_6))) | 'E'(f(B_6),f(suc(B_6))) )).
+
+cnf(clause_672,axiom,
+    ( ~ 'E'('0',f(suc(A_2))) | ~ 'E'('0',f(suc(suc(B_6)))) | ~ 'E'('0',f(A_2)) | ~ iLEQ(suc(A_2),suc(B_6)) | ~ 'E'('0',f(B_6)) | ~ 'E'(f(B_6),f(suc(B_6))) | ~ 'E'('0',f(suc(B_6))) | 'E'(f(A_2),f(suc(A_2))) | 'E'(f(B_6),f(suc(suc(B_6)))) )).
+
+cnf(clause_447,axiom,
+    ( ~ iLEQ(suc(A_1),suc(B_3)) | ~ 'E'(s('0'),f(suc(suc(A_1)))) | ~ 'E'(s('0'),f(suc(suc(suc(suc(B_3)))))) | ~ 'E'(s('0'),f(A_1)) | ~ 'E'(s('0'),f(suc(suc(B_3)))) | ~ 'E'(s('0'),f(suc(A_1))) | ~ 'E'(s('0'),f(suc(suc(suc(B_3))))) | ~ 'E'(s('0'),f(suc(B_3))) | ~ 'E'(s('0'),f(B_3)) | ~ 'E'(f(A_1),f(suc(suc(A_1)))) | ~ 'E'(f(B_3),f(suc(B_3))) | ~ 'E'(f(A_1),f(suc(A_1))) | ~ 'E'(f(B_3),f(suc(suc(suc(B_3))))) | ~ 'E'(s('0'),f(suc(suc(suc(A_1))))) | ~ 'E'(f(B_3),f(suc(suc(B_3)))) | 'E'(f(A_1),f(suc(suc(suc(A_1))))) )).
+
+cnf(clause_205,axiom,
+    ( ~ 'E'('0',f(suc(A_2))) | ~ 'E'('0',f(suc(suc(B_6)))) | ~ 'E'('0',f(suc(suc(A_2)))) | ~ 'E'(f(A_2),f(suc(suc(A_2)))) | ~ 'E'('0',f(A_2)) | ~ iLEQ(suc(A_2),suc(B_6)) | ~ 'E'('0',f(suc(suc(suc(suc(A_2)))))) | ~ 'E'(f(A_2),f(suc(suc(suc(A_2))))) | ~ 'E'('0',f(suc(suc(suc(A_2))))) | ~ 'E'('0',f(B_6)) | ~ 'E'(f(A_2),f(suc(A_2))) | ~ 'E'(f(B_6),f(suc(B_6))) | ~ 'E'('0',f(suc(B_6))) | 'E'(f(B_6),f(suc(suc(B_6)))) )).
+
+cnf(clause_537,axiom,
+    ( ~ 'LE'(f(suc(suc(B_5))),s('0')) | 'E'('0',f(suc(suc(B_5)))) | 'LE'(f(B_5),'0') )).
+
+cnf(clause_173,axiom,
+    ( ~ iLEQ(suc(A_1),suc(B_3)) | ~ 'E'(s('0'),f(A_1)) | ~ 'E'(s('0'),f(suc(suc(B_3)))) | ~ 'E'(s('0'),f(suc(A_1))) | ~ 'E'(s('0'),f(suc(suc(suc(B_3))))) | ~ 'E'(s('0'),f(suc(B_3))) | ~ 'E'(s('0'),f(B_3)) | ~ 'E'(f(B_3),f(suc(B_3))) | ~ 'E'(f(B_3),f(suc(suc(B_3)))) | 'E'(f(A_1),f(suc(A_1))) | 'E'(f(B_3),f(suc(suc(suc(B_3))))) )).
+%------------------------------------------------------------------------------

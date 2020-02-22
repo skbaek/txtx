@@ -1,0 +1,546 @@
+% Refutation found. Thanks to Tanya!
+% SZS status Theorem for LAT331+1
+% SZS output start Proof for LAT331+1
+fof(f3445,plain,(
+  $false),
+  inference(avatar_sat_refutation,[],[f787,f987,f1081,f1090,f1163,f1173,f1178,f1191,f3444])).
+fof(f3444,plain,(
+  ~spl32_47 | ~spl32_48),
+  inference(avatar_contradiction_clause,[],[f3443])).
+fof(f3443,plain,(
+  $false | (~spl32_47 | ~spl32_48)),
+  inference(subsumption_resolution,[],[f3442,f396])).
+fof(f396,plain,(
+  k8_filter_0(sK3,sK5) != k8_filter_0(sK4,sK5)),
+  inference(backward_demodulation,[],[f246,f247])).
+fof(f247,plain,(
+  k8_filter_0(sK3,sK5) != k8_filter_0(sK4,sK6)),
+  inference(cnf_transformation,[],[f180])).
+fof(f180,plain,(
+  (((k8_filter_0(sK3,sK5) != k8_filter_0(sK4,sK6) & sK5 = sK6 & g3_lattices(u1_struct_0(sK3),u2_lattices(sK3),u1_lattices(sK3)) = g3_lattices(u1_struct_0(sK4),u2_lattices(sK4),u1_lattices(sK4)) & m1_filter_2(sK6,sK4)) & m1_filter_2(sK5,sK3)) & l3_lattices(sK4) & v10_lattices(sK4) & ~v3_struct_0(sK4)) & l3_lattices(sK3) & v10_lattices(sK3) & ~v3_struct_0(sK3)),
+  inference(skolemisation,[status(esa),new_symbols(skolem,[sK3,sK4,sK5,sK6])],[f93,f179,f178,f177,f176])).
+fof(f176,plain,(
+  ? [X0] : (? [X1] : (? [X2] : (? [X3] : (k8_filter_0(X0,X2) != k8_filter_0(X1,X3) & X2 = X3 & g3_lattices(u1_struct_0(X0),u2_lattices(X0),u1_lattices(X0)) = g3_lattices(u1_struct_0(X1),u2_lattices(X1),u1_lattices(X1)) & m1_filter_2(X3,X1)) & m1_filter_2(X2,X0)) & l3_lattices(X1) & v10_lattices(X1) & ~v3_struct_0(X1)) & l3_lattices(X0) & v10_lattices(X0) & ~v3_struct_0(X0)) => (? [X1] : (? [X2] : (? [X3] : (k8_filter_0(X1,X3) != k8_filter_0(sK3,X2) & X2 = X3 & g3_lattices(u1_struct_0(X1),u2_lattices(X1),u1_lattices(X1)) = g3_lattices(u1_struct_0(sK3),u2_lattices(sK3),u1_lattices(sK3)) & m1_filter_2(X3,X1)) & m1_filter_2(X2,sK3)) & l3_lattices(X1) & v10_lattices(X1) & ~v3_struct_0(X1)) & l3_lattices(sK3) & v10_lattices(sK3) & ~v3_struct_0(sK3))),
+  introduced(choice_axiom,[])).
+fof(f177,plain,(
+  ? [X1] : (? [X2] : (? [X3] : (k8_filter_0(X1,X3) != k8_filter_0(sK3,X2) & X2 = X3 & g3_lattices(u1_struct_0(X1),u2_lattices(X1),u1_lattices(X1)) = g3_lattices(u1_struct_0(sK3),u2_lattices(sK3),u1_lattices(sK3)) & m1_filter_2(X3,X1)) & m1_filter_2(X2,sK3)) & l3_lattices(X1) & v10_lattices(X1) & ~v3_struct_0(X1)) => (? [X2] : (? [X3] : (k8_filter_0(sK3,X2) != k8_filter_0(sK4,X3) & X2 = X3 & g3_lattices(u1_struct_0(sK3),u2_lattices(sK3),u1_lattices(sK3)) = g3_lattices(u1_struct_0(sK4),u2_lattices(sK4),u1_lattices(sK4)) & m1_filter_2(X3,sK4)) & m1_filter_2(X2,sK3)) & l3_lattices(sK4) & v10_lattices(sK4) & ~v3_struct_0(sK4))),
+  introduced(choice_axiom,[])).
+fof(f178,plain,(
+  ? [X2] : (? [X3] : (k8_filter_0(sK3,X2) != k8_filter_0(sK4,X3) & X2 = X3 & g3_lattices(u1_struct_0(sK3),u2_lattices(sK3),u1_lattices(sK3)) = g3_lattices(u1_struct_0(sK4),u2_lattices(sK4),u1_lattices(sK4)) & m1_filter_2(X3,sK4)) & m1_filter_2(X2,sK3)) => (? [X3] : (k8_filter_0(sK4,X3) != k8_filter_0(sK3,sK5) & sK5 = X3 & g3_lattices(u1_struct_0(sK3),u2_lattices(sK3),u1_lattices(sK3)) = g3_lattices(u1_struct_0(sK4),u2_lattices(sK4),u1_lattices(sK4)) & m1_filter_2(X3,sK4)) & m1_filter_2(sK5,sK3))),
+  introduced(choice_axiom,[])).
+fof(f179,plain,(
+  ? [X3] : (k8_filter_0(sK4,X3) != k8_filter_0(sK3,sK5) & sK5 = X3 & g3_lattices(u1_struct_0(sK3),u2_lattices(sK3),u1_lattices(sK3)) = g3_lattices(u1_struct_0(sK4),u2_lattices(sK4),u1_lattices(sK4)) & m1_filter_2(X3,sK4)) => (k8_filter_0(sK3,sK5) != k8_filter_0(sK4,sK6) & sK5 = sK6 & g3_lattices(u1_struct_0(sK3),u2_lattices(sK3),u1_lattices(sK3)) = g3_lattices(u1_struct_0(sK4),u2_lattices(sK4),u1_lattices(sK4)) & m1_filter_2(sK6,sK4))),
+  introduced(choice_axiom,[])).
+fof(f93,plain,(
+  ? [X0] : (? [X1] : (? [X2] : (? [X3] : (k8_filter_0(X0,X2) != k8_filter_0(X1,X3) & X2 = X3 & g3_lattices(u1_struct_0(X0),u2_lattices(X0),u1_lattices(X0)) = g3_lattices(u1_struct_0(X1),u2_lattices(X1),u1_lattices(X1)) & m1_filter_2(X3,X1)) & m1_filter_2(X2,X0)) & l3_lattices(X1) & v10_lattices(X1) & ~v3_struct_0(X1)) & l3_lattices(X0) & v10_lattices(X0) & ~v3_struct_0(X0))),
+  inference(flattening,[],[f92])).
+fof(f92,plain,(
+  ? [X0] : (? [X1] : (? [X2] : (? [X3] : ((k8_filter_0(X0,X2) != k8_filter_0(X1,X3) & (X2 = X3 & g3_lattices(u1_struct_0(X0),u2_lattices(X0),u1_lattices(X0)) = g3_lattices(u1_struct_0(X1),u2_lattices(X1),u1_lattices(X1)))) & m1_filter_2(X3,X1)) & m1_filter_2(X2,X0)) & (l3_lattices(X1) & v10_lattices(X1) & ~v3_struct_0(X1))) & (l3_lattices(X0) & v10_lattices(X0) & ~v3_struct_0(X0)))),
+  inference(ennf_transformation,[],[f2])).
+fof(f2,negated_conjecture,(
+  ~! [X0] : ((l3_lattices(X0) & v10_lattices(X0) & ~v3_struct_0(X0)) => ! [X1] : ((l3_lattices(X1) & v10_lattices(X1) & ~v3_struct_0(X1)) => ! [X2] : (m1_filter_2(X2,X0) => ! [X3] : (m1_filter_2(X3,X1) => ((X2 = X3 & g3_lattices(u1_struct_0(X0),u2_lattices(X0),u1_lattices(X0)) = g3_lattices(u1_struct_0(X1),u2_lattices(X1),u1_lattices(X1))) => k8_filter_0(X0,X2) = k8_filter_0(X1,X3))))))),
+  inference(negated_conjecture,[],[f1])).
+fof(f1,conjecture,(
+  ! [X0] : ((l3_lattices(X0) & v10_lattices(X0) & ~v3_struct_0(X0)) => ! [X1] : ((l3_lattices(X1) & v10_lattices(X1) & ~v3_struct_0(X1)) => ! [X2] : (m1_filter_2(X2,X0) => ! [X3] : (m1_filter_2(X3,X1) => ((X2 = X3 & g3_lattices(u1_struct_0(X0),u2_lattices(X0),u1_lattices(X0)) = g3_lattices(u1_struct_0(X1),u2_lattices(X1),u1_lattices(X1))) => k8_filter_0(X0,X2) = k8_filter_0(X1,X3))))))),
+  file('LAT331+1.tptp',unknown)).
+fof(f246,plain,(
+  sK5 = sK6),
+  inference(cnf_transformation,[],[f180])).
+fof(f3442,plain,(
+  k8_filter_0(sK3,sK5) = k8_filter_0(sK4,sK5) | (~spl32_47 | ~spl32_48)),
+  inference(forward_demodulation,[],[f3441,f3436])).
+fof(f3436,plain,(
+  k8_filter_0(sK3,sK5) = g3_lattices(sK5,k1_realset1(u2_lattices(sK3),sK5),k1_realset1(u1_lattices(sK3),sK5))),
+  inference(forward_demodulation,[],[f3435,f2928])).
+fof(f2928,plain,(
+  k1_realset1(u2_lattices(sK3),sK5) = sK7(k8_filter_0(sK3,sK5),sK5,sK3)),
+  inference(subsumption_resolution,[],[f2927,f239])).
+fof(f239,plain,(
+  l3_lattices(sK3)),
+  inference(cnf_transformation,[],[f180])).
+fof(f2927,plain,(
+  ~l3_lattices(sK3) | k1_realset1(u2_lattices(sK3),sK5) = sK7(k8_filter_0(sK3,sK5),sK5,sK3)),
+  inference(subsumption_resolution,[],[f2926,f237])).
+fof(f237,plain,(
+  ~v3_struct_0(sK3)),
+  inference(cnf_transformation,[],[f180])).
+fof(f2926,plain,(
+  v3_struct_0(sK3) | ~l3_lattices(sK3) | k1_realset1(u2_lattices(sK3),sK5) = sK7(k8_filter_0(sK3,sK5),sK5,sK3)),
+  inference(subsumption_resolution,[],[f2921,f238])).
+fof(f238,plain,(
+  v10_lattices(sK3)),
+  inference(cnf_transformation,[],[f180])).
+fof(f2921,plain,(
+  ~v10_lattices(sK3) | v3_struct_0(sK3) | ~l3_lattices(sK3) | k1_realset1(u2_lattices(sK3),sK5) = sK7(k8_filter_0(sK3,sK5),sK5,sK3)),
+  inference(resolution,[],[f1414,f642])).
+fof(f642,plain,(
+  m1_filter_0(sK5,sK3)),
+  inference(subsumption_resolution,[],[f641,f237])).
+fof(f641,plain,(
+  m1_filter_0(sK5,sK3) | v3_struct_0(sK3)),
+  inference(subsumption_resolution,[],[f640,f238])).
+fof(f640,plain,(
+  m1_filter_0(sK5,sK3) | ~v10_lattices(sK3) | v3_struct_0(sK3)),
+  inference(subsumption_resolution,[],[f636,f239])).
+fof(f636,plain,(
+  m1_filter_0(sK5,sK3) | ~l3_lattices(sK3) | ~v10_lattices(sK3) | v3_struct_0(sK3)),
+  inference(resolution,[],[f379,f243])).
+fof(f243,plain,(
+  m1_filter_2(sK5,sK3)),
+  inference(cnf_transformation,[],[f180])).
+fof(f379,plain,(
+  ( ! [X0,X1] : (~m1_filter_2(X1,X0) | m1_filter_0(X1,X0) | ~l3_lattices(X0) | ~v10_lattices(X0) | v3_struct_0(X0)) )),
+  inference(cnf_transformation,[],[f235])).
+fof(f235,plain,(
+  ! [X0] : (! [X1] : ((m1_filter_2(X1,X0) | ~m1_filter_0(X1,X0)) & (m1_filter_0(X1,X0) | ~m1_filter_2(X1,X0))) | ~l3_lattices(X0) | ~v10_lattices(X0) | v3_struct_0(X0))),
+  inference(nnf_transformation,[],[f160])).
+fof(f160,plain,(
+  ! [X0] : (! [X1] : (m1_filter_2(X1,X0) <=> m1_filter_0(X1,X0)) | ~l3_lattices(X0) | ~v10_lattices(X0) | v3_struct_0(X0))),
+  inference(flattening,[],[f159])).
+fof(f159,plain,(
+  ! [X0] : (! [X1] : (m1_filter_2(X1,X0) <=> m1_filter_0(X1,X0)) | (~l3_lattices(X0) | ~v10_lattices(X0) | v3_struct_0(X0)))),
+  inference(ennf_transformation,[],[f69])).
+fof(f69,axiom,(
+  ! [X0] : ((l3_lattices(X0) & v10_lattices(X0) & ~v3_struct_0(X0)) => ! [X1] : (m1_filter_2(X1,X0) <=> m1_filter_0(X1,X0)))),
+  file('LAT331+1.tptp',unknown)).
+fof(f1414,plain,(
+  ( ! [X4,X5] : (~m1_filter_0(X5,X4) | ~v10_lattices(X4) | v3_struct_0(X4) | ~l3_lattices(X4) | k1_realset1(u2_lattices(X4),X5) = sK7(k8_filter_0(X4,X5),X5,X4)) )),
+  inference(resolution,[],[f741,f271])).
+fof(f271,plain,(
+  ( ! [X2,X0,X1] : (~sP0(X0,X1,X2) | k1_realset1(u2_lattices(X2),X1) = sK7(X0,X1,X2)) )),
+  inference(cnf_transformation,[],[f186])).
+fof(f186,plain,(
+  ! [X0,X1,X2] : ((sP0(X0,X1,X2) | ! [X3] : (! [X4] : (g3_lattices(X1,X3,X4) != X0 | k1_realset1(u1_lattices(X2),X1) != X4 | k1_realset1(u2_lattices(X2),X1) != X3 | ~m2_relset_1(X4,k2_zfmisc_1(X1,X1),X1) | ~v1_funct_2(X4,k2_zfmisc_1(X1,X1),X1) | ~v1_funct_1(X4)) | ~m2_relset_1(X3,k2_zfmisc_1(X1,X1),X1) | ~v1_funct_2(X3,k2_zfmisc_1(X1,X1),X1) | ~v1_funct_1(X3))) & (((g3_lattices(X1,sK7(X0,X1,X2),sK8(X0,X1,X2)) = X0 & k1_realset1(u1_lattices(X2),X1) = sK8(X0,X1,X2) & k1_realset1(u2_lattices(X2),X1) = sK7(X0,X1,X2) & m2_relset_1(sK8(X0,X1,X2),k2_zfmisc_1(X1,X1),X1) & v1_funct_2(sK8(X0,X1,X2),k2_zfmisc_1(X1,X1),X1) & v1_funct_1(sK8(X0,X1,X2))) & m2_relset_1(sK7(X0,X1,X2),k2_zfmisc_1(X1,X1),X1) & v1_funct_2(sK7(X0,X1,X2),k2_zfmisc_1(X1,X1),X1) & v1_funct_1(sK7(X0,X1,X2))) | ~sP0(X0,X1,X2)))),
+  inference(skolemisation,[status(esa),new_symbols(skolem,[sK7,sK8])],[f183,f185,f184])).
+fof(f184,plain,(
+  ! [X2,X1,X0] : (? [X5] : (? [X6] : (g3_lattices(X1,X5,X6) = X0 & k1_realset1(u1_lattices(X2),X1) = X6 & k1_realset1(u2_lattices(X2),X1) = X5 & m2_relset_1(X6,k2_zfmisc_1(X1,X1),X1) & v1_funct_2(X6,k2_zfmisc_1(X1,X1),X1) & v1_funct_1(X6)) & m2_relset_1(X5,k2_zfmisc_1(X1,X1),X1) & v1_funct_2(X5,k2_zfmisc_1(X1,X1),X1) & v1_funct_1(X5)) => (? [X6] : (g3_lattices(X1,sK7(X0,X1,X2),X6) = X0 & k1_realset1(u1_lattices(X2),X1) = X6 & k1_realset1(u2_lattices(X2),X1) = sK7(X0,X1,X2) & m2_relset_1(X6,k2_zfmisc_1(X1,X1),X1) & v1_funct_2(X6,k2_zfmisc_1(X1,X1),X1) & v1_funct_1(X6)) & m2_relset_1(sK7(X0,X1,X2),k2_zfmisc_1(X1,X1),X1) & v1_funct_2(sK7(X0,X1,X2),k2_zfmisc_1(X1,X1),X1) & v1_funct_1(sK7(X0,X1,X2))))),
+  introduced(choice_axiom,[])).
+fof(f185,plain,(
+  ! [X2,X1,X0] : (? [X6] : (g3_lattices(X1,sK7(X0,X1,X2),X6) = X0 & k1_realset1(u1_lattices(X2),X1) = X6 & k1_realset1(u2_lattices(X2),X1) = sK7(X0,X1,X2) & m2_relset_1(X6,k2_zfmisc_1(X1,X1),X1) & v1_funct_2(X6,k2_zfmisc_1(X1,X1),X1) & v1_funct_1(X6)) => (g3_lattices(X1,sK7(X0,X1,X2),sK8(X0,X1,X2)) = X0 & k1_realset1(u1_lattices(X2),X1) = sK8(X0,X1,X2) & k1_realset1(u2_lattices(X2),X1) = sK7(X0,X1,X2) & m2_relset_1(sK8(X0,X1,X2),k2_zfmisc_1(X1,X1),X1) & v1_funct_2(sK8(X0,X1,X2),k2_zfmisc_1(X1,X1),X1) & v1_funct_1(sK8(X0,X1,X2))))),
+  introduced(choice_axiom,[])).
+fof(f183,plain,(
+  ! [X0,X1,X2] : ((sP0(X0,X1,X2) | ! [X3] : (! [X4] : (g3_lattices(X1,X3,X4) != X0 | k1_realset1(u1_lattices(X2),X1) != X4 | k1_realset1(u2_lattices(X2),X1) != X3 | ~m2_relset_1(X4,k2_zfmisc_1(X1,X1),X1) | ~v1_funct_2(X4,k2_zfmisc_1(X1,X1),X1) | ~v1_funct_1(X4)) | ~m2_relset_1(X3,k2_zfmisc_1(X1,X1),X1) | ~v1_funct_2(X3,k2_zfmisc_1(X1,X1),X1) | ~v1_funct_1(X3))) & (? [X5] : (? [X6] : (g3_lattices(X1,X5,X6) = X0 & k1_realset1(u1_lattices(X2),X1) = X6 & k1_realset1(u2_lattices(X2),X1) = X5 & m2_relset_1(X6,k2_zfmisc_1(X1,X1),X1) & v1_funct_2(X6,k2_zfmisc_1(X1,X1),X1) & v1_funct_1(X6)) & m2_relset_1(X5,k2_zfmisc_1(X1,X1),X1) & v1_funct_2(X5,k2_zfmisc_1(X1,X1),X1) & v1_funct_1(X5)) | ~sP0(X0,X1,X2)))),
+  inference(rectify,[],[f182])).
+fof(f182,plain,(
+  ! [X2,X1,X0] : ((sP0(X2,X1,X0) | ! [X3] : (! [X4] : (g3_lattices(X1,X3,X4) != X2 | k1_realset1(u1_lattices(X0),X1) != X4 | k1_realset1(u2_lattices(X0),X1) != X3 | ~m2_relset_1(X4,k2_zfmisc_1(X1,X1),X1) | ~v1_funct_2(X4,k2_zfmisc_1(X1,X1),X1) | ~v1_funct_1(X4)) | ~m2_relset_1(X3,k2_zfmisc_1(X1,X1),X1) | ~v1_funct_2(X3,k2_zfmisc_1(X1,X1),X1) | ~v1_funct_1(X3))) & (? [X3] : (? [X4] : (g3_lattices(X1,X3,X4) = X2 & k1_realset1(u1_lattices(X0),X1) = X4 & k1_realset1(u2_lattices(X0),X1) = X3 & m2_relset_1(X4,k2_zfmisc_1(X1,X1),X1) & v1_funct_2(X4,k2_zfmisc_1(X1,X1),X1) & v1_funct_1(X4)) & m2_relset_1(X3,k2_zfmisc_1(X1,X1),X1) & v1_funct_2(X3,k2_zfmisc_1(X1,X1),X1) & v1_funct_1(X3)) | ~sP0(X2,X1,X0)))),
+  inference(nnf_transformation,[],[f171])).
+fof(f171,plain,(
+  ! [X2,X1,X0] : (sP0(X2,X1,X0) <=> ? [X3] : (? [X4] : (g3_lattices(X1,X3,X4) = X2 & k1_realset1(u1_lattices(X0),X1) = X4 & k1_realset1(u2_lattices(X0),X1) = X3 & m2_relset_1(X4,k2_zfmisc_1(X1,X1),X1) & v1_funct_2(X4,k2_zfmisc_1(X1,X1),X1) & v1_funct_1(X4)) & m2_relset_1(X3,k2_zfmisc_1(X1,X1),X1) & v1_funct_2(X3,k2_zfmisc_1(X1,X1),X1) & v1_funct_1(X3)))),
+  introduced(predicate_definition_introduction,[new_symbols(naming,[sP0])])).
+fof(f741,plain,(
+  ( ! [X0,X1] : (sP0(k8_filter_0(X0,X1),X1,X0) | ~l3_lattices(X0) | ~v10_lattices(X0) | v3_struct_0(X0) | ~m1_filter_0(X1,X0)) )),
+  inference(subsumption_resolution,[],[f740,f280])).
+fof(f280,plain,(
+  ( ! [X0,X1] : (~v3_struct_0(k8_filter_0(X0,X1)) | ~m1_filter_0(X1,X0) | ~l3_lattices(X0) | ~v10_lattices(X0) | v3_struct_0(X0)) )),
+  inference(cnf_transformation,[],[f112])).
+fof(f112,plain,(
+  ! [X0,X1] : ((l3_lattices(k8_filter_0(X0,X1)) & v10_lattices(k8_filter_0(X0,X1)) & ~v3_struct_0(k8_filter_0(X0,X1))) | ~m1_filter_0(X1,X0) | ~l3_lattices(X0) | ~v10_lattices(X0) | v3_struct_0(X0))),
+  inference(flattening,[],[f111])).
+fof(f111,plain,(
+  ! [X0,X1] : ((l3_lattices(k8_filter_0(X0,X1)) & v10_lattices(k8_filter_0(X0,X1)) & ~v3_struct_0(k8_filter_0(X0,X1))) | (~m1_filter_0(X1,X0) | ~l3_lattices(X0) | ~v10_lattices(X0) | v3_struct_0(X0)))),
+  inference(ennf_transformation,[],[f18])).
+fof(f18,axiom,(
+  ! [X0,X1] : ((m1_filter_0(X1,X0) & l3_lattices(X0) & v10_lattices(X0) & ~v3_struct_0(X0)) => (l3_lattices(k8_filter_0(X0,X1)) & v10_lattices(k8_filter_0(X0,X1)) & ~v3_struct_0(k8_filter_0(X0,X1))))),
+  file('LAT331+1.tptp',unknown)).
+fof(f740,plain,(
+  ( ! [X0,X1] : (v3_struct_0(k8_filter_0(X0,X1)) | ~m1_filter_0(X1,X0) | ~l3_lattices(X0) | ~v10_lattices(X0) | v3_struct_0(X0) | sP0(k8_filter_0(X0,X1),X1,X0)) )),
+  inference(subsumption_resolution,[],[f739,f281])).
+fof(f281,plain,(
+  ( ! [X0,X1] : (v10_lattices(k8_filter_0(X0,X1)) | ~m1_filter_0(X1,X0) | ~l3_lattices(X0) | ~v10_lattices(X0) | v3_struct_0(X0)) )),
+  inference(cnf_transformation,[],[f112])).
+fof(f739,plain,(
+  ( ! [X0,X1] : (~v10_lattices(k8_filter_0(X0,X1)) | v3_struct_0(k8_filter_0(X0,X1)) | ~m1_filter_0(X1,X0) | ~l3_lattices(X0) | ~v10_lattices(X0) | v3_struct_0(X0) | sP0(k8_filter_0(X0,X1),X1,X0)) )),
+  inference(subsumption_resolution,[],[f737,f282])).
+fof(f282,plain,(
+  ( ! [X0,X1] : (l3_lattices(k8_filter_0(X0,X1)) | ~m1_filter_0(X1,X0) | ~l3_lattices(X0) | ~v10_lattices(X0) | v3_struct_0(X0)) )),
+  inference(cnf_transformation,[],[f112])).
+fof(f737,plain,(
+  ( ! [X0,X1] : (~l3_lattices(k8_filter_0(X0,X1)) | ~v10_lattices(k8_filter_0(X0,X1)) | v3_struct_0(k8_filter_0(X0,X1)) | ~m1_filter_0(X1,X0) | ~l3_lattices(X0) | ~v10_lattices(X0) | v3_struct_0(X0) | sP0(k8_filter_0(X0,X1),X1,X0)) )),
+  inference(resolution,[],[f275,f392])).
+fof(f392,plain,(
+  ( ! [X0,X1] : (~sP1(X0,X1,k8_filter_0(X0,X1)) | sP0(k8_filter_0(X0,X1),X1,X0)) )),
+  inference(equality_resolution,[],[f263])).
+fof(f263,plain,(
+  ( ! [X2,X0,X1] : (sP0(X2,X1,X0) | k8_filter_0(X0,X1) != X2 | ~sP1(X0,X1,X2)) )),
+  inference(cnf_transformation,[],[f181])).
+fof(f181,plain,(
+  ! [X0,X1,X2] : (((k8_filter_0(X0,X1) = X2 | ~sP0(X2,X1,X0)) & (sP0(X2,X1,X0) | k8_filter_0(X0,X1) != X2)) | ~sP1(X0,X1,X2))),
+  inference(nnf_transformation,[],[f172])).
+fof(f172,plain,(
+  ! [X0,X1,X2] : ((k8_filter_0(X0,X1) = X2 <=> sP0(X2,X1,X0)) | ~sP1(X0,X1,X2))),
+  introduced(predicate_definition_introduction,[new_symbols(naming,[sP1])])).
+fof(f275,plain,(
+  ( ! [X2,X0,X1] : (sP1(X0,X1,X2) | ~l3_lattices(X2) | ~v10_lattices(X2) | v3_struct_0(X2) | ~m1_filter_0(X1,X0) | ~l3_lattices(X0) | ~v10_lattices(X0) | v3_struct_0(X0)) )),
+  inference(cnf_transformation,[],[f173])).
+fof(f173,plain,(
+  ! [X0] : (! [X1] : (! [X2] : (sP1(X0,X1,X2) | ~l3_lattices(X2) | ~v10_lattices(X2) | v3_struct_0(X2)) | ~m1_filter_0(X1,X0)) | ~l3_lattices(X0) | ~v10_lattices(X0) | v3_struct_0(X0))),
+  inference(definition_folding,[],[f106,f172,f171])).
+fof(f106,plain,(
+  ! [X0] : (! [X1] : (! [X2] : ((k8_filter_0(X0,X1) = X2 <=> ? [X3] : (? [X4] : (g3_lattices(X1,X3,X4) = X2 & k1_realset1(u1_lattices(X0),X1) = X4 & k1_realset1(u2_lattices(X0),X1) = X3 & m2_relset_1(X4,k2_zfmisc_1(X1,X1),X1) & v1_funct_2(X4,k2_zfmisc_1(X1,X1),X1) & v1_funct_1(X4)) & m2_relset_1(X3,k2_zfmisc_1(X1,X1),X1) & v1_funct_2(X3,k2_zfmisc_1(X1,X1),X1) & v1_funct_1(X3))) | ~l3_lattices(X2) | ~v10_lattices(X2) | v3_struct_0(X2)) | ~m1_filter_0(X1,X0)) | ~l3_lattices(X0) | ~v10_lattices(X0) | v3_struct_0(X0))),
+  inference(flattening,[],[f105])).
+fof(f105,plain,(
+  ! [X0] : (! [X1] : (! [X2] : ((k8_filter_0(X0,X1) = X2 <=> ? [X3] : (? [X4] : (g3_lattices(X1,X3,X4) = X2 & k1_realset1(u1_lattices(X0),X1) = X4 & k1_realset1(u2_lattices(X0),X1) = X3 & m2_relset_1(X4,k2_zfmisc_1(X1,X1),X1) & v1_funct_2(X4,k2_zfmisc_1(X1,X1),X1) & v1_funct_1(X4)) & m2_relset_1(X3,k2_zfmisc_1(X1,X1),X1) & v1_funct_2(X3,k2_zfmisc_1(X1,X1),X1) & v1_funct_1(X3))) | (~l3_lattices(X2) | ~v10_lattices(X2) | v3_struct_0(X2))) | ~m1_filter_0(X1,X0)) | (~l3_lattices(X0) | ~v10_lattices(X0) | v3_struct_0(X0)))),
+  inference(ennf_transformation,[],[f10])).
+fof(f10,axiom,(
+  ! [X0] : ((l3_lattices(X0) & v10_lattices(X0) & ~v3_struct_0(X0)) => ! [X1] : (m1_filter_0(X1,X0) => ! [X2] : ((l3_lattices(X2) & v10_lattices(X2) & ~v3_struct_0(X2)) => (k8_filter_0(X0,X1) = X2 <=> ? [X3] : (? [X4] : (g3_lattices(X1,X3,X4) = X2 & k1_realset1(u1_lattices(X0),X1) = X4 & k1_realset1(u2_lattices(X0),X1) = X3 & m2_relset_1(X4,k2_zfmisc_1(X1,X1),X1) & v1_funct_2(X4,k2_zfmisc_1(X1,X1),X1) & v1_funct_1(X4)) & m2_relset_1(X3,k2_zfmisc_1(X1,X1),X1) & v1_funct_2(X3,k2_zfmisc_1(X1,X1),X1) & v1_funct_1(X3))))))),
+  file('LAT331+1.tptp',unknown)).
+fof(f3435,plain,(
+  k8_filter_0(sK3,sK5) = g3_lattices(sK5,sK7(k8_filter_0(sK3,sK5),sK5,sK3),k1_realset1(u1_lattices(sK3),sK5))),
+  inference(forward_demodulation,[],[f3434,f2898])).
+fof(f2898,plain,(
+  k1_realset1(u1_lattices(sK3),sK5) = sK8(k8_filter_0(sK3,sK5),sK5,sK3)),
+  inference(subsumption_resolution,[],[f2897,f239])).
+fof(f2897,plain,(
+  ~l3_lattices(sK3) | k1_realset1(u1_lattices(sK3),sK5) = sK8(k8_filter_0(sK3,sK5),sK5,sK3)),
+  inference(subsumption_resolution,[],[f2896,f237])).
+fof(f2896,plain,(
+  v3_struct_0(sK3) | ~l3_lattices(sK3) | k1_realset1(u1_lattices(sK3),sK5) = sK8(k8_filter_0(sK3,sK5),sK5,sK3)),
+  inference(subsumption_resolution,[],[f2891,f238])).
+fof(f2891,plain,(
+  ~v10_lattices(sK3) | v3_struct_0(sK3) | ~l3_lattices(sK3) | k1_realset1(u1_lattices(sK3),sK5) = sK8(k8_filter_0(sK3,sK5),sK5,sK3)),
+  inference(resolution,[],[f1413,f642])).
+fof(f1413,plain,(
+  ( ! [X2,X3] : (~m1_filter_0(X3,X2) | ~v10_lattices(X2) | v3_struct_0(X2) | ~l3_lattices(X2) | k1_realset1(u1_lattices(X2),X3) = sK8(k8_filter_0(X2,X3),X3,X2)) )),
+  inference(resolution,[],[f741,f272])).
+fof(f272,plain,(
+  ( ! [X2,X0,X1] : (~sP0(X0,X1,X2) | k1_realset1(u1_lattices(X2),X1) = sK8(X0,X1,X2)) )),
+  inference(cnf_transformation,[],[f186])).
+fof(f3434,plain,(
+  k8_filter_0(sK3,sK5) = g3_lattices(sK5,sK7(k8_filter_0(sK3,sK5),sK5,sK3),sK8(k8_filter_0(sK3,sK5),sK5,sK3))),
+  inference(subsumption_resolution,[],[f3433,f239])).
+fof(f3433,plain,(
+  ~l3_lattices(sK3) | k8_filter_0(sK3,sK5) = g3_lattices(sK5,sK7(k8_filter_0(sK3,sK5),sK5,sK3),sK8(k8_filter_0(sK3,sK5),sK5,sK3))),
+  inference(subsumption_resolution,[],[f3432,f237])).
+fof(f3432,plain,(
+  v3_struct_0(sK3) | ~l3_lattices(sK3) | k8_filter_0(sK3,sK5) = g3_lattices(sK5,sK7(k8_filter_0(sK3,sK5),sK5,sK3),sK8(k8_filter_0(sK3,sK5),sK5,sK3))),
+  inference(subsumption_resolution,[],[f3427,f238])).
+fof(f3427,plain,(
+  ~v10_lattices(sK3) | v3_struct_0(sK3) | ~l3_lattices(sK3) | k8_filter_0(sK3,sK5) = g3_lattices(sK5,sK7(k8_filter_0(sK3,sK5),sK5,sK3),sK8(k8_filter_0(sK3,sK5),sK5,sK3))),
+  inference(resolution,[],[f1412,f642])).
+fof(f1412,plain,(
+  ( ! [X0,X1] : (~m1_filter_0(X1,X0) | ~v10_lattices(X0) | v3_struct_0(X0) | ~l3_lattices(X0) | k8_filter_0(X0,X1) = g3_lattices(X1,sK7(k8_filter_0(X0,X1),X1,X0),sK8(k8_filter_0(X0,X1),X1,X0))) )),
+  inference(resolution,[],[f741,f273])).
+fof(f273,plain,(
+  ( ! [X2,X0,X1] : (~sP0(X0,X1,X2) | g3_lattices(X1,sK7(X0,X1,X2),sK8(X0,X1,X2)) = X0) )),
+  inference(cnf_transformation,[],[f186])).
+fof(f3441,plain,(
+  k8_filter_0(sK4,sK5) = g3_lattices(sK5,k1_realset1(u2_lattices(sK3),sK5),k1_realset1(u1_lattices(sK3),sK5)) | (~spl32_47 | ~spl32_48)),
+  inference(forward_demodulation,[],[f3440,f2932])).
+fof(f2932,plain,(
+  k1_realset1(u2_lattices(sK3),sK5) = sK7(k8_filter_0(sK4,sK5),sK5,sK4) | ~spl32_48),
+  inference(forward_demodulation,[],[f2931,f1597])).
+fof(f1597,plain,(
+  u2_lattices(sK3) = u2_lattices(sK4) | ~spl32_48),
+  inference(equality_resolution,[],[f996])).
+fof(f996,plain,(
+  ( ! [X2,X0,X1] : (g3_lattices(X0,X1,X2) != g3_lattices(u1_struct_0(sK3),u2_lattices(sK3),u1_lattices(sK3)) | u2_lattices(sK4) = X1) ) | ~spl32_48),
+  inference(avatar_component_clause,[],[f995])).
+fof(f995,plain,(
+  spl32_48 <=> ! [X1,X0,X2] : (g3_lattices(X0,X1,X2) != g3_lattices(u1_struct_0(sK3),u2_lattices(sK3),u1_lattices(sK3)) | u2_lattices(sK4) = X1)),
+  introduced(avatar_definition,[new_symbols(naming,[spl32_48])])).
+fof(f2931,plain,(
+  k1_realset1(u2_lattices(sK4),sK5) = sK7(k8_filter_0(sK4,sK5),sK5,sK4)),
+  inference(subsumption_resolution,[],[f2930,f242])).
+fof(f242,plain,(
+  l3_lattices(sK4)),
+  inference(cnf_transformation,[],[f180])).
+fof(f2930,plain,(
+  ~l3_lattices(sK4) | k1_realset1(u2_lattices(sK4),sK5) = sK7(k8_filter_0(sK4,sK5),sK5,sK4)),
+  inference(subsumption_resolution,[],[f2929,f240])).
+fof(f240,plain,(
+  ~v3_struct_0(sK4)),
+  inference(cnf_transformation,[],[f180])).
+fof(f2929,plain,(
+  v3_struct_0(sK4) | ~l3_lattices(sK4) | k1_realset1(u2_lattices(sK4),sK5) = sK7(k8_filter_0(sK4,sK5),sK5,sK4)),
+  inference(subsumption_resolution,[],[f2922,f241])).
+fof(f241,plain,(
+  v10_lattices(sK4)),
+  inference(cnf_transformation,[],[f180])).
+fof(f2922,plain,(
+  ~v10_lattices(sK4) | v3_struct_0(sK4) | ~l3_lattices(sK4) | k1_realset1(u2_lattices(sK4),sK5) = sK7(k8_filter_0(sK4,sK5),sK5,sK4)),
+  inference(resolution,[],[f1414,f645])).
+fof(f645,plain,(
+  m1_filter_0(sK5,sK4)),
+  inference(subsumption_resolution,[],[f644,f240])).
+fof(f644,plain,(
+  m1_filter_0(sK5,sK4) | v3_struct_0(sK4)),
+  inference(subsumption_resolution,[],[f643,f241])).
+fof(f643,plain,(
+  m1_filter_0(sK5,sK4) | ~v10_lattices(sK4) | v3_struct_0(sK4)),
+  inference(subsumption_resolution,[],[f637,f242])).
+fof(f637,plain,(
+  m1_filter_0(sK5,sK4) | ~l3_lattices(sK4) | ~v10_lattices(sK4) | v3_struct_0(sK4)),
+  inference(resolution,[],[f379,f397])).
+fof(f397,plain,(
+  m1_filter_2(sK5,sK4)),
+  inference(forward_demodulation,[],[f244,f246])).
+fof(f244,plain,(
+  m1_filter_2(sK6,sK4)),
+  inference(cnf_transformation,[],[f180])).
+fof(f3440,plain,(
+  k8_filter_0(sK4,sK5) = g3_lattices(sK5,sK7(k8_filter_0(sK4,sK5),sK5,sK4),k1_realset1(u1_lattices(sK3),sK5)) | ~spl32_47),
+  inference(forward_demodulation,[],[f3439,f2902])).
+fof(f2902,plain,(
+  k1_realset1(u1_lattices(sK3),sK5) = sK8(k8_filter_0(sK4,sK5),sK5,sK4) | ~spl32_47),
+  inference(forward_demodulation,[],[f2901,f1543])).
+fof(f1543,plain,(
+  u1_lattices(sK3) = u1_lattices(sK4) | ~spl32_47),
+  inference(equality_resolution,[],[f991])).
+fof(f991,plain,(
+  ( ! [X2,X0,X1] : (g3_lattices(X0,X1,X2) != g3_lattices(u1_struct_0(sK3),u2_lattices(sK3),u1_lattices(sK3)) | u1_lattices(sK4) = X2) ) | ~spl32_47),
+  inference(avatar_component_clause,[],[f990])).
+fof(f990,plain,(
+  spl32_47 <=> ! [X1,X0,X2] : (g3_lattices(X0,X1,X2) != g3_lattices(u1_struct_0(sK3),u2_lattices(sK3),u1_lattices(sK3)) | u1_lattices(sK4) = X2)),
+  introduced(avatar_definition,[new_symbols(naming,[spl32_47])])).
+fof(f2901,plain,(
+  k1_realset1(u1_lattices(sK4),sK5) = sK8(k8_filter_0(sK4,sK5),sK5,sK4)),
+  inference(subsumption_resolution,[],[f2900,f242])).
+fof(f2900,plain,(
+  ~l3_lattices(sK4) | k1_realset1(u1_lattices(sK4),sK5) = sK8(k8_filter_0(sK4,sK5),sK5,sK4)),
+  inference(subsumption_resolution,[],[f2899,f240])).
+fof(f2899,plain,(
+  v3_struct_0(sK4) | ~l3_lattices(sK4) | k1_realset1(u1_lattices(sK4),sK5) = sK8(k8_filter_0(sK4,sK5),sK5,sK4)),
+  inference(subsumption_resolution,[],[f2892,f241])).
+fof(f2892,plain,(
+  ~v10_lattices(sK4) | v3_struct_0(sK4) | ~l3_lattices(sK4) | k1_realset1(u1_lattices(sK4),sK5) = sK8(k8_filter_0(sK4,sK5),sK5,sK4)),
+  inference(resolution,[],[f1413,f645])).
+fof(f3439,plain,(
+  k8_filter_0(sK4,sK5) = g3_lattices(sK5,sK7(k8_filter_0(sK4,sK5),sK5,sK4),sK8(k8_filter_0(sK4,sK5),sK5,sK4))),
+  inference(subsumption_resolution,[],[f3438,f242])).
+fof(f3438,plain,(
+  ~l3_lattices(sK4) | k8_filter_0(sK4,sK5) = g3_lattices(sK5,sK7(k8_filter_0(sK4,sK5),sK5,sK4),sK8(k8_filter_0(sK4,sK5),sK5,sK4))),
+  inference(subsumption_resolution,[],[f3437,f240])).
+fof(f3437,plain,(
+  v3_struct_0(sK4) | ~l3_lattices(sK4) | k8_filter_0(sK4,sK5) = g3_lattices(sK5,sK7(k8_filter_0(sK4,sK5),sK5,sK4),sK8(k8_filter_0(sK4,sK5),sK5,sK4))),
+  inference(subsumption_resolution,[],[f3428,f241])).
+fof(f3428,plain,(
+  ~v10_lattices(sK4) | v3_struct_0(sK4) | ~l3_lattices(sK4) | k8_filter_0(sK4,sK5) = g3_lattices(sK5,sK7(k8_filter_0(sK4,sK5),sK5,sK4),sK8(k8_filter_0(sK4,sK5),sK5,sK4))),
+  inference(resolution,[],[f1412,f645])).
+fof(f1191,plain,(
+  spl32_16),
+  inference(avatar_contradiction_clause,[],[f1190])).
+fof(f1190,plain,(
+  $false | spl32_16),
+  inference(subsumption_resolution,[],[f1189,f405])).
+fof(f405,plain,(
+  l1_lattices(sK4)),
+  inference(resolution,[],[f285,f242])).
+fof(f285,plain,(
+  ( ! [X0] : (~l3_lattices(X0) | l1_lattices(X0)) )),
+  inference(cnf_transformation,[],[f115])).
+fof(f115,plain,(
+  ! [X0] : ((l2_lattices(X0) & l1_lattices(X0)) | ~l3_lattices(X0))),
+  inference(ennf_transformation,[],[f22])).
+fof(f22,axiom,(
+  ! [X0] : (l3_lattices(X0) => (l2_lattices(X0) & l1_lattices(X0)))),
+  file('LAT331+1.tptp',unknown)).
+fof(f1189,plain,(
+  ~l1_lattices(sK4) | spl32_16),
+  inference(resolution,[],[f780,f625])).
+fof(f625,plain,(
+  ( ! [X1] : (m1_relset_1(u1_lattices(X1),k2_zfmisc_1(u1_struct_0(X1),u1_struct_0(X1)),u1_struct_0(X1)) | ~l1_lattices(X1)) )),
+  inference(resolution,[],[f295,f381])).
+fof(f381,plain,(
+  ( ! [X2,X0,X1] : (~m2_relset_1(X2,X0,X1) | m1_relset_1(X2,X0,X1)) )),
+  inference(cnf_transformation,[],[f236])).
+fof(f236,plain,(
+  ! [X0,X1,X2] : ((m2_relset_1(X2,X0,X1) | ~m1_relset_1(X2,X0,X1)) & (m1_relset_1(X2,X0,X1) | ~m2_relset_1(X2,X0,X1)))),
+  inference(nnf_transformation,[],[f70])).
+fof(f70,axiom,(
+  ! [X0,X1,X2] : (m2_relset_1(X2,X0,X1) <=> m1_relset_1(X2,X0,X1))),
+  file('LAT331+1.tptp',unknown)).
+fof(f295,plain,(
+  ( ! [X0] : (m2_relset_1(u1_lattices(X0),k2_zfmisc_1(u1_struct_0(X0),u1_struct_0(X0)),u1_struct_0(X0)) | ~l1_lattices(X0)) )),
+  inference(cnf_transformation,[],[f123])).
+fof(f123,plain,(
+  ! [X0] : ((m2_relset_1(u1_lattices(X0),k2_zfmisc_1(u1_struct_0(X0),u1_struct_0(X0)),u1_struct_0(X0)) & v1_funct_2(u1_lattices(X0),k2_zfmisc_1(u1_struct_0(X0),u1_struct_0(X0)),u1_struct_0(X0)) & v1_funct_1(u1_lattices(X0))) | ~l1_lattices(X0))),
+  inference(ennf_transformation,[],[f29])).
+fof(f29,axiom,(
+  ! [X0] : (l1_lattices(X0) => (m2_relset_1(u1_lattices(X0),k2_zfmisc_1(u1_struct_0(X0),u1_struct_0(X0)),u1_struct_0(X0)) & v1_funct_2(u1_lattices(X0),k2_zfmisc_1(u1_struct_0(X0),u1_struct_0(X0)),u1_struct_0(X0)) & v1_funct_1(u1_lattices(X0))))),
+  file('LAT331+1.tptp',unknown)).
+fof(f780,plain,(
+  ~m1_relset_1(u1_lattices(sK4),k2_zfmisc_1(u1_struct_0(sK4),u1_struct_0(sK4)),u1_struct_0(sK4)) | spl32_16),
+  inference(avatar_component_clause,[],[f778])).
+fof(f778,plain,(
+  spl32_16 <=> m1_relset_1(u1_lattices(sK4),k2_zfmisc_1(u1_struct_0(sK4),u1_struct_0(sK4)),u1_struct_0(sK4))),
+  introduced(avatar_definition,[new_symbols(naming,[spl32_16])])).
+fof(f1178,plain,(
+  ~spl32_15 | ~spl32_16 | spl32_47 | ~spl32_11 | ~spl32_12 | ~spl32_13 | ~spl32_14),
+  inference(avatar_split_clause,[],[f1177,f770,f766,f762,f758,f990,f778,f774])).
+fof(f774,plain,(
+  spl32_15 <=> v1_funct_2(u1_lattices(sK4),k2_zfmisc_1(u1_struct_0(sK4),u1_struct_0(sK4)),u1_struct_0(sK4))),
+  introduced(avatar_definition,[new_symbols(naming,[spl32_15])])).
+fof(f758,plain,(
+  spl32_11 <=> v1_funct_1(u2_lattices(sK4))),
+  introduced(avatar_definition,[new_symbols(naming,[spl32_11])])).
+fof(f762,plain,(
+  spl32_12 <=> v1_funct_2(u2_lattices(sK4),k2_zfmisc_1(u1_struct_0(sK4),u1_struct_0(sK4)),u1_struct_0(sK4))),
+  introduced(avatar_definition,[new_symbols(naming,[spl32_12])])).
+fof(f766,plain,(
+  spl32_13 <=> m1_relset_1(u2_lattices(sK4),k2_zfmisc_1(u1_struct_0(sK4),u1_struct_0(sK4)),u1_struct_0(sK4))),
+  introduced(avatar_definition,[new_symbols(naming,[spl32_13])])).
+fof(f770,plain,(
+  spl32_14 <=> v1_funct_1(u1_lattices(sK4))),
+  introduced(avatar_definition,[new_symbols(naming,[spl32_14])])).
+fof(f1177,plain,(
+  ( ! [X4,X5,X3] : (g3_lattices(X3,X4,X5) != g3_lattices(u1_struct_0(sK3),u2_lattices(sK3),u1_lattices(sK3)) | u1_lattices(sK4) = X5 | ~m1_relset_1(u1_lattices(sK4),k2_zfmisc_1(u1_struct_0(sK4),u1_struct_0(sK4)),u1_struct_0(sK4)) | ~v1_funct_2(u1_lattices(sK4),k2_zfmisc_1(u1_struct_0(sK4),u1_struct_0(sK4)),u1_struct_0(sK4))) ) | (~spl32_11 | ~spl32_12 | ~spl32_13 | ~spl32_14)),
+  inference(subsumption_resolution,[],[f1176,f759])).
+fof(f759,plain,(
+  v1_funct_1(u2_lattices(sK4)) | ~spl32_11),
+  inference(avatar_component_clause,[],[f758])).
+fof(f1176,plain,(
+  ( ! [X4,X5,X3] : (g3_lattices(X3,X4,X5) != g3_lattices(u1_struct_0(sK3),u2_lattices(sK3),u1_lattices(sK3)) | u1_lattices(sK4) = X5 | ~m1_relset_1(u1_lattices(sK4),k2_zfmisc_1(u1_struct_0(sK4),u1_struct_0(sK4)),u1_struct_0(sK4)) | ~v1_funct_2(u1_lattices(sK4),k2_zfmisc_1(u1_struct_0(sK4),u1_struct_0(sK4)),u1_struct_0(sK4)) | ~v1_funct_1(u2_lattices(sK4))) ) | (~spl32_12 | ~spl32_13 | ~spl32_14)),
+  inference(subsumption_resolution,[],[f1175,f763])).
+fof(f763,plain,(
+  v1_funct_2(u2_lattices(sK4),k2_zfmisc_1(u1_struct_0(sK4),u1_struct_0(sK4)),u1_struct_0(sK4)) | ~spl32_12),
+  inference(avatar_component_clause,[],[f762])).
+fof(f1175,plain,(
+  ( ! [X4,X5,X3] : (g3_lattices(X3,X4,X5) != g3_lattices(u1_struct_0(sK3),u2_lattices(sK3),u1_lattices(sK3)) | u1_lattices(sK4) = X5 | ~m1_relset_1(u1_lattices(sK4),k2_zfmisc_1(u1_struct_0(sK4),u1_struct_0(sK4)),u1_struct_0(sK4)) | ~v1_funct_2(u1_lattices(sK4),k2_zfmisc_1(u1_struct_0(sK4),u1_struct_0(sK4)),u1_struct_0(sK4)) | ~v1_funct_2(u2_lattices(sK4),k2_zfmisc_1(u1_struct_0(sK4),u1_struct_0(sK4)),u1_struct_0(sK4)) | ~v1_funct_1(u2_lattices(sK4))) ) | (~spl32_13 | ~spl32_14)),
+  inference(subsumption_resolution,[],[f1174,f767])).
+fof(f767,plain,(
+  m1_relset_1(u2_lattices(sK4),k2_zfmisc_1(u1_struct_0(sK4),u1_struct_0(sK4)),u1_struct_0(sK4)) | ~spl32_13),
+  inference(avatar_component_clause,[],[f766])).
+fof(f1174,plain,(
+  ( ! [X4,X5,X3] : (g3_lattices(X3,X4,X5) != g3_lattices(u1_struct_0(sK3),u2_lattices(sK3),u1_lattices(sK3)) | u1_lattices(sK4) = X5 | ~m1_relset_1(u1_lattices(sK4),k2_zfmisc_1(u1_struct_0(sK4),u1_struct_0(sK4)),u1_struct_0(sK4)) | ~v1_funct_2(u1_lattices(sK4),k2_zfmisc_1(u1_struct_0(sK4),u1_struct_0(sK4)),u1_struct_0(sK4)) | ~m1_relset_1(u2_lattices(sK4),k2_zfmisc_1(u1_struct_0(sK4),u1_struct_0(sK4)),u1_struct_0(sK4)) | ~v1_funct_2(u2_lattices(sK4),k2_zfmisc_1(u1_struct_0(sK4),u1_struct_0(sK4)),u1_struct_0(sK4)) | ~v1_funct_1(u2_lattices(sK4))) ) | ~spl32_14),
+  inference(subsumption_resolution,[],[f1144,f771])).
+fof(f771,plain,(
+  v1_funct_1(u1_lattices(sK4)) | ~spl32_14),
+  inference(avatar_component_clause,[],[f770])).
+fof(f1144,plain,(
+  ( ! [X4,X5,X3] : (g3_lattices(X3,X4,X5) != g3_lattices(u1_struct_0(sK3),u2_lattices(sK3),u1_lattices(sK3)) | u1_lattices(sK4) = X5 | ~m1_relset_1(u1_lattices(sK4),k2_zfmisc_1(u1_struct_0(sK4),u1_struct_0(sK4)),u1_struct_0(sK4)) | ~v1_funct_2(u1_lattices(sK4),k2_zfmisc_1(u1_struct_0(sK4),u1_struct_0(sK4)),u1_struct_0(sK4)) | ~v1_funct_1(u1_lattices(sK4)) | ~m1_relset_1(u2_lattices(sK4),k2_zfmisc_1(u1_struct_0(sK4),u1_struct_0(sK4)),u1_struct_0(sK4)) | ~v1_funct_2(u2_lattices(sK4),k2_zfmisc_1(u1_struct_0(sK4),u1_struct_0(sK4)),u1_struct_0(sK4)) | ~v1_funct_1(u2_lattices(sK4))) )),
+  inference(superposition,[],[f344,f245])).
+fof(f245,plain,(
+  g3_lattices(u1_struct_0(sK3),u2_lattices(sK3),u1_lattices(sK3)) = g3_lattices(u1_struct_0(sK4),u2_lattices(sK4),u1_lattices(sK4))),
+  inference(cnf_transformation,[],[f180])).
+fof(f344,plain,(
+  ( ! [X4,X2,X0,X5,X3,X1] : (g3_lattices(X0,X1,X2) != g3_lattices(X3,X4,X5) | X2 = X5 | ~m1_relset_1(X2,k2_zfmisc_1(X0,X0),X0) | ~v1_funct_2(X2,k2_zfmisc_1(X0,X0),X0) | ~v1_funct_1(X2) | ~m1_relset_1(X1,k2_zfmisc_1(X0,X0),X0) | ~v1_funct_2(X1,k2_zfmisc_1(X0,X0),X0) | ~v1_funct_1(X1)) )),
+  inference(cnf_transformation,[],[f153])).
+fof(f153,plain,(
+  ! [X0,X1,X2] : (! [X3,X4,X5] : ((X2 = X5 & X1 = X4 & X0 = X3) | g3_lattices(X0,X1,X2) != g3_lattices(X3,X4,X5)) | ~m1_relset_1(X2,k2_zfmisc_1(X0,X0),X0) | ~v1_funct_2(X2,k2_zfmisc_1(X0,X0),X0) | ~v1_funct_1(X2) | ~m1_relset_1(X1,k2_zfmisc_1(X0,X0),X0) | ~v1_funct_2(X1,k2_zfmisc_1(X0,X0),X0) | ~v1_funct_1(X1))),
+  inference(flattening,[],[f152])).
+fof(f152,plain,(
+  ! [X0,X1,X2] : (! [X3,X4,X5] : ((X2 = X5 & X1 = X4 & X0 = X3) | g3_lattices(X0,X1,X2) != g3_lattices(X3,X4,X5)) | (~m1_relset_1(X2,k2_zfmisc_1(X0,X0),X0) | ~v1_funct_2(X2,k2_zfmisc_1(X0,X0),X0) | ~v1_funct_1(X2) | ~m1_relset_1(X1,k2_zfmisc_1(X0,X0),X0) | ~v1_funct_2(X1,k2_zfmisc_1(X0,X0),X0) | ~v1_funct_1(X1)))),
+  inference(ennf_transformation,[],[f55])).
+fof(f55,axiom,(
+  ! [X0,X1,X2] : ((m1_relset_1(X2,k2_zfmisc_1(X0,X0),X0) & v1_funct_2(X2,k2_zfmisc_1(X0,X0),X0) & v1_funct_1(X2) & m1_relset_1(X1,k2_zfmisc_1(X0,X0),X0) & v1_funct_2(X1,k2_zfmisc_1(X0,X0),X0) & v1_funct_1(X1)) => ! [X3,X4,X5] : (g3_lattices(X0,X1,X2) = g3_lattices(X3,X4,X5) => (X2 = X5 & X1 = X4 & X0 = X3)))),
+  file('LAT331+1.tptp',unknown)).
+fof(f1173,plain,(
+  ~spl32_15 | ~spl32_16 | spl32_48 | ~spl32_11 | ~spl32_12 | ~spl32_13 | ~spl32_14),
+  inference(avatar_split_clause,[],[f1172,f770,f766,f762,f758,f995,f778,f774])).
+fof(f1172,plain,(
+  ( ! [X10,X11,X9] : (g3_lattices(u1_struct_0(sK3),u2_lattices(sK3),u1_lattices(sK3)) != g3_lattices(X9,X10,X11) | u2_lattices(sK4) = X10 | ~m1_relset_1(u1_lattices(sK4),k2_zfmisc_1(u1_struct_0(sK4),u1_struct_0(sK4)),u1_struct_0(sK4)) | ~v1_funct_2(u1_lattices(sK4),k2_zfmisc_1(u1_struct_0(sK4),u1_struct_0(sK4)),u1_struct_0(sK4))) ) | (~spl32_11 | ~spl32_12 | ~spl32_13 | ~spl32_14)),
+  inference(subsumption_resolution,[],[f1171,f759])).
+fof(f1171,plain,(
+  ( ! [X10,X11,X9] : (g3_lattices(u1_struct_0(sK3),u2_lattices(sK3),u1_lattices(sK3)) != g3_lattices(X9,X10,X11) | u2_lattices(sK4) = X10 | ~m1_relset_1(u1_lattices(sK4),k2_zfmisc_1(u1_struct_0(sK4),u1_struct_0(sK4)),u1_struct_0(sK4)) | ~v1_funct_2(u1_lattices(sK4),k2_zfmisc_1(u1_struct_0(sK4),u1_struct_0(sK4)),u1_struct_0(sK4)) | ~v1_funct_1(u2_lattices(sK4))) ) | (~spl32_12 | ~spl32_13 | ~spl32_14)),
+  inference(subsumption_resolution,[],[f1170,f763])).
+fof(f1170,plain,(
+  ( ! [X10,X11,X9] : (g3_lattices(u1_struct_0(sK3),u2_lattices(sK3),u1_lattices(sK3)) != g3_lattices(X9,X10,X11) | u2_lattices(sK4) = X10 | ~m1_relset_1(u1_lattices(sK4),k2_zfmisc_1(u1_struct_0(sK4),u1_struct_0(sK4)),u1_struct_0(sK4)) | ~v1_funct_2(u1_lattices(sK4),k2_zfmisc_1(u1_struct_0(sK4),u1_struct_0(sK4)),u1_struct_0(sK4)) | ~v1_funct_2(u2_lattices(sK4),k2_zfmisc_1(u1_struct_0(sK4),u1_struct_0(sK4)),u1_struct_0(sK4)) | ~v1_funct_1(u2_lattices(sK4))) ) | (~spl32_13 | ~spl32_14)),
+  inference(subsumption_resolution,[],[f1169,f767])).
+fof(f1169,plain,(
+  ( ! [X10,X11,X9] : (g3_lattices(u1_struct_0(sK3),u2_lattices(sK3),u1_lattices(sK3)) != g3_lattices(X9,X10,X11) | u2_lattices(sK4) = X10 | ~m1_relset_1(u1_lattices(sK4),k2_zfmisc_1(u1_struct_0(sK4),u1_struct_0(sK4)),u1_struct_0(sK4)) | ~v1_funct_2(u1_lattices(sK4),k2_zfmisc_1(u1_struct_0(sK4),u1_struct_0(sK4)),u1_struct_0(sK4)) | ~m1_relset_1(u2_lattices(sK4),k2_zfmisc_1(u1_struct_0(sK4),u1_struct_0(sK4)),u1_struct_0(sK4)) | ~v1_funct_2(u2_lattices(sK4),k2_zfmisc_1(u1_struct_0(sK4),u1_struct_0(sK4)),u1_struct_0(sK4)) | ~v1_funct_1(u2_lattices(sK4))) ) | ~spl32_14),
+  inference(subsumption_resolution,[],[f1146,f771])).
+fof(f1146,plain,(
+  ( ! [X10,X11,X9] : (g3_lattices(u1_struct_0(sK3),u2_lattices(sK3),u1_lattices(sK3)) != g3_lattices(X9,X10,X11) | u2_lattices(sK4) = X10 | ~m1_relset_1(u1_lattices(sK4),k2_zfmisc_1(u1_struct_0(sK4),u1_struct_0(sK4)),u1_struct_0(sK4)) | ~v1_funct_2(u1_lattices(sK4),k2_zfmisc_1(u1_struct_0(sK4),u1_struct_0(sK4)),u1_struct_0(sK4)) | ~v1_funct_1(u1_lattices(sK4)) | ~m1_relset_1(u2_lattices(sK4),k2_zfmisc_1(u1_struct_0(sK4),u1_struct_0(sK4)),u1_struct_0(sK4)) | ~v1_funct_2(u2_lattices(sK4),k2_zfmisc_1(u1_struct_0(sK4),u1_struct_0(sK4)),u1_struct_0(sK4)) | ~v1_funct_1(u2_lattices(sK4))) )),
+  inference(superposition,[],[f343,f245])).
+fof(f343,plain,(
+  ( ! [X4,X2,X0,X5,X3,X1] : (g3_lattices(X0,X1,X2) != g3_lattices(X3,X4,X5) | X1 = X4 | ~m1_relset_1(X2,k2_zfmisc_1(X0,X0),X0) | ~v1_funct_2(X2,k2_zfmisc_1(X0,X0),X0) | ~v1_funct_1(X2) | ~m1_relset_1(X1,k2_zfmisc_1(X0,X0),X0) | ~v1_funct_2(X1,k2_zfmisc_1(X0,X0),X0) | ~v1_funct_1(X1)) )),
+  inference(cnf_transformation,[],[f153])).
+fof(f1163,plain,(
+  spl32_15),
+  inference(avatar_contradiction_clause,[],[f1162])).
+fof(f1162,plain,(
+  $false | spl32_15),
+  inference(subsumption_resolution,[],[f1161,f405])).
+fof(f1161,plain,(
+  ~l1_lattices(sK4) | spl32_15),
+  inference(resolution,[],[f776,f294])).
+fof(f294,plain,(
+  ( ! [X0] : (v1_funct_2(u1_lattices(X0),k2_zfmisc_1(u1_struct_0(X0),u1_struct_0(X0)),u1_struct_0(X0)) | ~l1_lattices(X0)) )),
+  inference(cnf_transformation,[],[f123])).
+fof(f776,plain,(
+  ~v1_funct_2(u1_lattices(sK4),k2_zfmisc_1(u1_struct_0(sK4),u1_struct_0(sK4)),u1_struct_0(sK4)) | spl32_15),
+  inference(avatar_component_clause,[],[f774])).
+fof(f1090,plain,(
+  spl32_14),
+  inference(avatar_contradiction_clause,[],[f1089])).
+fof(f1089,plain,(
+  $false | spl32_14),
+  inference(subsumption_resolution,[],[f1088,f405])).
+fof(f1088,plain,(
+  ~l1_lattices(sK4) | spl32_14),
+  inference(resolution,[],[f772,f293])).
+fof(f293,plain,(
+  ( ! [X0] : (v1_funct_1(u1_lattices(X0)) | ~l1_lattices(X0)) )),
+  inference(cnf_transformation,[],[f123])).
+fof(f772,plain,(
+  ~v1_funct_1(u1_lattices(sK4)) | spl32_14),
+  inference(avatar_component_clause,[],[f770])).
+fof(f1081,plain,(
+  spl32_13),
+  inference(avatar_contradiction_clause,[],[f1080])).
+fof(f1080,plain,(
+  $false | spl32_13),
+  inference(subsumption_resolution,[],[f1075,f412])).
+fof(f412,plain,(
+  l2_lattices(sK4)),
+  inference(resolution,[],[f286,f242])).
+fof(f286,plain,(
+  ( ! [X0] : (~l3_lattices(X0) | l2_lattices(X0)) )),
+  inference(cnf_transformation,[],[f115])).
+fof(f1075,plain,(
+  ~l2_lattices(sK4) | spl32_13),
+  inference(resolution,[],[f629,f768])).
+fof(f768,plain,(
+  ~m1_relset_1(u2_lattices(sK4),k2_zfmisc_1(u1_struct_0(sK4),u1_struct_0(sK4)),u1_struct_0(sK4)) | spl32_13),
+  inference(avatar_component_clause,[],[f766])).
+fof(f629,plain,(
+  ( ! [X1] : (m1_relset_1(u2_lattices(X1),k2_zfmisc_1(u1_struct_0(X1),u1_struct_0(X1)),u1_struct_0(X1)) | ~l2_lattices(X1)) )),
+  inference(resolution,[],[f298,f381])).
+fof(f298,plain,(
+  ( ! [X0] : (m2_relset_1(u2_lattices(X0),k2_zfmisc_1(u1_struct_0(X0),u1_struct_0(X0)),u1_struct_0(X0)) | ~l2_lattices(X0)) )),
+  inference(cnf_transformation,[],[f124])).
+fof(f124,plain,(
+  ! [X0] : ((m2_relset_1(u2_lattices(X0),k2_zfmisc_1(u1_struct_0(X0),u1_struct_0(X0)),u1_struct_0(X0)) & v1_funct_2(u2_lattices(X0),k2_zfmisc_1(u1_struct_0(X0),u1_struct_0(X0)),u1_struct_0(X0)) & v1_funct_1(u2_lattices(X0))) | ~l2_lattices(X0))),
+  inference(ennf_transformation,[],[f31])).
+fof(f31,axiom,(
+  ! [X0] : (l2_lattices(X0) => (m2_relset_1(u2_lattices(X0),k2_zfmisc_1(u1_struct_0(X0),u1_struct_0(X0)),u1_struct_0(X0)) & v1_funct_2(u2_lattices(X0),k2_zfmisc_1(u1_struct_0(X0),u1_struct_0(X0)),u1_struct_0(X0)) & v1_funct_1(u2_lattices(X0))))),
+  file('LAT331+1.tptp',unknown)).
+fof(f987,plain,(
+  spl32_12),
+  inference(avatar_contradiction_clause,[],[f986])).
+fof(f986,plain,(
+  $false | spl32_12),
+  inference(subsumption_resolution,[],[f985,f412])).
+fof(f985,plain,(
+  ~l2_lattices(sK4) | spl32_12),
+  inference(resolution,[],[f764,f297])).
+fof(f297,plain,(
+  ( ! [X0] : (v1_funct_2(u2_lattices(X0),k2_zfmisc_1(u1_struct_0(X0),u1_struct_0(X0)),u1_struct_0(X0)) | ~l2_lattices(X0)) )),
+  inference(cnf_transformation,[],[f124])).
+fof(f764,plain,(
+  ~v1_funct_2(u2_lattices(sK4),k2_zfmisc_1(u1_struct_0(sK4),u1_struct_0(sK4)),u1_struct_0(sK4)) | spl32_12),
+  inference(avatar_component_clause,[],[f762])).
+fof(f787,plain,(
+  spl32_11),
+  inference(avatar_contradiction_clause,[],[f786])).
+fof(f786,plain,(
+  $false | spl32_11),
+  inference(subsumption_resolution,[],[f785,f412])).
+fof(f785,plain,(
+  ~l2_lattices(sK4) | spl32_11),
+  inference(resolution,[],[f760,f296])).
+fof(f296,plain,(
+  ( ! [X0] : (v1_funct_1(u2_lattices(X0)) | ~l2_lattices(X0)) )),
+  inference(cnf_transformation,[],[f124])).
+fof(f760,plain,(
+  ~v1_funct_1(u2_lattices(sK4)) | spl32_11),
+  inference(avatar_component_clause,[],[f758])).
+% SZS output end Proof for LAT331+1
+% ------------------------------
+% Version: Vampire 4.4.0 (commit d98a3d53 on 2020-01-14 21:02:12 +0100)
+% Termination reason: Refutation
+
+% Memory used [KB]: 7164
+% Time elapsed: 0.042 s
+% ------------------------------
+% ------------------------------

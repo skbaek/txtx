@@ -1,0 +1,51 @@
+% Refutation found. Thanks to Tanya!
+% SZS status Theorem for GEO256+3
+% SZS output start Proof for GEO256+3
+fof(f180,plain,(
+  $false),
+  inference(subsumption_resolution,[],[f161,f137])).
+fof(f137,plain,(
+  ( ! [X0,X1] : (~left_apart_point(X0,X1)) )),
+  inference(cnf_transformation,[],[f85])).
+fof(f85,plain,(
+  ! [X0,X1] : (~left_apart_point(X0,reverse_line(X1)) & ~left_apart_point(X0,X1))),
+  inference(ennf_transformation,[],[f53])).
+fof(f53,plain,(
+  ! [X0,X1] : ~(left_apart_point(X0,reverse_line(X1)) | left_apart_point(X0,X1))),
+  inference(rectify,[],[f20])).
+fof(f20,axiom,(
+  ! [X2,X3] : ~(left_apart_point(X2,reverse_line(X3)) | left_apart_point(X2,X3))),
+  file('GEO256+3.tptp',unknown)).
+fof(f161,plain,(
+  left_apart_point(sK4,sK0)),
+  inference(cnf_transformation,[],[f114])).
+fof(f114,plain,(
+  ~before_on_line(sK0,sK3,sK2) & ~before_on_line(sK0,sK1,sK3) & before_on_line(sK0,sK1,sK2) & left_apart_point(sK4,sK0) & incident_point_and_line(sK3,sK0) & distinct_points(sK2,sK3) & distinct_points(sK1,sK3)),
+  inference(skolemisation,[status(esa),new_symbols(skolem,[sK0,sK1,sK2,sK3,sK4])],[f109,f113])).
+fof(f113,plain,(
+  ? [X0,X1,X2,X3,X4] : (~before_on_line(X0,X3,X2) & ~before_on_line(X0,X1,X3) & before_on_line(X0,X1,X2) & left_apart_point(X4,X0) & incident_point_and_line(X3,X0) & distinct_points(X2,X3) & distinct_points(X1,X3)) => (~before_on_line(sK0,sK3,sK2) & ~before_on_line(sK0,sK1,sK3) & before_on_line(sK0,sK1,sK2) & left_apart_point(sK4,sK0) & incident_point_and_line(sK3,sK0) & distinct_points(sK2,sK3) & distinct_points(sK1,sK3))),
+  introduced(choice_axiom,[])).
+fof(f109,plain,(
+  ? [X0,X1,X2,X3,X4] : (~before_on_line(X0,X3,X2) & ~before_on_line(X0,X1,X3) & before_on_line(X0,X1,X2) & left_apart_point(X4,X0) & incident_point_and_line(X3,X0) & distinct_points(X2,X3) & distinct_points(X1,X3))),
+  inference(flattening,[],[f108])).
+fof(f108,plain,(
+  ? [X0,X1,X2,X3,X4] : (((~before_on_line(X0,X3,X2) & ~before_on_line(X0,X1,X3)) & before_on_line(X0,X1,X2)) & (left_apart_point(X4,X0) & incident_point_and_line(X3,X0) & distinct_points(X2,X3) & distinct_points(X1,X3)))),
+  inference(ennf_transformation,[],[f70])).
+fof(f70,plain,(
+  ~! [X0,X1,X2,X3,X4] : ((left_apart_point(X4,X0) & incident_point_and_line(X3,X0) & distinct_points(X2,X3) & distinct_points(X1,X3)) => (before_on_line(X0,X1,X2) => (before_on_line(X0,X3,X2) | before_on_line(X0,X1,X3))))),
+  inference(rectify,[],[f38])).
+fof(f38,negated_conjecture,(
+  ~! [X3,X2,X5,X6,X8] : ((left_apart_point(X8,X3) & incident_point_and_line(X6,X3) & distinct_points(X5,X6) & distinct_points(X2,X6)) => (before_on_line(X3,X2,X5) => (before_on_line(X3,X6,X5) | before_on_line(X3,X2,X6))))),
+  inference(negated_conjecture,[],[f37])).
+fof(f37,conjecture,(
+  ! [X3,X2,X5,X6,X8] : ((left_apart_point(X8,X3) & incident_point_and_line(X6,X3) & distinct_points(X5,X6) & distinct_points(X2,X6)) => (before_on_line(X3,X2,X5) => (before_on_line(X3,X6,X5) | before_on_line(X3,X2,X6))))),
+  file('GEO256+3.tptp',unknown)).
+% SZS output end Proof for GEO256+3
+% ------------------------------
+% Version: Vampire 4.4.0 (commit d98a3d53 on 2020-01-14 21:02:12 +0100)
+% Termination reason: Refutation
+
+% Memory used [KB]: 4861
+% Time elapsed: 0.001 s
+% ------------------------------
+% ------------------------------

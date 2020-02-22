@@ -1,0 +1,459 @@
+% Refutation found. Thanks to Tanya!
+% SZS status Theorem for NUM452+6
+% SZS output start Proof for NUM452+6
+fof(f358607,plain,(
+  $false),
+  inference(avatar_sat_refutation,[],[f555,f574,f583,f2585,f235211,f307478,f349427,f350227])).
+fof(f350227,plain,(
+  ~spl38_1 | spl38_9 | ~spl38_1658),
+  inference(avatar_contradiction_clause,[],[f350226])).
+fof(f350226,plain,(
+  $false | (~spl38_1 | spl38_9 | ~spl38_1658)),
+  inference(subsumption_resolution,[],[f350090,f2126])).
+fof(f2126,plain,(
+  aDivisorOf0(xp,xp)),
+  inference(subsumption_resolution,[],[f2125,f434])).
+fof(f434,plain,(
+  aInteger0(xp)),
+  inference(cnf_transformation,[],[f236])).
+fof(f236,plain,(
+  aSubsetOf0(szAzrzSzezqlpdtcmdtrp0(sz10,xp),stldt0(sbsmnsldt0(xS))) & ! [X0] : (aElementOf0(X0,stldt0(sbsmnsldt0(xS))) | ~aElementOf0(X0,szAzrzSzezqlpdtcmdtrp0(sz10,xp))) & ! [X1] : ((aElementOf0(X1,stldt0(sbsmnsldt0(xS))) | aElementOf0(X1,sbsmnsldt0(xS)) | ~aInteger0(X1)) & ((~aElementOf0(X1,sbsmnsldt0(xS)) & aInteger0(X1)) | ~aElementOf0(X1,stldt0(sbsmnsldt0(xS))))) & ! [X2] : ((aElementOf0(X2,sbsmnsldt0(xS)) | ! [X3] : (~aElementOf0(X2,X3) | ~aElementOf0(X3,xS)) | ~aInteger0(X2)) & (((aElementOf0(X2,sK36(X2)) & aElementOf0(sK36(X2),xS)) & aInteger0(X2)) | ~aElementOf0(X2,sbsmnsldt0(xS)))) & aSet0(sbsmnsldt0(xS)) & ! [X5] : ((aElementOf0(X5,szAzrzSzezqlpdtcmdtrp0(sz10,xp)) | (~sdteqdtlpzmzozddtrp0(X5,sz10,xp) & ~aDivisorOf0(xp,sdtpldt0(X5,smndt0(sz10))) & ! [X6] : (sdtasdt0(xp,X6) != sdtpldt0(X5,smndt0(sz10)) | ~aInteger0(X6))) | ~aInteger0(X5)) & ((sdteqdtlpzmzozddtrp0(X5,sz10,xp) & aDivisorOf0(xp,sdtpldt0(X5,smndt0(sz10))) & (sdtpldt0(X5,smndt0(sz10)) = sdtasdt0(xp,sK37(X5)) & aInteger0(sK37(X5))) & aInteger0(X5)) | ~aElementOf0(X5,szAzrzSzezqlpdtcmdtrp0(sz10,xp)))) & aSet0(szAzrzSzezqlpdtcmdtrp0(sz10,xp)) & sz00 != xp & aInteger0(xp)),
+  inference(skolemisation,[status(esa),new_symbols(skolem,[sK36,sK37])],[f233,f235,f234])).
+fof(f234,plain,(
+  ! [X2] : (? [X4] : (aElementOf0(X2,X4) & aElementOf0(X4,xS)) => (aElementOf0(X2,sK36(X2)) & aElementOf0(sK36(X2),xS)))),
+  introduced(choice_axiom,[])).
+fof(f235,plain,(
+  ! [X5] : (? [X7] : (sdtpldt0(X5,smndt0(sz10)) = sdtasdt0(xp,X7) & aInteger0(X7)) => (sdtpldt0(X5,smndt0(sz10)) = sdtasdt0(xp,sK37(X5)) & aInteger0(sK37(X5))))),
+  introduced(choice_axiom,[])).
+fof(f233,plain,(
+  aSubsetOf0(szAzrzSzezqlpdtcmdtrp0(sz10,xp),stldt0(sbsmnsldt0(xS))) & ! [X0] : (aElementOf0(X0,stldt0(sbsmnsldt0(xS))) | ~aElementOf0(X0,szAzrzSzezqlpdtcmdtrp0(sz10,xp))) & ! [X1] : ((aElementOf0(X1,stldt0(sbsmnsldt0(xS))) | aElementOf0(X1,sbsmnsldt0(xS)) | ~aInteger0(X1)) & ((~aElementOf0(X1,sbsmnsldt0(xS)) & aInteger0(X1)) | ~aElementOf0(X1,stldt0(sbsmnsldt0(xS))))) & ! [X2] : ((aElementOf0(X2,sbsmnsldt0(xS)) | ! [X3] : (~aElementOf0(X2,X3) | ~aElementOf0(X3,xS)) | ~aInteger0(X2)) & ((? [X4] : (aElementOf0(X2,X4) & aElementOf0(X4,xS)) & aInteger0(X2)) | ~aElementOf0(X2,sbsmnsldt0(xS)))) & aSet0(sbsmnsldt0(xS)) & ! [X5] : ((aElementOf0(X5,szAzrzSzezqlpdtcmdtrp0(sz10,xp)) | (~sdteqdtlpzmzozddtrp0(X5,sz10,xp) & ~aDivisorOf0(xp,sdtpldt0(X5,smndt0(sz10))) & ! [X6] : (sdtasdt0(xp,X6) != sdtpldt0(X5,smndt0(sz10)) | ~aInteger0(X6))) | ~aInteger0(X5)) & ((sdteqdtlpzmzozddtrp0(X5,sz10,xp) & aDivisorOf0(xp,sdtpldt0(X5,smndt0(sz10))) & ? [X7] : (sdtpldt0(X5,smndt0(sz10)) = sdtasdt0(xp,X7) & aInteger0(X7)) & aInteger0(X5)) | ~aElementOf0(X5,szAzrzSzezqlpdtcmdtrp0(sz10,xp)))) & aSet0(szAzrzSzezqlpdtcmdtrp0(sz10,xp)) & sz00 != xp & aInteger0(xp)),
+  inference(rectify,[],[f232])).
+fof(f232,plain,(
+  aSubsetOf0(szAzrzSzezqlpdtcmdtrp0(sz10,xp),stldt0(sbsmnsldt0(xS))) & ! [X0] : (aElementOf0(X0,stldt0(sbsmnsldt0(xS))) | ~aElementOf0(X0,szAzrzSzezqlpdtcmdtrp0(sz10,xp))) & ! [X1] : ((aElementOf0(X1,stldt0(sbsmnsldt0(xS))) | aElementOf0(X1,sbsmnsldt0(xS)) | ~aInteger0(X1)) & ((~aElementOf0(X1,sbsmnsldt0(xS)) & aInteger0(X1)) | ~aElementOf0(X1,stldt0(sbsmnsldt0(xS))))) & ! [X2] : ((aElementOf0(X2,sbsmnsldt0(xS)) | ! [X3] : (~aElementOf0(X2,X3) | ~aElementOf0(X3,xS)) | ~aInteger0(X2)) & ((? [X3] : (aElementOf0(X2,X3) & aElementOf0(X3,xS)) & aInteger0(X2)) | ~aElementOf0(X2,sbsmnsldt0(xS)))) & aSet0(sbsmnsldt0(xS)) & ! [X4] : ((aElementOf0(X4,szAzrzSzezqlpdtcmdtrp0(sz10,xp)) | (~sdteqdtlpzmzozddtrp0(X4,sz10,xp) & ~aDivisorOf0(xp,sdtpldt0(X4,smndt0(sz10))) & ! [X5] : (sdtpldt0(X4,smndt0(sz10)) != sdtasdt0(xp,X5) | ~aInteger0(X5))) | ~aInteger0(X4)) & ((sdteqdtlpzmzozddtrp0(X4,sz10,xp) & aDivisorOf0(xp,sdtpldt0(X4,smndt0(sz10))) & ? [X6] : (sdtpldt0(X4,smndt0(sz10)) = sdtasdt0(xp,X6) & aInteger0(X6)) & aInteger0(X4)) | ~aElementOf0(X4,szAzrzSzezqlpdtcmdtrp0(sz10,xp)))) & aSet0(szAzrzSzezqlpdtcmdtrp0(sz10,xp)) & sz00 != xp & aInteger0(xp)),
+  inference(flattening,[],[f231])).
+fof(f231,plain,(
+  aSubsetOf0(szAzrzSzezqlpdtcmdtrp0(sz10,xp),stldt0(sbsmnsldt0(xS))) & ! [X0] : (aElementOf0(X0,stldt0(sbsmnsldt0(xS))) | ~aElementOf0(X0,szAzrzSzezqlpdtcmdtrp0(sz10,xp))) & ! [X1] : ((aElementOf0(X1,stldt0(sbsmnsldt0(xS))) | (aElementOf0(X1,sbsmnsldt0(xS)) | ~aInteger0(X1))) & ((~aElementOf0(X1,sbsmnsldt0(xS)) & aInteger0(X1)) | ~aElementOf0(X1,stldt0(sbsmnsldt0(xS))))) & ! [X2] : ((aElementOf0(X2,sbsmnsldt0(xS)) | (! [X3] : (~aElementOf0(X2,X3) | ~aElementOf0(X3,xS)) | ~aInteger0(X2))) & ((? [X3] : (aElementOf0(X2,X3) & aElementOf0(X3,xS)) & aInteger0(X2)) | ~aElementOf0(X2,sbsmnsldt0(xS)))) & aSet0(sbsmnsldt0(xS)) & ! [X4] : ((aElementOf0(X4,szAzrzSzezqlpdtcmdtrp0(sz10,xp)) | (~sdteqdtlpzmzozddtrp0(X4,sz10,xp) & ~aDivisorOf0(xp,sdtpldt0(X4,smndt0(sz10))) & ! [X5] : (sdtpldt0(X4,smndt0(sz10)) != sdtasdt0(xp,X5) | ~aInteger0(X5))) | ~aInteger0(X4)) & ((sdteqdtlpzmzozddtrp0(X4,sz10,xp) & aDivisorOf0(xp,sdtpldt0(X4,smndt0(sz10))) & ? [X6] : (sdtpldt0(X4,smndt0(sz10)) = sdtasdt0(xp,X6) & aInteger0(X6)) & aInteger0(X4)) | ~aElementOf0(X4,szAzrzSzezqlpdtcmdtrp0(sz10,xp)))) & aSet0(szAzrzSzezqlpdtcmdtrp0(sz10,xp)) & sz00 != xp & aInteger0(xp)),
+  inference(nnf_transformation,[],[f121])).
+fof(f121,plain,(
+  aSubsetOf0(szAzrzSzezqlpdtcmdtrp0(sz10,xp),stldt0(sbsmnsldt0(xS))) & ! [X0] : (aElementOf0(X0,stldt0(sbsmnsldt0(xS))) | ~aElementOf0(X0,szAzrzSzezqlpdtcmdtrp0(sz10,xp))) & ! [X1] : (aElementOf0(X1,stldt0(sbsmnsldt0(xS))) <=> (~aElementOf0(X1,sbsmnsldt0(xS)) & aInteger0(X1))) & ! [X2] : (aElementOf0(X2,sbsmnsldt0(xS)) <=> (? [X3] : (aElementOf0(X2,X3) & aElementOf0(X3,xS)) & aInteger0(X2))) & aSet0(sbsmnsldt0(xS)) & ! [X4] : ((aElementOf0(X4,szAzrzSzezqlpdtcmdtrp0(sz10,xp)) | (~sdteqdtlpzmzozddtrp0(X4,sz10,xp) & ~aDivisorOf0(xp,sdtpldt0(X4,smndt0(sz10))) & ! [X5] : (sdtpldt0(X4,smndt0(sz10)) != sdtasdt0(xp,X5) | ~aInteger0(X5))) | ~aInteger0(X4)) & ((sdteqdtlpzmzozddtrp0(X4,sz10,xp) & aDivisorOf0(xp,sdtpldt0(X4,smndt0(sz10))) & ? [X6] : (sdtpldt0(X4,smndt0(sz10)) = sdtasdt0(xp,X6) & aInteger0(X6)) & aInteger0(X4)) | ~aElementOf0(X4,szAzrzSzezqlpdtcmdtrp0(sz10,xp)))) & aSet0(szAzrzSzezqlpdtcmdtrp0(sz10,xp)) & sz00 != xp & aInteger0(xp)),
+  inference(flattening,[],[f120])).
+fof(f120,plain,(
+  aSubsetOf0(szAzrzSzezqlpdtcmdtrp0(sz10,xp),stldt0(sbsmnsldt0(xS))) & ! [X0] : (aElementOf0(X0,stldt0(sbsmnsldt0(xS))) | ~aElementOf0(X0,szAzrzSzezqlpdtcmdtrp0(sz10,xp))) & ! [X1] : (aElementOf0(X1,stldt0(sbsmnsldt0(xS))) <=> (~aElementOf0(X1,sbsmnsldt0(xS)) & aInteger0(X1))) & ! [X2] : (aElementOf0(X2,sbsmnsldt0(xS)) <=> (? [X3] : (aElementOf0(X2,X3) & aElementOf0(X3,xS)) & aInteger0(X2))) & aSet0(sbsmnsldt0(xS)) & ! [X4] : ((aElementOf0(X4,szAzrzSzezqlpdtcmdtrp0(sz10,xp)) | ((~sdteqdtlpzmzozddtrp0(X4,sz10,xp) & ~aDivisorOf0(xp,sdtpldt0(X4,smndt0(sz10))) & ! [X5] : (sdtpldt0(X4,smndt0(sz10)) != sdtasdt0(xp,X5) | ~aInteger0(X5))) | ~aInteger0(X4))) & ((sdteqdtlpzmzozddtrp0(X4,sz10,xp) & aDivisorOf0(xp,sdtpldt0(X4,smndt0(sz10))) & ? [X6] : (sdtpldt0(X4,smndt0(sz10)) = sdtasdt0(xp,X6) & aInteger0(X6)) & aInteger0(X4)) | ~aElementOf0(X4,szAzrzSzezqlpdtcmdtrp0(sz10,xp)))) & aSet0(szAzrzSzezqlpdtcmdtrp0(sz10,xp)) & sz00 != xp & aInteger0(xp)),
+  inference(ennf_transformation,[],[f58])).
+fof(f58,plain,(
+  aSubsetOf0(szAzrzSzezqlpdtcmdtrp0(sz10,xp),stldt0(sbsmnsldt0(xS))) & ! [X0] : (aElementOf0(X0,szAzrzSzezqlpdtcmdtrp0(sz10,xp)) => aElementOf0(X0,stldt0(sbsmnsldt0(xS)))) & ! [X1] : (aElementOf0(X1,stldt0(sbsmnsldt0(xS))) <=> (~aElementOf0(X1,sbsmnsldt0(xS)) & aInteger0(X1))) & ! [X2] : (aElementOf0(X2,sbsmnsldt0(xS)) <=> (? [X3] : (aElementOf0(X2,X3) & aElementOf0(X3,xS)) & aInteger0(X2))) & aSet0(sbsmnsldt0(xS)) & ! [X4] : ((((sdteqdtlpzmzozddtrp0(X4,sz10,xp) | aDivisorOf0(xp,sdtpldt0(X4,smndt0(sz10))) | ? [X5] : (sdtpldt0(X4,smndt0(sz10)) = sdtasdt0(xp,X5) & aInteger0(X5))) & aInteger0(X4)) => aElementOf0(X4,szAzrzSzezqlpdtcmdtrp0(sz10,xp))) & (aElementOf0(X4,szAzrzSzezqlpdtcmdtrp0(sz10,xp)) => (sdteqdtlpzmzozddtrp0(X4,sz10,xp) & aDivisorOf0(xp,sdtpldt0(X4,smndt0(sz10))) & ? [X6] : (sdtpldt0(X4,smndt0(sz10)) = sdtasdt0(xp,X6) & aInteger0(X6)) & aInteger0(X4)))) & aSet0(szAzrzSzezqlpdtcmdtrp0(sz10,xp)) & sz00 != xp & aInteger0(xp)),
+  inference(rectify,[],[f46])).
+fof(f46,axiom,(
+  aSubsetOf0(szAzrzSzezqlpdtcmdtrp0(sz10,xp),stldt0(sbsmnsldt0(xS))) & ! [X0] : (aElementOf0(X0,szAzrzSzezqlpdtcmdtrp0(sz10,xp)) => aElementOf0(X0,stldt0(sbsmnsldt0(xS)))) & ! [X0] : (aElementOf0(X0,stldt0(sbsmnsldt0(xS))) <=> (~aElementOf0(X0,sbsmnsldt0(xS)) & aInteger0(X0))) & ! [X0] : (aElementOf0(X0,sbsmnsldt0(xS)) <=> (? [X1] : (aElementOf0(X0,X1) & aElementOf0(X1,xS)) & aInteger0(X0))) & aSet0(sbsmnsldt0(xS)) & ! [X0] : ((((sdteqdtlpzmzozddtrp0(X0,sz10,xp) | aDivisorOf0(xp,sdtpldt0(X0,smndt0(sz10))) | ? [X1] : (sdtasdt0(xp,X1) = sdtpldt0(X0,smndt0(sz10)) & aInteger0(X1))) & aInteger0(X0)) => aElementOf0(X0,szAzrzSzezqlpdtcmdtrp0(sz10,xp))) & (aElementOf0(X0,szAzrzSzezqlpdtcmdtrp0(sz10,xp)) => (sdteqdtlpzmzozddtrp0(X0,sz10,xp) & aDivisorOf0(xp,sdtpldt0(X0,smndt0(sz10))) & ? [X1] : (sdtasdt0(xp,X1) = sdtpldt0(X0,smndt0(sz10)) & aInteger0(X1)) & aInteger0(X0)))) & aSet0(szAzrzSzezqlpdtcmdtrp0(sz10,xp)) & sz00 != xp & aInteger0(xp)),
+  file('NUM452+6.tptp',unknown)).
+fof(f2125,plain,(
+  aDivisorOf0(xp,xp) | ~aInteger0(xp)),
+  inference(subsumption_resolution,[],[f2124,f435])).
+fof(f435,plain,(
+  sz00 != xp),
+  inference(cnf_transformation,[],[f236])).
+fof(f2124,plain,(
+  aDivisorOf0(xp,xp) | sz00 = xp | ~aInteger0(xp)),
+  inference(subsumption_resolution,[],[f2023,f240])).
+fof(f240,plain,(
+  aInteger0(sz10)),
+  inference(cnf_transformation,[],[f3])).
+fof(f3,axiom,(
+  aInteger0(sz10)),
+  file('NUM452+6.tptp',unknown)).
+fof(f2023,plain,(
+  aDivisorOf0(xp,xp) | ~aInteger0(sz10) | sz00 = xp | ~aInteger0(xp)),
+  inference(superposition,[],[f481,f616])).
+fof(f616,plain,(
+  xp = sdtasdt0(xp,sz10)),
+  inference(resolution,[],[f252,f434])).
+fof(f252,plain,(
+  ( ! [X0] : (~aInteger0(X0) | sdtasdt0(X0,sz10) = X0) )),
+  inference(cnf_transformation,[],[f75])).
+fof(f75,plain,(
+  ! [X0] : ((sdtasdt0(sz10,X0) = X0 & sdtasdt0(X0,sz10) = X0) | ~aInteger0(X0))),
+  inference(ennf_transformation,[],[f13])).
+fof(f13,axiom,(
+  ! [X0] : (aInteger0(X0) => (sdtasdt0(sz10,X0) = X0 & sdtasdt0(X0,sz10) = X0))),
+  file('NUM452+6.tptp',unknown)).
+fof(f481,plain,(
+  ( ! [X2,X1] : (aDivisorOf0(X1,sdtasdt0(X1,X2)) | ~aInteger0(X2) | sz00 = X1 | ~aInteger0(X1)) )),
+  inference(subsumption_resolution,[],[f463,f243])).
+fof(f243,plain,(
+  ( ! [X0,X1] : (aInteger0(sdtasdt0(X0,X1)) | ~aInteger0(X1) | ~aInteger0(X0)) )),
+  inference(cnf_transformation,[],[f64])).
+fof(f64,plain,(
+  ! [X0,X1] : (aInteger0(sdtasdt0(X0,X1)) | ~aInteger0(X1) | ~aInteger0(X0))),
+  inference(flattening,[],[f63])).
+fof(f63,plain,(
+  ! [X0,X1] : (aInteger0(sdtasdt0(X0,X1)) | (~aInteger0(X1) | ~aInteger0(X0)))),
+  inference(ennf_transformation,[],[f6])).
+fof(f6,axiom,(
+  ! [X0,X1] : ((aInteger0(X1) & aInteger0(X0)) => aInteger0(sdtasdt0(X0,X1)))),
+  file('NUM452+6.tptp',unknown)).
+fof(f463,plain,(
+  ( ! [X2,X1] : (aDivisorOf0(X1,sdtasdt0(X1,X2)) | ~aInteger0(X2) | sz00 = X1 | ~aInteger0(X1) | ~aInteger0(sdtasdt0(X1,X2))) )),
+  inference(equality_resolution,[],[f265])).
+fof(f265,plain,(
+  ( ! [X2,X0,X1] : (aDivisorOf0(X1,X0) | sdtasdt0(X1,X2) != X0 | ~aInteger0(X2) | sz00 = X1 | ~aInteger0(X1) | ~aInteger0(X0)) )),
+  inference(cnf_transformation,[],[f144])).
+fof(f144,plain,(
+  ! [X0] : (! [X1] : ((aDivisorOf0(X1,X0) | ! [X2] : (sdtasdt0(X1,X2) != X0 | ~aInteger0(X2)) | sz00 = X1 | ~aInteger0(X1)) & (((sdtasdt0(X1,sK11(X0,X1)) = X0 & aInteger0(sK11(X0,X1))) & sz00 != X1 & aInteger0(X1)) | ~aDivisorOf0(X1,X0))) | ~aInteger0(X0))),
+  inference(skolemisation,[status(esa),new_symbols(skolem,[sK11])],[f142,f143])).
+fof(f143,plain,(
+  ! [X1,X0] : (? [X3] : (sdtasdt0(X1,X3) = X0 & aInteger0(X3)) => (sdtasdt0(X1,sK11(X0,X1)) = X0 & aInteger0(sK11(X0,X1))))),
+  introduced(choice_axiom,[])).
+fof(f142,plain,(
+  ! [X0] : (! [X1] : ((aDivisorOf0(X1,X0) | ! [X2] : (sdtasdt0(X1,X2) != X0 | ~aInteger0(X2)) | sz00 = X1 | ~aInteger0(X1)) & ((? [X3] : (sdtasdt0(X1,X3) = X0 & aInteger0(X3)) & sz00 != X1 & aInteger0(X1)) | ~aDivisorOf0(X1,X0))) | ~aInteger0(X0))),
+  inference(rectify,[],[f141])).
+fof(f141,plain,(
+  ! [X0] : (! [X1] : ((aDivisorOf0(X1,X0) | ! [X2] : (sdtasdt0(X1,X2) != X0 | ~aInteger0(X2)) | sz00 = X1 | ~aInteger0(X1)) & ((? [X2] : (sdtasdt0(X1,X2) = X0 & aInteger0(X2)) & sz00 != X1 & aInteger0(X1)) | ~aDivisorOf0(X1,X0))) | ~aInteger0(X0))),
+  inference(flattening,[],[f140])).
+fof(f140,plain,(
+  ! [X0] : (! [X1] : ((aDivisorOf0(X1,X0) | (! [X2] : (sdtasdt0(X1,X2) != X0 | ~aInteger0(X2)) | sz00 = X1 | ~aInteger0(X1))) & ((? [X2] : (sdtasdt0(X1,X2) = X0 & aInteger0(X2)) & sz00 != X1 & aInteger0(X1)) | ~aDivisorOf0(X1,X0))) | ~aInteger0(X0))),
+  inference(nnf_transformation,[],[f82])).
+fof(f82,plain,(
+  ! [X0] : (! [X1] : (aDivisorOf0(X1,X0) <=> (? [X2] : (sdtasdt0(X1,X2) = X0 & aInteger0(X2)) & sz00 != X1 & aInteger0(X1))) | ~aInteger0(X0))),
+  inference(ennf_transformation,[],[f18])).
+fof(f18,axiom,(
+  ! [X0] : (aInteger0(X0) => ! [X1] : (aDivisorOf0(X1,X0) <=> (? [X2] : (sdtasdt0(X1,X2) = X0 & aInteger0(X2)) & sz00 != X1 & aInteger0(X1))))),
+  file('NUM452+6.tptp',unknown)).
+fof(f350090,plain,(
+  ~aDivisorOf0(xp,xp) | (~spl38_1 | spl38_9 | ~spl38_1658)),
+  inference(backward_demodulation,[],[f350089,f307636])).
+fof(f307636,plain,(
+  ~aDivisorOf0(xp,sdtpldt0(smndt0(sz10),sdtpldt0(sz10,xp))) | (~spl38_1 | spl38_9 | ~spl38_1658)),
+  inference(backward_demodulation,[],[f307601,f554])).
+fof(f554,plain,(
+  ~aDivisorOf0(xp,sdtpldt0(sdtpldt0(sz10,xp),smndt0(sz10))) | spl38_9),
+  inference(avatar_component_clause,[],[f552])).
+fof(f552,plain,(
+  spl38_9 <=> aDivisorOf0(xp,sdtpldt0(sdtpldt0(sz10,xp),smndt0(sz10)))),
+  introduced(avatar_definition,[new_symbols(naming,[spl38_9])])).
+fof(f307601,plain,(
+  sdtpldt0(sdtpldt0(sz10,xp),smndt0(sz10)) = sdtpldt0(smndt0(sz10),sdtpldt0(sz10,xp)) | (~spl38_1 | ~spl38_1658)),
+  inference(resolution,[],[f307443,f59231])).
+fof(f59231,plain,(
+  ( ! [X2] : (~aInteger0(X2) | sdtpldt0(X2,smndt0(sz10)) = sdtpldt0(smndt0(sz10),X2)) ) | ~spl38_1),
+  inference(resolution,[],[f484,f245])).
+fof(f245,plain,(
+  ( ! [X0,X1] : (~aInteger0(X1) | sdtpldt0(X0,X1) = sdtpldt0(X1,X0) | ~aInteger0(X0)) )),
+  inference(cnf_transformation,[],[f68])).
+fof(f68,plain,(
+  ! [X0,X1] : (sdtpldt0(X0,X1) = sdtpldt0(X1,X0) | ~aInteger0(X1) | ~aInteger0(X0))),
+  inference(flattening,[],[f67])).
+fof(f67,plain,(
+  ! [X0,X1] : (sdtpldt0(X0,X1) = sdtpldt0(X1,X0) | (~aInteger0(X1) | ~aInteger0(X0)))),
+  inference(ennf_transformation,[],[f8])).
+fof(f8,axiom,(
+  ! [X0,X1] : ((aInteger0(X1) & aInteger0(X0)) => sdtpldt0(X0,X1) = sdtpldt0(X1,X0))),
+  file('NUM452+6.tptp',unknown)).
+fof(f484,plain,(
+  aInteger0(smndt0(sz10)) | ~spl38_1),
+  inference(avatar_component_clause,[],[f483])).
+fof(f483,plain,(
+  spl38_1 <=> aInteger0(smndt0(sz10))),
+  introduced(avatar_definition,[new_symbols(naming,[spl38_1])])).
+fof(f307443,plain,(
+  aInteger0(sdtpldt0(sz10,xp)) | ~spl38_1658),
+  inference(avatar_component_clause,[],[f307442])).
+fof(f307442,plain,(
+  spl38_1658 <=> aInteger0(sdtpldt0(sz10,xp))),
+  introduced(avatar_definition,[new_symbols(naming,[spl38_1658])])).
+fof(f350089,plain,(
+  xp = sdtpldt0(smndt0(sz10),sdtpldt0(sz10,xp)) | (~spl38_1 | ~spl38_1658)),
+  inference(backward_demodulation,[],[f350088,f307601])).
+fof(f350088,plain,(
+  xp = sdtpldt0(sdtpldt0(sz10,xp),smndt0(sz10)) | ~spl38_1),
+  inference(backward_demodulation,[],[f5214,f350084])).
+fof(f350084,plain,(
+  xp = sdtpldt0(sdtpldt0(xp,sz10),smndt0(sz10)) | ~spl38_1),
+  inference(forward_demodulation,[],[f349128,f596])).
+fof(f596,plain,(
+  xp = sdtpldt0(xp,sz00)),
+  inference(resolution,[],[f246,f434])).
+fof(f246,plain,(
+  ( ! [X0] : (~aInteger0(X0) | sdtpldt0(X0,sz00) = X0) )),
+  inference(cnf_transformation,[],[f69])).
+fof(f69,plain,(
+  ! [X0] : ((sdtpldt0(sz00,X0) = X0 & sdtpldt0(X0,sz00) = X0) | ~aInteger0(X0))),
+  inference(ennf_transformation,[],[f9])).
+fof(f9,axiom,(
+  ! [X0] : (aInteger0(X0) => (sdtpldt0(sz00,X0) = X0 & sdtpldt0(X0,sz00) = X0))),
+  file('NUM452+6.tptp',unknown)).
+fof(f349128,plain,(
+  sdtpldt0(xp,sz00) = sdtpldt0(sdtpldt0(xp,sz10),smndt0(sz10)) | ~spl38_1),
+  inference(resolution,[],[f24158,f434])).
+fof(f24158,plain,(
+  ( ! [X1] : (~aInteger0(X1) | sdtpldt0(X1,sz00) = sdtpldt0(sdtpldt0(X1,sz10),smndt0(sz10))) ) | ~spl38_1),
+  inference(forward_demodulation,[],[f24053,f692])).
+fof(f692,plain,(
+  sz00 = sdtpldt0(sz10,smndt0(sz10))),
+  inference(resolution,[],[f248,f240])).
+fof(f248,plain,(
+  ( ! [X0] : (~aInteger0(X0) | sz00 = sdtpldt0(X0,smndt0(X0))) )),
+  inference(cnf_transformation,[],[f70])).
+fof(f70,plain,(
+  ! [X0] : ((sz00 = sdtpldt0(smndt0(X0),X0) & sz00 = sdtpldt0(X0,smndt0(X0))) | ~aInteger0(X0))),
+  inference(ennf_transformation,[],[f10])).
+fof(f10,axiom,(
+  ! [X0] : (aInteger0(X0) => (sz00 = sdtpldt0(smndt0(X0),X0) & sz00 = sdtpldt0(X0,smndt0(X0))))),
+  file('NUM452+6.tptp',unknown)).
+fof(f24053,plain,(
+  ( ! [X1] : (sdtpldt0(X1,sdtpldt0(sz10,smndt0(sz10))) = sdtpldt0(sdtpldt0(X1,sz10),smndt0(sz10)) | ~aInteger0(X1)) ) | ~spl38_1),
+  inference(resolution,[],[f3308,f240])).
+fof(f3308,plain,(
+  ( ! [X8,X7] : (~aInteger0(X8) | sdtpldt0(X7,sdtpldt0(X8,smndt0(sz10))) = sdtpldt0(sdtpldt0(X7,X8),smndt0(sz10)) | ~aInteger0(X7)) ) | ~spl38_1),
+  inference(resolution,[],[f244,f484])).
+fof(f244,plain,(
+  ( ! [X2,X0,X1] : (~aInteger0(X2) | sdtpldt0(X0,sdtpldt0(X1,X2)) = sdtpldt0(sdtpldt0(X0,X1),X2) | ~aInteger0(X1) | ~aInteger0(X0)) )),
+  inference(cnf_transformation,[],[f66])).
+fof(f66,plain,(
+  ! [X0,X1,X2] : (sdtpldt0(X0,sdtpldt0(X1,X2)) = sdtpldt0(sdtpldt0(X0,X1),X2) | ~aInteger0(X2) | ~aInteger0(X1) | ~aInteger0(X0))),
+  inference(flattening,[],[f65])).
+fof(f65,plain,(
+  ! [X0,X1,X2] : (sdtpldt0(X0,sdtpldt0(X1,X2)) = sdtpldt0(sdtpldt0(X0,X1),X2) | (~aInteger0(X2) | ~aInteger0(X1) | ~aInteger0(X0)))),
+  inference(ennf_transformation,[],[f7])).
+fof(f7,axiom,(
+  ! [X0,X1,X2] : ((aInteger0(X2) & aInteger0(X1) & aInteger0(X0)) => sdtpldt0(X0,sdtpldt0(X1,X2)) = sdtpldt0(sdtpldt0(X0,X1),X2))),
+  file('NUM452+6.tptp',unknown)).
+fof(f5214,plain,(
+  sdtpldt0(sz10,xp) = sdtpldt0(xp,sz10)),
+  inference(resolution,[],[f1270,f240])).
+fof(f1270,plain,(
+  ( ! [X13] : (~aInteger0(X13) | sdtpldt0(X13,xp) = sdtpldt0(xp,X13)) )),
+  inference(resolution,[],[f245,f434])).
+fof(f349427,plain,(
+  ~spl38_1 | spl38_13 | ~spl38_133 | ~spl38_1297),
+  inference(avatar_contradiction_clause,[],[f349426])).
+fof(f349426,plain,(
+  $false | (~spl38_1 | spl38_13 | ~spl38_133 | ~spl38_1297)),
+  inference(subsumption_resolution,[],[f349385,f2129])).
+fof(f2129,plain,(
+  aDivisorOf0(xp,smndt0(xp)) | ~spl38_1),
+  inference(subsumption_resolution,[],[f2128,f434])).
+fof(f2128,plain,(
+  aDivisorOf0(xp,smndt0(xp)) | ~aInteger0(xp) | ~spl38_1),
+  inference(subsumption_resolution,[],[f2127,f435])).
+fof(f2127,plain,(
+  aDivisorOf0(xp,smndt0(xp)) | sz00 = xp | ~aInteger0(xp) | ~spl38_1),
+  inference(subsumption_resolution,[],[f2024,f484])).
+fof(f2024,plain,(
+  aDivisorOf0(xp,smndt0(xp)) | ~aInteger0(smndt0(sz10)) | sz00 = xp | ~aInteger0(xp)),
+  inference(superposition,[],[f481,f875])).
+fof(f875,plain,(
+  smndt0(xp) = sdtasdt0(xp,smndt0(sz10))),
+  inference(resolution,[],[f259,f434])).
+fof(f259,plain,(
+  ( ! [X0] : (~aInteger0(X0) | smndt0(X0) = sdtasdt0(X0,smndt0(sz10))) )),
+  inference(cnf_transformation,[],[f79])).
+fof(f79,plain,(
+  ! [X0] : ((smndt0(X0) = sdtasdt0(X0,smndt0(sz10)) & smndt0(X0) = sdtasdt0(smndt0(sz10),X0)) | ~aInteger0(X0))),
+  inference(ennf_transformation,[],[f16])).
+fof(f16,axiom,(
+  ! [X0] : (aInteger0(X0) => (smndt0(X0) = sdtasdt0(X0,smndt0(sz10)) & smndt0(X0) = sdtasdt0(smndt0(sz10),X0)))),
+  file('NUM452+6.tptp',unknown)).
+fof(f349385,plain,(
+  ~aDivisorOf0(xp,smndt0(xp)) | (~spl38_1 | spl38_13 | ~spl38_133 | ~spl38_1297)),
+  inference(backward_demodulation,[],[f349383,f235491])).
+fof(f235491,plain,(
+  ~aDivisorOf0(xp,sdtpldt0(smndt0(sz10),sdtpldt0(sz10,smndt0(xp)))) | (~spl38_1 | spl38_13 | ~spl38_1297)),
+  inference(backward_demodulation,[],[f235468,f573])).
+fof(f573,plain,(
+  ~aDivisorOf0(xp,sdtpldt0(sdtpldt0(sz10,smndt0(xp)),smndt0(sz10))) | spl38_13),
+  inference(avatar_component_clause,[],[f571])).
+fof(f571,plain,(
+  spl38_13 <=> aDivisorOf0(xp,sdtpldt0(sdtpldt0(sz10,smndt0(xp)),smndt0(sz10)))),
+  introduced(avatar_definition,[new_symbols(naming,[spl38_13])])).
+fof(f235468,plain,(
+  sdtpldt0(sdtpldt0(sz10,smndt0(xp)),smndt0(sz10)) = sdtpldt0(smndt0(sz10),sdtpldt0(sz10,smndt0(xp))) | (~spl38_1 | ~spl38_1297)),
+  inference(resolution,[],[f235119,f59231])).
+fof(f235119,plain,(
+  aInteger0(sdtpldt0(sz10,smndt0(xp))) | ~spl38_1297),
+  inference(avatar_component_clause,[],[f235118])).
+fof(f235118,plain,(
+  spl38_1297 <=> aInteger0(sdtpldt0(sz10,smndt0(xp)))),
+  introduced(avatar_definition,[new_symbols(naming,[spl38_1297])])).
+fof(f349383,plain,(
+  smndt0(xp) = sdtpldt0(smndt0(sz10),sdtpldt0(sz10,smndt0(xp))) | (~spl38_1 | ~spl38_133 | ~spl38_1297)),
+  inference(backward_demodulation,[],[f349382,f235468])).
+fof(f349382,plain,(
+  smndt0(xp) = sdtpldt0(sdtpldt0(sz10,smndt0(xp)),smndt0(sz10)) | (~spl38_1 | ~spl38_133)),
+  inference(forward_demodulation,[],[f349381,f2587])).
+fof(f2587,plain,(
+  smndt0(xp) = sdtpldt0(smndt0(xp),sz00) | ~spl38_133),
+  inference(resolution,[],[f2571,f246])).
+fof(f2571,plain,(
+  aInteger0(smndt0(xp)) | ~spl38_133),
+  inference(avatar_component_clause,[],[f2570])).
+fof(f2570,plain,(
+  spl38_133 <=> aInteger0(smndt0(xp))),
+  introduced(avatar_definition,[new_symbols(naming,[spl38_133])])).
+fof(f349381,plain,(
+  sdtpldt0(sdtpldt0(sz10,smndt0(xp)),smndt0(sz10)) = sdtpldt0(smndt0(xp),sz00) | (~spl38_1 | ~spl38_133)),
+  inference(forward_demodulation,[],[f349111,f5585])).
+fof(f5585,plain,(
+  sdtpldt0(sz10,smndt0(xp)) = sdtpldt0(smndt0(xp),sz10) | ~spl38_133),
+  inference(resolution,[],[f1265,f2571])).
+fof(f1265,plain,(
+  ( ! [X3] : (~aInteger0(X3) | sdtpldt0(X3,sz10) = sdtpldt0(sz10,X3)) )),
+  inference(resolution,[],[f245,f240])).
+fof(f349111,plain,(
+  sdtpldt0(smndt0(xp),sz00) = sdtpldt0(sdtpldt0(smndt0(xp),sz10),smndt0(sz10)) | (~spl38_1 | ~spl38_133)),
+  inference(resolution,[],[f24158,f2571])).
+fof(f307478,plain,(
+  spl38_1658),
+  inference(avatar_contradiction_clause,[],[f307477])).
+fof(f307477,plain,(
+  $false | spl38_1658),
+  inference(subsumption_resolution,[],[f307476,f240])).
+fof(f307476,plain,(
+  ~aInteger0(sz10) | spl38_1658),
+  inference(subsumption_resolution,[],[f307475,f434])).
+fof(f307475,plain,(
+  ~aInteger0(xp) | ~aInteger0(sz10) | spl38_1658),
+  inference(resolution,[],[f307444,f242])).
+fof(f242,plain,(
+  ( ! [X0,X1] : (aInteger0(sdtpldt0(X0,X1)) | ~aInteger0(X1) | ~aInteger0(X0)) )),
+  inference(cnf_transformation,[],[f62])).
+fof(f62,plain,(
+  ! [X0,X1] : (aInteger0(sdtpldt0(X0,X1)) | ~aInteger0(X1) | ~aInteger0(X0))),
+  inference(flattening,[],[f61])).
+fof(f61,plain,(
+  ! [X0,X1] : (aInteger0(sdtpldt0(X0,X1)) | (~aInteger0(X1) | ~aInteger0(X0)))),
+  inference(ennf_transformation,[],[f5])).
+fof(f5,axiom,(
+  ! [X0,X1] : ((aInteger0(X1) & aInteger0(X0)) => aInteger0(sdtpldt0(X0,X1)))),
+  file('NUM452+6.tptp',unknown)).
+fof(f307444,plain,(
+  ~aInteger0(sdtpldt0(sz10,xp)) | spl38_1658),
+  inference(avatar_component_clause,[],[f307442])).
+fof(f235211,plain,(
+  ~spl38_133 | spl38_1297),
+  inference(avatar_contradiction_clause,[],[f235210])).
+fof(f235210,plain,(
+  $false | (~spl38_133 | spl38_1297)),
+  inference(subsumption_resolution,[],[f235209,f240])).
+fof(f235209,plain,(
+  ~aInteger0(sz10) | (~spl38_133 | spl38_1297)),
+  inference(subsumption_resolution,[],[f235208,f2571])).
+fof(f235208,plain,(
+  ~aInteger0(smndt0(xp)) | ~aInteger0(sz10) | spl38_1297),
+  inference(resolution,[],[f235120,f242])).
+fof(f235120,plain,(
+  ~aInteger0(sdtpldt0(sz10,smndt0(xp))) | spl38_1297),
+  inference(avatar_component_clause,[],[f235118])).
+fof(f2585,plain,(
+  spl38_133),
+  inference(avatar_contradiction_clause,[],[f2584])).
+fof(f2584,plain,(
+  $false | spl38_133),
+  inference(subsumption_resolution,[],[f2583,f434])).
+fof(f2583,plain,(
+  ~aInteger0(xp) | spl38_133),
+  inference(resolution,[],[f2572,f241])).
+fof(f241,plain,(
+  ( ! [X0] : (aInteger0(smndt0(X0)) | ~aInteger0(X0)) )),
+  inference(cnf_transformation,[],[f60])).
+fof(f60,plain,(
+  ! [X0] : (aInteger0(smndt0(X0)) | ~aInteger0(X0))),
+  inference(ennf_transformation,[],[f4])).
+fof(f4,axiom,(
+  ! [X0] : (aInteger0(X0) => aInteger0(smndt0(X0)))),
+  file('NUM452+6.tptp',unknown)).
+fof(f2572,plain,(
+  ~aInteger0(smndt0(xp)) | spl38_133),
+  inference(avatar_component_clause,[],[f2570])).
+fof(f583,plain,(
+  spl38_1),
+  inference(avatar_split_clause,[],[f580,f483])).
+fof(f580,plain,(
+  aInteger0(smndt0(sz10))),
+  inference(resolution,[],[f507,f502])).
+fof(f502,plain,(
+  aElementOf0(smndt0(sz10),cS2076)),
+  inference(forward_demodulation,[],[f479,f386])).
+fof(f386,plain,(
+  stldt0(sbsmnsldt0(xS)) = cS2076),
+  inference(cnf_transformation,[],[f214])).
+fof(f214,plain,(
+  stldt0(sbsmnsldt0(xS)) = cS2076 & ! [X0] : ((aElementOf0(X0,stldt0(sbsmnsldt0(xS))) | (smndt0(sz10) != X0 & sz10 != X0)) & (smndt0(sz10) = X0 | sz10 = X0 | ~aElementOf0(X0,stldt0(sbsmnsldt0(xS))))) & ! [X1] : ((aElementOf0(X1,stldt0(sbsmnsldt0(xS))) | aElementOf0(X1,sbsmnsldt0(xS)) | ~aInteger0(X1)) & ((~aElementOf0(X1,sbsmnsldt0(xS)) & aInteger0(X1)) | ~aElementOf0(X1,stldt0(sbsmnsldt0(xS))))) & aSet0(stldt0(sbsmnsldt0(xS))) & ! [X2] : ((aElementOf0(X2,sbsmnsldt0(xS)) | ! [X3] : (~aElementOf0(X2,X3) | ~aElementOf0(X3,xS)) | ~aInteger0(X2)) & (((aElementOf0(X2,sK29(X2)) & aElementOf0(sK29(X2),xS)) & aInteger0(X2)) | ~aElementOf0(X2,sbsmnsldt0(xS)))) & aSet0(sbsmnsldt0(xS))),
+  inference(skolemisation,[status(esa),new_symbols(skolem,[sK29])],[f212,f213])).
+fof(f213,plain,(
+  ! [X2] : (? [X4] : (aElementOf0(X2,X4) & aElementOf0(X4,xS)) => (aElementOf0(X2,sK29(X2)) & aElementOf0(sK29(X2),xS)))),
+  introduced(choice_axiom,[])).
+fof(f212,plain,(
+  stldt0(sbsmnsldt0(xS)) = cS2076 & ! [X0] : ((aElementOf0(X0,stldt0(sbsmnsldt0(xS))) | (smndt0(sz10) != X0 & sz10 != X0)) & (smndt0(sz10) = X0 | sz10 = X0 | ~aElementOf0(X0,stldt0(sbsmnsldt0(xS))))) & ! [X1] : ((aElementOf0(X1,stldt0(sbsmnsldt0(xS))) | aElementOf0(X1,sbsmnsldt0(xS)) | ~aInteger0(X1)) & ((~aElementOf0(X1,sbsmnsldt0(xS)) & aInteger0(X1)) | ~aElementOf0(X1,stldt0(sbsmnsldt0(xS))))) & aSet0(stldt0(sbsmnsldt0(xS))) & ! [X2] : ((aElementOf0(X2,sbsmnsldt0(xS)) | ! [X3] : (~aElementOf0(X2,X3) | ~aElementOf0(X3,xS)) | ~aInteger0(X2)) & ((? [X4] : (aElementOf0(X2,X4) & aElementOf0(X4,xS)) & aInteger0(X2)) | ~aElementOf0(X2,sbsmnsldt0(xS)))) & aSet0(sbsmnsldt0(xS))),
+  inference(rectify,[],[f211])).
+fof(f211,plain,(
+  stldt0(sbsmnsldt0(xS)) = cS2076 & ! [X0] : ((aElementOf0(X0,stldt0(sbsmnsldt0(xS))) | (smndt0(sz10) != X0 & sz10 != X0)) & (smndt0(sz10) = X0 | sz10 = X0 | ~aElementOf0(X0,stldt0(sbsmnsldt0(xS))))) & ! [X1] : ((aElementOf0(X1,stldt0(sbsmnsldt0(xS))) | aElementOf0(X1,sbsmnsldt0(xS)) | ~aInteger0(X1)) & ((~aElementOf0(X1,sbsmnsldt0(xS)) & aInteger0(X1)) | ~aElementOf0(X1,stldt0(sbsmnsldt0(xS))))) & aSet0(stldt0(sbsmnsldt0(xS))) & ! [X2] : ((aElementOf0(X2,sbsmnsldt0(xS)) | ! [X3] : (~aElementOf0(X2,X3) | ~aElementOf0(X3,xS)) | ~aInteger0(X2)) & ((? [X3] : (aElementOf0(X2,X3) & aElementOf0(X3,xS)) & aInteger0(X2)) | ~aElementOf0(X2,sbsmnsldt0(xS)))) & aSet0(sbsmnsldt0(xS))),
+  inference(flattening,[],[f210])).
+fof(f210,plain,(
+  stldt0(sbsmnsldt0(xS)) = cS2076 & ! [X0] : ((aElementOf0(X0,stldt0(sbsmnsldt0(xS))) | (smndt0(sz10) != X0 & sz10 != X0)) & ((smndt0(sz10) = X0 | sz10 = X0) | ~aElementOf0(X0,stldt0(sbsmnsldt0(xS))))) & ! [X1] : ((aElementOf0(X1,stldt0(sbsmnsldt0(xS))) | (aElementOf0(X1,sbsmnsldt0(xS)) | ~aInteger0(X1))) & ((~aElementOf0(X1,sbsmnsldt0(xS)) & aInteger0(X1)) | ~aElementOf0(X1,stldt0(sbsmnsldt0(xS))))) & aSet0(stldt0(sbsmnsldt0(xS))) & ! [X2] : ((aElementOf0(X2,sbsmnsldt0(xS)) | (! [X3] : (~aElementOf0(X2,X3) | ~aElementOf0(X3,xS)) | ~aInteger0(X2))) & ((? [X3] : (aElementOf0(X2,X3) & aElementOf0(X3,xS)) & aInteger0(X2)) | ~aElementOf0(X2,sbsmnsldt0(xS)))) & aSet0(sbsmnsldt0(xS))),
+  inference(nnf_transformation,[],[f56])).
+fof(f56,plain,(
+  stldt0(sbsmnsldt0(xS)) = cS2076 & ! [X0] : (aElementOf0(X0,stldt0(sbsmnsldt0(xS))) <=> (smndt0(sz10) = X0 | sz10 = X0)) & ! [X1] : (aElementOf0(X1,stldt0(sbsmnsldt0(xS))) <=> (~aElementOf0(X1,sbsmnsldt0(xS)) & aInteger0(X1))) & aSet0(stldt0(sbsmnsldt0(xS))) & ! [X2] : (aElementOf0(X2,sbsmnsldt0(xS)) <=> (? [X3] : (aElementOf0(X2,X3) & aElementOf0(X3,xS)) & aInteger0(X2))) & aSet0(sbsmnsldt0(xS))),
+  inference(rectify,[],[f43])).
+fof(f43,axiom,(
+  stldt0(sbsmnsldt0(xS)) = cS2076 & ! [X0] : (aElementOf0(X0,stldt0(sbsmnsldt0(xS))) <=> (smndt0(sz10) = X0 | sz10 = X0)) & ! [X0] : (aElementOf0(X0,stldt0(sbsmnsldt0(xS))) <=> (~aElementOf0(X0,sbsmnsldt0(xS)) & aInteger0(X0))) & aSet0(stldt0(sbsmnsldt0(xS))) & ! [X0] : (aElementOf0(X0,sbsmnsldt0(xS)) <=> (? [X1] : (aElementOf0(X0,X1) & aElementOf0(X1,xS)) & aInteger0(X0))) & aSet0(sbsmnsldt0(xS))),
+  file('NUM452+6.tptp',unknown)).
+fof(f479,plain,(
+  aElementOf0(smndt0(sz10),stldt0(sbsmnsldt0(xS)))),
+  inference(equality_resolution,[],[f385])).
+fof(f385,plain,(
+  ( ! [X0] : (aElementOf0(X0,stldt0(sbsmnsldt0(xS))) | smndt0(sz10) != X0) )),
+  inference(cnf_transformation,[],[f214])).
+fof(f507,plain,(
+  ( ! [X1] : (~aElementOf0(X1,cS2076) | aInteger0(X1)) )),
+  inference(forward_demodulation,[],[f380,f386])).
+fof(f380,plain,(
+  ( ! [X1] : (aInteger0(X1) | ~aElementOf0(X1,stldt0(sbsmnsldt0(xS)))) )),
+  inference(cnf_transformation,[],[f214])).
+fof(f574,plain,(
+  spl38_6 | ~spl38_13),
+  inference(avatar_split_clause,[],[f460,f571,f538])).
+fof(f538,plain,(
+  spl38_6 <=> sP10),
+  introduced(avatar_definition,[new_symbols(naming,[spl38_6])])).
+fof(f460,plain,(
+  ~aDivisorOf0(xp,sdtpldt0(sdtpldt0(sz10,smndt0(xp)),smndt0(sz10))) | sP10),
+  inference(cnf_transformation,[],[f139])).
+fof(f139,plain,(
+  (~aElementOf0(sdtpldt0(sz10,smndt0(xp)),szAzrzSzezqlpdtcmdtrp0(sz10,xp)) & ~sdteqdtlpzmzozddtrp0(sdtpldt0(sz10,smndt0(xp)),sz10,xp) & ~aDivisorOf0(xp,sdtpldt0(sdtpldt0(sz10,smndt0(xp)),smndt0(sz10))) & ! [X0] : (sdtasdt0(xp,X0) != sdtpldt0(sdtpldt0(sz10,smndt0(xp)),smndt0(sz10)) | ~aInteger0(X0))) | sP10),
+  inference(definition_folding,[],[f122,f138])).
+fof(f138,plain,(
+  (~aElementOf0(sdtpldt0(sz10,xp),szAzrzSzezqlpdtcmdtrp0(sz10,xp)) & ~sdteqdtlpzmzozddtrp0(sdtpldt0(sz10,xp),sz10,xp) & ~aDivisorOf0(xp,sdtpldt0(sdtpldt0(sz10,xp),smndt0(sz10))) & ! [X1] : (sdtasdt0(xp,X1) != sdtpldt0(sdtpldt0(sz10,xp),smndt0(sz10)) | ~aInteger0(X1))) | ~sP10),
+  introduced(predicate_definition_introduction,[new_symbols(naming,[sP10])])).
+fof(f122,plain,(
+  (~aElementOf0(sdtpldt0(sz10,smndt0(xp)),szAzrzSzezqlpdtcmdtrp0(sz10,xp)) & ~sdteqdtlpzmzozddtrp0(sdtpldt0(sz10,smndt0(xp)),sz10,xp) & ~aDivisorOf0(xp,sdtpldt0(sdtpldt0(sz10,smndt0(xp)),smndt0(sz10))) & ! [X0] : (sdtasdt0(xp,X0) != sdtpldt0(sdtpldt0(sz10,smndt0(xp)),smndt0(sz10)) | ~aInteger0(X0))) | (~aElementOf0(sdtpldt0(sz10,xp),szAzrzSzezqlpdtcmdtrp0(sz10,xp)) & ~sdteqdtlpzmzozddtrp0(sdtpldt0(sz10,xp),sz10,xp) & ~aDivisorOf0(xp,sdtpldt0(sdtpldt0(sz10,xp),smndt0(sz10))) & ! [X1] : (sdtasdt0(xp,X1) != sdtpldt0(sdtpldt0(sz10,xp),smndt0(sz10)) | ~aInteger0(X1)))),
+  inference(ennf_transformation,[],[f59])).
+fof(f59,plain,(
+  ~((aElementOf0(sdtpldt0(sz10,smndt0(xp)),szAzrzSzezqlpdtcmdtrp0(sz10,xp)) | sdteqdtlpzmzozddtrp0(sdtpldt0(sz10,smndt0(xp)),sz10,xp) | aDivisorOf0(xp,sdtpldt0(sdtpldt0(sz10,smndt0(xp)),smndt0(sz10))) | ? [X0] : (sdtasdt0(xp,X0) = sdtpldt0(sdtpldt0(sz10,smndt0(xp)),smndt0(sz10)) & aInteger0(X0))) & (aElementOf0(sdtpldt0(sz10,xp),szAzrzSzezqlpdtcmdtrp0(sz10,xp)) | sdteqdtlpzmzozddtrp0(sdtpldt0(sz10,xp),sz10,xp) | aDivisorOf0(xp,sdtpldt0(sdtpldt0(sz10,xp),smndt0(sz10))) | ? [X1] : (sdtasdt0(xp,X1) = sdtpldt0(sdtpldt0(sz10,xp),smndt0(sz10)) & aInteger0(X1))))),
+  inference(rectify,[],[f48])).
+fof(f48,negated_conjecture,(
+  ~((aElementOf0(sdtpldt0(sz10,smndt0(xp)),szAzrzSzezqlpdtcmdtrp0(sz10,xp)) | sdteqdtlpzmzozddtrp0(sdtpldt0(sz10,smndt0(xp)),sz10,xp) | aDivisorOf0(xp,sdtpldt0(sdtpldt0(sz10,smndt0(xp)),smndt0(sz10))) | ? [X0] : (sdtasdt0(xp,X0) = sdtpldt0(sdtpldt0(sz10,smndt0(xp)),smndt0(sz10)) & aInteger0(X0))) & (aElementOf0(sdtpldt0(sz10,xp),szAzrzSzezqlpdtcmdtrp0(sz10,xp)) | sdteqdtlpzmzozddtrp0(sdtpldt0(sz10,xp),sz10,xp) | aDivisorOf0(xp,sdtpldt0(sdtpldt0(sz10,xp),smndt0(sz10))) | ? [X0] : (sdtasdt0(xp,X0) = sdtpldt0(sdtpldt0(sz10,xp),smndt0(sz10)) & aInteger0(X0))))),
+  inference(negated_conjecture,[],[f47])).
+fof(f47,conjecture,(
+  (aElementOf0(sdtpldt0(sz10,smndt0(xp)),szAzrzSzezqlpdtcmdtrp0(sz10,xp)) | sdteqdtlpzmzozddtrp0(sdtpldt0(sz10,smndt0(xp)),sz10,xp) | aDivisorOf0(xp,sdtpldt0(sdtpldt0(sz10,smndt0(xp)),smndt0(sz10))) | ? [X0] : (sdtasdt0(xp,X0) = sdtpldt0(sdtpldt0(sz10,smndt0(xp)),smndt0(sz10)) & aInteger0(X0))) & (aElementOf0(sdtpldt0(sz10,xp),szAzrzSzezqlpdtcmdtrp0(sz10,xp)) | sdteqdtlpzmzozddtrp0(sdtpldt0(sz10,xp),sz10,xp) | aDivisorOf0(xp,sdtpldt0(sdtpldt0(sz10,xp),smndt0(sz10))) | ? [X0] : (sdtasdt0(xp,X0) = sdtpldt0(sdtpldt0(sz10,xp),smndt0(sz10)) & aInteger0(X0)))),
+  file('NUM452+6.tptp',unknown)).
+fof(f555,plain,(
+  ~spl38_6 | ~spl38_9),
+  inference(avatar_split_clause,[],[f456,f552,f538])).
+fof(f456,plain,(
+  ~aDivisorOf0(xp,sdtpldt0(sdtpldt0(sz10,xp),smndt0(sz10))) | ~sP10),
+  inference(cnf_transformation,[],[f238])).
+fof(f238,plain,(
+  (~aElementOf0(sdtpldt0(sz10,xp),szAzrzSzezqlpdtcmdtrp0(sz10,xp)) & ~sdteqdtlpzmzozddtrp0(sdtpldt0(sz10,xp),sz10,xp) & ~aDivisorOf0(xp,sdtpldt0(sdtpldt0(sz10,xp),smndt0(sz10))) & ! [X0] : (sdtasdt0(xp,X0) != sdtpldt0(sdtpldt0(sz10,xp),smndt0(sz10)) | ~aInteger0(X0))) | ~sP10),
+  inference(rectify,[],[f237])).
+fof(f237,plain,(
+  (~aElementOf0(sdtpldt0(sz10,xp),szAzrzSzezqlpdtcmdtrp0(sz10,xp)) & ~sdteqdtlpzmzozddtrp0(sdtpldt0(sz10,xp),sz10,xp) & ~aDivisorOf0(xp,sdtpldt0(sdtpldt0(sz10,xp),smndt0(sz10))) & ! [X1] : (sdtasdt0(xp,X1) != sdtpldt0(sdtpldt0(sz10,xp),smndt0(sz10)) | ~aInteger0(X1))) | ~sP10),
+  inference(nnf_transformation,[],[f138])).
+% SZS output end Proof for NUM452+6
+% ------------------------------
+% Version: Vampire 4.4.0 (commit d98a3d53 on 2020-01-14 21:02:12 +0100)
+% Termination reason: Refutation
+
+% Memory used [KB]: 188056
+% Time elapsed: 14.407 s
+% ------------------------------
+% ------------------------------

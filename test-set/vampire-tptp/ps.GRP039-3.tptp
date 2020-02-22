@@ -1,0 +1,104 @@
+%------------------------------------------------------------------------------
+% File     : GRP039-3 : TPTP v7.3.0. Released v1.0.0.
+% Domain   : Group Theory (Subgroups)
+% Problem  : Subgroups of index 2 are normal
+% Version  : [Wos65] axioms : Augmented.
+% English  : If O is a subgroup of G and there are exactly 2 cosets
+%            in G/O, then O is normal [that is, for all x in G and
+%            y in O, x*y*inverse(x) is back in O].
+
+% Refs     : [Wos65] Wos (1965), Unpublished Note
+%          : [WM76]  Wilson & Minker (1976), Resolution, Refinements, and S
+% Source   : [SPRFN]
+% Names    : wos19 [WM76]
+
+% Status   : Unsatisfiable
+% Rating   : 0.24 v7.3.0, 0.17 v7.1.0, 0.08 v7.0.0, 0.27 v6.4.0, 0.07 v6.3.0, 0.18 v6.2.0, 0.20 v6.1.0, 0.36 v6.0.0, 0.30 v5.5.0, 0.55 v5.3.0, 0.50 v5.2.0, 0.44 v5.1.0, 0.47 v5.0.0, 0.43 v4.1.0, 0.38 v4.0.1, 0.45 v4.0.0, 0.55 v3.7.0, 0.40 v3.5.0, 0.45 v3.4.0, 0.50 v3.3.0, 0.43 v3.2.0, 0.46 v3.1.0, 0.36 v2.7.0, 0.50 v2.6.0, 0.40 v2.5.0, 0.50 v2.4.0, 0.44 v2.2.1, 0.56 v2.2.0, 0.67 v2.1.0, 0.78 v2.0.0
+% Syntax   : Number of clauses     :   20 (   2 non-Horn;  11 unit;  12 RR)
+%            Number of atoms       :   40 (   4 equality)
+%            Maximal clause size   :    4 (   2 average)
+%            Number of predicates  :    3 (   0 propositional; 1-3 arity)
+%            Number of functors    :    8 (   5 constant; 0-2 arity)
+%            Number of variables   :   39 (   0 singleton)
+%            Maximal term depth    :    3 (   1 average)
+% SPC      : CNF_UNS_RFO_SEQ_NHN
+
+% Comments : Used to define a subgroup of index two is a theorem which
+%            says that {for all x, for all y, there exists a z such that
+%            if x and y are both not in the subgroup O, then z is in O and
+%            x*z=y} if & only if {O has index 2 in G}. This z is named
+%            by the skolem function i(x,y). Explanation: If O is of index
+%            two in G, then there are exactly two cosets, namely O and
+%            uO for some u not in O. If both of x and y are not in O, then
+%            they are in uO. But then xO=yO, which implies that there
+%            exists some z in O such that x*z=y. If the condition holds
+%            that {for all x, for all y, there exists a z such that
+%            if x and y are both not in the subgroup O, then z is in O and
+%            x*z=y}, then xO=yO for all x,y not in O, which implies that
+%            there are at most two cosets; and there must be at least two,
+%            namely O and xO, since x is not in O. Therefore O must
+%            be of index two.
+%          : element_in_O2(A,B) is A^-1.B. The axioms with element_in_O2
+%            force index 2.
+%          : tptp2X 
+%------------------------------------------------------------------------------
+cnf(left_identity,axiom,
+    ( product(identity,X,X) )).
+
+cnf(right_identity,axiom,
+    ( product(X,identity,X) )).
+
+cnf(left_inverse,axiom,
+    ( product(inverse(X),X,identity) )).
+
+cnf(right_inverse,axiom,
+    ( product(X,inverse(X),identity) )).
+
+cnf(total_function1,axiom,
+    ( product(X,Y,multiply(X,Y)) )).
+
+cnf(total_function2,axiom,
+    ( ~ product(X,Y,Z) | ~ product(X,Y,W) | Z = W )).
+
+cnf(associativity1,axiom,
+    ( ~ product(X,Y,U) | ~ product(Y,Z,V) | ~ product(U,Z,W) | product(X,V,W) )).
+
+cnf(associativity2,axiom,
+    ( ~ product(X,Y,U) | ~ product(Y,Z,V) | ~ product(X,V,W) | product(U,Z,W) )).
+
+cnf(closure_of_product_and_inverse,axiom,
+    ( ~ subgroup_member(A) | ~ subgroup_member(B) | ~ product(A,inverse(B),C) | subgroup_member(C) )).
+
+cnf(product_right_cancellation,axiom,
+    ( ~ product(A,B,C) | ~ product(A,D,C) | D = B )).
+
+cnf(product_left_cancellation,axiom,
+    ( ~ product(A,B,C) | ~ product(D,B,C) | D = A )).
+
+cnf(inverse_is_self_cancelling,axiom,
+    ( inverse(inverse(A)) = A )).
+
+cnf(identity_is_in_subgroup,axiom,
+    ( subgroup_member(identity) )).
+
+cnf(subgroup_member_inverse_are_in_subgroup,axiom,
+    ( ~ subgroup_member(A) | subgroup_member(inverse(A)) )).
+
+cnf(an_element_in_O2,axiom,
+    ( subgroup_member(element_in_O2(A,B)) | subgroup_member(B) | subgroup_member(A) )).
+
+cnf(property_of_O2,axiom,
+    ( product(A,element_in_O2(A,B),B) | subgroup_member(B) | subgroup_member(A) )).
+
+cnf(b_is_in_subgroup,negated_conjecture,
+    ( subgroup_member(b) )).
+
+cnf(b_times_a_inverse_is_c,negated_conjecture,
+    ( product(b,inverse(a),c) )).
+
+cnf(a_times_c_is_d,negated_conjecture,
+    ( product(a,c,d) )).
+
+cnf(prove_d_is_in_subgroup,negated_conjecture,
+    ( ~ subgroup_member(d) )).
+%------------------------------------------------------------------------------

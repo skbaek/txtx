@@ -1,0 +1,19 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% SZS status Unsatisfiable for SYN133-1.tptp
+
+% SZS output start CNFRefutation for SYN133-1.tptp
+cnf(axiom_19, axiom, (m0(X, d, Y))).
+
+cnf(prove_this, negated_conjecture, (~ m0(d, X, d))).
+
+cnf(refute_0_0, plain, (~ m0(d, d, d)),
+    inference(subst, [], [prove_this : [bind(X, $fot(d))]])).
+
+cnf(refute_0_1, plain, (m0(d, d, d)),
+    inference(subst, [],
+              [axiom_19 : [bind(X, $fot(d)), bind(Y, $fot(d))]])).
+
+cnf(refute_0_2, plain, ($false),
+    inference(resolve, [$cnf(m0(d, d, d))], [refute_0_1, refute_0_0])).
+% SZS output end CNFRefutation for SYN133-1.tptp
+

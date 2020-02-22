@@ -1,0 +1,87 @@
+% Refutation found. Thanks to Tanya!
+% SZS status Unsatisfiable for GRP191-2
+% SZS output start Proof for GRP191-2
+fof(f71159,plain,(
+  $false),
+  inference(subsumption_resolution,[],[f71068,f17])).
+fof(f17,axiom,(
+  inverse(b) != least_upper_bound(inverse(a),inverse(b))),
+  file('GRP191-2.tptp',unknown)).
+fof(f71068,plain,(
+  inverse(b) = least_upper_bound(inverse(a),inverse(b))),
+  inference(superposition,[],[f70363,f5])).
+fof(f5,axiom,(
+  ( ! [X0,X1] : (least_upper_bound(X0,X1) = least_upper_bound(X1,X0)) )),
+  file('GRP191-2.tptp',unknown)).
+fof(f70363,plain,(
+  inverse(b) = least_upper_bound(inverse(b),inverse(a))),
+  inference(forward_demodulation,[],[f70206,f2992])).
+fof(f2992,plain,(
+  ( ! [X4] : (multiply(X4,identity) = X4) )),
+  inference(superposition,[],[f79,f77])).
+fof(f77,plain,(
+  ( ! [X1] : (multiply(inverse(inverse(X1)),identity) = X1) )),
+  inference(superposition,[],[f45,f2])).
+fof(f2,axiom,(
+  ( ! [X0] : (identity = multiply(inverse(X0),X0)) )),
+  file('GRP191-2.tptp',unknown)).
+fof(f45,plain,(
+  ( ! [X2,X3] : (multiply(inverse(X2),multiply(X2,X3)) = X3) )),
+  inference(forward_demodulation,[],[f43,f1])).
+fof(f1,axiom,(
+  ( ! [X0] : (multiply(identity,X0) = X0) )),
+  file('GRP191-2.tptp',unknown)).
+fof(f43,plain,(
+  ( ! [X2,X3] : (multiply(inverse(X2),multiply(X2,X3)) = multiply(identity,X3)) )),
+  inference(superposition,[],[f3,f2])).
+fof(f3,axiom,(
+  ( ! [X2,X0,X1] : (multiply(multiply(X0,X1),X2) = multiply(X0,multiply(X1,X2))) )),
+  file('GRP191-2.tptp',unknown)).
+fof(f79,plain,(
+  ( ! [X6,X5] : (multiply(X5,X6) = multiply(inverse(inverse(X5)),X6)) )),
+  inference(superposition,[],[f45,f45])).
+fof(f70206,plain,(
+  inverse(b) = least_upper_bound(inverse(b),multiply(inverse(a),identity))),
+  inference(superposition,[],[f32011,f2991])).
+fof(f2991,plain,(
+  ( ! [X1] : (identity = multiply(X1,inverse(X1))) )),
+  inference(superposition,[],[f79,f2])).
+fof(f32011,plain,(
+  ( ! [X287] : (least_upper_bound(X287,multiply(inverse(a),multiply(b,X287))) = X287) )),
+  inference(superposition,[],[f3938,f16])).
+fof(f16,axiom,(
+  b = greatest_lower_bound(a,b)),
+  file('GRP191-2.tptp',unknown)).
+fof(f3938,plain,(
+  ( ! [X41,X42,X40] : (least_upper_bound(X42,multiply(inverse(X40),multiply(greatest_lower_bound(X40,X41),X42))) = X42) )),
+  inference(forward_demodulation,[],[f3937,f1])).
+fof(f3937,plain,(
+  ( ! [X41,X42,X40] : (multiply(identity,X42) = least_upper_bound(multiply(identity,X42),multiply(inverse(X40),multiply(greatest_lower_bound(X40,X41),X42)))) )),
+  inference(forward_demodulation,[],[f3874,f3])).
+fof(f3874,plain,(
+  ( ! [X41,X42,X40] : (multiply(identity,X42) = least_upper_bound(multiply(identity,X42),multiply(multiply(inverse(X40),greatest_lower_bound(X40,X41)),X42))) )),
+  inference(superposition,[],[f257,f144])).
+fof(f144,plain,(
+  ( ! [X2,X3] : (multiply(inverse(X2),greatest_lower_bound(X2,X3)) = greatest_lower_bound(identity,multiply(inverse(X2),X3))) )),
+  inference(superposition,[],[f13,f2])).
+fof(f13,axiom,(
+  ( ! [X2,X0,X1] : (multiply(X0,greatest_lower_bound(X1,X2)) = greatest_lower_bound(multiply(X0,X1),multiply(X0,X2))) )),
+  file('GRP191-2.tptp',unknown)).
+fof(f257,plain,(
+  ( ! [X12,X13,X11] : (multiply(X11,X12) = least_upper_bound(multiply(X11,X12),multiply(greatest_lower_bound(X11,X13),X12))) )),
+  inference(superposition,[],[f10,f15])).
+fof(f15,axiom,(
+  ( ! [X2,X0,X1] : (multiply(greatest_lower_bound(X1,X2),X0) = greatest_lower_bound(multiply(X1,X0),multiply(X2,X0))) )),
+  file('GRP191-2.tptp',unknown)).
+fof(f10,axiom,(
+  ( ! [X0,X1] : (least_upper_bound(X0,greatest_lower_bound(X0,X1)) = X0) )),
+  file('GRP191-2.tptp',unknown)).
+% SZS output end Proof for GRP191-2
+% ------------------------------
+% Version: Vampire 4.4.0 (commit d98a3d53 on 2020-01-14 21:02:12 +0100)
+% Termination reason: Refutation
+
+% Memory used [KB]: 87759
+% Time elapsed: 1.450 s
+% ------------------------------
+% ------------------------------

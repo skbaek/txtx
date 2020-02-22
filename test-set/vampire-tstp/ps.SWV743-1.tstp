@@ -1,0 +1,213 @@
+% Refutation found. Thanks to Tanya!
+% SZS status Unsatisfiable for SWV743-1
+% SZS output start Proof for SWV743-1
+fof(f219825,plain,(
+  $false),
+  inference(avatar_sat_refutation,[],[f34219,f34321,f36093,f153126,f189302,f191171,f219740,f219784])).
+fof(f219784,plain,(
+  spl0_1263 | ~spl0_2933),
+  inference(avatar_contradiction_clause,[],[f219783])).
+fof(f219783,plain,(
+  $false | (spl0_1263 | ~spl0_2933)),
+  inference(subsumption_resolution,[],[f36092,f49548])).
+fof(f49548,plain,(
+  ( ! [X2,X1] : (X1 = X2) ) | ~spl0_2933),
+  inference(avatar_component_clause,[],[f49547])).
+fof(f49547,plain,(
+  spl0_2933 <=> ! [X1,X2] : X1 = X2),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_2933])])).
+fof(f36092,plain,(
+  c_Public_Okeymode_OEncryption != c_Message_OsymKeys | spl0_1263),
+  inference(avatar_component_clause,[],[f36090])).
+fof(f36090,plain,(
+  spl0_1263 <=> c_Public_Okeymode_OEncryption = c_Message_OsymKeys),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_1263])])).
+fof(f219740,plain,(
+  spl0_2194 | ~spl0_2933),
+  inference(avatar_contradiction_clause,[],[f219739])).
+fof(f219739,plain,(
+  $false | (spl0_2194 | ~spl0_2933)),
+  inference(subsumption_resolution,[],[f40317,f49548])).
+fof(f40317,plain,(
+  c_Public_Okeymode_OSignature != c_Event_Oused(v_evs) | spl0_2194),
+  inference(avatar_component_clause,[],[f40316])).
+fof(f40316,plain,(
+  spl0_2194 <=> c_Public_Okeymode_OSignature = c_Event_Oused(v_evs)),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_2194])])).
+fof(f191171,plain,(
+  spl0_2933 | ~spl0_825),
+  inference(avatar_split_clause,[],[f191170,f34171,f49547])).
+fof(f34171,plain,(
+  spl0_825 <=> ! [X1,X0] : c_Public_Okeymode_OSignature = hAPP(c_Public_OpublicKey(X0),X1)),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_825])])).
+fof(f191170,plain,(
+  ( ! [X35,X2] : (X2 = X35) ) | ~spl0_825),
+  inference(subsumption_resolution,[],[f191078,f34172])).
+fof(f34172,plain,(
+  ( ! [X0,X1] : (c_Public_Okeymode_OSignature = hAPP(c_Public_OpublicKey(X0),X1)) ) | ~spl0_825),
+  inference(avatar_component_clause,[],[f34171])).
+fof(f191078,plain,(
+  ( ! [X35,X2,X7] : (c_Public_Okeymode_OSignature != hAPP(c_Public_OpublicKey(X7),X35) | X2 = X35) ) | ~spl0_825),
+  inference(backward_demodulation,[],[f34172,f426])).
+fof(f426,axiom,(
+  ( ! [X35,X2,X7,X11] : (hAPP(c_Public_OpublicKey(X11),X2) != hAPP(c_Public_OpublicKey(X7),X35) | X2 = X35) )),
+  file('SWV743-1.tptp',unknown)).
+fof(f189302,plain,(
+  ~spl0_1259 | ~spl0_2194),
+  inference(avatar_contradiction_clause,[],[f189301])).
+fof(f189301,plain,(
+  $false | (~spl0_1259 | ~spl0_2194)),
+  inference(subsumption_resolution,[],[f36074,f152266])).
+fof(f152266,plain,(
+  ( ! [X7] : (c_Public_Okeymode_OSignature != c_Orderings_Obot__class_Obot(tc_fun(X7,tc_bool))) ) | ~spl0_2194),
+  inference(backward_demodulation,[],[f40318,f14396])).
+fof(f14396,plain,(
+  ( ! [X7] : (c_Orderings_Obot__class_Obot(tc_fun(X7,tc_bool)) != c_Event_Oused(v_evs)) )),
+  inference(superposition,[],[f34,f3238])).
+fof(f3238,plain,(
+  ( ! [X0] : (c_Event_Oused(v_evs) = c_Set_Oinsert(hAPP(c_Message_Omsg_OKey,v_K),c_Event_Oused(v_evs),X0)) )),
+  inference(resolution,[],[f3222,f928])).
+fof(f928,plain,(
+  ( ! [X2,X0,X1] : (~hBOOL(hAPP(X1,X0)) | c_Set_Oinsert(X0,X1,X2) = X1) )),
+  inference(resolution,[],[f392,f554])).
+fof(f554,axiom,(
+  ( ! [X6,X54,X5] : (hBOOL(c_in(X5,X54,X6)) | ~hBOOL(hAPP(X54,X5))) )),
+  file('SWV743-1.tptp',unknown)).
+fof(f392,axiom,(
+  ( ! [X6,X2,X3] : (~hBOOL(c_in(X3,X2,X6)) | c_Set_Oinsert(X3,X2,X6) = X2) )),
+  file('SWV743-1.tptp',unknown)).
+fof(f3222,plain,(
+  hBOOL(hAPP(c_Event_Oused(v_evs),hAPP(c_Message_Omsg_OKey,v_K)))),
+  inference(resolution,[],[f2805,f555])).
+fof(f555,axiom,(
+  ( ! [X6,X54,X5] : (~hBOOL(c_in(X5,X54,X6)) | hBOOL(hAPP(X54,X5))) )),
+  file('SWV743-1.tptp',unknown)).
+fof(f2805,plain,(
+  hBOOL(c_in(hAPP(c_Message_Omsg_OKey,v_K),c_Event_Oused(v_evs),tc_Message_Omsg))),
+  inference(resolution,[],[f328,f1230])).
+fof(f1230,plain,(
+  hBOOL(c_in(hAPP(c_Message_Omsg_OKey,v_K),c_Message_Oparts(c_Event_Oknows(c_Message_Oagent_OSpy,v_evs)),tc_Message_Omsg))),
+  inference(resolution,[],[f350,f576])).
+fof(f576,axiom,(
+  hBOOL(c_in(hAPP(c_Message_Omsg_OKey,v_K),c_Message_Oanalz(c_Event_Oknows(c_Message_Oagent_OSpy,v_evs)),tc_Message_Omsg))),
+  file('SWV743-1.tptp',unknown)).
+fof(f350,axiom,(
+  ( ! [X7,X15] : (~hBOOL(c_in(X7,c_Message_Oanalz(X15),tc_Message_Omsg)) | hBOOL(c_in(X7,c_Message_Oparts(X15),tc_Message_Omsg))) )),
+  file('SWV743-1.tptp',unknown)).
+fof(f328,axiom,(
+  ( ! [X7,X20] : (~hBOOL(c_in(X7,c_Message_Oparts(c_Event_Oknows(c_Message_Oagent_OSpy,X20)),tc_Message_Omsg)) | hBOOL(c_in(X7,c_Event_Oused(X20),tc_Message_Omsg))) )),
+  file('SWV743-1.tptp',unknown)).
+fof(f34,axiom,(
+  ( ! [X6,X2,X3] : (c_Orderings_Obot__class_Obot(tc_fun(X6,tc_bool)) != c_Set_Oinsert(X3,X2,X6)) )),
+  file('SWV743-1.tptp',unknown)).
+fof(f40318,plain,(
+  c_Public_Okeymode_OSignature = c_Event_Oused(v_evs) | ~spl0_2194),
+  inference(avatar_component_clause,[],[f40316])).
+fof(f36074,plain,(
+  ( ! [X0] : (c_Public_Okeymode_OSignature = c_Orderings_Obot__class_Obot(tc_fun(X0,tc_bool))) ) | ~spl0_1259),
+  inference(avatar_component_clause,[],[f36073])).
+fof(f36073,plain,(
+  spl0_1259 <=> ! [X0] : c_Public_Okeymode_OSignature = c_Orderings_Obot__class_Obot(tc_fun(X0,tc_bool))),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_1259])])).
+fof(f153126,plain,(
+  spl0_2933 | ~spl0_847),
+  inference(avatar_split_clause,[],[f153125,f34273,f49547])).
+fof(f34273,plain,(
+  spl0_847 <=> ! [X0] : c_Public_Okeymode_OSignature = hAPP(c_Public_OshrK,X0)),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_847])])).
+fof(f153125,plain,(
+  ( ! [X24,X5] : (X5 = X24) ) | ~spl0_847),
+  inference(subsumption_resolution,[],[f153124,f34274])).
+fof(f34274,plain,(
+  ( ! [X0] : (c_Public_Okeymode_OSignature = hAPP(c_Public_OshrK,X0)) ) | ~spl0_847),
+  inference(avatar_component_clause,[],[f34273])).
+fof(f153124,plain,(
+  ( ! [X24,X5] : (c_Public_Okeymode_OSignature != hAPP(c_Public_OshrK,X5) | X5 = X24) ) | ~spl0_847),
+  inference(forward_demodulation,[],[f570,f34274])).
+fof(f570,axiom,(
+  ( ! [X24,X5] : (hAPP(c_Public_OshrK,X5) != hAPP(c_Public_OshrK,X24) | X5 = X24) )),
+  file('SWV743-1.tptp',unknown)).
+fof(f36093,plain,(
+  spl0_1259 | ~spl0_1263),
+  inference(avatar_split_clause,[],[f27531,f36090,f36073])).
+fof(f27531,plain,(
+  ( ! [X0] : (c_Public_Okeymode_OEncryption != c_Message_OsymKeys | c_Public_Okeymode_OSignature = c_Orderings_Obot__class_Obot(tc_fun(X0,tc_bool))) )),
+  inference(superposition,[],[f1896,f25856])).
+fof(f25856,plain,(
+  ( ! [X5] : (c_Public_Okeymode_OEncryption = X5 | c_Public_Okeymode_OSignature = X5) )),
+  inference(resolution,[],[f25766,f2060])).
+fof(f2060,plain,(
+  ( ! [X6,X7,X5] : (~hBOOL(hAPP(c_Set_Oinsert(X5,c_Orderings_Obot__class_Obot(tc_fun(X7,tc_bool)),X7),X6)) | X5 = X6) )),
+  inference(resolution,[],[f61,f554])).
+fof(f61,axiom,(
+  ( ! [X6,X3,X11] : (~hBOOL(c_in(X11,c_Set_Oinsert(X3,c_Orderings_Obot__class_Obot(tc_fun(X6,tc_bool)),X6),X6)) | X3 = X11) )),
+  file('SWV743-1.tptp',unknown)).
+fof(f25766,plain,(
+  ( ! [X2,X0,X1] : (hBOOL(hAPP(c_Set_Oinsert(c_Public_Okeymode_OEncryption,X1,X2),X0)) | c_Public_Okeymode_OSignature = X0) )),
+  inference(resolution,[],[f25699,f438])).
+fof(f438,axiom,(
+  ( ! [X24,X6,X2,X5] : (~hBOOL(hAPP(c_Set_Oinsert(X24,X2,X6),X5)) | X5 = X24 | hBOOL(hAPP(X2,X5))) )),
+  file('SWV743-1.tptp',unknown)).
+fof(f25699,plain,(
+  ( ! [X6,X8,X7] : (hBOOL(hAPP(c_Set_Oinsert(c_Public_Okeymode_OSignature,c_Set_Oinsert(c_Public_Okeymode_OEncryption,X6,X7),X7),X8))) )),
+  inference(forward_demodulation,[],[f25691,f423])).
+fof(f423,axiom,(
+  ( ! [X24,X6,X2,X5] : (c_Set_Oinsert(X5,c_Set_Oinsert(X24,X2,X6),X6) = c_Set_Oinsert(X24,c_Set_Oinsert(X5,X2,X6),X6)) )),
+  file('SWV743-1.tptp',unknown)).
+fof(f25691,plain,(
+  ( ! [X6,X8,X7] : (hBOOL(hAPP(c_Set_Oinsert(c_Public_Okeymode_OEncryption,c_Set_Oinsert(c_Public_Okeymode_OSignature,X6,X7),X7),X8))) )),
+  inference(resolution,[],[f983,f3583])).
+fof(f3583,plain,(
+  ( ! [X52,X50,X51,X49] : (hBOOL(hAPP(c_Set_Oinsert(X50,c_Set_Oinsert(X49,X51,X52),X52),X49))) )),
+  inference(superposition,[],[f455,f423])).
+fof(f455,axiom,(
+  ( ! [X6,X2,X5] : (hBOOL(hAPP(c_Set_Oinsert(X5,X2,X6),X5))) )),
+  file('SWV743-1.tptp',unknown)).
+fof(f983,plain,(
+  ( ! [X2,X0,X1] : (~hBOOL(hAPP(c_Set_Oinsert(c_Public_Okeymode_OEncryption,X0,X1),c_Public_Okeymode_OSignature)) | hBOOL(hAPP(c_Set_Oinsert(c_Public_Okeymode_OEncryption,X0,X1),X2))) )),
+  inference(resolution,[],[f31,f455])).
+fof(f31,axiom,(
+  ( ! [X4,X16] : (~hBOOL(hAPP(X4,c_Public_Okeymode_OEncryption)) | ~hBOOL(hAPP(X4,c_Public_Okeymode_OSignature)) | hBOOL(hAPP(X4,X16))) )),
+  file('SWV743-1.tptp',unknown)).
+fof(f1896,plain,(
+  ( ! [X9] : (c_Orderings_Obot__class_Obot(tc_fun(X9,tc_bool)) != c_Message_OsymKeys) )),
+  inference(superposition,[],[f34,f1380])).
+fof(f1380,plain,(
+  ( ! [X50,X49] : (c_Message_OsymKeys = c_Set_Oinsert(hAPP(c_Public_OshrK,X49),c_Message_OsymKeys,X50)) )),
+  inference(resolution,[],[f928,f757])).
+fof(f757,plain,(
+  ( ! [X9] : (hBOOL(hAPP(c_Message_OsymKeys,hAPP(c_Public_OshrK,X9)))) )),
+  inference(resolution,[],[f555,f470])).
+fof(f470,axiom,(
+  ( ! [X13] : (hBOOL(c_in(hAPP(c_Public_OshrK,X13),c_Message_OsymKeys,tc_nat))) )),
+  file('SWV743-1.tptp',unknown)).
+fof(f34321,plain,(
+  spl0_847 | spl0_783),
+  inference(avatar_split_clause,[],[f27019,f33947,f34273])).
+fof(f33947,plain,(
+  spl0_783 <=> hBOOL(hAPP(c_Message_OsymKeys,c_Public_Okeymode_OEncryption))),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_783])])).
+fof(f27019,plain,(
+  ( ! [X0] : (hBOOL(hAPP(c_Message_OsymKeys,c_Public_Okeymode_OEncryption)) | c_Public_Okeymode_OSignature = hAPP(c_Public_OshrK,X0)) )),
+  inference(superposition,[],[f757,f25856])).
+fof(f34219,plain,(
+  spl0_825 | ~spl0_783),
+  inference(avatar_split_clause,[],[f26965,f33947,f34171])).
+fof(f26965,plain,(
+  ( ! [X0,X1] : (~hBOOL(hAPP(c_Message_OsymKeys,c_Public_Okeymode_OEncryption)) | c_Public_Okeymode_OSignature = hAPP(c_Public_OpublicKey(X0),X1)) )),
+  inference(superposition,[],[f740,f25856])).
+fof(f740,plain,(
+  ( ! [X6,X5] : (~hBOOL(hAPP(c_Message_OsymKeys,hAPP(c_Public_OpublicKey(X5),X6)))) )),
+  inference(resolution,[],[f554,f411])).
+fof(f411,axiom,(
+  ( ! [X2,X11] : (~hBOOL(c_in(hAPP(c_Public_OpublicKey(X11),X2),c_Message_OsymKeys,tc_nat))) )),
+  file('SWV743-1.tptp',unknown)).
+% SZS output end Proof for SWV743-1
+% ------------------------------
+% Version: Vampire 4.4.0 (commit d98a3d53 on 2020-01-14 21:02:12 +0100)
+% Termination reason: Refutation
+
+% Memory used [KB]: 149421
+% Time elapsed: 2.805 s
+% ------------------------------
+% ------------------------------

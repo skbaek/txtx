@@ -1,0 +1,105 @@
+% Refutation found. Thanks to Tanya!
+% SZS status Theorem for SEU010+1
+% SZS output start Proof for SEU010+1
+fof(f463,plain,(
+  $false),
+  inference(avatar_sat_refutation,[],[f159,f416,f462])).
+fof(f462,plain,(
+  spl10_2),
+  inference(avatar_contradiction_clause,[],[f461])).
+fof(f461,plain,(
+  $false | spl10_2),
+  inference(subsumption_resolution,[],[f460,f158])).
+fof(f158,plain,(
+  sK9 != relation_composition(sK9,identity_relation(relation_rng(sK9))) | spl10_2),
+  inference(avatar_component_clause,[],[f156])).
+fof(f156,plain,(
+  spl10_2 <=> sK9 = relation_composition(sK9,identity_relation(relation_rng(sK9)))),
+  introduced(avatar_definition,[new_symbols(naming,[spl10_2])])).
+fof(f460,plain,(
+  sK9 = relation_composition(sK9,identity_relation(relation_rng(sK9)))),
+  inference(resolution,[],[f280,f146])).
+fof(f146,plain,(
+  relation(sK9)),
+  inference(cnf_transformation,[],[f96])).
+fof(f96,plain,(
+  (sK9 != relation_composition(sK9,identity_relation(relation_rng(sK9))) | sK9 != relation_composition(identity_relation(relation_dom(sK9)),sK9)) & function(sK9) & relation(sK9)),
+  inference(skolemisation,[status(esa),new_symbols(skolem,[sK9])],[f71,f95])).
+fof(f95,plain,(
+  ? [X0] : ((relation_composition(X0,identity_relation(relation_rng(X0))) != X0 | relation_composition(identity_relation(relation_dom(X0)),X0) != X0) & function(X0) & relation(X0)) => ((sK9 != relation_composition(sK9,identity_relation(relation_rng(sK9))) | sK9 != relation_composition(identity_relation(relation_dom(sK9)),sK9)) & function(sK9) & relation(sK9))),
+  introduced(choice_axiom,[])).
+fof(f71,plain,(
+  ? [X0] : ((relation_composition(X0,identity_relation(relation_rng(X0))) != X0 | relation_composition(identity_relation(relation_dom(X0)),X0) != X0) & function(X0) & relation(X0))),
+  inference(flattening,[],[f70])).
+fof(f70,plain,(
+  ? [X0] : ((relation_composition(X0,identity_relation(relation_rng(X0))) != X0 | relation_composition(identity_relation(relation_dom(X0)),X0) != X0) & (function(X0) & relation(X0)))),
+  inference(ennf_transformation,[],[f37])).
+fof(f37,negated_conjecture,(
+  ~! [X0] : ((function(X0) & relation(X0)) => (relation_composition(X0,identity_relation(relation_rng(X0))) = X0 & relation_composition(identity_relation(relation_dom(X0)),X0) = X0))),
+  inference(negated_conjecture,[],[f36])).
+fof(f36,conjecture,(
+  ! [X0] : ((function(X0) & relation(X0)) => (relation_composition(X0,identity_relation(relation_rng(X0))) = X0 & relation_composition(identity_relation(relation_dom(X0)),X0) = X0))),
+  file('SEU010+1.tptp',unknown)).
+fof(f280,plain,(
+  ( ! [X0] : (~relation(X0) | relation_composition(X0,identity_relation(relation_rng(X0))) = X0) )),
+  inference(resolution,[],[f150,f124])).
+fof(f124,plain,(
+  ( ! [X0] : (subset(X0,X0)) )),
+  inference(cnf_transformation,[],[f40])).
+fof(f40,plain,(
+  ! [X0] : subset(X0,X0)),
+  inference(rectify,[],[f22])).
+fof(f22,axiom,(
+  ! [X0,X1] : subset(X0,X0)),
+  file('SEU010+1.tptp',unknown)).
+fof(f150,plain,(
+  ( ! [X0,X1] : (~subset(relation_rng(X1),X0) | relation_composition(X1,identity_relation(X0)) = X1 | ~relation(X1)) )),
+  inference(cnf_transformation,[],[f75])).
+fof(f75,plain,(
+  ! [X0,X1] : (relation_composition(X1,identity_relation(X0)) = X1 | ~subset(relation_rng(X1),X0) | ~relation(X1))),
+  inference(flattening,[],[f74])).
+fof(f74,plain,(
+  ! [X0,X1] : ((relation_composition(X1,identity_relation(X0)) = X1 | ~subset(relation_rng(X1),X0)) | ~relation(X1))),
+  inference(ennf_transformation,[],[f39])).
+fof(f39,axiom,(
+  ! [X0,X1] : (relation(X1) => (subset(relation_rng(X1),X0) => relation_composition(X1,identity_relation(X0)) = X1))),
+  file('SEU010+1.tptp',unknown)).
+fof(f416,plain,(
+  spl10_1),
+  inference(avatar_split_clause,[],[f413,f152])).
+fof(f152,plain,(
+  spl10_1 <=> sK9 = relation_composition(identity_relation(relation_dom(sK9)),sK9)),
+  introduced(avatar_definition,[new_symbols(naming,[spl10_1])])).
+fof(f413,plain,(
+  sK9 = relation_composition(identity_relation(relation_dom(sK9)),sK9)),
+  inference(resolution,[],[f270,f146])).
+fof(f270,plain,(
+  ( ! [X0] : (~relation(X0) | relation_composition(identity_relation(relation_dom(X0)),X0) = X0) )),
+  inference(resolution,[],[f149,f124])).
+fof(f149,plain,(
+  ( ! [X0,X1] : (~subset(relation_dom(X1),X0) | relation_composition(identity_relation(X0),X1) = X1 | ~relation(X1)) )),
+  inference(cnf_transformation,[],[f73])).
+fof(f73,plain,(
+  ! [X0,X1] : (relation_composition(identity_relation(X0),X1) = X1 | ~subset(relation_dom(X1),X0) | ~relation(X1))),
+  inference(flattening,[],[f72])).
+fof(f72,plain,(
+  ! [X0,X1] : ((relation_composition(identity_relation(X0),X1) = X1 | ~subset(relation_dom(X1),X0)) | ~relation(X1))),
+  inference(ennf_transformation,[],[f38])).
+fof(f38,axiom,(
+  ! [X0,X1] : (relation(X1) => (subset(relation_dom(X1),X0) => relation_composition(identity_relation(X0),X1) = X1))),
+  file('SEU010+1.tptp',unknown)).
+fof(f159,plain,(
+  ~spl10_1 | ~spl10_2),
+  inference(avatar_split_clause,[],[f148,f156,f152])).
+fof(f148,plain,(
+  sK9 != relation_composition(sK9,identity_relation(relation_rng(sK9))) | sK9 != relation_composition(identity_relation(relation_dom(sK9)),sK9)),
+  inference(cnf_transformation,[],[f96])).
+% SZS output end Proof for SEU010+1
+% ------------------------------
+% Version: Vampire 4.4.0 (commit d98a3d53 on 2020-01-14 21:02:12 +0100)
+% Termination reason: Refutation
+
+% Memory used [KB]: 5117
+% Time elapsed: 0.008 s
+% ------------------------------
+% ------------------------------

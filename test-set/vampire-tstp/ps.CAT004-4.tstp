@@ -1,0 +1,480 @@
+% Refutation found. Thanks to Tanya!
+% SZS status Unsatisfiable for CAT004-4
+% SZS output start Proof for CAT004-4
+fof(f102557,plain,(
+  $false),
+  inference(avatar_sat_refutation,[],[f156,f302,f691,f1454,f1455,f1461,f1525,f8914,f8984,f9324,f102556])).
+fof(f102556,plain,(
+  ~spl0_2 | ~spl0_7 | ~spl0_15 | ~spl0_17 | ~spl0_23 | ~spl0_35 | ~spl0_51),
+  inference(avatar_contradiction_clause,[],[f102555])).
+fof(f102555,plain,(
+  $false | (~spl0_2 | ~spl0_7 | ~spl0_15 | ~spl0_17 | ~spl0_23 | ~spl0_35 | ~spl0_51)),
+  inference(subsumption_resolution,[],[f102554,f17])).
+fof(f17,axiom,(
+  h != g),
+  file('CAT004-4.tptp',unknown)).
+fof(f102554,plain,(
+  h = g | (~spl0_2 | ~spl0_7 | ~spl0_15 | ~spl0_17 | ~spl0_23 | ~spl0_35 | ~spl0_51)),
+  inference(equality_resolution,[],[f61857])).
+fof(f61857,plain,(
+  ( ! [X0] : (compose(X0,a) != compose(h,a) | g = X0) ) | (~spl0_2 | ~spl0_7 | ~spl0_15 | ~spl0_17 | ~spl0_23 | ~spl0_35 | ~spl0_51)),
+  inference(superposition,[],[f19,f61736])).
+fof(f61736,plain,(
+  compose(g,a) = compose(h,a) | (~spl0_2 | ~spl0_7 | ~spl0_15 | ~spl0_17 | ~spl0_23 | ~spl0_35 | ~spl0_51)),
+  inference(forward_demodulation,[],[f61735,f1541])).
+fof(f1541,plain,(
+  ( ! [X1] : (compose(h,X1) = compose(domain(a),compose(h,X1))) ) | ~spl0_17),
+  inference(superposition,[],[f58,f766])).
+fof(f766,plain,(
+  domain(a) = codomain(h) | ~spl0_17),
+  inference(avatar_component_clause,[],[f765])).
+fof(f765,plain,(
+  spl0_17 <=> domain(a) = codomain(h)),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_17])])).
+fof(f58,plain,(
+  ( ! [X2,X3] : (compose(X2,X3) = compose(codomain(X2),compose(X2,X3))) )),
+  inference(superposition,[],[f9,f11])).
+fof(f11,axiom,(
+  ( ! [X0] : (compose(codomain(X0),X0) = X0) )),
+  file('CAT004-4.tptp',unknown)).
+fof(f9,axiom,(
+  ( ! [X2,X0,X1] : (compose(X0,compose(X1,X2)) = compose(compose(X0,X1),X2)) )),
+  file('CAT004-4.tptp',unknown)).
+fof(f61735,plain,(
+  compose(g,a) = compose(domain(a),compose(h,a)) | (~spl0_2 | ~spl0_7 | ~spl0_15 | ~spl0_17 | ~spl0_23 | ~spl0_35 | ~spl0_51)),
+  inference(trivial_inequality_removal,[],[f61733])).
+fof(f61733,plain,(
+  compose(h,compose(a,b)) != compose(h,compose(a,b)) | compose(g,a) = compose(domain(a),compose(h,a)) | (~spl0_2 | ~spl0_7 | ~spl0_15 | ~spl0_17 | ~spl0_23 | ~spl0_35 | ~spl0_51)),
+  inference(superposition,[],[f9742,f9658])).
+fof(f9658,plain,(
+  compose(h,compose(a,b)) = compose(compose(g,a),b) | (~spl0_2 | ~spl0_7 | ~spl0_15 | ~spl0_23)),
+  inference(forward_demodulation,[],[f9642,f1497])).
+fof(f1497,plain,(
+  ( ! [X0] : (compose(X0,domain(a)) = X0) ) | (~spl0_7 | ~spl0_15 | ~spl0_23)),
+  inference(backward_demodulation,[],[f800,f1403])).
+fof(f1403,plain,(
+  ( ! [X0] : (compose(X0,domain(b)) = X0) ) | (~spl0_7 | ~spl0_15)),
+  inference(backward_demodulation,[],[f1379,f1304])).
+fof(f1304,plain,(
+  ( ! [X0] : (compose(X0,codomain(a)) = X0) )),
+  inference(equality_resolution,[],[f266])).
+fof(f266,plain,(
+  ( ! [X0,X1] : (compose(X0,a) != compose(X1,a) | compose(X0,codomain(a)) = X1) )),
+  inference(superposition,[],[f65,f11])).
+fof(f65,plain,(
+  ( ! [X10,X8,X9] : (compose(X8,compose(X9,a)) != compose(X10,a) | compose(X8,X9) = X10) )),
+  inference(superposition,[],[f19,f9])).
+fof(f1379,plain,(
+  codomain(a) = domain(b) | (~spl0_7 | ~spl0_15)),
+  inference(forward_demodulation,[],[f1366,f591])).
+fof(f591,plain,(
+  domain(b) = domain(domain(b))),
+  inference(forward_demodulation,[],[f578,f85])).
+fof(f85,plain,(
+  domain(b) = codomain(domain(b))),
+  inference(resolution,[],[f27,f40])).
+fof(f40,plain,(
+  there_exists(b)),
+  inference(subsumption_resolution,[],[f39,f23])).
+fof(f23,plain,(
+  there_exists(domain(a))),
+  inference(resolution,[],[f6,f12])).
+fof(f12,axiom,(
+  there_exists(compose(a,b))),
+  file('CAT004-4.tptp',unknown)).
+fof(f6,axiom,(
+  ( ! [X0,X1] : (~there_exists(compose(X0,X1)) | there_exists(domain(X0))) )),
+  file('CAT004-4.tptp',unknown)).
+fof(f39,plain,(
+  ~there_exists(domain(a)) | there_exists(b)),
+  inference(superposition,[],[f5,f26])).
+fof(f26,plain,(
+  domain(a) = codomain(b)),
+  inference(resolution,[],[f7,f12])).
+fof(f7,axiom,(
+  ( ! [X0,X1] : (~there_exists(compose(X0,X1)) | domain(X0) = codomain(X1)) )),
+  file('CAT004-4.tptp',unknown)).
+fof(f5,axiom,(
+  ( ! [X0] : (~there_exists(codomain(X0)) | there_exists(X0)) )),
+  file('CAT004-4.tptp',unknown)).
+fof(f27,plain,(
+  ( ! [X0] : (~there_exists(X0) | domain(X0) = codomain(domain(X0))) )),
+  inference(superposition,[],[f7,f10])).
+fof(f10,axiom,(
+  ( ! [X0] : (compose(X0,domain(X0)) = X0) )),
+  file('CAT004-4.tptp',unknown)).
+fof(f578,plain,(
+  codomain(domain(b)) = domain(codomain(domain(b)))),
+  inference(resolution,[],[f90,f40])).
+fof(f90,plain,(
+  ( ! [X0] : (~there_exists(X0) | codomain(domain(X0)) = domain(codomain(domain(X0)))) )),
+  inference(resolution,[],[f28,f24])).
+fof(f24,plain,(
+  ( ! [X0] : (there_exists(domain(X0)) | ~there_exists(X0)) )),
+  inference(superposition,[],[f6,f10])).
+fof(f28,plain,(
+  ( ! [X1] : (~there_exists(X1) | codomain(X1) = domain(codomain(X1))) )),
+  inference(superposition,[],[f7,f11])).
+fof(f1366,plain,(
+  codomain(a) = domain(domain(b)) | (~spl0_7 | ~spl0_15)),
+  inference(resolution,[],[f1336,f637])).
+fof(f637,plain,(
+  there_exists(domain(b)) | ~spl0_15),
+  inference(avatar_component_clause,[],[f636])).
+fof(f636,plain,(
+  spl0_15 <=> there_exists(domain(b))),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_15])])).
+fof(f1336,plain,(
+  ( ! [X2] : (~there_exists(X2) | codomain(a) = domain(X2)) ) | ~spl0_7),
+  inference(forward_demodulation,[],[f1313,f333])).
+fof(f333,plain,(
+  codomain(a) = codomain(codomain(a)) | ~spl0_7),
+  inference(forward_demodulation,[],[f332,f96])).
+fof(f96,plain,(
+  codomain(a) = domain(codomain(a))),
+  inference(resolution,[],[f28,f29])).
+fof(f29,plain,(
+  there_exists(a)),
+  inference(resolution,[],[f23,f4])).
+fof(f4,axiom,(
+  ( ! [X0] : (~there_exists(domain(X0)) | there_exists(X0)) )),
+  file('CAT004-4.tptp',unknown)).
+fof(f332,plain,(
+  domain(codomain(a)) = codomain(domain(codomain(a))) | ~spl0_7),
+  inference(resolution,[],[f286,f27])).
+fof(f286,plain,(
+  there_exists(codomain(a)) | ~spl0_7),
+  inference(avatar_component_clause,[],[f285])).
+fof(f285,plain,(
+  spl0_7 <=> there_exists(codomain(a))),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_7])])).
+fof(f1313,plain,(
+  ( ! [X2] : (~there_exists(X2) | domain(X2) = codomain(codomain(a))) )),
+  inference(superposition,[],[f7,f1304])).
+fof(f800,plain,(
+  domain(a) = domain(b) | ~spl0_23),
+  inference(avatar_component_clause,[],[f799])).
+fof(f799,plain,(
+  spl0_23 <=> domain(a) = domain(b)),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_23])])).
+fof(f9642,plain,(
+  compose(h,compose(a,b)) = compose(compose(g,a),compose(b,domain(a))) | (~spl0_2 | ~spl0_23)),
+  inference(backward_demodulation,[],[f9637,f4901])).
+fof(f4901,plain,(
+  compose(h,compose(a,b)) = compose(compose(g,a),compose(b,domain(compose(h,compose(a,b)))))),
+  inference(superposition,[],[f204,f16])).
+fof(f16,axiom,(
+  compose(h,compose(a,b)) = compose(g,compose(a,b))),
+  file('CAT004-4.tptp',unknown)).
+fof(f204,plain,(
+  ( ! [X10,X8,X9] : (compose(X8,compose(X9,X10)) = compose(compose(X8,X9),compose(X10,domain(compose(X8,compose(X9,X10)))))) )),
+  inference(superposition,[],[f61,f9])).
+fof(f61,plain,(
+  ( ! [X4,X3] : (compose(X3,X4) = compose(X3,compose(X4,domain(compose(X3,X4))))) )),
+  inference(superposition,[],[f9,f10])).
+fof(f9637,plain,(
+  domain(a) = domain(compose(h,compose(a,b))) | (~spl0_2 | ~spl0_23)),
+  inference(forward_demodulation,[],[f9636,f84])).
+fof(f84,plain,(
+  domain(a) = codomain(domain(a))),
+  inference(resolution,[],[f27,f29])).
+fof(f9636,plain,(
+  codomain(domain(a)) = domain(compose(h,compose(a,b))) | (~spl0_2 | ~spl0_23)),
+  inference(forward_demodulation,[],[f9565,f1476])).
+fof(f1476,plain,(
+  domain(a) = domain(compose(a,b)) | ~spl0_23),
+  inference(backward_demodulation,[],[f800,f1083])).
+fof(f1083,plain,(
+  domain(compose(a,b)) = domain(b)),
+  inference(forward_demodulation,[],[f1067,f85])).
+fof(f1067,plain,(
+  domain(compose(a,b)) = codomain(domain(b))),
+  inference(resolution,[],[f242,f12])).
+fof(f242,plain,(
+  ( ! [X0,X1] : (~there_exists(compose(X1,X0)) | codomain(domain(X0)) = domain(compose(X1,X0))) )),
+  inference(superposition,[],[f62,f10])).
+fof(f62,plain,(
+  ( ! [X2,X0,X1] : (~there_exists(compose(X0,compose(X1,X2))) | codomain(X2) = domain(compose(X0,X1))) )),
+  inference(superposition,[],[f7,f9])).
+fof(f9565,plain,(
+  codomain(domain(compose(a,b))) = domain(compose(h,compose(a,b))) | ~spl0_2),
+  inference(resolution,[],[f49,f242])).
+fof(f49,plain,(
+  there_exists(compose(h,compose(a,b))) | ~spl0_2),
+  inference(avatar_component_clause,[],[f48])).
+fof(f48,plain,(
+  spl0_2 <=> there_exists(compose(h,compose(a,b)))),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_2])])).
+fof(f9742,plain,(
+  ( ! [X27] : (compose(h,compose(a,b)) != compose(X27,b) | compose(domain(a),compose(h,a)) = X27) ) | (~spl0_2 | ~spl0_17 | ~spl0_35 | ~spl0_51)),
+  inference(backward_demodulation,[],[f9727,f4193])).
+fof(f4193,plain,(
+  ( ! [X27] : (compose(h,compose(a,b)) != compose(X27,b) | compose(codomain(g),compose(h,a)) = X27) )),
+  inference(superposition,[],[f291,f165])).
+fof(f165,plain,(
+  compose(h,compose(a,b)) = compose(codomain(g),compose(h,compose(a,b)))),
+  inference(superposition,[],[f58,f16])).
+fof(f291,plain,(
+  ( ! [X6,X4,X7,X5] : (compose(X7,b) != compose(X6,compose(X4,compose(X5,b))) | compose(X6,compose(X4,X5)) = X7) )),
+  inference(superposition,[],[f67,f9])).
+fof(f67,plain,(
+  ( ! [X14,X15,X16] : (compose(X14,compose(X15,b)) != compose(X16,b) | compose(X14,X15) = X16) )),
+  inference(superposition,[],[f20,f9])).
+fof(f20,plain,(
+  ( ! [X2,X0] : (compose(X0,b) != compose(X2,b) | X0 = X2) )),
+  inference(equality_resolution,[],[f14])).
+fof(f14,axiom,(
+  ( ! [X2,X0,X1] : (X0 = X2 | compose(X2,b) != X1 | compose(X0,b) != X1) )),
+  file('CAT004-4.tptp',unknown)).
+fof(f9727,plain,(
+  domain(a) = codomain(g) | (~spl0_2 | ~spl0_17 | ~spl0_35 | ~spl0_51)),
+  inference(forward_demodulation,[],[f9712,f9604])).
+fof(f9604,plain,(
+  domain(a) = domain(codomain(g)) | (~spl0_2 | ~spl0_17 | ~spl0_51)),
+  inference(backward_demodulation,[],[f9603,f9093])).
+fof(f9093,plain,(
+  domain(codomain(g)) = codomain(compose(h,compose(a,b))) | ~spl0_51),
+  inference(avatar_component_clause,[],[f9091])).
+fof(f9091,plain,(
+  spl0_51 <=> domain(codomain(g)) = codomain(compose(h,compose(a,b)))),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_51])])).
+fof(f9603,plain,(
+  domain(a) = codomain(compose(h,compose(a,b))) | (~spl0_2 | ~spl0_17)),
+  inference(forward_demodulation,[],[f9602,f101])).
+fof(f101,plain,(
+  domain(a) = domain(domain(a))),
+  inference(forward_demodulation,[],[f93,f84])).
+fof(f93,plain,(
+  codomain(domain(a)) = domain(codomain(domain(a)))),
+  inference(resolution,[],[f28,f23])).
+fof(f9602,plain,(
+  domain(domain(a)) = codomain(compose(h,compose(a,b))) | (~spl0_2 | ~spl0_17)),
+  inference(forward_demodulation,[],[f9562,f766])).
+fof(f9562,plain,(
+  domain(codomain(h)) = codomain(compose(h,compose(a,b))) | ~spl0_2),
+  inference(resolution,[],[f49,f167])).
+fof(f167,plain,(
+  ( ! [X4,X3] : (~there_exists(compose(X3,X4)) | domain(codomain(X3)) = codomain(compose(X3,X4))) )),
+  inference(superposition,[],[f7,f58])).
+fof(f9712,plain,(
+  codomain(g) = domain(codomain(g)) | ~spl0_35),
+  inference(resolution,[],[f8983,f28])).
+fof(f8983,plain,(
+  there_exists(g) | ~spl0_35),
+  inference(avatar_component_clause,[],[f8981])).
+fof(f8981,plain,(
+  spl0_35 <=> there_exists(g)),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_35])])).
+fof(f19,plain,(
+  ( ! [X2,X0] : (compose(X0,a) != compose(X2,a) | X0 = X2) )),
+  inference(equality_resolution,[],[f13])).
+fof(f13,axiom,(
+  ( ! [X2,X0,X1] : (X0 = X2 | compose(X2,a) != X1 | compose(X0,a) != X1) )),
+  file('CAT004-4.tptp',unknown)).
+fof(f9324,plain,(
+  ~spl0_2 | spl0_51),
+  inference(avatar_split_clause,[],[f9323,f9091,f48])).
+fof(f9323,plain,(
+  domain(codomain(g)) = codomain(compose(h,compose(a,b))) | ~there_exists(compose(h,compose(a,b)))),
+  inference(forward_demodulation,[],[f953,f16])).
+fof(f953,plain,(
+  ~there_exists(compose(h,compose(a,b))) | domain(codomain(g)) = codomain(compose(g,compose(a,b)))),
+  inference(superposition,[],[f167,f16])).
+fof(f8984,plain,(
+  spl0_35 | ~spl0_2 | ~spl0_7 | ~spl0_15 | ~spl0_21 | ~spl0_23),
+  inference(avatar_split_clause,[],[f6871,f799,f787,f636,f285,f48,f8981])).
+fof(f787,plain,(
+  spl0_21 <=> domain(a) = codomain(compose(a,b))),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_21])])).
+fof(f6871,plain,(
+  ~there_exists(compose(h,compose(a,b))) | there_exists(g) | (~spl0_7 | ~spl0_15 | ~spl0_21 | ~spl0_23)),
+  inference(superposition,[],[f6315,f16])).
+fof(f6315,plain,(
+  ( ! [X1] : (~there_exists(compose(X1,compose(a,b))) | there_exists(X1)) ) | (~spl0_7 | ~spl0_15 | ~spl0_21 | ~spl0_23)),
+  inference(forward_demodulation,[],[f6301,f1497])).
+fof(f6301,plain,(
+  ( ! [X1] : (there_exists(compose(X1,domain(a))) | ~there_exists(compose(X1,compose(a,b)))) ) | ~spl0_21),
+  inference(superposition,[],[f605,f788])).
+fof(f788,plain,(
+  domain(a) = codomain(compose(a,b)) | ~spl0_21),
+  inference(avatar_component_clause,[],[f787])).
+fof(f605,plain,(
+  ( ! [X0,X1] : (there_exists(compose(X0,codomain(X1))) | ~there_exists(compose(X0,X1))) )),
+  inference(resolution,[],[f179,f4])).
+fof(f179,plain,(
+  ( ! [X6,X7] : (there_exists(domain(compose(X7,codomain(X6)))) | ~there_exists(compose(X7,X6))) )),
+  inference(superposition,[],[f63,f11])).
+fof(f63,plain,(
+  ( ! [X4,X5,X3] : (~there_exists(compose(X3,compose(X4,X5))) | there_exists(domain(compose(X3,X4)))) )),
+  inference(superposition,[],[f6,f9])).
+fof(f8914,plain,(
+  spl0_2 | ~spl0_7 | ~spl0_15 | ~spl0_17 | ~spl0_23),
+  inference(avatar_split_clause,[],[f8913,f799,f765,f636,f285,f48])).
+fof(f8913,plain,(
+  there_exists(compose(h,compose(a,b))) | (~spl0_7 | ~spl0_15 | ~spl0_17 | ~spl0_23)),
+  inference(subsumption_resolution,[],[f8912,f23])).
+fof(f8912,plain,(
+  ~there_exists(domain(a)) | there_exists(compose(h,compose(a,b))) | (~spl0_7 | ~spl0_15 | ~spl0_17 | ~spl0_23)),
+  inference(forward_demodulation,[],[f8883,f8490])).
+fof(f8490,plain,(
+  domain(a) = domain(compose(h,a)) | (~spl0_7 | ~spl0_15 | ~spl0_17 | ~spl0_23)),
+  inference(forward_demodulation,[],[f8458,f84])).
+fof(f8458,plain,(
+  codomain(domain(a)) = domain(compose(h,a)) | (~spl0_7 | ~spl0_15 | ~spl0_17 | ~spl0_23)),
+  inference(resolution,[],[f8315,f242])).
+fof(f8315,plain,(
+  there_exists(compose(h,a)) | (~spl0_7 | ~spl0_15 | ~spl0_17 | ~spl0_23)),
+  inference(resolution,[],[f8204,f5])).
+fof(f8204,plain,(
+  there_exists(codomain(compose(h,a))) | (~spl0_7 | ~spl0_15 | ~spl0_17 | ~spl0_23)),
+  inference(resolution,[],[f8143,f5])).
+fof(f8143,plain,(
+  there_exists(codomain(codomain(compose(h,a)))) | (~spl0_7 | ~spl0_15 | ~spl0_17 | ~spl0_23)),
+  inference(subsumption_resolution,[],[f7965,f15])).
+fof(f15,axiom,(
+  there_exists(h)),
+  file('CAT004-4.tptp',unknown)).
+fof(f7965,plain,(
+  ~there_exists(h) | there_exists(codomain(codomain(compose(h,a)))) | (~spl0_7 | ~spl0_15 | ~spl0_17 | ~spl0_23)),
+  inference(superposition,[],[f6322,f3201])).
+fof(f3201,plain,(
+  ( ! [X5] : (compose(codomain(codomain(compose(X5,a))),X5) = X5) )),
+  inference(superposition,[],[f58,f2240])).
+fof(f2240,plain,(
+  ( ! [X0] : (compose(codomain(compose(X0,a)),X0) = X0) )),
+  inference(equality_resolution,[],[f270])).
+fof(f270,plain,(
+  ( ! [X4,X5] : (compose(X5,a) != compose(X4,a) | compose(codomain(compose(X4,a)),X4) = X5) )),
+  inference(superposition,[],[f65,f11])).
+fof(f6322,plain,(
+  ( ! [X8] : (~there_exists(compose(X8,h)) | there_exists(X8)) ) | (~spl0_7 | ~spl0_15 | ~spl0_17 | ~spl0_23)),
+  inference(forward_demodulation,[],[f6308,f1497])).
+fof(f6308,plain,(
+  ( ! [X8] : (there_exists(compose(X8,domain(a))) | ~there_exists(compose(X8,h))) ) | ~spl0_17),
+  inference(superposition,[],[f605,f766])).
+fof(f8883,plain,(
+  there_exists(compose(h,compose(a,b))) | ~there_exists(domain(compose(h,a))) | (~spl0_7 | ~spl0_15 | ~spl0_17 | ~spl0_23)),
+  inference(forward_demodulation,[],[f8877,f9])).
+fof(f8877,plain,(
+  there_exists(compose(compose(h,a),b)) | ~there_exists(domain(compose(h,a))) | (~spl0_7 | ~spl0_15 | ~spl0_17 | ~spl0_23)),
+  inference(trivial_inequality_removal,[],[f8864])).
+fof(f8864,plain,(
+  domain(a) != domain(a) | there_exists(compose(compose(h,a),b)) | ~there_exists(domain(compose(h,a))) | (~spl0_7 | ~spl0_15 | ~spl0_17 | ~spl0_23)),
+  inference(superposition,[],[f74,f8490])).
+fof(f74,plain,(
+  ( ! [X0] : (domain(X0) != domain(a) | there_exists(compose(X0,b)) | ~there_exists(domain(X0))) )),
+  inference(superposition,[],[f8,f26])).
+fof(f8,axiom,(
+  ( ! [X0,X1] : (domain(X0) != codomain(X1) | there_exists(compose(X0,X1)) | ~there_exists(domain(X0))) )),
+  file('CAT004-4.tptp',unknown)).
+fof(f1525,plain,(
+  spl0_17 | ~spl0_5 | ~spl0_7 | ~spl0_15 | ~spl0_23),
+  inference(avatar_split_clause,[],[f1509,f799,f636,f285,f136,f765])).
+fof(f136,plain,(
+  spl0_5 <=> there_exists(codomain(h))),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_5])])).
+fof(f1509,plain,(
+  domain(a) = codomain(h) | (~spl0_5 | ~spl0_7 | ~spl0_15 | ~spl0_23)),
+  inference(backward_demodulation,[],[f800,f1434])).
+fof(f1434,plain,(
+  domain(b) = codomain(h) | (~spl0_5 | ~spl0_7 | ~spl0_15)),
+  inference(backward_demodulation,[],[f1433,f98])).
+fof(f98,plain,(
+  codomain(h) = domain(codomain(h))),
+  inference(resolution,[],[f28,f15])).
+fof(f1433,plain,(
+  domain(b) = domain(codomain(h)) | (~spl0_5 | ~spl0_7 | ~spl0_15)),
+  inference(forward_demodulation,[],[f1371,f1379])).
+fof(f1371,plain,(
+  codomain(a) = domain(codomain(h)) | (~spl0_5 | ~spl0_7)),
+  inference(resolution,[],[f1336,f137])).
+fof(f137,plain,(
+  there_exists(codomain(h)) | ~spl0_5),
+  inference(avatar_component_clause,[],[f136])).
+fof(f1461,plain,(
+  spl0_23 | ~spl0_7 | ~spl0_15 | ~spl0_19),
+  inference(avatar_split_clause,[],[f1456,f776,f636,f285,f799])).
+fof(f776,plain,(
+  spl0_19 <=> domain(a) = codomain(a)),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_19])])).
+fof(f1456,plain,(
+  domain(a) = domain(b) | (~spl0_7 | ~spl0_15 | ~spl0_19)),
+  inference(backward_demodulation,[],[f777,f1379])).
+fof(f777,plain,(
+  domain(a) = codomain(a) | ~spl0_19),
+  inference(avatar_component_clause,[],[f776])).
+fof(f1455,plain,(
+  ~spl0_19 | spl0_21),
+  inference(avatar_split_clause,[],[f1048,f787,f776])).
+fof(f1048,plain,(
+  domain(a) != codomain(a) | spl0_21),
+  inference(superposition,[],[f789,f955])).
+fof(f955,plain,(
+  codomain(a) = codomain(compose(a,b))),
+  inference(forward_demodulation,[],[f939,f96])).
+fof(f939,plain,(
+  codomain(compose(a,b)) = domain(codomain(a))),
+  inference(resolution,[],[f167,f12])).
+fof(f789,plain,(
+  domain(a) != codomain(compose(a,b)) | spl0_21),
+  inference(avatar_component_clause,[],[f787])).
+fof(f1454,plain,(
+  spl0_19 | ~spl0_7),
+  inference(avatar_split_clause,[],[f1376,f285,f776])).
+fof(f1376,plain,(
+  domain(a) = codomain(a) | ~spl0_7),
+  inference(forward_demodulation,[],[f1365,f101])).
+fof(f1365,plain,(
+  codomain(a) = domain(domain(a)) | ~spl0_7),
+  inference(resolution,[],[f1336,f23])).
+fof(f691,plain,(
+  spl0_15),
+  inference(avatar_contradiction_clause,[],[f690])).
+fof(f690,plain,(
+  $false | spl0_15),
+  inference(subsumption_resolution,[],[f689,f40])).
+fof(f689,plain,(
+  ~there_exists(b) | spl0_15),
+  inference(resolution,[],[f638,f24])).
+fof(f638,plain,(
+  ~there_exists(domain(b)) | spl0_15),
+  inference(avatar_component_clause,[],[f636])).
+fof(f302,plain,(
+  spl0_7),
+  inference(avatar_contradiction_clause,[],[f301])).
+fof(f301,plain,(
+  $false | spl0_7),
+  inference(subsumption_resolution,[],[f300,f29])).
+fof(f300,plain,(
+  ~there_exists(a) | spl0_7),
+  inference(resolution,[],[f287,f75])).
+fof(f75,plain,(
+  ( ! [X0] : (there_exists(codomain(X0)) | ~there_exists(X0)) )),
+  inference(resolution,[],[f25,f4])).
+fof(f25,plain,(
+  ( ! [X1] : (there_exists(domain(codomain(X1))) | ~there_exists(X1)) )),
+  inference(superposition,[],[f6,f11])).
+fof(f287,plain,(
+  ~there_exists(codomain(a)) | spl0_7),
+  inference(avatar_component_clause,[],[f285])).
+fof(f156,plain,(
+  spl0_5),
+  inference(avatar_contradiction_clause,[],[f155])).
+fof(f155,plain,(
+  $false | spl0_5),
+  inference(subsumption_resolution,[],[f154,f15])).
+fof(f154,plain,(
+  ~there_exists(h) | spl0_5),
+  inference(resolution,[],[f138,f75])).
+fof(f138,plain,(
+  ~there_exists(codomain(h)) | spl0_5),
+  inference(avatar_component_clause,[],[f136])).
+% SZS output end Proof for CAT004-4
+% ------------------------------
+% Version: Vampire 4.4.0 (commit d98a3d53 on 2020-01-14 21:02:12 +0100)
+% Termination reason: Refutation
+
+% Memory used [KB]: 66011
+% Time elapsed: 1.110 s
+% ------------------------------
+% ------------------------------

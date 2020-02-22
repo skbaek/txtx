@@ -1,0 +1,81 @@
+% Refutation found. Thanks to Tanya!
+% SZS status Theorem for SEU303+3
+% SZS output start Proof for SEU303+3
+fof(f601,plain,(
+  $false),
+  inference(subsumption_resolution,[],[f600,f306])).
+fof(f306,plain,(
+  relation(sK26)),
+  inference(cnf_transformation,[],[f182])).
+fof(f182,plain,(
+  ~finite(relation_rng(sK26)) & finite(relation_dom(sK26)) & function(sK26) & relation(sK26)),
+  inference(skolemisation,[status(esa),new_symbols(skolem,[sK26])],[f119,f181])).
+fof(f181,plain,(
+  ? [X0] : (~finite(relation_rng(X0)) & finite(relation_dom(X0)) & function(X0) & relation(X0)) => (~finite(relation_rng(sK26)) & finite(relation_dom(sK26)) & function(sK26) & relation(sK26))),
+  introduced(choice_axiom,[])).
+fof(f119,plain,(
+  ? [X0] : (~finite(relation_rng(X0)) & finite(relation_dom(X0)) & function(X0) & relation(X0))),
+  inference(flattening,[],[f118])).
+fof(f118,plain,(
+  ? [X0] : ((~finite(relation_rng(X0)) & finite(relation_dom(X0))) & (function(X0) & relation(X0)))),
+  inference(ennf_transformation,[],[f57])).
+fof(f57,negated_conjecture,(
+  ~! [X0] : ((function(X0) & relation(X0)) => (finite(relation_dom(X0)) => finite(relation_rng(X0))))),
+  inference(negated_conjecture,[],[f56])).
+fof(f56,conjecture,(
+  ! [X0] : ((function(X0) & relation(X0)) => (finite(relation_dom(X0)) => finite(relation_rng(X0))))),
+  file('SEU303+3.tptp',unknown)).
+fof(f600,plain,(
+  ~relation(sK26)),
+  inference(subsumption_resolution,[],[f599,f307])).
+fof(f307,plain,(
+  function(sK26)),
+  inference(cnf_transformation,[],[f182])).
+fof(f599,plain,(
+  ~function(sK26) | ~relation(sK26)),
+  inference(subsumption_resolution,[],[f598,f308])).
+fof(f308,plain,(
+  finite(relation_dom(sK26))),
+  inference(cnf_transformation,[],[f182])).
+fof(f598,plain,(
+  ~finite(relation_dom(sK26)) | ~function(sK26) | ~relation(sK26)),
+  inference(subsumption_resolution,[],[f597,f309])).
+fof(f309,plain,(
+  ~finite(relation_rng(sK26))),
+  inference(cnf_transformation,[],[f182])).
+fof(f597,plain,(
+  finite(relation_rng(sK26)) | ~finite(relation_dom(sK26)) | ~function(sK26) | ~relation(sK26)),
+  inference(superposition,[],[f208,f536])).
+fof(f536,plain,(
+  relation_rng(sK26) = relation_image(sK26,relation_dom(sK26))),
+  inference(resolution,[],[f303,f306])).
+fof(f303,plain,(
+  ( ! [X0] : (~relation(X0) | relation_rng(X0) = relation_image(X0,relation_dom(X0))) )),
+  inference(cnf_transformation,[],[f114])).
+fof(f114,plain,(
+  ! [X0] : (relation_rng(X0) = relation_image(X0,relation_dom(X0)) | ~relation(X0))),
+  inference(ennf_transformation,[],[f53])).
+fof(f53,axiom,(
+  ! [X0] : (relation(X0) => relation_rng(X0) = relation_image(X0,relation_dom(X0)))),
+  file('SEU303+3.tptp',unknown)).
+fof(f208,plain,(
+  ( ! [X0,X1] : (finite(relation_image(X0,X1)) | ~finite(X1) | ~function(X0) | ~relation(X0)) )),
+  inference(cnf_transformation,[],[f103])).
+fof(f103,plain,(
+  ! [X0,X1] : (finite(relation_image(X0,X1)) | ~finite(X1) | ~function(X0) | ~relation(X0))),
+  inference(flattening,[],[f102])).
+fof(f102,plain,(
+  ! [X0,X1] : (finite(relation_image(X0,X1)) | (~finite(X1) | ~function(X0) | ~relation(X0)))),
+  inference(ennf_transformation,[],[f15])).
+fof(f15,axiom,(
+  ! [X0,X1] : ((finite(X1) & function(X0) & relation(X0)) => finite(relation_image(X0,X1)))),
+  file('SEU303+3.tptp',unknown)).
+% SZS output end Proof for SEU303+3
+% ------------------------------
+% Version: Vampire 4.4.0 (commit d98a3d53 on 2020-01-14 21:02:12 +0100)
+% Termination reason: Refutation
+
+% Memory used [KB]: 5117
+% Time elapsed: 0.013 s
+% ------------------------------
+% ------------------------------

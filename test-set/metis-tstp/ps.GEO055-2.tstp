@@ -1,0 +1,82 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% SZS status Unsatisfiable for GEO055-2.tptp
+
+% SZS output start CNFRefutation for GEO055-2.tptp
+cnf(segment_construction2, axiom,
+    (equidistant(Y, extension(X, Y, W, V), W, V))).
+
+cnf(reflection, axiom, (reflection(U, V) = extension(U, V, U, V))).
+
+cnf(prove_equidistance, negated_conjecture,
+    (~ equidistant(v, reflection(u, v), u, v))).
+
+cnf(refute_0_0, plain,
+    (equidistant(X_12, extension(X_13, X_12, X_13, X_12), X_13, X_12)),
+    inference(subst, [],
+              [segment_construction2 :
+               [bind(V, $fot(X_12)), bind(W, $fot(X_13)),
+                bind(X, $fot(X_13)), bind(Y, $fot(X_12))]])).
+
+cnf(refute_0_1, plain,
+    (reflection(X_13, X_12) = extension(X_13, X_12, X_13, X_12)),
+    inference(subst, [],
+              [reflection : [bind(U, $fot(X_13)), bind(V, $fot(X_12))]])).
+
+cnf(refute_0_2, plain, (X0 = X0),
+    introduced(tautology, [refl, [$fot(X0)]])).
+
+cnf(refute_0_3, plain, (X0 != X0 | X0 != Y0 | Y0 = X0),
+    introduced(tautology,
+               [equality, [$cnf($equal(X0, X0)), [0], $fot(Y0)]])).
+
+cnf(refute_0_4, plain, (X0 != Y0 | Y0 = X0),
+    inference(resolve, [$cnf($equal(X0, X0))], [refute_0_2, refute_0_3])).
+
+cnf(refute_0_5, plain,
+    (reflection(X_13, X_12) != extension(X_13, X_12, X_13, X_12) |
+     extension(X_13, X_12, X_13, X_12) = reflection(X_13, X_12)),
+    inference(subst, [],
+              [refute_0_4 :
+               [bind(X0, $fot(reflection(X_13, X_12))),
+                bind(Y0, $fot(extension(X_13, X_12, X_13, X_12)))]])).
+
+cnf(refute_0_6, plain,
+    (extension(X_13, X_12, X_13, X_12) = reflection(X_13, X_12)),
+    inference(resolve,
+              [$cnf($equal(reflection(X_13, X_12),
+                      extension(X_13, X_12, X_13, X_12)))],
+              [refute_0_1, refute_0_5])).
+
+cnf(refute_0_7, plain,
+    (extension(X_13, X_12, X_13, X_12) != reflection(X_13, X_12) |
+     ~ equidistant(X_12, extension(X_13, X_12, X_13, X_12), X_13, X_12) |
+     equidistant(X_12, reflection(X_13, X_12), X_13, X_12)),
+    introduced(tautology,
+               [equality,
+                [$cnf(equidistant(X_12, extension(X_13, X_12, X_13, X_12),
+                        X_13, X_12)), [1],
+                 $fot(reflection(X_13, X_12))]])).
+
+cnf(refute_0_8, plain,
+    (~ equidistant(X_12, extension(X_13, X_12, X_13, X_12), X_13, X_12) |
+     equidistant(X_12, reflection(X_13, X_12), X_13, X_12)),
+    inference(resolve,
+              [$cnf($equal(extension(X_13, X_12, X_13, X_12),
+                      reflection(X_13, X_12)))],
+              [refute_0_6, refute_0_7])).
+
+cnf(refute_0_9, plain,
+    (equidistant(X_12, reflection(X_13, X_12), X_13, X_12)),
+    inference(resolve,
+              [$cnf(equidistant(X_12, extension(X_13, X_12, X_13, X_12),
+                      X_13, X_12))], [refute_0_0, refute_0_8])).
+
+cnf(refute_0_10, plain, (equidistant(v, reflection(u, v), u, v)),
+    inference(subst, [],
+              [refute_0_9 : [bind(X_12, $fot(v)), bind(X_13, $fot(u))]])).
+
+cnf(refute_0_11, plain, ($false),
+    inference(resolve, [$cnf(equidistant(v, reflection(u, v), u, v))],
+              [refute_0_10, prove_equidistance])).
+% SZS output end CNFRefutation for GEO055-2.tptp
+

@@ -1,0 +1,95 @@
+%------------------------------------------------------------------------------
+% File     : MGT029-1 : TPTP v7.3.0. Released v2.4.0.
+% Domain   : Management (Organisation Theory)
+% Problem  : EPs have positive and FMs have negative growth rates
+% Version  : [PB+94] axioms : Reduced & Augmented > Complete.
+% English  : Efficient producers have positive, while first movers have
+%            negative growth rate past a certain point of time in stable
+%            environments.
+
+% Refs     : [PM93]  Peli & Masuch (1993), The Logic of Propogation Strateg
+%          : [PM94]  Peli & Masuch (1994), The Logic of Propogation Strateg
+%          : [Kam95] Kamps (1995), Email to G. Sutcliffe
+% Source   : [TPTP]
+% Names    :
+
+% Status   : Unsatisfiable
+% Rating   : 0.12 v7.3.0, 0.08 v7.1.0, 0.00 v7.0.0, 0.13 v6.4.0, 0.07 v6.3.0, 0.00 v6.2.0, 0.10 v6.1.0, 0.21 v6.0.0, 0.20 v5.5.0, 0.45 v5.3.0, 0.33 v5.2.0, 0.25 v5.1.0, 0.29 v4.1.0, 0.15 v4.0.1, 0.09 v4.0.0, 0.18 v3.7.0, 0.10 v3.5.0, 0.18 v3.4.0, 0.42 v3.3.0, 0.43 v3.2.0, 0.54 v3.1.0, 0.36 v2.7.0, 0.50 v2.6.0, 0.44 v2.5.0, 0.56 v2.4.0
+% Syntax   : Number of clauses     :   22 (  10 non-Horn;   2 unit;  22 RR)
+%            Number of atoms       :   86 (  11 equality)
+%            Maximal clause size   :    6 (   4 average)
+%            Number of predicates  :    7 (   0 propositional; 1-4 arity)
+%            Number of functors    :    9 (   4 constant; 0-2 arity)
+%            Number of variables   :   36 (   0 singleton)
+%            Maximal term depth    :    3 (   1 average)
+% SPC      : CNF_UNS_RFO_SEQ_NHN
+
+% Comments : Created with tptp2X -f tptp -t clausify:otter MGT029+1.p
+%          : tptp2X 
+%------------------------------------------------------------------------------
+cnf(mp_greater_transitivity_19,axiom,
+    ( ~ greater(A,B) | ~ greater(B,C) | greater(A,C) )).
+
+cnf(mp_times_in_environment_20,axiom,
+    ( ~ in_environment(A,B) | ~ in_environment(A,C) | greater(C,B) | C = B | greater(B,C) )).
+
+cnf(mp_greater_or_equal_21,axiom,
+    ( ~ greater_or_equal(A,B) | greater(A,B) | A = B )).
+
+cnf(mp_greater_or_equal_22,axiom,
+    ( ~ greater(A,B) | greater_or_equal(A,B) )).
+
+cnf(mp_greater_or_equal_23,axiom,
+    ( A != B | greater_or_equal(A,B) )).
+
+cnf(l6_24,hypothesis,
+    ( ~ environment(A) | ~ subpopulations(first_movers,efficient_producers,A,B) | ~ greater_or_equal(B,equilibrium(A)) | growth_rate(first_movers,B) = zero | greater(growth_rate(first_movers,B),zero) | greater(growth_rate(efficient_producers,B),zero) )).
+
+cnf(l6_25,hypothesis,
+    ( ~ environment(A) | ~ subpopulations(first_movers,efficient_producers,A,B) | ~ greater_or_equal(B,equilibrium(A)) | growth_rate(first_movers,B) = zero | greater(growth_rate(first_movers,B),zero) | greater(zero,growth_rate(first_movers,B)) )).
+
+cnf(l6_26,hypothesis,
+    ( ~ environment(A) | ~ subpopulations(first_movers,efficient_producers,A,B) | ~ greater_or_equal(B,equilibrium(A)) | growth_rate(first_movers,B) = zero | greater(zero,growth_rate(efficient_producers,B)) | greater(growth_rate(efficient_producers,B),zero) )).
+
+cnf(l6_27,hypothesis,
+    ( ~ environment(A) | ~ subpopulations(first_movers,efficient_producers,A,B) | ~ greater_or_equal(B,equilibrium(A)) | growth_rate(first_movers,B) = zero | greater(zero,growth_rate(efficient_producers,B)) | greater(zero,growth_rate(first_movers,B)) )).
+
+cnf(l6_28,hypothesis,
+    ( ~ environment(A) | ~ subpopulations(first_movers,efficient_producers,A,B) | ~ greater_or_equal(B,equilibrium(A)) | growth_rate(efficient_producers,B) = zero | greater(growth_rate(first_movers,B),zero) | greater(growth_rate(efficient_producers,B),zero) )).
+
+cnf(l6_29,hypothesis,
+    ( ~ environment(A) | ~ subpopulations(first_movers,efficient_producers,A,B) | ~ greater_or_equal(B,equilibrium(A)) | growth_rate(efficient_producers,B) = zero | greater(growth_rate(first_movers,B),zero) | greater(zero,growth_rate(first_movers,B)) )).
+
+cnf(l6_30,hypothesis,
+    ( ~ environment(A) | ~ subpopulations(first_movers,efficient_producers,A,B) | ~ greater_or_equal(B,equilibrium(A)) | growth_rate(efficient_producers,B) = zero | greater(zero,growth_rate(efficient_producers,B)) | greater(growth_rate(efficient_producers,B),zero) )).
+
+cnf(l6_31,hypothesis,
+    ( ~ environment(A) | ~ subpopulations(first_movers,efficient_producers,A,B) | ~ greater_or_equal(B,equilibrium(A)) | growth_rate(efficient_producers,B) = zero | greater(zero,growth_rate(efficient_producers,B)) | greater(zero,growth_rate(first_movers,B)) )).
+
+cnf(l1_32,hypothesis,
+    ( ~ environment(A) | ~ stable(A) | in_environment(A,sk1(A)) )).
+
+cnf(l1_33,hypothesis,
+    ( ~ environment(A) | ~ stable(A) | ~ subpopulations(first_movers,efficient_producers,A,B) | ~ greater_or_equal(B,sk1(A)) | greater(growth_rate(efficient_producers,B),growth_rate(first_movers,B)) )).
+
+cnf(a4_34,hypothesis,
+    ( ~ environment(A) | ~ stable(A) | in_environment(A,sk2(A)) )).
+
+cnf(a4_35,hypothesis,
+    ( ~ environment(A) | ~ stable(A) | greater_or_equal(sk2(A),equilibrium(A)) )).
+
+cnf(prove_l11_36,negated_conjecture,
+    ( environment(sk3) )).
+
+cnf(prove_l11_37,negated_conjecture,
+    ( stable(sk3) )).
+
+cnf(prove_l11_38,negated_conjecture,
+    ( ~ in_environment(sk3,A) | subpopulations(first_movers,efficient_producers,sk3,sk4(A)) )).
+
+cnf(prove_l11_39,negated_conjecture,
+    ( ~ in_environment(sk3,A) | greater_or_equal(sk4(A),A) )).
+
+cnf(prove_l11_40,negated_conjecture,
+    ( ~ in_environment(sk3,A) | ~ greater(growth_rate(efficient_producers,sk4(A)),zero) | ~ greater(zero,growth_rate(first_movers,sk4(A))) )).
+%------------------------------------------------------------------------------

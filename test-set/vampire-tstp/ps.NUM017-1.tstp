@@ -1,0 +1,291 @@
+% Refutation found. Thanks to Tanya!
+% SZS status Unsatisfiable for NUM017-1
+% SZS output start Proof for NUM017-1
+fof(f420314,plain,(
+  $false),
+  inference(avatar_sat_refutation,[],[f31238,f99314,f221383,f221681,f232728,f233062,f308177,f420179,f420313])).
+fof(f420313,plain,(
+  ~spl0_4846),
+  inference(avatar_contradiction_clause,[],[f420304])).
+fof(f420304,plain,(
+  $false | ~spl0_4846),
+  inference(resolution,[],[f420212,f20])).
+fof(f20,axiom,(
+  prime(a)),
+  file('NUM017-1.tptp',unknown)).
+fof(f420212,plain,(
+  ( ! [X36] : (~prime(X36)) ) | ~spl0_4846),
+  inference(resolution,[],[f420170,f306])).
+fof(f306,plain,(
+  ( ! [X0] : (divides(X0,X0) | ~prime(X0)) )),
+  inference(resolution,[],[f90,f29])).
+fof(f29,plain,(
+  ( ! [X0,X1] : (divides(X0,multiply(X0,X1))) )),
+  inference(resolution,[],[f18,f10])).
+fof(f10,axiom,(
+  ( ! [X6,X4] : (product(X6,X4,multiply(X6,X4))) )),
+  file('NUM017-1.tptp',unknown)).
+fof(f18,axiom,(
+  ( ! [X6,X4,X5] : (~product(X6,X4,X5) | divides(X6,X5)) )),
+  file('NUM017-1.tptp',unknown)).
+fof(f90,plain,(
+  ( ! [X4,X5] : (~divides(X4,multiply(X5,X5)) | divides(X4,X5) | ~prime(X4)) )),
+  inference(resolution,[],[f19,f10])).
+fof(f19,axiom,(
+  ( ! [X6,X4,X5] : (~product(X5,X5,X4) | ~prime(X6) | divides(X6,X5) | ~divides(X6,X4)) )),
+  file('NUM017-1.tptp',unknown)).
+fof(f420170,plain,(
+  ( ! [X4] : (~divides(X4,X4)) ) | ~spl0_4846),
+  inference(avatar_component_clause,[],[f420169])).
+fof(f420169,plain,(
+  spl0_4846 <=> ! [X4] : ~divides(X4,X4)),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_4846])])).
+fof(f420179,plain,(
+  spl0_4846 | ~spl0_1291),
+  inference(avatar_split_clause,[],[f420041,f46539,f420169])).
+fof(f46539,plain,(
+  spl0_1291 <=> ! [X41] : (~equalish(X41,c) | ~divides(c,X41))),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_1291])])).
+fof(f420041,plain,(
+  ( ! [X39] : (~divides(X39,X39)) ) | ~spl0_1291),
+  inference(resolution,[],[f9916,f240458])).
+fof(f240458,plain,(
+  ( ! [X13] : (~equalish(multiply(X13,c),c)) ) | ~spl0_1291),
+  inference(resolution,[],[f46540,f38])).
+fof(f38,plain,(
+  ( ! [X2,X3] : (divides(X2,multiply(X3,X2))) )),
+  inference(resolution,[],[f32,f18])).
+fof(f32,plain,(
+  ( ! [X0,X1] : (product(X0,X1,multiply(X1,X0))) )),
+  inference(resolution,[],[f13,f10])).
+fof(f13,axiom,(
+  ( ! [X6,X4,X5] : (~product(X6,X4,X5) | product(X4,X6,X5)) )),
+  file('NUM017-1.tptp',unknown)).
+fof(f46540,plain,(
+  ( ! [X41] : (~divides(c,X41) | ~equalish(X41,c)) ) | ~spl0_1291),
+  inference(avatar_component_clause,[],[f46539])).
+fof(f9916,plain,(
+  ( ! [X0,X1] : (equalish(multiply(second_divided_by_1st(X0,X0),X1),X1) | ~divides(X0,X0)) )),
+  inference(resolution,[],[f2666,f17])).
+fof(f17,axiom,(
+  ( ! [X6,X4] : (product(X6,second_divided_by_1st(X6,X4),X4) | ~divides(X6,X4)) )),
+  file('NUM017-1.tptp',unknown)).
+fof(f2666,plain,(
+  ( ! [X10,X8,X9] : (~product(X8,X9,X8) | equalish(multiply(X9,X10),X10)) )),
+  inference(resolution,[],[f464,f71])).
+fof(f71,plain,(
+  ( ! [X4,X2,X3] : (~product(X2,X3,multiply(X2,X4)) | equalish(X4,X3)) )),
+  inference(resolution,[],[f14,f10])).
+fof(f14,axiom,(
+  ( ! [X6,X4,X5,X3] : (~product(X6,X4,X5) | ~product(X6,X3,X5) | equalish(X4,X3)) )),
+  file('NUM017-1.tptp',unknown)).
+fof(f464,plain,(
+  ( ! [X14,X17,X15,X16] : (product(X16,X17,multiply(X14,multiply(X15,X17))) | ~product(X14,X15,X16)) )),
+  inference(resolution,[],[f104,f10])).
+fof(f104,plain,(
+  ( ! [X14,X17,X15,X18,X16] : (~product(X15,X17,X18) | ~product(X14,X15,X16) | product(X16,X17,multiply(X14,X18))) )),
+  inference(resolution,[],[f11,f10])).
+fof(f11,axiom,(
+  ( ! [X6,X4,X8,X7,X5,X3] : (~product(X6,X4,X5) | ~product(X6,X3,X8) | ~product(X3,X7,X4) | product(X8,X7,X5)) )),
+  file('NUM017-1.tptp',unknown)).
+fof(f308177,plain,(
+  spl0_361 | ~spl0_475),
+  inference(avatar_contradiction_clause,[],[f308176])).
+fof(f308176,plain,(
+  $false | (spl0_361 | ~spl0_475)),
+  inference(subsumption_resolution,[],[f308132,f25544])).
+fof(f25544,plain,(
+  ~equalish(c,multiply(second_divided_by_1st(e,e),c)) | spl0_361),
+  inference(avatar_component_clause,[],[f25543])).
+fof(f25543,plain,(
+  spl0_361 <=> equalish(c,multiply(second_divided_by_1st(e,e),c))),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_361])])).
+fof(f308132,plain,(
+  equalish(c,multiply(second_divided_by_1st(e,e),c)) | ~spl0_475),
+  inference(resolution,[],[f31236,f32])).
+fof(f31236,plain,(
+  ( ! [X9] : (~product(c,second_divided_by_1st(e,e),X9) | equalish(c,X9)) ) | ~spl0_475),
+  inference(avatar_component_clause,[],[f31235])).
+fof(f31235,plain,(
+  spl0_475 <=> ! [X9] : (~product(c,second_divided_by_1st(e,e),X9) | equalish(c,X9))),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_475])])).
+fof(f233062,plain,(
+  spl0_1291 | spl0_321),
+  inference(avatar_split_clause,[],[f141890,f20549,f46539])).
+fof(f20549,plain,(
+  spl0_321 <=> ! [X36] : (~equalish(e,X36) | divides(X36,e))),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_321])])).
+fof(f141890,plain,(
+  ( ! [X66,X65] : (~equalish(e,X65) | ~equalish(X66,c) | ~divides(c,X66) | divides(X65,e)) )),
+  inference(resolution,[],[f1943,f18])).
+fof(f1943,plain,(
+  ( ! [X6,X7] : (product(X6,second_divided_by_1st(c,X7),e) | ~equalish(e,X6) | ~equalish(X7,c) | ~divides(c,X7)) )),
+  inference(resolution,[],[f349,f56])).
+fof(f56,plain,(
+  ( ! [X10,X8,X9] : (product(X8,second_divided_by_1st(X8,X9),X10) | ~equalish(X9,X10) | ~divides(X8,X9)) )),
+  inference(resolution,[],[f4,f17])).
+fof(f4,axiom,(
+  ( ! [X6,X4,X5,X3] : (~product(X5,X6,X3) | product(X5,X6,X4) | ~equalish(X3,X4)) )),
+  file('NUM017-1.tptp',unknown)).
+fof(f349,plain,(
+  ( ! [X2,X1] : (~product(c,X1,c) | product(X2,X1,e) | ~equalish(e,X2)) )),
+  inference(resolution,[],[f102,f53])).
+fof(f53,plain,(
+  ( ! [X1] : (product(c,c,X1) | ~equalish(e,X1)) )),
+  inference(resolution,[],[f4,f22])).
+fof(f22,axiom,(
+  product(c,c,e)),
+  file('NUM017-1.tptp',unknown)).
+fof(f102,plain,(
+  ( ! [X8,X7,X9] : (~product(c,X7,X8) | ~product(X7,X9,c) | product(X8,X9,e)) )),
+  inference(resolution,[],[f11,f22])).
+fof(f232728,plain,(
+  ~spl0_27 | ~spl0_28),
+  inference(avatar_contradiction_clause,[],[f232727])).
+fof(f232727,plain,(
+  $false | (~spl0_27 | ~spl0_28)),
+  inference(subsumption_resolution,[],[f232669,f597])).
+fof(f597,plain,(
+  divides(c,c) | ~spl0_27),
+  inference(avatar_component_clause,[],[f596])).
+fof(f596,plain,(
+  spl0_27 <=> divides(c,c)),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_27])])).
+fof(f232669,plain,(
+  ~divides(c,c) | ~spl0_28),
+  inference(resolution,[],[f231278,f650])).
+fof(f650,plain,(
+  ( ! [X14] : (~divides(second_divided_by_1st(X14,c),b) | ~divides(X14,c)) )),
+  inference(resolution,[],[f226,f24])).
+fof(f24,axiom,(
+  ( ! [X6] : (~divides(X6,c) | ~divides(X6,b)) )),
+  file('NUM017-1.tptp',unknown)).
+fof(f226,plain,(
+  ( ! [X28,X27] : (divides(second_divided_by_1st(X27,X28),X28) | ~divides(X27,X28)) )),
+  inference(resolution,[],[f49,f18])).
+fof(f49,plain,(
+  ( ! [X0,X1] : (product(second_divided_by_1st(X0,X1),X0,X1) | ~divides(X0,X1)) )),
+  inference(resolution,[],[f17,f13])).
+fof(f231278,plain,(
+  ( ! [X8] : (divides(second_divided_by_1st(c,c),X8)) ) | ~spl0_28),
+  inference(resolution,[],[f222136,f36])).
+fof(f36,plain,(
+  ( ! [X4,X2,X3] : (~equalish(multiply(X2,X4),X3) | divides(X2,X3)) )),
+  inference(resolution,[],[f7,f29])).
+fof(f7,axiom,(
+  ( ! [X6,X4,X5] : (~divides(X5,X4) | divides(X5,X6) | ~equalish(X4,X6)) )),
+  file('NUM017-1.tptp',unknown)).
+fof(f222136,plain,(
+  ( ! [X9] : (equalish(multiply(second_divided_by_1st(c,c),X9),X9)) ) | ~spl0_28),
+  inference(resolution,[],[f602,f2666])).
+fof(f602,plain,(
+  product(e,second_divided_by_1st(c,c),e) | ~spl0_28),
+  inference(avatar_component_clause,[],[f600])).
+fof(f600,plain,(
+  spl0_28 <=> product(e,second_divided_by_1st(c,c),e)),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_28])])).
+fof(f221681,plain,(
+  ~spl0_27 | spl0_28),
+  inference(avatar_split_clause,[],[f221680,f600,f596])).
+fof(f221680,plain,(
+  product(e,second_divided_by_1st(c,c),e) | ~divides(c,c)),
+  inference(subsumption_resolution,[],[f28113,f226])).
+fof(f28113,plain,(
+  product(e,second_divided_by_1st(c,c),e) | ~divides(second_divided_by_1st(c,c),c) | ~divides(c,c)),
+  inference(resolution,[],[f1961,f2159])).
+fof(f2159,plain,(
+  ( ! [X8,X7] : (equalish(X7,second_divided_by_1st(second_divided_by_1st(X7,X8),X8)) | ~divides(X7,X8)) )),
+  inference(subsumption_resolution,[],[f2141,f226])).
+fof(f2141,plain,(
+  ( ! [X8,X7] : (~divides(X7,X8) | equalish(X7,second_divided_by_1st(second_divided_by_1st(X7,X8),X8)) | ~divides(second_divided_by_1st(X7,X8),X8)) )),
+  inference(resolution,[],[f224,f17])).
+fof(f224,plain,(
+  ( ! [X23,X21,X22] : (~product(second_divided_by_1st(X21,X22),X23,X22) | ~divides(X21,X22) | equalish(X21,X23)) )),
+  inference(resolution,[],[f49,f14])).
+fof(f1961,plain,(
+  ( ! [X7] : (~equalish(c,second_divided_by_1st(X7,c)) | product(e,X7,e) | ~divides(X7,c)) )),
+  inference(resolution,[],[f350,f49])).
+fof(f350,plain,(
+  ( ! [X4,X3] : (~product(X3,X4,c) | product(e,X4,e) | ~equalish(c,X3)) )),
+  inference(resolution,[],[f102,f59])).
+fof(f59,plain,(
+  ( ! [X1] : (product(c,X1,e) | ~equalish(c,X1)) )),
+  inference(resolution,[],[f5,f22])).
+fof(f5,axiom,(
+  ( ! [X6,X4,X5,X3] : (~product(X5,X3,X6) | product(X5,X4,X6) | ~equalish(X3,X4)) )),
+  file('NUM017-1.tptp',unknown)).
+fof(f221383,plain,(
+  spl0_27 | ~spl0_361),
+  inference(avatar_split_clause,[],[f221338,f25543,f596])).
+fof(f221338,plain,(
+  divides(c,c) | ~spl0_361),
+  inference(resolution,[],[f150655,f43])).
+fof(f43,plain,(
+  ( ! [X4,X5,X3] : (~equalish(multiply(X5,X3),X4) | divides(X3,X4)) )),
+  inference(resolution,[],[f38,f7])).
+fof(f150655,plain,(
+  equalish(multiply(second_divided_by_1st(e,e),c),c) | ~spl0_361),
+  inference(resolution,[],[f25545,f2])).
+fof(f2,axiom,(
+  ( ! [X0,X1] : (~equalish(X0,X1) | equalish(X1,X0)) )),
+  file('NUM017-1.tptp',unknown)).
+fof(f25545,plain,(
+  equalish(c,multiply(second_divided_by_1st(e,e),c)) | ~spl0_361),
+  inference(avatar_component_clause,[],[f25543])).
+fof(f99314,plain,(
+  spl0_72 | ~spl0_321),
+  inference(avatar_split_clause,[],[f61629,f20549,f8819])).
+fof(f8819,plain,(
+  spl0_72 <=> divides(e,e)),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_72])])).
+fof(f61629,plain,(
+  divides(e,e) | ~spl0_321),
+  inference(resolution,[],[f20550,f1])).
+fof(f1,axiom,(
+  ( ! [X0] : (equalish(X0,X0)) )),
+  file('NUM017-1.tptp',unknown)).
+fof(f20550,plain,(
+  ( ! [X36] : (~equalish(e,X36) | divides(X36,e)) ) | ~spl0_321),
+  inference(avatar_component_clause,[],[f20549])).
+fof(f31238,plain,(
+  ~spl0_72 | spl0_475),
+  inference(avatar_split_clause,[],[f27246,f31235,f8819])).
+fof(f27246,plain,(
+  ( ! [X10] : (~product(c,second_divided_by_1st(e,e),X10) | equalish(c,X10) | ~divides(e,e)) )),
+  inference(resolution,[],[f1581,f1811])).
+fof(f1811,plain,(
+  ( ! [X12,X11] : (equalish(X12,multiply(X11,second_divided_by_1st(X11,X12))) | ~divides(X11,X12)) )),
+  inference(resolution,[],[f452,f2])).
+fof(f452,plain,(
+  ( ! [X8,X7] : (equalish(multiply(X7,second_divided_by_1st(X7,X8)),X8) | ~divides(X7,X8)) )),
+  inference(resolution,[],[f79,f10])).
+fof(f79,plain,(
+  ( ! [X10,X8,X9] : (~product(X8,second_divided_by_1st(X8,X9),X10) | equalish(X10,X9) | ~divides(X8,X9)) )),
+  inference(resolution,[],[f16,f17])).
+fof(f16,axiom,(
+  ( ! [X6,X4,X5,X3] : (~product(X6,X4,X5) | ~product(X6,X4,X3) | equalish(X3,X5)) )),
+  file('NUM017-1.tptp',unknown)).
+fof(f1581,plain,(
+  ( ! [X2,X3] : (~equalish(e,multiply(e,X2)) | ~product(c,X2,X3) | equalish(c,X3)) )),
+  inference(resolution,[],[f390,f96])).
+fof(f96,plain,(
+  ( ! [X8,X7] : (~product(c,X8,X7) | ~equalish(e,X7) | equalish(c,X8)) )),
+  inference(resolution,[],[f53,f14])).
+fof(f390,plain,(
+  ( ! [X2,X3] : (product(c,X3,multiply(e,X2)) | ~product(c,X2,X3)) )),
+  inference(resolution,[],[f119,f10])).
+fof(f119,plain,(
+  ( ! [X12,X13,X11] : (~product(e,X13,X12) | ~product(c,X13,X11) | product(c,X11,X12)) )),
+  inference(resolution,[],[f12,f22])).
+fof(f12,axiom,(
+  ( ! [X6,X4,X8,X7,X5,X3] : (~product(X8,X3,X6) | product(X8,X7,X5) | ~product(X3,X4,X7) | ~product(X6,X4,X5)) )),
+  file('NUM017-1.tptp',unknown)).
+% SZS output end Proof for NUM017-1
+% ------------------------------
+% Version: Vampire 4.4.0 (commit d98a3d53 on 2020-01-14 21:02:12 +0100)
+% Termination reason: Refutation
+
+% Memory used [KB]: 184218
+% Time elapsed: 33.741 s
+% ------------------------------
+% ------------------------------

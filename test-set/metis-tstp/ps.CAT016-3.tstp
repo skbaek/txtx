@@ -1,0 +1,53 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% SZS status Unsatisfiable for CAT016-3.tptp
+
+% SZS output start CNFRefutation for CAT016-3.tptp
+cnf(composition_implies_domain, axiom,
+    (~ there_exists(compose(X, Y)) | there_exists(domain(X)))).
+
+cnf(compose_domain, axiom, (compose(X, domain(X)) = X)).
+
+cnf(assume_a_exists, hypothesis, (there_exists(a))).
+
+cnf(prove_domain_of_a_exists, negated_conjecture,
+    (~ there_exists(domain(a)))).
+
+cnf(refute_0_0, plain,
+    (~ there_exists(compose(X_11, domain(X_11))) |
+     there_exists(domain(X_11))),
+    inference(subst, [],
+              [composition_implies_domain :
+               [bind(X, $fot(X_11)), bind(Y, $fot(domain(X_11)))]])).
+
+cnf(refute_0_1, plain, (compose(X_11, domain(X_11)) = X_11),
+    inference(subst, [], [compose_domain : [bind(X, $fot(X_11))]])).
+
+cnf(refute_0_2, plain,
+    (compose(X_11, domain(X_11)) != X_11 | ~ there_exists(X_11) |
+     there_exists(compose(X_11, domain(X_11)))),
+    introduced(tautology,
+               [equality,
+                [$cnf(~ there_exists(compose(X_11, domain(X_11)))), [0],
+                 $fot(X_11)]])).
+
+cnf(refute_0_3, plain,
+    (~ there_exists(X_11) | there_exists(compose(X_11, domain(X_11)))),
+    inference(resolve, [$cnf($equal(compose(X_11, domain(X_11)), X_11))],
+              [refute_0_1, refute_0_2])).
+
+cnf(refute_0_4, plain, (~ there_exists(X_11) | there_exists(domain(X_11))),
+    inference(resolve, [$cnf(there_exists(compose(X_11, domain(X_11))))],
+              [refute_0_3, refute_0_0])).
+
+cnf(refute_0_5, plain, (~ there_exists(a) | there_exists(domain(a))),
+    inference(subst, [], [refute_0_4 : [bind(X_11, $fot(a))]])).
+
+cnf(refute_0_6, plain, (there_exists(domain(a))),
+    inference(resolve, [$cnf(there_exists(a))],
+              [assume_a_exists, refute_0_5])).
+
+cnf(refute_0_7, plain, ($false),
+    inference(resolve, [$cnf(there_exists(domain(a)))],
+              [refute_0_6, prove_domain_of_a_exists])).
+% SZS output end CNFRefutation for CAT016-3.tptp
+

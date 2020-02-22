@@ -1,0 +1,237 @@
+% Refutation found. Thanks to Tanya!
+% SZS status Unsatisfiable for GRP118-1
+% SZS output start Proof for GRP118-1
+fof(f1055,plain,(
+  $false),
+  inference(trivial_inequality_removal,[],[f1049])).
+fof(f1049,plain,(
+  multiply(a,multiply(b,c)) != multiply(a,multiply(b,c))),
+  inference(superposition,[],[f2,f674])).
+fof(f674,plain,(
+  ( ! [X2,X0,X1] : (multiply(multiply(X0,X1),X2) = multiply(X0,multiply(X1,X2))) )),
+  inference(backward_demodulation,[],[f662,f12])).
+fof(f12,plain,(
+  ( ! [X2,X0,X1] : (multiply(X0,multiply(X1,X2)) = multiply(multiply(X0,X1),multiply(identity,X2))) )),
+  inference(superposition,[],[f6,f1])).
+fof(f1,axiom,(
+  ( ! [X2,X0,X1] : (multiply(X0,multiply(multiply(X0,multiply(multiply(X0,X1),X2)),multiply(identity,multiply(X2,X2)))) = X1) )),
+  file('GRP118-1.tptp',unknown)).
+fof(f6,plain,(
+  ( ! [X2,X0,X1] : (multiply(X1,multiply(multiply(X1,multiply(multiply(X1,X2),multiply(identity,multiply(multiply(identity,X0),multiply(identity,X0))))),X0)) = X2) )),
+  inference(superposition,[],[f1,f1])).
+fof(f662,plain,(
+  ( ! [X3] : (multiply(identity,X3) = X3) )),
+  inference(superposition,[],[f534,f475])).
+fof(f475,plain,(
+  ( ! [X0] : (identity = multiply(X0,multiply(X0,X0))) )),
+  inference(backward_demodulation,[],[f474,f120])).
+fof(f120,plain,(
+  ( ! [X0] : (identity = multiply(X0,multiply(X0,multiply(X0,identity)))) )),
+  inference(forward_demodulation,[],[f107,f12])).
+fof(f107,plain,(
+  ( ! [X0] : (identity = multiply(X0,multiply(multiply(X0,X0),multiply(identity,identity)))) )),
+  inference(superposition,[],[f67,f12])).
+fof(f67,plain,(
+  ( ! [X0,X1] : (identity = multiply(X0,multiply(multiply(multiply(X0,X0),X1),multiply(X1,X1)))) )),
+  inference(superposition,[],[f32,f26])).
+fof(f26,plain,(
+  ( ! [X2,X0,X1] : (multiply(multiply(X0,X1),X2) = multiply(X0,multiply(X1,multiply(identity,multiply(identity,multiply(multiply(X2,X2),multiply(X2,X2))))))) )),
+  inference(backward_demodulation,[],[f12,f5])).
+fof(f5,plain,(
+  ( ! [X2,X0,X1] : (multiply(multiply(X0,X1),X2) = multiply(X0,multiply(X1,multiply(identity,multiply(multiply(identity,multiply(X2,X2)),multiply(identity,multiply(X2,X2))))))) )),
+  inference(superposition,[],[f1,f1])).
+fof(f32,plain,(
+  ( ! [X2,X0,X1] : (multiply(X1,multiply(multiply(X1,multiply(X1,multiply(X2,multiply(identity,multiply(X0,X0))))),X0)) = X2) )),
+  inference(forward_demodulation,[],[f21,f12])).
+fof(f21,plain,(
+  ( ! [X2,X0,X1] : (multiply(X1,multiply(multiply(X1,multiply(multiply(X1,X2),multiply(identity,multiply(identity,multiply(X0,X0))))),X0)) = X2) )),
+  inference(backward_demodulation,[],[f12,f6])).
+fof(f474,plain,(
+  ( ! [X7] : (multiply(X7,identity) = X7) )),
+  inference(backward_demodulation,[],[f473,f383])).
+fof(f383,plain,(
+  ( ! [X7] : (multiply(X7,identity) = multiply(X7,multiply(identity,identity))) )),
+  inference(forward_demodulation,[],[f382,f133])).
+fof(f133,plain,(
+  ( ! [X6,X5] : (multiply(X5,multiply(X5,multiply(X5,multiply(X6,identity)))) = X6) )),
+  inference(forward_demodulation,[],[f132,f77])).
+fof(f77,plain,(
+  ( ! [X2,X0,X1] : (multiply(X1,multiply(multiply(X2,identity),X0)) = multiply(X1,multiply(X2,X0))) )),
+  inference(forward_demodulation,[],[f76,f12])).
+fof(f76,plain,(
+  ( ! [X2,X0,X1] : (multiply(multiply(X1,X2),multiply(identity,X0)) = multiply(X1,multiply(multiply(X2,identity),X0))) )),
+  inference(forward_demodulation,[],[f75,f26])).
+fof(f75,plain,(
+  ( ! [X2,X0,X1] : (multiply(multiply(X1,X2),multiply(identity,X0)) = multiply(X1,multiply(X2,multiply(identity,multiply(identity,multiply(identity,multiply(multiply(X0,X0),multiply(X0,X0)))))))) )),
+  inference(forward_demodulation,[],[f60,f12])).
+fof(f60,plain,(
+  ( ! [X2,X0,X1] : (multiply(multiply(X1,X2),multiply(identity,X0)) = multiply(X1,multiply(X2,multiply(identity,multiply(identity,multiply(multiply(identity,multiply(X0,X0)),multiply(identity,multiply(X0,X0)))))))) )),
+  inference(superposition,[],[f26,f12])).
+fof(f132,plain,(
+  ( ! [X6,X5] : (multiply(X5,multiply(X5,multiply(X5,multiply(multiply(X6,identity),identity)))) = X6) )),
+  inference(forward_demodulation,[],[f131,f126])).
+fof(f126,plain,(
+  ( ! [X4,X3] : (multiply(multiply(X3,X4),identity) = multiply(X3,multiply(X4,identity))) )),
+  inference(forward_demodulation,[],[f125,f12])).
+fof(f125,plain,(
+  ( ! [X4,X3] : (multiply(multiply(X3,X4),identity) = multiply(multiply(X3,X4),multiply(identity,identity))) )),
+  inference(forward_demodulation,[],[f110,f121])).
+fof(f121,plain,(
+  ( ! [X0,X1] : (multiply(multiply(X0,X1),identity) = multiply(X0,multiply(X1,multiply(identity,identity)))) )),
+  inference(backward_demodulation,[],[f120,f62])).
+fof(f62,plain,(
+  ( ! [X0,X1] : (multiply(multiply(X0,X1),identity) = multiply(X0,multiply(X1,multiply(identity,multiply(identity,multiply(identity,multiply(identity,identity))))))) )),
+  inference(superposition,[],[f26,f12])).
+fof(f110,plain,(
+  ( ! [X4,X3] : (multiply(multiply(X3,X4),multiply(identity,identity)) = multiply(X3,multiply(X4,multiply(identity,identity)))) )),
+  inference(superposition,[],[f26,f67])).
+fof(f131,plain,(
+  ( ! [X6,X5] : (multiply(X5,multiply(X5,multiply(multiply(X5,multiply(X6,identity)),identity))) = X6) )),
+  inference(forward_demodulation,[],[f130,f127])).
+fof(f127,plain,(
+  ( ! [X0,X1] : (multiply(X0,multiply(X1,identity)) = multiply(X0,multiply(X1,multiply(identity,identity)))) )),
+  inference(backward_demodulation,[],[f126,f121])).
+fof(f130,plain,(
+  ( ! [X6,X5] : (multiply(X5,multiply(X5,multiply(multiply(X5,multiply(X6,identity)),multiply(identity,identity)))) = X6) )),
+  inference(forward_demodulation,[],[f129,f77])).
+fof(f129,plain,(
+  ( ! [X6,X5] : (multiply(X5,multiply(X5,multiply(multiply(multiply(X5,multiply(X6,identity)),identity),multiply(identity,identity)))) = X6) )),
+  inference(forward_demodulation,[],[f111,f55])).
+fof(f55,plain,(
+  ( ! [X6,X4,X7,X5] : (multiply(multiply(X4,X5),multiply(multiply(identity,X6),X7)) = multiply(X4,multiply(multiply(X5,X6),X7))) )),
+  inference(forward_demodulation,[],[f49,f12])).
+fof(f49,plain,(
+  ( ! [X6,X4,X7,X5] : (multiply(multiply(X4,X5),multiply(multiply(identity,X6),X7)) = multiply(multiply(X4,multiply(X5,X6)),multiply(identity,X7))) )),
+  inference(superposition,[],[f12,f12])).
+fof(f111,plain,(
+  ( ! [X6,X5] : (multiply(X5,multiply(multiply(X5,multiply(X5,multiply(X6,identity))),multiply(multiply(identity,identity),multiply(identity,identity)))) = X6) )),
+  inference(superposition,[],[f32,f67])).
+fof(f382,plain,(
+  ( ! [X7] : (multiply(X7,multiply(identity,identity)) = multiply(X7,multiply(X7,multiply(X7,multiply(multiply(X7,identity),identity))))) )),
+  inference(forward_demodulation,[],[f381,f126])).
+fof(f381,plain,(
+  ( ! [X7] : (multiply(X7,multiply(X7,multiply(multiply(X7,multiply(X7,identity)),identity))) = multiply(X7,multiply(identity,identity))) )),
+  inference(forward_demodulation,[],[f363,f229])).
+fof(f229,plain,(
+  ( ! [X0,X3,X1] : (multiply(multiply(X0,multiply(X1,X3)),multiply(identity,multiply(X3,X3))) = multiply(X0,multiply(X1,identity))) )),
+  inference(forward_demodulation,[],[f224,f27])).
+fof(f27,plain,(
+  ( ! [X2,X0,X1] : (multiply(X1,multiply(X1,multiply(multiply(multiply(X1,X2),X0),multiply(X0,X0)))) = X2) )),
+  inference(forward_demodulation,[],[f17,f12])).
+fof(f17,plain,(
+  ( ! [X2,X0,X1] : (multiply(X1,multiply(multiply(X1,multiply(multiply(X1,X2),X0)),multiply(identity,multiply(X0,X0)))) = X2) )),
+  inference(backward_demodulation,[],[f12,f11])).
+fof(f11,plain,(
+  ( ! [X2,X0,X1] : (multiply(X1,multiply(multiply(X1,multiply(multiply(X1,X2),X0)),multiply(multiply(identity,X0),multiply(identity,X0)))) = X2) )),
+  inference(superposition,[],[f6,f1])).
+fof(f224,plain,(
+  ( ! [X4,X0,X3,X1] : (multiply(multiply(X0,multiply(X1,X3)),multiply(identity,multiply(X3,X3))) = multiply(X0,multiply(X0,multiply(multiply(multiply(X0,multiply(X0,multiply(X1,identity))),X4),multiply(X4,X4))))) )),
+  inference(backward_demodulation,[],[f222,f135])).
+fof(f135,plain,(
+  ( ! [X4,X2,X0,X3,X1] : (multiply(multiply(X0,multiply(X1,X3)),multiply(identity,multiply(X3,X3))) = multiply(X0,multiply(X0,multiply(multiply(multiply(multiply(X0,multiply(X0,multiply(X1,multiply(identity,multiply(X2,X2))))),X2),X4),multiply(X4,X4))))) )),
+  inference(superposition,[],[f23,f32])).
+fof(f23,plain,(
+  ( ! [X2,X0,X3,X1] : (multiply(multiply(X0,multiply(multiply(X0,X1),X2)),multiply(identity,multiply(X2,X2))) = multiply(X0,multiply(X0,multiply(multiply(X1,X3),multiply(X3,X3))))) )),
+  inference(backward_demodulation,[],[f12,f3])).
+fof(f3,plain,(
+  ( ! [X2,X0,X3,X1] : (multiply(multiply(X0,multiply(multiply(X0,X1),X2)),multiply(identity,multiply(X2,X2))) = multiply(X0,multiply(multiply(X0,multiply(X1,X3)),multiply(identity,multiply(X3,X3))))) )),
+  inference(superposition,[],[f1,f1])).
+fof(f222,plain,(
+  ( ! [X6,X4,X5] : (multiply(multiply(X4,multiply(X4,multiply(X5,multiply(identity,multiply(X6,X6))))),X6) = multiply(X4,multiply(X4,multiply(X5,identity)))) )),
+  inference(backward_demodulation,[],[f220,f31])).
+fof(f31,plain,(
+  ( ! [X6,X4,X7,X5] : (multiply(multiply(X4,multiply(X4,multiply(X5,multiply(identity,multiply(X6,X6))))),X6) = multiply(X4,multiply(multiply(X4,multiply(X5,multiply(identity,multiply(identity,multiply(X7,X7))))),X7))) )),
+  inference(forward_demodulation,[],[f30,f12])).
+fof(f30,plain,(
+  ( ! [X6,X4,X7,X5] : (multiply(X4,multiply(multiply(X4,multiply(X5,multiply(identity,multiply(multiply(identity,X7),multiply(identity,X7))))),X7)) = multiply(multiply(X4,multiply(X4,multiply(X5,multiply(identity,multiply(X6,X6))))),X6)) )),
+  inference(forward_demodulation,[],[f19,f12])).
+fof(f19,plain,(
+  ( ! [X6,X4,X7,X5] : (multiply(X4,multiply(multiply(X4,multiply(X5,multiply(identity,multiply(multiply(identity,X7),multiply(identity,X7))))),X7)) = multiply(multiply(X4,multiply(multiply(X4,X5),multiply(identity,multiply(identity,multiply(X6,X6))))),X6)) )),
+  inference(backward_demodulation,[],[f12,f8])).
+fof(f8,plain,(
+  ( ! [X6,X4,X7,X5] : (multiply(multiply(X4,multiply(multiply(X4,X5),multiply(identity,multiply(multiply(identity,X6),multiply(identity,X6))))),X6) = multiply(X4,multiply(multiply(X4,multiply(X5,multiply(identity,multiply(multiply(identity,X7),multiply(identity,X7))))),X7))) )),
+  inference(superposition,[],[f6,f6])).
+fof(f220,plain,(
+  ( ! [X0,X3,X1] : (multiply(X0,multiply(multiply(X0,multiply(X1,multiply(identity,multiply(identity,multiply(X3,X3))))),X3)) = multiply(X0,multiply(X0,multiply(X1,identity)))) )),
+  inference(backward_demodulation,[],[f199,f20])).
+fof(f20,plain,(
+  ( ! [X2,X0,X3,X1] : (multiply(multiply(X0,multiply(multiply(X0,X1),X2)),multiply(identity,multiply(X2,X2))) = multiply(X0,multiply(multiply(X0,multiply(X1,multiply(identity,multiply(identity,multiply(X3,X3))))),X3))) )),
+  inference(backward_demodulation,[],[f12,f7])).
+fof(f7,plain,(
+  ( ! [X2,X0,X3,X1] : (multiply(multiply(X0,multiply(multiply(X0,X1),X2)),multiply(identity,multiply(X2,X2))) = multiply(X0,multiply(multiply(X0,multiply(X1,multiply(identity,multiply(multiply(identity,X3),multiply(identity,X3))))),X3))) )),
+  inference(superposition,[],[f6,f1])).
+fof(f199,plain,(
+  ( ! [X2,X0,X1] : (multiply(multiply(X0,multiply(multiply(X0,X1),X2)),multiply(identity,multiply(X2,X2))) = multiply(X0,multiply(X0,multiply(X1,identity)))) )),
+  inference(backward_demodulation,[],[f198,f23])).
+fof(f198,plain,(
+  ( ! [X2,X0,X1] : (multiply(X0,multiply(X0,multiply(multiply(X1,X2),multiply(X2,X2)))) = multiply(X0,multiply(X0,multiply(X1,identity)))) )),
+  inference(forward_demodulation,[],[f197,f77])).
+fof(f197,plain,(
+  ( ! [X2,X0,X1] : (multiply(X0,multiply(X0,multiply(multiply(X1,X2),multiply(X2,X2)))) = multiply(X0,multiply(X0,multiply(multiply(X1,identity),identity)))) )),
+  inference(forward_demodulation,[],[f196,f126])).
+fof(f196,plain,(
+  ( ! [X2,X0,X1] : (multiply(X0,multiply(X0,multiply(multiply(X1,X2),multiply(X2,X2)))) = multiply(X0,multiply(multiply(X0,multiply(X1,identity)),identity))) )),
+  inference(forward_demodulation,[],[f195,f126])).
+fof(f195,plain,(
+  ( ! [X2,X0,X1] : (multiply(X0,multiply(X0,multiply(multiply(X1,X2),multiply(X2,X2)))) = multiply(multiply(X0,multiply(X0,multiply(X1,identity))),identity)) )),
+  inference(forward_demodulation,[],[f194,f127])).
+fof(f194,plain,(
+  ( ! [X2,X0,X1] : (multiply(X0,multiply(X0,multiply(multiply(X1,X2),multiply(X2,X2)))) = multiply(multiply(X0,multiply(X0,multiply(X1,multiply(identity,identity)))),identity)) )),
+  inference(forward_demodulation,[],[f193,f77])).
+fof(f193,plain,(
+  ( ! [X2,X0,X1] : (multiply(X0,multiply(X0,multiply(multiply(X1,X2),multiply(X2,X2)))) = multiply(multiply(X0,multiply(X0,multiply(multiply(X1,identity),multiply(identity,identity)))),identity)) )),
+  inference(forward_demodulation,[],[f152,f55])).
+fof(f152,plain,(
+  ( ! [X2,X0,X1] : (multiply(X0,multiply(X0,multiply(multiply(X1,X2),multiply(X2,X2)))) = multiply(multiply(X0,multiply(multiply(X0,X1),multiply(multiply(identity,identity),multiply(identity,identity)))),identity)) )),
+  inference(superposition,[],[f23,f67])).
+fof(f363,plain,(
+  ( ! [X8,X7] : (multiply(X7,multiply(X7,multiply(multiply(X7,multiply(X7,identity)),identity))) = multiply(multiply(X7,multiply(identity,X8)),multiply(identity,multiply(X8,X8)))) )),
+  inference(superposition,[],[f199,f120])).
+fof(f473,plain,(
+  ( ! [X7] : (multiply(X7,multiply(identity,identity)) = X7) )),
+  inference(forward_demodulation,[],[f472,f133])).
+fof(f472,plain,(
+  ( ! [X6,X7] : (multiply(multiply(X6,multiply(X6,multiply(X6,multiply(X7,identity)))),multiply(identity,identity)) = X7) )),
+  inference(forward_demodulation,[],[f471,f383])).
+fof(f471,plain,(
+  ( ! [X6,X7] : (multiply(multiply(X6,multiply(X6,multiply(X6,multiply(X7,multiply(identity,identity))))),multiply(identity,identity)) = X7) )),
+  inference(forward_demodulation,[],[f451,f77])).
+fof(f451,plain,(
+  ( ! [X6,X7] : (multiply(multiply(X6,multiply(X6,multiply(X6,multiply(X7,multiply(multiply(identity,identity),identity))))),multiply(identity,identity)) = X7) )),
+  inference(superposition,[],[f91,f383])).
+fof(f91,plain,(
+  ( ! [X4,X5,X3] : (multiply(multiply(X3,multiply(X3,multiply(X3,multiply(X4,multiply(X5,X5))))),X5) = X4) )),
+  inference(forward_demodulation,[],[f90,f77])).
+fof(f90,plain,(
+  ( ! [X4,X5,X3] : (multiply(multiply(X3,multiply(X3,multiply(X3,multiply(multiply(X4,identity),multiply(X5,X5))))),X5) = X4) )),
+  inference(backward_demodulation,[],[f89,f85])).
+fof(f85,plain,(
+  ( ! [X4,X5,X3] : (multiply(multiply(X3,multiply(X3,multiply(X3,multiply(X4,multiply(multiply(identity,multiply(identity,multiply(identity,multiply(multiply(X5,X5),multiply(X5,X5))))),X5))))),X5) = X4) )),
+  inference(forward_demodulation,[],[f65,f26])).
+fof(f65,plain,(
+  ( ! [X4,X5,X3] : (multiply(multiply(X3,multiply(X3,multiply(X3,multiply(X4,multiply(identity,multiply(multiply(identity,multiply(identity,multiply(multiply(X5,X5),multiply(X5,X5)))),multiply(identity,multiply(identity,multiply(multiply(X5,X5),multiply(X5,X5)))))))))),X5) = X4) )),
+  inference(superposition,[],[f26,f32])).
+fof(f89,plain,(
+  ( ! [X12,X10,X11,X9] : (multiply(X9,multiply(multiply(X10,multiply(identity,multiply(identity,multiply(multiply(X11,X11),multiply(X11,X11))))),X12)) = multiply(multiply(X9,X10),multiply(X11,X12))) )),
+  inference(forward_demodulation,[],[f70,f12])).
+fof(f70,plain,(
+  ( ! [X12,X10,X11,X9] : (multiply(X9,multiply(multiply(X10,multiply(identity,multiply(identity,multiply(multiply(X11,X11),multiply(X11,X11))))),X12)) = multiply(multiply(multiply(X9,X10),X11),multiply(identity,X12))) )),
+  inference(superposition,[],[f12,f26])).
+fof(f534,plain,(
+  ( ! [X4,X5] : (multiply(multiply(X4,multiply(X5,X5)),X5) = X4) )),
+  inference(backward_demodulation,[],[f477,f91])).
+fof(f477,plain,(
+  ( ! [X6,X5] : (multiply(X5,multiply(X5,multiply(X5,X6))) = X6) )),
+  inference(backward_demodulation,[],[f474,f133])).
+fof(f2,axiom,(
+  multiply(multiply(a,b),c) != multiply(a,multiply(b,c))),
+  file('GRP118-1.tptp',unknown)).
+% SZS output end Proof for GRP118-1
+% ------------------------------
+% Version: Vampire 4.4.0 (commit d98a3d53 on 2020-01-14 21:02:12 +0100)
+% Termination reason: Refutation
+
+% Memory used [KB]: 5756
+% Time elapsed: 0.023 s
+% ------------------------------
+% ------------------------------

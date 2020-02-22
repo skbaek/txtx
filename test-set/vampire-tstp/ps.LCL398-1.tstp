@@ -1,0 +1,48 @@
+% Refutation found. Thanks to Tanya!
+% SZS status Unsatisfiable for LCL398-1
+% SZS output start Proof for LCL398-1
+fof(f32,plain,(
+  $false),
+  inference(resolution,[],[f27,f9])).
+fof(f9,plain,(
+  ~is_a_theorem(implies(x,x))),
+  inference(resolution,[],[f7,f5])).
+fof(f5,axiom,(
+  ~is_a_theorem(implies(not(implies(x,x)),y))),
+  file('LCL398-1.tptp',unknown)).
+fof(f7,plain,(
+  ( ! [X2,X1] : (is_a_theorem(implies(not(X1),X2)) | ~is_a_theorem(X1)) )),
+  inference(resolution,[],[f1,f4])).
+fof(f4,axiom,(
+  ( ! [X0,X1] : (is_a_theorem(implies(X0,implies(not(X0),X1)))) )),
+  file('LCL398-1.tptp',unknown)).
+fof(f1,axiom,(
+  ( ! [X0,X1] : (~is_a_theorem(implies(X0,X1)) | ~is_a_theorem(X0) | is_a_theorem(X1)) )),
+  file('LCL398-1.tptp',unknown)).
+fof(f27,plain,(
+  ( ! [X3] : (is_a_theorem(implies(X3,X3))) )),
+  inference(resolution,[],[f20,f4])).
+fof(f20,plain,(
+  ( ! [X0,X1] : (~is_a_theorem(implies(X0,implies(not(X1),X1))) | is_a_theorem(implies(X0,X1))) )),
+  inference(resolution,[],[f19,f3])).
+fof(f3,axiom,(
+  ( ! [X0] : (is_a_theorem(implies(implies(not(X0),X0),X0))) )),
+  file('LCL398-1.tptp',unknown)).
+fof(f19,plain,(
+  ( ! [X2,X0,X1] : (~is_a_theorem(implies(X1,X2)) | ~is_a_theorem(implies(X0,X1)) | is_a_theorem(implies(X0,X2))) )),
+  inference(resolution,[],[f8,f1])).
+fof(f8,plain,(
+  ( ! [X2,X0,X1] : (is_a_theorem(implies(implies(X1,X2),implies(X0,X2))) | ~is_a_theorem(implies(X0,X1))) )),
+  inference(resolution,[],[f2,f1])).
+fof(f2,axiom,(
+  ( ! [X2,X0,X1] : (is_a_theorem(implies(implies(X0,X1),implies(implies(X1,X2),implies(X0,X2))))) )),
+  file('LCL398-1.tptp',unknown)).
+% SZS output end Proof for LCL398-1
+% ------------------------------
+% Version: Vampire 4.4.0 (commit d98a3d53 on 2020-01-14 21:02:12 +0100)
+% Termination reason: Refutation
+
+% Memory used [KB]: 4861
+% Time elapsed: 0.001 s
+% ------------------------------
+% ------------------------------

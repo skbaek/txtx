@@ -1,0 +1,36 @@
+% Refutation found. Thanks to Tanya!
+% SZS status Unsatisfiable for SET849-1
+% SZS output start Proof for SET849-1
+fof(f4962,plain,(
+  $false),
+  inference(trivial_inequality_removal,[],[f4957])).
+fof(f4957,plain,(
+  c_Union(c_Zorn_OTFin(v_S,t_a),tc_set(t_a)) != c_Union(c_Zorn_OTFin(v_S,t_a),tc_set(t_a))),
+  inference(superposition,[],[f1365,f3540])).
+fof(f3540,plain,(
+  ( ! [X0,X1] : (c_Union(c_Zorn_OTFin(X0,X1),tc_set(X1)) = c_Zorn_Osucc(X0,c_Union(c_Zorn_OTFin(X0,X1),tc_set(X1)),X1)) )),
+  inference(subsumption_resolution,[],[f3539,f310])).
+fof(f310,axiom,(
+  ( ! [X2,X13] : (c_lessequals(X13,X13,tc_set(X2))) )),
+  file('SET849-1.tptp',unknown)).
+fof(f3539,plain,(
+  ( ! [X0,X1] : (c_Union(c_Zorn_OTFin(X0,X1),tc_set(X1)) = c_Zorn_Osucc(X0,c_Union(c_Zorn_OTFin(X0,X1),tc_set(X1)),X1) | ~c_lessequals(c_Zorn_OTFin(X0,X1),c_Zorn_OTFin(X0,X1),tc_set(tc_set(tc_set(X1))))) )),
+  inference(resolution,[],[f1362,f1359])).
+fof(f1359,axiom,(
+  ( ! [X2,X54,X40] : (c_in(c_Union(X54,tc_set(X2)),c_Zorn_OTFin(X40,X2),tc_set(tc_set(X2))) | ~c_lessequals(X54,c_Zorn_OTFin(X40,X2),tc_set(tc_set(tc_set(X2))))) )),
+  file('SET849-1.tptp',unknown)).
+fof(f1362,axiom,(
+  ( ! [X2,X40] : (~c_in(c_Union(c_Zorn_OTFin(X40,X2),tc_set(X2)),c_Zorn_OTFin(X40,X2),tc_set(tc_set(X2))) | c_Union(c_Zorn_OTFin(X40,X2),tc_set(X2)) = c_Zorn_Osucc(X40,c_Union(c_Zorn_OTFin(X40,X2),tc_set(X2)),X2)) )),
+  file('SET849-1.tptp',unknown)).
+fof(f1365,axiom,(
+  c_Union(c_Zorn_OTFin(v_S,t_a),tc_set(t_a)) != c_Zorn_Osucc(v_S,c_Union(c_Zorn_OTFin(v_S,t_a),tc_set(t_a)),t_a)),
+  file('SET849-1.tptp',unknown)).
+% SZS output end Proof for SET849-1
+% ------------------------------
+% Version: Vampire 4.4.0 (commit d98a3d53 on 2020-01-14 21:02:12 +0100)
+% Termination reason: Refutation
+
+% Memory used [KB]: 9850
+% Time elapsed: 0.097 s
+% ------------------------------
+% ------------------------------

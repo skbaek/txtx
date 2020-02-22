@@ -1,0 +1,195 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% SZS status Unsatisfiable for BOO004-2.tptp
+
+% SZS output start CNFRefutation for BOO004-2.tptp
+cnf(distributivity2, axiom,
+    (add(X, multiply(Y, Z)) = multiply(add(X, Y), add(X, Z)))).
+
+cnf(additive_inverse1, axiom,
+    (add(X, inverse(X)) = multiplicative_identity)).
+
+cnf(multiplicative_inverse1, axiom,
+    (multiply(X, inverse(X)) = additive_identity)).
+
+cnf(multiplicative_id1, axiom, (multiply(X, multiplicative_identity) = X)).
+
+cnf(additive_id1, axiom, (add(X, additive_identity) = X)).
+
+cnf(prove_a_plus_a_is_a, negated_conjecture, (add(a, a) != a)).
+
+cnf(refute_0_0, plain,
+    (add(X_30, multiply(X_31, inverse(X_30))) =
+     multiply(add(X_30, X_31), add(X_30, inverse(X_30)))),
+    inference(subst, [],
+              [distributivity2 :
+               [bind(X, $fot(X_30)), bind(Y, $fot(X_31)),
+                bind(Z, $fot(inverse(X_30)))]])).
+
+cnf(refute_0_1, plain,
+    (add(X_30, inverse(X_30)) = multiplicative_identity),
+    inference(subst, [], [additive_inverse1 : [bind(X, $fot(X_30))]])).
+
+cnf(refute_0_2, plain,
+    (add(X_30, multiply(X_31, inverse(X_30))) !=
+     multiply(add(X_30, X_31), add(X_30, inverse(X_30))) |
+     add(X_30, inverse(X_30)) != multiplicative_identity |
+     add(X_30, multiply(X_31, inverse(X_30))) =
+     multiply(add(X_30, X_31), multiplicative_identity)),
+    introduced(tautology,
+               [equality,
+                [$cnf($equal(add(X_30, multiply(X_31, inverse(X_30))),
+                        multiply(add(X_30, X_31),
+                          add(X_30, inverse(X_30))))), [1, 1],
+                 $fot(multiplicative_identity)]])).
+
+cnf(refute_0_3, plain,
+    (add(X_30, multiply(X_31, inverse(X_30))) !=
+     multiply(add(X_30, X_31), add(X_30, inverse(X_30))) |
+     add(X_30, multiply(X_31, inverse(X_30))) =
+     multiply(add(X_30, X_31), multiplicative_identity)),
+    inference(resolve,
+              [$cnf($equal(add(X_30, inverse(X_30)),
+                      multiplicative_identity))],
+              [refute_0_1, refute_0_2])).
+
+cnf(refute_0_4, plain,
+    (add(X_30, multiply(X_31, inverse(X_30))) =
+     multiply(add(X_30, X_31), multiplicative_identity)),
+    inference(resolve,
+              [$cnf($equal(add(X_30, multiply(X_31, inverse(X_30))),
+                      multiply(add(X_30, X_31),
+                        add(X_30, inverse(X_30)))))],
+              [refute_0_0, refute_0_3])).
+
+cnf(refute_0_5, plain,
+    (multiply(add(X_30, X_31), multiplicative_identity) = add(X_30, X_31)),
+    inference(subst, [],
+              [multiplicative_id1 : [bind(X, $fot(add(X_30, X_31)))]])).
+
+cnf(refute_0_6, plain,
+    (multiply(add(X_30, X_31), multiplicative_identity) !=
+     add(X_30, X_31) |
+     add(X_30, multiply(X_31, inverse(X_30))) !=
+     multiply(add(X_30, X_31), multiplicative_identity) |
+     add(X_30, multiply(X_31, inverse(X_30))) = add(X_30, X_31)),
+    introduced(tautology,
+               [equality,
+                [$cnf($equal(add(X_30, multiply(X_31, inverse(X_30))),
+                        multiply(add(X_30, X_31),
+                          multiplicative_identity))), [1],
+                 $fot(add(X_30, X_31))]])).
+
+cnf(refute_0_7, plain,
+    (add(X_30, multiply(X_31, inverse(X_30))) !=
+     multiply(add(X_30, X_31), multiplicative_identity) |
+     add(X_30, multiply(X_31, inverse(X_30))) = add(X_30, X_31)),
+    inference(resolve,
+              [$cnf($equal(multiply(add(X_30, X_31),
+                        multiplicative_identity), add(X_30, X_31)))],
+              [refute_0_5, refute_0_6])).
+
+cnf(refute_0_8, plain,
+    (add(X_30, multiply(X_31, inverse(X_30))) = add(X_30, X_31)),
+    inference(resolve,
+              [$cnf($equal(add(X_30, multiply(X_31, inverse(X_30))),
+                      multiply(add(X_30, X_31),
+                        multiplicative_identity)))],
+              [refute_0_4, refute_0_7])).
+
+cnf(refute_0_9, plain,
+    (add(X_39, multiply(X_39, inverse(X_39))) = add(X_39, X_39)),
+    inference(subst, [],
+              [refute_0_8 :
+               [bind(X_30, $fot(X_39)), bind(X_31, $fot(X_39))]])).
+
+cnf(refute_0_10, plain,
+    (multiply(X_39, inverse(X_39)) = additive_identity),
+    inference(subst, [],
+              [multiplicative_inverse1 : [bind(X, $fot(X_39))]])).
+
+cnf(refute_0_11, plain,
+    (multiply(X_39, inverse(X_39)) != additive_identity |
+     add(X_39, multiply(X_39, inverse(X_39))) != add(X_39, X_39) |
+     add(X_39, additive_identity) = add(X_39, X_39)),
+    introduced(tautology,
+               [equality,
+                [$cnf($equal(add(X_39, multiply(X_39, inverse(X_39))),
+                        add(X_39, X_39))), [0, 1],
+                 $fot(additive_identity)]])).
+
+cnf(refute_0_12, plain,
+    (add(X_39, multiply(X_39, inverse(X_39))) != add(X_39, X_39) |
+     add(X_39, additive_identity) = add(X_39, X_39)),
+    inference(resolve,
+              [$cnf($equal(multiply(X_39, inverse(X_39)),
+                      additive_identity))], [refute_0_10, refute_0_11])).
+
+cnf(refute_0_13, plain, (add(X_39, additive_identity) = add(X_39, X_39)),
+    inference(resolve,
+              [$cnf($equal(add(X_39, multiply(X_39, inverse(X_39))),
+                      add(X_39, X_39)))], [refute_0_9, refute_0_12])).
+
+cnf(refute_0_14, plain, (add(X_39, additive_identity) = X_39),
+    inference(subst, [], [additive_id1 : [bind(X, $fot(X_39))]])).
+
+cnf(refute_0_15, plain,
+    (add(X_39, additive_identity) != X_39 |
+     add(X_39, additive_identity) != add(X_39, X_39) |
+     X_39 = add(X_39, X_39)),
+    introduced(tautology,
+               [equality,
+                [$cnf($equal(add(X_39, additive_identity),
+                        add(X_39, X_39))), [0], $fot(X_39)]])).
+
+cnf(refute_0_16, plain,
+    (add(X_39, additive_identity) != add(X_39, X_39) |
+     X_39 = add(X_39, X_39)),
+    inference(resolve, [$cnf($equal(add(X_39, additive_identity), X_39))],
+              [refute_0_14, refute_0_15])).
+
+cnf(refute_0_17, plain, (X_39 = add(X_39, X_39)),
+    inference(resolve,
+              [$cnf($equal(add(X_39, additive_identity),
+                      add(X_39, X_39)))], [refute_0_13, refute_0_16])).
+
+cnf(refute_0_18, plain, (X0 = X0),
+    introduced(tautology, [refl, [$fot(X0)]])).
+
+cnf(refute_0_19, plain, (X0 != X0 | X0 != Y0 | Y0 = X0),
+    introduced(tautology,
+               [equality, [$cnf($equal(X0, X0)), [0], $fot(Y0)]])).
+
+cnf(refute_0_20, plain, (X0 != Y0 | Y0 = X0),
+    inference(resolve, [$cnf($equal(X0, X0))],
+              [refute_0_18, refute_0_19])).
+
+cnf(refute_0_21, plain, (X_39 != add(X_39, X_39) | add(X_39, X_39) = X_39),
+    inference(subst, [],
+              [refute_0_20 :
+               [bind(X0, $fot(X_39)), bind(Y0, $fot(add(X_39, X_39)))]])).
+
+cnf(refute_0_22, plain, (add(X_39, X_39) = X_39),
+    inference(resolve, [$cnf($equal(X_39, add(X_39, X_39)))],
+              [refute_0_17, refute_0_21])).
+
+cnf(refute_0_23, plain, (add(a, a) = a),
+    inference(subst, [], [refute_0_22 : [bind(X_39, $fot(a))]])).
+
+cnf(refute_0_24, plain, (add(a, a) != a | a != a | add(a, a) = a),
+    introduced(tautology,
+               [equality, [$cnf(~ $equal(add(a, a), a)), [0], $fot(a)]])).
+
+cnf(refute_0_25, plain, (a != a | add(a, a) = a),
+    inference(resolve, [$cnf($equal(add(a, a), a))],
+              [refute_0_23, refute_0_24])).
+
+cnf(refute_0_26, plain, (a != a),
+    inference(resolve, [$cnf($equal(add(a, a), a))],
+              [refute_0_25, prove_a_plus_a_is_a])).
+
+cnf(refute_0_27, plain, (a = a), introduced(tautology, [refl, [$fot(a)]])).
+
+cnf(refute_0_28, plain, ($false),
+    inference(resolve, [$cnf($equal(a, a))], [refute_0_27, refute_0_26])).
+% SZS output end CNFRefutation for BOO004-2.tptp
+

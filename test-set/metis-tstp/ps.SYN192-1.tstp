@@ -1,0 +1,139 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% SZS status Unsatisfiable for SYN192-1.tptp
+
+% SZS output start CNFRefutation for SYN192-1.tptp
+cnf(axiom_14, axiom, (p0(b, X))).
+
+cnf(axiom_15, axiom, (n0(a, b))).
+
+cnf(axiom_19, axiom, (m0(X, d, Y))).
+
+cnf(axiom_32, axiom, (k0(b))).
+
+cnf(rule_006, axiom, (m1(J, J, J) | ~ m0(A, A, J))).
+
+cnf(rule_085, axiom, (p1(B, B, B) | ~ p0(C, B))).
+
+cnf(rule_150, axiom, (p2(F, F, F) | ~ m1(G, G, F))).
+
+cnf(rule_177, axiom, (q2(E, F, F) | ~ k0(F) | ~ p1(E, E, E))).
+
+cnf(rule_240, axiom, (n3(D) | ~ p2(E, F, D))).
+
+cnf(rule_255, axiom, (q3(G, H) | ~ q2(I, G, H) | ~ n0(I, G))).
+
+cnf(rule_298, axiom, (r4(G) | ~ n3(G) | ~ q3(H, I) | ~ p0(J, G))).
+
+cnf(prove_this, negated_conjecture, (~ r4(a))).
+
+cnf(refute_0_0, plain, (p0(b, X_637)),
+    inference(subst, [], [axiom_14 : [bind(X, $fot(X_637))]])).
+
+cnf(refute_0_1, plain, (p0(b, X_65)),
+    inference(subst, [], [axiom_14 : [bind(X, $fot(X_65))]])).
+
+cnf(refute_0_2, plain, (~ p0(b, X_65) | p1(X_65, X_65, X_65)),
+    inference(subst, [],
+              [rule_085 : [bind(B, $fot(X_65)), bind(C, $fot(b))]])).
+
+cnf(refute_0_3, plain, (p1(X_65, X_65, X_65)),
+    inference(resolve, [$cnf(p0(b, X_65))], [refute_0_1, refute_0_2])).
+
+cnf(refute_0_4, plain, (p1(E, E, E)),
+    inference(subst, [], [refute_0_3 : [bind(X_65, $fot(E))]])).
+
+cnf(refute_0_5, plain, (~ k0(F) | q2(E, F, F)),
+    inference(resolve, [$cnf(p1(E, E, E))], [refute_0_4, rule_177])).
+
+cnf(refute_0_6, plain, (~ k0(b) | q2(X_230, b, b)),
+    inference(subst, [],
+              [refute_0_5 : [bind(E, $fot(X_230)), bind(F, $fot(b))]])).
+
+cnf(refute_0_7, plain, (q2(X_230, b, b)),
+    inference(resolve, [$cnf(k0(b))], [axiom_32, refute_0_6])).
+
+cnf(refute_0_8, plain, (q2(X_324, b, b)),
+    inference(subst, [], [refute_0_7 : [bind(X_230, $fot(X_324))]])).
+
+cnf(refute_0_9, plain, (~ n0(X_324, b) | ~ q2(X_324, b, b) | q3(b, b)),
+    inference(subst, [],
+              [rule_255 :
+               [bind(G, $fot(b)), bind(H, $fot(b)),
+                bind(I, $fot(X_324))]])).
+
+cnf(refute_0_10, plain, (~ n0(X_324, b) | q3(b, b)),
+    inference(resolve, [$cnf(q2(X_324, b, b))], [refute_0_8, refute_0_9])).
+
+cnf(refute_0_11, plain, (~ n0(a, b) | q3(b, b)),
+    inference(subst, [], [refute_0_10 : [bind(X_324, $fot(a))]])).
+
+cnf(refute_0_12, plain, (q3(b, b)),
+    inference(resolve, [$cnf(n0(a, b))], [axiom_15, refute_0_11])).
+
+cnf(refute_0_13, plain, (m0(d, d, X_94)),
+    inference(subst, [],
+              [axiom_19 : [bind(X, $fot(d)), bind(Y, $fot(X_94))]])).
+
+cnf(refute_0_14, plain, (~ m0(d, d, X_94) | m1(X_94, X_94, X_94)),
+    inference(subst, [],
+              [rule_006 : [bind(A, $fot(d)), bind(J, $fot(X_94))]])).
+
+cnf(refute_0_15, plain, (m1(X_94, X_94, X_94)),
+    inference(resolve, [$cnf(m0(d, d, X_94))],
+              [refute_0_13, refute_0_14])).
+
+cnf(refute_0_16, plain, (m1(X_113, X_113, X_113)),
+    inference(subst, [], [refute_0_15 : [bind(X_94, $fot(X_113))]])).
+
+cnf(refute_0_17, plain,
+    (~ m1(X_113, X_113, X_113) | p2(X_113, X_113, X_113)),
+    inference(subst, [],
+              [rule_150 : [bind(F, $fot(X_113)), bind(G, $fot(X_113))]])).
+
+cnf(refute_0_18, plain, (p2(X_113, X_113, X_113)),
+    inference(resolve, [$cnf(m1(X_113, X_113, X_113))],
+              [refute_0_16, refute_0_17])).
+
+cnf(refute_0_19, plain, (p2(X_122, X_122, X_122)),
+    inference(subst, [], [refute_0_18 : [bind(X_113, $fot(X_122))]])).
+
+cnf(refute_0_20, plain, (~ p2(X_122, X_122, X_122) | n3(X_122)),
+    inference(subst, [],
+              [rule_240 :
+               [bind(D, $fot(X_122)), bind(E, $fot(X_122)),
+                bind(F, $fot(X_122))]])).
+
+cnf(refute_0_21, plain, (n3(X_122)),
+    inference(resolve, [$cnf(p2(X_122, X_122, X_122))],
+              [refute_0_19, refute_0_20])).
+
+cnf(refute_0_22, plain, (n3(G)),
+    inference(subst, [], [refute_0_21 : [bind(X_122, $fot(G))]])).
+
+cnf(refute_0_23, plain, (~ p0(J, G) | ~ q3(H, I) | r4(G)),
+    inference(resolve, [$cnf(n3(G))], [refute_0_22, rule_298])).
+
+cnf(refute_0_24, plain, (~ p0(X_636, X_633) | ~ q3(b, b) | r4(X_633)),
+    inference(subst, [],
+              [refute_0_23 :
+               [bind(G, $fot(X_633)), bind(H, $fot(b)), bind(I, $fot(b)),
+                bind(J, $fot(X_636))]])).
+
+cnf(refute_0_25, plain, (~ p0(X_636, X_633) | r4(X_633)),
+    inference(resolve, [$cnf(q3(b, b))], [refute_0_12, refute_0_24])).
+
+cnf(refute_0_26, plain, (~ p0(b, X_637) | r4(X_637)),
+    inference(subst, [],
+              [refute_0_25 :
+               [bind(X_633, $fot(X_637)), bind(X_636, $fot(b))]])).
+
+cnf(refute_0_27, plain, (r4(X_637)),
+    inference(resolve, [$cnf(p0(b, X_637))], [refute_0_0, refute_0_26])).
+
+cnf(refute_0_28, plain, (r4(a)),
+    inference(subst, [], [refute_0_27 : [bind(X_637, $fot(a))]])).
+
+cnf(refute_0_29, plain, ($false),
+    inference(resolve, [$cnf(r4(a))], [refute_0_28, prove_this])).
+% SZS output end CNFRefutation for SYN192-1.tptp
+

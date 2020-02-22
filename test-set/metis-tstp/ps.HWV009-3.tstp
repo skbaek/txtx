@@ -1,0 +1,30 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% SZS status Unsatisfiable for HWV009-3.tptp
+
+% SZS output start CNFRefutation for HWV009-3.tptp
+cnf(axiom_13, axiom,
+    (~ p__pred_(fwork_DOTfifo_DOTrtl_DOTwr__error_(f_ADD_(T_5, n1))) |
+     ~ p__pred_(fwork_DOTfifo_DOTrtl_DOTreset_(T_5)))).
+
+cnf(quest_1, negated_conjecture,
+    (p__pred_(fwork_DOTfifo_DOTrtl_DOTreset_(t_206)))).
+
+cnf(quest_2, negated_conjecture,
+    (p__pred_(fwork_DOTfifo_DOTrtl_DOTwr__error_(f_ADD_(t_206, n1))))).
+
+cnf(refute_0_0, plain,
+    (~ p__pred_(fwork_DOTfifo_DOTrtl_DOTreset_(t_206)) |
+     ~ p__pred_(fwork_DOTfifo_DOTrtl_DOTwr__error_(f_ADD_(t_206, n1)))),
+    inference(subst, [], [axiom_13 : [bind(T_5, $fot(t_206))]])).
+
+cnf(refute_0_1, plain, (~ p__pred_(fwork_DOTfifo_DOTrtl_DOTreset_(t_206))),
+    inference(resolve,
+              [$cnf(p__pred_(fwork_DOTfifo_DOTrtl_DOTwr__error_(f_ADD_(t_206,
+                          n1))))], [quest_2, refute_0_0])).
+
+cnf(refute_0_2, plain, ($false),
+    inference(resolve,
+              [$cnf(p__pred_(fwork_DOTfifo_DOTrtl_DOTreset_(t_206)))],
+              [quest_1, refute_0_1])).
+% SZS output end CNFRefutation for HWV009-3.tptp
+

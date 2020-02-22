@@ -1,0 +1,375 @@
+% Refutation found. Thanks to Tanya!
+% SZS status Theorem for SWB028+2
+% SZS output start Proof for SWB028+2
+fof(f2525,plain,(
+  $false),
+  inference(avatar_sat_refutation,[],[f483,f513,f2524])).
+fof(f2524,plain,(
+  ~spl12_47),
+  inference(avatar_contradiction_clause,[],[f2523])).
+fof(f2523,plain,(
+  $false | ~spl12_47),
+  inference(subsumption_resolution,[],[f2522,f101])).
+fof(f101,plain,(
+  ic(uri_ex_InversesOfFunctionalProperties)),
+  inference(resolution,[],[f64,f97])).
+fof(f97,plain,(
+  iext(uri_owl_equivalentClass,uri_ex_InversesOfFunctionalProperties,sK11)),
+  inference(cnf_transformation,[],[f60])).
+fof(f60,plain,(
+  iext(uri_owl_someValuesFrom,sK11,uri_owl_FunctionalProperty) & iext(uri_owl_onProperty,sK11,uri_owl_inverseOf) & iext(uri_rdf_type,sK11,uri_owl_Restriction) & iext(uri_owl_equivalentClass,uri_ex_InversesOfFunctionalProperties,sK11)),
+  inference(skolemisation,[status(esa),new_symbols(skolem,[sK11])],[f20,f59])).
+fof(f59,plain,(
+  ? [X0] : (iext(uri_owl_someValuesFrom,X0,uri_owl_FunctionalProperty) & iext(uri_owl_onProperty,X0,uri_owl_inverseOf) & iext(uri_rdf_type,X0,uri_owl_Restriction) & iext(uri_owl_equivalentClass,uri_ex_InversesOfFunctionalProperties,X0)) => (iext(uri_owl_someValuesFrom,sK11,uri_owl_FunctionalProperty) & iext(uri_owl_onProperty,sK11,uri_owl_inverseOf) & iext(uri_rdf_type,sK11,uri_owl_Restriction) & iext(uri_owl_equivalentClass,uri_ex_InversesOfFunctionalProperties,sK11))),
+  introduced(choice_axiom,[])).
+fof(f20,plain,(
+  ? [X0] : (iext(uri_owl_someValuesFrom,X0,uri_owl_FunctionalProperty) & iext(uri_owl_onProperty,X0,uri_owl_inverseOf) & iext(uri_rdf_type,X0,uri_owl_Restriction) & iext(uri_owl_equivalentClass,uri_ex_InversesOfFunctionalProperties,X0))),
+  inference(rectify,[],[f12])).
+fof(f12,axiom,(
+  ? [X13] : (iext(uri_owl_someValuesFrom,X13,uri_owl_FunctionalProperty) & iext(uri_owl_onProperty,X13,uri_owl_inverseOf) & iext(uri_rdf_type,X13,uri_owl_Restriction) & iext(uri_owl_equivalentClass,uri_ex_InversesOfFunctionalProperties,X13))),
+  file('SWB028+2.tptp',unknown)).
+fof(f64,plain,(
+  ( ! [X0,X1] : (~iext(uri_owl_equivalentClass,X0,X1) | ic(X0)) )),
+  inference(cnf_transformation,[],[f22])).
+fof(f22,plain,(
+  ! [X0,X1] : ((ic(X1) & ic(X0)) | ~iext(uri_owl_equivalentClass,X0,X1))),
+  inference(ennf_transformation,[],[f3])).
+fof(f3,axiom,(
+  ! [X0,X1] : (iext(uri_owl_equivalentClass,X0,X1) => (ic(X1) & ic(X0)))),
+  file('SWB028+2.tptp',unknown)).
+fof(f2522,plain,(
+  ~ic(uri_ex_InversesOfFunctionalProperties) | ~spl12_47),
+  inference(subsumption_resolution,[],[f2521,f61])).
+fof(f61,plain,(
+  ic(uri_owl_InverseFunctionalProperty)),
+  inference(cnf_transformation,[],[f1])).
+fof(f1,axiom,(
+  ic(uri_owl_InverseFunctionalProperty)),
+  file('SWB028+2.tptp',unknown)).
+fof(f2521,plain,(
+  ~ic(uri_owl_InverseFunctionalProperty) | ~ic(uri_ex_InversesOfFunctionalProperties) | ~spl12_47),
+  inference(subsumption_resolution,[],[f2518,f96])).
+fof(f96,plain,(
+  ~iext(uri_rdfs_subClassOf,uri_ex_InversesOfFunctionalProperties,uri_owl_InverseFunctionalProperty)),
+  inference(cnf_transformation,[],[f19])).
+fof(f19,plain,(
+  ~iext(uri_rdfs_subClassOf,uri_ex_InversesOfFunctionalProperties,uri_owl_InverseFunctionalProperty)),
+  inference(flattening,[],[f11])).
+fof(f11,negated_conjecture,(
+  ~iext(uri_rdfs_subClassOf,uri_ex_InversesOfFunctionalProperties,uri_owl_InverseFunctionalProperty)),
+  inference(negated_conjecture,[],[f10])).
+fof(f10,conjecture,(
+  iext(uri_rdfs_subClassOf,uri_ex_InversesOfFunctionalProperties,uri_owl_InverseFunctionalProperty)),
+  file('SWB028+2.tptp',unknown)).
+fof(f2518,plain,(
+  iext(uri_rdfs_subClassOf,uri_ex_InversesOfFunctionalProperties,uri_owl_InverseFunctionalProperty) | ~ic(uri_owl_InverseFunctionalProperty) | ~ic(uri_ex_InversesOfFunctionalProperties) | ~spl12_47),
+  inference(resolution,[],[f2495,f80])).
+fof(f80,plain,(
+  ( ! [X0,X1] : (~icext(X1,sK6(X0,X1)) | iext(uri_rdfs_subClassOf,X0,X1) | ~ic(X1) | ~ic(X0)) )),
+  inference(cnf_transformation,[],[f44])).
+fof(f44,plain,(
+  ! [X0,X1] : ((iext(uri_rdfs_subClassOf,X0,X1) | (~icext(X1,sK6(X0,X1)) & icext(X0,sK6(X0,X1))) | ~ic(X1) | ~ic(X0)) & ((! [X3] : (icext(X1,X3) | ~icext(X0,X3)) & ic(X1) & ic(X0)) | ~iext(uri_rdfs_subClassOf,X0,X1)))),
+  inference(skolemisation,[status(esa),new_symbols(skolem,[sK6])],[f42,f43])).
+fof(f43,plain,(
+  ! [X1,X0] : (? [X2] : (~icext(X1,X2) & icext(X0,X2)) => (~icext(X1,sK6(X0,X1)) & icext(X0,sK6(X0,X1))))),
+  introduced(choice_axiom,[])).
+fof(f42,plain,(
+  ! [X0,X1] : ((iext(uri_rdfs_subClassOf,X0,X1) | ? [X2] : (~icext(X1,X2) & icext(X0,X2)) | ~ic(X1) | ~ic(X0)) & ((! [X3] : (icext(X1,X3) | ~icext(X0,X3)) & ic(X1) & ic(X0)) | ~iext(uri_rdfs_subClassOf,X0,X1)))),
+  inference(rectify,[],[f41])).
+fof(f41,plain,(
+  ! [X0,X1] : ((iext(uri_rdfs_subClassOf,X0,X1) | ? [X2] : (~icext(X1,X2) & icext(X0,X2)) | ~ic(X1) | ~ic(X0)) & ((! [X2] : (icext(X1,X2) | ~icext(X0,X2)) & ic(X1) & ic(X0)) | ~iext(uri_rdfs_subClassOf,X0,X1)))),
+  inference(flattening,[],[f40])).
+fof(f40,plain,(
+  ! [X0,X1] : ((iext(uri_rdfs_subClassOf,X0,X1) | (? [X2] : (~icext(X1,X2) & icext(X0,X2)) | ~ic(X1) | ~ic(X0))) & ((! [X2] : (icext(X1,X2) | ~icext(X0,X2)) & ic(X1) & ic(X0)) | ~iext(uri_rdfs_subClassOf,X0,X1)))),
+  inference(nnf_transformation,[],[f27])).
+fof(f27,plain,(
+  ! [X0,X1] : (iext(uri_rdfs_subClassOf,X0,X1) <=> (! [X2] : (icext(X1,X2) | ~icext(X0,X2)) & ic(X1) & ic(X0)))),
+  inference(ennf_transformation,[],[f15])).
+fof(f15,plain,(
+  ! [X0,X1] : (iext(uri_rdfs_subClassOf,X0,X1) <=> (! [X2] : (icext(X0,X2) => icext(X1,X2)) & ic(X1) & ic(X0)))),
+  inference(rectify,[],[f6])).
+fof(f6,axiom,(
+  ! [X7,X8] : (iext(uri_rdfs_subClassOf,X7,X8) <=> (! [X0] : (icext(X7,X0) => icext(X8,X0)) & ic(X8) & ic(X7)))),
+  file('SWB028+2.tptp',unknown)).
+fof(f2495,plain,(
+  icext(uri_owl_InverseFunctionalProperty,sK6(uri_ex_InversesOfFunctionalProperties,uri_owl_InverseFunctionalProperty)) | ~spl12_47),
+  inference(subsumption_resolution,[],[f2494,f677])).
+fof(f677,plain,(
+  ip(sK6(uri_ex_InversesOfFunctionalProperties,uri_owl_InverseFunctionalProperty)) | ~spl12_47),
+  inference(subsumption_resolution,[],[f667,f61])).
+fof(f667,plain,(
+  ~ic(uri_owl_InverseFunctionalProperty) | ip(sK6(uri_ex_InversesOfFunctionalProperties,uri_owl_InverseFunctionalProperty)) | ~spl12_47),
+  inference(resolution,[],[f595,f96])).
+fof(f595,plain,(
+  ( ! [X0] : (iext(uri_rdfs_subClassOf,uri_ex_InversesOfFunctionalProperties,X0) | ~ic(X0) | ip(sK6(uri_ex_InversesOfFunctionalProperties,X0))) ) | ~spl12_47),
+  inference(resolution,[],[f482,f228])).
+fof(f228,plain,(
+  ( ! [X2] : (icext(sK11,sK6(uri_ex_InversesOfFunctionalProperties,X2)) | ~ic(X2) | iext(uri_rdfs_subClassOf,uri_ex_InversesOfFunctionalProperties,X2)) )),
+  inference(subsumption_resolution,[],[f217,f101])).
+fof(f217,plain,(
+  ( ! [X2] : (iext(uri_rdfs_subClassOf,uri_ex_InversesOfFunctionalProperties,X2) | ~ic(X2) | ~ic(uri_ex_InversesOfFunctionalProperties) | icext(sK11,sK6(uri_ex_InversesOfFunctionalProperties,X2))) )),
+  inference(resolution,[],[f79,f103])).
+fof(f103,plain,(
+  ( ! [X0] : (~icext(uri_ex_InversesOfFunctionalProperties,X0) | icext(sK11,X0)) )),
+  inference(resolution,[],[f83,f97])).
+fof(f83,plain,(
+  ( ! [X0,X3,X1] : (~iext(uri_owl_equivalentClass,X0,X1) | ~icext(X0,X3) | icext(X1,X3)) )),
+  inference(cnf_transformation,[],[f49])).
+fof(f49,plain,(
+  ! [X0,X1] : ((iext(uri_owl_equivalentClass,X0,X1) | ((~icext(X1,sK7(X0,X1)) | ~icext(X0,sK7(X0,X1))) & (icext(X1,sK7(X0,X1)) | icext(X0,sK7(X0,X1)))) | ~ic(X1) | ~ic(X0)) & ((! [X3] : ((icext(X0,X3) | ~icext(X1,X3)) & (icext(X1,X3) | ~icext(X0,X3))) & ic(X1) & ic(X0)) | ~iext(uri_owl_equivalentClass,X0,X1)))),
+  inference(skolemisation,[status(esa),new_symbols(skolem,[sK7])],[f47,f48])).
+fof(f48,plain,(
+  ! [X1,X0] : (? [X2] : ((~icext(X1,X2) | ~icext(X0,X2)) & (icext(X1,X2) | icext(X0,X2))) => ((~icext(X1,sK7(X0,X1)) | ~icext(X0,sK7(X0,X1))) & (icext(X1,sK7(X0,X1)) | icext(X0,sK7(X0,X1)))))),
+  introduced(choice_axiom,[])).
+fof(f47,plain,(
+  ! [X0,X1] : ((iext(uri_owl_equivalentClass,X0,X1) | ? [X2] : ((~icext(X1,X2) | ~icext(X0,X2)) & (icext(X1,X2) | icext(X0,X2))) | ~ic(X1) | ~ic(X0)) & ((! [X3] : ((icext(X0,X3) | ~icext(X1,X3)) & (icext(X1,X3) | ~icext(X0,X3))) & ic(X1) & ic(X0)) | ~iext(uri_owl_equivalentClass,X0,X1)))),
+  inference(rectify,[],[f46])).
+fof(f46,plain,(
+  ! [X0,X1] : ((iext(uri_owl_equivalentClass,X0,X1) | ? [X2] : ((~icext(X1,X2) | ~icext(X0,X2)) & (icext(X1,X2) | icext(X0,X2))) | ~ic(X1) | ~ic(X0)) & ((! [X2] : ((icext(X0,X2) | ~icext(X1,X2)) & (icext(X1,X2) | ~icext(X0,X2))) & ic(X1) & ic(X0)) | ~iext(uri_owl_equivalentClass,X0,X1)))),
+  inference(flattening,[],[f45])).
+fof(f45,plain,(
+  ! [X0,X1] : ((iext(uri_owl_equivalentClass,X0,X1) | (? [X2] : ((~icext(X1,X2) | ~icext(X0,X2)) & (icext(X1,X2) | icext(X0,X2))) | ~ic(X1) | ~ic(X0))) & ((! [X2] : ((icext(X0,X2) | ~icext(X1,X2)) & (icext(X1,X2) | ~icext(X0,X2))) & ic(X1) & ic(X0)) | ~iext(uri_owl_equivalentClass,X0,X1)))),
+  inference(nnf_transformation,[],[f16])).
+fof(f16,plain,(
+  ! [X0,X1] : (iext(uri_owl_equivalentClass,X0,X1) <=> (! [X2] : (icext(X0,X2) <=> icext(X1,X2)) & ic(X1) & ic(X0)))),
+  inference(rectify,[],[f7])).
+fof(f7,axiom,(
+  ! [X7,X8] : (iext(uri_owl_equivalentClass,X7,X8) <=> (! [X0] : (icext(X7,X0) <=> icext(X8,X0)) & ic(X8) & ic(X7)))),
+  file('SWB028+2.tptp',unknown)).
+fof(f79,plain,(
+  ( ! [X0,X1] : (icext(X0,sK6(X0,X1)) | iext(uri_rdfs_subClassOf,X0,X1) | ~ic(X1) | ~ic(X0)) )),
+  inference(cnf_transformation,[],[f44])).
+fof(f482,plain,(
+  ( ! [X10] : (~icext(sK11,X10) | ip(X10)) ) | ~spl12_47),
+  inference(avatar_component_clause,[],[f481])).
+fof(f481,plain,(
+  spl12_47 <=> ! [X10] : (~icext(sK11,X10) | ip(X10))),
+  introduced(avatar_definition,[new_symbols(naming,[spl12_47])])).
+fof(f2494,plain,(
+  icext(uri_owl_InverseFunctionalProperty,sK6(uri_ex_InversesOfFunctionalProperties,uri_owl_InverseFunctionalProperty)) | ~ip(sK6(uri_ex_InversesOfFunctionalProperties,uri_owl_InverseFunctionalProperty)) | ~spl12_47),
+  inference(trivial_inequality_removal,[],[f2493])).
+fof(f2493,plain,(
+  sK3(sK6(uri_ex_InversesOfFunctionalProperties,uri_owl_InverseFunctionalProperty)) != sK3(sK6(uri_ex_InversesOfFunctionalProperties,uri_owl_InverseFunctionalProperty)) | icext(uri_owl_InverseFunctionalProperty,sK6(uri_ex_InversesOfFunctionalProperties,uri_owl_InverseFunctionalProperty)) | ~ip(sK6(uri_ex_InversesOfFunctionalProperties,uri_owl_InverseFunctionalProperty)) | ~spl12_47),
+  inference(superposition,[],[f75,f2468])).
+fof(f2468,plain,(
+  sK3(sK6(uri_ex_InversesOfFunctionalProperties,uri_owl_InverseFunctionalProperty)) = sK4(sK6(uri_ex_InversesOfFunctionalProperties,uri_owl_InverseFunctionalProperty)) | ~spl12_47),
+  inference(subsumption_resolution,[],[f2467,f101])).
+fof(f2467,plain,(
+  sK3(sK6(uri_ex_InversesOfFunctionalProperties,uri_owl_InverseFunctionalProperty)) = sK4(sK6(uri_ex_InversesOfFunctionalProperties,uri_owl_InverseFunctionalProperty)) | ~ic(uri_ex_InversesOfFunctionalProperties) | ~spl12_47),
+  inference(subsumption_resolution,[],[f2466,f96])).
+fof(f2466,plain,(
+  sK3(sK6(uri_ex_InversesOfFunctionalProperties,uri_owl_InverseFunctionalProperty)) = sK4(sK6(uri_ex_InversesOfFunctionalProperties,uri_owl_InverseFunctionalProperty)) | iext(uri_rdfs_subClassOf,uri_ex_InversesOfFunctionalProperties,uri_owl_InverseFunctionalProperty) | ~ic(uri_ex_InversesOfFunctionalProperties) | ~spl12_47),
+  inference(subsumption_resolution,[],[f2465,f61])).
+fof(f2465,plain,(
+  sK3(sK6(uri_ex_InversesOfFunctionalProperties,uri_owl_InverseFunctionalProperty)) = sK4(sK6(uri_ex_InversesOfFunctionalProperties,uri_owl_InverseFunctionalProperty)) | ~ic(uri_owl_InverseFunctionalProperty) | iext(uri_rdfs_subClassOf,uri_ex_InversesOfFunctionalProperties,uri_owl_InverseFunctionalProperty) | ~ic(uri_ex_InversesOfFunctionalProperties) | ~spl12_47),
+  inference(duplicate_literal_removal,[],[f2462])).
+fof(f2462,plain,(
+  sK3(sK6(uri_ex_InversesOfFunctionalProperties,uri_owl_InverseFunctionalProperty)) = sK4(sK6(uri_ex_InversesOfFunctionalProperties,uri_owl_InverseFunctionalProperty)) | ~ic(uri_owl_InverseFunctionalProperty) | iext(uri_rdfs_subClassOf,uri_ex_InversesOfFunctionalProperties,uri_owl_InverseFunctionalProperty) | iext(uri_rdfs_subClassOf,uri_ex_InversesOfFunctionalProperties,uri_owl_InverseFunctionalProperty) | ~ic(uri_owl_InverseFunctionalProperty) | ~ic(uri_ex_InversesOfFunctionalProperties) | ~spl12_47),
+  inference(resolution,[],[f2279,f80])).
+fof(f2279,plain,(
+  ( ! [X0] : (icext(uri_owl_InverseFunctionalProperty,sK6(uri_ex_InversesOfFunctionalProperties,X0)) | sK3(sK6(uri_ex_InversesOfFunctionalProperties,X0)) = sK4(sK6(uri_ex_InversesOfFunctionalProperties,X0)) | ~ic(X0) | iext(uri_rdfs_subClassOf,uri_ex_InversesOfFunctionalProperties,X0)) ) | ~spl12_47),
+  inference(resolution,[],[f2268,f228])).
+fof(f2268,plain,(
+  ( ! [X1] : (~icext(sK11,X1) | sK3(X1) = sK4(X1) | icext(uri_owl_InverseFunctionalProperty,X1)) ) | ~spl12_47),
+  inference(subsumption_resolution,[],[f2266,f482])).
+fof(f2266,plain,(
+  ( ! [X1] : (sK3(X1) = sK4(X1) | ~icext(sK11,X1) | icext(uri_owl_InverseFunctionalProperty,X1) | ~ip(X1)) ) | ~spl12_47),
+  inference(duplicate_literal_removal,[],[f2257])).
+fof(f2257,plain,(
+  ( ! [X1] : (sK3(X1) = sK4(X1) | ~icext(sK11,X1) | icext(uri_owl_InverseFunctionalProperty,X1) | icext(uri_owl_InverseFunctionalProperty,X1) | ~ip(X1)) ) | ~spl12_47),
+  inference(resolution,[],[f2150,f74])).
+fof(f74,plain,(
+  ( ! [X0] : (iext(X0,sK4(X0),sK5(X0)) | icext(uri_owl_InverseFunctionalProperty,X0) | ~ip(X0)) )),
+  inference(cnf_transformation,[],[f39])).
+fof(f39,plain,(
+  ! [X0] : ((icext(uri_owl_InverseFunctionalProperty,X0) | (sK3(X0) != sK4(X0) & iext(X0,sK4(X0),sK5(X0)) & iext(X0,sK3(X0),sK5(X0))) | ~ip(X0)) & ((! [X4,X5,X6] : (X4 = X5 | ~iext(X0,X5,X6) | ~iext(X0,X4,X6)) & ip(X0)) | ~icext(uri_owl_InverseFunctionalProperty,X0)))),
+  inference(skolemisation,[status(esa),new_symbols(skolem,[sK3,sK4,sK5])],[f37,f38])).
+fof(f38,plain,(
+  ! [X0] : (? [X1,X2,X3] : (X1 != X2 & iext(X0,X2,X3) & iext(X0,X1,X3)) => (sK3(X0) != sK4(X0) & iext(X0,sK4(X0),sK5(X0)) & iext(X0,sK3(X0),sK5(X0))))),
+  introduced(choice_axiom,[])).
+fof(f37,plain,(
+  ! [X0] : ((icext(uri_owl_InverseFunctionalProperty,X0) | ? [X1,X2,X3] : (X1 != X2 & iext(X0,X2,X3) & iext(X0,X1,X3)) | ~ip(X0)) & ((! [X4,X5,X6] : (X4 = X5 | ~iext(X0,X5,X6) | ~iext(X0,X4,X6)) & ip(X0)) | ~icext(uri_owl_InverseFunctionalProperty,X0)))),
+  inference(rectify,[],[f36])).
+fof(f36,plain,(
+  ! [X0] : ((icext(uri_owl_InverseFunctionalProperty,X0) | ? [X1,X2,X3] : (X1 != X2 & iext(X0,X2,X3) & iext(X0,X1,X3)) | ~ip(X0)) & ((! [X1,X2,X3] : (X1 = X2 | ~iext(X0,X2,X3) | ~iext(X0,X1,X3)) & ip(X0)) | ~icext(uri_owl_InverseFunctionalProperty,X0)))),
+  inference(flattening,[],[f35])).
+fof(f35,plain,(
+  ! [X0] : ((icext(uri_owl_InverseFunctionalProperty,X0) | (? [X1,X2,X3] : (X1 != X2 & iext(X0,X2,X3) & iext(X0,X1,X3)) | ~ip(X0))) & ((! [X1,X2,X3] : (X1 = X2 | ~iext(X0,X2,X3) | ~iext(X0,X1,X3)) & ip(X0)) | ~icext(uri_owl_InverseFunctionalProperty,X0)))),
+  inference(nnf_transformation,[],[f26])).
+fof(f26,plain,(
+  ! [X0] : (icext(uri_owl_InverseFunctionalProperty,X0) <=> (! [X1,X2,X3] : (X1 = X2 | ~iext(X0,X2,X3) | ~iext(X0,X1,X3)) & ip(X0)))),
+  inference(flattening,[],[f25])).
+fof(f25,plain,(
+  ! [X0] : (icext(uri_owl_InverseFunctionalProperty,X0) <=> (! [X1,X2,X3] : (X1 = X2 | (~iext(X0,X2,X3) | ~iext(X0,X1,X3))) & ip(X0)))),
+  inference(ennf_transformation,[],[f14])).
+fof(f14,plain,(
+  ! [X0] : (icext(uri_owl_InverseFunctionalProperty,X0) <=> (! [X1,X2,X3] : ((iext(X0,X2,X3) & iext(X0,X1,X3)) => X1 = X2) & ip(X0)))),
+  inference(rectify,[],[f5])).
+fof(f5,axiom,(
+  ! [X2] : (icext(uri_owl_InverseFunctionalProperty,X2) <=> (! [X5,X6,X1] : ((iext(X2,X6,X1) & iext(X2,X5,X1)) => X5 = X6) & ip(X2)))),
+  file('SWB028+2.tptp',unknown)).
+fof(f2150,plain,(
+  ( ! [X10,X11] : (~iext(X11,X10,sK5(X11)) | sK3(X11) = X10 | ~icext(sK11,X11) | icext(uri_owl_InverseFunctionalProperty,X11)) ) | ~spl12_47),
+  inference(subsumption_resolution,[],[f2116,f482])).
+fof(f2116,plain,(
+  ( ! [X10,X11] : (sK3(X11) = X10 | ~iext(X11,X10,sK5(X11)) | ~icext(sK11,X11) | icext(uri_owl_InverseFunctionalProperty,X11) | ~ip(X11)) )),
+  inference(resolution,[],[f2111,f73])).
+fof(f73,plain,(
+  ( ! [X0] : (iext(X0,sK3(X0),sK5(X0)) | icext(uri_owl_InverseFunctionalProperty,X0) | ~ip(X0)) )),
+  inference(cnf_transformation,[],[f39])).
+fof(f2111,plain,(
+  ( ! [X2,X0,X3,X1] : (~iext(X0,X2,X3) | X1 = X2 | ~iext(X0,X1,X3) | ~icext(sK11,X0)) )),
+  inference(subsumption_resolution,[],[f2110,f100])).
+fof(f100,plain,(
+  iext(uri_owl_someValuesFrom,sK11,uri_owl_FunctionalProperty)),
+  inference(cnf_transformation,[],[f60])).
+fof(f2110,plain,(
+  ( ! [X2,X0,X3,X1] : (~icext(sK11,X0) | X1 = X2 | ~iext(uri_owl_someValuesFrom,sK11,uri_owl_FunctionalProperty) | ~iext(X0,X1,X3) | ~iext(X0,X2,X3)) )),
+  inference(duplicate_literal_removal,[],[f2109])).
+fof(f2109,plain,(
+  ( ! [X2,X0,X3,X1] : (~icext(sK11,X0) | X1 = X2 | ~iext(uri_owl_someValuesFrom,sK11,uri_owl_FunctionalProperty) | ~iext(X0,X1,X3) | ~iext(X0,X2,X3) | ~icext(sK11,X0) | ~iext(uri_owl_someValuesFrom,sK11,uri_owl_FunctionalProperty)) )),
+  inference(resolution,[],[f1641,f312])).
+fof(f312,plain,(
+  ( ! [X0,X1] : (icext(X1,sK8(uri_owl_inverseOf,X1,X0)) | ~icext(sK11,X0) | ~iext(uri_owl_someValuesFrom,sK11,X1)) )),
+  inference(resolution,[],[f88,f99])).
+fof(f99,plain,(
+  iext(uri_owl_onProperty,sK11,uri_owl_inverseOf)),
+  inference(cnf_transformation,[],[f60])).
+fof(f88,plain,(
+  ( ! [X2,X0,X3,X1] : (~iext(uri_owl_onProperty,X0,X1) | ~icext(X0,X3) | icext(X2,sK8(X1,X2,X3)) | ~iext(uri_owl_someValuesFrom,X0,X2)) )),
+  inference(cnf_transformation,[],[f53])).
+fof(f53,plain,(
+  ! [X0,X1,X2] : (! [X3] : ((icext(X0,X3) | ! [X4] : (~icext(X2,X4) | ~iext(X1,X3,X4))) & ((icext(X2,sK8(X1,X2,X3)) & iext(X1,X3,sK8(X1,X2,X3))) | ~icext(X0,X3))) | ~iext(uri_owl_onProperty,X0,X1) | ~iext(uri_owl_someValuesFrom,X0,X2))),
+  inference(skolemisation,[status(esa),new_symbols(skolem,[sK8])],[f51,f52])).
+fof(f52,plain,(
+  ! [X3,X2,X1] : (? [X5] : (icext(X2,X5) & iext(X1,X3,X5)) => (icext(X2,sK8(X1,X2,X3)) & iext(X1,X3,sK8(X1,X2,X3))))),
+  introduced(choice_axiom,[])).
+fof(f51,plain,(
+  ! [X0,X1,X2] : (! [X3] : ((icext(X0,X3) | ! [X4] : (~icext(X2,X4) | ~iext(X1,X3,X4))) & (? [X5] : (icext(X2,X5) & iext(X1,X3,X5)) | ~icext(X0,X3))) | ~iext(uri_owl_onProperty,X0,X1) | ~iext(uri_owl_someValuesFrom,X0,X2))),
+  inference(rectify,[],[f50])).
+fof(f50,plain,(
+  ! [X0,X1,X2] : (! [X3] : ((icext(X0,X3) | ! [X4] : (~icext(X2,X4) | ~iext(X1,X3,X4))) & (? [X4] : (icext(X2,X4) & iext(X1,X3,X4)) | ~icext(X0,X3))) | ~iext(uri_owl_onProperty,X0,X1) | ~iext(uri_owl_someValuesFrom,X0,X2))),
+  inference(nnf_transformation,[],[f29])).
+fof(f29,plain,(
+  ! [X0,X1,X2] : (! [X3] : (icext(X0,X3) <=> ? [X4] : (icext(X2,X4) & iext(X1,X3,X4))) | ~iext(uri_owl_onProperty,X0,X1) | ~iext(uri_owl_someValuesFrom,X0,X2))),
+  inference(flattening,[],[f28])).
+fof(f28,plain,(
+  ! [X0,X1,X2] : (! [X3] : (icext(X0,X3) <=> ? [X4] : (icext(X2,X4) & iext(X1,X3,X4))) | (~iext(uri_owl_onProperty,X0,X1) | ~iext(uri_owl_someValuesFrom,X0,X2)))),
+  inference(ennf_transformation,[],[f17])).
+fof(f17,plain,(
+  ! [X0,X1,X2] : ((iext(uri_owl_onProperty,X0,X1) & iext(uri_owl_someValuesFrom,X0,X2)) => ! [X3] : (icext(X0,X3) <=> ? [X4] : (icext(X2,X4) & iext(X1,X3,X4))))),
+  inference(rectify,[],[f8])).
+fof(f8,axiom,(
+  ! [X9,X2,X10] : ((iext(uri_owl_onProperty,X9,X2) & iext(uri_owl_someValuesFrom,X9,X10)) => ! [X0] : (icext(X9,X0) <=> ? [X1] : (icext(X10,X1) & iext(X2,X0,X1))))),
+  file('SWB028+2.tptp',unknown)).
+fof(f1641,plain,(
+  ( ! [X4,X2,X0,X3,X1] : (~icext(uri_owl_FunctionalProperty,sK8(uri_owl_inverseOf,X4,X0)) | ~icext(sK11,X0) | X1 = X3 | ~iext(uri_owl_someValuesFrom,sK11,X4) | ~iext(X0,X1,X2) | ~iext(X0,X3,X2)) )),
+  inference(duplicate_literal_removal,[],[f1630])).
+fof(f1630,plain,(
+  ( ! [X4,X2,X0,X3,X1] : (~iext(X0,X1,X2) | ~icext(sK11,X0) | X1 = X3 | ~iext(uri_owl_someValuesFrom,sK11,X4) | ~icext(uri_owl_FunctionalProperty,sK8(uri_owl_inverseOf,X4,X0)) | ~iext(uri_owl_someValuesFrom,sK11,X4) | ~iext(X0,X3,X2) | ~icext(sK11,X0)) )),
+  inference(resolution,[],[f849,f472])).
+fof(f472,plain,(
+  ( ! [X6,X4,X7,X5] : (iext(sK8(uri_owl_inverseOf,X5,X4),X7,X6) | ~iext(uri_owl_someValuesFrom,sK11,X5) | ~iext(X4,X6,X7) | ~icext(sK11,X4)) )),
+  inference(resolution,[],[f362,f92])).
+fof(f92,plain,(
+  ( ! [X4,X0,X5,X1] : (~iext(uri_owl_inverseOf,X0,X1) | ~iext(X0,X4,X5) | iext(X1,X5,X4)) )),
+  inference(cnf_transformation,[],[f58])).
+fof(f58,plain,(
+  ! [X0,X1] : ((iext(uri_owl_inverseOf,X0,X1) | ((~iext(X1,sK10(X0,X1),sK9(X0,X1)) | ~iext(X0,sK9(X0,X1),sK10(X0,X1))) & (iext(X1,sK10(X0,X1),sK9(X0,X1)) | iext(X0,sK9(X0,X1),sK10(X0,X1)))) | ~ip(X1) | ~ip(X0)) & ((! [X4,X5] : ((iext(X0,X4,X5) | ~iext(X1,X5,X4)) & (iext(X1,X5,X4) | ~iext(X0,X4,X5))) & ip(X1) & ip(X0)) | ~iext(uri_owl_inverseOf,X0,X1)))),
+  inference(skolemisation,[status(esa),new_symbols(skolem,[sK9,sK10])],[f56,f57])).
+fof(f57,plain,(
+  ! [X1,X0] : (? [X2,X3] : ((~iext(X1,X3,X2) | ~iext(X0,X2,X3)) & (iext(X1,X3,X2) | iext(X0,X2,X3))) => ((~iext(X1,sK10(X0,X1),sK9(X0,X1)) | ~iext(X0,sK9(X0,X1),sK10(X0,X1))) & (iext(X1,sK10(X0,X1),sK9(X0,X1)) | iext(X0,sK9(X0,X1),sK10(X0,X1)))))),
+  introduced(choice_axiom,[])).
+fof(f56,plain,(
+  ! [X0,X1] : ((iext(uri_owl_inverseOf,X0,X1) | ? [X2,X3] : ((~iext(X1,X3,X2) | ~iext(X0,X2,X3)) & (iext(X1,X3,X2) | iext(X0,X2,X3))) | ~ip(X1) | ~ip(X0)) & ((! [X4,X5] : ((iext(X0,X4,X5) | ~iext(X1,X5,X4)) & (iext(X1,X5,X4) | ~iext(X0,X4,X5))) & ip(X1) & ip(X0)) | ~iext(uri_owl_inverseOf,X0,X1)))),
+  inference(rectify,[],[f55])).
+fof(f55,plain,(
+  ! [X0,X1] : ((iext(uri_owl_inverseOf,X0,X1) | ? [X2,X3] : ((~iext(X1,X3,X2) | ~iext(X0,X2,X3)) & (iext(X1,X3,X2) | iext(X0,X2,X3))) | ~ip(X1) | ~ip(X0)) & ((! [X2,X3] : ((iext(X0,X2,X3) | ~iext(X1,X3,X2)) & (iext(X1,X3,X2) | ~iext(X0,X2,X3))) & ip(X1) & ip(X0)) | ~iext(uri_owl_inverseOf,X0,X1)))),
+  inference(flattening,[],[f54])).
+fof(f54,plain,(
+  ! [X0,X1] : ((iext(uri_owl_inverseOf,X0,X1) | (? [X2,X3] : ((~iext(X1,X3,X2) | ~iext(X0,X2,X3)) & (iext(X1,X3,X2) | iext(X0,X2,X3))) | ~ip(X1) | ~ip(X0))) & ((! [X2,X3] : ((iext(X0,X2,X3) | ~iext(X1,X3,X2)) & (iext(X1,X3,X2) | ~iext(X0,X2,X3))) & ip(X1) & ip(X0)) | ~iext(uri_owl_inverseOf,X0,X1)))),
+  inference(nnf_transformation,[],[f18])).
+fof(f18,plain,(
+  ! [X0,X1] : (iext(uri_owl_inverseOf,X0,X1) <=> (! [X2,X3] : (iext(X0,X2,X3) <=> iext(X1,X3,X2)) & ip(X1) & ip(X0)))),
+  inference(rectify,[],[f9])).
+fof(f9,axiom,(
+  ! [X11,X12] : (iext(uri_owl_inverseOf,X11,X12) <=> (! [X0,X1] : (iext(X11,X0,X1) <=> iext(X12,X1,X0)) & ip(X12) & ip(X11)))),
+  file('SWB028+2.tptp',unknown)).
+fof(f362,plain,(
+  ( ! [X0,X1] : (iext(uri_owl_inverseOf,X0,sK8(uri_owl_inverseOf,X1,X0)) | ~icext(sK11,X0) | ~iext(uri_owl_someValuesFrom,sK11,X1)) )),
+  inference(resolution,[],[f87,f99])).
+fof(f87,plain,(
+  ( ! [X2,X0,X3,X1] : (~iext(uri_owl_onProperty,X0,X1) | ~icext(X0,X3) | iext(X1,X3,sK8(X1,X2,X3)) | ~iext(uri_owl_someValuesFrom,X0,X2)) )),
+  inference(cnf_transformation,[],[f53])).
+fof(f849,plain,(
+  ( ! [X12,X10,X13,X11,X9] : (~iext(sK8(uri_owl_inverseOf,X9,X10),X12,X13) | ~iext(X10,X11,X12) | ~icext(sK11,X10) | X11 = X13 | ~iext(uri_owl_someValuesFrom,sK11,X9) | ~icext(uri_owl_FunctionalProperty,sK8(uri_owl_inverseOf,X9,X10))) )),
+  inference(resolution,[],[f472,f67])).
+fof(f67,plain,(
+  ( ! [X6,X4,X0,X5] : (~iext(X0,X4,X6) | X5 = X6 | ~iext(X0,X4,X5) | ~icext(uri_owl_FunctionalProperty,X0)) )),
+  inference(cnf_transformation,[],[f34])).
+fof(f34,plain,(
+  ! [X0] : ((icext(uri_owl_FunctionalProperty,X0) | (sK1(X0) != sK2(X0) & iext(X0,sK0(X0),sK2(X0)) & iext(X0,sK0(X0),sK1(X0))) | ~ip(X0)) & ((! [X4,X5,X6] : (X5 = X6 | ~iext(X0,X4,X6) | ~iext(X0,X4,X5)) & ip(X0)) | ~icext(uri_owl_FunctionalProperty,X0)))),
+  inference(skolemisation,[status(esa),new_symbols(skolem,[sK0,sK1,sK2])],[f32,f33])).
+fof(f33,plain,(
+  ! [X0] : (? [X1,X2,X3] : (X2 != X3 & iext(X0,X1,X3) & iext(X0,X1,X2)) => (sK1(X0) != sK2(X0) & iext(X0,sK0(X0),sK2(X0)) & iext(X0,sK0(X0),sK1(X0))))),
+  introduced(choice_axiom,[])).
+fof(f32,plain,(
+  ! [X0] : ((icext(uri_owl_FunctionalProperty,X0) | ? [X1,X2,X3] : (X2 != X3 & iext(X0,X1,X3) & iext(X0,X1,X2)) | ~ip(X0)) & ((! [X4,X5,X6] : (X5 = X6 | ~iext(X0,X4,X6) | ~iext(X0,X4,X5)) & ip(X0)) | ~icext(uri_owl_FunctionalProperty,X0)))),
+  inference(rectify,[],[f31])).
+fof(f31,plain,(
+  ! [X0] : ((icext(uri_owl_FunctionalProperty,X0) | ? [X1,X2,X3] : (X2 != X3 & iext(X0,X1,X3) & iext(X0,X1,X2)) | ~ip(X0)) & ((! [X1,X2,X3] : (X2 = X3 | ~iext(X0,X1,X3) | ~iext(X0,X1,X2)) & ip(X0)) | ~icext(uri_owl_FunctionalProperty,X0)))),
+  inference(flattening,[],[f30])).
+fof(f30,plain,(
+  ! [X0] : ((icext(uri_owl_FunctionalProperty,X0) | (? [X1,X2,X3] : (X2 != X3 & iext(X0,X1,X3) & iext(X0,X1,X2)) | ~ip(X0))) & ((! [X1,X2,X3] : (X2 = X3 | ~iext(X0,X1,X3) | ~iext(X0,X1,X2)) & ip(X0)) | ~icext(uri_owl_FunctionalProperty,X0)))),
+  inference(nnf_transformation,[],[f24])).
+fof(f24,plain,(
+  ! [X0] : (icext(uri_owl_FunctionalProperty,X0) <=> (! [X1,X2,X3] : (X2 = X3 | ~iext(X0,X1,X3) | ~iext(X0,X1,X2)) & ip(X0)))),
+  inference(flattening,[],[f23])).
+fof(f23,plain,(
+  ! [X0] : (icext(uri_owl_FunctionalProperty,X0) <=> (! [X1,X2,X3] : (X2 = X3 | (~iext(X0,X1,X3) | ~iext(X0,X1,X2))) & ip(X0)))),
+  inference(ennf_transformation,[],[f13])).
+fof(f13,plain,(
+  ! [X0] : (icext(uri_owl_FunctionalProperty,X0) <=> (! [X1,X2,X3] : ((iext(X0,X1,X3) & iext(X0,X1,X2)) => X2 = X3) & ip(X0)))),
+  inference(rectify,[],[f4])).
+fof(f4,axiom,(
+  ! [X2] : (icext(uri_owl_FunctionalProperty,X2) <=> (! [X0,X3,X4] : ((iext(X2,X0,X4) & iext(X2,X0,X3)) => X3 = X4) & ip(X2)))),
+  file('SWB028+2.tptp',unknown)).
+fof(f75,plain,(
+  ( ! [X0] : (sK3(X0) != sK4(X0) | icext(uri_owl_InverseFunctionalProperty,X0) | ~ip(X0)) )),
+  inference(cnf_transformation,[],[f39])).
+fof(f513,plain,(
+  ~spl12_46),
+  inference(avatar_contradiction_clause,[],[f512])).
+fof(f512,plain,(
+  $false | ~spl12_46),
+  inference(resolution,[],[f479,f100])).
+fof(f479,plain,(
+  ( ! [X11] : (~iext(uri_owl_someValuesFrom,sK11,X11)) ) | ~spl12_46),
+  inference(avatar_component_clause,[],[f478])).
+fof(f478,plain,(
+  spl12_46 <=> ! [X11] : ~iext(uri_owl_someValuesFrom,sK11,X11)),
+  introduced(avatar_definition,[new_symbols(naming,[spl12_46])])).
+fof(f483,plain,(
+  spl12_46 | spl12_47),
+  inference(avatar_split_clause,[],[f474,f481,f478])).
+fof(f474,plain,(
+  ( ! [X10,X11] : (~icext(sK11,X10) | ~iext(uri_owl_someValuesFrom,sK11,X11) | ip(X10)) )),
+  inference(resolution,[],[f362,f62])).
+fof(f62,plain,(
+  ( ! [X0,X1] : (~iext(uri_owl_inverseOf,X0,X1) | ip(X0)) )),
+  inference(cnf_transformation,[],[f21])).
+fof(f21,plain,(
+  ! [X0,X1] : ((ip(X1) & ip(X0)) | ~iext(uri_owl_inverseOf,X0,X1))),
+  inference(ennf_transformation,[],[f2])).
+fof(f2,axiom,(
+  ! [X0,X1] : (iext(uri_owl_inverseOf,X0,X1) => (ip(X1) & ip(X0)))),
+  file('SWB028+2.tptp',unknown)).
+% SZS output end Proof for SWB028+2
+% ------------------------------
+% Version: Vampire 4.4.0 (commit d98a3d53 on 2020-01-14 21:02:12 +0100)
+% Termination reason: Refutation
+
+% Memory used [KB]: 6268
+% Time elapsed: 0.028 s
+% ------------------------------
+% ------------------------------

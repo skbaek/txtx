@@ -1,0 +1,219 @@
+% Refutation found. Thanks to Tanya!
+% SZS status Theorem for GEO194+2
+% SZS output start Proof for GEO194+2
+fof(f875,plain,(
+  $false),
+  inference(avatar_sat_refutation,[],[f280,f300,f332,f833,f845,f874])).
+fof(f874,plain,(
+  ~spl3_12),
+  inference(avatar_contradiction_clause,[],[f873])).
+fof(f873,plain,(
+  $false | ~spl3_12),
+  inference(subsumption_resolution,[],[f868,f53])).
+fof(f53,plain,(
+  convergent_lines(sK0,sK2)),
+  inference(cnf_transformation,[],[f36])).
+fof(f36,plain,(
+  ~apart_point_and_line(intersection_point(sK0,sK2),sK1) & apart_point_and_line(intersection_point(sK0,sK1),sK2) & convergent_lines(sK0,sK2) & convergent_lines(sK2,sK1) & convergent_lines(sK0,sK1)),
+  inference(skolemisation,[status(esa),new_symbols(skolem,[sK0,sK1,sK2])],[f34,f35])).
+fof(f35,plain,(
+  ? [X0,X1,X2] : (~apart_point_and_line(intersection_point(X0,X2),X1) & apart_point_and_line(intersection_point(X0,X1),X2) & convergent_lines(X0,X2) & convergent_lines(X2,X1) & convergent_lines(X0,X1)) => (~apart_point_and_line(intersection_point(sK0,sK2),sK1) & apart_point_and_line(intersection_point(sK0,sK1),sK2) & convergent_lines(sK0,sK2) & convergent_lines(sK2,sK1) & convergent_lines(sK0,sK1))),
+  introduced(choice_axiom,[])).
+fof(f34,plain,(
+  ? [X0,X1,X2] : (~apart_point_and_line(intersection_point(X0,X2),X1) & apart_point_and_line(intersection_point(X0,X1),X2) & convergent_lines(X0,X2) & convergent_lines(X2,X1) & convergent_lines(X0,X1))),
+  inference(flattening,[],[f33])).
+fof(f33,plain,(
+  ? [X0,X1,X2] : ((~apart_point_and_line(intersection_point(X0,X2),X1) & apart_point_and_line(intersection_point(X0,X1),X2)) & (convergent_lines(X0,X2) & convergent_lines(X2,X1) & convergent_lines(X0,X1)))),
+  inference(ennf_transformation,[],[f14])).
+fof(f14,negated_conjecture,(
+  ~! [X0,X1,X2] : ((convergent_lines(X0,X2) & convergent_lines(X2,X1) & convergent_lines(X0,X1)) => (apart_point_and_line(intersection_point(X0,X1),X2) => apart_point_and_line(intersection_point(X0,X2),X1)))),
+  inference(negated_conjecture,[],[f13])).
+fof(f13,conjecture,(
+  ! [X0,X1,X2] : ((convergent_lines(X0,X2) & convergent_lines(X2,X1) & convergent_lines(X0,X1)) => (apart_point_and_line(intersection_point(X0,X1),X2) => apart_point_and_line(intersection_point(X0,X2),X1)))),
+  file('GEO194+2.tptp',unknown)).
+fof(f868,plain,(
+  ~convergent_lines(sK0,sK2) | ~spl3_12),
+  inference(resolution,[],[f829,f76])).
+fof(f76,plain,(
+  ( ! [X0,X1] : (~apart_point_and_line(intersection_point(X0,X1),X0) | ~convergent_lines(X0,X1)) )),
+  inference(resolution,[],[f45,f37])).
+fof(f37,plain,(
+  ( ! [X0] : (~distinct_points(X0,X0)) )),
+  inference(cnf_transformation,[],[f1])).
+fof(f1,axiom,(
+  ! [X0] : ~distinct_points(X0,X0)),
+  file('GEO194+2.tptp',unknown)).
+fof(f45,plain,(
+  ( ! [X2,X0,X1] : (distinct_points(X2,intersection_point(X0,X1)) | ~apart_point_and_line(X2,X0) | ~convergent_lines(X0,X1)) )),
+  inference(cnf_transformation,[],[f25])).
+fof(f25,plain,(
+  ! [X0,X1,X2] : (distinct_points(X2,intersection_point(X0,X1)) | (~apart_point_and_line(X2,X1) & ~apart_point_and_line(X2,X0)) | ~convergent_lines(X0,X1))),
+  inference(flattening,[],[f24])).
+fof(f24,plain,(
+  ! [X0,X1,X2] : ((distinct_points(X2,intersection_point(X0,X1)) | (~apart_point_and_line(X2,X1) & ~apart_point_and_line(X2,X0))) | ~convergent_lines(X0,X1))),
+  inference(ennf_transformation,[],[f8])).
+fof(f8,axiom,(
+  ! [X0,X1,X2] : (convergent_lines(X0,X1) => ((apart_point_and_line(X2,X1) | apart_point_and_line(X2,X0)) => distinct_points(X2,intersection_point(X0,X1))))),
+  file('GEO194+2.tptp',unknown)).
+fof(f829,plain,(
+  apart_point_and_line(intersection_point(sK0,sK2),sK0) | ~spl3_12),
+  inference(avatar_component_clause,[],[f827])).
+fof(f827,plain,(
+  spl3_12 <=> apart_point_and_line(intersection_point(sK0,sK2),sK0)),
+  introduced(avatar_definition,[new_symbols(naming,[spl3_12])])).
+fof(f845,plain,(
+  ~spl3_13),
+  inference(avatar_contradiction_clause,[],[f844])).
+fof(f844,plain,(
+  $false | ~spl3_13),
+  inference(subsumption_resolution,[],[f843,f53])).
+fof(f843,plain,(
+  ~convergent_lines(sK0,sK2) | ~spl3_13),
+  inference(subsumption_resolution,[],[f835,f38])).
+fof(f38,plain,(
+  ( ! [X0] : (~distinct_lines(X0,X0)) )),
+  inference(cnf_transformation,[],[f2])).
+fof(f2,axiom,(
+  ! [X0] : ~distinct_lines(X0,X0)),
+  file('GEO194+2.tptp',unknown)).
+fof(f835,plain,(
+  distinct_lines(sK2,sK2) | ~convergent_lines(sK0,sK2) | ~spl3_13),
+  inference(resolution,[],[f832,f81])).
+fof(f81,plain,(
+  ( ! [X0,X1] : (~apart_point_and_line(intersection_point(X0,X1),X1) | ~convergent_lines(X0,X1)) )),
+  inference(resolution,[],[f46,f37])).
+fof(f46,plain,(
+  ( ! [X2,X0,X1] : (distinct_points(X2,intersection_point(X0,X1)) | ~apart_point_and_line(X2,X1) | ~convergent_lines(X0,X1)) )),
+  inference(cnf_transformation,[],[f25])).
+fof(f832,plain,(
+  ( ! [X0] : (apart_point_and_line(intersection_point(sK0,sK2),X0) | distinct_lines(sK2,X0)) ) | ~spl3_13),
+  inference(avatar_component_clause,[],[f831])).
+fof(f831,plain,(
+  spl3_13 <=> ! [X0] : (apart_point_and_line(intersection_point(sK0,sK2),X0) | distinct_lines(sK2,X0))),
+  introduced(avatar_definition,[new_symbols(naming,[spl3_13])])).
+fof(f833,plain,(
+  spl3_12 | spl3_13 | ~spl3_6),
+  inference(avatar_split_clause,[],[f805,f278,f831,f827])).
+fof(f278,plain,(
+  spl3_6 <=> ! [X11,X10] : (apart_point_and_line(X10,sK1) | distinct_lines(sK2,X11) | apart_point_and_line(X10,X11) | apart_point_and_line(X10,sK0))),
+  introduced(avatar_definition,[new_symbols(naming,[spl3_6])])).
+fof(f805,plain,(
+  ( ! [X0] : (apart_point_and_line(intersection_point(sK0,sK2),X0) | distinct_lines(sK2,X0) | apart_point_and_line(intersection_point(sK0,sK2),sK0)) ) | ~spl3_6),
+  inference(resolution,[],[f279,f55])).
+fof(f55,plain,(
+  ~apart_point_and_line(intersection_point(sK0,sK2),sK1)),
+  inference(cnf_transformation,[],[f36])).
+fof(f279,plain,(
+  ( ! [X10,X11] : (apart_point_and_line(X10,sK1) | apart_point_and_line(X10,X11) | distinct_lines(sK2,X11) | apart_point_and_line(X10,sK0)) ) | ~spl3_6),
+  inference(avatar_component_clause,[],[f278])).
+fof(f332,plain,(
+  ~spl3_5),
+  inference(avatar_contradiction_clause,[],[f331])).
+fof(f331,plain,(
+  $false | ~spl3_5),
+  inference(subsumption_resolution,[],[f326,f51])).
+fof(f51,plain,(
+  convergent_lines(sK0,sK1)),
+  inference(cnf_transformation,[],[f36])).
+fof(f326,plain,(
+  ~convergent_lines(sK0,sK1) | ~spl3_5),
+  inference(resolution,[],[f275,f81])).
+fof(f275,plain,(
+  apart_point_and_line(intersection_point(sK0,sK1),sK1) | ~spl3_5),
+  inference(avatar_component_clause,[],[f273])).
+fof(f273,plain,(
+  spl3_5 <=> apart_point_and_line(intersection_point(sK0,sK1),sK1)),
+  introduced(avatar_definition,[new_symbols(naming,[spl3_5])])).
+fof(f300,plain,(
+  ~spl3_4),
+  inference(avatar_contradiction_clause,[],[f299])).
+fof(f299,plain,(
+  $false | ~spl3_4),
+  inference(subsumption_resolution,[],[f294,f51])).
+fof(f294,plain,(
+  ~convergent_lines(sK0,sK1) | ~spl3_4),
+  inference(resolution,[],[f271,f76])).
+fof(f271,plain,(
+  apart_point_and_line(intersection_point(sK0,sK1),sK0) | ~spl3_4),
+  inference(avatar_component_clause,[],[f269])).
+fof(f269,plain,(
+  spl3_4 <=> apart_point_and_line(intersection_point(sK0,sK1),sK0)),
+  introduced(avatar_definition,[new_symbols(naming,[spl3_4])])).
+fof(f280,plain,(
+  spl3_6 | spl3_4 | spl3_5),
+  inference(avatar_split_clause,[],[f253,f273,f269,f278])).
+fof(f253,plain,(
+  ( ! [X10,X11] : (apart_point_and_line(intersection_point(sK0,sK1),sK1) | apart_point_and_line(intersection_point(sK0,sK1),sK0) | apart_point_and_line(X10,sK1) | apart_point_and_line(X10,sK0) | apart_point_and_line(X10,X11) | distinct_lines(sK2,X11)) )),
+  inference(resolution,[],[f85,f99])).
+fof(f99,plain,(
+  ( ! [X2,X3] : (distinct_points(intersection_point(sK0,sK1),X3) | apart_point_and_line(X3,X2) | distinct_lines(sK2,X2)) )),
+  inference(resolution,[],[f69,f48])).
+fof(f48,plain,(
+  ( ! [X2,X0,X1] : (~apart_point_and_line(X0,X1) | distinct_points(X0,X2) | apart_point_and_line(X2,X1)) )),
+  inference(cnf_transformation,[],[f29])).
+fof(f29,plain,(
+  ! [X0,X1,X2] : (apart_point_and_line(X2,X1) | distinct_points(X0,X2) | ~apart_point_and_line(X0,X1))),
+  inference(flattening,[],[f28])).
+fof(f28,plain,(
+  ! [X0,X1,X2] : ((apart_point_and_line(X2,X1) | distinct_points(X0,X2)) | ~apart_point_and_line(X0,X1))),
+  inference(ennf_transformation,[],[f10])).
+fof(f10,axiom,(
+  ! [X0,X1,X2] : (apart_point_and_line(X0,X1) => (apart_point_and_line(X2,X1) | distinct_points(X0,X2)))),
+  file('GEO194+2.tptp',unknown)).
+fof(f69,plain,(
+  ( ! [X0] : (apart_point_and_line(intersection_point(sK0,sK1),X0) | distinct_lines(sK2,X0)) )),
+  inference(resolution,[],[f49,f54])).
+fof(f54,plain,(
+  apart_point_and_line(intersection_point(sK0,sK1),sK2)),
+  inference(cnf_transformation,[],[f36])).
+fof(f49,plain,(
+  ( ! [X2,X0,X1] : (~apart_point_and_line(X0,X1) | distinct_lines(X1,X2) | apart_point_and_line(X0,X2)) )),
+  inference(cnf_transformation,[],[f31])).
+fof(f31,plain,(
+  ! [X0,X1,X2] : (apart_point_and_line(X0,X2) | distinct_lines(X1,X2) | ~apart_point_and_line(X0,X1))),
+  inference(flattening,[],[f30])).
+fof(f30,plain,(
+  ! [X0,X1,X2] : ((apart_point_and_line(X0,X2) | distinct_lines(X1,X2)) | ~apart_point_and_line(X0,X1))),
+  inference(ennf_transformation,[],[f11])).
+fof(f11,axiom,(
+  ! [X0,X1,X2] : (apart_point_and_line(X0,X1) => (apart_point_and_line(X0,X2) | distinct_lines(X1,X2)))),
+  file('GEO194+2.tptp',unknown)).
+fof(f85,plain,(
+  ( ! [X0,X1] : (~distinct_points(X1,X0) | apart_point_and_line(X1,sK1) | apart_point_and_line(X1,sK0) | apart_point_and_line(X0,sK1) | apart_point_and_line(X0,sK0)) )),
+  inference(resolution,[],[f47,f56])).
+fof(f56,plain,(
+  distinct_lines(sK0,sK1)),
+  inference(resolution,[],[f50,f51])).
+fof(f50,plain,(
+  ( ! [X0,X1] : (~convergent_lines(X0,X1) | distinct_lines(X0,X1)) )),
+  inference(cnf_transformation,[],[f32])).
+fof(f32,plain,(
+  ! [X0,X1] : (distinct_lines(X0,X1) | ~convergent_lines(X0,X1))),
+  inference(ennf_transformation,[],[f12])).
+fof(f12,axiom,(
+  ! [X0,X1] : (convergent_lines(X0,X1) => distinct_lines(X0,X1))),
+  file('GEO194+2.tptp',unknown)).
+fof(f47,plain,(
+  ( ! [X2,X0,X3,X1] : (~distinct_lines(X2,X3) | apart_point_and_line(X1,X2) | apart_point_and_line(X0,X3) | apart_point_and_line(X0,X2) | apart_point_and_line(X1,X3) | ~distinct_points(X0,X1)) )),
+  inference(cnf_transformation,[],[f27])).
+fof(f27,plain,(
+  ! [X0,X1,X2,X3] : (apart_point_and_line(X1,X3) | apart_point_and_line(X1,X2) | apart_point_and_line(X0,X3) | apart_point_and_line(X0,X2) | ~distinct_lines(X2,X3) | ~distinct_points(X0,X1))),
+  inference(flattening,[],[f26])).
+fof(f26,plain,(
+  ! [X0,X1,X2,X3] : ((apart_point_and_line(X1,X3) | apart_point_and_line(X1,X2) | apart_point_and_line(X0,X3) | apart_point_and_line(X0,X2)) | (~distinct_lines(X2,X3) | ~distinct_points(X0,X1)))),
+  inference(ennf_transformation,[],[f15])).
+fof(f15,plain,(
+  ! [X0,X1,X2,X3] : ((distinct_lines(X2,X3) & distinct_points(X0,X1)) => (apart_point_and_line(X1,X3) | apart_point_and_line(X1,X2) | apart_point_and_line(X0,X3) | apart_point_and_line(X0,X2)))),
+  inference(rectify,[],[f9])).
+fof(f9,axiom,(
+  ! [X0,X1,X3,X4] : ((distinct_lines(X3,X4) & distinct_points(X0,X1)) => (apart_point_and_line(X1,X4) | apart_point_and_line(X1,X3) | apart_point_and_line(X0,X4) | apart_point_and_line(X0,X3)))),
+  file('GEO194+2.tptp',unknown)).
+% SZS output end Proof for GEO194+2
+% ------------------------------
+% Version: Vampire 4.4.0 (commit d98a3d53 on 2020-01-14 21:02:12 +0100)
+% Termination reason: Refutation
+
+% Memory used [KB]: 5117
+% Time elapsed: 0.027 s
+% ------------------------------
+% ------------------------------

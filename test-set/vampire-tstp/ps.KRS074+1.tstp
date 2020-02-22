@@ -1,0 +1,69 @@
+% Refutation found. Thanks to Tanya!
+% SZS status Unsatisfiable for KRS074+1
+% SZS output start Proof for KRS074+1
+fof(f167,plain,(
+  $false),
+  inference(resolution,[],[f166,f136])).
+fof(f136,plain,(
+  cUnsatisfiable(i2003_11_14_17_18_59896)),
+  inference(cnf_transformation,[],[f28])).
+fof(f28,axiom,(
+  cUnsatisfiable(i2003_11_14_17_18_59896)),
+  file('KRS074+1.tptp',unknown)).
+fof(f166,plain,(
+  ( ! [X0] : (~cUnsatisfiable(X0)) )),
+  inference(subsumption_resolution,[],[f165,f121])).
+fof(f121,plain,(
+  ( ! [X0] : (cp(sK1(X0)) | ~cUnsatisfiable(X0)) )),
+  inference(cnf_transformation,[],[f94])).
+fof(f94,plain,(
+  ! [X0] : ((cUnsatisfiable(X0) | (cp(sK0(X0)) & rs(X0,sK0(X0))) | ! [X2] : (! [X3] : (~cp(X3) | ~rinvS(X2,X3)) | ~cp(X2) | ~rs(X0,X2))) & ((! [X4] : (~cp(X4) | ~rs(X0,X4)) & ((cp(sK2(X0)) & rinvS(sK1(X0),sK2(X0))) & cp(sK1(X0)) & rs(X0,sK1(X0)))) | ~cUnsatisfiable(X0)))),
+  inference(skolemisation,[status(esa),new_symbols(skolem,[sK0,sK1,sK2])],[f90,f93,f92,f91])).
+fof(f91,plain,(
+  ! [X0] : (? [X1] : (cp(X1) & rs(X0,X1)) => (cp(sK0(X0)) & rs(X0,sK0(X0))))),
+  introduced(choice_axiom,[])).
+fof(f92,plain,(
+  ! [X0] : (? [X5] : (? [X6] : (cp(X6) & rinvS(X5,X6)) & cp(X5) & rs(X0,X5)) => (? [X6] : (cp(X6) & rinvS(sK1(X0),X6)) & cp(sK1(X0)) & rs(X0,sK1(X0))))),
+  introduced(choice_axiom,[])).
+fof(f93,plain,(
+  ! [X0] : (? [X6] : (cp(X6) & rinvS(sK1(X0),X6)) => (cp(sK2(X0)) & rinvS(sK1(X0),sK2(X0))))),
+  introduced(choice_axiom,[])).
+fof(f90,plain,(
+  ! [X0] : ((cUnsatisfiable(X0) | ? [X1] : (cp(X1) & rs(X0,X1)) | ! [X2] : (! [X3] : (~cp(X3) | ~rinvS(X2,X3)) | ~cp(X2) | ~rs(X0,X2))) & ((! [X4] : (~cp(X4) | ~rs(X0,X4)) & ? [X5] : (? [X6] : (cp(X6) & rinvS(X5,X6)) & cp(X5) & rs(X0,X5))) | ~cUnsatisfiable(X0)))),
+  inference(rectify,[],[f89])).
+fof(f89,plain,(
+  ! [X0] : ((cUnsatisfiable(X0) | ? [X1] : (cp(X1) & rs(X0,X1)) | ! [X2] : (! [X3] : (~cp(X3) | ~rinvS(X2,X3)) | ~cp(X2) | ~rs(X0,X2))) & ((! [X1] : (~cp(X1) | ~rs(X0,X1)) & ? [X2] : (? [X3] : (cp(X3) & rinvS(X2,X3)) & cp(X2) & rs(X0,X2))) | ~cUnsatisfiable(X0)))),
+  inference(flattening,[],[f88])).
+fof(f88,plain,(
+  ! [X0] : ((cUnsatisfiable(X0) | (? [X1] : (cp(X1) & rs(X0,X1)) | ! [X2] : (! [X3] : (~cp(X3) | ~rinvS(X2,X3)) | ~cp(X2) | ~rs(X0,X2)))) & ((! [X1] : (~cp(X1) | ~rs(X0,X1)) & ? [X2] : (? [X3] : (cp(X3) & rinvS(X2,X3)) & cp(X2) & rs(X0,X2))) | ~cUnsatisfiable(X0)))),
+  inference(nnf_transformation,[],[f78])).
+fof(f78,plain,(
+  ! [X0] : (cUnsatisfiable(X0) <=> (! [X1] : (~cp(X1) | ~rs(X0,X1)) & ? [X2] : (? [X3] : (cp(X3) & rinvS(X2,X3)) & cp(X2) & rs(X0,X2))))),
+  inference(ennf_transformation,[],[f33])).
+fof(f33,plain,(
+  ! [X0] : (cUnsatisfiable(X0) <=> (! [X1] : (rs(X0,X1) => ~cp(X1)) & ? [X2] : (? [X3] : (cp(X3) & rinvS(X2,X3)) & cp(X2) & rs(X0,X2))))),
+  inference(rectify,[],[f21])).
+fof(f21,axiom,(
+  ! [X3] : (cUnsatisfiable(X3) <=> (! [X4] : (rs(X3,X4) => ~cp(X4)) & ? [X4] : (? [X5] : (cp(X5) & rinvS(X4,X5)) & cp(X4) & rs(X3,X4))))),
+  file('KRS074+1.tptp',unknown)).
+fof(f165,plain,(
+  ( ! [X0] : (~cp(sK1(X0)) | ~cUnsatisfiable(X0)) )),
+  inference(duplicate_literal_removal,[],[f164])).
+fof(f164,plain,(
+  ( ! [X0] : (~cp(sK1(X0)) | ~cUnsatisfiable(X0) | ~cUnsatisfiable(X0)) )),
+  inference(resolution,[],[f124,f120])).
+fof(f120,plain,(
+  ( ! [X0] : (rs(X0,sK1(X0)) | ~cUnsatisfiable(X0)) )),
+  inference(cnf_transformation,[],[f94])).
+fof(f124,plain,(
+  ( ! [X4,X0] : (~rs(X0,X4) | ~cp(X4) | ~cUnsatisfiable(X0)) )),
+  inference(cnf_transformation,[],[f94])).
+% SZS output end Proof for KRS074+1
+% ------------------------------
+% Version: Vampire 4.4.0 (commit d98a3d53 on 2020-01-14 21:02:12 +0100)
+% Termination reason: Refutation
+
+% Memory used [KB]: 4861
+% Time elapsed: 0.001 s
+% ------------------------------
+% ------------------------------

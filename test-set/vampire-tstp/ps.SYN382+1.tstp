@@ -1,0 +1,51 @@
+% Refutation found. Thanks to Tanya!
+% SZS status Theorem for SYN382+1
+% SZS output start Proof for SYN382+1
+fof(f14,plain,(
+  $false),
+  inference(resolution,[],[f12,f10])).
+fof(f10,plain,(
+  ( ! [X1] : (~big_p(X1,sK0)) )),
+  inference(cnf_transformation,[],[f8])).
+fof(f8,plain,(
+  ! [X1] : (~big_q(X1,sK0) & ~big_p(X1,sK0)) & ! [X2] : (big_q(sK1(X2),X2) | ! [X4] : big_p(sK1(X2),X4))),
+  inference(skolemisation,[status(esa),new_symbols(skolem,[sK0,sK1])],[f5,f7,f6])).
+fof(f6,plain,(
+  ? [X0] : ! [X1] : (~big_q(X1,X0) & ~big_p(X1,X0)) => ! [X1] : (~big_q(X1,sK0) & ~big_p(X1,sK0))),
+  introduced(choice_axiom,[])).
+fof(f7,plain,(
+  ! [X2] : (? [X3] : (big_q(X3,X2) | ! [X4] : big_p(X3,X4)) => (big_q(sK1(X2),X2) | ! [X4] : big_p(sK1(X2),X4)))),
+  introduced(choice_axiom,[])).
+fof(f5,plain,(
+  ? [X0] : ! [X1] : (~big_q(X1,X0) & ~big_p(X1,X0)) & ! [X2] : ? [X3] : (big_q(X3,X2) | ! [X4] : big_p(X3,X4))),
+  inference(rectify,[],[f4])).
+fof(f4,plain,(
+  ? [X3] : ! [X4] : (~big_q(X4,X3) & ~big_p(X4,X3)) & ! [X0] : ? [X1] : (big_q(X1,X0) | ! [X2] : big_p(X1,X2))),
+  inference(ennf_transformation,[],[f3])).
+fof(f3,plain,(
+  ~(! [X0] : ? [X1] : (big_q(X1,X0) | ! [X2] : big_p(X1,X2)) => ! [X3] : ? [X4] : (big_q(X4,X3) | big_p(X4,X3)))),
+  inference(rectify,[],[f2])).
+fof(f2,negated_conjecture,(
+  ~(! [X0] : ? [X1] : (big_q(X1,X0) | ! [X2] : big_p(X1,X2)) => ! [X2] : ? [X1] : (big_q(X1,X2) | big_p(X1,X2)))),
+  inference(negated_conjecture,[],[f1])).
+fof(f1,conjecture,(
+  ! [X0] : ? [X1] : (big_q(X1,X0) | ! [X2] : big_p(X1,X2)) => ! [X2] : ? [X1] : (big_q(X1,X2) | big_p(X1,X2))),
+  file('SYN382+1.tptp',unknown)).
+fof(f12,plain,(
+  ( ! [X0] : (big_p(sK1(sK0),X0)) )),
+  inference(resolution,[],[f9,f11])).
+fof(f11,plain,(
+  ( ! [X1] : (~big_q(X1,sK0)) )),
+  inference(cnf_transformation,[],[f8])).
+fof(f9,plain,(
+  ( ! [X4,X2] : (big_q(sK1(X2),X2) | big_p(sK1(X2),X4)) )),
+  inference(cnf_transformation,[],[f8])).
+% SZS output end Proof for SYN382+1
+% ------------------------------
+% Version: Vampire 4.4.0 (commit d98a3d53 on 2020-01-14 21:02:12 +0100)
+% Termination reason: Refutation
+
+% Memory used [KB]: 4861
+% Time elapsed: 0.001 s
+% ------------------------------
+% ------------------------------

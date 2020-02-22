@@ -1,0 +1,1488 @@
+% Refutation found. Thanks to Tanya!
+% SZS status Theorem for ALG186+1
+% SZS output start Proof for ALG186+1
+fof(f1531,plain,(
+  $false),
+  inference(subsumption_resolution,[],[f1530,f185])).
+fof(f185,plain,(
+  e0 = op(e3,e3)),
+  inference(cnf_transformation,[],[f2])).
+fof(f2,axiom,(
+  e1 = op(e4,e4) & e3 = op(e4,e3) & e4 = op(e4,e2) & e0 = op(e4,e1) & e2 = op(e4,e0) & e2 = op(e3,e4) & e0 = op(e3,e3) & e3 = op(e3,e2) & e1 = op(e3,e1) & e4 = op(e3,e0) & e0 = op(e2,e4) & e4 = op(e2,e3) & e2 = op(e2,e2) & e3 = op(e2,e1) & e1 = op(e2,e0) & e3 = op(e1,e4) & e2 = op(e1,e3) & e1 = op(e1,e2) & e4 = op(e1,e1) & e0 = op(e1,e0) & e4 = op(e0,e4) & e1 = op(e0,e3) & e0 = op(e0,e2) & e2 = op(e0,e1) & e3 = op(e0,e0)),
+  file('ALG186+1.tptp',unknown)).
+fof(f1530,plain,(
+  e0 != op(e3,e3)),
+  inference(forward_demodulation,[],[f1529,f167])).
+fof(f167,plain,(
+  e3 = op(e0,e0)),
+  inference(cnf_transformation,[],[f2])).
+fof(f1529,plain,(
+  e0 != op(op(e0,e0),op(e0,e0))),
+  inference(subsumption_resolution,[],[f1528,f169])).
+fof(f169,plain,(
+  e0 = op(e0,e2)),
+  inference(cnf_transformation,[],[f2])).
+fof(f1528,plain,(
+  e0 != op(e0,e2) | e0 != op(op(e0,e0),op(e0,e0))),
+  inference(forward_demodulation,[],[f1527,f172])).
+fof(f172,plain,(
+  e0 = op(e1,e0)),
+  inference(cnf_transformation,[],[f2])).
+fof(f1527,plain,(
+  e0 != op(op(e1,e0),e2) | e0 != op(op(e0,e0),op(e0,e0))),
+  inference(forward_demodulation,[],[f1526,f168])).
+fof(f168,plain,(
+  e2 = op(e0,e1)),
+  inference(cnf_transformation,[],[f2])).
+fof(f1526,plain,(
+  e0 != op(op(e1,e0),op(e0,e1)) | e0 != op(op(e0,e0),op(e0,e0))),
+  inference(subsumption_resolution,[],[f1525,f172])).
+fof(f1525,plain,(
+  e0 != op(e1,e0) | e0 != op(op(e1,e0),op(e0,e1)) | e0 != op(op(e0,e0),op(e0,e0))),
+  inference(forward_demodulation,[],[f1524,f177])).
+fof(f177,plain,(
+  e1 = op(e2,e0)),
+  inference(cnf_transformation,[],[f2])).
+fof(f1524,plain,(
+  e0 != op(op(e2,e0),e0) | e0 != op(op(e1,e0),op(e0,e1)) | e0 != op(op(e0,e0),op(e0,e0))),
+  inference(forward_demodulation,[],[f1523,f169])).
+fof(f1523,plain,(
+  e0 != op(op(e2,e0),op(e0,e2)) | e0 != op(op(e1,e0),op(e0,e1)) | e0 != op(op(e0,e0),op(e0,e0))),
+  inference(subsumption_resolution,[],[f1522,f188])).
+fof(f188,plain,(
+  e0 = op(e4,e1)),
+  inference(cnf_transformation,[],[f2])).
+fof(f1522,plain,(
+  e0 != op(e4,e1) | e0 != op(op(e2,e0),op(e0,e2)) | e0 != op(op(e1,e0),op(e0,e1)) | e0 != op(op(e0,e0),op(e0,e0))),
+  inference(forward_demodulation,[],[f1521,f182])).
+fof(f182,plain,(
+  e4 = op(e3,e0)),
+  inference(cnf_transformation,[],[f2])).
+fof(f1521,plain,(
+  e0 != op(op(e3,e0),e1) | e0 != op(op(e2,e0),op(e0,e2)) | e0 != op(op(e1,e0),op(e0,e1)) | e0 != op(op(e0,e0),op(e0,e0))),
+  inference(forward_demodulation,[],[f1520,f170])).
+fof(f170,plain,(
+  e1 = op(e0,e3)),
+  inference(cnf_transformation,[],[f2])).
+fof(f1520,plain,(
+  e0 != op(op(e3,e0),op(e0,e3)) | e0 != op(op(e2,e0),op(e0,e2)) | e0 != op(op(e1,e0),op(e0,e1)) | e0 != op(op(e0,e0),op(e0,e0))),
+  inference(subsumption_resolution,[],[f1519,f181])).
+fof(f181,plain,(
+  e0 = op(e2,e4)),
+  inference(cnf_transformation,[],[f2])).
+fof(f1519,plain,(
+  e0 != op(e2,e4) | e0 != op(op(e3,e0),op(e0,e3)) | e0 != op(op(e2,e0),op(e0,e2)) | e0 != op(op(e1,e0),op(e0,e1)) | e0 != op(op(e0,e0),op(e0,e0))),
+  inference(forward_demodulation,[],[f1518,f187])).
+fof(f187,plain,(
+  e2 = op(e4,e0)),
+  inference(cnf_transformation,[],[f2])).
+fof(f1518,plain,(
+  e0 != op(op(e4,e0),e4) | e0 != op(op(e3,e0),op(e0,e3)) | e0 != op(op(e2,e0),op(e0,e2)) | e0 != op(op(e1,e0),op(e0,e1)) | e0 != op(op(e0,e0),op(e0,e0))),
+  inference(forward_demodulation,[],[f1517,f171])).
+fof(f171,plain,(
+  e4 = op(e0,e4)),
+  inference(cnf_transformation,[],[f2])).
+fof(f1517,plain,(
+  e0 != op(op(e4,e0),op(e0,e4)) | e0 != op(op(e3,e0),op(e0,e3)) | e0 != op(op(e2,e0),op(e0,e2)) | e0 != op(op(e1,e0),op(e0,e1)) | e0 != op(op(e0,e0),op(e0,e0))),
+  inference(subsumption_resolution,[],[f1516,f177])).
+fof(f1516,plain,(
+  e1 != op(e2,e0) | e0 != op(op(e4,e0),op(e0,e4)) | e0 != op(op(e3,e0),op(e0,e3)) | e0 != op(op(e2,e0),op(e0,e2)) | e0 != op(op(e1,e0),op(e0,e1)) | e0 != op(op(e0,e0),op(e0,e0))),
+  inference(forward_demodulation,[],[f1515,f168])).
+fof(f1515,plain,(
+  e1 != op(op(e0,e1),e0) | e0 != op(op(e4,e0),op(e0,e4)) | e0 != op(op(e3,e0),op(e0,e3)) | e0 != op(op(e2,e0),op(e0,e2)) | e0 != op(op(e1,e0),op(e0,e1)) | e0 != op(op(e0,e0),op(e0,e0))),
+  inference(forward_demodulation,[],[f1514,f172])).
+fof(f1514,plain,(
+  e1 != op(op(e0,e1),op(e1,e0)) | e0 != op(op(e4,e0),op(e0,e4)) | e0 != op(op(e3,e0),op(e0,e3)) | e0 != op(op(e2,e0),op(e0,e2)) | e0 != op(op(e1,e0),op(e0,e1)) | e0 != op(op(e0,e0),op(e0,e0))),
+  inference(subsumption_resolution,[],[f1513,f191])).
+fof(f191,plain,(
+  e1 = op(e4,e4)),
+  inference(cnf_transformation,[],[f2])).
+fof(f1513,plain,(
+  e1 != op(e4,e4) | e1 != op(op(e0,e1),op(e1,e0)) | e0 != op(op(e4,e0),op(e0,e4)) | e0 != op(op(e3,e0),op(e0,e3)) | e0 != op(op(e2,e0),op(e0,e2)) | e0 != op(op(e1,e0),op(e0,e1)) | e0 != op(op(e0,e0),op(e0,e0))),
+  inference(forward_demodulation,[],[f1512,f173])).
+fof(f173,plain,(
+  e4 = op(e1,e1)),
+  inference(cnf_transformation,[],[f2])).
+fof(f1512,plain,(
+  e1 != op(op(e1,e1),op(e1,e1)) | e1 != op(op(e0,e1),op(e1,e0)) | e0 != op(op(e4,e0),op(e0,e4)) | e0 != op(op(e3,e0),op(e0,e3)) | e0 != op(op(e2,e0),op(e0,e2)) | e0 != op(op(e1,e0),op(e0,e1)) | e0 != op(op(e0,e0),op(e0,e0))),
+  inference(subsumption_resolution,[],[f1511,f183])).
+fof(f183,plain,(
+  e1 = op(e3,e1)),
+  inference(cnf_transformation,[],[f2])).
+fof(f1511,plain,(
+  e1 != op(e3,e1) | e1 != op(op(e1,e1),op(e1,e1)) | e1 != op(op(e0,e1),op(e1,e0)) | e0 != op(op(e4,e0),op(e0,e4)) | e0 != op(op(e3,e0),op(e0,e3)) | e0 != op(op(e2,e0),op(e0,e2)) | e0 != op(op(e1,e0),op(e0,e1)) | e0 != op(op(e0,e0),op(e0,e0))),
+  inference(forward_demodulation,[],[f1510,f178])).
+fof(f178,plain,(
+  e3 = op(e2,e1)),
+  inference(cnf_transformation,[],[f2])).
+fof(f1510,plain,(
+  e1 != op(op(e2,e1),e1) | e1 != op(op(e1,e1),op(e1,e1)) | e1 != op(op(e0,e1),op(e1,e0)) | e0 != op(op(e4,e0),op(e0,e4)) | e0 != op(op(e3,e0),op(e0,e3)) | e0 != op(op(e2,e0),op(e0,e2)) | e0 != op(op(e1,e0),op(e0,e1)) | e0 != op(op(e0,e0),op(e0,e0))),
+  inference(forward_demodulation,[],[f1509,f174])).
+fof(f174,plain,(
+  e1 = op(e1,e2)),
+  inference(cnf_transformation,[],[f2])).
+fof(f1509,plain,(
+  e1 != op(op(e2,e1),op(e1,e2)) | e1 != op(op(e1,e1),op(e1,e1)) | e1 != op(op(e0,e1),op(e1,e0)) | e0 != op(op(e4,e0),op(e0,e4)) | e0 != op(op(e3,e0),op(e0,e3)) | e0 != op(op(e2,e0),op(e0,e2)) | e0 != op(op(e1,e0),op(e0,e1)) | e0 != op(op(e0,e0),op(e0,e0))),
+  inference(subsumption_resolution,[],[f1508,f174])).
+fof(f1508,plain,(
+  e1 != op(e1,e2) | e1 != op(op(e2,e1),op(e1,e2)) | e1 != op(op(e1,e1),op(e1,e1)) | e1 != op(op(e0,e1),op(e1,e0)) | e0 != op(op(e4,e0),op(e0,e4)) | e0 != op(op(e3,e0),op(e0,e3)) | e0 != op(op(e2,e0),op(e0,e2)) | e0 != op(op(e1,e0),op(e0,e1)) | e0 != op(op(e0,e0),op(e0,e0))),
+  inference(forward_demodulation,[],[f1507,f183])).
+fof(f1507,plain,(
+  e1 != op(op(e3,e1),e2) | e1 != op(op(e2,e1),op(e1,e2)) | e1 != op(op(e1,e1),op(e1,e1)) | e1 != op(op(e0,e1),op(e1,e0)) | e0 != op(op(e4,e0),op(e0,e4)) | e0 != op(op(e3,e0),op(e0,e3)) | e0 != op(op(e2,e0),op(e0,e2)) | e0 != op(op(e1,e0),op(e0,e1)) | e0 != op(op(e0,e0),op(e0,e0))),
+  inference(forward_demodulation,[],[f1506,f175])).
+fof(f175,plain,(
+  e2 = op(e1,e3)),
+  inference(cnf_transformation,[],[f2])).
+fof(f1506,plain,(
+  e1 != op(op(e3,e1),op(e1,e3)) | e1 != op(op(e2,e1),op(e1,e2)) | e1 != op(op(e1,e1),op(e1,e1)) | e1 != op(op(e0,e1),op(e1,e0)) | e0 != op(op(e4,e0),op(e0,e4)) | e0 != op(op(e3,e0),op(e0,e3)) | e0 != op(op(e2,e0),op(e0,e2)) | e0 != op(op(e1,e0),op(e0,e1)) | e0 != op(op(e0,e0),op(e0,e0))),
+  inference(subsumption_resolution,[],[f1505,f170])).
+fof(f1505,plain,(
+  e1 != op(e0,e3) | e1 != op(op(e3,e1),op(e1,e3)) | e1 != op(op(e2,e1),op(e1,e2)) | e1 != op(op(e1,e1),op(e1,e1)) | e1 != op(op(e0,e1),op(e1,e0)) | e0 != op(op(e4,e0),op(e0,e4)) | e0 != op(op(e3,e0),op(e0,e3)) | e0 != op(op(e2,e0),op(e0,e2)) | e0 != op(op(e1,e0),op(e0,e1)) | e0 != op(op(e0,e0),op(e0,e0))),
+  inference(forward_demodulation,[],[f1504,f188])).
+fof(f1504,plain,(
+  e1 != op(op(e4,e1),e3) | e1 != op(op(e3,e1),op(e1,e3)) | e1 != op(op(e2,e1),op(e1,e2)) | e1 != op(op(e1,e1),op(e1,e1)) | e1 != op(op(e0,e1),op(e1,e0)) | e0 != op(op(e4,e0),op(e0,e4)) | e0 != op(op(e3,e0),op(e0,e3)) | e0 != op(op(e2,e0),op(e0,e2)) | e0 != op(op(e1,e0),op(e0,e1)) | e0 != op(op(e0,e0),op(e0,e0))),
+  inference(forward_demodulation,[],[f1503,f176])).
+fof(f176,plain,(
+  e3 = op(e1,e4)),
+  inference(cnf_transformation,[],[f2])).
+fof(f1503,plain,(
+  e1 != op(op(e4,e1),op(e1,e4)) | e1 != op(op(e3,e1),op(e1,e3)) | e1 != op(op(e2,e1),op(e1,e2)) | e1 != op(op(e1,e1),op(e1,e1)) | e1 != op(op(e0,e1),op(e1,e0)) | e0 != op(op(e4,e0),op(e0,e4)) | e0 != op(op(e3,e0),op(e0,e3)) | e0 != op(op(e2,e0),op(e0,e2)) | e0 != op(op(e1,e0),op(e0,e1)) | e0 != op(op(e0,e0),op(e0,e0))),
+  inference(subsumption_resolution,[],[f1502,f168])).
+fof(f1502,plain,(
+  e2 != op(e0,e1) | e1 != op(op(e4,e1),op(e1,e4)) | e1 != op(op(e3,e1),op(e1,e3)) | e1 != op(op(e2,e1),op(e1,e2)) | e1 != op(op(e1,e1),op(e1,e1)) | e1 != op(op(e0,e1),op(e1,e0)) | e0 != op(op(e4,e0),op(e0,e4)) | e0 != op(op(e3,e0),op(e0,e3)) | e0 != op(op(e2,e0),op(e0,e2)) | e0 != op(op(e1,e0),op(e0,e1)) | e0 != op(op(e0,e0),op(e0,e0))),
+  inference(forward_demodulation,[],[f1501,f169])).
+fof(f1501,plain,(
+  e2 != op(op(e0,e2),e1) | e1 != op(op(e4,e1),op(e1,e4)) | e1 != op(op(e3,e1),op(e1,e3)) | e1 != op(op(e2,e1),op(e1,e2)) | e1 != op(op(e1,e1),op(e1,e1)) | e1 != op(op(e0,e1),op(e1,e0)) | e0 != op(op(e4,e0),op(e0,e4)) | e0 != op(op(e3,e0),op(e0,e3)) | e0 != op(op(e2,e0),op(e0,e2)) | e0 != op(op(e1,e0),op(e0,e1)) | e0 != op(op(e0,e0),op(e0,e0))),
+  inference(forward_demodulation,[],[f1500,f177])).
+fof(f1500,plain,(
+  e2 != op(op(e0,e2),op(e2,e0)) | e1 != op(op(e4,e1),op(e1,e4)) | e1 != op(op(e3,e1),op(e1,e3)) | e1 != op(op(e2,e1),op(e1,e2)) | e1 != op(op(e1,e1),op(e1,e1)) | e1 != op(op(e0,e1),op(e1,e0)) | e0 != op(op(e4,e0),op(e0,e4)) | e0 != op(op(e3,e0),op(e0,e3)) | e0 != op(op(e2,e0),op(e0,e2)) | e0 != op(op(e1,e0),op(e0,e1)) | e0 != op(op(e0,e0),op(e0,e0))),
+  inference(subsumption_resolution,[],[f1499,f175])).
+fof(f1499,plain,(
+  e2 != op(e1,e3) | e2 != op(op(e0,e2),op(e2,e0)) | e1 != op(op(e4,e1),op(e1,e4)) | e1 != op(op(e3,e1),op(e1,e3)) | e1 != op(op(e2,e1),op(e1,e2)) | e1 != op(op(e1,e1),op(e1,e1)) | e1 != op(op(e0,e1),op(e1,e0)) | e0 != op(op(e4,e0),op(e0,e4)) | e0 != op(op(e3,e0),op(e0,e3)) | e0 != op(op(e2,e0),op(e0,e2)) | e0 != op(op(e1,e0),op(e0,e1)) | e0 != op(op(e0,e0),op(e0,e0))),
+  inference(forward_demodulation,[],[f1498,f174])).
+fof(f1498,plain,(
+  e2 != op(op(e1,e2),e3) | e2 != op(op(e0,e2),op(e2,e0)) | e1 != op(op(e4,e1),op(e1,e4)) | e1 != op(op(e3,e1),op(e1,e3)) | e1 != op(op(e2,e1),op(e1,e2)) | e1 != op(op(e1,e1),op(e1,e1)) | e1 != op(op(e0,e1),op(e1,e0)) | e0 != op(op(e4,e0),op(e0,e4)) | e0 != op(op(e3,e0),op(e0,e3)) | e0 != op(op(e2,e0),op(e0,e2)) | e0 != op(op(e1,e0),op(e0,e1)) | e0 != op(op(e0,e0),op(e0,e0))),
+  inference(forward_demodulation,[],[f1497,f178])).
+fof(f1497,plain,(
+  e2 != op(op(e1,e2),op(e2,e1)) | e2 != op(op(e0,e2),op(e2,e0)) | e1 != op(op(e4,e1),op(e1,e4)) | e1 != op(op(e3,e1),op(e1,e3)) | e1 != op(op(e2,e1),op(e1,e2)) | e1 != op(op(e1,e1),op(e1,e1)) | e1 != op(op(e0,e1),op(e1,e0)) | e0 != op(op(e4,e0),op(e0,e4)) | e0 != op(op(e3,e0),op(e0,e3)) | e0 != op(op(e2,e0),op(e0,e2)) | e0 != op(op(e1,e0),op(e0,e1)) | e0 != op(op(e0,e0),op(e0,e0))),
+  inference(subsumption_resolution,[],[f1496,f179])).
+fof(f179,plain,(
+  e2 = op(e2,e2)),
+  inference(cnf_transformation,[],[f2])).
+fof(f1496,plain,(
+  e2 != op(e2,e2) | e2 != op(op(e1,e2),op(e2,e1)) | e2 != op(op(e0,e2),op(e2,e0)) | e1 != op(op(e4,e1),op(e1,e4)) | e1 != op(op(e3,e1),op(e1,e3)) | e1 != op(op(e2,e1),op(e1,e2)) | e1 != op(op(e1,e1),op(e1,e1)) | e1 != op(op(e0,e1),op(e1,e0)) | e0 != op(op(e4,e0),op(e0,e4)) | e0 != op(op(e3,e0),op(e0,e3)) | e0 != op(op(e2,e0),op(e0,e2)) | e0 != op(op(e1,e0),op(e0,e1)) | e0 != op(op(e0,e0),op(e0,e0))),
+  inference(forward_demodulation,[],[f1495,f179])).
+fof(f1495,plain,(
+  e2 != op(op(e2,e2),op(e2,e2)) | e2 != op(op(e1,e2),op(e2,e1)) | e2 != op(op(e0,e2),op(e2,e0)) | e1 != op(op(e4,e1),op(e1,e4)) | e1 != op(op(e3,e1),op(e1,e3)) | e1 != op(op(e2,e1),op(e1,e2)) | e1 != op(op(e1,e1),op(e1,e1)) | e1 != op(op(e0,e1),op(e1,e0)) | e0 != op(op(e4,e0),op(e0,e4)) | e0 != op(op(e3,e0),op(e0,e3)) | e0 != op(op(e2,e0),op(e0,e2)) | e0 != op(op(e1,e0),op(e0,e1)) | e0 != op(op(e0,e0),op(e0,e0))),
+  inference(subsumption_resolution,[],[f1494,f186])).
+fof(f186,plain,(
+  e2 = op(e3,e4)),
+  inference(cnf_transformation,[],[f2])).
+fof(f1494,plain,(
+  e2 != op(e3,e4) | e2 != op(op(e2,e2),op(e2,e2)) | e2 != op(op(e1,e2),op(e2,e1)) | e2 != op(op(e0,e2),op(e2,e0)) | e1 != op(op(e4,e1),op(e1,e4)) | e1 != op(op(e3,e1),op(e1,e3)) | e1 != op(op(e2,e1),op(e1,e2)) | e1 != op(op(e1,e1),op(e1,e1)) | e1 != op(op(e0,e1),op(e1,e0)) | e0 != op(op(e4,e0),op(e0,e4)) | e0 != op(op(e3,e0),op(e0,e3)) | e0 != op(op(e2,e0),op(e0,e2)) | e0 != op(op(e1,e0),op(e0,e1)) | e0 != op(op(e0,e0),op(e0,e0))),
+  inference(forward_demodulation,[],[f1493,f184])).
+fof(f184,plain,(
+  e3 = op(e3,e2)),
+  inference(cnf_transformation,[],[f2])).
+fof(f1493,plain,(
+  e2 != op(op(e3,e2),e4) | e2 != op(op(e2,e2),op(e2,e2)) | e2 != op(op(e1,e2),op(e2,e1)) | e2 != op(op(e0,e2),op(e2,e0)) | e1 != op(op(e4,e1),op(e1,e4)) | e1 != op(op(e3,e1),op(e1,e3)) | e1 != op(op(e2,e1),op(e1,e2)) | e1 != op(op(e1,e1),op(e1,e1)) | e1 != op(op(e0,e1),op(e1,e0)) | e0 != op(op(e4,e0),op(e0,e4)) | e0 != op(op(e3,e0),op(e0,e3)) | e0 != op(op(e2,e0),op(e0,e2)) | e0 != op(op(e1,e0),op(e0,e1)) | e0 != op(op(e0,e0),op(e0,e0))),
+  inference(forward_demodulation,[],[f1492,f180])).
+fof(f180,plain,(
+  e4 = op(e2,e3)),
+  inference(cnf_transformation,[],[f2])).
+fof(f1492,plain,(
+  e2 != op(op(e3,e2),op(e2,e3)) | e2 != op(op(e2,e2),op(e2,e2)) | e2 != op(op(e1,e2),op(e2,e1)) | e2 != op(op(e0,e2),op(e2,e0)) | e1 != op(op(e4,e1),op(e1,e4)) | e1 != op(op(e3,e1),op(e1,e3)) | e1 != op(op(e2,e1),op(e1,e2)) | e1 != op(op(e1,e1),op(e1,e1)) | e1 != op(op(e0,e1),op(e1,e0)) | e0 != op(op(e4,e0),op(e0,e4)) | e0 != op(op(e3,e0),op(e0,e3)) | e0 != op(op(e2,e0),op(e0,e2)) | e0 != op(op(e1,e0),op(e0,e1)) | e0 != op(op(e0,e0),op(e0,e0))),
+  inference(subsumption_resolution,[],[f1491,f187])).
+fof(f1491,plain,(
+  e2 != op(e4,e0) | e2 != op(op(e3,e2),op(e2,e3)) | e2 != op(op(e2,e2),op(e2,e2)) | e2 != op(op(e1,e2),op(e2,e1)) | e2 != op(op(e0,e2),op(e2,e0)) | e1 != op(op(e4,e1),op(e1,e4)) | e1 != op(op(e3,e1),op(e1,e3)) | e1 != op(op(e2,e1),op(e1,e2)) | e1 != op(op(e1,e1),op(e1,e1)) | e1 != op(op(e0,e1),op(e1,e0)) | e0 != op(op(e4,e0),op(e0,e4)) | e0 != op(op(e3,e0),op(e0,e3)) | e0 != op(op(e2,e0),op(e0,e2)) | e0 != op(op(e1,e0),op(e0,e1)) | e0 != op(op(e0,e0),op(e0,e0))),
+  inference(forward_demodulation,[],[f1490,f189])).
+fof(f189,plain,(
+  e4 = op(e4,e2)),
+  inference(cnf_transformation,[],[f2])).
+fof(f1490,plain,(
+  e2 != op(op(e4,e2),e0) | e2 != op(op(e3,e2),op(e2,e3)) | e2 != op(op(e2,e2),op(e2,e2)) | e2 != op(op(e1,e2),op(e2,e1)) | e2 != op(op(e0,e2),op(e2,e0)) | e1 != op(op(e4,e1),op(e1,e4)) | e1 != op(op(e3,e1),op(e1,e3)) | e1 != op(op(e2,e1),op(e1,e2)) | e1 != op(op(e1,e1),op(e1,e1)) | e1 != op(op(e0,e1),op(e1,e0)) | e0 != op(op(e4,e0),op(e0,e4)) | e0 != op(op(e3,e0),op(e0,e3)) | e0 != op(op(e2,e0),op(e0,e2)) | e0 != op(op(e1,e0),op(e0,e1)) | e0 != op(op(e0,e0),op(e0,e0))),
+  inference(forward_demodulation,[],[f1489,f181])).
+fof(f1489,plain,(
+  e2 != op(op(e4,e2),op(e2,e4)) | e2 != op(op(e3,e2),op(e2,e3)) | e2 != op(op(e2,e2),op(e2,e2)) | e2 != op(op(e1,e2),op(e2,e1)) | e2 != op(op(e0,e2),op(e2,e0)) | e1 != op(op(e4,e1),op(e1,e4)) | e1 != op(op(e3,e1),op(e1,e3)) | e1 != op(op(e2,e1),op(e1,e2)) | e1 != op(op(e1,e1),op(e1,e1)) | e1 != op(op(e0,e1),op(e1,e0)) | e0 != op(op(e4,e0),op(e0,e4)) | e0 != op(op(e3,e0),op(e0,e3)) | e0 != op(op(e2,e0),op(e0,e2)) | e0 != op(op(e1,e0),op(e0,e1)) | e0 != op(op(e0,e0),op(e0,e0))),
+  inference(subsumption_resolution,[],[f1488,f176])).
+fof(f1488,plain,(
+  e3 != op(e1,e4) | e2 != op(op(e4,e2),op(e2,e4)) | e2 != op(op(e3,e2),op(e2,e3)) | e2 != op(op(e2,e2),op(e2,e2)) | e2 != op(op(e1,e2),op(e2,e1)) | e2 != op(op(e0,e2),op(e2,e0)) | e1 != op(op(e4,e1),op(e1,e4)) | e1 != op(op(e3,e1),op(e1,e3)) | e1 != op(op(e2,e1),op(e1,e2)) | e1 != op(op(e1,e1),op(e1,e1)) | e1 != op(op(e0,e1),op(e1,e0)) | e0 != op(op(e4,e0),op(e0,e4)) | e0 != op(op(e3,e0),op(e0,e3)) | e0 != op(op(e2,e0),op(e0,e2)) | e0 != op(op(e1,e0),op(e0,e1)) | e0 != op(op(e0,e0),op(e0,e0))),
+  inference(forward_demodulation,[],[f1487,f170])).
+fof(f1487,plain,(
+  e3 != op(op(e0,e3),e4) | e2 != op(op(e4,e2),op(e2,e4)) | e2 != op(op(e3,e2),op(e2,e3)) | e2 != op(op(e2,e2),op(e2,e2)) | e2 != op(op(e1,e2),op(e2,e1)) | e2 != op(op(e0,e2),op(e2,e0)) | e1 != op(op(e4,e1),op(e1,e4)) | e1 != op(op(e3,e1),op(e1,e3)) | e1 != op(op(e2,e1),op(e1,e2)) | e1 != op(op(e1,e1),op(e1,e1)) | e1 != op(op(e0,e1),op(e1,e0)) | e0 != op(op(e4,e0),op(e0,e4)) | e0 != op(op(e3,e0),op(e0,e3)) | e0 != op(op(e2,e0),op(e0,e2)) | e0 != op(op(e1,e0),op(e0,e1)) | e0 != op(op(e0,e0),op(e0,e0))),
+  inference(forward_demodulation,[],[f1486,f182])).
+fof(f1486,plain,(
+  e3 != op(op(e0,e3),op(e3,e0)) | e2 != op(op(e4,e2),op(e2,e4)) | e2 != op(op(e3,e2),op(e2,e3)) | e2 != op(op(e2,e2),op(e2,e2)) | e2 != op(op(e1,e2),op(e2,e1)) | e2 != op(op(e0,e2),op(e2,e0)) | e1 != op(op(e4,e1),op(e1,e4)) | e1 != op(op(e3,e1),op(e1,e3)) | e1 != op(op(e2,e1),op(e1,e2)) | e1 != op(op(e1,e1),op(e1,e1)) | e1 != op(op(e0,e1),op(e1,e0)) | e0 != op(op(e4,e0),op(e0,e4)) | e0 != op(op(e3,e0),op(e0,e3)) | e0 != op(op(e2,e0),op(e0,e2)) | e0 != op(op(e1,e0),op(e0,e1)) | e0 != op(op(e0,e0),op(e0,e0))),
+  inference(subsumption_resolution,[],[f1485,f178])).
+fof(f1485,plain,(
+  e3 != op(e2,e1) | e3 != op(op(e0,e3),op(e3,e0)) | e2 != op(op(e4,e2),op(e2,e4)) | e2 != op(op(e3,e2),op(e2,e3)) | e2 != op(op(e2,e2),op(e2,e2)) | e2 != op(op(e1,e2),op(e2,e1)) | e2 != op(op(e0,e2),op(e2,e0)) | e1 != op(op(e4,e1),op(e1,e4)) | e1 != op(op(e3,e1),op(e1,e3)) | e1 != op(op(e2,e1),op(e1,e2)) | e1 != op(op(e1,e1),op(e1,e1)) | e1 != op(op(e0,e1),op(e1,e0)) | e0 != op(op(e4,e0),op(e0,e4)) | e0 != op(op(e3,e0),op(e0,e3)) | e0 != op(op(e2,e0),op(e0,e2)) | e0 != op(op(e1,e0),op(e0,e1)) | e0 != op(op(e0,e0),op(e0,e0))),
+  inference(forward_demodulation,[],[f1484,f175])).
+fof(f1484,plain,(
+  e3 != op(op(e1,e3),e1) | e3 != op(op(e0,e3),op(e3,e0)) | e2 != op(op(e4,e2),op(e2,e4)) | e2 != op(op(e3,e2),op(e2,e3)) | e2 != op(op(e2,e2),op(e2,e2)) | e2 != op(op(e1,e2),op(e2,e1)) | e2 != op(op(e0,e2),op(e2,e0)) | e1 != op(op(e4,e1),op(e1,e4)) | e1 != op(op(e3,e1),op(e1,e3)) | e1 != op(op(e2,e1),op(e1,e2)) | e1 != op(op(e1,e1),op(e1,e1)) | e1 != op(op(e0,e1),op(e1,e0)) | e0 != op(op(e4,e0),op(e0,e4)) | e0 != op(op(e3,e0),op(e0,e3)) | e0 != op(op(e2,e0),op(e0,e2)) | e0 != op(op(e1,e0),op(e0,e1)) | e0 != op(op(e0,e0),op(e0,e0))),
+  inference(forward_demodulation,[],[f1483,f183])).
+fof(f1483,plain,(
+  e3 != op(op(e1,e3),op(e3,e1)) | e3 != op(op(e0,e3),op(e3,e0)) | e2 != op(op(e4,e2),op(e2,e4)) | e2 != op(op(e3,e2),op(e2,e3)) | e2 != op(op(e2,e2),op(e2,e2)) | e2 != op(op(e1,e2),op(e2,e1)) | e2 != op(op(e0,e2),op(e2,e0)) | e1 != op(op(e4,e1),op(e1,e4)) | e1 != op(op(e3,e1),op(e1,e3)) | e1 != op(op(e2,e1),op(e1,e2)) | e1 != op(op(e1,e1),op(e1,e1)) | e1 != op(op(e0,e1),op(e1,e0)) | e0 != op(op(e4,e0),op(e0,e4)) | e0 != op(op(e3,e0),op(e0,e3)) | e0 != op(op(e2,e0),op(e0,e2)) | e0 != op(op(e1,e0),op(e0,e1)) | e0 != op(op(e0,e0),op(e0,e0))),
+  inference(subsumption_resolution,[],[f1482,f190])).
+fof(f190,plain,(
+  e3 = op(e4,e3)),
+  inference(cnf_transformation,[],[f2])).
+fof(f1482,plain,(
+  e3 != op(e4,e3) | e3 != op(op(e1,e3),op(e3,e1)) | e3 != op(op(e0,e3),op(e3,e0)) | e2 != op(op(e4,e2),op(e2,e4)) | e2 != op(op(e3,e2),op(e2,e3)) | e2 != op(op(e2,e2),op(e2,e2)) | e2 != op(op(e1,e2),op(e2,e1)) | e2 != op(op(e0,e2),op(e2,e0)) | e1 != op(op(e4,e1),op(e1,e4)) | e1 != op(op(e3,e1),op(e1,e3)) | e1 != op(op(e2,e1),op(e1,e2)) | e1 != op(op(e1,e1),op(e1,e1)) | e1 != op(op(e0,e1),op(e1,e0)) | e0 != op(op(e4,e0),op(e0,e4)) | e0 != op(op(e3,e0),op(e0,e3)) | e0 != op(op(e2,e0),op(e0,e2)) | e0 != op(op(e1,e0),op(e0,e1)) | e0 != op(op(e0,e0),op(e0,e0))),
+  inference(forward_demodulation,[],[f1481,f180])).
+fof(f1481,plain,(
+  e3 != op(op(e2,e3),e3) | e3 != op(op(e1,e3),op(e3,e1)) | e3 != op(op(e0,e3),op(e3,e0)) | e2 != op(op(e4,e2),op(e2,e4)) | e2 != op(op(e3,e2),op(e2,e3)) | e2 != op(op(e2,e2),op(e2,e2)) | e2 != op(op(e1,e2),op(e2,e1)) | e2 != op(op(e0,e2),op(e2,e0)) | e1 != op(op(e4,e1),op(e1,e4)) | e1 != op(op(e3,e1),op(e1,e3)) | e1 != op(op(e2,e1),op(e1,e2)) | e1 != op(op(e1,e1),op(e1,e1)) | e1 != op(op(e0,e1),op(e1,e0)) | e0 != op(op(e4,e0),op(e0,e4)) | e0 != op(op(e3,e0),op(e0,e3)) | e0 != op(op(e2,e0),op(e0,e2)) | e0 != op(op(e1,e0),op(e0,e1)) | e0 != op(op(e0,e0),op(e0,e0))),
+  inference(forward_demodulation,[],[f1480,f184])).
+fof(f1480,plain,(
+  e3 != op(op(e2,e3),op(e3,e2)) | e3 != op(op(e1,e3),op(e3,e1)) | e3 != op(op(e0,e3),op(e3,e0)) | e2 != op(op(e4,e2),op(e2,e4)) | e2 != op(op(e3,e2),op(e2,e3)) | e2 != op(op(e2,e2),op(e2,e2)) | e2 != op(op(e1,e2),op(e2,e1)) | e2 != op(op(e0,e2),op(e2,e0)) | e1 != op(op(e4,e1),op(e1,e4)) | e1 != op(op(e3,e1),op(e1,e3)) | e1 != op(op(e2,e1),op(e1,e2)) | e1 != op(op(e1,e1),op(e1,e1)) | e1 != op(op(e0,e1),op(e1,e0)) | e0 != op(op(e4,e0),op(e0,e4)) | e0 != op(op(e3,e0),op(e0,e3)) | e0 != op(op(e2,e0),op(e0,e2)) | e0 != op(op(e1,e0),op(e0,e1)) | e0 != op(op(e0,e0),op(e0,e0))),
+  inference(subsumption_resolution,[],[f1479,f167])).
+fof(f1479,plain,(
+  e3 != op(e0,e0) | e3 != op(op(e2,e3),op(e3,e2)) | e3 != op(op(e1,e3),op(e3,e1)) | e3 != op(op(e0,e3),op(e3,e0)) | e2 != op(op(e4,e2),op(e2,e4)) | e2 != op(op(e3,e2),op(e2,e3)) | e2 != op(op(e2,e2),op(e2,e2)) | e2 != op(op(e1,e2),op(e2,e1)) | e2 != op(op(e0,e2),op(e2,e0)) | e1 != op(op(e4,e1),op(e1,e4)) | e1 != op(op(e3,e1),op(e1,e3)) | e1 != op(op(e2,e1),op(e1,e2)) | e1 != op(op(e1,e1),op(e1,e1)) | e1 != op(op(e0,e1),op(e1,e0)) | e0 != op(op(e4,e0),op(e0,e4)) | e0 != op(op(e3,e0),op(e0,e3)) | e0 != op(op(e2,e0),op(e0,e2)) | e0 != op(op(e1,e0),op(e0,e1)) | e0 != op(op(e0,e0),op(e0,e0))),
+  inference(forward_demodulation,[],[f1478,f185])).
+fof(f1478,plain,(
+  e3 != op(op(e3,e3),op(e3,e3)) | e3 != op(op(e2,e3),op(e3,e2)) | e3 != op(op(e1,e3),op(e3,e1)) | e3 != op(op(e0,e3),op(e3,e0)) | e2 != op(op(e4,e2),op(e2,e4)) | e2 != op(op(e3,e2),op(e2,e3)) | e2 != op(op(e2,e2),op(e2,e2)) | e2 != op(op(e1,e2),op(e2,e1)) | e2 != op(op(e0,e2),op(e2,e0)) | e1 != op(op(e4,e1),op(e1,e4)) | e1 != op(op(e3,e1),op(e1,e3)) | e1 != op(op(e2,e1),op(e1,e2)) | e1 != op(op(e1,e1),op(e1,e1)) | e1 != op(op(e0,e1),op(e1,e0)) | e0 != op(op(e4,e0),op(e0,e4)) | e0 != op(op(e3,e0),op(e0,e3)) | e0 != op(op(e2,e0),op(e0,e2)) | e0 != op(op(e1,e0),op(e0,e1)) | e0 != op(op(e0,e0),op(e0,e0))),
+  inference(subsumption_resolution,[],[f1477,f184])).
+fof(f1477,plain,(
+  e3 != op(e3,e2) | e3 != op(op(e3,e3),op(e3,e3)) | e3 != op(op(e2,e3),op(e3,e2)) | e3 != op(op(e1,e3),op(e3,e1)) | e3 != op(op(e0,e3),op(e3,e0)) | e2 != op(op(e4,e2),op(e2,e4)) | e2 != op(op(e3,e2),op(e2,e3)) | e2 != op(op(e2,e2),op(e2,e2)) | e2 != op(op(e1,e2),op(e2,e1)) | e2 != op(op(e0,e2),op(e2,e0)) | e1 != op(op(e4,e1),op(e1,e4)) | e1 != op(op(e3,e1),op(e1,e3)) | e1 != op(op(e2,e1),op(e1,e2)) | e1 != op(op(e1,e1),op(e1,e1)) | e1 != op(op(e0,e1),op(e1,e0)) | e0 != op(op(e4,e0),op(e0,e4)) | e0 != op(op(e3,e0),op(e0,e3)) | e0 != op(op(e2,e0),op(e0,e2)) | e0 != op(op(e1,e0),op(e0,e1)) | e0 != op(op(e0,e0),op(e0,e0))),
+  inference(forward_demodulation,[],[f1476,f190])).
+fof(f1476,plain,(
+  e3 != op(op(e4,e3),e2) | e3 != op(op(e3,e3),op(e3,e3)) | e3 != op(op(e2,e3),op(e3,e2)) | e3 != op(op(e1,e3),op(e3,e1)) | e3 != op(op(e0,e3),op(e3,e0)) | e2 != op(op(e4,e2),op(e2,e4)) | e2 != op(op(e3,e2),op(e2,e3)) | e2 != op(op(e2,e2),op(e2,e2)) | e2 != op(op(e1,e2),op(e2,e1)) | e2 != op(op(e0,e2),op(e2,e0)) | e1 != op(op(e4,e1),op(e1,e4)) | e1 != op(op(e3,e1),op(e1,e3)) | e1 != op(op(e2,e1),op(e1,e2)) | e1 != op(op(e1,e1),op(e1,e1)) | e1 != op(op(e0,e1),op(e1,e0)) | e0 != op(op(e4,e0),op(e0,e4)) | e0 != op(op(e3,e0),op(e0,e3)) | e0 != op(op(e2,e0),op(e0,e2)) | e0 != op(op(e1,e0),op(e0,e1)) | e0 != op(op(e0,e0),op(e0,e0))),
+  inference(forward_demodulation,[],[f1475,f186])).
+fof(f1475,plain,(
+  e3 != op(op(e4,e3),op(e3,e4)) | e3 != op(op(e3,e3),op(e3,e3)) | e3 != op(op(e2,e3),op(e3,e2)) | e3 != op(op(e1,e3),op(e3,e1)) | e3 != op(op(e0,e3),op(e3,e0)) | e2 != op(op(e4,e2),op(e2,e4)) | e2 != op(op(e3,e2),op(e2,e3)) | e2 != op(op(e2,e2),op(e2,e2)) | e2 != op(op(e1,e2),op(e2,e1)) | e2 != op(op(e0,e2),op(e2,e0)) | e1 != op(op(e4,e1),op(e1,e4)) | e1 != op(op(e3,e1),op(e1,e3)) | e1 != op(op(e2,e1),op(e1,e2)) | e1 != op(op(e1,e1),op(e1,e1)) | e1 != op(op(e0,e1),op(e1,e0)) | e0 != op(op(e4,e0),op(e0,e4)) | e0 != op(op(e3,e0),op(e0,e3)) | e0 != op(op(e2,e0),op(e0,e2)) | e0 != op(op(e1,e0),op(e0,e1)) | e0 != op(op(e0,e0),op(e0,e0))),
+  inference(subsumption_resolution,[],[f1474,f189])).
+fof(f1474,plain,(
+  e4 != op(e4,e2) | e3 != op(op(e4,e3),op(e3,e4)) | e3 != op(op(e3,e3),op(e3,e3)) | e3 != op(op(e2,e3),op(e3,e2)) | e3 != op(op(e1,e3),op(e3,e1)) | e3 != op(op(e0,e3),op(e3,e0)) | e2 != op(op(e4,e2),op(e2,e4)) | e2 != op(op(e3,e2),op(e2,e3)) | e2 != op(op(e2,e2),op(e2,e2)) | e2 != op(op(e1,e2),op(e2,e1)) | e2 != op(op(e0,e2),op(e2,e0)) | e1 != op(op(e4,e1),op(e1,e4)) | e1 != op(op(e3,e1),op(e1,e3)) | e1 != op(op(e2,e1),op(e1,e2)) | e1 != op(op(e1,e1),op(e1,e1)) | e1 != op(op(e0,e1),op(e1,e0)) | e0 != op(op(e4,e0),op(e0,e4)) | e0 != op(op(e3,e0),op(e0,e3)) | e0 != op(op(e2,e0),op(e0,e2)) | e0 != op(op(e1,e0),op(e0,e1)) | e0 != op(op(e0,e0),op(e0,e0))),
+  inference(forward_demodulation,[],[f1473,f171])).
+fof(f1473,plain,(
+  e4 != op(op(e0,e4),e2) | e3 != op(op(e4,e3),op(e3,e4)) | e3 != op(op(e3,e3),op(e3,e3)) | e3 != op(op(e2,e3),op(e3,e2)) | e3 != op(op(e1,e3),op(e3,e1)) | e3 != op(op(e0,e3),op(e3,e0)) | e2 != op(op(e4,e2),op(e2,e4)) | e2 != op(op(e3,e2),op(e2,e3)) | e2 != op(op(e2,e2),op(e2,e2)) | e2 != op(op(e1,e2),op(e2,e1)) | e2 != op(op(e0,e2),op(e2,e0)) | e1 != op(op(e4,e1),op(e1,e4)) | e1 != op(op(e3,e1),op(e1,e3)) | e1 != op(op(e2,e1),op(e1,e2)) | e1 != op(op(e1,e1),op(e1,e1)) | e1 != op(op(e0,e1),op(e1,e0)) | e0 != op(op(e4,e0),op(e0,e4)) | e0 != op(op(e3,e0),op(e0,e3)) | e0 != op(op(e2,e0),op(e0,e2)) | e0 != op(op(e1,e0),op(e0,e1)) | e0 != op(op(e0,e0),op(e0,e0))),
+  inference(forward_demodulation,[],[f1472,f187])).
+fof(f1472,plain,(
+  e4 != op(op(e0,e4),op(e4,e0)) | e3 != op(op(e4,e3),op(e3,e4)) | e3 != op(op(e3,e3),op(e3,e3)) | e3 != op(op(e2,e3),op(e3,e2)) | e3 != op(op(e1,e3),op(e3,e1)) | e3 != op(op(e0,e3),op(e3,e0)) | e2 != op(op(e4,e2),op(e2,e4)) | e2 != op(op(e3,e2),op(e2,e3)) | e2 != op(op(e2,e2),op(e2,e2)) | e2 != op(op(e1,e2),op(e2,e1)) | e2 != op(op(e0,e2),op(e2,e0)) | e1 != op(op(e4,e1),op(e1,e4)) | e1 != op(op(e3,e1),op(e1,e3)) | e1 != op(op(e2,e1),op(e1,e2)) | e1 != op(op(e1,e1),op(e1,e1)) | e1 != op(op(e0,e1),op(e1,e0)) | e0 != op(op(e4,e0),op(e0,e4)) | e0 != op(op(e3,e0),op(e0,e3)) | e0 != op(op(e2,e0),op(e0,e2)) | e0 != op(op(e1,e0),op(e0,e1)) | e0 != op(op(e0,e0),op(e0,e0))),
+  inference(subsumption_resolution,[],[f1471,f182])).
+fof(f1471,plain,(
+  e4 != op(e3,e0) | e4 != op(op(e0,e4),op(e4,e0)) | e3 != op(op(e4,e3),op(e3,e4)) | e3 != op(op(e3,e3),op(e3,e3)) | e3 != op(op(e2,e3),op(e3,e2)) | e3 != op(op(e1,e3),op(e3,e1)) | e3 != op(op(e0,e3),op(e3,e0)) | e2 != op(op(e4,e2),op(e2,e4)) | e2 != op(op(e3,e2),op(e2,e3)) | e2 != op(op(e2,e2),op(e2,e2)) | e2 != op(op(e1,e2),op(e2,e1)) | e2 != op(op(e0,e2),op(e2,e0)) | e1 != op(op(e4,e1),op(e1,e4)) | e1 != op(op(e3,e1),op(e1,e3)) | e1 != op(op(e2,e1),op(e1,e2)) | e1 != op(op(e1,e1),op(e1,e1)) | e1 != op(op(e0,e1),op(e1,e0)) | e0 != op(op(e4,e0),op(e0,e4)) | e0 != op(op(e3,e0),op(e0,e3)) | e0 != op(op(e2,e0),op(e0,e2)) | e0 != op(op(e1,e0),op(e0,e1)) | e0 != op(op(e0,e0),op(e0,e0))),
+  inference(forward_demodulation,[],[f1470,f176])).
+fof(f1470,plain,(
+  e4 != op(op(e1,e4),e0) | e4 != op(op(e0,e4),op(e4,e0)) | e3 != op(op(e4,e3),op(e3,e4)) | e3 != op(op(e3,e3),op(e3,e3)) | e3 != op(op(e2,e3),op(e3,e2)) | e3 != op(op(e1,e3),op(e3,e1)) | e3 != op(op(e0,e3),op(e3,e0)) | e2 != op(op(e4,e2),op(e2,e4)) | e2 != op(op(e3,e2),op(e2,e3)) | e2 != op(op(e2,e2),op(e2,e2)) | e2 != op(op(e1,e2),op(e2,e1)) | e2 != op(op(e0,e2),op(e2,e0)) | e1 != op(op(e4,e1),op(e1,e4)) | e1 != op(op(e3,e1),op(e1,e3)) | e1 != op(op(e2,e1),op(e1,e2)) | e1 != op(op(e1,e1),op(e1,e1)) | e1 != op(op(e0,e1),op(e1,e0)) | e0 != op(op(e4,e0),op(e0,e4)) | e0 != op(op(e3,e0),op(e0,e3)) | e0 != op(op(e2,e0),op(e0,e2)) | e0 != op(op(e1,e0),op(e0,e1)) | e0 != op(op(e0,e0),op(e0,e0))),
+  inference(forward_demodulation,[],[f1469,f188])).
+fof(f1469,plain,(
+  e4 != op(op(e1,e4),op(e4,e1)) | e4 != op(op(e0,e4),op(e4,e0)) | e3 != op(op(e4,e3),op(e3,e4)) | e3 != op(op(e3,e3),op(e3,e3)) | e3 != op(op(e2,e3),op(e3,e2)) | e3 != op(op(e1,e3),op(e3,e1)) | e3 != op(op(e0,e3),op(e3,e0)) | e2 != op(op(e4,e2),op(e2,e4)) | e2 != op(op(e3,e2),op(e2,e3)) | e2 != op(op(e2,e2),op(e2,e2)) | e2 != op(op(e1,e2),op(e2,e1)) | e2 != op(op(e0,e2),op(e2,e0)) | e1 != op(op(e4,e1),op(e1,e4)) | e1 != op(op(e3,e1),op(e1,e3)) | e1 != op(op(e2,e1),op(e1,e2)) | e1 != op(op(e1,e1),op(e1,e1)) | e1 != op(op(e0,e1),op(e1,e0)) | e0 != op(op(e4,e0),op(e0,e4)) | e0 != op(op(e3,e0),op(e0,e3)) | e0 != op(op(e2,e0),op(e0,e2)) | e0 != op(op(e1,e0),op(e0,e1)) | e0 != op(op(e0,e0),op(e0,e0))),
+  inference(subsumption_resolution,[],[f1468,f171])).
+fof(f1468,plain,(
+  e4 != op(e0,e4) | e4 != op(op(e1,e4),op(e4,e1)) | e4 != op(op(e0,e4),op(e4,e0)) | e3 != op(op(e4,e3),op(e3,e4)) | e3 != op(op(e3,e3),op(e3,e3)) | e3 != op(op(e2,e3),op(e3,e2)) | e3 != op(op(e1,e3),op(e3,e1)) | e3 != op(op(e0,e3),op(e3,e0)) | e2 != op(op(e4,e2),op(e2,e4)) | e2 != op(op(e3,e2),op(e2,e3)) | e2 != op(op(e2,e2),op(e2,e2)) | e2 != op(op(e1,e2),op(e2,e1)) | e2 != op(op(e0,e2),op(e2,e0)) | e1 != op(op(e4,e1),op(e1,e4)) | e1 != op(op(e3,e1),op(e1,e3)) | e1 != op(op(e2,e1),op(e1,e2)) | e1 != op(op(e1,e1),op(e1,e1)) | e1 != op(op(e0,e1),op(e1,e0)) | e0 != op(op(e4,e0),op(e0,e4)) | e0 != op(op(e3,e0),op(e0,e3)) | e0 != op(op(e2,e0),op(e0,e2)) | e0 != op(op(e1,e0),op(e0,e1)) | e0 != op(op(e0,e0),op(e0,e0))),
+  inference(forward_demodulation,[],[f1467,f181])).
+fof(f1467,plain,(
+  e4 != op(op(e2,e4),e4) | e4 != op(op(e1,e4),op(e4,e1)) | e4 != op(op(e0,e4),op(e4,e0)) | e3 != op(op(e4,e3),op(e3,e4)) | e3 != op(op(e3,e3),op(e3,e3)) | e3 != op(op(e2,e3),op(e3,e2)) | e3 != op(op(e1,e3),op(e3,e1)) | e3 != op(op(e0,e3),op(e3,e0)) | e2 != op(op(e4,e2),op(e2,e4)) | e2 != op(op(e3,e2),op(e2,e3)) | e2 != op(op(e2,e2),op(e2,e2)) | e2 != op(op(e1,e2),op(e2,e1)) | e2 != op(op(e0,e2),op(e2,e0)) | e1 != op(op(e4,e1),op(e1,e4)) | e1 != op(op(e3,e1),op(e1,e3)) | e1 != op(op(e2,e1),op(e1,e2)) | e1 != op(op(e1,e1),op(e1,e1)) | e1 != op(op(e0,e1),op(e1,e0)) | e0 != op(op(e4,e0),op(e0,e4)) | e0 != op(op(e3,e0),op(e0,e3)) | e0 != op(op(e2,e0),op(e0,e2)) | e0 != op(op(e1,e0),op(e0,e1)) | e0 != op(op(e0,e0),op(e0,e0))),
+  inference(forward_demodulation,[],[f1466,f189])).
+fof(f1466,plain,(
+  e4 != op(op(e2,e4),op(e4,e2)) | e4 != op(op(e1,e4),op(e4,e1)) | e4 != op(op(e0,e4),op(e4,e0)) | e3 != op(op(e4,e3),op(e3,e4)) | e3 != op(op(e3,e3),op(e3,e3)) | e3 != op(op(e2,e3),op(e3,e2)) | e3 != op(op(e1,e3),op(e3,e1)) | e3 != op(op(e0,e3),op(e3,e0)) | e2 != op(op(e4,e2),op(e2,e4)) | e2 != op(op(e3,e2),op(e2,e3)) | e2 != op(op(e2,e2),op(e2,e2)) | e2 != op(op(e1,e2),op(e2,e1)) | e2 != op(op(e0,e2),op(e2,e0)) | e1 != op(op(e4,e1),op(e1,e4)) | e1 != op(op(e3,e1),op(e1,e3)) | e1 != op(op(e2,e1),op(e1,e2)) | e1 != op(op(e1,e1),op(e1,e1)) | e1 != op(op(e0,e1),op(e1,e0)) | e0 != op(op(e4,e0),op(e0,e4)) | e0 != op(op(e3,e0),op(e0,e3)) | e0 != op(op(e2,e0),op(e0,e2)) | e0 != op(op(e1,e0),op(e0,e1)) | e0 != op(op(e0,e0),op(e0,e0))),
+  inference(subsumption_resolution,[],[f1465,f180])).
+fof(f1465,plain,(
+  e4 != op(e2,e3) | e4 != op(op(e2,e4),op(e4,e2)) | e4 != op(op(e1,e4),op(e4,e1)) | e4 != op(op(e0,e4),op(e4,e0)) | e3 != op(op(e4,e3),op(e3,e4)) | e3 != op(op(e3,e3),op(e3,e3)) | e3 != op(op(e2,e3),op(e3,e2)) | e3 != op(op(e1,e3),op(e3,e1)) | e3 != op(op(e0,e3),op(e3,e0)) | e2 != op(op(e4,e2),op(e2,e4)) | e2 != op(op(e3,e2),op(e2,e3)) | e2 != op(op(e2,e2),op(e2,e2)) | e2 != op(op(e1,e2),op(e2,e1)) | e2 != op(op(e0,e2),op(e2,e0)) | e1 != op(op(e4,e1),op(e1,e4)) | e1 != op(op(e3,e1),op(e1,e3)) | e1 != op(op(e2,e1),op(e1,e2)) | e1 != op(op(e1,e1),op(e1,e1)) | e1 != op(op(e0,e1),op(e1,e0)) | e0 != op(op(e4,e0),op(e0,e4)) | e0 != op(op(e3,e0),op(e0,e3)) | e0 != op(op(e2,e0),op(e0,e2)) | e0 != op(op(e1,e0),op(e0,e1)) | e0 != op(op(e0,e0),op(e0,e0))),
+  inference(forward_demodulation,[],[f1464,f186])).
+fof(f1464,plain,(
+  e4 != op(op(e3,e4),e3) | e4 != op(op(e2,e4),op(e4,e2)) | e4 != op(op(e1,e4),op(e4,e1)) | e4 != op(op(e0,e4),op(e4,e0)) | e3 != op(op(e4,e3),op(e3,e4)) | e3 != op(op(e3,e3),op(e3,e3)) | e3 != op(op(e2,e3),op(e3,e2)) | e3 != op(op(e1,e3),op(e3,e1)) | e3 != op(op(e0,e3),op(e3,e0)) | e2 != op(op(e4,e2),op(e2,e4)) | e2 != op(op(e3,e2),op(e2,e3)) | e2 != op(op(e2,e2),op(e2,e2)) | e2 != op(op(e1,e2),op(e2,e1)) | e2 != op(op(e0,e2),op(e2,e0)) | e1 != op(op(e4,e1),op(e1,e4)) | e1 != op(op(e3,e1),op(e1,e3)) | e1 != op(op(e2,e1),op(e1,e2)) | e1 != op(op(e1,e1),op(e1,e1)) | e1 != op(op(e0,e1),op(e1,e0)) | e0 != op(op(e4,e0),op(e0,e4)) | e0 != op(op(e3,e0),op(e0,e3)) | e0 != op(op(e2,e0),op(e0,e2)) | e0 != op(op(e1,e0),op(e0,e1)) | e0 != op(op(e0,e0),op(e0,e0))),
+  inference(forward_demodulation,[],[f1463,f190])).
+fof(f1463,plain,(
+  e4 != op(op(e3,e4),op(e4,e3)) | e4 != op(op(e2,e4),op(e4,e2)) | e4 != op(op(e1,e4),op(e4,e1)) | e4 != op(op(e0,e4),op(e4,e0)) | e3 != op(op(e4,e3),op(e3,e4)) | e3 != op(op(e3,e3),op(e3,e3)) | e3 != op(op(e2,e3),op(e3,e2)) | e3 != op(op(e1,e3),op(e3,e1)) | e3 != op(op(e0,e3),op(e3,e0)) | e2 != op(op(e4,e2),op(e2,e4)) | e2 != op(op(e3,e2),op(e2,e3)) | e2 != op(op(e2,e2),op(e2,e2)) | e2 != op(op(e1,e2),op(e2,e1)) | e2 != op(op(e0,e2),op(e2,e0)) | e1 != op(op(e4,e1),op(e1,e4)) | e1 != op(op(e3,e1),op(e1,e3)) | e1 != op(op(e2,e1),op(e1,e2)) | e1 != op(op(e1,e1),op(e1,e1)) | e1 != op(op(e0,e1),op(e1,e0)) | e0 != op(op(e4,e0),op(e0,e4)) | e0 != op(op(e3,e0),op(e0,e3)) | e0 != op(op(e2,e0),op(e0,e2)) | e0 != op(op(e1,e0),op(e0,e1)) | e0 != op(op(e0,e0),op(e0,e0))),
+  inference(subsumption_resolution,[],[f1462,f173])).
+fof(f1462,plain,(
+  e4 != op(e1,e1) | e4 != op(op(e3,e4),op(e4,e3)) | e4 != op(op(e2,e4),op(e4,e2)) | e4 != op(op(e1,e4),op(e4,e1)) | e4 != op(op(e0,e4),op(e4,e0)) | e3 != op(op(e4,e3),op(e3,e4)) | e3 != op(op(e3,e3),op(e3,e3)) | e3 != op(op(e2,e3),op(e3,e2)) | e3 != op(op(e1,e3),op(e3,e1)) | e3 != op(op(e0,e3),op(e3,e0)) | e2 != op(op(e4,e2),op(e2,e4)) | e2 != op(op(e3,e2),op(e2,e3)) | e2 != op(op(e2,e2),op(e2,e2)) | e2 != op(op(e1,e2),op(e2,e1)) | e2 != op(op(e0,e2),op(e2,e0)) | e1 != op(op(e4,e1),op(e1,e4)) | e1 != op(op(e3,e1),op(e1,e3)) | e1 != op(op(e2,e1),op(e1,e2)) | e1 != op(op(e1,e1),op(e1,e1)) | e1 != op(op(e0,e1),op(e1,e0)) | e0 != op(op(e4,e0),op(e0,e4)) | e0 != op(op(e3,e0),op(e0,e3)) | e0 != op(op(e2,e0),op(e0,e2)) | e0 != op(op(e1,e0),op(e0,e1)) | e0 != op(op(e0,e0),op(e0,e0))),
+  inference(forward_demodulation,[],[f1461,f191])).
+fof(f1461,plain,(
+  e4 != op(op(e4,e4),op(e4,e4)) | e4 != op(op(e3,e4),op(e4,e3)) | e4 != op(op(e2,e4),op(e4,e2)) | e4 != op(op(e1,e4),op(e4,e1)) | e4 != op(op(e0,e4),op(e4,e0)) | e3 != op(op(e4,e3),op(e3,e4)) | e3 != op(op(e3,e3),op(e3,e3)) | e3 != op(op(e2,e3),op(e3,e2)) | e3 != op(op(e1,e3),op(e3,e1)) | e3 != op(op(e0,e3),op(e3,e0)) | e2 != op(op(e4,e2),op(e2,e4)) | e2 != op(op(e3,e2),op(e2,e3)) | e2 != op(op(e2,e2),op(e2,e2)) | e2 != op(op(e1,e2),op(e2,e1)) | e2 != op(op(e0,e2),op(e2,e0)) | e1 != op(op(e4,e1),op(e1,e4)) | e1 != op(op(e3,e1),op(e1,e3)) | e1 != op(op(e2,e1),op(e1,e2)) | e1 != op(op(e1,e1),op(e1,e1)) | e1 != op(op(e0,e1),op(e1,e0)) | e0 != op(op(e4,e0),op(e0,e4)) | e0 != op(op(e3,e0),op(e0,e3)) | e0 != op(op(e2,e0),op(e0,e2)) | e0 != op(op(e1,e0),op(e0,e1)) | e0 != op(op(e0,e0),op(e0,e0))),
+  inference(subsumption_resolution,[],[f1460,f801])).
+fof(f801,plain,(
+  ~sP0),
+  inference(subsumption_resolution,[],[f800,f160])).
+fof(f160,plain,(
+  e0 != e4),
+  inference(cnf_transformation,[],[f1])).
+fof(f1,axiom,(
+  e3 != e4 & e2 != e4 & e2 != e3 & e1 != e4 & e1 != e3 & e1 != e2 & e0 != e4 & e0 != e3 & e0 != e2 & e0 != e1),
+  file('ALG186+1.tptp',unknown)).
+fof(f800,plain,(
+  e0 = e4 | ~sP0),
+  inference(forward_demodulation,[],[f799,f171])).
+fof(f799,plain,(
+  e0 = op(e0,e4) | ~sP0),
+  inference(subsumption_resolution,[],[f798,f162])).
+fof(f162,plain,(
+  e1 != e3),
+  inference(cnf_transformation,[],[f1])).
+fof(f798,plain,(
+  e1 = e3 | e0 = op(e0,e4) | ~sP0),
+  inference(forward_demodulation,[],[f797,f176])).
+fof(f797,plain,(
+  e1 = op(e1,e4) | e0 = op(e0,e4) | ~sP0),
+  inference(subsumption_resolution,[],[f796,f158])).
+fof(f158,plain,(
+  e0 != e2),
+  inference(cnf_transformation,[],[f1])).
+fof(f796,plain,(
+  e0 = e2 | e1 = op(e1,e4) | e0 = op(e0,e4) | ~sP0),
+  inference(forward_demodulation,[],[f795,f181])).
+fof(f795,plain,(
+  e2 = op(e2,e4) | e1 = op(e1,e4) | e0 = op(e0,e4) | ~sP0),
+  inference(subsumption_resolution,[],[f794,f164])).
+fof(f164,plain,(
+  e2 != e3),
+  inference(cnf_transformation,[],[f1])).
+fof(f794,plain,(
+  e2 = e3 | e2 = op(e2,e4) | e1 = op(e1,e4) | e0 = op(e0,e4) | ~sP0),
+  inference(forward_demodulation,[],[f793,f186])).
+fof(f793,plain,(
+  e3 = op(e3,e4) | e2 = op(e2,e4) | e1 = op(e1,e4) | e0 = op(e0,e4) | ~sP0),
+  inference(subsumption_resolution,[],[f792,f163])).
+fof(f163,plain,(
+  e1 != e4),
+  inference(cnf_transformation,[],[f1])).
+fof(f792,plain,(
+  e1 = e4 | e3 = op(e3,e4) | e2 = op(e2,e4) | e1 = op(e1,e4) | e0 = op(e0,e4) | ~sP0),
+  inference(forward_demodulation,[],[f566,f191])).
+fof(f566,plain,(
+  e4 = op(e4,e4) | e3 = op(e3,e4) | e2 = op(e2,e4) | e1 = op(e1,e4) | e0 = op(e0,e4) | ~sP0),
+  inference(cnf_transformation,[],[f156])).
+fof(f156,plain,(
+  ((e4 = op(e4,e4) | e3 = op(e3,e4) | e2 = op(e2,e4) | e1 = op(e1,e4) | e0 = op(e0,e4)) & (e4 = op(e4,e3) | e3 = op(e3,e3) | e2 = op(e2,e3) | e1 = op(e1,e3) | e0 = op(e0,e3)) & (e4 = op(e4,e2) | e3 = op(e3,e2) | e2 = op(e2,e2) | e1 = op(e1,e2) | e0 = op(e0,e2)) & (e4 = op(e4,e1) | e3 = op(e3,e1) | e2 = op(e2,e1) | e1 = op(e1,e1) | e0 = op(e0,e1)) & (e4 = op(e4,e0) | e3 = op(e3,e0) | e2 = op(e2,e0) | e1 = op(e1,e0) | e0 = op(e0,e0))) | ~sP0),
+  inference(nnf_transformation,[],[f6])).
+fof(f6,plain,(
+  ((e4 = op(e4,e4) | e3 = op(e3,e4) | e2 = op(e2,e4) | e1 = op(e1,e4) | e0 = op(e0,e4)) & (e4 = op(e4,e3) | e3 = op(e3,e3) | e2 = op(e2,e3) | e1 = op(e1,e3) | e0 = op(e0,e3)) & (e4 = op(e4,e2) | e3 = op(e3,e2) | e2 = op(e2,e2) | e1 = op(e1,e2) | e0 = op(e0,e2)) & (e4 = op(e4,e1) | e3 = op(e3,e1) | e2 = op(e2,e1) | e1 = op(e1,e1) | e0 = op(e0,e1)) & (e4 = op(e4,e0) | e3 = op(e3,e0) | e2 = op(e2,e0) | e1 = op(e1,e0) | e0 = op(e0,e0))) | ~sP0),
+  introduced(predicate_definition_introduction,[new_symbols(naming,[sP0])])).
+fof(f1460,plain,(
+  e4 != op(op(e4,e4),op(e4,e4)) | e4 != op(op(e3,e4),op(e4,e3)) | e4 != op(op(e2,e4),op(e4,e2)) | e4 != op(op(e1,e4),op(e4,e1)) | e4 != op(op(e0,e4),op(e4,e0)) | e3 != op(op(e4,e3),op(e3,e4)) | e3 != op(op(e3,e3),op(e3,e3)) | e3 != op(op(e2,e3),op(e3,e2)) | e3 != op(op(e1,e3),op(e3,e1)) | e3 != op(op(e0,e3),op(e3,e0)) | e2 != op(op(e4,e2),op(e2,e4)) | e2 != op(op(e3,e2),op(e2,e3)) | e2 != op(op(e2,e2),op(e2,e2)) | e2 != op(op(e1,e2),op(e2,e1)) | e2 != op(op(e0,e2),op(e2,e0)) | e1 != op(op(e4,e1),op(e1,e4)) | e1 != op(op(e3,e1),op(e1,e3)) | e1 != op(op(e2,e1),op(e1,e2)) | e1 != op(op(e1,e1),op(e1,e1)) | e1 != op(op(e0,e1),op(e1,e0)) | e0 != op(op(e4,e0),op(e0,e4)) | e0 != op(op(e3,e0),op(e0,e3)) | e0 != op(op(e2,e0),op(e0,e2)) | e0 != op(op(e1,e0),op(e0,e1)) | e0 != op(op(e0,e0),op(e0,e0)) | sP0),
+  inference(subsumption_resolution,[],[f1459,f791])).
+fof(f791,plain,(
+  ~sP1),
+  inference(subsumption_resolution,[],[f560,f167])).
+fof(f560,plain,(
+  e3 != op(e0,e0) | ~sP1),
+  inference(cnf_transformation,[],[f155])).
+fof(f155,plain,(
+  (e4 != op(e0,e0) & e3 != op(e0,e0) & e2 != op(e0,e0) & e1 != op(e0,e0) & e0 != op(e0,e0)) | ~sP1),
+  inference(nnf_transformation,[],[f7])).
+fof(f7,plain,(
+  (e4 != op(e0,e0) & e3 != op(e0,e0) & e2 != op(e0,e0) & e1 != op(e0,e0) & e0 != op(e0,e0)) | ~sP1),
+  introduced(predicate_definition_introduction,[new_symbols(naming,[sP1])])).
+fof(f1459,plain,(
+  e4 != op(op(e4,e4),op(e4,e4)) | e4 != op(op(e3,e4),op(e4,e3)) | e4 != op(op(e2,e4),op(e4,e2)) | e4 != op(op(e1,e4),op(e4,e1)) | e4 != op(op(e0,e4),op(e4,e0)) | e3 != op(op(e4,e3),op(e3,e4)) | e3 != op(op(e3,e3),op(e3,e3)) | e3 != op(op(e2,e3),op(e3,e2)) | e3 != op(op(e1,e3),op(e3,e1)) | e3 != op(op(e0,e3),op(e3,e0)) | e2 != op(op(e4,e2),op(e2,e4)) | e2 != op(op(e3,e2),op(e2,e3)) | e2 != op(op(e2,e2),op(e2,e2)) | e2 != op(op(e1,e2),op(e2,e1)) | e2 != op(op(e0,e2),op(e2,e0)) | e1 != op(op(e4,e1),op(e1,e4)) | e1 != op(op(e3,e1),op(e1,e3)) | e1 != op(op(e2,e1),op(e1,e2)) | e1 != op(op(e1,e1),op(e1,e1)) | e1 != op(op(e0,e1),op(e1,e0)) | e0 != op(op(e4,e0),op(e0,e4)) | e0 != op(op(e3,e0),op(e0,e3)) | e0 != op(op(e2,e0),op(e0,e2)) | e0 != op(op(e1,e0),op(e0,e1)) | e0 != op(op(e0,e0),op(e0,e0)) | sP1 | sP0),
+  inference(subsumption_resolution,[],[f1458,f789])).
+fof(f789,plain,(
+  ~sP2),
+  inference(subsumption_resolution,[],[f554,f168])).
+fof(f554,plain,(
+  e2 != op(e0,e1) | ~sP2),
+  inference(cnf_transformation,[],[f154])).
+fof(f154,plain,(
+  (e4 != op(e0,e1) & e3 != op(e0,e1) & e2 != op(e0,e1) & e1 != op(e0,e1) & e0 != op(e0,e1)) | ~sP2),
+  inference(nnf_transformation,[],[f8])).
+fof(f8,plain,(
+  (e4 != op(e0,e1) & e3 != op(e0,e1) & e2 != op(e0,e1) & e1 != op(e0,e1) & e0 != op(e0,e1)) | ~sP2),
+  introduced(predicate_definition_introduction,[new_symbols(naming,[sP2])])).
+fof(f1458,plain,(
+  e4 != op(op(e4,e4),op(e4,e4)) | e4 != op(op(e3,e4),op(e4,e3)) | e4 != op(op(e2,e4),op(e4,e2)) | e4 != op(op(e1,e4),op(e4,e1)) | e4 != op(op(e0,e4),op(e4,e0)) | e3 != op(op(e4,e3),op(e3,e4)) | e3 != op(op(e3,e3),op(e3,e3)) | e3 != op(op(e2,e3),op(e3,e2)) | e3 != op(op(e1,e3),op(e3,e1)) | e3 != op(op(e0,e3),op(e3,e0)) | e2 != op(op(e4,e2),op(e2,e4)) | e2 != op(op(e3,e2),op(e2,e3)) | e2 != op(op(e2,e2),op(e2,e2)) | e2 != op(op(e1,e2),op(e2,e1)) | e2 != op(op(e0,e2),op(e2,e0)) | e1 != op(op(e4,e1),op(e1,e4)) | e1 != op(op(e3,e1),op(e1,e3)) | e1 != op(op(e2,e1),op(e1,e2)) | e1 != op(op(e1,e1),op(e1,e1)) | e1 != op(op(e0,e1),op(e1,e0)) | e0 != op(op(e4,e0),op(e0,e4)) | e0 != op(op(e3,e0),op(e0,e3)) | e0 != op(op(e2,e0),op(e0,e2)) | e0 != op(op(e1,e0),op(e0,e1)) | e0 != op(op(e0,e0),op(e0,e0)) | sP2 | sP1 | sP0),
+  inference(subsumption_resolution,[],[f1457,f786])).
+fof(f786,plain,(
+  ~sP3),
+  inference(subsumption_resolution,[],[f547,f169])).
+fof(f547,plain,(
+  e0 != op(e0,e2) | ~sP3),
+  inference(cnf_transformation,[],[f153])).
+fof(f153,plain,(
+  (e4 != op(e0,e2) & e3 != op(e0,e2) & e2 != op(e0,e2) & e1 != op(e0,e2) & e0 != op(e0,e2)) | ~sP3),
+  inference(nnf_transformation,[],[f9])).
+fof(f9,plain,(
+  (e4 != op(e0,e2) & e3 != op(e0,e2) & e2 != op(e0,e2) & e1 != op(e0,e2) & e0 != op(e0,e2)) | ~sP3),
+  introduced(predicate_definition_introduction,[new_symbols(naming,[sP3])])).
+fof(f1457,plain,(
+  e4 != op(op(e4,e4),op(e4,e4)) | e4 != op(op(e3,e4),op(e4,e3)) | e4 != op(op(e2,e4),op(e4,e2)) | e4 != op(op(e1,e4),op(e4,e1)) | e4 != op(op(e0,e4),op(e4,e0)) | e3 != op(op(e4,e3),op(e3,e4)) | e3 != op(op(e3,e3),op(e3,e3)) | e3 != op(op(e2,e3),op(e3,e2)) | e3 != op(op(e1,e3),op(e3,e1)) | e3 != op(op(e0,e3),op(e3,e0)) | e2 != op(op(e4,e2),op(e2,e4)) | e2 != op(op(e3,e2),op(e2,e3)) | e2 != op(op(e2,e2),op(e2,e2)) | e2 != op(op(e1,e2),op(e2,e1)) | e2 != op(op(e0,e2),op(e2,e0)) | e1 != op(op(e4,e1),op(e1,e4)) | e1 != op(op(e3,e1),op(e1,e3)) | e1 != op(op(e2,e1),op(e1,e2)) | e1 != op(op(e1,e1),op(e1,e1)) | e1 != op(op(e0,e1),op(e1,e0)) | e0 != op(op(e4,e0),op(e0,e4)) | e0 != op(op(e3,e0),op(e0,e3)) | e0 != op(op(e2,e0),op(e0,e2)) | e0 != op(op(e1,e0),op(e0,e1)) | e0 != op(op(e0,e0),op(e0,e0)) | sP3 | sP2 | sP1 | sP0),
+  inference(subsumption_resolution,[],[f1456,f781])).
+fof(f781,plain,(
+  ~sP4),
+  inference(subsumption_resolution,[],[f543,f170])).
+fof(f543,plain,(
+  e1 != op(e0,e3) | ~sP4),
+  inference(cnf_transformation,[],[f152])).
+fof(f152,plain,(
+  (e4 != op(e0,e3) & e3 != op(e0,e3) & e2 != op(e0,e3) & e1 != op(e0,e3) & e0 != op(e0,e3)) | ~sP4),
+  inference(nnf_transformation,[],[f10])).
+fof(f10,plain,(
+  (e4 != op(e0,e3) & e3 != op(e0,e3) & e2 != op(e0,e3) & e1 != op(e0,e3) & e0 != op(e0,e3)) | ~sP4),
+  introduced(predicate_definition_introduction,[new_symbols(naming,[sP4])])).
+fof(f1456,plain,(
+  e4 != op(op(e4,e4),op(e4,e4)) | e4 != op(op(e3,e4),op(e4,e3)) | e4 != op(op(e2,e4),op(e4,e2)) | e4 != op(op(e1,e4),op(e4,e1)) | e4 != op(op(e0,e4),op(e4,e0)) | e3 != op(op(e4,e3),op(e3,e4)) | e3 != op(op(e3,e3),op(e3,e3)) | e3 != op(op(e2,e3),op(e3,e2)) | e3 != op(op(e1,e3),op(e3,e1)) | e3 != op(op(e0,e3),op(e3,e0)) | e2 != op(op(e4,e2),op(e2,e4)) | e2 != op(op(e3,e2),op(e2,e3)) | e2 != op(op(e2,e2),op(e2,e2)) | e2 != op(op(e1,e2),op(e2,e1)) | e2 != op(op(e0,e2),op(e2,e0)) | e1 != op(op(e4,e1),op(e1,e4)) | e1 != op(op(e3,e1),op(e1,e3)) | e1 != op(op(e2,e1),op(e1,e2)) | e1 != op(op(e1,e1),op(e1,e1)) | e1 != op(op(e0,e1),op(e1,e0)) | e0 != op(op(e4,e0),op(e0,e4)) | e0 != op(op(e3,e0),op(e0,e3)) | e0 != op(op(e2,e0),op(e0,e2)) | e0 != op(op(e1,e0),op(e0,e1)) | e0 != op(op(e0,e0),op(e0,e0)) | sP4 | sP3 | sP2 | sP1 | sP0),
+  inference(subsumption_resolution,[],[f1455,f777])).
+fof(f777,plain,(
+  ~sP5),
+  inference(subsumption_resolution,[],[f541,f171])).
+fof(f541,plain,(
+  e4 != op(e0,e4) | ~sP5),
+  inference(cnf_transformation,[],[f151])).
+fof(f151,plain,(
+  (e4 != op(e0,e4) & e3 != op(e0,e4) & e2 != op(e0,e4) & e1 != op(e0,e4) & e0 != op(e0,e4)) | ~sP5),
+  inference(nnf_transformation,[],[f11])).
+fof(f11,plain,(
+  (e4 != op(e0,e4) & e3 != op(e0,e4) & e2 != op(e0,e4) & e1 != op(e0,e4) & e0 != op(e0,e4)) | ~sP5),
+  introduced(predicate_definition_introduction,[new_symbols(naming,[sP5])])).
+fof(f1455,plain,(
+  e4 != op(op(e4,e4),op(e4,e4)) | e4 != op(op(e3,e4),op(e4,e3)) | e4 != op(op(e2,e4),op(e4,e2)) | e4 != op(op(e1,e4),op(e4,e1)) | e4 != op(op(e0,e4),op(e4,e0)) | e3 != op(op(e4,e3),op(e3,e4)) | e3 != op(op(e3,e3),op(e3,e3)) | e3 != op(op(e2,e3),op(e3,e2)) | e3 != op(op(e1,e3),op(e3,e1)) | e3 != op(op(e0,e3),op(e3,e0)) | e2 != op(op(e4,e2),op(e2,e4)) | e2 != op(op(e3,e2),op(e2,e3)) | e2 != op(op(e2,e2),op(e2,e2)) | e2 != op(op(e1,e2),op(e2,e1)) | e2 != op(op(e0,e2),op(e2,e0)) | e1 != op(op(e4,e1),op(e1,e4)) | e1 != op(op(e3,e1),op(e1,e3)) | e1 != op(op(e2,e1),op(e1,e2)) | e1 != op(op(e1,e1),op(e1,e1)) | e1 != op(op(e0,e1),op(e1,e0)) | e0 != op(op(e4,e0),op(e0,e4)) | e0 != op(op(e3,e0),op(e0,e3)) | e0 != op(op(e2,e0),op(e0,e2)) | e0 != op(op(e1,e0),op(e0,e1)) | e0 != op(op(e0,e0),op(e0,e0)) | sP5 | sP4 | sP3 | sP2 | sP1 | sP0),
+  inference(subsumption_resolution,[],[f1454,f776])).
+fof(f776,plain,(
+  ~sP6),
+  inference(subsumption_resolution,[],[f532,f172])).
+fof(f532,plain,(
+  e0 != op(e1,e0) | ~sP6),
+  inference(cnf_transformation,[],[f150])).
+fof(f150,plain,(
+  (e4 != op(e1,e0) & e3 != op(e1,e0) & e2 != op(e1,e0) & e1 != op(e1,e0) & e0 != op(e1,e0)) | ~sP6),
+  inference(nnf_transformation,[],[f12])).
+fof(f12,plain,(
+  (e4 != op(e1,e0) & e3 != op(e1,e0) & e2 != op(e1,e0) & e1 != op(e1,e0) & e0 != op(e1,e0)) | ~sP6),
+  introduced(predicate_definition_introduction,[new_symbols(naming,[sP6])])).
+fof(f1454,plain,(
+  e4 != op(op(e4,e4),op(e4,e4)) | e4 != op(op(e3,e4),op(e4,e3)) | e4 != op(op(e2,e4),op(e4,e2)) | e4 != op(op(e1,e4),op(e4,e1)) | e4 != op(op(e0,e4),op(e4,e0)) | e3 != op(op(e4,e3),op(e3,e4)) | e3 != op(op(e3,e3),op(e3,e3)) | e3 != op(op(e2,e3),op(e3,e2)) | e3 != op(op(e1,e3),op(e3,e1)) | e3 != op(op(e0,e3),op(e3,e0)) | e2 != op(op(e4,e2),op(e2,e4)) | e2 != op(op(e3,e2),op(e2,e3)) | e2 != op(op(e2,e2),op(e2,e2)) | e2 != op(op(e1,e2),op(e2,e1)) | e2 != op(op(e0,e2),op(e2,e0)) | e1 != op(op(e4,e1),op(e1,e4)) | e1 != op(op(e3,e1),op(e1,e3)) | e1 != op(op(e2,e1),op(e1,e2)) | e1 != op(op(e1,e1),op(e1,e1)) | e1 != op(op(e0,e1),op(e1,e0)) | e0 != op(op(e4,e0),op(e0,e4)) | e0 != op(op(e3,e0),op(e0,e3)) | e0 != op(op(e2,e0),op(e0,e2)) | e0 != op(op(e1,e0),op(e0,e1)) | e0 != op(op(e0,e0),op(e0,e0)) | sP6 | sP5 | sP4 | sP3 | sP2 | sP1 | sP0),
+  inference(subsumption_resolution,[],[f1453,f771])).
+fof(f771,plain,(
+  ~sP7),
+  inference(subsumption_resolution,[],[f531,f173])).
+fof(f531,plain,(
+  e4 != op(e1,e1) | ~sP7),
+  inference(cnf_transformation,[],[f149])).
+fof(f149,plain,(
+  (e4 != op(e1,e1) & e3 != op(e1,e1) & e2 != op(e1,e1) & e1 != op(e1,e1) & e0 != op(e1,e1)) | ~sP7),
+  inference(nnf_transformation,[],[f13])).
+fof(f13,plain,(
+  (e4 != op(e1,e1) & e3 != op(e1,e1) & e2 != op(e1,e1) & e1 != op(e1,e1) & e0 != op(e1,e1)) | ~sP7),
+  introduced(predicate_definition_introduction,[new_symbols(naming,[sP7])])).
+fof(f1453,plain,(
+  e4 != op(op(e4,e4),op(e4,e4)) | e4 != op(op(e3,e4),op(e4,e3)) | e4 != op(op(e2,e4),op(e4,e2)) | e4 != op(op(e1,e4),op(e4,e1)) | e4 != op(op(e0,e4),op(e4,e0)) | e3 != op(op(e4,e3),op(e3,e4)) | e3 != op(op(e3,e3),op(e3,e3)) | e3 != op(op(e2,e3),op(e3,e2)) | e3 != op(op(e1,e3),op(e3,e1)) | e3 != op(op(e0,e3),op(e3,e0)) | e2 != op(op(e4,e2),op(e2,e4)) | e2 != op(op(e3,e2),op(e2,e3)) | e2 != op(op(e2,e2),op(e2,e2)) | e2 != op(op(e1,e2),op(e2,e1)) | e2 != op(op(e0,e2),op(e2,e0)) | e1 != op(op(e4,e1),op(e1,e4)) | e1 != op(op(e3,e1),op(e1,e3)) | e1 != op(op(e2,e1),op(e1,e2)) | e1 != op(op(e1,e1),op(e1,e1)) | e1 != op(op(e0,e1),op(e1,e0)) | e0 != op(op(e4,e0),op(e0,e4)) | e0 != op(op(e3,e0),op(e0,e3)) | e0 != op(op(e2,e0),op(e0,e2)) | e0 != op(op(e1,e0),op(e0,e1)) | e0 != op(op(e0,e0),op(e0,e0)) | sP7 | sP6 | sP5 | sP4 | sP3 | sP2 | sP1 | sP0),
+  inference(subsumption_resolution,[],[f1452,f770])).
+fof(f770,plain,(
+  ~sP8),
+  inference(subsumption_resolution,[],[f523,f174])).
+fof(f523,plain,(
+  e1 != op(e1,e2) | ~sP8),
+  inference(cnf_transformation,[],[f148])).
+fof(f148,plain,(
+  (e4 != op(e1,e2) & e3 != op(e1,e2) & e2 != op(e1,e2) & e1 != op(e1,e2) & e0 != op(e1,e2)) | ~sP8),
+  inference(nnf_transformation,[],[f14])).
+fof(f14,plain,(
+  (e4 != op(e1,e2) & e3 != op(e1,e2) & e2 != op(e1,e2) & e1 != op(e1,e2) & e0 != op(e1,e2)) | ~sP8),
+  introduced(predicate_definition_introduction,[new_symbols(naming,[sP8])])).
+fof(f1452,plain,(
+  e4 != op(op(e4,e4),op(e4,e4)) | e4 != op(op(e3,e4),op(e4,e3)) | e4 != op(op(e2,e4),op(e4,e2)) | e4 != op(op(e1,e4),op(e4,e1)) | e4 != op(op(e0,e4),op(e4,e0)) | e3 != op(op(e4,e3),op(e3,e4)) | e3 != op(op(e3,e3),op(e3,e3)) | e3 != op(op(e2,e3),op(e3,e2)) | e3 != op(op(e1,e3),op(e3,e1)) | e3 != op(op(e0,e3),op(e3,e0)) | e2 != op(op(e4,e2),op(e2,e4)) | e2 != op(op(e3,e2),op(e2,e3)) | e2 != op(op(e2,e2),op(e2,e2)) | e2 != op(op(e1,e2),op(e2,e1)) | e2 != op(op(e0,e2),op(e2,e0)) | e1 != op(op(e4,e1),op(e1,e4)) | e1 != op(op(e3,e1),op(e1,e3)) | e1 != op(op(e2,e1),op(e1,e2)) | e1 != op(op(e1,e1),op(e1,e1)) | e1 != op(op(e0,e1),op(e1,e0)) | e0 != op(op(e4,e0),op(e0,e4)) | e0 != op(op(e3,e0),op(e0,e3)) | e0 != op(op(e2,e0),op(e0,e2)) | e0 != op(op(e1,e0),op(e0,e1)) | e0 != op(op(e0,e0),op(e0,e0)) | sP8 | sP7 | sP6 | sP5 | sP4 | sP3 | sP2 | sP1 | sP0),
+  inference(subsumption_resolution,[],[f1451,f766])).
+fof(f766,plain,(
+  ~sP9),
+  inference(subsumption_resolution,[],[f519,f175])).
+fof(f519,plain,(
+  e2 != op(e1,e3) | ~sP9),
+  inference(cnf_transformation,[],[f147])).
+fof(f147,plain,(
+  (e4 != op(e1,e3) & e3 != op(e1,e3) & e2 != op(e1,e3) & e1 != op(e1,e3) & e0 != op(e1,e3)) | ~sP9),
+  inference(nnf_transformation,[],[f15])).
+fof(f15,plain,(
+  (e4 != op(e1,e3) & e3 != op(e1,e3) & e2 != op(e1,e3) & e1 != op(e1,e3) & e0 != op(e1,e3)) | ~sP9),
+  introduced(predicate_definition_introduction,[new_symbols(naming,[sP9])])).
+fof(f1451,plain,(
+  e4 != op(op(e4,e4),op(e4,e4)) | e4 != op(op(e3,e4),op(e4,e3)) | e4 != op(op(e2,e4),op(e4,e2)) | e4 != op(op(e1,e4),op(e4,e1)) | e4 != op(op(e0,e4),op(e4,e0)) | e3 != op(op(e4,e3),op(e3,e4)) | e3 != op(op(e3,e3),op(e3,e3)) | e3 != op(op(e2,e3),op(e3,e2)) | e3 != op(op(e1,e3),op(e3,e1)) | e3 != op(op(e0,e3),op(e3,e0)) | e2 != op(op(e4,e2),op(e2,e4)) | e2 != op(op(e3,e2),op(e2,e3)) | e2 != op(op(e2,e2),op(e2,e2)) | e2 != op(op(e1,e2),op(e2,e1)) | e2 != op(op(e0,e2),op(e2,e0)) | e1 != op(op(e4,e1),op(e1,e4)) | e1 != op(op(e3,e1),op(e1,e3)) | e1 != op(op(e2,e1),op(e1,e2)) | e1 != op(op(e1,e1),op(e1,e1)) | e1 != op(op(e0,e1),op(e1,e0)) | e0 != op(op(e4,e0),op(e0,e4)) | e0 != op(op(e3,e0),op(e0,e3)) | e0 != op(op(e2,e0),op(e0,e2)) | e0 != op(op(e1,e0),op(e0,e1)) | e0 != op(op(e0,e0),op(e0,e0)) | sP9 | sP8 | sP7 | sP6 | sP5 | sP4 | sP3 | sP2 | sP1 | sP0),
+  inference(subsumption_resolution,[],[f1450,f763])).
+fof(f763,plain,(
+  ~sP10),
+  inference(subsumption_resolution,[],[f515,f176])).
+fof(f515,plain,(
+  e3 != op(e1,e4) | ~sP10),
+  inference(cnf_transformation,[],[f146])).
+fof(f146,plain,(
+  (e4 != op(e1,e4) & e3 != op(e1,e4) & e2 != op(e1,e4) & e1 != op(e1,e4) & e0 != op(e1,e4)) | ~sP10),
+  inference(nnf_transformation,[],[f16])).
+fof(f16,plain,(
+  (e4 != op(e1,e4) & e3 != op(e1,e4) & e2 != op(e1,e4) & e1 != op(e1,e4) & e0 != op(e1,e4)) | ~sP10),
+  introduced(predicate_definition_introduction,[new_symbols(naming,[sP10])])).
+fof(f1450,plain,(
+  e4 != op(op(e4,e4),op(e4,e4)) | e4 != op(op(e3,e4),op(e4,e3)) | e4 != op(op(e2,e4),op(e4,e2)) | e4 != op(op(e1,e4),op(e4,e1)) | e4 != op(op(e0,e4),op(e4,e0)) | e3 != op(op(e4,e3),op(e3,e4)) | e3 != op(op(e3,e3),op(e3,e3)) | e3 != op(op(e2,e3),op(e3,e2)) | e3 != op(op(e1,e3),op(e3,e1)) | e3 != op(op(e0,e3),op(e3,e0)) | e2 != op(op(e4,e2),op(e2,e4)) | e2 != op(op(e3,e2),op(e2,e3)) | e2 != op(op(e2,e2),op(e2,e2)) | e2 != op(op(e1,e2),op(e2,e1)) | e2 != op(op(e0,e2),op(e2,e0)) | e1 != op(op(e4,e1),op(e1,e4)) | e1 != op(op(e3,e1),op(e1,e3)) | e1 != op(op(e2,e1),op(e1,e2)) | e1 != op(op(e1,e1),op(e1,e1)) | e1 != op(op(e0,e1),op(e1,e0)) | e0 != op(op(e4,e0),op(e0,e4)) | e0 != op(op(e3,e0),op(e0,e3)) | e0 != op(op(e2,e0),op(e0,e2)) | e0 != op(op(e1,e0),op(e0,e1)) | e0 != op(op(e0,e0),op(e0,e0)) | sP10 | sP9 | sP8 | sP7 | sP6 | sP5 | sP4 | sP3 | sP2 | sP1 | sP0),
+  inference(subsumption_resolution,[],[f1449,f761])).
+fof(f761,plain,(
+  ~sP11),
+  inference(subsumption_resolution,[],[f508,f177])).
+fof(f508,plain,(
+  e1 != op(e2,e0) | ~sP11),
+  inference(cnf_transformation,[],[f145])).
+fof(f145,plain,(
+  (e4 != op(e2,e0) & e3 != op(e2,e0) & e2 != op(e2,e0) & e1 != op(e2,e0) & e0 != op(e2,e0)) | ~sP11),
+  inference(nnf_transformation,[],[f17])).
+fof(f17,plain,(
+  (e4 != op(e2,e0) & e3 != op(e2,e0) & e2 != op(e2,e0) & e1 != op(e2,e0) & e0 != op(e2,e0)) | ~sP11),
+  introduced(predicate_definition_introduction,[new_symbols(naming,[sP11])])).
+fof(f1449,plain,(
+  e4 != op(op(e4,e4),op(e4,e4)) | e4 != op(op(e3,e4),op(e4,e3)) | e4 != op(op(e2,e4),op(e4,e2)) | e4 != op(op(e1,e4),op(e4,e1)) | e4 != op(op(e0,e4),op(e4,e0)) | e3 != op(op(e4,e3),op(e3,e4)) | e3 != op(op(e3,e3),op(e3,e3)) | e3 != op(op(e2,e3),op(e3,e2)) | e3 != op(op(e1,e3),op(e3,e1)) | e3 != op(op(e0,e3),op(e3,e0)) | e2 != op(op(e4,e2),op(e2,e4)) | e2 != op(op(e3,e2),op(e2,e3)) | e2 != op(op(e2,e2),op(e2,e2)) | e2 != op(op(e1,e2),op(e2,e1)) | e2 != op(op(e0,e2),op(e2,e0)) | e1 != op(op(e4,e1),op(e1,e4)) | e1 != op(op(e3,e1),op(e1,e3)) | e1 != op(op(e2,e1),op(e1,e2)) | e1 != op(op(e1,e1),op(e1,e1)) | e1 != op(op(e0,e1),op(e1,e0)) | e0 != op(op(e4,e0),op(e0,e4)) | e0 != op(op(e3,e0),op(e0,e3)) | e0 != op(op(e2,e0),op(e0,e2)) | e0 != op(op(e1,e0),op(e0,e1)) | e0 != op(op(e0,e0),op(e0,e0)) | sP11 | sP10 | sP9 | sP8 | sP7 | sP6 | sP5 | sP4 | sP3 | sP2 | sP1 | sP0),
+  inference(subsumption_resolution,[],[f1448,f757])).
+fof(f757,plain,(
+  ~sP12),
+  inference(subsumption_resolution,[],[f505,f178])).
+fof(f505,plain,(
+  e3 != op(e2,e1) | ~sP12),
+  inference(cnf_transformation,[],[f144])).
+fof(f144,plain,(
+  (e4 != op(e2,e1) & e3 != op(e2,e1) & e2 != op(e2,e1) & e1 != op(e2,e1) & e0 != op(e2,e1)) | ~sP12),
+  inference(nnf_transformation,[],[f18])).
+fof(f18,plain,(
+  (e4 != op(e2,e1) & e3 != op(e2,e1) & e2 != op(e2,e1) & e1 != op(e2,e1) & e0 != op(e2,e1)) | ~sP12),
+  introduced(predicate_definition_introduction,[new_symbols(naming,[sP12])])).
+fof(f1448,plain,(
+  e4 != op(op(e4,e4),op(e4,e4)) | e4 != op(op(e3,e4),op(e4,e3)) | e4 != op(op(e2,e4),op(e4,e2)) | e4 != op(op(e1,e4),op(e4,e1)) | e4 != op(op(e0,e4),op(e4,e0)) | e3 != op(op(e4,e3),op(e3,e4)) | e3 != op(op(e3,e3),op(e3,e3)) | e3 != op(op(e2,e3),op(e3,e2)) | e3 != op(op(e1,e3),op(e3,e1)) | e3 != op(op(e0,e3),op(e3,e0)) | e2 != op(op(e4,e2),op(e2,e4)) | e2 != op(op(e3,e2),op(e2,e3)) | e2 != op(op(e2,e2),op(e2,e2)) | e2 != op(op(e1,e2),op(e2,e1)) | e2 != op(op(e0,e2),op(e2,e0)) | e1 != op(op(e4,e1),op(e1,e4)) | e1 != op(op(e3,e1),op(e1,e3)) | e1 != op(op(e2,e1),op(e1,e2)) | e1 != op(op(e1,e1),op(e1,e1)) | e1 != op(op(e0,e1),op(e1,e0)) | e0 != op(op(e4,e0),op(e0,e4)) | e0 != op(op(e3,e0),op(e0,e3)) | e0 != op(op(e2,e0),op(e0,e2)) | e0 != op(op(e1,e0),op(e0,e1)) | e0 != op(op(e0,e0),op(e0,e0)) | sP12 | sP11 | sP10 | sP9 | sP8 | sP7 | sP6 | sP5 | sP4 | sP3 | sP2 | sP1 | sP0),
+  inference(subsumption_resolution,[],[f1447,f755])).
+fof(f755,plain,(
+  ~sP13),
+  inference(subsumption_resolution,[],[f499,f179])).
+fof(f499,plain,(
+  e2 != op(e2,e2) | ~sP13),
+  inference(cnf_transformation,[],[f143])).
+fof(f143,plain,(
+  (e4 != op(e2,e2) & e3 != op(e2,e2) & e2 != op(e2,e2) & e1 != op(e2,e2) & e0 != op(e2,e2)) | ~sP13),
+  inference(nnf_transformation,[],[f19])).
+fof(f19,plain,(
+  (e4 != op(e2,e2) & e3 != op(e2,e2) & e2 != op(e2,e2) & e1 != op(e2,e2) & e0 != op(e2,e2)) | ~sP13),
+  introduced(predicate_definition_introduction,[new_symbols(naming,[sP13])])).
+fof(f1447,plain,(
+  e4 != op(op(e4,e4),op(e4,e4)) | e4 != op(op(e3,e4),op(e4,e3)) | e4 != op(op(e2,e4),op(e4,e2)) | e4 != op(op(e1,e4),op(e4,e1)) | e4 != op(op(e0,e4),op(e4,e0)) | e3 != op(op(e4,e3),op(e3,e4)) | e3 != op(op(e3,e3),op(e3,e3)) | e3 != op(op(e2,e3),op(e3,e2)) | e3 != op(op(e1,e3),op(e3,e1)) | e3 != op(op(e0,e3),op(e3,e0)) | e2 != op(op(e4,e2),op(e2,e4)) | e2 != op(op(e3,e2),op(e2,e3)) | e2 != op(op(e2,e2),op(e2,e2)) | e2 != op(op(e1,e2),op(e2,e1)) | e2 != op(op(e0,e2),op(e2,e0)) | e1 != op(op(e4,e1),op(e1,e4)) | e1 != op(op(e3,e1),op(e1,e3)) | e1 != op(op(e2,e1),op(e1,e2)) | e1 != op(op(e1,e1),op(e1,e1)) | e1 != op(op(e0,e1),op(e1,e0)) | e0 != op(op(e4,e0),op(e0,e4)) | e0 != op(op(e3,e0),op(e0,e3)) | e0 != op(op(e2,e0),op(e0,e2)) | e0 != op(op(e1,e0),op(e0,e1)) | e0 != op(op(e0,e0),op(e0,e0)) | sP13 | sP12 | sP11 | sP10 | sP9 | sP8 | sP7 | sP6 | sP5 | sP4 | sP3 | sP2 | sP1 | sP0),
+  inference(subsumption_resolution,[],[f1446,f752])).
+fof(f752,plain,(
+  ~sP14),
+  inference(subsumption_resolution,[],[f496,f180])).
+fof(f496,plain,(
+  e4 != op(e2,e3) | ~sP14),
+  inference(cnf_transformation,[],[f142])).
+fof(f142,plain,(
+  (e4 != op(e2,e3) & e3 != op(e2,e3) & e2 != op(e2,e3) & e1 != op(e2,e3) & e0 != op(e2,e3)) | ~sP14),
+  inference(nnf_transformation,[],[f20])).
+fof(f20,plain,(
+  (e4 != op(e2,e3) & e3 != op(e2,e3) & e2 != op(e2,e3) & e1 != op(e2,e3) & e0 != op(e2,e3)) | ~sP14),
+  introduced(predicate_definition_introduction,[new_symbols(naming,[sP14])])).
+fof(f1446,plain,(
+  e4 != op(op(e4,e4),op(e4,e4)) | e4 != op(op(e3,e4),op(e4,e3)) | e4 != op(op(e2,e4),op(e4,e2)) | e4 != op(op(e1,e4),op(e4,e1)) | e4 != op(op(e0,e4),op(e4,e0)) | e3 != op(op(e4,e3),op(e3,e4)) | e3 != op(op(e3,e3),op(e3,e3)) | e3 != op(op(e2,e3),op(e3,e2)) | e3 != op(op(e1,e3),op(e3,e1)) | e3 != op(op(e0,e3),op(e3,e0)) | e2 != op(op(e4,e2),op(e2,e4)) | e2 != op(op(e3,e2),op(e2,e3)) | e2 != op(op(e2,e2),op(e2,e2)) | e2 != op(op(e1,e2),op(e2,e1)) | e2 != op(op(e0,e2),op(e2,e0)) | e1 != op(op(e4,e1),op(e1,e4)) | e1 != op(op(e3,e1),op(e1,e3)) | e1 != op(op(e2,e1),op(e1,e2)) | e1 != op(op(e1,e1),op(e1,e1)) | e1 != op(op(e0,e1),op(e1,e0)) | e0 != op(op(e4,e0),op(e0,e4)) | e0 != op(op(e3,e0),op(e0,e3)) | e0 != op(op(e2,e0),op(e0,e2)) | e0 != op(op(e1,e0),op(e0,e1)) | e0 != op(op(e0,e0),op(e0,e0)) | sP14 | sP13 | sP12 | sP11 | sP10 | sP9 | sP8 | sP7 | sP6 | sP5 | sP4 | sP3 | sP2 | sP1 | sP0),
+  inference(subsumption_resolution,[],[f1445,f751])).
+fof(f751,plain,(
+  ~sP15),
+  inference(subsumption_resolution,[],[f487,f181])).
+fof(f487,plain,(
+  e0 != op(e2,e4) | ~sP15),
+  inference(cnf_transformation,[],[f141])).
+fof(f141,plain,(
+  (e4 != op(e2,e4) & e3 != op(e2,e4) & e2 != op(e2,e4) & e1 != op(e2,e4) & e0 != op(e2,e4)) | ~sP15),
+  inference(nnf_transformation,[],[f21])).
+fof(f21,plain,(
+  (e4 != op(e2,e4) & e3 != op(e2,e4) & e2 != op(e2,e4) & e1 != op(e2,e4) & e0 != op(e2,e4)) | ~sP15),
+  introduced(predicate_definition_introduction,[new_symbols(naming,[sP15])])).
+fof(f1445,plain,(
+  e4 != op(op(e4,e4),op(e4,e4)) | e4 != op(op(e3,e4),op(e4,e3)) | e4 != op(op(e2,e4),op(e4,e2)) | e4 != op(op(e1,e4),op(e4,e1)) | e4 != op(op(e0,e4),op(e4,e0)) | e3 != op(op(e4,e3),op(e3,e4)) | e3 != op(op(e3,e3),op(e3,e3)) | e3 != op(op(e2,e3),op(e3,e2)) | e3 != op(op(e1,e3),op(e3,e1)) | e3 != op(op(e0,e3),op(e3,e0)) | e2 != op(op(e4,e2),op(e2,e4)) | e2 != op(op(e3,e2),op(e2,e3)) | e2 != op(op(e2,e2),op(e2,e2)) | e2 != op(op(e1,e2),op(e2,e1)) | e2 != op(op(e0,e2),op(e2,e0)) | e1 != op(op(e4,e1),op(e1,e4)) | e1 != op(op(e3,e1),op(e1,e3)) | e1 != op(op(e2,e1),op(e1,e2)) | e1 != op(op(e1,e1),op(e1,e1)) | e1 != op(op(e0,e1),op(e1,e0)) | e0 != op(op(e4,e0),op(e0,e4)) | e0 != op(op(e3,e0),op(e0,e3)) | e0 != op(op(e2,e0),op(e0,e2)) | e0 != op(op(e1,e0),op(e0,e1)) | e0 != op(op(e0,e0),op(e0,e0)) | sP15 | sP14 | sP13 | sP12 | sP11 | sP10 | sP9 | sP8 | sP7 | sP6 | sP5 | sP4 | sP3 | sP2 | sP1 | sP0),
+  inference(subsumption_resolution,[],[f1444,f746])).
+fof(f746,plain,(
+  ~sP16),
+  inference(subsumption_resolution,[],[f486,f182])).
+fof(f486,plain,(
+  e4 != op(e3,e0) | ~sP16),
+  inference(cnf_transformation,[],[f140])).
+fof(f140,plain,(
+  (e4 != op(e3,e0) & e3 != op(e3,e0) & e2 != op(e3,e0) & e1 != op(e3,e0) & e0 != op(e3,e0)) | ~sP16),
+  inference(nnf_transformation,[],[f22])).
+fof(f22,plain,(
+  (e4 != op(e3,e0) & e3 != op(e3,e0) & e2 != op(e3,e0) & e1 != op(e3,e0) & e0 != op(e3,e0)) | ~sP16),
+  introduced(predicate_definition_introduction,[new_symbols(naming,[sP16])])).
+fof(f1444,plain,(
+  e4 != op(op(e4,e4),op(e4,e4)) | e4 != op(op(e3,e4),op(e4,e3)) | e4 != op(op(e2,e4),op(e4,e2)) | e4 != op(op(e1,e4),op(e4,e1)) | e4 != op(op(e0,e4),op(e4,e0)) | e3 != op(op(e4,e3),op(e3,e4)) | e3 != op(op(e3,e3),op(e3,e3)) | e3 != op(op(e2,e3),op(e3,e2)) | e3 != op(op(e1,e3),op(e3,e1)) | e3 != op(op(e0,e3),op(e3,e0)) | e2 != op(op(e4,e2),op(e2,e4)) | e2 != op(op(e3,e2),op(e2,e3)) | e2 != op(op(e2,e2),op(e2,e2)) | e2 != op(op(e1,e2),op(e2,e1)) | e2 != op(op(e0,e2),op(e2,e0)) | e1 != op(op(e4,e1),op(e1,e4)) | e1 != op(op(e3,e1),op(e1,e3)) | e1 != op(op(e2,e1),op(e1,e2)) | e1 != op(op(e1,e1),op(e1,e1)) | e1 != op(op(e0,e1),op(e1,e0)) | e0 != op(op(e4,e0),op(e0,e4)) | e0 != op(op(e3,e0),op(e0,e3)) | e0 != op(op(e2,e0),op(e0,e2)) | e0 != op(op(e1,e0),op(e0,e1)) | e0 != op(op(e0,e0),op(e0,e0)) | sP16 | sP15 | sP14 | sP13 | sP12 | sP11 | sP10 | sP9 | sP8 | sP7 | sP6 | sP5 | sP4 | sP3 | sP2 | sP1 | sP0),
+  inference(subsumption_resolution,[],[f1443,f745])).
+fof(f745,plain,(
+  ~sP17),
+  inference(subsumption_resolution,[],[f478,f183])).
+fof(f478,plain,(
+  e1 != op(e3,e1) | ~sP17),
+  inference(cnf_transformation,[],[f139])).
+fof(f139,plain,(
+  (e4 != op(e3,e1) & e3 != op(e3,e1) & e2 != op(e3,e1) & e1 != op(e3,e1) & e0 != op(e3,e1)) | ~sP17),
+  inference(nnf_transformation,[],[f23])).
+fof(f23,plain,(
+  (e4 != op(e3,e1) & e3 != op(e3,e1) & e2 != op(e3,e1) & e1 != op(e3,e1) & e0 != op(e3,e1)) | ~sP17),
+  introduced(predicate_definition_introduction,[new_symbols(naming,[sP17])])).
+fof(f1443,plain,(
+  e4 != op(op(e4,e4),op(e4,e4)) | e4 != op(op(e3,e4),op(e4,e3)) | e4 != op(op(e2,e4),op(e4,e2)) | e4 != op(op(e1,e4),op(e4,e1)) | e4 != op(op(e0,e4),op(e4,e0)) | e3 != op(op(e4,e3),op(e3,e4)) | e3 != op(op(e3,e3),op(e3,e3)) | e3 != op(op(e2,e3),op(e3,e2)) | e3 != op(op(e1,e3),op(e3,e1)) | e3 != op(op(e0,e3),op(e3,e0)) | e2 != op(op(e4,e2),op(e2,e4)) | e2 != op(op(e3,e2),op(e2,e3)) | e2 != op(op(e2,e2),op(e2,e2)) | e2 != op(op(e1,e2),op(e2,e1)) | e2 != op(op(e0,e2),op(e2,e0)) | e1 != op(op(e4,e1),op(e1,e4)) | e1 != op(op(e3,e1),op(e1,e3)) | e1 != op(op(e2,e1),op(e1,e2)) | e1 != op(op(e1,e1),op(e1,e1)) | e1 != op(op(e0,e1),op(e1,e0)) | e0 != op(op(e4,e0),op(e0,e4)) | e0 != op(op(e3,e0),op(e0,e3)) | e0 != op(op(e2,e0),op(e0,e2)) | e0 != op(op(e1,e0),op(e0,e1)) | e0 != op(op(e0,e0),op(e0,e0)) | sP17 | sP16 | sP15 | sP14 | sP13 | sP12 | sP11 | sP10 | sP9 | sP8 | sP7 | sP6 | sP5 | sP4 | sP3 | sP2 | sP1 | sP0),
+  inference(subsumption_resolution,[],[f1442,f741])).
+fof(f741,plain,(
+  ~sP18),
+  inference(subsumption_resolution,[],[f475,f184])).
+fof(f475,plain,(
+  e3 != op(e3,e2) | ~sP18),
+  inference(cnf_transformation,[],[f138])).
+fof(f138,plain,(
+  (e4 != op(e3,e2) & e3 != op(e3,e2) & e2 != op(e3,e2) & e1 != op(e3,e2) & e0 != op(e3,e2)) | ~sP18),
+  inference(nnf_transformation,[],[f24])).
+fof(f24,plain,(
+  (e4 != op(e3,e2) & e3 != op(e3,e2) & e2 != op(e3,e2) & e1 != op(e3,e2) & e0 != op(e3,e2)) | ~sP18),
+  introduced(predicate_definition_introduction,[new_symbols(naming,[sP18])])).
+fof(f1442,plain,(
+  e4 != op(op(e4,e4),op(e4,e4)) | e4 != op(op(e3,e4),op(e4,e3)) | e4 != op(op(e2,e4),op(e4,e2)) | e4 != op(op(e1,e4),op(e4,e1)) | e4 != op(op(e0,e4),op(e4,e0)) | e3 != op(op(e4,e3),op(e3,e4)) | e3 != op(op(e3,e3),op(e3,e3)) | e3 != op(op(e2,e3),op(e3,e2)) | e3 != op(op(e1,e3),op(e3,e1)) | e3 != op(op(e0,e3),op(e3,e0)) | e2 != op(op(e4,e2),op(e2,e4)) | e2 != op(op(e3,e2),op(e2,e3)) | e2 != op(op(e2,e2),op(e2,e2)) | e2 != op(op(e1,e2),op(e2,e1)) | e2 != op(op(e0,e2),op(e2,e0)) | e1 != op(op(e4,e1),op(e1,e4)) | e1 != op(op(e3,e1),op(e1,e3)) | e1 != op(op(e2,e1),op(e1,e2)) | e1 != op(op(e1,e1),op(e1,e1)) | e1 != op(op(e0,e1),op(e1,e0)) | e0 != op(op(e4,e0),op(e0,e4)) | e0 != op(op(e3,e0),op(e0,e3)) | e0 != op(op(e2,e0),op(e0,e2)) | e0 != op(op(e1,e0),op(e0,e1)) | e0 != op(op(e0,e0),op(e0,e0)) | sP18 | sP17 | sP16 | sP15 | sP14 | sP13 | sP12 | sP11 | sP10 | sP9 | sP8 | sP7 | sP6 | sP5 | sP4 | sP3 | sP2 | sP1 | sP0),
+  inference(subsumption_resolution,[],[f1441,f739])).
+fof(f739,plain,(
+  ~sP19),
+  inference(subsumption_resolution,[],[f467,f185])).
+fof(f467,plain,(
+  e0 != op(e3,e3) | ~sP19),
+  inference(cnf_transformation,[],[f137])).
+fof(f137,plain,(
+  (e4 != op(e3,e3) & e3 != op(e3,e3) & e2 != op(e3,e3) & e1 != op(e3,e3) & e0 != op(e3,e3)) | ~sP19),
+  inference(nnf_transformation,[],[f25])).
+fof(f25,plain,(
+  (e4 != op(e3,e3) & e3 != op(e3,e3) & e2 != op(e3,e3) & e1 != op(e3,e3) & e0 != op(e3,e3)) | ~sP19),
+  introduced(predicate_definition_introduction,[new_symbols(naming,[sP19])])).
+fof(f1441,plain,(
+  e4 != op(op(e4,e4),op(e4,e4)) | e4 != op(op(e3,e4),op(e4,e3)) | e4 != op(op(e2,e4),op(e4,e2)) | e4 != op(op(e1,e4),op(e4,e1)) | e4 != op(op(e0,e4),op(e4,e0)) | e3 != op(op(e4,e3),op(e3,e4)) | e3 != op(op(e3,e3),op(e3,e3)) | e3 != op(op(e2,e3),op(e3,e2)) | e3 != op(op(e1,e3),op(e3,e1)) | e3 != op(op(e0,e3),op(e3,e0)) | e2 != op(op(e4,e2),op(e2,e4)) | e2 != op(op(e3,e2),op(e2,e3)) | e2 != op(op(e2,e2),op(e2,e2)) | e2 != op(op(e1,e2),op(e2,e1)) | e2 != op(op(e0,e2),op(e2,e0)) | e1 != op(op(e4,e1),op(e1,e4)) | e1 != op(op(e3,e1),op(e1,e3)) | e1 != op(op(e2,e1),op(e1,e2)) | e1 != op(op(e1,e1),op(e1,e1)) | e1 != op(op(e0,e1),op(e1,e0)) | e0 != op(op(e4,e0),op(e0,e4)) | e0 != op(op(e3,e0),op(e0,e3)) | e0 != op(op(e2,e0),op(e0,e2)) | e0 != op(op(e1,e0),op(e0,e1)) | e0 != op(op(e0,e0),op(e0,e0)) | sP19 | sP18 | sP17 | sP16 | sP15 | sP14 | sP13 | sP12 | sP11 | sP10 | sP9 | sP8 | sP7 | sP6 | sP5 | sP4 | sP3 | sP2 | sP1 | sP0),
+  inference(subsumption_resolution,[],[f1440,f734])).
+fof(f734,plain,(
+  ~sP20),
+  inference(subsumption_resolution,[],[f464,f186])).
+fof(f464,plain,(
+  e2 != op(e3,e4) | ~sP20),
+  inference(cnf_transformation,[],[f136])).
+fof(f136,plain,(
+  (e4 != op(e3,e4) & e3 != op(e3,e4) & e2 != op(e3,e4) & e1 != op(e3,e4) & e0 != op(e3,e4)) | ~sP20),
+  inference(nnf_transformation,[],[f26])).
+fof(f26,plain,(
+  (e4 != op(e3,e4) & e3 != op(e3,e4) & e2 != op(e3,e4) & e1 != op(e3,e4) & e0 != op(e3,e4)) | ~sP20),
+  introduced(predicate_definition_introduction,[new_symbols(naming,[sP20])])).
+fof(f1440,plain,(
+  e4 != op(op(e4,e4),op(e4,e4)) | e4 != op(op(e3,e4),op(e4,e3)) | e4 != op(op(e2,e4),op(e4,e2)) | e4 != op(op(e1,e4),op(e4,e1)) | e4 != op(op(e0,e4),op(e4,e0)) | e3 != op(op(e4,e3),op(e3,e4)) | e3 != op(op(e3,e3),op(e3,e3)) | e3 != op(op(e2,e3),op(e3,e2)) | e3 != op(op(e1,e3),op(e3,e1)) | e3 != op(op(e0,e3),op(e3,e0)) | e2 != op(op(e4,e2),op(e2,e4)) | e2 != op(op(e3,e2),op(e2,e3)) | e2 != op(op(e2,e2),op(e2,e2)) | e2 != op(op(e1,e2),op(e2,e1)) | e2 != op(op(e0,e2),op(e2,e0)) | e1 != op(op(e4,e1),op(e1,e4)) | e1 != op(op(e3,e1),op(e1,e3)) | e1 != op(op(e2,e1),op(e1,e2)) | e1 != op(op(e1,e1),op(e1,e1)) | e1 != op(op(e0,e1),op(e1,e0)) | e0 != op(op(e4,e0),op(e0,e4)) | e0 != op(op(e3,e0),op(e0,e3)) | e0 != op(op(e2,e0),op(e0,e2)) | e0 != op(op(e1,e0),op(e0,e1)) | e0 != op(op(e0,e0),op(e0,e0)) | sP20 | sP19 | sP18 | sP17 | sP16 | sP15 | sP14 | sP13 | sP12 | sP11 | sP10 | sP9 | sP8 | sP7 | sP6 | sP5 | sP4 | sP3 | sP2 | sP1 | sP0),
+  inference(subsumption_resolution,[],[f1439,f731])).
+fof(f731,plain,(
+  ~sP21),
+  inference(subsumption_resolution,[],[f459,f187])).
+fof(f459,plain,(
+  e2 != op(e4,e0) | ~sP21),
+  inference(cnf_transformation,[],[f135])).
+fof(f135,plain,(
+  (e4 != op(e4,e0) & e3 != op(e4,e0) & e2 != op(e4,e0) & e1 != op(e4,e0) & e0 != op(e4,e0)) | ~sP21),
+  inference(nnf_transformation,[],[f27])).
+fof(f27,plain,(
+  (e4 != op(e4,e0) & e3 != op(e4,e0) & e2 != op(e4,e0) & e1 != op(e4,e0) & e0 != op(e4,e0)) | ~sP21),
+  introduced(predicate_definition_introduction,[new_symbols(naming,[sP21])])).
+fof(f1439,plain,(
+  e4 != op(op(e4,e4),op(e4,e4)) | e4 != op(op(e3,e4),op(e4,e3)) | e4 != op(op(e2,e4),op(e4,e2)) | e4 != op(op(e1,e4),op(e4,e1)) | e4 != op(op(e0,e4),op(e4,e0)) | e3 != op(op(e4,e3),op(e3,e4)) | e3 != op(op(e3,e3),op(e3,e3)) | e3 != op(op(e2,e3),op(e3,e2)) | e3 != op(op(e1,e3),op(e3,e1)) | e3 != op(op(e0,e3),op(e3,e0)) | e2 != op(op(e4,e2),op(e2,e4)) | e2 != op(op(e3,e2),op(e2,e3)) | e2 != op(op(e2,e2),op(e2,e2)) | e2 != op(op(e1,e2),op(e2,e1)) | e2 != op(op(e0,e2),op(e2,e0)) | e1 != op(op(e4,e1),op(e1,e4)) | e1 != op(op(e3,e1),op(e1,e3)) | e1 != op(op(e2,e1),op(e1,e2)) | e1 != op(op(e1,e1),op(e1,e1)) | e1 != op(op(e0,e1),op(e1,e0)) | e0 != op(op(e4,e0),op(e0,e4)) | e0 != op(op(e3,e0),op(e0,e3)) | e0 != op(op(e2,e0),op(e0,e2)) | e0 != op(op(e1,e0),op(e0,e1)) | e0 != op(op(e0,e0),op(e0,e0)) | sP21 | sP20 | sP19 | sP18 | sP17 | sP16 | sP15 | sP14 | sP13 | sP12 | sP11 | sP10 | sP9 | sP8 | sP7 | sP6 | sP5 | sP4 | sP3 | sP2 | sP1 | sP0),
+  inference(subsumption_resolution,[],[f1438,f728])).
+fof(f728,plain,(
+  ~sP22),
+  inference(subsumption_resolution,[],[f452,f188])).
+fof(f452,plain,(
+  e0 != op(e4,e1) | ~sP22),
+  inference(cnf_transformation,[],[f134])).
+fof(f134,plain,(
+  (e4 != op(e4,e1) & e3 != op(e4,e1) & e2 != op(e4,e1) & e1 != op(e4,e1) & e0 != op(e4,e1)) | ~sP22),
+  inference(nnf_transformation,[],[f28])).
+fof(f28,plain,(
+  (e4 != op(e4,e1) & e3 != op(e4,e1) & e2 != op(e4,e1) & e1 != op(e4,e1) & e0 != op(e4,e1)) | ~sP22),
+  introduced(predicate_definition_introduction,[new_symbols(naming,[sP22])])).
+fof(f1438,plain,(
+  e4 != op(op(e4,e4),op(e4,e4)) | e4 != op(op(e3,e4),op(e4,e3)) | e4 != op(op(e2,e4),op(e4,e2)) | e4 != op(op(e1,e4),op(e4,e1)) | e4 != op(op(e0,e4),op(e4,e0)) | e3 != op(op(e4,e3),op(e3,e4)) | e3 != op(op(e3,e3),op(e3,e3)) | e3 != op(op(e2,e3),op(e3,e2)) | e3 != op(op(e1,e3),op(e3,e1)) | e3 != op(op(e0,e3),op(e3,e0)) | e2 != op(op(e4,e2),op(e2,e4)) | e2 != op(op(e3,e2),op(e2,e3)) | e2 != op(op(e2,e2),op(e2,e2)) | e2 != op(op(e1,e2),op(e2,e1)) | e2 != op(op(e0,e2),op(e2,e0)) | e1 != op(op(e4,e1),op(e1,e4)) | e1 != op(op(e3,e1),op(e1,e3)) | e1 != op(op(e2,e1),op(e1,e2)) | e1 != op(op(e1,e1),op(e1,e1)) | e1 != op(op(e0,e1),op(e1,e0)) | e0 != op(op(e4,e0),op(e0,e4)) | e0 != op(op(e3,e0),op(e0,e3)) | e0 != op(op(e2,e0),op(e0,e2)) | e0 != op(op(e1,e0),op(e0,e1)) | e0 != op(op(e0,e0),op(e0,e0)) | sP22 | sP21 | sP20 | sP19 | sP18 | sP17 | sP16 | sP15 | sP14 | sP13 | sP12 | sP11 | sP10 | sP9 | sP8 | sP7 | sP6 | sP5 | sP4 | sP3 | sP2 | sP1 | sP0),
+  inference(subsumption_resolution,[],[f1437,f723])).
+fof(f723,plain,(
+  ~sP23),
+  inference(subsumption_resolution,[],[f451,f189])).
+fof(f451,plain,(
+  e4 != op(e4,e2) | ~sP23),
+  inference(cnf_transformation,[],[f133])).
+fof(f133,plain,(
+  (e4 != op(e4,e2) & e3 != op(e4,e2) & e2 != op(e4,e2) & e1 != op(e4,e2) & e0 != op(e4,e2)) | ~sP23),
+  inference(nnf_transformation,[],[f29])).
+fof(f29,plain,(
+  (e4 != op(e4,e2) & e3 != op(e4,e2) & e2 != op(e4,e2) & e1 != op(e4,e2) & e0 != op(e4,e2)) | ~sP23),
+  introduced(predicate_definition_introduction,[new_symbols(naming,[sP23])])).
+fof(f1437,plain,(
+  e4 != op(op(e4,e4),op(e4,e4)) | e4 != op(op(e3,e4),op(e4,e3)) | e4 != op(op(e2,e4),op(e4,e2)) | e4 != op(op(e1,e4),op(e4,e1)) | e4 != op(op(e0,e4),op(e4,e0)) | e3 != op(op(e4,e3),op(e3,e4)) | e3 != op(op(e3,e3),op(e3,e3)) | e3 != op(op(e2,e3),op(e3,e2)) | e3 != op(op(e1,e3),op(e3,e1)) | e3 != op(op(e0,e3),op(e3,e0)) | e2 != op(op(e4,e2),op(e2,e4)) | e2 != op(op(e3,e2),op(e2,e3)) | e2 != op(op(e2,e2),op(e2,e2)) | e2 != op(op(e1,e2),op(e2,e1)) | e2 != op(op(e0,e2),op(e2,e0)) | e1 != op(op(e4,e1),op(e1,e4)) | e1 != op(op(e3,e1),op(e1,e3)) | e1 != op(op(e2,e1),op(e1,e2)) | e1 != op(op(e1,e1),op(e1,e1)) | e1 != op(op(e0,e1),op(e1,e0)) | e0 != op(op(e4,e0),op(e0,e4)) | e0 != op(op(e3,e0),op(e0,e3)) | e0 != op(op(e2,e0),op(e0,e2)) | e0 != op(op(e1,e0),op(e0,e1)) | e0 != op(op(e0,e0),op(e0,e0)) | sP23 | sP22 | sP21 | sP20 | sP19 | sP18 | sP17 | sP16 | sP15 | sP14 | sP13 | sP12 | sP11 | sP10 | sP9 | sP8 | sP7 | sP6 | sP5 | sP4 | sP3 | sP2 | sP1 | sP0),
+  inference(subsumption_resolution,[],[f1436,f722])).
+fof(f722,plain,(
+  ~sP24),
+  inference(subsumption_resolution,[],[f445,f190])).
+fof(f445,plain,(
+  e3 != op(e4,e3) | ~sP24),
+  inference(cnf_transformation,[],[f132])).
+fof(f132,plain,(
+  (e4 != op(e4,e3) & e3 != op(e4,e3) & e2 != op(e4,e3) & e1 != op(e4,e3) & e0 != op(e4,e3)) | ~sP24),
+  inference(nnf_transformation,[],[f30])).
+fof(f30,plain,(
+  (e4 != op(e4,e3) & e3 != op(e4,e3) & e2 != op(e4,e3) & e1 != op(e4,e3) & e0 != op(e4,e3)) | ~sP24),
+  introduced(predicate_definition_introduction,[new_symbols(naming,[sP24])])).
+fof(f1436,plain,(
+  e4 != op(op(e4,e4),op(e4,e4)) | e4 != op(op(e3,e4),op(e4,e3)) | e4 != op(op(e2,e4),op(e4,e2)) | e4 != op(op(e1,e4),op(e4,e1)) | e4 != op(op(e0,e4),op(e4,e0)) | e3 != op(op(e4,e3),op(e3,e4)) | e3 != op(op(e3,e3),op(e3,e3)) | e3 != op(op(e2,e3),op(e3,e2)) | e3 != op(op(e1,e3),op(e3,e1)) | e3 != op(op(e0,e3),op(e3,e0)) | e2 != op(op(e4,e2),op(e2,e4)) | e2 != op(op(e3,e2),op(e2,e3)) | e2 != op(op(e2,e2),op(e2,e2)) | e2 != op(op(e1,e2),op(e2,e1)) | e2 != op(op(e0,e2),op(e2,e0)) | e1 != op(op(e4,e1),op(e1,e4)) | e1 != op(op(e3,e1),op(e1,e3)) | e1 != op(op(e2,e1),op(e1,e2)) | e1 != op(op(e1,e1),op(e1,e1)) | e1 != op(op(e0,e1),op(e1,e0)) | e0 != op(op(e4,e0),op(e0,e4)) | e0 != op(op(e3,e0),op(e0,e3)) | e0 != op(op(e2,e0),op(e0,e2)) | e0 != op(op(e1,e0),op(e0,e1)) | e0 != op(op(e0,e0),op(e0,e0)) | sP24 | sP23 | sP22 | sP21 | sP20 | sP19 | sP18 | sP17 | sP16 | sP15 | sP14 | sP13 | sP12 | sP11 | sP10 | sP9 | sP8 | sP7 | sP6 | sP5 | sP4 | sP3 | sP2 | sP1 | sP0),
+  inference(subsumption_resolution,[],[f1435,f720])).
+fof(f720,plain,(
+  ~sP25),
+  inference(subsumption_resolution,[],[f438,f191])).
+fof(f438,plain,(
+  e1 != op(e4,e4) | ~sP25),
+  inference(cnf_transformation,[],[f131])).
+fof(f131,plain,(
+  (e4 != op(e4,e4) & e3 != op(e4,e4) & e2 != op(e4,e4) & e1 != op(e4,e4) & e0 != op(e4,e4)) | ~sP25),
+  inference(nnf_transformation,[],[f31])).
+fof(f31,plain,(
+  (e4 != op(e4,e4) & e3 != op(e4,e4) & e2 != op(e4,e4) & e1 != op(e4,e4) & e0 != op(e4,e4)) | ~sP25),
+  introduced(predicate_definition_introduction,[new_symbols(naming,[sP25])])).
+fof(f1435,plain,(
+  e4 != op(op(e4,e4),op(e4,e4)) | e4 != op(op(e3,e4),op(e4,e3)) | e4 != op(op(e2,e4),op(e4,e2)) | e4 != op(op(e1,e4),op(e4,e1)) | e4 != op(op(e0,e4),op(e4,e0)) | e3 != op(op(e4,e3),op(e3,e4)) | e3 != op(op(e3,e3),op(e3,e3)) | e3 != op(op(e2,e3),op(e3,e2)) | e3 != op(op(e1,e3),op(e3,e1)) | e3 != op(op(e0,e3),op(e3,e0)) | e2 != op(op(e4,e2),op(e2,e4)) | e2 != op(op(e3,e2),op(e2,e3)) | e2 != op(op(e2,e2),op(e2,e2)) | e2 != op(op(e1,e2),op(e2,e1)) | e2 != op(op(e0,e2),op(e2,e0)) | e1 != op(op(e4,e1),op(e1,e4)) | e1 != op(op(e3,e1),op(e1,e3)) | e1 != op(op(e2,e1),op(e1,e2)) | e1 != op(op(e1,e1),op(e1,e1)) | e1 != op(op(e0,e1),op(e1,e0)) | e0 != op(op(e4,e0),op(e0,e4)) | e0 != op(op(e3,e0),op(e0,e3)) | e0 != op(op(e2,e0),op(e0,e2)) | e0 != op(op(e1,e0),op(e0,e1)) | e0 != op(op(e0,e0),op(e0,e0)) | sP25 | sP24 | sP23 | sP22 | sP21 | sP20 | sP19 | sP18 | sP17 | sP16 | sP15 | sP14 | sP13 | sP12 | sP11 | sP10 | sP9 | sP8 | sP7 | sP6 | sP5 | sP4 | sP3 | sP2 | sP1 | sP0),
+  inference(subsumption_resolution,[],[f1434,f716])).
+fof(f716,plain,(
+  ~sP26),
+  inference(subsumption_resolution,[],[f434,f169])).
+fof(f434,plain,(
+  e0 != op(e0,e2) | ~sP26),
+  inference(cnf_transformation,[],[f130])).
+fof(f130,plain,(
+  (e0 != op(e0,e4) & e0 != op(e0,e3) & e0 != op(e0,e2) & e0 != op(e0,e1) & e0 != op(e0,e0)) | ~sP26),
+  inference(nnf_transformation,[],[f32])).
+fof(f32,plain,(
+  (e0 != op(e0,e4) & e0 != op(e0,e3) & e0 != op(e0,e2) & e0 != op(e0,e1) & e0 != op(e0,e0)) | ~sP26),
+  introduced(predicate_definition_introduction,[new_symbols(naming,[sP26])])).
+fof(f1434,plain,(
+  e4 != op(op(e4,e4),op(e4,e4)) | e4 != op(op(e3,e4),op(e4,e3)) | e4 != op(op(e2,e4),op(e4,e2)) | e4 != op(op(e1,e4),op(e4,e1)) | e4 != op(op(e0,e4),op(e4,e0)) | e3 != op(op(e4,e3),op(e3,e4)) | e3 != op(op(e3,e3),op(e3,e3)) | e3 != op(op(e2,e3),op(e3,e2)) | e3 != op(op(e1,e3),op(e3,e1)) | e3 != op(op(e0,e3),op(e3,e0)) | e2 != op(op(e4,e2),op(e2,e4)) | e2 != op(op(e3,e2),op(e2,e3)) | e2 != op(op(e2,e2),op(e2,e2)) | e2 != op(op(e1,e2),op(e2,e1)) | e2 != op(op(e0,e2),op(e2,e0)) | e1 != op(op(e4,e1),op(e1,e4)) | e1 != op(op(e3,e1),op(e1,e3)) | e1 != op(op(e2,e1),op(e1,e2)) | e1 != op(op(e1,e1),op(e1,e1)) | e1 != op(op(e0,e1),op(e1,e0)) | e0 != op(op(e4,e0),op(e0,e4)) | e0 != op(op(e3,e0),op(e0,e3)) | e0 != op(op(e2,e0),op(e0,e2)) | e0 != op(op(e1,e0),op(e0,e1)) | e0 != op(op(e0,e0),op(e0,e0)) | sP26 | sP25 | sP24 | sP23 | sP22 | sP21 | sP20 | sP19 | sP18 | sP17 | sP16 | sP15 | sP14 | sP13 | sP12 | sP11 | sP10 | sP9 | sP8 | sP7 | sP6 | sP5 | sP4 | sP3 | sP2 | sP1 | sP0),
+  inference(subsumption_resolution,[],[f1433,f713])).
+fof(f713,plain,(
+  ~sP27),
+  inference(subsumption_resolution,[],[f428,f172])).
+fof(f428,plain,(
+  e0 != op(e1,e0) | ~sP27),
+  inference(cnf_transformation,[],[f129])).
+fof(f129,plain,(
+  (e0 != op(e4,e0) & e0 != op(e3,e0) & e0 != op(e2,e0) & e0 != op(e1,e0) & e0 != op(e0,e0)) | ~sP27),
+  inference(nnf_transformation,[],[f33])).
+fof(f33,plain,(
+  (e0 != op(e4,e0) & e0 != op(e3,e0) & e0 != op(e2,e0) & e0 != op(e1,e0) & e0 != op(e0,e0)) | ~sP27),
+  introduced(predicate_definition_introduction,[new_symbols(naming,[sP27])])).
+fof(f1433,plain,(
+  e4 != op(op(e4,e4),op(e4,e4)) | e4 != op(op(e3,e4),op(e4,e3)) | e4 != op(op(e2,e4),op(e4,e2)) | e4 != op(op(e1,e4),op(e4,e1)) | e4 != op(op(e0,e4),op(e4,e0)) | e3 != op(op(e4,e3),op(e3,e4)) | e3 != op(op(e3,e3),op(e3,e3)) | e3 != op(op(e2,e3),op(e3,e2)) | e3 != op(op(e1,e3),op(e3,e1)) | e3 != op(op(e0,e3),op(e3,e0)) | e2 != op(op(e4,e2),op(e2,e4)) | e2 != op(op(e3,e2),op(e2,e3)) | e2 != op(op(e2,e2),op(e2,e2)) | e2 != op(op(e1,e2),op(e2,e1)) | e2 != op(op(e0,e2),op(e2,e0)) | e1 != op(op(e4,e1),op(e1,e4)) | e1 != op(op(e3,e1),op(e1,e3)) | e1 != op(op(e2,e1),op(e1,e2)) | e1 != op(op(e1,e1),op(e1,e1)) | e1 != op(op(e0,e1),op(e1,e0)) | e0 != op(op(e4,e0),op(e0,e4)) | e0 != op(op(e3,e0),op(e0,e3)) | e0 != op(op(e2,e0),op(e0,e2)) | e0 != op(op(e1,e0),op(e0,e1)) | e0 != op(op(e0,e0),op(e0,e0)) | sP27 | sP26 | sP25 | sP24 | sP23 | sP22 | sP21 | sP20 | sP19 | sP18 | sP17 | sP16 | sP15 | sP14 | sP13 | sP12 | sP11 | sP10 | sP9 | sP8 | sP7 | sP6 | sP5 | sP4 | sP3 | sP2 | sP1 | sP0),
+  inference(subsumption_resolution,[],[f1432,f709])).
+fof(f709,plain,(
+  ~sP28),
+  inference(subsumption_resolution,[],[f425,f170])).
+fof(f425,plain,(
+  e1 != op(e0,e3) | ~sP28),
+  inference(cnf_transformation,[],[f128])).
+fof(f128,plain,(
+  (e1 != op(e0,e4) & e1 != op(e0,e3) & e1 != op(e0,e2) & e1 != op(e0,e1) & e1 != op(e0,e0)) | ~sP28),
+  inference(nnf_transformation,[],[f34])).
+fof(f34,plain,(
+  (e1 != op(e0,e4) & e1 != op(e0,e3) & e1 != op(e0,e2) & e1 != op(e0,e1) & e1 != op(e0,e0)) | ~sP28),
+  introduced(predicate_definition_introduction,[new_symbols(naming,[sP28])])).
+fof(f1432,plain,(
+  e4 != op(op(e4,e4),op(e4,e4)) | e4 != op(op(e3,e4),op(e4,e3)) | e4 != op(op(e2,e4),op(e4,e2)) | e4 != op(op(e1,e4),op(e4,e1)) | e4 != op(op(e0,e4),op(e4,e0)) | e3 != op(op(e4,e3),op(e3,e4)) | e3 != op(op(e3,e3),op(e3,e3)) | e3 != op(op(e2,e3),op(e3,e2)) | e3 != op(op(e1,e3),op(e3,e1)) | e3 != op(op(e0,e3),op(e3,e0)) | e2 != op(op(e4,e2),op(e2,e4)) | e2 != op(op(e3,e2),op(e2,e3)) | e2 != op(op(e2,e2),op(e2,e2)) | e2 != op(op(e1,e2),op(e2,e1)) | e2 != op(op(e0,e2),op(e2,e0)) | e1 != op(op(e4,e1),op(e1,e4)) | e1 != op(op(e3,e1),op(e1,e3)) | e1 != op(op(e2,e1),op(e1,e2)) | e1 != op(op(e1,e1),op(e1,e1)) | e1 != op(op(e0,e1),op(e1,e0)) | e0 != op(op(e4,e0),op(e0,e4)) | e0 != op(op(e3,e0),op(e0,e3)) | e0 != op(op(e2,e0),op(e0,e2)) | e0 != op(op(e1,e0),op(e0,e1)) | e0 != op(op(e0,e0),op(e0,e0)) | sP28 | sP27 | sP26 | sP25 | sP24 | sP23 | sP22 | sP21 | sP20 | sP19 | sP18 | sP17 | sP16 | sP15 | sP14 | sP13 | sP12 | sP11 | sP10 | sP9 | sP8 | sP7 | sP6 | sP5 | sP4 | sP3 | sP2 | sP1 | sP0),
+  inference(subsumption_resolution,[],[f1431,f707])).
+fof(f707,plain,(
+  ~sP29),
+  inference(subsumption_resolution,[],[f419,f177])).
+fof(f419,plain,(
+  e1 != op(e2,e0) | ~sP29),
+  inference(cnf_transformation,[],[f127])).
+fof(f127,plain,(
+  (e1 != op(e4,e0) & e1 != op(e3,e0) & e1 != op(e2,e0) & e1 != op(e1,e0) & e1 != op(e0,e0)) | ~sP29),
+  inference(nnf_transformation,[],[f35])).
+fof(f35,plain,(
+  (e1 != op(e4,e0) & e1 != op(e3,e0) & e1 != op(e2,e0) & e1 != op(e1,e0) & e1 != op(e0,e0)) | ~sP29),
+  introduced(predicate_definition_introduction,[new_symbols(naming,[sP29])])).
+fof(f1431,plain,(
+  e4 != op(op(e4,e4),op(e4,e4)) | e4 != op(op(e3,e4),op(e4,e3)) | e4 != op(op(e2,e4),op(e4,e2)) | e4 != op(op(e1,e4),op(e4,e1)) | e4 != op(op(e0,e4),op(e4,e0)) | e3 != op(op(e4,e3),op(e3,e4)) | e3 != op(op(e3,e3),op(e3,e3)) | e3 != op(op(e2,e3),op(e3,e2)) | e3 != op(op(e1,e3),op(e3,e1)) | e3 != op(op(e0,e3),op(e3,e0)) | e2 != op(op(e4,e2),op(e2,e4)) | e2 != op(op(e3,e2),op(e2,e3)) | e2 != op(op(e2,e2),op(e2,e2)) | e2 != op(op(e1,e2),op(e2,e1)) | e2 != op(op(e0,e2),op(e2,e0)) | e1 != op(op(e4,e1),op(e1,e4)) | e1 != op(op(e3,e1),op(e1,e3)) | e1 != op(op(e2,e1),op(e1,e2)) | e1 != op(op(e1,e1),op(e1,e1)) | e1 != op(op(e0,e1),op(e1,e0)) | e0 != op(op(e4,e0),op(e0,e4)) | e0 != op(op(e3,e0),op(e0,e3)) | e0 != op(op(e2,e0),op(e0,e2)) | e0 != op(op(e1,e0),op(e0,e1)) | e0 != op(op(e0,e0),op(e0,e0)) | sP29 | sP28 | sP27 | sP26 | sP25 | sP24 | sP23 | sP22 | sP21 | sP20 | sP19 | sP18 | sP17 | sP16 | sP15 | sP14 | sP13 | sP12 | sP11 | sP10 | sP9 | sP8 | sP7 | sP6 | sP5 | sP4 | sP3 | sP2 | sP1 | sP0),
+  inference(subsumption_resolution,[],[f1430,f704])).
+fof(f704,plain,(
+  ~sP30),
+  inference(subsumption_resolution,[],[f413,f168])).
+fof(f413,plain,(
+  e2 != op(e0,e1) | ~sP30),
+  inference(cnf_transformation,[],[f126])).
+fof(f126,plain,(
+  (e2 != op(e0,e4) & e2 != op(e0,e3) & e2 != op(e0,e2) & e2 != op(e0,e1) & e2 != op(e0,e0)) | ~sP30),
+  inference(nnf_transformation,[],[f36])).
+fof(f36,plain,(
+  (e2 != op(e0,e4) & e2 != op(e0,e3) & e2 != op(e0,e2) & e2 != op(e0,e1) & e2 != op(e0,e0)) | ~sP30),
+  introduced(predicate_definition_introduction,[new_symbols(naming,[sP30])])).
+fof(f1430,plain,(
+  e4 != op(op(e4,e4),op(e4,e4)) | e4 != op(op(e3,e4),op(e4,e3)) | e4 != op(op(e2,e4),op(e4,e2)) | e4 != op(op(e1,e4),op(e4,e1)) | e4 != op(op(e0,e4),op(e4,e0)) | e3 != op(op(e4,e3),op(e3,e4)) | e3 != op(op(e3,e3),op(e3,e3)) | e3 != op(op(e2,e3),op(e3,e2)) | e3 != op(op(e1,e3),op(e3,e1)) | e3 != op(op(e0,e3),op(e3,e0)) | e2 != op(op(e4,e2),op(e2,e4)) | e2 != op(op(e3,e2),op(e2,e3)) | e2 != op(op(e2,e2),op(e2,e2)) | e2 != op(op(e1,e2),op(e2,e1)) | e2 != op(op(e0,e2),op(e2,e0)) | e1 != op(op(e4,e1),op(e1,e4)) | e1 != op(op(e3,e1),op(e1,e3)) | e1 != op(op(e2,e1),op(e1,e2)) | e1 != op(op(e1,e1),op(e1,e1)) | e1 != op(op(e0,e1),op(e1,e0)) | e0 != op(op(e4,e0),op(e0,e4)) | e0 != op(op(e3,e0),op(e0,e3)) | e0 != op(op(e2,e0),op(e0,e2)) | e0 != op(op(e1,e0),op(e0,e1)) | e0 != op(op(e0,e0),op(e0,e0)) | sP30 | sP29 | sP28 | sP27 | sP26 | sP25 | sP24 | sP23 | sP22 | sP21 | sP20 | sP19 | sP18 | sP17 | sP16 | sP15 | sP14 | sP13 | sP12 | sP11 | sP10 | sP9 | sP8 | sP7 | sP6 | sP5 | sP4 | sP3 | sP2 | sP1 | sP0),
+  inference(subsumption_resolution,[],[f1429,f700])).
+fof(f700,plain,(
+  ~sP31),
+  inference(subsumption_resolution,[],[f411,f187])).
+fof(f411,plain,(
+  e2 != op(e4,e0) | ~sP31),
+  inference(cnf_transformation,[],[f125])).
+fof(f125,plain,(
+  (e2 != op(e4,e0) & e2 != op(e3,e0) & e2 != op(e2,e0) & e2 != op(e1,e0) & e2 != op(e0,e0)) | ~sP31),
+  inference(nnf_transformation,[],[f37])).
+fof(f37,plain,(
+  (e2 != op(e4,e0) & e2 != op(e3,e0) & e2 != op(e2,e0) & e2 != op(e1,e0) & e2 != op(e0,e0)) | ~sP31),
+  introduced(predicate_definition_introduction,[new_symbols(naming,[sP31])])).
+fof(f1429,plain,(
+  e4 != op(op(e4,e4),op(e4,e4)) | e4 != op(op(e3,e4),op(e4,e3)) | e4 != op(op(e2,e4),op(e4,e2)) | e4 != op(op(e1,e4),op(e4,e1)) | e4 != op(op(e0,e4),op(e4,e0)) | e3 != op(op(e4,e3),op(e3,e4)) | e3 != op(op(e3,e3),op(e3,e3)) | e3 != op(op(e2,e3),op(e3,e2)) | e3 != op(op(e1,e3),op(e3,e1)) | e3 != op(op(e0,e3),op(e3,e0)) | e2 != op(op(e4,e2),op(e2,e4)) | e2 != op(op(e3,e2),op(e2,e3)) | e2 != op(op(e2,e2),op(e2,e2)) | e2 != op(op(e1,e2),op(e2,e1)) | e2 != op(op(e0,e2),op(e2,e0)) | e1 != op(op(e4,e1),op(e1,e4)) | e1 != op(op(e3,e1),op(e1,e3)) | e1 != op(op(e2,e1),op(e1,e2)) | e1 != op(op(e1,e1),op(e1,e1)) | e1 != op(op(e0,e1),op(e1,e0)) | e0 != op(op(e4,e0),op(e0,e4)) | e0 != op(op(e3,e0),op(e0,e3)) | e0 != op(op(e2,e0),op(e0,e2)) | e0 != op(op(e1,e0),op(e0,e1)) | e0 != op(op(e0,e0),op(e0,e0)) | sP31 | sP30 | sP29 | sP28 | sP27 | sP26 | sP25 | sP24 | sP23 | sP22 | sP21 | sP20 | sP19 | sP18 | sP17 | sP16 | sP15 | sP14 | sP13 | sP12 | sP11 | sP10 | sP9 | sP8 | sP7 | sP6 | sP5 | sP4 | sP3 | sP2 | sP1 | sP0),
+  inference(subsumption_resolution,[],[f1428,f699])).
+fof(f699,plain,(
+  ~sP32),
+  inference(subsumption_resolution,[],[f402,f167])).
+fof(f402,plain,(
+  e3 != op(e0,e0) | ~sP32),
+  inference(cnf_transformation,[],[f124])).
+fof(f124,plain,(
+  (e3 != op(e0,e4) & e3 != op(e0,e3) & e3 != op(e0,e2) & e3 != op(e0,e1) & e3 != op(e0,e0)) | ~sP32),
+  inference(nnf_transformation,[],[f38])).
+fof(f38,plain,(
+  (e3 != op(e0,e4) & e3 != op(e0,e3) & e3 != op(e0,e2) & e3 != op(e0,e1) & e3 != op(e0,e0)) | ~sP32),
+  introduced(predicate_definition_introduction,[new_symbols(naming,[sP32])])).
+fof(f1428,plain,(
+  e4 != op(op(e4,e4),op(e4,e4)) | e4 != op(op(e3,e4),op(e4,e3)) | e4 != op(op(e2,e4),op(e4,e2)) | e4 != op(op(e1,e4),op(e4,e1)) | e4 != op(op(e0,e4),op(e4,e0)) | e3 != op(op(e4,e3),op(e3,e4)) | e3 != op(op(e3,e3),op(e3,e3)) | e3 != op(op(e2,e3),op(e3,e2)) | e3 != op(op(e1,e3),op(e3,e1)) | e3 != op(op(e0,e3),op(e3,e0)) | e2 != op(op(e4,e2),op(e2,e4)) | e2 != op(op(e3,e2),op(e2,e3)) | e2 != op(op(e2,e2),op(e2,e2)) | e2 != op(op(e1,e2),op(e2,e1)) | e2 != op(op(e0,e2),op(e2,e0)) | e1 != op(op(e4,e1),op(e1,e4)) | e1 != op(op(e3,e1),op(e1,e3)) | e1 != op(op(e2,e1),op(e1,e2)) | e1 != op(op(e1,e1),op(e1,e1)) | e1 != op(op(e0,e1),op(e1,e0)) | e0 != op(op(e4,e0),op(e0,e4)) | e0 != op(op(e3,e0),op(e0,e3)) | e0 != op(op(e2,e0),op(e0,e2)) | e0 != op(op(e1,e0),op(e0,e1)) | e0 != op(op(e0,e0),op(e0,e0)) | sP32 | sP31 | sP30 | sP29 | sP28 | sP27 | sP26 | sP25 | sP24 | sP23 | sP22 | sP21 | sP20 | sP19 | sP18 | sP17 | sP16 | sP15 | sP14 | sP13 | sP12 | sP11 | sP10 | sP9 | sP8 | sP7 | sP6 | sP5 | sP4 | sP3 | sP2 | sP1 | sP0),
+  inference(subsumption_resolution,[],[f1427,f694])).
+fof(f694,plain,(
+  ~sP33),
+  inference(subsumption_resolution,[],[f397,f167])).
+fof(f397,plain,(
+  e3 != op(e0,e0) | ~sP33),
+  inference(cnf_transformation,[],[f123])).
+fof(f123,plain,(
+  (e3 != op(e4,e0) & e3 != op(e3,e0) & e3 != op(e2,e0) & e3 != op(e1,e0) & e3 != op(e0,e0)) | ~sP33),
+  inference(nnf_transformation,[],[f39])).
+fof(f39,plain,(
+  (e3 != op(e4,e0) & e3 != op(e3,e0) & e3 != op(e2,e0) & e3 != op(e1,e0) & e3 != op(e0,e0)) | ~sP33),
+  introduced(predicate_definition_introduction,[new_symbols(naming,[sP33])])).
+fof(f1427,plain,(
+  e4 != op(op(e4,e4),op(e4,e4)) | e4 != op(op(e3,e4),op(e4,e3)) | e4 != op(op(e2,e4),op(e4,e2)) | e4 != op(op(e1,e4),op(e4,e1)) | e4 != op(op(e0,e4),op(e4,e0)) | e3 != op(op(e4,e3),op(e3,e4)) | e3 != op(op(e3,e3),op(e3,e3)) | e3 != op(op(e2,e3),op(e3,e2)) | e3 != op(op(e1,e3),op(e3,e1)) | e3 != op(op(e0,e3),op(e3,e0)) | e2 != op(op(e4,e2),op(e2,e4)) | e2 != op(op(e3,e2),op(e2,e3)) | e2 != op(op(e2,e2),op(e2,e2)) | e2 != op(op(e1,e2),op(e2,e1)) | e2 != op(op(e0,e2),op(e2,e0)) | e1 != op(op(e4,e1),op(e1,e4)) | e1 != op(op(e3,e1),op(e1,e3)) | e1 != op(op(e2,e1),op(e1,e2)) | e1 != op(op(e1,e1),op(e1,e1)) | e1 != op(op(e0,e1),op(e1,e0)) | e0 != op(op(e4,e0),op(e0,e4)) | e0 != op(op(e3,e0),op(e0,e3)) | e0 != op(op(e2,e0),op(e0,e2)) | e0 != op(op(e1,e0),op(e0,e1)) | e0 != op(op(e0,e0),op(e0,e0)) | sP33 | sP32 | sP31 | sP30 | sP29 | sP28 | sP27 | sP26 | sP25 | sP24 | sP23 | sP22 | sP21 | sP20 | sP19 | sP18 | sP17 | sP16 | sP15 | sP14 | sP13 | sP12 | sP11 | sP10 | sP9 | sP8 | sP7 | sP6 | sP5 | sP4 | sP3 | sP2 | sP1 | sP0),
+  inference(subsumption_resolution,[],[f1426,f689])).
+fof(f689,plain,(
+  ~sP34),
+  inference(subsumption_resolution,[],[f396,f171])).
+fof(f396,plain,(
+  e4 != op(e0,e4) | ~sP34),
+  inference(cnf_transformation,[],[f122])).
+fof(f122,plain,(
+  (e4 != op(e0,e4) & e4 != op(e0,e3) & e4 != op(e0,e2) & e4 != op(e0,e1) & e4 != op(e0,e0)) | ~sP34),
+  inference(nnf_transformation,[],[f40])).
+fof(f40,plain,(
+  (e4 != op(e0,e4) & e4 != op(e0,e3) & e4 != op(e0,e2) & e4 != op(e0,e1) & e4 != op(e0,e0)) | ~sP34),
+  introduced(predicate_definition_introduction,[new_symbols(naming,[sP34])])).
+fof(f1426,plain,(
+  e4 != op(op(e4,e4),op(e4,e4)) | e4 != op(op(e3,e4),op(e4,e3)) | e4 != op(op(e2,e4),op(e4,e2)) | e4 != op(op(e1,e4),op(e4,e1)) | e4 != op(op(e0,e4),op(e4,e0)) | e3 != op(op(e4,e3),op(e3,e4)) | e3 != op(op(e3,e3),op(e3,e3)) | e3 != op(op(e2,e3),op(e3,e2)) | e3 != op(op(e1,e3),op(e3,e1)) | e3 != op(op(e0,e3),op(e3,e0)) | e2 != op(op(e4,e2),op(e2,e4)) | e2 != op(op(e3,e2),op(e2,e3)) | e2 != op(op(e2,e2),op(e2,e2)) | e2 != op(op(e1,e2),op(e2,e1)) | e2 != op(op(e0,e2),op(e2,e0)) | e1 != op(op(e4,e1),op(e1,e4)) | e1 != op(op(e3,e1),op(e1,e3)) | e1 != op(op(e2,e1),op(e1,e2)) | e1 != op(op(e1,e1),op(e1,e1)) | e1 != op(op(e0,e1),op(e1,e0)) | e0 != op(op(e4,e0),op(e0,e4)) | e0 != op(op(e3,e0),op(e0,e3)) | e0 != op(op(e2,e0),op(e0,e2)) | e0 != op(op(e1,e0),op(e0,e1)) | e0 != op(op(e0,e0),op(e0,e0)) | sP34 | sP33 | sP32 | sP31 | sP30 | sP29 | sP28 | sP27 | sP26 | sP25 | sP24 | sP23 | sP22 | sP21 | sP20 | sP19 | sP18 | sP17 | sP16 | sP15 | sP14 | sP13 | sP12 | sP11 | sP10 | sP9 | sP8 | sP7 | sP6 | sP5 | sP4 | sP3 | sP2 | sP1 | sP0),
+  inference(subsumption_resolution,[],[f1425,f688])).
+fof(f688,plain,(
+  ~sP35),
+  inference(subsumption_resolution,[],[f390,f182])).
+fof(f390,plain,(
+  e4 != op(e3,e0) | ~sP35),
+  inference(cnf_transformation,[],[f121])).
+fof(f121,plain,(
+  (e4 != op(e4,e0) & e4 != op(e3,e0) & e4 != op(e2,e0) & e4 != op(e1,e0) & e4 != op(e0,e0)) | ~sP35),
+  inference(nnf_transformation,[],[f41])).
+fof(f41,plain,(
+  (e4 != op(e4,e0) & e4 != op(e3,e0) & e4 != op(e2,e0) & e4 != op(e1,e0) & e4 != op(e0,e0)) | ~sP35),
+  introduced(predicate_definition_introduction,[new_symbols(naming,[sP35])])).
+fof(f1425,plain,(
+  e4 != op(op(e4,e4),op(e4,e4)) | e4 != op(op(e3,e4),op(e4,e3)) | e4 != op(op(e2,e4),op(e4,e2)) | e4 != op(op(e1,e4),op(e4,e1)) | e4 != op(op(e0,e4),op(e4,e0)) | e3 != op(op(e4,e3),op(e3,e4)) | e3 != op(op(e3,e3),op(e3,e3)) | e3 != op(op(e2,e3),op(e3,e2)) | e3 != op(op(e1,e3),op(e3,e1)) | e3 != op(op(e0,e3),op(e3,e0)) | e2 != op(op(e4,e2),op(e2,e4)) | e2 != op(op(e3,e2),op(e2,e3)) | e2 != op(op(e2,e2),op(e2,e2)) | e2 != op(op(e1,e2),op(e2,e1)) | e2 != op(op(e0,e2),op(e2,e0)) | e1 != op(op(e4,e1),op(e1,e4)) | e1 != op(op(e3,e1),op(e1,e3)) | e1 != op(op(e2,e1),op(e1,e2)) | e1 != op(op(e1,e1),op(e1,e1)) | e1 != op(op(e0,e1),op(e1,e0)) | e0 != op(op(e4,e0),op(e0,e4)) | e0 != op(op(e3,e0),op(e0,e3)) | e0 != op(op(e2,e0),op(e0,e2)) | e0 != op(op(e1,e0),op(e0,e1)) | e0 != op(op(e0,e0),op(e0,e0)) | sP35 | sP34 | sP33 | sP32 | sP31 | sP30 | sP29 | sP28 | sP27 | sP26 | sP25 | sP24 | sP23 | sP22 | sP21 | sP20 | sP19 | sP18 | sP17 | sP16 | sP15 | sP14 | sP13 | sP12 | sP11 | sP10 | sP9 | sP8 | sP7 | sP6 | sP5 | sP4 | sP3 | sP2 | sP1 | sP0),
+  inference(subsumption_resolution,[],[f1424,f686])).
+fof(f686,plain,(
+  ~sP36),
+  inference(subsumption_resolution,[],[f382,f172])).
+fof(f382,plain,(
+  e0 != op(e1,e0) | ~sP36),
+  inference(cnf_transformation,[],[f120])).
+fof(f120,plain,(
+  (e0 != op(e1,e4) & e0 != op(e1,e3) & e0 != op(e1,e2) & e0 != op(e1,e1) & e0 != op(e1,e0)) | ~sP36),
+  inference(nnf_transformation,[],[f42])).
+fof(f42,plain,(
+  (e0 != op(e1,e4) & e0 != op(e1,e3) & e0 != op(e1,e2) & e0 != op(e1,e1) & e0 != op(e1,e0)) | ~sP36),
+  introduced(predicate_definition_introduction,[new_symbols(naming,[sP36])])).
+fof(f1424,plain,(
+  e4 != op(op(e4,e4),op(e4,e4)) | e4 != op(op(e3,e4),op(e4,e3)) | e4 != op(op(e2,e4),op(e4,e2)) | e4 != op(op(e1,e4),op(e4,e1)) | e4 != op(op(e0,e4),op(e4,e0)) | e3 != op(op(e4,e3),op(e3,e4)) | e3 != op(op(e3,e3),op(e3,e3)) | e3 != op(op(e2,e3),op(e3,e2)) | e3 != op(op(e1,e3),op(e3,e1)) | e3 != op(op(e0,e3),op(e3,e0)) | e2 != op(op(e4,e2),op(e2,e4)) | e2 != op(op(e3,e2),op(e2,e3)) | e2 != op(op(e2,e2),op(e2,e2)) | e2 != op(op(e1,e2),op(e2,e1)) | e2 != op(op(e0,e2),op(e2,e0)) | e1 != op(op(e4,e1),op(e1,e4)) | e1 != op(op(e3,e1),op(e1,e3)) | e1 != op(op(e2,e1),op(e1,e2)) | e1 != op(op(e1,e1),op(e1,e1)) | e1 != op(op(e0,e1),op(e1,e0)) | e0 != op(op(e4,e0),op(e0,e4)) | e0 != op(op(e3,e0),op(e0,e3)) | e0 != op(op(e2,e0),op(e0,e2)) | e0 != op(op(e1,e0),op(e0,e1)) | e0 != op(op(e0,e0),op(e0,e0)) | sP36 | sP35 | sP34 | sP33 | sP32 | sP31 | sP30 | sP29 | sP28 | sP27 | sP26 | sP25 | sP24 | sP23 | sP22 | sP21 | sP20 | sP19 | sP18 | sP17 | sP16 | sP15 | sP14 | sP13 | sP12 | sP11 | sP10 | sP9 | sP8 | sP7 | sP6 | sP5 | sP4 | sP3 | sP2 | sP1 | sP0),
+  inference(subsumption_resolution,[],[f1423,f681])).
+fof(f681,plain,(
+  ~sP37),
+  inference(subsumption_resolution,[],[f381,f188])).
+fof(f381,plain,(
+  e0 != op(e4,e1) | ~sP37),
+  inference(cnf_transformation,[],[f119])).
+fof(f119,plain,(
+  (e0 != op(e4,e1) & e0 != op(e3,e1) & e0 != op(e2,e1) & e0 != op(e1,e1) & e0 != op(e0,e1)) | ~sP37),
+  inference(nnf_transformation,[],[f43])).
+fof(f43,plain,(
+  (e0 != op(e4,e1) & e0 != op(e3,e1) & e0 != op(e2,e1) & e0 != op(e1,e1) & e0 != op(e0,e1)) | ~sP37),
+  introduced(predicate_definition_introduction,[new_symbols(naming,[sP37])])).
+fof(f1423,plain,(
+  e4 != op(op(e4,e4),op(e4,e4)) | e4 != op(op(e3,e4),op(e4,e3)) | e4 != op(op(e2,e4),op(e4,e2)) | e4 != op(op(e1,e4),op(e4,e1)) | e4 != op(op(e0,e4),op(e4,e0)) | e3 != op(op(e4,e3),op(e3,e4)) | e3 != op(op(e3,e3),op(e3,e3)) | e3 != op(op(e2,e3),op(e3,e2)) | e3 != op(op(e1,e3),op(e3,e1)) | e3 != op(op(e0,e3),op(e3,e0)) | e2 != op(op(e4,e2),op(e2,e4)) | e2 != op(op(e3,e2),op(e2,e3)) | e2 != op(op(e2,e2),op(e2,e2)) | e2 != op(op(e1,e2),op(e2,e1)) | e2 != op(op(e0,e2),op(e2,e0)) | e1 != op(op(e4,e1),op(e1,e4)) | e1 != op(op(e3,e1),op(e1,e3)) | e1 != op(op(e2,e1),op(e1,e2)) | e1 != op(op(e1,e1),op(e1,e1)) | e1 != op(op(e0,e1),op(e1,e0)) | e0 != op(op(e4,e0),op(e0,e4)) | e0 != op(op(e3,e0),op(e0,e3)) | e0 != op(op(e2,e0),op(e0,e2)) | e0 != op(op(e1,e0),op(e0,e1)) | e0 != op(op(e0,e0),op(e0,e0)) | sP37 | sP36 | sP35 | sP34 | sP33 | sP32 | sP31 | sP30 | sP29 | sP28 | sP27 | sP26 | sP25 | sP24 | sP23 | sP22 | sP21 | sP20 | sP19 | sP18 | sP17 | sP16 | sP15 | sP14 | sP13 | sP12 | sP11 | sP10 | sP9 | sP8 | sP7 | sP6 | sP5 | sP4 | sP3 | sP2 | sP1 | sP0),
+  inference(subsumption_resolution,[],[f1422,f680])).
+fof(f680,plain,(
+  ~sP38),
+  inference(subsumption_resolution,[],[f374,f174])).
+fof(f374,plain,(
+  e1 != op(e1,e2) | ~sP38),
+  inference(cnf_transformation,[],[f118])).
+fof(f118,plain,(
+  (e1 != op(e1,e4) & e1 != op(e1,e3) & e1 != op(e1,e2) & e1 != op(e1,e1) & e1 != op(e1,e0)) | ~sP38),
+  inference(nnf_transformation,[],[f44])).
+fof(f44,plain,(
+  (e1 != op(e1,e4) & e1 != op(e1,e3) & e1 != op(e1,e2) & e1 != op(e1,e1) & e1 != op(e1,e0)) | ~sP38),
+  introduced(predicate_definition_introduction,[new_symbols(naming,[sP38])])).
+fof(f1422,plain,(
+  e4 != op(op(e4,e4),op(e4,e4)) | e4 != op(op(e3,e4),op(e4,e3)) | e4 != op(op(e2,e4),op(e4,e2)) | e4 != op(op(e1,e4),op(e4,e1)) | e4 != op(op(e0,e4),op(e4,e0)) | e3 != op(op(e4,e3),op(e3,e4)) | e3 != op(op(e3,e3),op(e3,e3)) | e3 != op(op(e2,e3),op(e3,e2)) | e3 != op(op(e1,e3),op(e3,e1)) | e3 != op(op(e0,e3),op(e3,e0)) | e2 != op(op(e4,e2),op(e2,e4)) | e2 != op(op(e3,e2),op(e2,e3)) | e2 != op(op(e2,e2),op(e2,e2)) | e2 != op(op(e1,e2),op(e2,e1)) | e2 != op(op(e0,e2),op(e2,e0)) | e1 != op(op(e4,e1),op(e1,e4)) | e1 != op(op(e3,e1),op(e1,e3)) | e1 != op(op(e2,e1),op(e1,e2)) | e1 != op(op(e1,e1),op(e1,e1)) | e1 != op(op(e0,e1),op(e1,e0)) | e0 != op(op(e4,e0),op(e0,e4)) | e0 != op(op(e3,e0),op(e0,e3)) | e0 != op(op(e2,e0),op(e0,e2)) | e0 != op(op(e1,e0),op(e0,e1)) | e0 != op(op(e0,e0),op(e0,e0)) | sP38 | sP37 | sP36 | sP35 | sP34 | sP33 | sP32 | sP31 | sP30 | sP29 | sP28 | sP27 | sP26 | sP25 | sP24 | sP23 | sP22 | sP21 | sP20 | sP19 | sP18 | sP17 | sP16 | sP15 | sP14 | sP13 | sP12 | sP11 | sP10 | sP9 | sP8 | sP7 | sP6 | sP5 | sP4 | sP3 | sP2 | sP1 | sP0),
+  inference(subsumption_resolution,[],[f1421,f677])).
+fof(f677,plain,(
+  ~sP39),
+  inference(subsumption_resolution,[],[f370,f183])).
+fof(f370,plain,(
+  e1 != op(e3,e1) | ~sP39),
+  inference(cnf_transformation,[],[f117])).
+fof(f117,plain,(
+  (e1 != op(e4,e1) & e1 != op(e3,e1) & e1 != op(e2,e1) & e1 != op(e1,e1) & e1 != op(e0,e1)) | ~sP39),
+  inference(nnf_transformation,[],[f45])).
+fof(f45,plain,(
+  (e1 != op(e4,e1) & e1 != op(e3,e1) & e1 != op(e2,e1) & e1 != op(e1,e1) & e1 != op(e0,e1)) | ~sP39),
+  introduced(predicate_definition_introduction,[new_symbols(naming,[sP39])])).
+fof(f1421,plain,(
+  e4 != op(op(e4,e4),op(e4,e4)) | e4 != op(op(e3,e4),op(e4,e3)) | e4 != op(op(e2,e4),op(e4,e2)) | e4 != op(op(e1,e4),op(e4,e1)) | e4 != op(op(e0,e4),op(e4,e0)) | e3 != op(op(e4,e3),op(e3,e4)) | e3 != op(op(e3,e3),op(e3,e3)) | e3 != op(op(e2,e3),op(e3,e2)) | e3 != op(op(e1,e3),op(e3,e1)) | e3 != op(op(e0,e3),op(e3,e0)) | e2 != op(op(e4,e2),op(e2,e4)) | e2 != op(op(e3,e2),op(e2,e3)) | e2 != op(op(e2,e2),op(e2,e2)) | e2 != op(op(e1,e2),op(e2,e1)) | e2 != op(op(e0,e2),op(e2,e0)) | e1 != op(op(e4,e1),op(e1,e4)) | e1 != op(op(e3,e1),op(e1,e3)) | e1 != op(op(e2,e1),op(e1,e2)) | e1 != op(op(e1,e1),op(e1,e1)) | e1 != op(op(e0,e1),op(e1,e0)) | e0 != op(op(e4,e0),op(e0,e4)) | e0 != op(op(e3,e0),op(e0,e3)) | e0 != op(op(e2,e0),op(e0,e2)) | e0 != op(op(e1,e0),op(e0,e1)) | e0 != op(op(e0,e0),op(e0,e0)) | sP39 | sP38 | sP37 | sP36 | sP35 | sP34 | sP33 | sP32 | sP31 | sP30 | sP29 | sP28 | sP27 | sP26 | sP25 | sP24 | sP23 | sP22 | sP21 | sP20 | sP19 | sP18 | sP17 | sP16 | sP15 | sP14 | sP13 | sP12 | sP11 | sP10 | sP9 | sP8 | sP7 | sP6 | sP5 | sP4 | sP3 | sP2 | sP1 | sP0),
+  inference(subsumption_resolution,[],[f1420,f675])).
+fof(f675,plain,(
+  ~sP40),
+  inference(subsumption_resolution,[],[f365,f175])).
+fof(f365,plain,(
+  e2 != op(e1,e3) | ~sP40),
+  inference(cnf_transformation,[],[f116])).
+fof(f116,plain,(
+  (e2 != op(e1,e4) & e2 != op(e1,e3) & e2 != op(e1,e2) & e2 != op(e1,e1) & e2 != op(e1,e0)) | ~sP40),
+  inference(nnf_transformation,[],[f46])).
+fof(f46,plain,(
+  (e2 != op(e1,e4) & e2 != op(e1,e3) & e2 != op(e1,e2) & e2 != op(e1,e1) & e2 != op(e1,e0)) | ~sP40),
+  introduced(predicate_definition_introduction,[new_symbols(naming,[sP40])])).
+fof(f1420,plain,(
+  e4 != op(op(e4,e4),op(e4,e4)) | e4 != op(op(e3,e4),op(e4,e3)) | e4 != op(op(e2,e4),op(e4,e2)) | e4 != op(op(e1,e4),op(e4,e1)) | e4 != op(op(e0,e4),op(e4,e0)) | e3 != op(op(e4,e3),op(e3,e4)) | e3 != op(op(e3,e3),op(e3,e3)) | e3 != op(op(e2,e3),op(e3,e2)) | e3 != op(op(e1,e3),op(e3,e1)) | e3 != op(op(e0,e3),op(e3,e0)) | e2 != op(op(e4,e2),op(e2,e4)) | e2 != op(op(e3,e2),op(e2,e3)) | e2 != op(op(e2,e2),op(e2,e2)) | e2 != op(op(e1,e2),op(e2,e1)) | e2 != op(op(e0,e2),op(e2,e0)) | e1 != op(op(e4,e1),op(e1,e4)) | e1 != op(op(e3,e1),op(e1,e3)) | e1 != op(op(e2,e1),op(e1,e2)) | e1 != op(op(e1,e1),op(e1,e1)) | e1 != op(op(e0,e1),op(e1,e0)) | e0 != op(op(e4,e0),op(e0,e4)) | e0 != op(op(e3,e0),op(e0,e3)) | e0 != op(op(e2,e0),op(e0,e2)) | e0 != op(op(e1,e0),op(e0,e1)) | e0 != op(op(e0,e0),op(e0,e0)) | sP40 | sP39 | sP38 | sP37 | sP36 | sP35 | sP34 | sP33 | sP32 | sP31 | sP30 | sP29 | sP28 | sP27 | sP26 | sP25 | sP24 | sP23 | sP22 | sP21 | sP20 | sP19 | sP18 | sP17 | sP16 | sP15 | sP14 | sP13 | sP12 | sP11 | sP10 | sP9 | sP8 | sP7 | sP6 | sP5 | sP4 | sP3 | sP2 | sP1 | sP0),
+  inference(subsumption_resolution,[],[f1419,f673])).
+fof(f673,plain,(
+  ~sP41),
+  inference(subsumption_resolution,[],[f357,f168])).
+fof(f357,plain,(
+  e2 != op(e0,e1) | ~sP41),
+  inference(cnf_transformation,[],[f115])).
+fof(f115,plain,(
+  (e2 != op(e4,e1) & e2 != op(e3,e1) & e2 != op(e2,e1) & e2 != op(e1,e1) & e2 != op(e0,e1)) | ~sP41),
+  inference(nnf_transformation,[],[f47])).
+fof(f47,plain,(
+  (e2 != op(e4,e1) & e2 != op(e3,e1) & e2 != op(e2,e1) & e2 != op(e1,e1) & e2 != op(e0,e1)) | ~sP41),
+  introduced(predicate_definition_introduction,[new_symbols(naming,[sP41])])).
+fof(f1419,plain,(
+  e4 != op(op(e4,e4),op(e4,e4)) | e4 != op(op(e3,e4),op(e4,e3)) | e4 != op(op(e2,e4),op(e4,e2)) | e4 != op(op(e1,e4),op(e4,e1)) | e4 != op(op(e0,e4),op(e4,e0)) | e3 != op(op(e4,e3),op(e3,e4)) | e3 != op(op(e3,e3),op(e3,e3)) | e3 != op(op(e2,e3),op(e3,e2)) | e3 != op(op(e1,e3),op(e3,e1)) | e3 != op(op(e0,e3),op(e3,e0)) | e2 != op(op(e4,e2),op(e2,e4)) | e2 != op(op(e3,e2),op(e2,e3)) | e2 != op(op(e2,e2),op(e2,e2)) | e2 != op(op(e1,e2),op(e2,e1)) | e2 != op(op(e0,e2),op(e2,e0)) | e1 != op(op(e4,e1),op(e1,e4)) | e1 != op(op(e3,e1),op(e1,e3)) | e1 != op(op(e2,e1),op(e1,e2)) | e1 != op(op(e1,e1),op(e1,e1)) | e1 != op(op(e0,e1),op(e1,e0)) | e0 != op(op(e4,e0),op(e0,e4)) | e0 != op(op(e3,e0),op(e0,e3)) | e0 != op(op(e2,e0),op(e0,e2)) | e0 != op(op(e1,e0),op(e0,e1)) | e0 != op(op(e0,e0),op(e0,e0)) | sP41 | sP40 | sP39 | sP38 | sP37 | sP36 | sP35 | sP34 | sP33 | sP32 | sP31 | sP30 | sP29 | sP28 | sP27 | sP26 | sP25 | sP24 | sP23 | sP22 | sP21 | sP20 | sP19 | sP18 | sP17 | sP16 | sP15 | sP14 | sP13 | sP12 | sP11 | sP10 | sP9 | sP8 | sP7 | sP6 | sP5 | sP4 | sP3 | sP2 | sP1 | sP0),
+  inference(subsumption_resolution,[],[f1418,f668])).
+fof(f668,plain,(
+  ~sP42),
+  inference(subsumption_resolution,[],[f356,f176])).
+fof(f356,plain,(
+  e3 != op(e1,e4) | ~sP42),
+  inference(cnf_transformation,[],[f114])).
+fof(f114,plain,(
+  (e3 != op(e1,e4) & e3 != op(e1,e3) & e3 != op(e1,e2) & e3 != op(e1,e1) & e3 != op(e1,e0)) | ~sP42),
+  inference(nnf_transformation,[],[f48])).
+fof(f48,plain,(
+  (e3 != op(e1,e4) & e3 != op(e1,e3) & e3 != op(e1,e2) & e3 != op(e1,e1) & e3 != op(e1,e0)) | ~sP42),
+  introduced(predicate_definition_introduction,[new_symbols(naming,[sP42])])).
+fof(f1418,plain,(
+  e4 != op(op(e4,e4),op(e4,e4)) | e4 != op(op(e3,e4),op(e4,e3)) | e4 != op(op(e2,e4),op(e4,e2)) | e4 != op(op(e1,e4),op(e4,e1)) | e4 != op(op(e0,e4),op(e4,e0)) | e3 != op(op(e4,e3),op(e3,e4)) | e3 != op(op(e3,e3),op(e3,e3)) | e3 != op(op(e2,e3),op(e3,e2)) | e3 != op(op(e1,e3),op(e3,e1)) | e3 != op(op(e0,e3),op(e3,e0)) | e2 != op(op(e4,e2),op(e2,e4)) | e2 != op(op(e3,e2),op(e2,e3)) | e2 != op(op(e2,e2),op(e2,e2)) | e2 != op(op(e1,e2),op(e2,e1)) | e2 != op(op(e0,e2),op(e2,e0)) | e1 != op(op(e4,e1),op(e1,e4)) | e1 != op(op(e3,e1),op(e1,e3)) | e1 != op(op(e2,e1),op(e1,e2)) | e1 != op(op(e1,e1),op(e1,e1)) | e1 != op(op(e0,e1),op(e1,e0)) | e0 != op(op(e4,e0),op(e0,e4)) | e0 != op(op(e3,e0),op(e0,e3)) | e0 != op(op(e2,e0),op(e0,e2)) | e0 != op(op(e1,e0),op(e0,e1)) | e0 != op(op(e0,e0),op(e0,e0)) | sP42 | sP41 | sP40 | sP39 | sP38 | sP37 | sP36 | sP35 | sP34 | sP33 | sP32 | sP31 | sP30 | sP29 | sP28 | sP27 | sP26 | sP25 | sP24 | sP23 | sP22 | sP21 | sP20 | sP19 | sP18 | sP17 | sP16 | sP15 | sP14 | sP13 | sP12 | sP11 | sP10 | sP9 | sP8 | sP7 | sP6 | sP5 | sP4 | sP3 | sP2 | sP1 | sP0),
+  inference(subsumption_resolution,[],[f1417,f667])).
+fof(f667,plain,(
+  ~sP43),
+  inference(subsumption_resolution,[],[f349,f178])).
+fof(f349,plain,(
+  e3 != op(e2,e1) | ~sP43),
+  inference(cnf_transformation,[],[f113])).
+fof(f113,plain,(
+  (e3 != op(e4,e1) & e3 != op(e3,e1) & e3 != op(e2,e1) & e3 != op(e1,e1) & e3 != op(e0,e1)) | ~sP43),
+  inference(nnf_transformation,[],[f49])).
+fof(f49,plain,(
+  (e3 != op(e4,e1) & e3 != op(e3,e1) & e3 != op(e2,e1) & e3 != op(e1,e1) & e3 != op(e0,e1)) | ~sP43),
+  introduced(predicate_definition_introduction,[new_symbols(naming,[sP43])])).
+fof(f1417,plain,(
+  e4 != op(op(e4,e4),op(e4,e4)) | e4 != op(op(e3,e4),op(e4,e3)) | e4 != op(op(e2,e4),op(e4,e2)) | e4 != op(op(e1,e4),op(e4,e1)) | e4 != op(op(e0,e4),op(e4,e0)) | e3 != op(op(e4,e3),op(e3,e4)) | e3 != op(op(e3,e3),op(e3,e3)) | e3 != op(op(e2,e3),op(e3,e2)) | e3 != op(op(e1,e3),op(e3,e1)) | e3 != op(op(e0,e3),op(e3,e0)) | e2 != op(op(e4,e2),op(e2,e4)) | e2 != op(op(e3,e2),op(e2,e3)) | e2 != op(op(e2,e2),op(e2,e2)) | e2 != op(op(e1,e2),op(e2,e1)) | e2 != op(op(e0,e2),op(e2,e0)) | e1 != op(op(e4,e1),op(e1,e4)) | e1 != op(op(e3,e1),op(e1,e3)) | e1 != op(op(e2,e1),op(e1,e2)) | e1 != op(op(e1,e1),op(e1,e1)) | e1 != op(op(e0,e1),op(e1,e0)) | e0 != op(op(e4,e0),op(e0,e4)) | e0 != op(op(e3,e0),op(e0,e3)) | e0 != op(op(e2,e0),op(e0,e2)) | e0 != op(op(e1,e0),op(e0,e1)) | e0 != op(op(e0,e0),op(e0,e0)) | sP43 | sP42 | sP41 | sP40 | sP39 | sP38 | sP37 | sP36 | sP35 | sP34 | sP33 | sP32 | sP31 | sP30 | sP29 | sP28 | sP27 | sP26 | sP25 | sP24 | sP23 | sP22 | sP21 | sP20 | sP19 | sP18 | sP17 | sP16 | sP15 | sP14 | sP13 | sP12 | sP11 | sP10 | sP9 | sP8 | sP7 | sP6 | sP5 | sP4 | sP3 | sP2 | sP1 | sP0),
+  inference(subsumption_resolution,[],[f1416,f664])).
+fof(f664,plain,(
+  ~sP44),
+  inference(subsumption_resolution,[],[f343,f173])).
+fof(f343,plain,(
+  e4 != op(e1,e1) | ~sP44),
+  inference(cnf_transformation,[],[f112])).
+fof(f112,plain,(
+  (e4 != op(e1,e4) & e4 != op(e1,e3) & e4 != op(e1,e2) & e4 != op(e1,e1) & e4 != op(e1,e0)) | ~sP44),
+  inference(nnf_transformation,[],[f50])).
+fof(f50,plain,(
+  (e4 != op(e1,e4) & e4 != op(e1,e3) & e4 != op(e1,e2) & e4 != op(e1,e1) & e4 != op(e1,e0)) | ~sP44),
+  introduced(predicate_definition_introduction,[new_symbols(naming,[sP44])])).
+fof(f1416,plain,(
+  e4 != op(op(e4,e4),op(e4,e4)) | e4 != op(op(e3,e4),op(e4,e3)) | e4 != op(op(e2,e4),op(e4,e2)) | e4 != op(op(e1,e4),op(e4,e1)) | e4 != op(op(e0,e4),op(e4,e0)) | e3 != op(op(e4,e3),op(e3,e4)) | e3 != op(op(e3,e3),op(e3,e3)) | e3 != op(op(e2,e3),op(e3,e2)) | e3 != op(op(e1,e3),op(e3,e1)) | e3 != op(op(e0,e3),op(e3,e0)) | e2 != op(op(e4,e2),op(e2,e4)) | e2 != op(op(e3,e2),op(e2,e3)) | e2 != op(op(e2,e2),op(e2,e2)) | e2 != op(op(e1,e2),op(e2,e1)) | e2 != op(op(e0,e2),op(e2,e0)) | e1 != op(op(e4,e1),op(e1,e4)) | e1 != op(op(e3,e1),op(e1,e3)) | e1 != op(op(e2,e1),op(e1,e2)) | e1 != op(op(e1,e1),op(e1,e1)) | e1 != op(op(e0,e1),op(e1,e0)) | e0 != op(op(e4,e0),op(e0,e4)) | e0 != op(op(e3,e0),op(e0,e3)) | e0 != op(op(e2,e0),op(e0,e2)) | e0 != op(op(e1,e0),op(e0,e1)) | e0 != op(op(e0,e0),op(e0,e0)) | sP44 | sP43 | sP42 | sP41 | sP40 | sP39 | sP38 | sP37 | sP36 | sP35 | sP34 | sP33 | sP32 | sP31 | sP30 | sP29 | sP28 | sP27 | sP26 | sP25 | sP24 | sP23 | sP22 | sP21 | sP20 | sP19 | sP18 | sP17 | sP16 | sP15 | sP14 | sP13 | sP12 | sP11 | sP10 | sP9 | sP8 | sP7 | sP6 | sP5 | sP4 | sP3 | sP2 | sP1 | sP0),
+  inference(subsumption_resolution,[],[f1415,f660])).
+fof(f660,plain,(
+  ~sP45),
+  inference(subsumption_resolution,[],[f338,f173])).
+fof(f338,plain,(
+  e4 != op(e1,e1) | ~sP45),
+  inference(cnf_transformation,[],[f111])).
+fof(f111,plain,(
+  (e4 != op(e4,e1) & e4 != op(e3,e1) & e4 != op(e2,e1) & e4 != op(e1,e1) & e4 != op(e0,e1)) | ~sP45),
+  inference(nnf_transformation,[],[f51])).
+fof(f51,plain,(
+  (e4 != op(e4,e1) & e4 != op(e3,e1) & e4 != op(e2,e1) & e4 != op(e1,e1) & e4 != op(e0,e1)) | ~sP45),
+  introduced(predicate_definition_introduction,[new_symbols(naming,[sP45])])).
+fof(f1415,plain,(
+  e4 != op(op(e4,e4),op(e4,e4)) | e4 != op(op(e3,e4),op(e4,e3)) | e4 != op(op(e2,e4),op(e4,e2)) | e4 != op(op(e1,e4),op(e4,e1)) | e4 != op(op(e0,e4),op(e4,e0)) | e3 != op(op(e4,e3),op(e3,e4)) | e3 != op(op(e3,e3),op(e3,e3)) | e3 != op(op(e2,e3),op(e3,e2)) | e3 != op(op(e1,e3),op(e3,e1)) | e3 != op(op(e0,e3),op(e3,e0)) | e2 != op(op(e4,e2),op(e2,e4)) | e2 != op(op(e3,e2),op(e2,e3)) | e2 != op(op(e2,e2),op(e2,e2)) | e2 != op(op(e1,e2),op(e2,e1)) | e2 != op(op(e0,e2),op(e2,e0)) | e1 != op(op(e4,e1),op(e1,e4)) | e1 != op(op(e3,e1),op(e1,e3)) | e1 != op(op(e2,e1),op(e1,e2)) | e1 != op(op(e1,e1),op(e1,e1)) | e1 != op(op(e0,e1),op(e1,e0)) | e0 != op(op(e4,e0),op(e0,e4)) | e0 != op(op(e3,e0),op(e0,e3)) | e0 != op(op(e2,e0),op(e0,e2)) | e0 != op(op(e1,e0),op(e0,e1)) | e0 != op(op(e0,e0),op(e0,e0)) | sP45 | sP44 | sP43 | sP42 | sP41 | sP40 | sP39 | sP38 | sP37 | sP36 | sP35 | sP34 | sP33 | sP32 | sP31 | sP30 | sP29 | sP28 | sP27 | sP26 | sP25 | sP24 | sP23 | sP22 | sP21 | sP20 | sP19 | sP18 | sP17 | sP16 | sP15 | sP14 | sP13 | sP12 | sP11 | sP10 | sP9 | sP8 | sP7 | sP6 | sP5 | sP4 | sP3 | sP2 | sP1 | sP0),
+  inference(subsumption_resolution,[],[f1414,f656])).
+fof(f656,plain,(
+  ~sP46),
+  inference(subsumption_resolution,[],[f336,f181])).
+fof(f336,plain,(
+  e0 != op(e2,e4) | ~sP46),
+  inference(cnf_transformation,[],[f110])).
+fof(f110,plain,(
+  (e0 != op(e2,e4) & e0 != op(e2,e3) & e0 != op(e2,e2) & e0 != op(e2,e1) & e0 != op(e2,e0)) | ~sP46),
+  inference(nnf_transformation,[],[f52])).
+fof(f52,plain,(
+  (e0 != op(e2,e4) & e0 != op(e2,e3) & e0 != op(e2,e2) & e0 != op(e2,e1) & e0 != op(e2,e0)) | ~sP46),
+  introduced(predicate_definition_introduction,[new_symbols(naming,[sP46])])).
+fof(f1414,plain,(
+  e4 != op(op(e4,e4),op(e4,e4)) | e4 != op(op(e3,e4),op(e4,e3)) | e4 != op(op(e2,e4),op(e4,e2)) | e4 != op(op(e1,e4),op(e4,e1)) | e4 != op(op(e0,e4),op(e4,e0)) | e3 != op(op(e4,e3),op(e3,e4)) | e3 != op(op(e3,e3),op(e3,e3)) | e3 != op(op(e2,e3),op(e3,e2)) | e3 != op(op(e1,e3),op(e3,e1)) | e3 != op(op(e0,e3),op(e3,e0)) | e2 != op(op(e4,e2),op(e2,e4)) | e2 != op(op(e3,e2),op(e2,e3)) | e2 != op(op(e2,e2),op(e2,e2)) | e2 != op(op(e1,e2),op(e2,e1)) | e2 != op(op(e0,e2),op(e2,e0)) | e1 != op(op(e4,e1),op(e1,e4)) | e1 != op(op(e3,e1),op(e1,e3)) | e1 != op(op(e2,e1),op(e1,e2)) | e1 != op(op(e1,e1),op(e1,e1)) | e1 != op(op(e0,e1),op(e1,e0)) | e0 != op(op(e4,e0),op(e0,e4)) | e0 != op(op(e3,e0),op(e0,e3)) | e0 != op(op(e2,e0),op(e0,e2)) | e0 != op(op(e1,e0),op(e0,e1)) | e0 != op(op(e0,e0),op(e0,e0)) | sP46 | sP45 | sP44 | sP43 | sP42 | sP41 | sP40 | sP39 | sP38 | sP37 | sP36 | sP35 | sP34 | sP33 | sP32 | sP31 | sP30 | sP29 | sP28 | sP27 | sP26 | sP25 | sP24 | sP23 | sP22 | sP21 | sP20 | sP19 | sP18 | sP17 | sP16 | sP15 | sP14 | sP13 | sP12 | sP11 | sP10 | sP9 | sP8 | sP7 | sP6 | sP5 | sP4 | sP3 | sP2 | sP1 | sP0),
+  inference(subsumption_resolution,[],[f1413,f655])).
+fof(f655,plain,(
+  ~sP47),
+  inference(subsumption_resolution,[],[f327,f169])).
+fof(f327,plain,(
+  e0 != op(e0,e2) | ~sP47),
+  inference(cnf_transformation,[],[f109])).
+fof(f109,plain,(
+  (e0 != op(e4,e2) & e0 != op(e3,e2) & e0 != op(e2,e2) & e0 != op(e1,e2) & e0 != op(e0,e2)) | ~sP47),
+  inference(nnf_transformation,[],[f53])).
+fof(f53,plain,(
+  (e0 != op(e4,e2) & e0 != op(e3,e2) & e0 != op(e2,e2) & e0 != op(e1,e2) & e0 != op(e0,e2)) | ~sP47),
+  introduced(predicate_definition_introduction,[new_symbols(naming,[sP47])])).
+fof(f1413,plain,(
+  e4 != op(op(e4,e4),op(e4,e4)) | e4 != op(op(e3,e4),op(e4,e3)) | e4 != op(op(e2,e4),op(e4,e2)) | e4 != op(op(e1,e4),op(e4,e1)) | e4 != op(op(e0,e4),op(e4,e0)) | e3 != op(op(e4,e3),op(e3,e4)) | e3 != op(op(e3,e3),op(e3,e3)) | e3 != op(op(e2,e3),op(e3,e2)) | e3 != op(op(e1,e3),op(e3,e1)) | e3 != op(op(e0,e3),op(e3,e0)) | e2 != op(op(e4,e2),op(e2,e4)) | e2 != op(op(e3,e2),op(e2,e3)) | e2 != op(op(e2,e2),op(e2,e2)) | e2 != op(op(e1,e2),op(e2,e1)) | e2 != op(op(e0,e2),op(e2,e0)) | e1 != op(op(e4,e1),op(e1,e4)) | e1 != op(op(e3,e1),op(e1,e3)) | e1 != op(op(e2,e1),op(e1,e2)) | e1 != op(op(e1,e1),op(e1,e1)) | e1 != op(op(e0,e1),op(e1,e0)) | e0 != op(op(e4,e0),op(e0,e4)) | e0 != op(op(e3,e0),op(e0,e3)) | e0 != op(op(e2,e0),op(e0,e2)) | e0 != op(op(e1,e0),op(e0,e1)) | e0 != op(op(e0,e0),op(e0,e0)) | sP47 | sP46 | sP45 | sP44 | sP43 | sP42 | sP41 | sP40 | sP39 | sP38 | sP37 | sP36 | sP35 | sP34 | sP33 | sP32 | sP31 | sP30 | sP29 | sP28 | sP27 | sP26 | sP25 | sP24 | sP23 | sP22 | sP21 | sP20 | sP19 | sP18 | sP17 | sP16 | sP15 | sP14 | sP13 | sP12 | sP11 | sP10 | sP9 | sP8 | sP7 | sP6 | sP5 | sP4 | sP3 | sP2 | sP1 | sP0),
+  inference(subsumption_resolution,[],[f1412,f650])).
+fof(f650,plain,(
+  ~sP48),
+  inference(subsumption_resolution,[],[f322,f177])).
+fof(f322,plain,(
+  e1 != op(e2,e0) | ~sP48),
+  inference(cnf_transformation,[],[f108])).
+fof(f108,plain,(
+  (e1 != op(e2,e4) & e1 != op(e2,e3) & e1 != op(e2,e2) & e1 != op(e2,e1) & e1 != op(e2,e0)) | ~sP48),
+  inference(nnf_transformation,[],[f54])).
+fof(f54,plain,(
+  (e1 != op(e2,e4) & e1 != op(e2,e3) & e1 != op(e2,e2) & e1 != op(e2,e1) & e1 != op(e2,e0)) | ~sP48),
+  introduced(predicate_definition_introduction,[new_symbols(naming,[sP48])])).
+fof(f1412,plain,(
+  e4 != op(op(e4,e4),op(e4,e4)) | e4 != op(op(e3,e4),op(e4,e3)) | e4 != op(op(e2,e4),op(e4,e2)) | e4 != op(op(e1,e4),op(e4,e1)) | e4 != op(op(e0,e4),op(e4,e0)) | e3 != op(op(e4,e3),op(e3,e4)) | e3 != op(op(e3,e3),op(e3,e3)) | e3 != op(op(e2,e3),op(e3,e2)) | e3 != op(op(e1,e3),op(e3,e1)) | e3 != op(op(e0,e3),op(e3,e0)) | e2 != op(op(e4,e2),op(e2,e4)) | e2 != op(op(e3,e2),op(e2,e3)) | e2 != op(op(e2,e2),op(e2,e2)) | e2 != op(op(e1,e2),op(e2,e1)) | e2 != op(op(e0,e2),op(e2,e0)) | e1 != op(op(e4,e1),op(e1,e4)) | e1 != op(op(e3,e1),op(e1,e3)) | e1 != op(op(e2,e1),op(e1,e2)) | e1 != op(op(e1,e1),op(e1,e1)) | e1 != op(op(e0,e1),op(e1,e0)) | e0 != op(op(e4,e0),op(e0,e4)) | e0 != op(op(e3,e0),op(e0,e3)) | e0 != op(op(e2,e0),op(e0,e2)) | e0 != op(op(e1,e0),op(e0,e1)) | e0 != op(op(e0,e0),op(e0,e0)) | sP48 | sP47 | sP46 | sP45 | sP44 | sP43 | sP42 | sP41 | sP40 | sP39 | sP38 | sP37 | sP36 | sP35 | sP34 | sP33 | sP32 | sP31 | sP30 | sP29 | sP28 | sP27 | sP26 | sP25 | sP24 | sP23 | sP22 | sP21 | sP20 | sP19 | sP18 | sP17 | sP16 | sP15 | sP14 | sP13 | sP12 | sP11 | sP10 | sP9 | sP8 | sP7 | sP6 | sP5 | sP4 | sP3 | sP2 | sP1 | sP0),
+  inference(subsumption_resolution,[],[f1411,f645])).
+fof(f645,plain,(
+  ~sP49),
+  inference(subsumption_resolution,[],[f318,f174])).
+fof(f318,plain,(
+  e1 != op(e1,e2) | ~sP49),
+  inference(cnf_transformation,[],[f107])).
+fof(f107,plain,(
+  (e1 != op(e4,e2) & e1 != op(e3,e2) & e1 != op(e2,e2) & e1 != op(e1,e2) & e1 != op(e0,e2)) | ~sP49),
+  inference(nnf_transformation,[],[f55])).
+fof(f55,plain,(
+  (e1 != op(e4,e2) & e1 != op(e3,e2) & e1 != op(e2,e2) & e1 != op(e1,e2) & e1 != op(e0,e2)) | ~sP49),
+  introduced(predicate_definition_introduction,[new_symbols(naming,[sP49])])).
+fof(f1411,plain,(
+  e4 != op(op(e4,e4),op(e4,e4)) | e4 != op(op(e3,e4),op(e4,e3)) | e4 != op(op(e2,e4),op(e4,e2)) | e4 != op(op(e1,e4),op(e4,e1)) | e4 != op(op(e0,e4),op(e4,e0)) | e3 != op(op(e4,e3),op(e3,e4)) | e3 != op(op(e3,e3),op(e3,e3)) | e3 != op(op(e2,e3),op(e3,e2)) | e3 != op(op(e1,e3),op(e3,e1)) | e3 != op(op(e0,e3),op(e3,e0)) | e2 != op(op(e4,e2),op(e2,e4)) | e2 != op(op(e3,e2),op(e2,e3)) | e2 != op(op(e2,e2),op(e2,e2)) | e2 != op(op(e1,e2),op(e2,e1)) | e2 != op(op(e0,e2),op(e2,e0)) | e1 != op(op(e4,e1),op(e1,e4)) | e1 != op(op(e3,e1),op(e1,e3)) | e1 != op(op(e2,e1),op(e1,e2)) | e1 != op(op(e1,e1),op(e1,e1)) | e1 != op(op(e0,e1),op(e1,e0)) | e0 != op(op(e4,e0),op(e0,e4)) | e0 != op(op(e3,e0),op(e0,e3)) | e0 != op(op(e2,e0),op(e0,e2)) | e0 != op(op(e1,e0),op(e0,e1)) | e0 != op(op(e0,e0),op(e0,e0)) | sP49 | sP48 | sP47 | sP46 | sP45 | sP44 | sP43 | sP42 | sP41 | sP40 | sP39 | sP38 | sP37 | sP36 | sP35 | sP34 | sP33 | sP32 | sP31 | sP30 | sP29 | sP28 | sP27 | sP26 | sP25 | sP24 | sP23 | sP22 | sP21 | sP20 | sP19 | sP18 | sP17 | sP16 | sP15 | sP14 | sP13 | sP12 | sP11 | sP10 | sP9 | sP8 | sP7 | sP6 | sP5 | sP4 | sP3 | sP2 | sP1 | sP0),
+  inference(subsumption_resolution,[],[f1410,f641])).
+fof(f641,plain,(
+  ~sP50),
+  inference(subsumption_resolution,[],[f314,f179])).
+fof(f314,plain,(
+  e2 != op(e2,e2) | ~sP50),
+  inference(cnf_transformation,[],[f106])).
+fof(f106,plain,(
+  (e2 != op(e2,e4) & e2 != op(e2,e3) & e2 != op(e2,e2) & e2 != op(e2,e1) & e2 != op(e2,e0)) | ~sP50),
+  inference(nnf_transformation,[],[f56])).
+fof(f56,plain,(
+  (e2 != op(e2,e4) & e2 != op(e2,e3) & e2 != op(e2,e2) & e2 != op(e2,e1) & e2 != op(e2,e0)) | ~sP50),
+  introduced(predicate_definition_introduction,[new_symbols(naming,[sP50])])).
+fof(f1410,plain,(
+  e4 != op(op(e4,e4),op(e4,e4)) | e4 != op(op(e3,e4),op(e4,e3)) | e4 != op(op(e2,e4),op(e4,e2)) | e4 != op(op(e1,e4),op(e4,e1)) | e4 != op(op(e0,e4),op(e4,e0)) | e3 != op(op(e4,e3),op(e3,e4)) | e3 != op(op(e3,e3),op(e3,e3)) | e3 != op(op(e2,e3),op(e3,e2)) | e3 != op(op(e1,e3),op(e3,e1)) | e3 != op(op(e0,e3),op(e3,e0)) | e2 != op(op(e4,e2),op(e2,e4)) | e2 != op(op(e3,e2),op(e2,e3)) | e2 != op(op(e2,e2),op(e2,e2)) | e2 != op(op(e1,e2),op(e2,e1)) | e2 != op(op(e0,e2),op(e2,e0)) | e1 != op(op(e4,e1),op(e1,e4)) | e1 != op(op(e3,e1),op(e1,e3)) | e1 != op(op(e2,e1),op(e1,e2)) | e1 != op(op(e1,e1),op(e1,e1)) | e1 != op(op(e0,e1),op(e1,e0)) | e0 != op(op(e4,e0),op(e0,e4)) | e0 != op(op(e3,e0),op(e0,e3)) | e0 != op(op(e2,e0),op(e0,e2)) | e0 != op(op(e1,e0),op(e0,e1)) | e0 != op(op(e0,e0),op(e0,e0)) | sP50 | sP49 | sP48 | sP47 | sP46 | sP45 | sP44 | sP43 | sP42 | sP41 | sP40 | sP39 | sP38 | sP37 | sP36 | sP35 | sP34 | sP33 | sP32 | sP31 | sP30 | sP29 | sP28 | sP27 | sP26 | sP25 | sP24 | sP23 | sP22 | sP21 | sP20 | sP19 | sP18 | sP17 | sP16 | sP15 | sP14 | sP13 | sP12 | sP11 | sP10 | sP9 | sP8 | sP7 | sP6 | sP5 | sP4 | sP3 | sP2 | sP1 | sP0),
+  inference(subsumption_resolution,[],[f1409,f638])).
+fof(f638,plain,(
+  ~sP51),
+  inference(subsumption_resolution,[],[f309,f179])).
+fof(f309,plain,(
+  e2 != op(e2,e2) | ~sP51),
+  inference(cnf_transformation,[],[f105])).
+fof(f105,plain,(
+  (e2 != op(e4,e2) & e2 != op(e3,e2) & e2 != op(e2,e2) & e2 != op(e1,e2) & e2 != op(e0,e2)) | ~sP51),
+  inference(nnf_transformation,[],[f57])).
+fof(f57,plain,(
+  (e2 != op(e4,e2) & e2 != op(e3,e2) & e2 != op(e2,e2) & e2 != op(e1,e2) & e2 != op(e0,e2)) | ~sP51),
+  introduced(predicate_definition_introduction,[new_symbols(naming,[sP51])])).
+fof(f1409,plain,(
+  e4 != op(op(e4,e4),op(e4,e4)) | e4 != op(op(e3,e4),op(e4,e3)) | e4 != op(op(e2,e4),op(e4,e2)) | e4 != op(op(e1,e4),op(e4,e1)) | e4 != op(op(e0,e4),op(e4,e0)) | e3 != op(op(e4,e3),op(e3,e4)) | e3 != op(op(e3,e3),op(e3,e3)) | e3 != op(op(e2,e3),op(e3,e2)) | e3 != op(op(e1,e3),op(e3,e1)) | e3 != op(op(e0,e3),op(e3,e0)) | e2 != op(op(e4,e2),op(e2,e4)) | e2 != op(op(e3,e2),op(e2,e3)) | e2 != op(op(e2,e2),op(e2,e2)) | e2 != op(op(e1,e2),op(e2,e1)) | e2 != op(op(e0,e2),op(e2,e0)) | e1 != op(op(e4,e1),op(e1,e4)) | e1 != op(op(e3,e1),op(e1,e3)) | e1 != op(op(e2,e1),op(e1,e2)) | e1 != op(op(e1,e1),op(e1,e1)) | e1 != op(op(e0,e1),op(e1,e0)) | e0 != op(op(e4,e0),op(e0,e4)) | e0 != op(op(e3,e0),op(e0,e3)) | e0 != op(op(e2,e0),op(e0,e2)) | e0 != op(op(e1,e0),op(e0,e1)) | e0 != op(op(e0,e0),op(e0,e0)) | sP51 | sP50 | sP49 | sP48 | sP47 | sP46 | sP45 | sP44 | sP43 | sP42 | sP41 | sP40 | sP39 | sP38 | sP37 | sP36 | sP35 | sP34 | sP33 | sP32 | sP31 | sP30 | sP29 | sP28 | sP27 | sP26 | sP25 | sP24 | sP23 | sP22 | sP21 | sP20 | sP19 | sP18 | sP17 | sP16 | sP15 | sP14 | sP13 | sP12 | sP11 | sP10 | sP9 | sP8 | sP7 | sP6 | sP5 | sP4 | sP3 | sP2 | sP1 | sP0),
+  inference(subsumption_resolution,[],[f1408,f635])).
+fof(f635,plain,(
+  ~sP52),
+  inference(subsumption_resolution,[],[f303,f178])).
+fof(f303,plain,(
+  e3 != op(e2,e1) | ~sP52),
+  inference(cnf_transformation,[],[f104])).
+fof(f104,plain,(
+  (e3 != op(e2,e4) & e3 != op(e2,e3) & e3 != op(e2,e2) & e3 != op(e2,e1) & e3 != op(e2,e0)) | ~sP52),
+  inference(nnf_transformation,[],[f58])).
+fof(f58,plain,(
+  (e3 != op(e2,e4) & e3 != op(e2,e3) & e3 != op(e2,e2) & e3 != op(e2,e1) & e3 != op(e2,e0)) | ~sP52),
+  introduced(predicate_definition_introduction,[new_symbols(naming,[sP52])])).
+fof(f1408,plain,(
+  e4 != op(op(e4,e4),op(e4,e4)) | e4 != op(op(e3,e4),op(e4,e3)) | e4 != op(op(e2,e4),op(e4,e2)) | e4 != op(op(e1,e4),op(e4,e1)) | e4 != op(op(e0,e4),op(e4,e0)) | e3 != op(op(e4,e3),op(e3,e4)) | e3 != op(op(e3,e3),op(e3,e3)) | e3 != op(op(e2,e3),op(e3,e2)) | e3 != op(op(e1,e3),op(e3,e1)) | e3 != op(op(e0,e3),op(e3,e0)) | e2 != op(op(e4,e2),op(e2,e4)) | e2 != op(op(e3,e2),op(e2,e3)) | e2 != op(op(e2,e2),op(e2,e2)) | e2 != op(op(e1,e2),op(e2,e1)) | e2 != op(op(e0,e2),op(e2,e0)) | e1 != op(op(e4,e1),op(e1,e4)) | e1 != op(op(e3,e1),op(e1,e3)) | e1 != op(op(e2,e1),op(e1,e2)) | e1 != op(op(e1,e1),op(e1,e1)) | e1 != op(op(e0,e1),op(e1,e0)) | e0 != op(op(e4,e0),op(e0,e4)) | e0 != op(op(e3,e0),op(e0,e3)) | e0 != op(op(e2,e0),op(e0,e2)) | e0 != op(op(e1,e0),op(e0,e1)) | e0 != op(op(e0,e0),op(e0,e0)) | sP52 | sP51 | sP50 | sP49 | sP48 | sP47 | sP46 | sP45 | sP44 | sP43 | sP42 | sP41 | sP40 | sP39 | sP38 | sP37 | sP36 | sP35 | sP34 | sP33 | sP32 | sP31 | sP30 | sP29 | sP28 | sP27 | sP26 | sP25 | sP24 | sP23 | sP22 | sP21 | sP20 | sP19 | sP18 | sP17 | sP16 | sP15 | sP14 | sP13 | sP12 | sP11 | sP10 | sP9 | sP8 | sP7 | sP6 | sP5 | sP4 | sP3 | sP2 | sP1 | sP0),
+  inference(subsumption_resolution,[],[f1407,f631])).
+fof(f631,plain,(
+  ~sP53),
+  inference(subsumption_resolution,[],[f300,f184])).
+fof(f300,plain,(
+  e3 != op(e3,e2) | ~sP53),
+  inference(cnf_transformation,[],[f103])).
+fof(f103,plain,(
+  (e3 != op(e4,e2) & e3 != op(e3,e2) & e3 != op(e2,e2) & e3 != op(e1,e2) & e3 != op(e0,e2)) | ~sP53),
+  inference(nnf_transformation,[],[f59])).
+fof(f59,plain,(
+  (e3 != op(e4,e2) & e3 != op(e3,e2) & e3 != op(e2,e2) & e3 != op(e1,e2) & e3 != op(e0,e2)) | ~sP53),
+  introduced(predicate_definition_introduction,[new_symbols(naming,[sP53])])).
+fof(f1407,plain,(
+  e4 != op(op(e4,e4),op(e4,e4)) | e4 != op(op(e3,e4),op(e4,e3)) | e4 != op(op(e2,e4),op(e4,e2)) | e4 != op(op(e1,e4),op(e4,e1)) | e4 != op(op(e0,e4),op(e4,e0)) | e3 != op(op(e4,e3),op(e3,e4)) | e3 != op(op(e3,e3),op(e3,e3)) | e3 != op(op(e2,e3),op(e3,e2)) | e3 != op(op(e1,e3),op(e3,e1)) | e3 != op(op(e0,e3),op(e3,e0)) | e2 != op(op(e4,e2),op(e2,e4)) | e2 != op(op(e3,e2),op(e2,e3)) | e2 != op(op(e2,e2),op(e2,e2)) | e2 != op(op(e1,e2),op(e2,e1)) | e2 != op(op(e0,e2),op(e2,e0)) | e1 != op(op(e4,e1),op(e1,e4)) | e1 != op(op(e3,e1),op(e1,e3)) | e1 != op(op(e2,e1),op(e1,e2)) | e1 != op(op(e1,e1),op(e1,e1)) | e1 != op(op(e0,e1),op(e1,e0)) | e0 != op(op(e4,e0),op(e0,e4)) | e0 != op(op(e3,e0),op(e0,e3)) | e0 != op(op(e2,e0),op(e0,e2)) | e0 != op(op(e1,e0),op(e0,e1)) | e0 != op(op(e0,e0),op(e0,e0)) | sP53 | sP52 | sP51 | sP50 | sP49 | sP48 | sP47 | sP46 | sP45 | sP44 | sP43 | sP42 | sP41 | sP40 | sP39 | sP38 | sP37 | sP36 | sP35 | sP34 | sP33 | sP32 | sP31 | sP30 | sP29 | sP28 | sP27 | sP26 | sP25 | sP24 | sP23 | sP22 | sP21 | sP20 | sP19 | sP18 | sP17 | sP16 | sP15 | sP14 | sP13 | sP12 | sP11 | sP10 | sP9 | sP8 | sP7 | sP6 | sP5 | sP4 | sP3 | sP2 | sP1 | sP0),
+  inference(subsumption_resolution,[],[f1406,f629])).
+fof(f629,plain,(
+  ~sP54),
+  inference(subsumption_resolution,[],[f295,f180])).
+fof(f295,plain,(
+  e4 != op(e2,e3) | ~sP54),
+  inference(cnf_transformation,[],[f102])).
+fof(f102,plain,(
+  (e4 != op(e2,e4) & e4 != op(e2,e3) & e4 != op(e2,e2) & e4 != op(e2,e1) & e4 != op(e2,e0)) | ~sP54),
+  inference(nnf_transformation,[],[f60])).
+fof(f60,plain,(
+  (e4 != op(e2,e4) & e4 != op(e2,e3) & e4 != op(e2,e2) & e4 != op(e2,e1) & e4 != op(e2,e0)) | ~sP54),
+  introduced(predicate_definition_introduction,[new_symbols(naming,[sP54])])).
+fof(f1406,plain,(
+  e4 != op(op(e4,e4),op(e4,e4)) | e4 != op(op(e3,e4),op(e4,e3)) | e4 != op(op(e2,e4),op(e4,e2)) | e4 != op(op(e1,e4),op(e4,e1)) | e4 != op(op(e0,e4),op(e4,e0)) | e3 != op(op(e4,e3),op(e3,e4)) | e3 != op(op(e3,e3),op(e3,e3)) | e3 != op(op(e2,e3),op(e3,e2)) | e3 != op(op(e1,e3),op(e3,e1)) | e3 != op(op(e0,e3),op(e3,e0)) | e2 != op(op(e4,e2),op(e2,e4)) | e2 != op(op(e3,e2),op(e2,e3)) | e2 != op(op(e2,e2),op(e2,e2)) | e2 != op(op(e1,e2),op(e2,e1)) | e2 != op(op(e0,e2),op(e2,e0)) | e1 != op(op(e4,e1),op(e1,e4)) | e1 != op(op(e3,e1),op(e1,e3)) | e1 != op(op(e2,e1),op(e1,e2)) | e1 != op(op(e1,e1),op(e1,e1)) | e1 != op(op(e0,e1),op(e1,e0)) | e0 != op(op(e4,e0),op(e0,e4)) | e0 != op(op(e3,e0),op(e0,e3)) | e0 != op(op(e2,e0),op(e0,e2)) | e0 != op(op(e1,e0),op(e0,e1)) | e0 != op(op(e0,e0),op(e0,e0)) | sP54 | sP53 | sP52 | sP51 | sP50 | sP49 | sP48 | sP47 | sP46 | sP45 | sP44 | sP43 | sP42 | sP41 | sP40 | sP39 | sP38 | sP37 | sP36 | sP35 | sP34 | sP33 | sP32 | sP31 | sP30 | sP29 | sP28 | sP27 | sP26 | sP25 | sP24 | sP23 | sP22 | sP21 | sP20 | sP19 | sP18 | sP17 | sP16 | sP15 | sP14 | sP13 | sP12 | sP11 | sP10 | sP9 | sP8 | sP7 | sP6 | sP5 | sP4 | sP3 | sP2 | sP1 | sP0),
+  inference(subsumption_resolution,[],[f1405,f627])).
+fof(f627,plain,(
+  ~sP55),
+  inference(subsumption_resolution,[],[f291,f189])).
+fof(f291,plain,(
+  e4 != op(e4,e2) | ~sP55),
+  inference(cnf_transformation,[],[f101])).
+fof(f101,plain,(
+  (e4 != op(e4,e2) & e4 != op(e3,e2) & e4 != op(e2,e2) & e4 != op(e1,e2) & e4 != op(e0,e2)) | ~sP55),
+  inference(nnf_transformation,[],[f61])).
+fof(f61,plain,(
+  (e4 != op(e4,e2) & e4 != op(e3,e2) & e4 != op(e2,e2) & e4 != op(e1,e2) & e4 != op(e0,e2)) | ~sP55),
+  introduced(predicate_definition_introduction,[new_symbols(naming,[sP55])])).
+fof(f1405,plain,(
+  e4 != op(op(e4,e4),op(e4,e4)) | e4 != op(op(e3,e4),op(e4,e3)) | e4 != op(op(e2,e4),op(e4,e2)) | e4 != op(op(e1,e4),op(e4,e1)) | e4 != op(op(e0,e4),op(e4,e0)) | e3 != op(op(e4,e3),op(e3,e4)) | e3 != op(op(e3,e3),op(e3,e3)) | e3 != op(op(e2,e3),op(e3,e2)) | e3 != op(op(e1,e3),op(e3,e1)) | e3 != op(op(e0,e3),op(e3,e0)) | e2 != op(op(e4,e2),op(e2,e4)) | e2 != op(op(e3,e2),op(e2,e3)) | e2 != op(op(e2,e2),op(e2,e2)) | e2 != op(op(e1,e2),op(e2,e1)) | e2 != op(op(e0,e2),op(e2,e0)) | e1 != op(op(e4,e1),op(e1,e4)) | e1 != op(op(e3,e1),op(e1,e3)) | e1 != op(op(e2,e1),op(e1,e2)) | e1 != op(op(e1,e1),op(e1,e1)) | e1 != op(op(e0,e1),op(e1,e0)) | e0 != op(op(e4,e0),op(e0,e4)) | e0 != op(op(e3,e0),op(e0,e3)) | e0 != op(op(e2,e0),op(e0,e2)) | e0 != op(op(e1,e0),op(e0,e1)) | e0 != op(op(e0,e0),op(e0,e0)) | sP55 | sP54 | sP53 | sP52 | sP51 | sP50 | sP49 | sP48 | sP47 | sP46 | sP45 | sP44 | sP43 | sP42 | sP41 | sP40 | sP39 | sP38 | sP37 | sP36 | sP35 | sP34 | sP33 | sP32 | sP31 | sP30 | sP29 | sP28 | sP27 | sP26 | sP25 | sP24 | sP23 | sP22 | sP21 | sP20 | sP19 | sP18 | sP17 | sP16 | sP15 | sP14 | sP13 | sP12 | sP11 | sP10 | sP9 | sP8 | sP7 | sP6 | sP5 | sP4 | sP3 | sP2 | sP1 | sP0),
+  inference(subsumption_resolution,[],[f1404,f626])).
+fof(f626,plain,(
+  ~sP56),
+  inference(subsumption_resolution,[],[f285,f185])).
+fof(f285,plain,(
+  e0 != op(e3,e3) | ~sP56),
+  inference(cnf_transformation,[],[f100])).
+fof(f100,plain,(
+  (e0 != op(e3,e4) & e0 != op(e3,e3) & e0 != op(e3,e2) & e0 != op(e3,e1) & e0 != op(e3,e0)) | ~sP56),
+  inference(nnf_transformation,[],[f62])).
+fof(f62,plain,(
+  (e0 != op(e3,e4) & e0 != op(e3,e3) & e0 != op(e3,e2) & e0 != op(e3,e1) & e0 != op(e3,e0)) | ~sP56),
+  introduced(predicate_definition_introduction,[new_symbols(naming,[sP56])])).
+fof(f1404,plain,(
+  e4 != op(op(e4,e4),op(e4,e4)) | e4 != op(op(e3,e4),op(e4,e3)) | e4 != op(op(e2,e4),op(e4,e2)) | e4 != op(op(e1,e4),op(e4,e1)) | e4 != op(op(e0,e4),op(e4,e0)) | e3 != op(op(e4,e3),op(e3,e4)) | e3 != op(op(e3,e3),op(e3,e3)) | e3 != op(op(e2,e3),op(e3,e2)) | e3 != op(op(e1,e3),op(e3,e1)) | e3 != op(op(e0,e3),op(e3,e0)) | e2 != op(op(e4,e2),op(e2,e4)) | e2 != op(op(e3,e2),op(e2,e3)) | e2 != op(op(e2,e2),op(e2,e2)) | e2 != op(op(e1,e2),op(e2,e1)) | e2 != op(op(e0,e2),op(e2,e0)) | e1 != op(op(e4,e1),op(e1,e4)) | e1 != op(op(e3,e1),op(e1,e3)) | e1 != op(op(e2,e1),op(e1,e2)) | e1 != op(op(e1,e1),op(e1,e1)) | e1 != op(op(e0,e1),op(e1,e0)) | e0 != op(op(e4,e0),op(e0,e4)) | e0 != op(op(e3,e0),op(e0,e3)) | e0 != op(op(e2,e0),op(e0,e2)) | e0 != op(op(e1,e0),op(e0,e1)) | e0 != op(op(e0,e0),op(e0,e0)) | sP56 | sP55 | sP54 | sP53 | sP52 | sP51 | sP50 | sP49 | sP48 | sP47 | sP46 | sP45 | sP44 | sP43 | sP42 | sP41 | sP40 | sP39 | sP38 | sP37 | sP36 | sP35 | sP34 | sP33 | sP32 | sP31 | sP30 | sP29 | sP28 | sP27 | sP26 | sP25 | sP24 | sP23 | sP22 | sP21 | sP20 | sP19 | sP18 | sP17 | sP16 | sP15 | sP14 | sP13 | sP12 | sP11 | sP10 | sP9 | sP8 | sP7 | sP6 | sP5 | sP4 | sP3 | sP2 | sP1 | sP0),
+  inference(subsumption_resolution,[],[f1403,f624])).
+fof(f624,plain,(
+  ~sP57),
+  inference(subsumption_resolution,[],[f280,f185])).
+fof(f280,plain,(
+  e0 != op(e3,e3) | ~sP57),
+  inference(cnf_transformation,[],[f99])).
+fof(f99,plain,(
+  (e0 != op(e4,e3) & e0 != op(e3,e3) & e0 != op(e2,e3) & e0 != op(e1,e3) & e0 != op(e0,e3)) | ~sP57),
+  inference(nnf_transformation,[],[f63])).
+fof(f63,plain,(
+  (e0 != op(e4,e3) & e0 != op(e3,e3) & e0 != op(e2,e3) & e0 != op(e1,e3) & e0 != op(e0,e3)) | ~sP57),
+  introduced(predicate_definition_introduction,[new_symbols(naming,[sP57])])).
+fof(f1403,plain,(
+  e4 != op(op(e4,e4),op(e4,e4)) | e4 != op(op(e3,e4),op(e4,e3)) | e4 != op(op(e2,e4),op(e4,e2)) | e4 != op(op(e1,e4),op(e4,e1)) | e4 != op(op(e0,e4),op(e4,e0)) | e3 != op(op(e4,e3),op(e3,e4)) | e3 != op(op(e3,e3),op(e3,e3)) | e3 != op(op(e2,e3),op(e3,e2)) | e3 != op(op(e1,e3),op(e3,e1)) | e3 != op(op(e0,e3),op(e3,e0)) | e2 != op(op(e4,e2),op(e2,e4)) | e2 != op(op(e3,e2),op(e2,e3)) | e2 != op(op(e2,e2),op(e2,e2)) | e2 != op(op(e1,e2),op(e2,e1)) | e2 != op(op(e0,e2),op(e2,e0)) | e1 != op(op(e4,e1),op(e1,e4)) | e1 != op(op(e3,e1),op(e1,e3)) | e1 != op(op(e2,e1),op(e1,e2)) | e1 != op(op(e1,e1),op(e1,e1)) | e1 != op(op(e0,e1),op(e1,e0)) | e0 != op(op(e4,e0),op(e0,e4)) | e0 != op(op(e3,e0),op(e0,e3)) | e0 != op(op(e2,e0),op(e0,e2)) | e0 != op(op(e1,e0),op(e0,e1)) | e0 != op(op(e0,e0),op(e0,e0)) | sP57 | sP56 | sP55 | sP54 | sP53 | sP52 | sP51 | sP50 | sP49 | sP48 | sP47 | sP46 | sP45 | sP44 | sP43 | sP42 | sP41 | sP40 | sP39 | sP38 | sP37 | sP36 | sP35 | sP34 | sP33 | sP32 | sP31 | sP30 | sP29 | sP28 | sP27 | sP26 | sP25 | sP24 | sP23 | sP22 | sP21 | sP20 | sP19 | sP18 | sP17 | sP16 | sP15 | sP14 | sP13 | sP12 | sP11 | sP10 | sP9 | sP8 | sP7 | sP6 | sP5 | sP4 | sP3 | sP2 | sP1 | sP0),
+  inference(subsumption_resolution,[],[f1402,f622])).
+fof(f622,plain,(
+  ~sP58),
+  inference(subsumption_resolution,[],[f273,f183])).
+fof(f273,plain,(
+  e1 != op(e3,e1) | ~sP58),
+  inference(cnf_transformation,[],[f98])).
+fof(f98,plain,(
+  (e1 != op(e3,e4) & e1 != op(e3,e3) & e1 != op(e3,e2) & e1 != op(e3,e1) & e1 != op(e3,e0)) | ~sP58),
+  inference(nnf_transformation,[],[f64])).
+fof(f64,plain,(
+  (e1 != op(e3,e4) & e1 != op(e3,e3) & e1 != op(e3,e2) & e1 != op(e3,e1) & e1 != op(e3,e0)) | ~sP58),
+  introduced(predicate_definition_introduction,[new_symbols(naming,[sP58])])).
+fof(f1402,plain,(
+  e4 != op(op(e4,e4),op(e4,e4)) | e4 != op(op(e3,e4),op(e4,e3)) | e4 != op(op(e2,e4),op(e4,e2)) | e4 != op(op(e1,e4),op(e4,e1)) | e4 != op(op(e0,e4),op(e4,e0)) | e3 != op(op(e4,e3),op(e3,e4)) | e3 != op(op(e3,e3),op(e3,e3)) | e3 != op(op(e2,e3),op(e3,e2)) | e3 != op(op(e1,e3),op(e3,e1)) | e3 != op(op(e0,e3),op(e3,e0)) | e2 != op(op(e4,e2),op(e2,e4)) | e2 != op(op(e3,e2),op(e2,e3)) | e2 != op(op(e2,e2),op(e2,e2)) | e2 != op(op(e1,e2),op(e2,e1)) | e2 != op(op(e0,e2),op(e2,e0)) | e1 != op(op(e4,e1),op(e1,e4)) | e1 != op(op(e3,e1),op(e1,e3)) | e1 != op(op(e2,e1),op(e1,e2)) | e1 != op(op(e1,e1),op(e1,e1)) | e1 != op(op(e0,e1),op(e1,e0)) | e0 != op(op(e4,e0),op(e0,e4)) | e0 != op(op(e3,e0),op(e0,e3)) | e0 != op(op(e2,e0),op(e0,e2)) | e0 != op(op(e1,e0),op(e0,e1)) | e0 != op(op(e0,e0),op(e0,e0)) | sP58 | sP57 | sP56 | sP55 | sP54 | sP53 | sP52 | sP51 | sP50 | sP49 | sP48 | sP47 | sP46 | sP45 | sP44 | sP43 | sP42 | sP41 | sP40 | sP39 | sP38 | sP37 | sP36 | sP35 | sP34 | sP33 | sP32 | sP31 | sP30 | sP29 | sP28 | sP27 | sP26 | sP25 | sP24 | sP23 | sP22 | sP21 | sP20 | sP19 | sP18 | sP17 | sP16 | sP15 | sP14 | sP13 | sP12 | sP11 | sP10 | sP9 | sP8 | sP7 | sP6 | sP5 | sP4 | sP3 | sP2 | sP1 | sP0),
+  inference(subsumption_resolution,[],[f1401,f618])).
+fof(f618,plain,(
+  ~sP59),
+  inference(subsumption_resolution,[],[f267,f170])).
+fof(f267,plain,(
+  e1 != op(e0,e3) | ~sP59),
+  inference(cnf_transformation,[],[f97])).
+fof(f97,plain,(
+  (e1 != op(e4,e3) & e1 != op(e3,e3) & e1 != op(e2,e3) & e1 != op(e1,e3) & e1 != op(e0,e3)) | ~sP59),
+  inference(nnf_transformation,[],[f65])).
+fof(f65,plain,(
+  (e1 != op(e4,e3) & e1 != op(e3,e3) & e1 != op(e2,e3) & e1 != op(e1,e3) & e1 != op(e0,e3)) | ~sP59),
+  introduced(predicate_definition_introduction,[new_symbols(naming,[sP59])])).
+fof(f1401,plain,(
+  e4 != op(op(e4,e4),op(e4,e4)) | e4 != op(op(e3,e4),op(e4,e3)) | e4 != op(op(e2,e4),op(e4,e2)) | e4 != op(op(e1,e4),op(e4,e1)) | e4 != op(op(e0,e4),op(e4,e0)) | e3 != op(op(e4,e3),op(e3,e4)) | e3 != op(op(e3,e3),op(e3,e3)) | e3 != op(op(e2,e3),op(e3,e2)) | e3 != op(op(e1,e3),op(e3,e1)) | e3 != op(op(e0,e3),op(e3,e0)) | e2 != op(op(e4,e2),op(e2,e4)) | e2 != op(op(e3,e2),op(e2,e3)) | e2 != op(op(e2,e2),op(e2,e2)) | e2 != op(op(e1,e2),op(e2,e1)) | e2 != op(op(e0,e2),op(e2,e0)) | e1 != op(op(e4,e1),op(e1,e4)) | e1 != op(op(e3,e1),op(e1,e3)) | e1 != op(op(e2,e1),op(e1,e2)) | e1 != op(op(e1,e1),op(e1,e1)) | e1 != op(op(e0,e1),op(e1,e0)) | e0 != op(op(e4,e0),op(e0,e4)) | e0 != op(op(e3,e0),op(e0,e3)) | e0 != op(op(e2,e0),op(e0,e2)) | e0 != op(op(e1,e0),op(e0,e1)) | e0 != op(op(e0,e0),op(e0,e0)) | sP59 | sP58 | sP57 | sP56 | sP55 | sP54 | sP53 | sP52 | sP51 | sP50 | sP49 | sP48 | sP47 | sP46 | sP45 | sP44 | sP43 | sP42 | sP41 | sP40 | sP39 | sP38 | sP37 | sP36 | sP35 | sP34 | sP33 | sP32 | sP31 | sP30 | sP29 | sP28 | sP27 | sP26 | sP25 | sP24 | sP23 | sP22 | sP21 | sP20 | sP19 | sP18 | sP17 | sP16 | sP15 | sP14 | sP13 | sP12 | sP11 | sP10 | sP9 | sP8 | sP7 | sP6 | sP5 | sP4 | sP3 | sP2 | sP1 | sP0),
+  inference(subsumption_resolution,[],[f1400,f613])).
+fof(f613,plain,(
+  ~sP60),
+  inference(subsumption_resolution,[],[f266,f186])).
+fof(f266,plain,(
+  e2 != op(e3,e4) | ~sP60),
+  inference(cnf_transformation,[],[f96])).
+fof(f96,plain,(
+  (e2 != op(e3,e4) & e2 != op(e3,e3) & e2 != op(e3,e2) & e2 != op(e3,e1) & e2 != op(e3,e0)) | ~sP60),
+  inference(nnf_transformation,[],[f66])).
+fof(f66,plain,(
+  (e2 != op(e3,e4) & e2 != op(e3,e3) & e2 != op(e3,e2) & e2 != op(e3,e1) & e2 != op(e3,e0)) | ~sP60),
+  introduced(predicate_definition_introduction,[new_symbols(naming,[sP60])])).
+fof(f1400,plain,(
+  e4 != op(op(e4,e4),op(e4,e4)) | e4 != op(op(e3,e4),op(e4,e3)) | e4 != op(op(e2,e4),op(e4,e2)) | e4 != op(op(e1,e4),op(e4,e1)) | e4 != op(op(e0,e4),op(e4,e0)) | e3 != op(op(e4,e3),op(e3,e4)) | e3 != op(op(e3,e3),op(e3,e3)) | e3 != op(op(e2,e3),op(e3,e2)) | e3 != op(op(e1,e3),op(e3,e1)) | e3 != op(op(e0,e3),op(e3,e0)) | e2 != op(op(e4,e2),op(e2,e4)) | e2 != op(op(e3,e2),op(e2,e3)) | e2 != op(op(e2,e2),op(e2,e2)) | e2 != op(op(e1,e2),op(e2,e1)) | e2 != op(op(e0,e2),op(e2,e0)) | e1 != op(op(e4,e1),op(e1,e4)) | e1 != op(op(e3,e1),op(e1,e3)) | e1 != op(op(e2,e1),op(e1,e2)) | e1 != op(op(e1,e1),op(e1,e1)) | e1 != op(op(e0,e1),op(e1,e0)) | e0 != op(op(e4,e0),op(e0,e4)) | e0 != op(op(e3,e0),op(e0,e3)) | e0 != op(op(e2,e0),op(e0,e2)) | e0 != op(op(e1,e0),op(e0,e1)) | e0 != op(op(e0,e0),op(e0,e0)) | sP60 | sP59 | sP58 | sP57 | sP56 | sP55 | sP54 | sP53 | sP52 | sP51 | sP50 | sP49 | sP48 | sP47 | sP46 | sP45 | sP44 | sP43 | sP42 | sP41 | sP40 | sP39 | sP38 | sP37 | sP36 | sP35 | sP34 | sP33 | sP32 | sP31 | sP30 | sP29 | sP28 | sP27 | sP26 | sP25 | sP24 | sP23 | sP22 | sP21 | sP20 | sP19 | sP18 | sP17 | sP16 | sP15 | sP14 | sP13 | sP12 | sP11 | sP10 | sP9 | sP8 | sP7 | sP6 | sP5 | sP4 | sP3 | sP2 | sP1 | sP0),
+  inference(subsumption_resolution,[],[f1399,f612])).
+fof(f612,plain,(
+  ~sP61),
+  inference(subsumption_resolution,[],[f258,f175])).
+fof(f258,plain,(
+  e2 != op(e1,e3) | ~sP61),
+  inference(cnf_transformation,[],[f95])).
+fof(f95,plain,(
+  (e2 != op(e4,e3) & e2 != op(e3,e3) & e2 != op(e2,e3) & e2 != op(e1,e3) & e2 != op(e0,e3)) | ~sP61),
+  inference(nnf_transformation,[],[f67])).
+fof(f67,plain,(
+  (e2 != op(e4,e3) & e2 != op(e3,e3) & e2 != op(e2,e3) & e2 != op(e1,e3) & e2 != op(e0,e3)) | ~sP61),
+  introduced(predicate_definition_introduction,[new_symbols(naming,[sP61])])).
+fof(f1399,plain,(
+  e4 != op(op(e4,e4),op(e4,e4)) | e4 != op(op(e3,e4),op(e4,e3)) | e4 != op(op(e2,e4),op(e4,e2)) | e4 != op(op(e1,e4),op(e4,e1)) | e4 != op(op(e0,e4),op(e4,e0)) | e3 != op(op(e4,e3),op(e3,e4)) | e3 != op(op(e3,e3),op(e3,e3)) | e3 != op(op(e2,e3),op(e3,e2)) | e3 != op(op(e1,e3),op(e3,e1)) | e3 != op(op(e0,e3),op(e3,e0)) | e2 != op(op(e4,e2),op(e2,e4)) | e2 != op(op(e3,e2),op(e2,e3)) | e2 != op(op(e2,e2),op(e2,e2)) | e2 != op(op(e1,e2),op(e2,e1)) | e2 != op(op(e0,e2),op(e2,e0)) | e1 != op(op(e4,e1),op(e1,e4)) | e1 != op(op(e3,e1),op(e1,e3)) | e1 != op(op(e2,e1),op(e1,e2)) | e1 != op(op(e1,e1),op(e1,e1)) | e1 != op(op(e0,e1),op(e1,e0)) | e0 != op(op(e4,e0),op(e0,e4)) | e0 != op(op(e3,e0),op(e0,e3)) | e0 != op(op(e2,e0),op(e0,e2)) | e0 != op(op(e1,e0),op(e0,e1)) | e0 != op(op(e0,e0),op(e0,e0)) | sP61 | sP60 | sP59 | sP58 | sP57 | sP56 | sP55 | sP54 | sP53 | sP52 | sP51 | sP50 | sP49 | sP48 | sP47 | sP46 | sP45 | sP44 | sP43 | sP42 | sP41 | sP40 | sP39 | sP38 | sP37 | sP36 | sP35 | sP34 | sP33 | sP32 | sP31 | sP30 | sP29 | sP28 | sP27 | sP26 | sP25 | sP24 | sP23 | sP22 | sP21 | sP20 | sP19 | sP18 | sP17 | sP16 | sP15 | sP14 | sP13 | sP12 | sP11 | sP10 | sP9 | sP8 | sP7 | sP6 | sP5 | sP4 | sP3 | sP2 | sP1 | sP0),
+  inference(subsumption_resolution,[],[f1398,f608])).
+fof(f608,plain,(
+  ~sP62),
+  inference(subsumption_resolution,[],[f254,f184])).
+fof(f254,plain,(
+  e3 != op(e3,e2) | ~sP62),
+  inference(cnf_transformation,[],[f94])).
+fof(f94,plain,(
+  (e3 != op(e3,e4) & e3 != op(e3,e3) & e3 != op(e3,e2) & e3 != op(e3,e1) & e3 != op(e3,e0)) | ~sP62),
+  inference(nnf_transformation,[],[f68])).
+fof(f68,plain,(
+  (e3 != op(e3,e4) & e3 != op(e3,e3) & e3 != op(e3,e2) & e3 != op(e3,e1) & e3 != op(e3,e0)) | ~sP62),
+  introduced(predicate_definition_introduction,[new_symbols(naming,[sP62])])).
+fof(f1398,plain,(
+  e4 != op(op(e4,e4),op(e4,e4)) | e4 != op(op(e3,e4),op(e4,e3)) | e4 != op(op(e2,e4),op(e4,e2)) | e4 != op(op(e1,e4),op(e4,e1)) | e4 != op(op(e0,e4),op(e4,e0)) | e3 != op(op(e4,e3),op(e3,e4)) | e3 != op(op(e3,e3),op(e3,e3)) | e3 != op(op(e2,e3),op(e3,e2)) | e3 != op(op(e1,e3),op(e3,e1)) | e3 != op(op(e0,e3),op(e3,e0)) | e2 != op(op(e4,e2),op(e2,e4)) | e2 != op(op(e3,e2),op(e2,e3)) | e2 != op(op(e2,e2),op(e2,e2)) | e2 != op(op(e1,e2),op(e2,e1)) | e2 != op(op(e0,e2),op(e2,e0)) | e1 != op(op(e4,e1),op(e1,e4)) | e1 != op(op(e3,e1),op(e1,e3)) | e1 != op(op(e2,e1),op(e1,e2)) | e1 != op(op(e1,e1),op(e1,e1)) | e1 != op(op(e0,e1),op(e1,e0)) | e0 != op(op(e4,e0),op(e0,e4)) | e0 != op(op(e3,e0),op(e0,e3)) | e0 != op(op(e2,e0),op(e0,e2)) | e0 != op(op(e1,e0),op(e0,e1)) | e0 != op(op(e0,e0),op(e0,e0)) | sP62 | sP61 | sP60 | sP59 | sP58 | sP57 | sP56 | sP55 | sP54 | sP53 | sP52 | sP51 | sP50 | sP49 | sP48 | sP47 | sP46 | sP45 | sP44 | sP43 | sP42 | sP41 | sP40 | sP39 | sP38 | sP37 | sP36 | sP35 | sP34 | sP33 | sP32 | sP31 | sP30 | sP29 | sP28 | sP27 | sP26 | sP25 | sP24 | sP23 | sP22 | sP21 | sP20 | sP19 | sP18 | sP17 | sP16 | sP15 | sP14 | sP13 | sP12 | sP11 | sP10 | sP9 | sP8 | sP7 | sP6 | sP5 | sP4 | sP3 | sP2 | sP1 | sP0),
+  inference(subsumption_resolution,[],[f1397,f605])).
+fof(f605,plain,(
+  ~sP63),
+  inference(subsumption_resolution,[],[f251,f190])).
+fof(f251,plain,(
+  e3 != op(e4,e3) | ~sP63),
+  inference(cnf_transformation,[],[f93])).
+fof(f93,plain,(
+  (e3 != op(e4,e3) & e3 != op(e3,e3) & e3 != op(e2,e3) & e3 != op(e1,e3) & e3 != op(e0,e3)) | ~sP63),
+  inference(nnf_transformation,[],[f69])).
+fof(f69,plain,(
+  (e3 != op(e4,e3) & e3 != op(e3,e3) & e3 != op(e2,e3) & e3 != op(e1,e3) & e3 != op(e0,e3)) | ~sP63),
+  introduced(predicate_definition_introduction,[new_symbols(naming,[sP63])])).
+fof(f1397,plain,(
+  e4 != op(op(e4,e4),op(e4,e4)) | e4 != op(op(e3,e4),op(e4,e3)) | e4 != op(op(e2,e4),op(e4,e2)) | e4 != op(op(e1,e4),op(e4,e1)) | e4 != op(op(e0,e4),op(e4,e0)) | e3 != op(op(e4,e3),op(e3,e4)) | e3 != op(op(e3,e3),op(e3,e3)) | e3 != op(op(e2,e3),op(e3,e2)) | e3 != op(op(e1,e3),op(e3,e1)) | e3 != op(op(e0,e3),op(e3,e0)) | e2 != op(op(e4,e2),op(e2,e4)) | e2 != op(op(e3,e2),op(e2,e3)) | e2 != op(op(e2,e2),op(e2,e2)) | e2 != op(op(e1,e2),op(e2,e1)) | e2 != op(op(e0,e2),op(e2,e0)) | e1 != op(op(e4,e1),op(e1,e4)) | e1 != op(op(e3,e1),op(e1,e3)) | e1 != op(op(e2,e1),op(e1,e2)) | e1 != op(op(e1,e1),op(e1,e1)) | e1 != op(op(e0,e1),op(e1,e0)) | e0 != op(op(e4,e0),op(e0,e4)) | e0 != op(op(e3,e0),op(e0,e3)) | e0 != op(op(e2,e0),op(e0,e2)) | e0 != op(op(e1,e0),op(e0,e1)) | e0 != op(op(e0,e0),op(e0,e0)) | sP63 | sP62 | sP61 | sP60 | sP59 | sP58 | sP57 | sP56 | sP55 | sP54 | sP53 | sP52 | sP51 | sP50 | sP49 | sP48 | sP47 | sP46 | sP45 | sP44 | sP43 | sP42 | sP41 | sP40 | sP39 | sP38 | sP37 | sP36 | sP35 | sP34 | sP33 | sP32 | sP31 | sP30 | sP29 | sP28 | sP27 | sP26 | sP25 | sP24 | sP23 | sP22 | sP21 | sP20 | sP19 | sP18 | sP17 | sP16 | sP15 | sP14 | sP13 | sP12 | sP11 | sP10 | sP9 | sP8 | sP7 | sP6 | sP5 | sP4 | sP3 | sP2 | sP1 | sP0),
+  inference(subsumption_resolution,[],[f1396,f604])).
+fof(f604,plain,(
+  ~sP64),
+  inference(subsumption_resolution,[],[f242,f182])).
+fof(f242,plain,(
+  e4 != op(e3,e0) | ~sP64),
+  inference(cnf_transformation,[],[f92])).
+fof(f92,plain,(
+  (e4 != op(e3,e4) & e4 != op(e3,e3) & e4 != op(e3,e2) & e4 != op(e3,e1) & e4 != op(e3,e0)) | ~sP64),
+  inference(nnf_transformation,[],[f70])).
+fof(f70,plain,(
+  (e4 != op(e3,e4) & e4 != op(e3,e3) & e4 != op(e3,e2) & e4 != op(e3,e1) & e4 != op(e3,e0)) | ~sP64),
+  introduced(predicate_definition_introduction,[new_symbols(naming,[sP64])])).
+fof(f1396,plain,(
+  e4 != op(op(e4,e4),op(e4,e4)) | e4 != op(op(e3,e4),op(e4,e3)) | e4 != op(op(e2,e4),op(e4,e2)) | e4 != op(op(e1,e4),op(e4,e1)) | e4 != op(op(e0,e4),op(e4,e0)) | e3 != op(op(e4,e3),op(e3,e4)) | e3 != op(op(e3,e3),op(e3,e3)) | e3 != op(op(e2,e3),op(e3,e2)) | e3 != op(op(e1,e3),op(e3,e1)) | e3 != op(op(e0,e3),op(e3,e0)) | e2 != op(op(e4,e2),op(e2,e4)) | e2 != op(op(e3,e2),op(e2,e3)) | e2 != op(op(e2,e2),op(e2,e2)) | e2 != op(op(e1,e2),op(e2,e1)) | e2 != op(op(e0,e2),op(e2,e0)) | e1 != op(op(e4,e1),op(e1,e4)) | e1 != op(op(e3,e1),op(e1,e3)) | e1 != op(op(e2,e1),op(e1,e2)) | e1 != op(op(e1,e1),op(e1,e1)) | e1 != op(op(e0,e1),op(e1,e0)) | e0 != op(op(e4,e0),op(e0,e4)) | e0 != op(op(e3,e0),op(e0,e3)) | e0 != op(op(e2,e0),op(e0,e2)) | e0 != op(op(e1,e0),op(e0,e1)) | e0 != op(op(e0,e0),op(e0,e0)) | sP64 | sP63 | sP62 | sP61 | sP60 | sP59 | sP58 | sP57 | sP56 | sP55 | sP54 | sP53 | sP52 | sP51 | sP50 | sP49 | sP48 | sP47 | sP46 | sP45 | sP44 | sP43 | sP42 | sP41 | sP40 | sP39 | sP38 | sP37 | sP36 | sP35 | sP34 | sP33 | sP32 | sP31 | sP30 | sP29 | sP28 | sP27 | sP26 | sP25 | sP24 | sP23 | sP22 | sP21 | sP20 | sP19 | sP18 | sP17 | sP16 | sP15 | sP14 | sP13 | sP12 | sP11 | sP10 | sP9 | sP8 | sP7 | sP6 | sP5 | sP4 | sP3 | sP2 | sP1 | sP0),
+  inference(subsumption_resolution,[],[f1395,f599])).
+fof(f599,plain,(
+  ~sP65),
+  inference(subsumption_resolution,[],[f239,f180])).
+fof(f239,plain,(
+  e4 != op(e2,e3) | ~sP65),
+  inference(cnf_transformation,[],[f91])).
+fof(f91,plain,(
+  (e4 != op(e4,e3) & e4 != op(e3,e3) & e4 != op(e2,e3) & e4 != op(e1,e3) & e4 != op(e0,e3)) | ~sP65),
+  inference(nnf_transformation,[],[f71])).
+fof(f71,plain,(
+  (e4 != op(e4,e3) & e4 != op(e3,e3) & e4 != op(e2,e3) & e4 != op(e1,e3) & e4 != op(e0,e3)) | ~sP65),
+  introduced(predicate_definition_introduction,[new_symbols(naming,[sP65])])).
+fof(f1395,plain,(
+  e4 != op(op(e4,e4),op(e4,e4)) | e4 != op(op(e3,e4),op(e4,e3)) | e4 != op(op(e2,e4),op(e4,e2)) | e4 != op(op(e1,e4),op(e4,e1)) | e4 != op(op(e0,e4),op(e4,e0)) | e3 != op(op(e4,e3),op(e3,e4)) | e3 != op(op(e3,e3),op(e3,e3)) | e3 != op(op(e2,e3),op(e3,e2)) | e3 != op(op(e1,e3),op(e3,e1)) | e3 != op(op(e0,e3),op(e3,e0)) | e2 != op(op(e4,e2),op(e2,e4)) | e2 != op(op(e3,e2),op(e2,e3)) | e2 != op(op(e2,e2),op(e2,e2)) | e2 != op(op(e1,e2),op(e2,e1)) | e2 != op(op(e0,e2),op(e2,e0)) | e1 != op(op(e4,e1),op(e1,e4)) | e1 != op(op(e3,e1),op(e1,e3)) | e1 != op(op(e2,e1),op(e1,e2)) | e1 != op(op(e1,e1),op(e1,e1)) | e1 != op(op(e0,e1),op(e1,e0)) | e0 != op(op(e4,e0),op(e0,e4)) | e0 != op(op(e3,e0),op(e0,e3)) | e0 != op(op(e2,e0),op(e0,e2)) | e0 != op(op(e1,e0),op(e0,e1)) | e0 != op(op(e0,e0),op(e0,e0)) | sP65 | sP64 | sP63 | sP62 | sP61 | sP60 | sP59 | sP58 | sP57 | sP56 | sP55 | sP54 | sP53 | sP52 | sP51 | sP50 | sP49 | sP48 | sP47 | sP46 | sP45 | sP44 | sP43 | sP42 | sP41 | sP40 | sP39 | sP38 | sP37 | sP36 | sP35 | sP34 | sP33 | sP32 | sP31 | sP30 | sP29 | sP28 | sP27 | sP26 | sP25 | sP24 | sP23 | sP22 | sP21 | sP20 | sP19 | sP18 | sP17 | sP16 | sP15 | sP14 | sP13 | sP12 | sP11 | sP10 | sP9 | sP8 | sP7 | sP6 | sP5 | sP4 | sP3 | sP2 | sP1 | sP0),
+  inference(subsumption_resolution,[],[f1394,f596])).
+fof(f596,plain,(
+  ~sP66),
+  inference(subsumption_resolution,[],[f233,f188])).
+fof(f233,plain,(
+  e0 != op(e4,e1) | ~sP66),
+  inference(cnf_transformation,[],[f90])).
+fof(f90,plain,(
+  (e0 != op(e4,e4) & e0 != op(e4,e3) & e0 != op(e4,e2) & e0 != op(e4,e1) & e0 != op(e4,e0)) | ~sP66),
+  inference(nnf_transformation,[],[f72])).
+fof(f72,plain,(
+  (e0 != op(e4,e4) & e0 != op(e4,e3) & e0 != op(e4,e2) & e0 != op(e4,e1) & e0 != op(e4,e0)) | ~sP66),
+  introduced(predicate_definition_introduction,[new_symbols(naming,[sP66])])).
+fof(f1394,plain,(
+  e4 != op(op(e4,e4),op(e4,e4)) | e4 != op(op(e3,e4),op(e4,e3)) | e4 != op(op(e2,e4),op(e4,e2)) | e4 != op(op(e1,e4),op(e4,e1)) | e4 != op(op(e0,e4),op(e4,e0)) | e3 != op(op(e4,e3),op(e3,e4)) | e3 != op(op(e3,e3),op(e3,e3)) | e3 != op(op(e2,e3),op(e3,e2)) | e3 != op(op(e1,e3),op(e3,e1)) | e3 != op(op(e0,e3),op(e3,e0)) | e2 != op(op(e4,e2),op(e2,e4)) | e2 != op(op(e3,e2),op(e2,e3)) | e2 != op(op(e2,e2),op(e2,e2)) | e2 != op(op(e1,e2),op(e2,e1)) | e2 != op(op(e0,e2),op(e2,e0)) | e1 != op(op(e4,e1),op(e1,e4)) | e1 != op(op(e3,e1),op(e1,e3)) | e1 != op(op(e2,e1),op(e1,e2)) | e1 != op(op(e1,e1),op(e1,e1)) | e1 != op(op(e0,e1),op(e1,e0)) | e0 != op(op(e4,e0),op(e0,e4)) | e0 != op(op(e3,e0),op(e0,e3)) | e0 != op(op(e2,e0),op(e0,e2)) | e0 != op(op(e1,e0),op(e0,e1)) | e0 != op(op(e0,e0),op(e0,e0)) | sP66 | sP65 | sP64 | sP63 | sP62 | sP61 | sP60 | sP59 | sP58 | sP57 | sP56 | sP55 | sP54 | sP53 | sP52 | sP51 | sP50 | sP49 | sP48 | sP47 | sP46 | sP45 | sP44 | sP43 | sP42 | sP41 | sP40 | sP39 | sP38 | sP37 | sP36 | sP35 | sP34 | sP33 | sP32 | sP31 | sP30 | sP29 | sP28 | sP27 | sP26 | sP25 | sP24 | sP23 | sP22 | sP21 | sP20 | sP19 | sP18 | sP17 | sP16 | sP15 | sP14 | sP13 | sP12 | sP11 | sP10 | sP9 | sP8 | sP7 | sP6 | sP5 | sP4 | sP3 | sP2 | sP1 | sP0),
+  inference(subsumption_resolution,[],[f1393,f592])).
+fof(f592,plain,(
+  ~sP67),
+  inference(subsumption_resolution,[],[f229,f181])).
+fof(f229,plain,(
+  e0 != op(e2,e4) | ~sP67),
+  inference(cnf_transformation,[],[f89])).
+fof(f89,plain,(
+  (e0 != op(e4,e4) & e0 != op(e3,e4) & e0 != op(e2,e4) & e0 != op(e1,e4) & e0 != op(e0,e4)) | ~sP67),
+  inference(nnf_transformation,[],[f73])).
+fof(f73,plain,(
+  (e0 != op(e4,e4) & e0 != op(e3,e4) & e0 != op(e2,e4) & e0 != op(e1,e4) & e0 != op(e0,e4)) | ~sP67),
+  introduced(predicate_definition_introduction,[new_symbols(naming,[sP67])])).
+fof(f1393,plain,(
+  e4 != op(op(e4,e4),op(e4,e4)) | e4 != op(op(e3,e4),op(e4,e3)) | e4 != op(op(e2,e4),op(e4,e2)) | e4 != op(op(e1,e4),op(e4,e1)) | e4 != op(op(e0,e4),op(e4,e0)) | e3 != op(op(e4,e3),op(e3,e4)) | e3 != op(op(e3,e3),op(e3,e3)) | e3 != op(op(e2,e3),op(e3,e2)) | e3 != op(op(e1,e3),op(e3,e1)) | e3 != op(op(e0,e3),op(e3,e0)) | e2 != op(op(e4,e2),op(e2,e4)) | e2 != op(op(e3,e2),op(e2,e3)) | e2 != op(op(e2,e2),op(e2,e2)) | e2 != op(op(e1,e2),op(e2,e1)) | e2 != op(op(e0,e2),op(e2,e0)) | e1 != op(op(e4,e1),op(e1,e4)) | e1 != op(op(e3,e1),op(e1,e3)) | e1 != op(op(e2,e1),op(e1,e2)) | e1 != op(op(e1,e1),op(e1,e1)) | e1 != op(op(e0,e1),op(e1,e0)) | e0 != op(op(e4,e0),op(e0,e4)) | e0 != op(op(e3,e0),op(e0,e3)) | e0 != op(op(e2,e0),op(e0,e2)) | e0 != op(op(e1,e0),op(e0,e1)) | e0 != op(op(e0,e0),op(e0,e0)) | sP67 | sP66 | sP65 | sP64 | sP63 | sP62 | sP61 | sP60 | sP59 | sP58 | sP57 | sP56 | sP55 | sP54 | sP53 | sP52 | sP51 | sP50 | sP49 | sP48 | sP47 | sP46 | sP45 | sP44 | sP43 | sP42 | sP41 | sP40 | sP39 | sP38 | sP37 | sP36 | sP35 | sP34 | sP33 | sP32 | sP31 | sP30 | sP29 | sP28 | sP27 | sP26 | sP25 | sP24 | sP23 | sP22 | sP21 | sP20 | sP19 | sP18 | sP17 | sP16 | sP15 | sP14 | sP13 | sP12 | sP11 | sP10 | sP9 | sP8 | sP7 | sP6 | sP5 | sP4 | sP3 | sP2 | sP1 | sP0),
+  inference(subsumption_resolution,[],[f1392,f589])).
+fof(f589,plain,(
+  ~sP68),
+  inference(subsumption_resolution,[],[f226,f191])).
+fof(f226,plain,(
+  e1 != op(e4,e4) | ~sP68),
+  inference(cnf_transformation,[],[f88])).
+fof(f88,plain,(
+  (e1 != op(e4,e4) & e1 != op(e4,e3) & e1 != op(e4,e2) & e1 != op(e4,e1) & e1 != op(e4,e0)) | ~sP68),
+  inference(nnf_transformation,[],[f74])).
+fof(f74,plain,(
+  (e1 != op(e4,e4) & e1 != op(e4,e3) & e1 != op(e4,e2) & e1 != op(e4,e1) & e1 != op(e4,e0)) | ~sP68),
+  introduced(predicate_definition_introduction,[new_symbols(naming,[sP68])])).
+fof(f1392,plain,(
+  e4 != op(op(e4,e4),op(e4,e4)) | e4 != op(op(e3,e4),op(e4,e3)) | e4 != op(op(e2,e4),op(e4,e2)) | e4 != op(op(e1,e4),op(e4,e1)) | e4 != op(op(e0,e4),op(e4,e0)) | e3 != op(op(e4,e3),op(e3,e4)) | e3 != op(op(e3,e3),op(e3,e3)) | e3 != op(op(e2,e3),op(e3,e2)) | e3 != op(op(e1,e3),op(e3,e1)) | e3 != op(op(e0,e3),op(e3,e0)) | e2 != op(op(e4,e2),op(e2,e4)) | e2 != op(op(e3,e2),op(e2,e3)) | e2 != op(op(e2,e2),op(e2,e2)) | e2 != op(op(e1,e2),op(e2,e1)) | e2 != op(op(e0,e2),op(e2,e0)) | e1 != op(op(e4,e1),op(e1,e4)) | e1 != op(op(e3,e1),op(e1,e3)) | e1 != op(op(e2,e1),op(e1,e2)) | e1 != op(op(e1,e1),op(e1,e1)) | e1 != op(op(e0,e1),op(e1,e0)) | e0 != op(op(e4,e0),op(e0,e4)) | e0 != op(op(e3,e0),op(e0,e3)) | e0 != op(op(e2,e0),op(e0,e2)) | e0 != op(op(e1,e0),op(e0,e1)) | e0 != op(op(e0,e0),op(e0,e0)) | sP68 | sP67 | sP66 | sP65 | sP64 | sP63 | sP62 | sP61 | sP60 | sP59 | sP58 | sP57 | sP56 | sP55 | sP54 | sP53 | sP52 | sP51 | sP50 | sP49 | sP48 | sP47 | sP46 | sP45 | sP44 | sP43 | sP42 | sP41 | sP40 | sP39 | sP38 | sP37 | sP36 | sP35 | sP34 | sP33 | sP32 | sP31 | sP30 | sP29 | sP28 | sP27 | sP26 | sP25 | sP24 | sP23 | sP22 | sP21 | sP20 | sP19 | sP18 | sP17 | sP16 | sP15 | sP14 | sP13 | sP12 | sP11 | sP10 | sP9 | sP8 | sP7 | sP6 | sP5 | sP4 | sP3 | sP2 | sP1 | sP0),
+  inference(subsumption_resolution,[],[f1391,f588])).
+fof(f588,plain,(
+  ~sP69),
+  inference(subsumption_resolution,[],[f221,f191])).
+fof(f221,plain,(
+  e1 != op(e4,e4) | ~sP69),
+  inference(cnf_transformation,[],[f87])).
+fof(f87,plain,(
+  (e1 != op(e4,e4) & e1 != op(e3,e4) & e1 != op(e2,e4) & e1 != op(e1,e4) & e1 != op(e0,e4)) | ~sP69),
+  inference(nnf_transformation,[],[f75])).
+fof(f75,plain,(
+  (e1 != op(e4,e4) & e1 != op(e3,e4) & e1 != op(e2,e4) & e1 != op(e1,e4) & e1 != op(e0,e4)) | ~sP69),
+  introduced(predicate_definition_introduction,[new_symbols(naming,[sP69])])).
+fof(f1391,plain,(
+  e4 != op(op(e4,e4),op(e4,e4)) | e4 != op(op(e3,e4),op(e4,e3)) | e4 != op(op(e2,e4),op(e4,e2)) | e4 != op(op(e1,e4),op(e4,e1)) | e4 != op(op(e0,e4),op(e4,e0)) | e3 != op(op(e4,e3),op(e3,e4)) | e3 != op(op(e3,e3),op(e3,e3)) | e3 != op(op(e2,e3),op(e3,e2)) | e3 != op(op(e1,e3),op(e3,e1)) | e3 != op(op(e0,e3),op(e3,e0)) | e2 != op(op(e4,e2),op(e2,e4)) | e2 != op(op(e3,e2),op(e2,e3)) | e2 != op(op(e2,e2),op(e2,e2)) | e2 != op(op(e1,e2),op(e2,e1)) | e2 != op(op(e0,e2),op(e2,e0)) | e1 != op(op(e4,e1),op(e1,e4)) | e1 != op(op(e3,e1),op(e1,e3)) | e1 != op(op(e2,e1),op(e1,e2)) | e1 != op(op(e1,e1),op(e1,e1)) | e1 != op(op(e0,e1),op(e1,e0)) | e0 != op(op(e4,e0),op(e0,e4)) | e0 != op(op(e3,e0),op(e0,e3)) | e0 != op(op(e2,e0),op(e0,e2)) | e0 != op(op(e1,e0),op(e0,e1)) | e0 != op(op(e0,e0),op(e0,e0)) | sP69 | sP68 | sP67 | sP66 | sP65 | sP64 | sP63 | sP62 | sP61 | sP60 | sP59 | sP58 | sP57 | sP56 | sP55 | sP54 | sP53 | sP52 | sP51 | sP50 | sP49 | sP48 | sP47 | sP46 | sP45 | sP44 | sP43 | sP42 | sP41 | sP40 | sP39 | sP38 | sP37 | sP36 | sP35 | sP34 | sP33 | sP32 | sP31 | sP30 | sP29 | sP28 | sP27 | sP26 | sP25 | sP24 | sP23 | sP22 | sP21 | sP20 | sP19 | sP18 | sP17 | sP16 | sP15 | sP14 | sP13 | sP12 | sP11 | sP10 | sP9 | sP8 | sP7 | sP6 | sP5 | sP4 | sP3 | sP2 | sP1 | sP0),
+  inference(subsumption_resolution,[],[f1390,f587])).
+fof(f587,plain,(
+  ~sP70),
+  inference(subsumption_resolution,[],[f212,f187])).
+fof(f212,plain,(
+  e2 != op(e4,e0) | ~sP70),
+  inference(cnf_transformation,[],[f86])).
+fof(f86,plain,(
+  (e2 != op(e4,e4) & e2 != op(e4,e3) & e2 != op(e4,e2) & e2 != op(e4,e1) & e2 != op(e4,e0)) | ~sP70),
+  inference(nnf_transformation,[],[f76])).
+fof(f76,plain,(
+  (e2 != op(e4,e4) & e2 != op(e4,e3) & e2 != op(e4,e2) & e2 != op(e4,e1) & e2 != op(e4,e0)) | ~sP70),
+  introduced(predicate_definition_introduction,[new_symbols(naming,[sP70])])).
+fof(f1390,plain,(
+  e4 != op(op(e4,e4),op(e4,e4)) | e4 != op(op(e3,e4),op(e4,e3)) | e4 != op(op(e2,e4),op(e4,e2)) | e4 != op(op(e1,e4),op(e4,e1)) | e4 != op(op(e0,e4),op(e4,e0)) | e3 != op(op(e4,e3),op(e3,e4)) | e3 != op(op(e3,e3),op(e3,e3)) | e3 != op(op(e2,e3),op(e3,e2)) | e3 != op(op(e1,e3),op(e3,e1)) | e3 != op(op(e0,e3),op(e3,e0)) | e2 != op(op(e4,e2),op(e2,e4)) | e2 != op(op(e3,e2),op(e2,e3)) | e2 != op(op(e2,e2),op(e2,e2)) | e2 != op(op(e1,e2),op(e2,e1)) | e2 != op(op(e0,e2),op(e2,e0)) | e1 != op(op(e4,e1),op(e1,e4)) | e1 != op(op(e3,e1),op(e1,e3)) | e1 != op(op(e2,e1),op(e1,e2)) | e1 != op(op(e1,e1),op(e1,e1)) | e1 != op(op(e0,e1),op(e1,e0)) | e0 != op(op(e4,e0),op(e0,e4)) | e0 != op(op(e3,e0),op(e0,e3)) | e0 != op(op(e2,e0),op(e0,e2)) | e0 != op(op(e1,e0),op(e0,e1)) | e0 != op(op(e0,e0),op(e0,e0)) | sP70 | sP69 | sP68 | sP67 | sP66 | sP65 | sP64 | sP63 | sP62 | sP61 | sP60 | sP59 | sP58 | sP57 | sP56 | sP55 | sP54 | sP53 | sP52 | sP51 | sP50 | sP49 | sP48 | sP47 | sP46 | sP45 | sP44 | sP43 | sP42 | sP41 | sP40 | sP39 | sP38 | sP37 | sP36 | sP35 | sP34 | sP33 | sP32 | sP31 | sP30 | sP29 | sP28 | sP27 | sP26 | sP25 | sP24 | sP23 | sP22 | sP21 | sP20 | sP19 | sP18 | sP17 | sP16 | sP15 | sP14 | sP13 | sP12 | sP11 | sP10 | sP9 | sP8 | sP7 | sP6 | sP5 | sP4 | sP3 | sP2 | sP1 | sP0),
+  inference(subsumption_resolution,[],[f1389,f582])).
+fof(f582,plain,(
+  ~sP71),
+  inference(subsumption_resolution,[],[f210,f186])).
+fof(f210,plain,(
+  e2 != op(e3,e4) | ~sP71),
+  inference(cnf_transformation,[],[f85])).
+fof(f85,plain,(
+  (e2 != op(e4,e4) & e2 != op(e3,e4) & e2 != op(e2,e4) & e2 != op(e1,e4) & e2 != op(e0,e4)) | ~sP71),
+  inference(nnf_transformation,[],[f77])).
+fof(f77,plain,(
+  (e2 != op(e4,e4) & e2 != op(e3,e4) & e2 != op(e2,e4) & e2 != op(e1,e4) & e2 != op(e0,e4)) | ~sP71),
+  introduced(predicate_definition_introduction,[new_symbols(naming,[sP71])])).
+fof(f1389,plain,(
+  e4 != op(op(e4,e4),op(e4,e4)) | e4 != op(op(e3,e4),op(e4,e3)) | e4 != op(op(e2,e4),op(e4,e2)) | e4 != op(op(e1,e4),op(e4,e1)) | e4 != op(op(e0,e4),op(e4,e0)) | e3 != op(op(e4,e3),op(e3,e4)) | e3 != op(op(e3,e3),op(e3,e3)) | e3 != op(op(e2,e3),op(e3,e2)) | e3 != op(op(e1,e3),op(e3,e1)) | e3 != op(op(e0,e3),op(e3,e0)) | e2 != op(op(e4,e2),op(e2,e4)) | e2 != op(op(e3,e2),op(e2,e3)) | e2 != op(op(e2,e2),op(e2,e2)) | e2 != op(op(e1,e2),op(e2,e1)) | e2 != op(op(e0,e2),op(e2,e0)) | e1 != op(op(e4,e1),op(e1,e4)) | e1 != op(op(e3,e1),op(e1,e3)) | e1 != op(op(e2,e1),op(e1,e2)) | e1 != op(op(e1,e1),op(e1,e1)) | e1 != op(op(e0,e1),op(e1,e0)) | e0 != op(op(e4,e0),op(e0,e4)) | e0 != op(op(e3,e0),op(e0,e3)) | e0 != op(op(e2,e0),op(e0,e2)) | e0 != op(op(e1,e0),op(e0,e1)) | e0 != op(op(e0,e0),op(e0,e0)) | sP71 | sP70 | sP69 | sP68 | sP67 | sP66 | sP65 | sP64 | sP63 | sP62 | sP61 | sP60 | sP59 | sP58 | sP57 | sP56 | sP55 | sP54 | sP53 | sP52 | sP51 | sP50 | sP49 | sP48 | sP47 | sP46 | sP45 | sP44 | sP43 | sP42 | sP41 | sP40 | sP39 | sP38 | sP37 | sP36 | sP35 | sP34 | sP33 | sP32 | sP31 | sP30 | sP29 | sP28 | sP27 | sP26 | sP25 | sP24 | sP23 | sP22 | sP21 | sP20 | sP19 | sP18 | sP17 | sP16 | sP15 | sP14 | sP13 | sP12 | sP11 | sP10 | sP9 | sP8 | sP7 | sP6 | sP5 | sP4 | sP3 | sP2 | sP1 | sP0),
+  inference(subsumption_resolution,[],[f1388,f580])).
+fof(f580,plain,(
+  ~sP72),
+  inference(subsumption_resolution,[],[f205,f190])).
+fof(f205,plain,(
+  e3 != op(e4,e3) | ~sP72),
+  inference(cnf_transformation,[],[f84])).
+fof(f84,plain,(
+  (e3 != op(e4,e4) & e3 != op(e4,e3) & e3 != op(e4,e2) & e3 != op(e4,e1) & e3 != op(e4,e0)) | ~sP72),
+  inference(nnf_transformation,[],[f78])).
+fof(f78,plain,(
+  (e3 != op(e4,e4) & e3 != op(e4,e3) & e3 != op(e4,e2) & e3 != op(e4,e1) & e3 != op(e4,e0)) | ~sP72),
+  introduced(predicate_definition_introduction,[new_symbols(naming,[sP72])])).
+fof(f1388,plain,(
+  e4 != op(op(e4,e4),op(e4,e4)) | e4 != op(op(e3,e4),op(e4,e3)) | e4 != op(op(e2,e4),op(e4,e2)) | e4 != op(op(e1,e4),op(e4,e1)) | e4 != op(op(e0,e4),op(e4,e0)) | e3 != op(op(e4,e3),op(e3,e4)) | e3 != op(op(e3,e3),op(e3,e3)) | e3 != op(op(e2,e3),op(e3,e2)) | e3 != op(op(e1,e3),op(e3,e1)) | e3 != op(op(e0,e3),op(e3,e0)) | e2 != op(op(e4,e2),op(e2,e4)) | e2 != op(op(e3,e2),op(e2,e3)) | e2 != op(op(e2,e2),op(e2,e2)) | e2 != op(op(e1,e2),op(e2,e1)) | e2 != op(op(e0,e2),op(e2,e0)) | e1 != op(op(e4,e1),op(e1,e4)) | e1 != op(op(e3,e1),op(e1,e3)) | e1 != op(op(e2,e1),op(e1,e2)) | e1 != op(op(e1,e1),op(e1,e1)) | e1 != op(op(e0,e1),op(e1,e0)) | e0 != op(op(e4,e0),op(e0,e4)) | e0 != op(op(e3,e0),op(e0,e3)) | e0 != op(op(e2,e0),op(e0,e2)) | e0 != op(op(e1,e0),op(e0,e1)) | e0 != op(op(e0,e0),op(e0,e0)) | sP72 | sP71 | sP70 | sP69 | sP68 | sP67 | sP66 | sP65 | sP64 | sP63 | sP62 | sP61 | sP60 | sP59 | sP58 | sP57 | sP56 | sP55 | sP54 | sP53 | sP52 | sP51 | sP50 | sP49 | sP48 | sP47 | sP46 | sP45 | sP44 | sP43 | sP42 | sP41 | sP40 | sP39 | sP38 | sP37 | sP36 | sP35 | sP34 | sP33 | sP32 | sP31 | sP30 | sP29 | sP28 | sP27 | sP26 | sP25 | sP24 | sP23 | sP22 | sP21 | sP20 | sP19 | sP18 | sP17 | sP16 | sP15 | sP14 | sP13 | sP12 | sP11 | sP10 | sP9 | sP8 | sP7 | sP6 | sP5 | sP4 | sP3 | sP2 | sP1 | sP0),
+  inference(subsumption_resolution,[],[f1387,f578])).
+fof(f578,plain,(
+  ~sP73),
+  inference(subsumption_resolution,[],[f198,f176])).
+fof(f198,plain,(
+  e3 != op(e1,e4) | ~sP73),
+  inference(cnf_transformation,[],[f83])).
+fof(f83,plain,(
+  (e3 != op(e4,e4) & e3 != op(e3,e4) & e3 != op(e2,e4) & e3 != op(e1,e4) & e3 != op(e0,e4)) | ~sP73),
+  inference(nnf_transformation,[],[f79])).
+fof(f79,plain,(
+  (e3 != op(e4,e4) & e3 != op(e3,e4) & e3 != op(e2,e4) & e3 != op(e1,e4) & e3 != op(e0,e4)) | ~sP73),
+  introduced(predicate_definition_introduction,[new_symbols(naming,[sP73])])).
+fof(f1387,plain,(
+  e4 != op(op(e4,e4),op(e4,e4)) | e4 != op(op(e3,e4),op(e4,e3)) | e4 != op(op(e2,e4),op(e4,e2)) | e4 != op(op(e1,e4),op(e4,e1)) | e4 != op(op(e0,e4),op(e4,e0)) | e3 != op(op(e4,e3),op(e3,e4)) | e3 != op(op(e3,e3),op(e3,e3)) | e3 != op(op(e2,e3),op(e3,e2)) | e3 != op(op(e1,e3),op(e3,e1)) | e3 != op(op(e0,e3),op(e3,e0)) | e2 != op(op(e4,e2),op(e2,e4)) | e2 != op(op(e3,e2),op(e2,e3)) | e2 != op(op(e2,e2),op(e2,e2)) | e2 != op(op(e1,e2),op(e2,e1)) | e2 != op(op(e0,e2),op(e2,e0)) | e1 != op(op(e4,e1),op(e1,e4)) | e1 != op(op(e3,e1),op(e1,e3)) | e1 != op(op(e2,e1),op(e1,e2)) | e1 != op(op(e1,e1),op(e1,e1)) | e1 != op(op(e0,e1),op(e1,e0)) | e0 != op(op(e4,e0),op(e0,e4)) | e0 != op(op(e3,e0),op(e0,e3)) | e0 != op(op(e2,e0),op(e0,e2)) | e0 != op(op(e1,e0),op(e0,e1)) | e0 != op(op(e0,e0),op(e0,e0)) | sP73 | sP72 | sP71 | sP70 | sP69 | sP68 | sP67 | sP66 | sP65 | sP64 | sP63 | sP62 | sP61 | sP60 | sP59 | sP58 | sP57 | sP56 | sP55 | sP54 | sP53 | sP52 | sP51 | sP50 | sP49 | sP48 | sP47 | sP46 | sP45 | sP44 | sP43 | sP42 | sP41 | sP40 | sP39 | sP38 | sP37 | sP36 | sP35 | sP34 | sP33 | sP32 | sP31 | sP30 | sP29 | sP28 | sP27 | sP26 | sP25 | sP24 | sP23 | sP22 | sP21 | sP20 | sP19 | sP18 | sP17 | sP16 | sP15 | sP14 | sP13 | sP12 | sP11 | sP10 | sP9 | sP8 | sP7 | sP6 | sP5 | sP4 | sP3 | sP2 | sP1 | sP0),
+  inference(subsumption_resolution,[],[f1386,f574])).
+fof(f574,plain,(
+  ~sP74),
+  inference(subsumption_resolution,[],[f194,f189])).
+fof(f194,plain,(
+  e4 != op(e4,e2) | ~sP74),
+  inference(cnf_transformation,[],[f82])).
+fof(f82,plain,(
+  (e4 != op(e4,e4) & e4 != op(e4,e3) & e4 != op(e4,e2) & e4 != op(e4,e1) & e4 != op(e4,e0)) | ~sP74),
+  inference(nnf_transformation,[],[f80])).
+fof(f80,plain,(
+  (e4 != op(e4,e4) & e4 != op(e4,e3) & e4 != op(e4,e2) & e4 != op(e4,e1) & e4 != op(e4,e0)) | ~sP74),
+  introduced(predicate_definition_introduction,[new_symbols(naming,[sP74])])).
+fof(f1386,plain,(
+  e4 != op(op(e4,e4),op(e4,e4)) | e4 != op(op(e3,e4),op(e4,e3)) | e4 != op(op(e2,e4),op(e4,e2)) | e4 != op(op(e1,e4),op(e4,e1)) | e4 != op(op(e0,e4),op(e4,e0)) | e3 != op(op(e4,e3),op(e3,e4)) | e3 != op(op(e3,e3),op(e3,e3)) | e3 != op(op(e2,e3),op(e3,e2)) | e3 != op(op(e1,e3),op(e3,e1)) | e3 != op(op(e0,e3),op(e3,e0)) | e2 != op(op(e4,e2),op(e2,e4)) | e2 != op(op(e3,e2),op(e2,e3)) | e2 != op(op(e2,e2),op(e2,e2)) | e2 != op(op(e1,e2),op(e2,e1)) | e2 != op(op(e0,e2),op(e2,e0)) | e1 != op(op(e4,e1),op(e1,e4)) | e1 != op(op(e3,e1),op(e1,e3)) | e1 != op(op(e2,e1),op(e1,e2)) | e1 != op(op(e1,e1),op(e1,e1)) | e1 != op(op(e0,e1),op(e1,e0)) | e0 != op(op(e4,e0),op(e0,e4)) | e0 != op(op(e3,e0),op(e0,e3)) | e0 != op(op(e2,e0),op(e0,e2)) | e0 != op(op(e1,e0),op(e0,e1)) | e0 != op(op(e0,e0),op(e0,e0)) | sP74 | sP73 | sP72 | sP71 | sP70 | sP69 | sP68 | sP67 | sP66 | sP65 | sP64 | sP63 | sP62 | sP61 | sP60 | sP59 | sP58 | sP57 | sP56 | sP55 | sP54 | sP53 | sP52 | sP51 | sP50 | sP49 | sP48 | sP47 | sP46 | sP45 | sP44 | sP43 | sP42 | sP41 | sP40 | sP39 | sP38 | sP37 | sP36 | sP35 | sP34 | sP33 | sP32 | sP31 | sP30 | sP29 | sP28 | sP27 | sP26 | sP25 | sP24 | sP23 | sP22 | sP21 | sP20 | sP19 | sP18 | sP17 | sP16 | sP15 | sP14 | sP13 | sP12 | sP11 | sP10 | sP9 | sP8 | sP7 | sP6 | sP5 | sP4 | sP3 | sP2 | sP1 | sP0),
+  inference(subsumption_resolution,[],[f567,f171])).
+fof(f567,plain,(
+  e4 != op(op(e4,e4),op(e4,e4)) | e4 != op(op(e3,e4),op(e4,e3)) | e4 != op(op(e2,e4),op(e4,e2)) | e4 != op(op(e1,e4),op(e4,e1)) | e4 != op(op(e0,e4),op(e4,e0)) | e3 != op(op(e4,e3),op(e3,e4)) | e3 != op(op(e3,e3),op(e3,e3)) | e3 != op(op(e2,e3),op(e3,e2)) | e3 != op(op(e1,e3),op(e3,e1)) | e3 != op(op(e0,e3),op(e3,e0)) | e2 != op(op(e4,e2),op(e2,e4)) | e2 != op(op(e3,e2),op(e2,e3)) | e2 != op(op(e2,e2),op(e2,e2)) | e2 != op(op(e1,e2),op(e2,e1)) | e2 != op(op(e0,e2),op(e2,e0)) | e1 != op(op(e4,e1),op(e1,e4)) | e1 != op(op(e3,e1),op(e1,e3)) | e1 != op(op(e2,e1),op(e1,e2)) | e1 != op(op(e1,e1),op(e1,e1)) | e1 != op(op(e0,e1),op(e1,e0)) | e0 != op(op(e4,e0),op(e0,e4)) | e0 != op(op(e3,e0),op(e0,e3)) | e0 != op(op(e2,e0),op(e0,e2)) | e0 != op(op(e1,e0),op(e0,e1)) | e0 != op(op(e0,e0),op(e0,e0)) | e4 != op(e0,e4) | sP74 | sP73 | sP72 | sP71 | sP70 | sP69 | sP68 | sP67 | sP66 | sP65 | sP64 | sP63 | sP62 | sP61 | sP60 | sP59 | sP58 | sP57 | sP56 | sP55 | sP54 | sP53 | sP52 | sP51 | sP50 | sP49 | sP48 | sP47 | sP46 | sP45 | sP44 | sP43 | sP42 | sP41 | sP40 | sP39 | sP38 | sP37 | sP36 | sP35 | sP34 | sP33 | sP32 | sP31 | sP30 | sP29 | sP28 | sP27 | sP26 | sP25 | sP24 | sP23 | sP22 | sP21 | sP20 | sP19 | sP18 | sP17 | sP16 | sP15 | sP14 | sP13 | sP12 | sP11 | sP10 | sP9 | sP8 | sP7 | sP6 | sP5 | sP4 | sP3 | sP2 | sP1 | sP0),
+  inference(cnf_transformation,[],[f81])).
+fof(f81,plain,(
+  e4 != op(op(e4,e4),op(e4,e4)) | e4 != op(op(e3,e4),op(e4,e3)) | e4 != op(op(e2,e4),op(e4,e2)) | e4 != op(op(e1,e4),op(e4,e1)) | e4 != op(op(e0,e4),op(e4,e0)) | e3 != op(op(e4,e3),op(e3,e4)) | e3 != op(op(e3,e3),op(e3,e3)) | e3 != op(op(e2,e3),op(e3,e2)) | e3 != op(op(e1,e3),op(e3,e1)) | e3 != op(op(e0,e3),op(e3,e0)) | e2 != op(op(e4,e2),op(e2,e4)) | e2 != op(op(e3,e2),op(e2,e3)) | e2 != op(op(e2,e2),op(e2,e2)) | e2 != op(op(e1,e2),op(e2,e1)) | e2 != op(op(e0,e2),op(e2,e0)) | e1 != op(op(e4,e1),op(e1,e4)) | e1 != op(op(e3,e1),op(e1,e3)) | e1 != op(op(e2,e1),op(e1,e2)) | e1 != op(op(e1,e1),op(e1,e1)) | e1 != op(op(e0,e1),op(e1,e0)) | e0 != op(op(e4,e0),op(e0,e4)) | e0 != op(op(e3,e0),op(e0,e3)) | e0 != op(op(e2,e0),op(e0,e2)) | e0 != op(op(e1,e0),op(e0,e1)) | e0 != op(op(e0,e0),op(e0,e0)) | (e4 != op(e4,e4) & e4 != op(e3,e4) & e4 != op(e2,e4) & e4 != op(e1,e4) & e4 != op(e0,e4)) | sP74 | sP73 | sP72 | sP71 | sP70 | sP69 | sP68 | sP67 | sP66 | sP65 | sP64 | sP63 | sP62 | sP61 | sP60 | sP59 | sP58 | sP57 | sP56 | sP55 | sP54 | sP53 | sP52 | sP51 | sP50 | sP49 | sP48 | sP47 | sP46 | sP45 | sP44 | sP43 | sP42 | sP41 | sP40 | sP39 | sP38 | sP37 | sP36 | sP35 | sP34 | sP33 | sP32 | sP31 | sP30 | sP29 | sP28 | sP27 | sP26 | sP25 | sP24 | sP23 | sP22 | sP21 | sP20 | sP19 | sP18 | sP17 | sP16 | sP15 | sP14 | sP13 | sP12 | sP11 | sP10 | sP9 | sP8 | sP7 | sP6 | sP5 | sP4 | sP3 | sP2 | sP1 | sP0),
+  inference(definition_folding,[],[f5,f80,f79,f78,f77,f76,f75,f74,f73,f72,f71,f70,f69,f68,f67,f66,f65,f64,f63,f62,f61,f60,f59,f58,f57,f56,f55,f54,f53,f52,f51,f50,f49,f48,f47,f46,f45,f44,f43,f42,f41,f40,f39,f38,f37,f36,f35,f34,f33,f32,f31,f30,f29,f28,f27,f26,f25,f24,f23,f22,f21,f20,f19,f18,f17,f16,f15,f14,f13,f12,f11,f10,f9,f8,f7,f6])).
+fof(f5,plain,(
+  e4 != op(op(e4,e4),op(e4,e4)) | e4 != op(op(e3,e4),op(e4,e3)) | e4 != op(op(e2,e4),op(e4,e2)) | e4 != op(op(e1,e4),op(e4,e1)) | e4 != op(op(e0,e4),op(e4,e0)) | e3 != op(op(e4,e3),op(e3,e4)) | e3 != op(op(e3,e3),op(e3,e3)) | e3 != op(op(e2,e3),op(e3,e2)) | e3 != op(op(e1,e3),op(e3,e1)) | e3 != op(op(e0,e3),op(e3,e0)) | e2 != op(op(e4,e2),op(e2,e4)) | e2 != op(op(e3,e2),op(e2,e3)) | e2 != op(op(e2,e2),op(e2,e2)) | e2 != op(op(e1,e2),op(e2,e1)) | e2 != op(op(e0,e2),op(e2,e0)) | e1 != op(op(e4,e1),op(e1,e4)) | e1 != op(op(e3,e1),op(e1,e3)) | e1 != op(op(e2,e1),op(e1,e2)) | e1 != op(op(e1,e1),op(e1,e1)) | e1 != op(op(e0,e1),op(e1,e0)) | e0 != op(op(e4,e0),op(e0,e4)) | e0 != op(op(e3,e0),op(e0,e3)) | e0 != op(op(e2,e0),op(e0,e2)) | e0 != op(op(e1,e0),op(e0,e1)) | e0 != op(op(e0,e0),op(e0,e0)) | (e4 != op(e4,e4) & e4 != op(e3,e4) & e4 != op(e2,e4) & e4 != op(e1,e4) & e4 != op(e0,e4)) | (e4 != op(e4,e4) & e4 != op(e4,e3) & e4 != op(e4,e2) & e4 != op(e4,e1) & e4 != op(e4,e0)) | (e3 != op(e4,e4) & e3 != op(e3,e4) & e3 != op(e2,e4) & e3 != op(e1,e4) & e3 != op(e0,e4)) | (e3 != op(e4,e4) & e3 != op(e4,e3) & e3 != op(e4,e2) & e3 != op(e4,e1) & e3 != op(e4,e0)) | (e2 != op(e4,e4) & e2 != op(e3,e4) & e2 != op(e2,e4) & e2 != op(e1,e4) & e2 != op(e0,e4)) | (e2 != op(e4,e4) & e2 != op(e4,e3) & e2 != op(e4,e2) & e2 != op(e4,e1) & e2 != op(e4,e0)) | (e1 != op(e4,e4) & e1 != op(e3,e4) & e1 != op(e2,e4) & e1 != op(e1,e4) & e1 != op(e0,e4)) | (e1 != op(e4,e4) & e1 != op(e4,e3) & e1 != op(e4,e2) & e1 != op(e4,e1) & e1 != op(e4,e0)) | (e0 != op(e4,e4) & e0 != op(e3,e4) & e0 != op(e2,e4) & e0 != op(e1,e4) & e0 != op(e0,e4)) | (e0 != op(e4,e4) & e0 != op(e4,e3) & e0 != op(e4,e2) & e0 != op(e4,e1) & e0 != op(e4,e0)) | (e4 != op(e4,e3) & e4 != op(e3,e3) & e4 != op(e2,e3) & e4 != op(e1,e3) & e4 != op(e0,e3)) | (e4 != op(e3,e4) & e4 != op(e3,e3) & e4 != op(e3,e2) & e4 != op(e3,e1) & e4 != op(e3,e0)) | (e3 != op(e4,e3) & e3 != op(e3,e3) & e3 != op(e2,e3) & e3 != op(e1,e3) & e3 != op(e0,e3)) | (e3 != op(e3,e4) & e3 != op(e3,e3) & e3 != op(e3,e2) & e3 != op(e3,e1) & e3 != op(e3,e0)) | (e2 != op(e4,e3) & e2 != op(e3,e3) & e2 != op(e2,e3) & e2 != op(e1,e3) & e2 != op(e0,e3)) | (e2 != op(e3,e4) & e2 != op(e3,e3) & e2 != op(e3,e2) & e2 != op(e3,e1) & e2 != op(e3,e0)) | (e1 != op(e4,e3) & e1 != op(e3,e3) & e1 != op(e2,e3) & e1 != op(e1,e3) & e1 != op(e0,e3)) | (e1 != op(e3,e4) & e1 != op(e3,e3) & e1 != op(e3,e2) & e1 != op(e3,e1) & e1 != op(e3,e0)) | (e0 != op(e4,e3) & e0 != op(e3,e3) & e0 != op(e2,e3) & e0 != op(e1,e3) & e0 != op(e0,e3)) | (e0 != op(e3,e4) & e0 != op(e3,e3) & e0 != op(e3,e2) & e0 != op(e3,e1) & e0 != op(e3,e0)) | (e4 != op(e4,e2) & e4 != op(e3,e2) & e4 != op(e2,e2) & e4 != op(e1,e2) & e4 != op(e0,e2)) | (e4 != op(e2,e4) & e4 != op(e2,e3) & e4 != op(e2,e2) & e4 != op(e2,e1) & e4 != op(e2,e0)) | (e3 != op(e4,e2) & e3 != op(e3,e2) & e3 != op(e2,e2) & e3 != op(e1,e2) & e3 != op(e0,e2)) | (e3 != op(e2,e4) & e3 != op(e2,e3) & e3 != op(e2,e2) & e3 != op(e2,e1) & e3 != op(e2,e0)) | (e2 != op(e4,e2) & e2 != op(e3,e2) & e2 != op(e2,e2) & e2 != op(e1,e2) & e2 != op(e0,e2)) | (e2 != op(e2,e4) & e2 != op(e2,e3) & e2 != op(e2,e2) & e2 != op(e2,e1) & e2 != op(e2,e0)) | (e1 != op(e4,e2) & e1 != op(e3,e2) & e1 != op(e2,e2) & e1 != op(e1,e2) & e1 != op(e0,e2)) | (e1 != op(e2,e4) & e1 != op(e2,e3) & e1 != op(e2,e2) & e1 != op(e2,e1) & e1 != op(e2,e0)) | (e0 != op(e4,e2) & e0 != op(e3,e2) & e0 != op(e2,e2) & e0 != op(e1,e2) & e0 != op(e0,e2)) | (e0 != op(e2,e4) & e0 != op(e2,e3) & e0 != op(e2,e2) & e0 != op(e2,e1) & e0 != op(e2,e0)) | (e4 != op(e4,e1) & e4 != op(e3,e1) & e4 != op(e2,e1) & e4 != op(e1,e1) & e4 != op(e0,e1)) | (e4 != op(e1,e4) & e4 != op(e1,e3) & e4 != op(e1,e2) & e4 != op(e1,e1) & e4 != op(e1,e0)) | (e3 != op(e4,e1) & e3 != op(e3,e1) & e3 != op(e2,e1) & e3 != op(e1,e1) & e3 != op(e0,e1)) | (e3 != op(e1,e4) & e3 != op(e1,e3) & e3 != op(e1,e2) & e3 != op(e1,e1) & e3 != op(e1,e0)) | (e2 != op(e4,e1) & e2 != op(e3,e1) & e2 != op(e2,e1) & e2 != op(e1,e1) & e2 != op(e0,e1)) | (e2 != op(e1,e4) & e2 != op(e1,e3) & e2 != op(e1,e2) & e2 != op(e1,e1) & e2 != op(e1,e0)) | (e1 != op(e4,e1) & e1 != op(e3,e1) & e1 != op(e2,e1) & e1 != op(e1,e1) & e1 != op(e0,e1)) | (e1 != op(e1,e4) & e1 != op(e1,e3) & e1 != op(e1,e2) & e1 != op(e1,e1) & e1 != op(e1,e0)) | (e0 != op(e4,e1) & e0 != op(e3,e1) & e0 != op(e2,e1) & e0 != op(e1,e1) & e0 != op(e0,e1)) | (e0 != op(e1,e4) & e0 != op(e1,e3) & e0 != op(e1,e2) & e0 != op(e1,e1) & e0 != op(e1,e0)) | (e4 != op(e4,e0) & e4 != op(e3,e0) & e4 != op(e2,e0) & e4 != op(e1,e0) & e4 != op(e0,e0)) | (e4 != op(e0,e4) & e4 != op(e0,e3) & e4 != op(e0,e2) & e4 != op(e0,e1) & e4 != op(e0,e0)) | (e3 != op(e4,e0) & e3 != op(e3,e0) & e3 != op(e2,e0) & e3 != op(e1,e0) & e3 != op(e0,e0)) | (e3 != op(e0,e4) & e3 != op(e0,e3) & e3 != op(e0,e2) & e3 != op(e0,e1) & e3 != op(e0,e0)) | (e2 != op(e4,e0) & e2 != op(e3,e0) & e2 != op(e2,e0) & e2 != op(e1,e0) & e2 != op(e0,e0)) | (e2 != op(e0,e4) & e2 != op(e0,e3) & e2 != op(e0,e2) & e2 != op(e0,e1) & e2 != op(e0,e0)) | (e1 != op(e4,e0) & e1 != op(e3,e0) & e1 != op(e2,e0) & e1 != op(e1,e0) & e1 != op(e0,e0)) | (e1 != op(e0,e4) & e1 != op(e0,e3) & e1 != op(e0,e2) & e1 != op(e0,e1) & e1 != op(e0,e0)) | (e0 != op(e4,e0) & e0 != op(e3,e0) & e0 != op(e2,e0) & e0 != op(e1,e0) & e0 != op(e0,e0)) | (e0 != op(e0,e4) & e0 != op(e0,e3) & e0 != op(e0,e2) & e0 != op(e0,e1) & e0 != op(e0,e0)) | (e4 != op(e4,e4) & e3 != op(e4,e4) & e2 != op(e4,e4) & e1 != op(e4,e4) & e0 != op(e4,e4)) | (e4 != op(e4,e3) & e3 != op(e4,e3) & e2 != op(e4,e3) & e1 != op(e4,e3) & e0 != op(e4,e3)) | (e4 != op(e4,e2) & e3 != op(e4,e2) & e2 != op(e4,e2) & e1 != op(e4,e2) & e0 != op(e4,e2)) | (e4 != op(e4,e1) & e3 != op(e4,e1) & e2 != op(e4,e1) & e1 != op(e4,e1) & e0 != op(e4,e1)) | (e4 != op(e4,e0) & e3 != op(e4,e0) & e2 != op(e4,e0) & e1 != op(e4,e0) & e0 != op(e4,e0)) | (e4 != op(e3,e4) & e3 != op(e3,e4) & e2 != op(e3,e4) & e1 != op(e3,e4) & e0 != op(e3,e4)) | (e4 != op(e3,e3) & e3 != op(e3,e3) & e2 != op(e3,e3) & e1 != op(e3,e3) & e0 != op(e3,e3)) | (e4 != op(e3,e2) & e3 != op(e3,e2) & e2 != op(e3,e2) & e1 != op(e3,e2) & e0 != op(e3,e2)) | (e4 != op(e3,e1) & e3 != op(e3,e1) & e2 != op(e3,e1) & e1 != op(e3,e1) & e0 != op(e3,e1)) | (e4 != op(e3,e0) & e3 != op(e3,e0) & e2 != op(e3,e0) & e1 != op(e3,e0) & e0 != op(e3,e0)) | (e4 != op(e2,e4) & e3 != op(e2,e4) & e2 != op(e2,e4) & e1 != op(e2,e4) & e0 != op(e2,e4)) | (e4 != op(e2,e3) & e3 != op(e2,e3) & e2 != op(e2,e3) & e1 != op(e2,e3) & e0 != op(e2,e3)) | (e4 != op(e2,e2) & e3 != op(e2,e2) & e2 != op(e2,e2) & e1 != op(e2,e2) & e0 != op(e2,e2)) | (e4 != op(e2,e1) & e3 != op(e2,e1) & e2 != op(e2,e1) & e1 != op(e2,e1) & e0 != op(e2,e1)) | (e4 != op(e2,e0) & e3 != op(e2,e0) & e2 != op(e2,e0) & e1 != op(e2,e0) & e0 != op(e2,e0)) | (e4 != op(e1,e4) & e3 != op(e1,e4) & e2 != op(e1,e4) & e1 != op(e1,e4) & e0 != op(e1,e4)) | (e4 != op(e1,e3) & e3 != op(e1,e3) & e2 != op(e1,e3) & e1 != op(e1,e3) & e0 != op(e1,e3)) | (e4 != op(e1,e2) & e3 != op(e1,e2) & e2 != op(e1,e2) & e1 != op(e1,e2) & e0 != op(e1,e2)) | (e4 != op(e1,e1) & e3 != op(e1,e1) & e2 != op(e1,e1) & e1 != op(e1,e1) & e0 != op(e1,e1)) | (e4 != op(e1,e0) & e3 != op(e1,e0) & e2 != op(e1,e0) & e1 != op(e1,e0) & e0 != op(e1,e0)) | (e4 != op(e0,e4) & e3 != op(e0,e4) & e2 != op(e0,e4) & e1 != op(e0,e4) & e0 != op(e0,e4)) | (e4 != op(e0,e3) & e3 != op(e0,e3) & e2 != op(e0,e3) & e1 != op(e0,e3) & e0 != op(e0,e3)) | (e4 != op(e0,e2) & e3 != op(e0,e2) & e2 != op(e0,e2) & e1 != op(e0,e2) & e0 != op(e0,e2)) | (e4 != op(e0,e1) & e3 != op(e0,e1) & e2 != op(e0,e1) & e1 != op(e0,e1) & e0 != op(e0,e1)) | (e4 != op(e0,e0) & e3 != op(e0,e0) & e2 != op(e0,e0) & e1 != op(e0,e0) & e0 != op(e0,e0)) | ((e4 = op(e4,e4) | e3 = op(e3,e4) | e2 = op(e2,e4) | e1 = op(e1,e4) | e0 = op(e0,e4)) & (e4 = op(e4,e3) | e3 = op(e3,e3) | e2 = op(e2,e3) | e1 = op(e1,e3) | e0 = op(e0,e3)) & (e4 = op(e4,e2) | e3 = op(e3,e2) | e2 = op(e2,e2) | e1 = op(e1,e2) | e0 = op(e0,e2)) & (e4 = op(e4,e1) | e3 = op(e3,e1) | e2 = op(e2,e1) | e1 = op(e1,e1) | e0 = op(e0,e1)) & (e4 = op(e4,e0) | e3 = op(e3,e0) | e2 = op(e2,e0) | e1 = op(e1,e0) | e0 = op(e0,e0)))),
+  inference(ennf_transformation,[],[f4])).
+fof(f4,negated_conjecture,(
+  ~(e4 = op(op(e4,e4),op(e4,e4)) & e4 = op(op(e3,e4),op(e4,e3)) & e4 = op(op(e2,e4),op(e4,e2)) & e4 = op(op(e1,e4),op(e4,e1)) & e4 = op(op(e0,e4),op(e4,e0)) & e3 = op(op(e4,e3),op(e3,e4)) & e3 = op(op(e3,e3),op(e3,e3)) & e3 = op(op(e2,e3),op(e3,e2)) & e3 = op(op(e1,e3),op(e3,e1)) & e3 = op(op(e0,e3),op(e3,e0)) & e2 = op(op(e4,e2),op(e2,e4)) & e2 = op(op(e3,e2),op(e2,e3)) & e2 = op(op(e2,e2),op(e2,e2)) & e2 = op(op(e1,e2),op(e2,e1)) & e2 = op(op(e0,e2),op(e2,e0)) & e1 = op(op(e4,e1),op(e1,e4)) & e1 = op(op(e3,e1),op(e1,e3)) & e1 = op(op(e2,e1),op(e1,e2)) & e1 = op(op(e1,e1),op(e1,e1)) & e1 = op(op(e0,e1),op(e1,e0)) & e0 = op(op(e4,e0),op(e0,e4)) & e0 = op(op(e3,e0),op(e0,e3)) & e0 = op(op(e2,e0),op(e0,e2)) & e0 = op(op(e1,e0),op(e0,e1)) & e0 = op(op(e0,e0),op(e0,e0)) & (e4 = op(e4,e4) | e4 = op(e3,e4) | e4 = op(e2,e4) | e4 = op(e1,e4) | e4 = op(e0,e4)) & (e4 = op(e4,e4) | e4 = op(e4,e3) | e4 = op(e4,e2) | e4 = op(e4,e1) | e4 = op(e4,e0)) & (e3 = op(e4,e4) | e3 = op(e3,e4) | e3 = op(e2,e4) | e3 = op(e1,e4) | e3 = op(e0,e4)) & (e3 = op(e4,e4) | e3 = op(e4,e3) | e3 = op(e4,e2) | e3 = op(e4,e1) | e3 = op(e4,e0)) & (e2 = op(e4,e4) | e2 = op(e3,e4) | e2 = op(e2,e4) | e2 = op(e1,e4) | e2 = op(e0,e4)) & (e2 = op(e4,e4) | e2 = op(e4,e3) | e2 = op(e4,e2) | e2 = op(e4,e1) | e2 = op(e4,e0)) & (e1 = op(e4,e4) | e1 = op(e3,e4) | e1 = op(e2,e4) | e1 = op(e1,e4) | e1 = op(e0,e4)) & (e1 = op(e4,e4) | e1 = op(e4,e3) | e1 = op(e4,e2) | e1 = op(e4,e1) | e1 = op(e4,e0)) & (e0 = op(e4,e4) | e0 = op(e3,e4) | e0 = op(e2,e4) | e0 = op(e1,e4) | e0 = op(e0,e4)) & (e0 = op(e4,e4) | e0 = op(e4,e3) | e0 = op(e4,e2) | e0 = op(e4,e1) | e0 = op(e4,e0)) & (e4 = op(e4,e3) | e4 = op(e3,e3) | e4 = op(e2,e3) | e4 = op(e1,e3) | e4 = op(e0,e3)) & (e4 = op(e3,e4) | e4 = op(e3,e3) | e4 = op(e3,e2) | e4 = op(e3,e1) | e4 = op(e3,e0)) & (e3 = op(e4,e3) | e3 = op(e3,e3) | e3 = op(e2,e3) | e3 = op(e1,e3) | e3 = op(e0,e3)) & (e3 = op(e3,e4) | e3 = op(e3,e3) | e3 = op(e3,e2) | e3 = op(e3,e1) | e3 = op(e3,e0)) & (e2 = op(e4,e3) | e2 = op(e3,e3) | e2 = op(e2,e3) | e2 = op(e1,e3) | e2 = op(e0,e3)) & (e2 = op(e3,e4) | e2 = op(e3,e3) | e2 = op(e3,e2) | e2 = op(e3,e1) | e2 = op(e3,e0)) & (e1 = op(e4,e3) | e1 = op(e3,e3) | e1 = op(e2,e3) | e1 = op(e1,e3) | e1 = op(e0,e3)) & (e1 = op(e3,e4) | e1 = op(e3,e3) | e1 = op(e3,e2) | e1 = op(e3,e1) | e1 = op(e3,e0)) & (e0 = op(e4,e3) | e0 = op(e3,e3) | e0 = op(e2,e3) | e0 = op(e1,e3) | e0 = op(e0,e3)) & (e0 = op(e3,e4) | e0 = op(e3,e3) | e0 = op(e3,e2) | e0 = op(e3,e1) | e0 = op(e3,e0)) & (e4 = op(e4,e2) | e4 = op(e3,e2) | e4 = op(e2,e2) | e4 = op(e1,e2) | e4 = op(e0,e2)) & (e4 = op(e2,e4) | e4 = op(e2,e3) | e4 = op(e2,e2) | e4 = op(e2,e1) | e4 = op(e2,e0)) & (e3 = op(e4,e2) | e3 = op(e3,e2) | e3 = op(e2,e2) | e3 = op(e1,e2) | e3 = op(e0,e2)) & (e3 = op(e2,e4) | e3 = op(e2,e3) | e3 = op(e2,e2) | e3 = op(e2,e1) | e3 = op(e2,e0)) & (e2 = op(e4,e2) | e2 = op(e3,e2) | e2 = op(e2,e2) | e2 = op(e1,e2) | e2 = op(e0,e2)) & (e2 = op(e2,e4) | e2 = op(e2,e3) | e2 = op(e2,e2) | e2 = op(e2,e1) | e2 = op(e2,e0)) & (e1 = op(e4,e2) | e1 = op(e3,e2) | e1 = op(e2,e2) | e1 = op(e1,e2) | e1 = op(e0,e2)) & (e1 = op(e2,e4) | e1 = op(e2,e3) | e1 = op(e2,e2) | e1 = op(e2,e1) | e1 = op(e2,e0)) & (e0 = op(e4,e2) | e0 = op(e3,e2) | e0 = op(e2,e2) | e0 = op(e1,e2) | e0 = op(e0,e2)) & (e0 = op(e2,e4) | e0 = op(e2,e3) | e0 = op(e2,e2) | e0 = op(e2,e1) | e0 = op(e2,e0)) & (e4 = op(e4,e1) | e4 = op(e3,e1) | e4 = op(e2,e1) | e4 = op(e1,e1) | e4 = op(e0,e1)) & (e4 = op(e1,e4) | e4 = op(e1,e3) | e4 = op(e1,e2) | e4 = op(e1,e1) | e4 = op(e1,e0)) & (e3 = op(e4,e1) | e3 = op(e3,e1) | e3 = op(e2,e1) | e3 = op(e1,e1) | e3 = op(e0,e1)) & (e3 = op(e1,e4) | e3 = op(e1,e3) | e3 = op(e1,e2) | e3 = op(e1,e1) | e3 = op(e1,e0)) & (e2 = op(e4,e1) | e2 = op(e3,e1) | e2 = op(e2,e1) | e2 = op(e1,e1) | e2 = op(e0,e1)) & (e2 = op(e1,e4) | e2 = op(e1,e3) | e2 = op(e1,e2) | e2 = op(e1,e1) | e2 = op(e1,e0)) & (e1 = op(e4,e1) | e1 = op(e3,e1) | e1 = op(e2,e1) | e1 = op(e1,e1) | e1 = op(e0,e1)) & (e1 = op(e1,e4) | e1 = op(e1,e3) | e1 = op(e1,e2) | e1 = op(e1,e1) | e1 = op(e1,e0)) & (e0 = op(e4,e1) | e0 = op(e3,e1) | e0 = op(e2,e1) | e0 = op(e1,e1) | e0 = op(e0,e1)) & (e0 = op(e1,e4) | e0 = op(e1,e3) | e0 = op(e1,e2) | e0 = op(e1,e1) | e0 = op(e1,e0)) & (e4 = op(e4,e0) | e4 = op(e3,e0) | e4 = op(e2,e0) | e4 = op(e1,e0) | e4 = op(e0,e0)) & (e4 = op(e0,e4) | e4 = op(e0,e3) | e4 = op(e0,e2) | e4 = op(e0,e1) | e4 = op(e0,e0)) & (e3 = op(e4,e0) | e3 = op(e3,e0) | e3 = op(e2,e0) | e3 = op(e1,e0) | e3 = op(e0,e0)) & (e3 = op(e0,e4) | e3 = op(e0,e3) | e3 = op(e0,e2) | e3 = op(e0,e1) | e3 = op(e0,e0)) & (e2 = op(e4,e0) | e2 = op(e3,e0) | e2 = op(e2,e0) | e2 = op(e1,e0) | e2 = op(e0,e0)) & (e2 = op(e0,e4) | e2 = op(e0,e3) | e2 = op(e0,e2) | e2 = op(e0,e1) | e2 = op(e0,e0)) & (e1 = op(e4,e0) | e1 = op(e3,e0) | e1 = op(e2,e0) | e1 = op(e1,e0) | e1 = op(e0,e0)) & (e1 = op(e0,e4) | e1 = op(e0,e3) | e1 = op(e0,e2) | e1 = op(e0,e1) | e1 = op(e0,e0)) & (e0 = op(e4,e0) | e0 = op(e3,e0) | e0 = op(e2,e0) | e0 = op(e1,e0) | e0 = op(e0,e0)) & (e0 = op(e0,e4) | e0 = op(e0,e3) | e0 = op(e0,e2) | e0 = op(e0,e1) | e0 = op(e0,e0)) & (e4 = op(e4,e4) | e3 = op(e4,e4) | e2 = op(e4,e4) | e1 = op(e4,e4) | e0 = op(e4,e4)) & (e4 = op(e4,e3) | e3 = op(e4,e3) | e2 = op(e4,e3) | e1 = op(e4,e3) | e0 = op(e4,e3)) & (e4 = op(e4,e2) | e3 = op(e4,e2) | e2 = op(e4,e2) | e1 = op(e4,e2) | e0 = op(e4,e2)) & (e4 = op(e4,e1) | e3 = op(e4,e1) | e2 = op(e4,e1) | e1 = op(e4,e1) | e0 = op(e4,e1)) & (e4 = op(e4,e0) | e3 = op(e4,e0) | e2 = op(e4,e0) | e1 = op(e4,e0) | e0 = op(e4,e0)) & (e4 = op(e3,e4) | e3 = op(e3,e4) | e2 = op(e3,e4) | e1 = op(e3,e4) | e0 = op(e3,e4)) & (e4 = op(e3,e3) | e3 = op(e3,e3) | e2 = op(e3,e3) | e1 = op(e3,e3) | e0 = op(e3,e3)) & (e4 = op(e3,e2) | e3 = op(e3,e2) | e2 = op(e3,e2) | e1 = op(e3,e2) | e0 = op(e3,e2)) & (e4 = op(e3,e1) | e3 = op(e3,e1) | e2 = op(e3,e1) | e1 = op(e3,e1) | e0 = op(e3,e1)) & (e4 = op(e3,e0) | e3 = op(e3,e0) | e2 = op(e3,e0) | e1 = op(e3,e0) | e0 = op(e3,e0)) & (e4 = op(e2,e4) | e3 = op(e2,e4) | e2 = op(e2,e4) | e1 = op(e2,e4) | e0 = op(e2,e4)) & (e4 = op(e2,e3) | e3 = op(e2,e3) | e2 = op(e2,e3) | e1 = op(e2,e3) | e0 = op(e2,e3)) & (e4 = op(e2,e2) | e3 = op(e2,e2) | e2 = op(e2,e2) | e1 = op(e2,e2) | e0 = op(e2,e2)) & (e4 = op(e2,e1) | e3 = op(e2,e1) | e2 = op(e2,e1) | e1 = op(e2,e1) | e0 = op(e2,e1)) & (e4 = op(e2,e0) | e3 = op(e2,e0) | e2 = op(e2,e0) | e1 = op(e2,e0) | e0 = op(e2,e0)) & (e4 = op(e1,e4) | e3 = op(e1,e4) | e2 = op(e1,e4) | e1 = op(e1,e4) | e0 = op(e1,e4)) & (e4 = op(e1,e3) | e3 = op(e1,e3) | e2 = op(e1,e3) | e1 = op(e1,e3) | e0 = op(e1,e3)) & (e4 = op(e1,e2) | e3 = op(e1,e2) | e2 = op(e1,e2) | e1 = op(e1,e2) | e0 = op(e1,e2)) & (e4 = op(e1,e1) | e3 = op(e1,e1) | e2 = op(e1,e1) | e1 = op(e1,e1) | e0 = op(e1,e1)) & (e4 = op(e1,e0) | e3 = op(e1,e0) | e2 = op(e1,e0) | e1 = op(e1,e0) | e0 = op(e1,e0)) & (e4 = op(e0,e4) | e3 = op(e0,e4) | e2 = op(e0,e4) | e1 = op(e0,e4) | e0 = op(e0,e4)) & (e4 = op(e0,e3) | e3 = op(e0,e3) | e2 = op(e0,e3) | e1 = op(e0,e3) | e0 = op(e0,e3)) & (e4 = op(e0,e2) | e3 = op(e0,e2) | e2 = op(e0,e2) | e1 = op(e0,e2) | e0 = op(e0,e2)) & (e4 = op(e0,e1) | e3 = op(e0,e1) | e2 = op(e0,e1) | e1 = op(e0,e1) | e0 = op(e0,e1)) & (e4 = op(e0,e0) | e3 = op(e0,e0) | e2 = op(e0,e0) | e1 = op(e0,e0) | e0 = op(e0,e0)) & ((e4 != op(e4,e4) & e3 != op(e3,e4) & e2 != op(e2,e4) & e1 != op(e1,e4) & e0 != op(e0,e4)) | (e4 != op(e4,e3) & e3 != op(e3,e3) & e2 != op(e2,e3) & e1 != op(e1,e3) & e0 != op(e0,e3)) | (e4 != op(e4,e2) & e3 != op(e3,e2) & e2 != op(e2,e2) & e1 != op(e1,e2) & e0 != op(e0,e2)) | (e4 != op(e4,e1) & e3 != op(e3,e1) & e2 != op(e2,e1) & e1 != op(e1,e1) & e0 != op(e0,e1)) | (e4 != op(e4,e0) & e3 != op(e3,e0) & e2 != op(e2,e0) & e1 != op(e1,e0) & e0 != op(e0,e0))))),
+  inference(negated_conjecture,[],[f3])).
+fof(f3,conjecture,(
+  e4 = op(op(e4,e4),op(e4,e4)) & e4 = op(op(e3,e4),op(e4,e3)) & e4 = op(op(e2,e4),op(e4,e2)) & e4 = op(op(e1,e4),op(e4,e1)) & e4 = op(op(e0,e4),op(e4,e0)) & e3 = op(op(e4,e3),op(e3,e4)) & e3 = op(op(e3,e3),op(e3,e3)) & e3 = op(op(e2,e3),op(e3,e2)) & e3 = op(op(e1,e3),op(e3,e1)) & e3 = op(op(e0,e3),op(e3,e0)) & e2 = op(op(e4,e2),op(e2,e4)) & e2 = op(op(e3,e2),op(e2,e3)) & e2 = op(op(e2,e2),op(e2,e2)) & e2 = op(op(e1,e2),op(e2,e1)) & e2 = op(op(e0,e2),op(e2,e0)) & e1 = op(op(e4,e1),op(e1,e4)) & e1 = op(op(e3,e1),op(e1,e3)) & e1 = op(op(e2,e1),op(e1,e2)) & e1 = op(op(e1,e1),op(e1,e1)) & e1 = op(op(e0,e1),op(e1,e0)) & e0 = op(op(e4,e0),op(e0,e4)) & e0 = op(op(e3,e0),op(e0,e3)) & e0 = op(op(e2,e0),op(e0,e2)) & e0 = op(op(e1,e0),op(e0,e1)) & e0 = op(op(e0,e0),op(e0,e0)) & (e4 = op(e4,e4) | e4 = op(e3,e4) | e4 = op(e2,e4) | e4 = op(e1,e4) | e4 = op(e0,e4)) & (e4 = op(e4,e4) | e4 = op(e4,e3) | e4 = op(e4,e2) | e4 = op(e4,e1) | e4 = op(e4,e0)) & (e3 = op(e4,e4) | e3 = op(e3,e4) | e3 = op(e2,e4) | e3 = op(e1,e4) | e3 = op(e0,e4)) & (e3 = op(e4,e4) | e3 = op(e4,e3) | e3 = op(e4,e2) | e3 = op(e4,e1) | e3 = op(e4,e0)) & (e2 = op(e4,e4) | e2 = op(e3,e4) | e2 = op(e2,e4) | e2 = op(e1,e4) | e2 = op(e0,e4)) & (e2 = op(e4,e4) | e2 = op(e4,e3) | e2 = op(e4,e2) | e2 = op(e4,e1) | e2 = op(e4,e0)) & (e1 = op(e4,e4) | e1 = op(e3,e4) | e1 = op(e2,e4) | e1 = op(e1,e4) | e1 = op(e0,e4)) & (e1 = op(e4,e4) | e1 = op(e4,e3) | e1 = op(e4,e2) | e1 = op(e4,e1) | e1 = op(e4,e0)) & (e0 = op(e4,e4) | e0 = op(e3,e4) | e0 = op(e2,e4) | e0 = op(e1,e4) | e0 = op(e0,e4)) & (e0 = op(e4,e4) | e0 = op(e4,e3) | e0 = op(e4,e2) | e0 = op(e4,e1) | e0 = op(e4,e0)) & (e4 = op(e4,e3) | e4 = op(e3,e3) | e4 = op(e2,e3) | e4 = op(e1,e3) | e4 = op(e0,e3)) & (e4 = op(e3,e4) | e4 = op(e3,e3) | e4 = op(e3,e2) | e4 = op(e3,e1) | e4 = op(e3,e0)) & (e3 = op(e4,e3) | e3 = op(e3,e3) | e3 = op(e2,e3) | e3 = op(e1,e3) | e3 = op(e0,e3)) & (e3 = op(e3,e4) | e3 = op(e3,e3) | e3 = op(e3,e2) | e3 = op(e3,e1) | e3 = op(e3,e0)) & (e2 = op(e4,e3) | e2 = op(e3,e3) | e2 = op(e2,e3) | e2 = op(e1,e3) | e2 = op(e0,e3)) & (e2 = op(e3,e4) | e2 = op(e3,e3) | e2 = op(e3,e2) | e2 = op(e3,e1) | e2 = op(e3,e0)) & (e1 = op(e4,e3) | e1 = op(e3,e3) | e1 = op(e2,e3) | e1 = op(e1,e3) | e1 = op(e0,e3)) & (e1 = op(e3,e4) | e1 = op(e3,e3) | e1 = op(e3,e2) | e1 = op(e3,e1) | e1 = op(e3,e0)) & (e0 = op(e4,e3) | e0 = op(e3,e3) | e0 = op(e2,e3) | e0 = op(e1,e3) | e0 = op(e0,e3)) & (e0 = op(e3,e4) | e0 = op(e3,e3) | e0 = op(e3,e2) | e0 = op(e3,e1) | e0 = op(e3,e0)) & (e4 = op(e4,e2) | e4 = op(e3,e2) | e4 = op(e2,e2) | e4 = op(e1,e2) | e4 = op(e0,e2)) & (e4 = op(e2,e4) | e4 = op(e2,e3) | e4 = op(e2,e2) | e4 = op(e2,e1) | e4 = op(e2,e0)) & (e3 = op(e4,e2) | e3 = op(e3,e2) | e3 = op(e2,e2) | e3 = op(e1,e2) | e3 = op(e0,e2)) & (e3 = op(e2,e4) | e3 = op(e2,e3) | e3 = op(e2,e2) | e3 = op(e2,e1) | e3 = op(e2,e0)) & (e2 = op(e4,e2) | e2 = op(e3,e2) | e2 = op(e2,e2) | e2 = op(e1,e2) | e2 = op(e0,e2)) & (e2 = op(e2,e4) | e2 = op(e2,e3) | e2 = op(e2,e2) | e2 = op(e2,e1) | e2 = op(e2,e0)) & (e1 = op(e4,e2) | e1 = op(e3,e2) | e1 = op(e2,e2) | e1 = op(e1,e2) | e1 = op(e0,e2)) & (e1 = op(e2,e4) | e1 = op(e2,e3) | e1 = op(e2,e2) | e1 = op(e2,e1) | e1 = op(e2,e0)) & (e0 = op(e4,e2) | e0 = op(e3,e2) | e0 = op(e2,e2) | e0 = op(e1,e2) | e0 = op(e0,e2)) & (e0 = op(e2,e4) | e0 = op(e2,e3) | e0 = op(e2,e2) | e0 = op(e2,e1) | e0 = op(e2,e0)) & (e4 = op(e4,e1) | e4 = op(e3,e1) | e4 = op(e2,e1) | e4 = op(e1,e1) | e4 = op(e0,e1)) & (e4 = op(e1,e4) | e4 = op(e1,e3) | e4 = op(e1,e2) | e4 = op(e1,e1) | e4 = op(e1,e0)) & (e3 = op(e4,e1) | e3 = op(e3,e1) | e3 = op(e2,e1) | e3 = op(e1,e1) | e3 = op(e0,e1)) & (e3 = op(e1,e4) | e3 = op(e1,e3) | e3 = op(e1,e2) | e3 = op(e1,e1) | e3 = op(e1,e0)) & (e2 = op(e4,e1) | e2 = op(e3,e1) | e2 = op(e2,e1) | e2 = op(e1,e1) | e2 = op(e0,e1)) & (e2 = op(e1,e4) | e2 = op(e1,e3) | e2 = op(e1,e2) | e2 = op(e1,e1) | e2 = op(e1,e0)) & (e1 = op(e4,e1) | e1 = op(e3,e1) | e1 = op(e2,e1) | e1 = op(e1,e1) | e1 = op(e0,e1)) & (e1 = op(e1,e4) | e1 = op(e1,e3) | e1 = op(e1,e2) | e1 = op(e1,e1) | e1 = op(e1,e0)) & (e0 = op(e4,e1) | e0 = op(e3,e1) | e0 = op(e2,e1) | e0 = op(e1,e1) | e0 = op(e0,e1)) & (e0 = op(e1,e4) | e0 = op(e1,e3) | e0 = op(e1,e2) | e0 = op(e1,e1) | e0 = op(e1,e0)) & (e4 = op(e4,e0) | e4 = op(e3,e0) | e4 = op(e2,e0) | e4 = op(e1,e0) | e4 = op(e0,e0)) & (e4 = op(e0,e4) | e4 = op(e0,e3) | e4 = op(e0,e2) | e4 = op(e0,e1) | e4 = op(e0,e0)) & (e3 = op(e4,e0) | e3 = op(e3,e0) | e3 = op(e2,e0) | e3 = op(e1,e0) | e3 = op(e0,e0)) & (e3 = op(e0,e4) | e3 = op(e0,e3) | e3 = op(e0,e2) | e3 = op(e0,e1) | e3 = op(e0,e0)) & (e2 = op(e4,e0) | e2 = op(e3,e0) | e2 = op(e2,e0) | e2 = op(e1,e0) | e2 = op(e0,e0)) & (e2 = op(e0,e4) | e2 = op(e0,e3) | e2 = op(e0,e2) | e2 = op(e0,e1) | e2 = op(e0,e0)) & (e1 = op(e4,e0) | e1 = op(e3,e0) | e1 = op(e2,e0) | e1 = op(e1,e0) | e1 = op(e0,e0)) & (e1 = op(e0,e4) | e1 = op(e0,e3) | e1 = op(e0,e2) | e1 = op(e0,e1) | e1 = op(e0,e0)) & (e0 = op(e4,e0) | e0 = op(e3,e0) | e0 = op(e2,e0) | e0 = op(e1,e0) | e0 = op(e0,e0)) & (e0 = op(e0,e4) | e0 = op(e0,e3) | e0 = op(e0,e2) | e0 = op(e0,e1) | e0 = op(e0,e0)) & (e4 = op(e4,e4) | e3 = op(e4,e4) | e2 = op(e4,e4) | e1 = op(e4,e4) | e0 = op(e4,e4)) & (e4 = op(e4,e3) | e3 = op(e4,e3) | e2 = op(e4,e3) | e1 = op(e4,e3) | e0 = op(e4,e3)) & (e4 = op(e4,e2) | e3 = op(e4,e2) | e2 = op(e4,e2) | e1 = op(e4,e2) | e0 = op(e4,e2)) & (e4 = op(e4,e1) | e3 = op(e4,e1) | e2 = op(e4,e1) | e1 = op(e4,e1) | e0 = op(e4,e1)) & (e4 = op(e4,e0) | e3 = op(e4,e0) | e2 = op(e4,e0) | e1 = op(e4,e0) | e0 = op(e4,e0)) & (e4 = op(e3,e4) | e3 = op(e3,e4) | e2 = op(e3,e4) | e1 = op(e3,e4) | e0 = op(e3,e4)) & (e4 = op(e3,e3) | e3 = op(e3,e3) | e2 = op(e3,e3) | e1 = op(e3,e3) | e0 = op(e3,e3)) & (e4 = op(e3,e2) | e3 = op(e3,e2) | e2 = op(e3,e2) | e1 = op(e3,e2) | e0 = op(e3,e2)) & (e4 = op(e3,e1) | e3 = op(e3,e1) | e2 = op(e3,e1) | e1 = op(e3,e1) | e0 = op(e3,e1)) & (e4 = op(e3,e0) | e3 = op(e3,e0) | e2 = op(e3,e0) | e1 = op(e3,e0) | e0 = op(e3,e0)) & (e4 = op(e2,e4) | e3 = op(e2,e4) | e2 = op(e2,e4) | e1 = op(e2,e4) | e0 = op(e2,e4)) & (e4 = op(e2,e3) | e3 = op(e2,e3) | e2 = op(e2,e3) | e1 = op(e2,e3) | e0 = op(e2,e3)) & (e4 = op(e2,e2) | e3 = op(e2,e2) | e2 = op(e2,e2) | e1 = op(e2,e2) | e0 = op(e2,e2)) & (e4 = op(e2,e1) | e3 = op(e2,e1) | e2 = op(e2,e1) | e1 = op(e2,e1) | e0 = op(e2,e1)) & (e4 = op(e2,e0) | e3 = op(e2,e0) | e2 = op(e2,e0) | e1 = op(e2,e0) | e0 = op(e2,e0)) & (e4 = op(e1,e4) | e3 = op(e1,e4) | e2 = op(e1,e4) | e1 = op(e1,e4) | e0 = op(e1,e4)) & (e4 = op(e1,e3) | e3 = op(e1,e3) | e2 = op(e1,e3) | e1 = op(e1,e3) | e0 = op(e1,e3)) & (e4 = op(e1,e2) | e3 = op(e1,e2) | e2 = op(e1,e2) | e1 = op(e1,e2) | e0 = op(e1,e2)) & (e4 = op(e1,e1) | e3 = op(e1,e1) | e2 = op(e1,e1) | e1 = op(e1,e1) | e0 = op(e1,e1)) & (e4 = op(e1,e0) | e3 = op(e1,e0) | e2 = op(e1,e0) | e1 = op(e1,e0) | e0 = op(e1,e0)) & (e4 = op(e0,e4) | e3 = op(e0,e4) | e2 = op(e0,e4) | e1 = op(e0,e4) | e0 = op(e0,e4)) & (e4 = op(e0,e3) | e3 = op(e0,e3) | e2 = op(e0,e3) | e1 = op(e0,e3) | e0 = op(e0,e3)) & (e4 = op(e0,e2) | e3 = op(e0,e2) | e2 = op(e0,e2) | e1 = op(e0,e2) | e0 = op(e0,e2)) & (e4 = op(e0,e1) | e3 = op(e0,e1) | e2 = op(e0,e1) | e1 = op(e0,e1) | e0 = op(e0,e1)) & (e4 = op(e0,e0) | e3 = op(e0,e0) | e2 = op(e0,e0) | e1 = op(e0,e0) | e0 = op(e0,e0)) & ((e4 != op(e4,e4) & e3 != op(e3,e4) & e2 != op(e2,e4) & e1 != op(e1,e4) & e0 != op(e0,e4)) | (e4 != op(e4,e3) & e3 != op(e3,e3) & e2 != op(e2,e3) & e1 != op(e1,e3) & e0 != op(e0,e3)) | (e4 != op(e4,e2) & e3 != op(e3,e2) & e2 != op(e2,e2) & e1 != op(e1,e2) & e0 != op(e0,e2)) | (e4 != op(e4,e1) & e3 != op(e3,e1) & e2 != op(e2,e1) & e1 != op(e1,e1) & e0 != op(e0,e1)) | (e4 != op(e4,e0) & e3 != op(e3,e0) & e2 != op(e2,e0) & e1 != op(e1,e0) & e0 != op(e0,e0)))),
+  file('ALG186+1.tptp',unknown)).
+% SZS output end Proof for ALG186+1
+% ------------------------------
+% Version: Vampire 4.4.0 (commit d98a3d53 on 2020-01-14 21:02:12 +0100)
+% Termination reason: Refutation
+
+% Memory used [KB]: 5756
+% Time elapsed: 0.029 s
+% ------------------------------
+% ------------------------------

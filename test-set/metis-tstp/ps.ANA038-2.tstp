@@ -1,0 +1,208 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% SZS status Unsatisfiable for ANA038-2.tptp
+
+% SZS output start CNFRefutation for ANA038-2.tptp
+cnf(cls_conjecture_3, negated_conjecture,
+    (c_lessequals(c_0, v_g(v_xa), t_b))).
+
+cnf(cls_conjecture_5, negated_conjecture,
+    (c_lessequals(c_HOL_Oabs(v_b(v_xa), t_b),
+       c_times(v_ca, v_g(v_xa), t_b), t_b))).
+
+cnf(cls_conjecture_8, negated_conjecture,
+    (~
+       c_lessequals(c_HOL_Oabs(v_b(v_xa), t_b),
+         c_times(c_Orderings_Omax(v_c, v_ca, t_b), v_g(v_xa), t_b), t_b))).
+
+cnf(tfree_tcs, negated_conjecture,
+    (class_Ring__and__Field_Oordered__idom(t_b))).
+
+cnf(cls_Orderings_Ole__maxI2_0, axiom,
+    (~ class_Orderings_Olinorder(T_b) |
+     c_lessequals(V_y, c_Orderings_Omax(V_x, V_y, T_b), T_b))).
+
+cnf(cls_Orderings_Oorder__class_Oorder__trans_0, axiom,
+    (~ class_Orderings_Oorder(T_a) | ~ c_lessequals(V_y, V_z, T_a) |
+     ~ c_lessequals(V_x, V_y, T_a) | c_lessequals(V_x, V_z, T_a))).
+
+cnf(cls_Ring__and__Field_Opordered__semiring__class_Omult__right__mono_0,
+    axiom,
+    (~ class_Ring__and__Field_Opordered__semiring(T_a) |
+     ~ c_lessequals(V_a, V_b, T_a) | ~ c_lessequals(c_0, V_c, T_a) |
+     c_lessequals(c_times(V_a, V_c, T_a), c_times(V_b, V_c, T_a), T_a))).
+
+cnf(clsrel_Ring__and__Field_Oordered__idom_33, axiom,
+    (~ class_Ring__and__Field_Oordered__idom(T) |
+     class_Orderings_Olinorder(T))).
+
+cnf(clsrel_Ring__and__Field_Oordered__idom_42, axiom,
+    (~ class_Ring__and__Field_Oordered__idom(T) |
+     class_Ring__and__Field_Opordered__semiring(T))).
+
+cnf(clsrel_Ring__and__Field_Oordered__idom_44, axiom,
+    (~ class_Ring__and__Field_Oordered__idom(T) |
+     class_Orderings_Oorder(T))).
+
+cnf(refute_0_0, plain,
+    (~
+       c_lessequals(c_HOL_Oabs(v_b(v_xa), t_b),
+         c_times(v_ca, v_g(v_xa), t_b), t_b) |
+     ~ c_lessequals(c_times(v_ca, v_g(v_xa), t_b), X_14, t_b) |
+     ~ class_Orderings_Oorder(t_b) |
+     c_lessequals(c_HOL_Oabs(v_b(v_xa), t_b), X_14, t_b)),
+    inference(subst, [],
+              [cls_Orderings_Oorder__class_Oorder__trans_0 :
+               [bind(T_a, $fot(t_b)),
+                bind(V_x, $fot(c_HOL_Oabs(v_b(v_xa), t_b))),
+                bind(V_y, $fot(c_times(v_ca, v_g(v_xa), t_b))),
+                bind(V_z, $fot(X_14))]])).
+
+cnf(refute_0_1, plain,
+    (~ c_lessequals(c_times(v_ca, v_g(v_xa), t_b), X_14, t_b) |
+     ~ class_Orderings_Oorder(t_b) |
+     c_lessequals(c_HOL_Oabs(v_b(v_xa), t_b), X_14, t_b)),
+    inference(resolve,
+              [$cnf(c_lessequals(c_HOL_Oabs(v_b(v_xa), t_b),
+                      c_times(v_ca, v_g(v_xa), t_b), t_b))],
+              [cls_conjecture_5, refute_0_0])).
+
+cnf(refute_0_2, plain,
+    (~ class_Ring__and__Field_Oordered__idom(t_b) |
+     class_Orderings_Oorder(t_b)),
+    inference(subst, [],
+              [clsrel_Ring__and__Field_Oordered__idom_44 :
+               [bind(T, $fot(t_b))]])).
+
+cnf(refute_0_3, plain, (class_Orderings_Oorder(t_b)),
+    inference(resolve, [$cnf(class_Ring__and__Field_Oordered__idom(t_b))],
+              [tfree_tcs, refute_0_2])).
+
+cnf(refute_0_4, plain,
+    (~ c_lessequals(c_times(v_ca, v_g(v_xa), t_b), X_14, t_b) |
+     c_lessequals(c_HOL_Oabs(v_b(v_xa), t_b), X_14, t_b)),
+    inference(resolve, [$cnf(class_Orderings_Oorder(t_b))],
+              [refute_0_3, refute_0_1])).
+
+cnf(refute_0_5, plain,
+    (~
+       c_lessequals(c_times(v_ca, v_g(v_xa), t_b),
+         c_times(c_Orderings_Omax(X_199, v_ca, t_b), v_g(v_xa), t_b),
+         t_b) |
+     c_lessequals(c_HOL_Oabs(v_b(v_xa), t_b),
+       c_times(c_Orderings_Omax(X_199, v_ca, t_b), v_g(v_xa), t_b), t_b)),
+    inference(subst, [],
+              [refute_0_4 :
+               [bind(X_14,
+                     $fot(c_times(c_Orderings_Omax(X_199, v_ca, t_b),
+                            v_g(v_xa), t_b)))]])).
+
+cnf(refute_0_6, plain,
+    (~ class_Ring__and__Field_Oordered__idom(t_b) |
+     class_Orderings_Olinorder(t_b)),
+    inference(subst, [],
+              [clsrel_Ring__and__Field_Oordered__idom_33 :
+               [bind(T, $fot(t_b))]])).
+
+cnf(refute_0_7, plain, (class_Orderings_Olinorder(t_b)),
+    inference(resolve, [$cnf(class_Ring__and__Field_Oordered__idom(t_b))],
+              [tfree_tcs, refute_0_6])).
+
+cnf(refute_0_8, plain,
+    (~ class_Orderings_Olinorder(t_b) |
+     c_lessequals(X_5, c_Orderings_Omax(X_4, X_5, t_b), t_b)),
+    inference(subst, [],
+              [cls_Orderings_Ole__maxI2_0 :
+               [bind(T_b, $fot(t_b)), bind(V_x, $fot(X_4)),
+                bind(V_y, $fot(X_5))]])).
+
+cnf(refute_0_9, plain,
+    (c_lessequals(X_5, c_Orderings_Omax(X_4, X_5, t_b), t_b)),
+    inference(resolve, [$cnf(class_Orderings_Olinorder(t_b))],
+              [refute_0_7, refute_0_8])).
+
+cnf(refute_0_10, plain,
+    (c_lessequals(X_196, c_Orderings_Omax(X_4, X_196, t_b), t_b)),
+    inference(subst, [], [refute_0_9 : [bind(X_5, $fot(X_196))]])).
+
+cnf(refute_0_11, plain,
+    (~ c_lessequals(X_186, X_187, t_b) |
+     ~ c_lessequals(c_0, v_g(v_xa), t_b) |
+     ~ class_Ring__and__Field_Opordered__semiring(t_b) |
+     c_lessequals(c_times(X_186, v_g(v_xa), t_b),
+       c_times(X_187, v_g(v_xa), t_b), t_b)),
+    inference(subst, [],
+              [cls_Ring__and__Field_Opordered__semiring__class_Omult__right__mono_0 :
+               [bind(T_a, $fot(t_b)), bind(V_a, $fot(X_186)),
+                bind(V_b, $fot(X_187)), bind(V_c, $fot(v_g(v_xa)))]])).
+
+cnf(refute_0_12, plain,
+    (~ c_lessequals(X_186, X_187, t_b) |
+     ~ class_Ring__and__Field_Opordered__semiring(t_b) |
+     c_lessequals(c_times(X_186, v_g(v_xa), t_b),
+       c_times(X_187, v_g(v_xa), t_b), t_b)),
+    inference(resolve, [$cnf(c_lessequals(c_0, v_g(v_xa), t_b))],
+              [cls_conjecture_3, refute_0_11])).
+
+cnf(refute_0_13, plain,
+    (~ class_Ring__and__Field_Oordered__idom(t_b) |
+     class_Ring__and__Field_Opordered__semiring(t_b)),
+    inference(subst, [],
+              [clsrel_Ring__and__Field_Oordered__idom_42 :
+               [bind(T, $fot(t_b))]])).
+
+cnf(refute_0_14, plain, (class_Ring__and__Field_Opordered__semiring(t_b)),
+    inference(resolve, [$cnf(class_Ring__and__Field_Oordered__idom(t_b))],
+              [tfree_tcs, refute_0_13])).
+
+cnf(refute_0_15, plain,
+    (~ c_lessequals(X_186, X_187, t_b) |
+     c_lessequals(c_times(X_186, v_g(v_xa), t_b),
+       c_times(X_187, v_g(v_xa), t_b), t_b)),
+    inference(resolve,
+              [$cnf(class_Ring__and__Field_Opordered__semiring(t_b))],
+              [refute_0_14, refute_0_12])).
+
+cnf(refute_0_16, plain,
+    (~ c_lessequals(X_196, c_Orderings_Omax(X_4, X_196, t_b), t_b) |
+     c_lessequals(c_times(X_196, v_g(v_xa), t_b),
+       c_times(c_Orderings_Omax(X_4, X_196, t_b), v_g(v_xa), t_b), t_b)),
+    inference(subst, [],
+              [refute_0_15 :
+               [bind(X_186, $fot(X_196)),
+                bind(X_187, $fot(c_Orderings_Omax(X_4, X_196, t_b)))]])).
+
+cnf(refute_0_17, plain,
+    (c_lessequals(c_times(X_196, v_g(v_xa), t_b),
+       c_times(c_Orderings_Omax(X_4, X_196, t_b), v_g(v_xa), t_b), t_b)),
+    inference(resolve,
+              [$cnf(c_lessequals(X_196, c_Orderings_Omax(X_4, X_196, t_b),
+                      t_b))], [refute_0_10, refute_0_16])).
+
+cnf(refute_0_18, plain,
+    (c_lessequals(c_times(v_ca, v_g(v_xa), t_b),
+       c_times(c_Orderings_Omax(X_199, v_ca, t_b), v_g(v_xa), t_b), t_b)),
+    inference(subst, [],
+              [refute_0_17 :
+               [bind(X_196, $fot(v_ca)), bind(X_4, $fot(X_199))]])).
+
+cnf(refute_0_19, plain,
+    (c_lessequals(c_HOL_Oabs(v_b(v_xa), t_b),
+       c_times(c_Orderings_Omax(X_199, v_ca, t_b), v_g(v_xa), t_b), t_b)),
+    inference(resolve,
+              [$cnf(c_lessequals(c_times(v_ca, v_g(v_xa), t_b),
+                      c_times(c_Orderings_Omax(X_199, v_ca, t_b),
+                        v_g(v_xa), t_b), t_b))],
+              [refute_0_18, refute_0_5])).
+
+cnf(refute_0_20, plain,
+    (c_lessequals(c_HOL_Oabs(v_b(v_xa), t_b),
+       c_times(c_Orderings_Omax(v_c, v_ca, t_b), v_g(v_xa), t_b), t_b)),
+    inference(subst, [], [refute_0_19 : [bind(X_199, $fot(v_c))]])).
+
+cnf(refute_0_21, plain, ($false),
+    inference(resolve,
+              [$cnf(c_lessequals(c_HOL_Oabs(v_b(v_xa), t_b),
+                      c_times(c_Orderings_Omax(v_c, v_ca, t_b), v_g(v_xa),
+                        t_b), t_b))], [refute_0_20, cls_conjecture_8])).
+% SZS output end CNFRefutation for ANA038-2.tptp
+

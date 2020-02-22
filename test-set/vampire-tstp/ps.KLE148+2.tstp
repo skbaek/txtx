@@ -1,0 +1,192 @@
+% Refutation found. Thanks to Tanya!
+% SZS status Theorem for KLE148+2
+% SZS output start Proof for KLE148+2
+fof(f8396,plain,(
+  $false),
+  inference(avatar_sat_refutation,[],[f59,f64,f2709,f8355])).
+fof(f8355,plain,(
+  spl2_1 | ~spl2_3),
+  inference(avatar_contradiction_clause,[],[f8354])).
+fof(f8354,plain,(
+  $false | (spl2_1 | ~spl2_3)),
+  inference(subsumption_resolution,[],[f8353,f79])).
+fof(f79,plain,(
+  ( ! [X1] : (leq(X1,X1)) )),
+  inference(trivial_inequality_removal,[],[f74])).
+fof(f74,plain,(
+  ( ! [X1] : (X1 != X1 | leq(X1,X1)) )),
+  inference(superposition,[],[f48,f33])).
+fof(f33,plain,(
+  ( ! [X0] : (addition(X0,X0) = X0) )),
+  inference(cnf_transformation,[],[f4])).
+fof(f4,axiom,(
+  ! [X0] : addition(X0,X0) = X0),
+  file('KLE148+2.tptp',unknown)).
+fof(f48,plain,(
+  ( ! [X0,X1] : (addition(X0,X1) != X1 | leq(X0,X1)) )),
+  inference(cnf_transformation,[],[f27])).
+fof(f27,plain,(
+  ! [X0,X1] : ((leq(X0,X1) | addition(X0,X1) != X1) & (addition(X0,X1) = X1 | ~leq(X0,X1)))),
+  inference(nnf_transformation,[],[f18])).
+fof(f18,axiom,(
+  ! [X0,X1] : (leq(X0,X1) <=> addition(X0,X1) = X1)),
+  file('KLE148+2.tptp',unknown)).
+fof(f8353,plain,(
+  ~leq(sK0,sK0) | (spl2_1 | ~spl2_3)),
+  inference(backward_demodulation,[],[f8352,f54])).
+fof(f54,plain,(
+  ~leq(multiplication(sK0,strong_iteration(sK1)),sK0) | spl2_1),
+  inference(avatar_component_clause,[],[f52])).
+fof(f52,plain,(
+  spl2_1 <=> leq(multiplication(sK0,strong_iteration(sK1)),sK0)),
+  introduced(avatar_definition,[new_symbols(naming,[spl2_1])])).
+fof(f8352,plain,(
+  sK0 = multiplication(sK0,strong_iteration(sK1)) | ~spl2_3),
+  inference(forward_demodulation,[],[f8282,f35])).
+fof(f35,plain,(
+  ( ! [X0] : (multiplication(X0,one) = X0) )),
+  inference(cnf_transformation,[],[f6])).
+fof(f6,axiom,(
+  ! [X0] : multiplication(X0,one) = X0),
+  file('KLE148+2.tptp',unknown)).
+fof(f8282,plain,(
+  multiplication(sK0,strong_iteration(sK1)) = multiplication(sK0,one) | ~spl2_3),
+  inference(superposition,[],[f2795,f44])).
+fof(f44,plain,(
+  ( ! [X0] : (strong_iteration(X0) = addition(multiplication(X0,strong_iteration(X0)),one)) )),
+  inference(cnf_transformation,[],[f15])).
+fof(f15,axiom,(
+  ! [X0] : strong_iteration(X0) = addition(multiplication(X0,strong_iteration(X0)),one)),
+  file('KLE148+2.tptp',unknown)).
+fof(f2795,plain,(
+  ( ! [X4,X3] : (multiplication(sK0,addition(multiplication(sK1,X3),X4)) = multiplication(sK0,X4)) ) | ~spl2_3),
+  inference(forward_demodulation,[],[f2765,f65])).
+fof(f65,plain,(
+  ( ! [X0] : (addition(zero,X0) = X0) )),
+  inference(superposition,[],[f30,f32])).
+fof(f32,plain,(
+  ( ! [X0] : (addition(X0,zero) = X0) )),
+  inference(cnf_transformation,[],[f3])).
+fof(f3,axiom,(
+  ! [X0] : addition(X0,zero) = X0),
+  file('KLE148+2.tptp',unknown)).
+fof(f30,plain,(
+  ( ! [X0,X1] : (addition(X0,X1) = addition(X1,X0)) )),
+  inference(cnf_transformation,[],[f1])).
+fof(f1,axiom,(
+  ! [X0,X1] : addition(X0,X1) = addition(X1,X0)),
+  file('KLE148+2.tptp',unknown)).
+fof(f2765,plain,(
+  ( ! [X4,X3] : (multiplication(sK0,addition(multiplication(sK1,X3),X4)) = addition(zero,multiplication(sK0,X4))) ) | ~spl2_3),
+  inference(superposition,[],[f37,f2733])).
+fof(f2733,plain,(
+  ( ! [X0] : (zero = multiplication(sK0,multiplication(sK1,X0))) ) | ~spl2_3),
+  inference(forward_demodulation,[],[f2711,f39])).
+fof(f39,plain,(
+  ( ! [X0] : (zero = multiplication(zero,X0)) )),
+  inference(cnf_transformation,[],[f10])).
+fof(f10,axiom,(
+  ! [X0] : zero = multiplication(zero,X0)),
+  file('KLE148+2.tptp',unknown)).
+fof(f2711,plain,(
+  ( ! [X0] : (multiplication(zero,X0) = multiplication(sK0,multiplication(sK1,X0))) ) | ~spl2_3),
+  inference(superposition,[],[f34,f63])).
+fof(f63,plain,(
+  zero = multiplication(sK0,sK1) | ~spl2_3),
+  inference(avatar_component_clause,[],[f61])).
+fof(f61,plain,(
+  spl2_3 <=> zero = multiplication(sK0,sK1)),
+  introduced(avatar_definition,[new_symbols(naming,[spl2_3])])).
+fof(f34,plain,(
+  ( ! [X2,X0,X1] : (multiplication(X0,multiplication(X1,X2)) = multiplication(multiplication(X0,X1),X2)) )),
+  inference(cnf_transformation,[],[f5])).
+fof(f5,axiom,(
+  ! [X0,X1,X2] : multiplication(X0,multiplication(X1,X2)) = multiplication(multiplication(X0,X1),X2)),
+  file('KLE148+2.tptp',unknown)).
+fof(f37,plain,(
+  ( ! [X2,X0,X1] : (multiplication(X0,addition(X1,X2)) = addition(multiplication(X0,X1),multiplication(X0,X2))) )),
+  inference(cnf_transformation,[],[f8])).
+fof(f8,axiom,(
+  ! [X0,X1,X2] : multiplication(X0,addition(X1,X2)) = addition(multiplication(X0,X1),multiplication(X0,X2))),
+  file('KLE148+2.tptp',unknown)).
+fof(f2709,plain,(
+  spl2_2),
+  inference(avatar_contradiction_clause,[],[f2704])).
+fof(f2704,plain,(
+  $false | spl2_2),
+  inference(resolution,[],[f2575,f58])).
+fof(f58,plain,(
+  ~leq(sK0,multiplication(sK0,strong_iteration(sK1))) | spl2_2),
+  inference(avatar_component_clause,[],[f56])).
+fof(f56,plain,(
+  spl2_2 <=> leq(sK0,multiplication(sK0,strong_iteration(sK1)))),
+  introduced(avatar_definition,[new_symbols(naming,[spl2_2])])).
+fof(f2575,plain,(
+  ( ! [X8,X9] : (leq(X9,multiplication(X9,strong_iteration(X8)))) )),
+  inference(superposition,[],[f624,f94])).
+fof(f94,plain,(
+  ( ! [X1] : (strong_iteration(X1) = addition(one,multiplication(X1,strong_iteration(X1)))) )),
+  inference(superposition,[],[f44,f30])).
+fof(f624,plain,(
+  ( ! [X23,X22] : (leq(X22,multiplication(X22,addition(one,X23)))) )),
+  inference(superposition,[],[f342,f146])).
+fof(f146,plain,(
+  ( ! [X0,X1] : (multiplication(X0,addition(one,X1)) = addition(X0,multiplication(X0,X1))) )),
+  inference(superposition,[],[f37,f35])).
+fof(f342,plain,(
+  ( ! [X6,X5] : (leq(X5,addition(X5,X6))) )),
+  inference(trivial_inequality_removal,[],[f337])).
+fof(f337,plain,(
+  ( ! [X6,X5] : (addition(X5,X6) != addition(X5,X6) | leq(X5,addition(X5,X6))) )),
+  inference(superposition,[],[f48,f111])).
+fof(f111,plain,(
+  ( ! [X2,X3] : (addition(X2,X3) = addition(X2,addition(X2,X3))) )),
+  inference(superposition,[],[f31,f33])).
+fof(f31,plain,(
+  ( ! [X2,X0,X1] : (addition(X2,addition(X1,X0)) = addition(addition(X2,X1),X0)) )),
+  inference(cnf_transformation,[],[f21])).
+fof(f21,plain,(
+  ! [X0,X1,X2] : addition(X2,addition(X1,X0)) = addition(addition(X2,X1),X0)),
+  inference(rectify,[],[f2])).
+fof(f2,axiom,(
+  ! [X2,X1,X0] : addition(X0,addition(X1,X2)) = addition(addition(X0,X1),X2)),
+  file('KLE148+2.tptp',unknown)).
+fof(f64,plain,(
+  spl2_3 | ~spl2_2),
+  inference(avatar_split_clause,[],[f49,f56,f61])).
+fof(f49,plain,(
+  ~leq(sK0,multiplication(sK0,strong_iteration(sK1))) | zero = multiplication(sK0,sK1)),
+  inference(cnf_transformation,[],[f29])).
+fof(f29,plain,(
+  ~leq(sK0,multiplication(sK0,strong_iteration(sK1))) | (~leq(multiplication(sK0,strong_iteration(sK1)),sK0) & zero = multiplication(sK0,sK1))),
+  inference(skolemisation,[status(esa),new_symbols(skolem,[sK0,sK1])],[f26,f28])).
+fof(f28,plain,(
+  ? [X0,X1] : (~leq(X0,multiplication(X0,strong_iteration(X1))) | (~leq(multiplication(X0,strong_iteration(X1)),X0) & zero = multiplication(X0,X1))) => (~leq(sK0,multiplication(sK0,strong_iteration(sK1))) | (~leq(multiplication(sK0,strong_iteration(sK1)),sK0) & zero = multiplication(sK0,sK1)))),
+  introduced(choice_axiom,[])).
+fof(f26,plain,(
+  ? [X0,X1] : (~leq(X0,multiplication(X0,strong_iteration(X1))) | (~leq(multiplication(X0,strong_iteration(X1)),X0) & zero = multiplication(X0,X1)))),
+  inference(ennf_transformation,[],[f22])).
+fof(f22,plain,(
+  ~! [X0,X1] : (leq(X0,multiplication(X0,strong_iteration(X1))) & (zero = multiplication(X0,X1) => leq(multiplication(X0,strong_iteration(X1)),X0)))),
+  inference(rectify,[],[f20])).
+fof(f20,negated_conjecture,(
+  ~! [X3,X4] : (leq(X3,multiplication(X3,strong_iteration(X4))) & (zero = multiplication(X3,X4) => leq(multiplication(X3,strong_iteration(X4)),X3)))),
+  inference(negated_conjecture,[],[f19])).
+fof(f19,conjecture,(
+  ! [X3,X4] : (leq(X3,multiplication(X3,strong_iteration(X4))) & (zero = multiplication(X3,X4) => leq(multiplication(X3,strong_iteration(X4)),X3)))),
+  file('KLE148+2.tptp',unknown)).
+fof(f59,plain,(
+  ~spl2_1 | ~spl2_2),
+  inference(avatar_split_clause,[],[f50,f56,f52])).
+fof(f50,plain,(
+  ~leq(sK0,multiplication(sK0,strong_iteration(sK1))) | ~leq(multiplication(sK0,strong_iteration(sK1)),sK0)),
+  inference(cnf_transformation,[],[f29])).
+% SZS output end Proof for KLE148+2
+% ------------------------------
+% Version: Vampire 4.4.0 (commit d98a3d53 on 2020-01-14 21:02:12 +0100)
+% Termination reason: Refutation
+
+% Memory used [KB]: 12025
+% Time elapsed: 0.127 s
+% ------------------------------
+% ------------------------------

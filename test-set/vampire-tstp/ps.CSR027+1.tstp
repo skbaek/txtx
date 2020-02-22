@@ -1,0 +1,156 @@
+% Refutation found. Thanks to Tanya!
+% SZS status Theorem for CSR027+1
+% SZS output start Proof for CSR027+1
+fof(f435,plain,(
+  $false),
+  inference(avatar_sat_refutation,[],[f276,f281,f341,f434])).
+fof(f434,plain,(
+  ~spl0_2 | ~spl0_3),
+  inference(avatar_contradiction_clause,[],[f433])).
+fof(f433,plain,(
+  $false | (~spl0_2 | ~spl0_3)),
+  inference(subsumption_resolution,[],[f432,f280])).
+fof(f280,plain,(
+  relationallexists(c_tptp_8_875,f_subcollectionofwithrelationfromtypefn(c_unitvectorinterval,c_directionoftranslation_throughout,c_movement_translationevent),c_tptpcol_16_31868) | ~spl0_3),
+  inference(avatar_component_clause,[],[f278])).
+fof(f278,plain,(
+  spl0_3 <=> relationallexists(c_tptp_8_875,f_subcollectionofwithrelationfromtypefn(c_unitvectorinterval,c_directionoftranslation_throughout,c_movement_translationevent),c_tptpcol_16_31868)),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_3])])).
+fof(f432,plain,(
+  ~relationallexists(c_tptp_8_875,f_subcollectionofwithrelationfromtypefn(c_unitvectorinterval,c_directionoftranslation_throughout,c_movement_translationevent),c_tptpcol_16_31868) | ~spl0_2),
+  inference(subsumption_resolution,[],[f431,f232])).
+fof(f232,plain,(
+  isa(c_tptpnsubcollectionofwithrelationfromtypefnunitvectorintervaldirectionoftranslation_throughoutmovement_translationevent_786,f_subcollectionofwithrelationfromtypefn(c_unitvectorinterval,c_directionoftranslation_throughout,c_movement_translationevent))),
+  inference(cnf_transformation,[],[f14])).
+fof(f14,axiom,(
+  isa(c_tptpnsubcollectionofwithrelationfromtypefnunitvectorintervaldirectionoftranslation_throughoutmovement_translationevent_786,f_subcollectionofwithrelationfromtypefn(c_unitvectorinterval,c_directionoftranslation_throughout,c_movement_translationevent))),
+  file('CSR027+1.tptp',unknown)).
+fof(f431,plain,(
+  ~isa(c_tptpnsubcollectionofwithrelationfromtypefnunitvectorintervaldirectionoftranslation_throughoutmovement_translationevent_786,f_subcollectionofwithrelationfromtypefn(c_unitvectorinterval,c_directionoftranslation_throughout,c_movement_translationevent)) | ~relationallexists(c_tptp_8_875,f_subcollectionofwithrelationfromtypefn(c_unitvectorinterval,c_directionoftranslation_throughout,c_movement_translationevent),c_tptpcol_16_31868) | ~spl0_2),
+  inference(resolution,[],[f359,f365])).
+fof(f365,plain,(
+  ~tptpcol_16_31868(f_relationallexistsfn(c_tptpnsubcollectionofwithrelationfromtypefnunitvectorintervaldirectionoftranslation_throughoutmovement_translationevent_786,c_tptp_8_875,f_subcollectionofwithrelationfromtypefn(c_unitvectorinterval,c_directionoftranslation_throughout,c_movement_translationevent),c_tptpcol_16_31868)) | ~spl0_2),
+  inference(subsumption_resolution,[],[f363,f232])).
+fof(f363,plain,(
+  ~isa(c_tptpnsubcollectionofwithrelationfromtypefnunitvectorintervaldirectionoftranslation_throughoutmovement_translationevent_786,f_subcollectionofwithrelationfromtypefn(c_unitvectorinterval,c_directionoftranslation_throughout,c_movement_translationevent)) | ~tptpcol_16_31868(f_relationallexistsfn(c_tptpnsubcollectionofwithrelationfromtypefnunitvectorintervaldirectionoftranslation_throughoutmovement_translationevent_786,c_tptp_8_875,f_subcollectionofwithrelationfromtypefn(c_unitvectorinterval,c_directionoftranslation_throughout,c_movement_translationevent),c_tptpcol_16_31868)) | ~spl0_2),
+  inference(resolution,[],[f275,f268])).
+fof(f268,plain,(
+  ( ! [X0] : (~tptp_8_875(c_tptpnsubcollectionofwithrelationfromtypefnunitvectorintervaldirectionoftranslation_throughoutmovement_translationevent_786,X0) | ~tptpcol_16_31868(X0)) )),
+  inference(cnf_transformation,[],[f219])).
+fof(f219,plain,(
+  ! [X0] : ((~tptpcol_16_31868(X0) | ~tptp_8_875(c_tptpnsubcollectionofwithrelationfromtypefnunitvectorintervaldirectionoftranslation_throughoutmovement_translationevent_786,X0)) & mtvisible(c_tptp_spindlecollectormt))),
+  inference(ennf_transformation,[],[f144])).
+fof(f144,plain,(
+  ~? [X0] : (mtvisible(c_tptp_spindlecollectormt) => (tptpcol_16_31868(X0) & tptp_8_875(c_tptpnsubcollectionofwithrelationfromtypefnunitvectorintervaldirectionoftranslation_throughoutmovement_translationevent_786,X0)))),
+  inference(rectify,[],[f81])).
+fof(f81,negated_conjecture,(
+  ~? [X12] : (mtvisible(c_tptp_spindlecollectormt) => (tptpcol_16_31868(X12) & tptp_8_875(c_tptpnsubcollectionofwithrelationfromtypefnunitvectorintervaldirectionoftranslation_throughoutmovement_translationevent_786,X12)))),
+  inference(negated_conjecture,[],[f80])).
+fof(f80,conjecture,(
+  ? [X12] : (mtvisible(c_tptp_spindlecollectormt) => (tptpcol_16_31868(X12) & tptp_8_875(c_tptpnsubcollectionofwithrelationfromtypefnunitvectorintervaldirectionoftranslation_throughoutmovement_translationevent_786,X12)))),
+  file('CSR027+1.tptp',unknown)).
+fof(f275,plain,(
+  ( ! [X0] : (tptp_8_875(X0,f_relationallexistsfn(X0,c_tptp_8_875,f_subcollectionofwithrelationfromtypefn(c_unitvectorinterval,c_directionoftranslation_throughout,c_movement_translationevent),c_tptpcol_16_31868)) | ~isa(X0,f_subcollectionofwithrelationfromtypefn(c_unitvectorinterval,c_directionoftranslation_throughout,c_movement_translationevent))) ) | ~spl0_2),
+  inference(avatar_component_clause,[],[f274])).
+fof(f274,plain,(
+  spl0_2 <=> ! [X0] : (tptp_8_875(X0,f_relationallexistsfn(X0,c_tptp_8_875,f_subcollectionofwithrelationfromtypefn(c_unitvectorinterval,c_directionoftranslation_throughout,c_movement_translationevent),c_tptpcol_16_31868)) | ~isa(X0,f_subcollectionofwithrelationfromtypefn(c_unitvectorinterval,c_directionoftranslation_throughout,c_movement_translationevent)))),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_2])])).
+fof(f359,plain,(
+  ( ! [X10,X11,X9] : (tptpcol_16_31868(f_relationallexistsfn(X11,X9,X10,c_tptpcol_16_31868)) | ~isa(X11,X10) | ~relationallexists(X9,X10,c_tptpcol_16_31868)) )),
+  inference(resolution,[],[f220,f246])).
+fof(f246,plain,(
+  ( ! [X0] : (~isa(X0,c_tptpcol_16_31868) | tptpcol_16_31868(X0)) )),
+  inference(cnf_transformation,[],[f198])).
+fof(f198,plain,(
+  ! [X0] : (tptpcol_16_31868(X0) | ~isa(X0,c_tptpcol_16_31868))),
+  inference(ennf_transformation,[],[f100])).
+fof(f100,plain,(
+  ! [X0] : (isa(X0,c_tptpcol_16_31868) => tptpcol_16_31868(X0))),
+  inference(rectify,[],[f34])).
+fof(f34,axiom,(
+  ! [X12] : (isa(X12,c_tptpcol_16_31868) => tptpcol_16_31868(X12))),
+  file('CSR027+1.tptp',unknown)).
+fof(f220,plain,(
+  ( ! [X2,X0,X3,X1] : (isa(f_relationallexistsfn(X0,X2,X1,X3),X3) | ~relationallexists(X2,X1,X3) | ~isa(X0,X1)) )),
+  inference(cnf_transformation,[],[f178])).
+fof(f178,plain,(
+  ! [X0,X1,X2,X3] : (isa(f_relationallexistsfn(X0,X2,X1,X3),X3) | ~relationallexists(X2,X1,X3) | ~isa(X0,X1))),
+  inference(flattening,[],[f177])).
+fof(f177,plain,(
+  ! [X0,X1,X2,X3] : (isa(f_relationallexistsfn(X0,X2,X1,X3),X3) | (~relationallexists(X2,X1,X3) | ~isa(X0,X1)))),
+  inference(ennf_transformation,[],[f1])).
+fof(f1,axiom,(
+  ! [X0,X1,X2,X3] : ((relationallexists(X2,X1,X3) & isa(X0,X1)) => isa(f_relationallexistsfn(X0,X2,X1,X3),X3))),
+  file('CSR027+1.tptp',unknown)).
+fof(f341,plain,(
+  spl0_1),
+  inference(avatar_split_clause,[],[f340,f270])).
+fof(f270,plain,(
+  spl0_1 <=> mtvisible(c_tptp_member2610_mt)),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_1])])).
+fof(f340,plain,(
+  mtvisible(c_tptp_member2610_mt)),
+  inference(subsumption_resolution,[],[f312,f267])).
+fof(f267,plain,(
+  mtvisible(c_tptp_spindlecollectormt)),
+  inference(cnf_transformation,[],[f219])).
+fof(f312,plain,(
+  mtvisible(c_tptp_member2610_mt) | ~mtvisible(c_tptp_spindlecollectormt)),
+  inference(resolution,[],[f258,f227])).
+fof(f227,plain,(
+  genlmt(c_tptp_spindlecollectormt,c_tptp_member2610_mt)),
+  inference(cnf_transformation,[],[f9])).
+fof(f9,axiom,(
+  genlmt(c_tptp_spindlecollectormt,c_tptp_member2610_mt)),
+  file('CSR027+1.tptp',unknown)).
+fof(f258,plain,(
+  ( ! [X0,X1] : (~genlmt(X0,X1) | mtvisible(X1) | ~mtvisible(X0)) )),
+  inference(cnf_transformation,[],[f210])).
+fof(f210,plain,(
+  ! [X0,X1] : (mtvisible(X1) | ~genlmt(X0,X1) | ~mtvisible(X0))),
+  inference(flattening,[],[f209])).
+fof(f209,plain,(
+  ! [X0,X1] : (mtvisible(X1) | (~genlmt(X0,X1) | ~mtvisible(X0)))),
+  inference(ennf_transformation,[],[f128])).
+fof(f128,plain,(
+  ! [X0,X1] : ((genlmt(X0,X1) & mtvisible(X0)) => mtvisible(X1))),
+  inference(rectify,[],[f63])).
+fof(f63,axiom,(
+  ! [X18,X19] : ((genlmt(X18,X19) & mtvisible(X18)) => mtvisible(X19))),
+  file('CSR027+1.tptp',unknown)).
+fof(f281,plain,(
+  ~spl0_1 | spl0_3),
+  inference(avatar_split_clause,[],[f231,f278,f270])).
+fof(f231,plain,(
+  relationallexists(c_tptp_8_875,f_subcollectionofwithrelationfromtypefn(c_unitvectorinterval,c_directionoftranslation_throughout,c_movement_translationevent),c_tptpcol_16_31868) | ~mtvisible(c_tptp_member2610_mt)),
+  inference(cnf_transformation,[],[f181])).
+fof(f181,plain,(
+  relationallexists(c_tptp_8_875,f_subcollectionofwithrelationfromtypefn(c_unitvectorinterval,c_directionoftranslation_throughout,c_movement_translationevent),c_tptpcol_16_31868) | ~mtvisible(c_tptp_member2610_mt)),
+  inference(ennf_transformation,[],[f13])).
+fof(f13,axiom,(
+  mtvisible(c_tptp_member2610_mt) => relationallexists(c_tptp_8_875,f_subcollectionofwithrelationfromtypefn(c_unitvectorinterval,c_directionoftranslation_throughout,c_movement_translationevent),c_tptpcol_16_31868)),
+  file('CSR027+1.tptp',unknown)).
+fof(f276,plain,(
+  ~spl0_1 | spl0_2),
+  inference(avatar_split_clause,[],[f230,f274,f270])).
+fof(f230,plain,(
+  ( ! [X0] : (tptp_8_875(X0,f_relationallexistsfn(X0,c_tptp_8_875,f_subcollectionofwithrelationfromtypefn(c_unitvectorinterval,c_directionoftranslation_throughout,c_movement_translationevent),c_tptpcol_16_31868)) | ~isa(X0,f_subcollectionofwithrelationfromtypefn(c_unitvectorinterval,c_directionoftranslation_throughout,c_movement_translationevent)) | ~mtvisible(c_tptp_member2610_mt)) )),
+  inference(cnf_transformation,[],[f180])).
+fof(f180,plain,(
+  ! [X0] : (tptp_8_875(X0,f_relationallexistsfn(X0,c_tptp_8_875,f_subcollectionofwithrelationfromtypefn(c_unitvectorinterval,c_directionoftranslation_throughout,c_movement_translationevent),c_tptpcol_16_31868)) | ~isa(X0,f_subcollectionofwithrelationfromtypefn(c_unitvectorinterval,c_directionoftranslation_throughout,c_movement_translationevent)) | ~mtvisible(c_tptp_member2610_mt))),
+  inference(flattening,[],[f179])).
+fof(f179,plain,(
+  ! [X0] : (tptp_8_875(X0,f_relationallexistsfn(X0,c_tptp_8_875,f_subcollectionofwithrelationfromtypefn(c_unitvectorinterval,c_directionoftranslation_throughout,c_movement_translationevent),c_tptpcol_16_31868)) | (~isa(X0,f_subcollectionofwithrelationfromtypefn(c_unitvectorinterval,c_directionoftranslation_throughout,c_movement_translationevent)) | ~mtvisible(c_tptp_member2610_mt)))),
+  inference(ennf_transformation,[],[f12])).
+fof(f12,axiom,(
+  ! [X0] : ((isa(X0,f_subcollectionofwithrelationfromtypefn(c_unitvectorinterval,c_directionoftranslation_throughout,c_movement_translationevent)) & mtvisible(c_tptp_member2610_mt)) => tptp_8_875(X0,f_relationallexistsfn(X0,c_tptp_8_875,f_subcollectionofwithrelationfromtypefn(c_unitvectorinterval,c_directionoftranslation_throughout,c_movement_translationevent),c_tptpcol_16_31868)))),
+  file('CSR027+1.tptp',unknown)).
+% SZS output end Proof for CSR027+1
+% ------------------------------
+% Version: Vampire 4.4.0 (commit d98a3d53 on 2020-01-14 21:02:12 +0100)
+% Termination reason: Refutation
+
+% Memory used [KB]: 4989
+% Time elapsed: 0.004 s
+% ------------------------------
+% ------------------------------

@@ -1,0 +1,60 @@
+% Refutation found. Thanks to Tanya!
+% SZS status Unsatisfiable for LAT273-2
+% SZS output start Proof for LAT273-2
+fof(f18,plain,(
+  $false),
+  inference(subsumption_resolution,[],[f16,f6])).
+fof(f6,axiom,(
+  c_Tarski_OisLub(v_S,v_cl,v_L,t_a)),
+  file('LAT273-2.tptp',unknown)).
+fof(f16,plain,(
+  ~c_Tarski_OisLub(v_S,v_cl,v_L,t_a)),
+  inference(resolution,[],[f15,f7])).
+fof(f7,axiom,(
+  ~c_in(c_Pair(v_L,v_b,t_a,t_a),v_r,tc_prod(t_a,t_a))),
+  file('LAT273-2.tptp',unknown)).
+fof(f15,plain,(
+  ( ! [X0] : (c_in(c_Pair(X0,v_b,t_a,t_a),v_r,tc_prod(t_a,t_a)) | ~c_Tarski_OisLub(v_S,v_cl,X0,t_a)) )),
+  inference(resolution,[],[f12,f14])).
+fof(f14,plain,(
+  c_in(v_sko__4mi(v_S,v_r,v_b),v_S,t_a)),
+  inference(subsumption_resolution,[],[f13,f4])).
+fof(f4,axiom,(
+  c_in(v_b,v_A,t_a)),
+  file('LAT273-2.tptp',unknown)).
+fof(f13,plain,(
+  ~c_in(v_b,v_A,t_a) | c_in(v_sko__4mi(v_S,v_r,v_b),v_S,t_a)),
+  inference(resolution,[],[f9,f7])).
+fof(f9,plain,(
+  ( ! [X0] : (c_in(c_Pair(v_L,X0,t_a,t_a),v_r,tc_prod(t_a,t_a)) | ~c_in(X0,v_A,t_a) | c_in(v_sko__4mi(v_S,v_r,X0),v_S,t_a)) )),
+  inference(resolution,[],[f2,f6])).
+fof(f2,axiom,(
+  ( ! [X6,X7,X1] : (~c_Tarski_OisLub(X1,v_cl,X6,t_a) | c_in(c_Pair(X6,X7,t_a,t_a),v_r,tc_prod(t_a,t_a)) | ~c_in(X7,v_A,t_a) | c_in(v_sko__4mi(X1,v_r,X7),X1,t_a)) )),
+  file('LAT273-2.tptp',unknown)).
+fof(f12,plain,(
+  ( ! [X0,X1] : (~c_in(v_sko__4mi(X1,v_r,v_b),v_S,t_a) | ~c_Tarski_OisLub(X1,v_cl,X0,t_a) | c_in(c_Pair(X0,v_b,t_a,t_a),v_r,tc_prod(t_a,t_a))) )),
+  inference(subsumption_resolution,[],[f11,f4])).
+fof(f11,plain,(
+  ( ! [X0,X1] : (c_in(c_Pair(X0,v_b,t_a,t_a),v_r,tc_prod(t_a,t_a)) | ~c_in(v_b,v_A,t_a) | ~c_Tarski_OisLub(X1,v_cl,X0,t_a) | ~c_in(v_sko__4mi(X1,v_r,v_b),v_S,t_a)) )),
+  inference(resolution,[],[f3,f8])).
+fof(f8,plain,(
+  ( ! [X0] : (c_in(c_Pair(X0,v_b,t_a,t_a),v_r,tc_prod(t_a,t_a)) | ~c_in(X0,v_S,t_a)) )),
+  inference(resolution,[],[f1,f5])).
+fof(f5,axiom,(
+  c_lessequals(v_S,c_Tarski_Ointerval(v_r,v_a,v_b,t_a),tc_set(t_a))),
+  file('LAT273-2.tptp',unknown)).
+fof(f1,axiom,(
+  ( ! [X4,X2,X0,X5,X3,X1] : (~c_lessequals(X1,c_Tarski_Ointerval(X3,X4,X5,X2),tc_set(X2)) | c_in(c_Pair(X0,X5,X2,X2),X3,tc_prod(X2,X2)) | ~c_in(X0,X1,X2)) )),
+  file('LAT273-2.tptp',unknown)).
+fof(f3,axiom,(
+  ( ! [X6,X7,X1] : (~c_in(c_Pair(v_sko__4mi(X1,v_r,X7),X7,t_a,t_a),v_r,tc_prod(t_a,t_a)) | c_in(c_Pair(X6,X7,t_a,t_a),v_r,tc_prod(t_a,t_a)) | ~c_in(X7,v_A,t_a) | ~c_Tarski_OisLub(X1,v_cl,X6,t_a)) )),
+  file('LAT273-2.tptp',unknown)).
+% SZS output end Proof for LAT273-2
+% ------------------------------
+% Version: Vampire 4.4.0 (commit d98a3d53 on 2020-01-14 21:02:12 +0100)
+% Termination reason: Refutation
+
+% Memory used [KB]: 4861
+% Time elapsed: 0.001 s
+% ------------------------------
+% ------------------------------

@@ -1,0 +1,126 @@
+% Refutation found. Thanks to Tanya!
+% SZS status Unsatisfiable for SWC207-1
+% SZS output start Proof for SWC207-1
+fof(f539,plain,(
+  $false),
+  inference(avatar_sat_refutation,[],[f253,f263,f281,f397,f538])).
+fof(f538,plain,(
+  spl0_5),
+  inference(avatar_contradiction_clause,[],[f537])).
+fof(f537,plain,(
+  $false | spl0_5),
+  inference(subsumption_resolution,[],[f536,f8])).
+fof(f8,axiom,(
+  ssList(nil)),
+  file('SWC207-1.tptp',unknown)).
+fof(f536,plain,(
+  ~ssList(nil) | spl0_5),
+  inference(subsumption_resolution,[],[f535,f202])).
+fof(f202,plain,(
+  ssList(sk3)),
+  inference(definition_unfolding,[],[f186,f191])).
+fof(f191,axiom,(
+  sk1 = sk3),
+  file('SWC207-1.tptp',unknown)).
+fof(f186,axiom,(
+  ssList(sk1)),
+  file('SWC207-1.tptp',unknown)).
+fof(f535,plain,(
+  ~ssList(sk3) | ~ssList(nil) | spl0_5),
+  inference(subsumption_resolution,[],[f532,f256])).
+fof(f256,plain,(
+  nil != sk3 | spl0_5),
+  inference(avatar_component_clause,[],[f255])).
+fof(f255,plain,(
+  spl0_5 <=> nil = sk3),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_5])])).
+fof(f532,plain,(
+  nil = sk3 | ~ssList(sk3) | ~ssList(nil)),
+  inference(resolution,[],[f100,f205])).
+fof(f205,plain,(
+  ~neq(sk3,nil)),
+  inference(definition_unfolding,[],[f193,f191])).
+fof(f193,axiom,(
+  ~neq(sk1,nil)),
+  file('SWC207-1.tptp',unknown)).
+fof(f100,axiom,(
+  ( ! [X0,X1] : (neq(X1,X0) | X0 = X1 | ~ssList(X1) | ~ssList(X0)) )),
+  file('SWC207-1.tptp',unknown)).
+fof(f397,plain,(
+  ~spl0_3 | ~spl0_5 | ~spl0_6),
+  inference(avatar_split_clause,[],[f396,f260,f255,f246])).
+fof(f246,plain,(
+  spl0_3 <=> ssItem(sk5)),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_3])])).
+fof(f260,plain,(
+  spl0_6 <=> sk3 = cons(sk5,nil)),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_6])])).
+fof(f396,plain,(
+  ~ssItem(sk5) | (~spl0_5 | ~spl0_6)),
+  inference(subsumption_resolution,[],[f392,f8])).
+fof(f392,plain,(
+  ~ssItem(sk5) | ~ssList(nil) | (~spl0_5 | ~spl0_6)),
+  inference(trivial_inequality_removal,[],[f391])).
+fof(f391,plain,(
+  nil != nil | ~ssItem(sk5) | ~ssList(nil) | (~spl0_5 | ~spl0_6)),
+  inference(superposition,[],[f98,f283])).
+fof(f283,plain,(
+  nil = cons(sk5,nil) | (~spl0_5 | ~spl0_6)),
+  inference(forward_demodulation,[],[f262,f257])).
+fof(f257,plain,(
+  nil = sk3 | ~spl0_5),
+  inference(avatar_component_clause,[],[f255])).
+fof(f262,plain,(
+  sk3 = cons(sk5,nil) | ~spl0_6),
+  inference(avatar_component_clause,[],[f260])).
+fof(f98,axiom,(
+  ( ! [X0,X1] : (nil != cons(X0,X1) | ~ssItem(X0) | ~ssList(X1)) )),
+  file('SWC207-1.tptp',unknown)).
+fof(f281,plain,(
+  ~spl0_4 | ~spl0_5),
+  inference(avatar_contradiction_clause,[],[f280])).
+fof(f280,plain,(
+  $false | (~spl0_4 | ~spl0_5)),
+  inference(subsumption_resolution,[],[f278,f276])).
+fof(f276,plain,(
+  ~neq(nil,nil) | ~spl0_5),
+  inference(backward_demodulation,[],[f257,f205])).
+fof(f278,plain,(
+  neq(nil,nil) | ~spl0_4),
+  inference(backward_demodulation,[],[f252,f204])).
+fof(f204,plain,(
+  neq(sk4,nil)),
+  inference(definition_unfolding,[],[f192,f190])).
+fof(f190,axiom,(
+  sk2 = sk4),
+  file('SWC207-1.tptp',unknown)).
+fof(f192,axiom,(
+  neq(sk2,nil)),
+  file('SWC207-1.tptp',unknown)).
+fof(f252,plain,(
+  nil = sk4 | ~spl0_4),
+  inference(avatar_component_clause,[],[f250])).
+fof(f250,plain,(
+  spl0_4 <=> nil = sk4),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_4])])).
+fof(f263,plain,(
+  spl0_6 | spl0_4),
+  inference(avatar_split_clause,[],[f196,f250,f260])).
+fof(f196,axiom,(
+  nil = sk4 | sk3 = cons(sk5,nil)),
+  file('SWC207-1.tptp',unknown)).
+fof(f253,plain,(
+  spl0_3 | spl0_4),
+  inference(avatar_split_clause,[],[f194,f250,f246])).
+fof(f194,axiom,(
+  nil = sk4 | ssItem(sk5)),
+  file('SWC207-1.tptp',unknown)).
+% SZS output end Proof for SWC207-1
+% ------------------------------
+% Version: Vampire 4.4.0 (commit d98a3d53 on 2020-01-14 21:02:12 +0100)
+% Termination reason: Refutation
+
+% Memory used [KB]: 5373
+% Time elapsed: 0.007 s
+% ------------------------------
+% ------------------------------

@@ -1,0 +1,55 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% SZS status Unsatisfiable for SYN097-1.002.tptp
+
+% SZS output start CNFRefutation for SYN097-1.002.tptp
+cnf(sym_u_s2_goal_1, axiom, (~ sym_u_1 | sym_p_1_2)).
+
+cnf(sym_u_1_s2_goal_1, axiom, (sym_u_1)).
+
+cnf(sym_u_s2_type11_1, axiom,
+    (~ sym_u_2 | ~ sym_p_1_2 | sym_p_2_2 | sym_p_1_1)).
+
+cnf(sym_u_2_s2_type11_1, axiom, (~ sym_p_1_2 | sym_u_2)).
+
+cnf(sym_u_t2_1, axiom, (~ sym_u_10 | ~ sym_p_1_1)).
+
+cnf(sym_u_10_t2_1, axiom, (~ sym_p_1_1 | sym_u_10)).
+
+cnf(sym_u_t2_3, axiom, (~ sym_u_12 | ~ sym_p_2_2)).
+
+cnf(sym_u_12_t2_3, axiom, (~ sym_p_2_2 | sym_u_12)).
+
+cnf(refute_0_0, plain, (sym_p_1_2),
+    inference(resolve, [$cnf(sym_u_1)],
+              [sym_u_1_s2_goal_1, sym_u_s2_goal_1])).
+
+cnf(refute_0_1, plain, (~ sym_u_2 | sym_p_1_1 | sym_p_2_2),
+    inference(resolve, [$cnf(sym_p_1_2)],
+              [refute_0_0, sym_u_s2_type11_1])).
+
+cnf(refute_0_2, plain, (sym_u_2),
+    inference(resolve, [$cnf(sym_p_1_2)],
+              [refute_0_0, sym_u_2_s2_type11_1])).
+
+cnf(refute_0_3, plain, (sym_p_1_1 | sym_p_2_2),
+    inference(resolve, [$cnf(sym_u_2)], [refute_0_2, refute_0_1])).
+
+cnf(refute_0_4, plain, (sym_p_1_1 | sym_u_12),
+    inference(resolve, [$cnf(sym_p_2_2)], [refute_0_3, sym_u_12_t2_3])).
+
+cnf(refute_0_5, plain, (~ sym_p_2_2 | sym_p_1_1),
+    inference(resolve, [$cnf(sym_u_12)], [refute_0_4, sym_u_t2_3])).
+
+cnf(refute_0_6, plain, (sym_p_1_1),
+    inference(resolve, [$cnf(sym_p_2_2)], [refute_0_3, refute_0_5])).
+
+cnf(refute_0_7, plain, (sym_u_10),
+    inference(resolve, [$cnf(sym_p_1_1)], [refute_0_6, sym_u_10_t2_1])).
+
+cnf(refute_0_8, plain, (~ sym_p_1_1),
+    inference(resolve, [$cnf(sym_u_10)], [refute_0_7, sym_u_t2_1])).
+
+cnf(refute_0_9, plain, ($false),
+    inference(resolve, [$cnf(sym_p_1_1)], [refute_0_6, refute_0_8])).
+% SZS output end CNFRefutation for SYN097-1.002.tptp
+

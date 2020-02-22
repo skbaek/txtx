@@ -1,0 +1,184 @@
+%------------------------------------------------------------------------------
+% File     : SWV543-1.007 : TPTP v7.3.0. Released v4.0.0.
+% Domain   : Software Verification
+% Problem  : Swap elements (t3_np_sf_ai_00007)
+% Version  : Especial.
+% English  : Swapping an element at position i1 with an element at position 
+%            i2 is equivalent to swapping the element at position i2 with the
+%            element at position i1.
+
+% Refs     : [Arm08] Armando (2008), Email to Geoff Sutcliffe
+%          : [AB+09] Armando et al. (2009), New Results on Rewrite-based Sa
+% Source   : [Arm08]
+% Names    : swap_t3_np_sf_ai_00007_001 [Arm08]
+
+% Status   : Unsatisfiable
+% Rating   : 0.24 v7.3.0, 0.08 v7.1.0, 0.09 v7.0.0, 0.23 v6.4.0, 0.29 v6.3.0, 0.30 v6.1.0, 0.18 v6.0.0, 0.14 v5.5.0, 0.25 v5.4.0, 0.22 v5.3.0, 0.40 v5.2.0, 0.25 v5.1.0, 0.33 v5.0.0, 0.40 v4.1.0, 0.22 v4.0.1, 0.25 v4.0.0
+% Syntax   : Number of clauses     :   52 (   1 non-Horn;  51 unit;  49 RR)
+%            Number of atoms       :   53 (  53 equality)
+%            Maximal clause size   :    2 (   1 average)
+%            Number of predicates  :    1 (   0 propositional; 2-2 arity)
+%            Number of functors    :   57 (  55 constant; 0-3 arity)
+%            Number of variables   :   10 (   2 singleton)
+%            Maximal term depth    :    4 (   2 average)
+% SPC      : CNF_UNS_RFO_PEQ_NUE
+
+% Comments :
+%          : tptp2X 
+%------------------------------------------------------------------------------
+cnf(a1,axiom,
+    ( select(store(A,I,E),I) = E )).
+
+cnf(a2,axiom,
+    ( I = J | select(store(A,I,E),J) = select(A,J) )).
+
+cnf(a3,axiom,
+    ( store(store(A,I,select(A,J)),J,select(A,I)) = store(store(A,J,select(A,I)),I,select(A,J)) )).
+
+cnf(hyp0,hypothesis,
+    ( a_783 = store(a1,i4,e_782) )).
+
+cnf(hyp1,hypothesis,
+    ( a_785 = store(a_783,i3,e_784) )).
+
+cnf(hyp2,hypothesis,
+    ( a_787 = store(a_785,i2,e_786) )).
+
+cnf(hyp3,hypothesis,
+    ( a_789 = store(a_787,i1,e_788) )).
+
+cnf(hyp4,hypothesis,
+    ( a_791 = store(a_789,i0,e_790) )).
+
+cnf(hyp5,hypothesis,
+    ( a_793 = store(a_791,i5,e_792) )).
+
+cnf(hyp6,hypothesis,
+    ( a_795 = store(a_793,i2,e_794) )).
+
+cnf(hyp7,hypothesis,
+    ( a_797 = store(a_795,i5,e_796) )).
+
+cnf(hyp8,hypothesis,
+    ( a_799 = store(a_797,i1,e_798) )).
+
+cnf(hyp9,hypothesis,
+    ( a_800 = store(a_799,i1,e_798) )).
+
+cnf(hyp10,hypothesis,
+    ( a_802 = store(a_800,i5,e_801) )).
+
+cnf(hyp11,hypothesis,
+    ( a_804 = store(a_802,i2,e_803) )).
+
+cnf(hyp12,hypothesis,
+    ( a_806 = store(a_804,i5,e_805) )).
+
+cnf(hyp13,hypothesis,
+    ( a_808 = store(a_806,i2,e_807) )).
+
+cnf(hyp14,hypothesis,
+    ( a_809 = store(a_785,i1,e_788) )).
+
+cnf(hyp15,hypothesis,
+    ( a_810 = store(a_809,i2,e_786) )).
+
+cnf(hyp16,hypothesis,
+    ( a_812 = store(a_810,i5,e_811) )).
+
+cnf(hyp17,hypothesis,
+    ( a_814 = store(a_812,i0,e_813) )).
+
+cnf(hyp18,hypothesis,
+    ( a_816 = store(a_814,i5,e_815) )).
+
+cnf(hyp19,hypothesis,
+    ( a_818 = store(a_816,i2,e_817) )).
+
+cnf(hyp20,hypothesis,
+    ( a_820 = store(a_818,i1,e_819) )).
+
+cnf(hyp21,hypothesis,
+    ( a_821 = store(a_820,i1,e_819) )).
+
+cnf(hyp22,hypothesis,
+    ( a_823 = store(a_821,i5,e_822) )).
+
+cnf(hyp23,hypothesis,
+    ( a_825 = store(a_823,i2,e_824) )).
+
+cnf(hyp24,hypothesis,
+    ( a_827 = store(a_825,i5,e_826) )).
+
+cnf(hyp25,hypothesis,
+    ( a_829 = store(a_827,i2,e_828) )).
+
+cnf(hyp26,hypothesis,
+    ( e_782 = select(a1,i3) )).
+
+cnf(hyp27,hypothesis,
+    ( e_784 = select(a1,i4) )).
+
+cnf(hyp28,hypothesis,
+    ( e_786 = select(a_785,i1) )).
+
+cnf(hyp29,hypothesis,
+    ( e_788 = select(a_785,i2) )).
+
+cnf(hyp30,hypothesis,
+    ( e_790 = select(a_789,i5) )).
+
+cnf(hyp31,hypothesis,
+    ( e_792 = select(a_789,i0) )).
+
+cnf(hyp32,hypothesis,
+    ( e_794 = select(a_793,i5) )).
+
+cnf(hyp33,hypothesis,
+    ( e_796 = select(a_793,i2) )).
+
+cnf(hyp34,hypothesis,
+    ( e_798 = select(a_797,i1) )).
+
+cnf(hyp35,hypothesis,
+    ( e_801 = select(a_800,i2) )).
+
+cnf(hyp36,hypothesis,
+    ( e_803 = select(a_800,i5) )).
+
+cnf(hyp37,hypothesis,
+    ( e_805 = select(a_804,i2) )).
+
+cnf(hyp38,hypothesis,
+    ( e_807 = select(a_804,i5) )).
+
+cnf(hyp39,hypothesis,
+    ( e_811 = select(a_810,i0) )).
+
+cnf(hyp40,hypothesis,
+    ( e_813 = select(a_810,i5) )).
+
+cnf(hyp41,hypothesis,
+    ( e_815 = select(a_814,i2) )).
+
+cnf(hyp42,hypothesis,
+    ( e_817 = select(a_814,i5) )).
+
+cnf(hyp43,hypothesis,
+    ( e_819 = select(a_818,i1) )).
+
+cnf(hyp44,hypothesis,
+    ( e_822 = select(a_821,i2) )).
+
+cnf(hyp45,hypothesis,
+    ( e_824 = select(a_821,i5) )).
+
+cnf(hyp46,hypothesis,
+    ( e_826 = select(a_825,i2) )).
+
+cnf(hyp47,hypothesis,
+    ( e_828 = select(a_825,i5) )).
+
+cnf(goal,negated_conjecture,
+    ( a_808 != a_829 )).
+%------------------------------------------------------------------------------

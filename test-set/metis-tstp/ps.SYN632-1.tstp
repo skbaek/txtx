@@ -1,0 +1,268 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% SZS status Unsatisfiable for SYN632-1.tptp
+
+% SZS output start CNFRefutation for SYN632-1.tptp
+cnf(p4_5, negated_conjecture, (p4(X53, X53))).
+
+cnf(p3_6, negated_conjecture, (p3(X46, X46))).
+
+cnf(p2_7, negated_conjecture, (p2(X27, X27))).
+
+cnf(p4_16, negated_conjecture,
+    (p4(X54, X55) | ~ p4(X53, X54) | ~ p4(X53, X55))).
+
+cnf(p21_23, negated_conjecture,
+    (p21(X34, X35) | ~ p3(X37, X35) | ~ p4(X36, X34) | ~ p21(X36, X37))).
+
+cnf(p21_24, negated_conjecture,
+    (p21(f5(f7(f10(c24, f12(c28, f12(c25, c26))), c22), c23), c27))).
+
+cnf(p4_31, negated_conjecture,
+    (p4(f5(X56, X57), f5(X58, X59)) | ~ p2(X56, X58) | ~ p3(X57, X59))).
+
+cnf(p3_33, negated_conjecture,
+    (p3(X43, X44) |
+     ~ p21(f5(f7(f10(c24, f12(c25, c26)), X42), X43), X44))).
+
+cnf(p21_34, negated_conjecture,
+    (p21(f5(f7(f10(c24, f12(c25, c26)), X42), X43), X44) |
+     ~ p3(X43, X44))).
+
+cnf(not_p21_35, negated_conjecture,
+    (~ p21(f5(c22, c23), X77) |
+     ~ p21(f5(f7(f10(c24, f12(c25, c26)), c22), X77), c27))).
+
+cnf(p21_36, negated_conjecture,
+    (p21(f5(X38, f14(f16(f18(f20(c29, X39), X40), X38), X41)), X41) |
+     ~ p21(f5(f7(f10(c24, f12(c28, X39)), X38), X40), X41))).
+
+cnf(p21_38, negated_conjecture,
+    (p21(f5(f7(f10(c24, X39), X38), X40),
+       f14(f16(f18(f20(c29, X39), X40), X38), X41)) |
+     ~ p21(f5(f7(f10(c24, f12(c28, X39)), X38), X40), X41))).
+
+cnf(refute_0_0, plain,
+    (~ p21(f5(f7(f10(c24, f12(c28, f12(c25, c26))), c22), c23), c27) |
+     p21(f5(c22, f14(f16(f18(f20(c29, f12(c25, c26)), c23), c22), c27)),
+       c27)),
+    inference(subst, [],
+              [p21_36 :
+               [bind(X38, $fot(c22)), bind(X39, $fot(f12(c25, c26))),
+                bind(X40, $fot(c23)), bind(X41, $fot(c27))]])).
+
+cnf(refute_0_1, plain,
+    (p21(f5(c22, f14(f16(f18(f20(c29, f12(c25, c26)), c23), c22), c27)),
+       c27)),
+    inference(resolve,
+              [$cnf(p21(f5(f7(f10(c24, f12(c28, f12(c25, c26))), c22),
+                        c23), c27))], [p21_24, refute_0_0])).
+
+cnf(refute_0_2, plain, (p3(X_76, X_76)),
+    inference(subst, [], [p3_6 : [bind(X46, $fot(X_76))]])).
+
+cnf(refute_0_3, plain,
+    (~ p21(X_77, X_76) | ~ p3(X_76, X_76) | ~ p4(X_77, X_75) |
+     p21(X_75, X_76)),
+    inference(subst, [],
+              [p21_23 :
+               [bind(X34, $fot(X_75)), bind(X35, $fot(X_76)),
+                bind(X36, $fot(X_77)), bind(X37, $fot(X_76))]])).
+
+cnf(refute_0_4, plain,
+    (~ p21(X_77, X_76) | ~ p4(X_77, X_75) | p21(X_75, X_76)),
+    inference(resolve, [$cnf(p3(X_76, X_76))], [refute_0_2, refute_0_3])).
+
+cnf(refute_0_5, plain,
+    (~
+       p21(f5(X_184,
+           f14(f16(f18(f20(c29, f12(c25, c26)), c23), c22), c27)), X_76) |
+     ~
+       p4(f5(X_184, f14(f16(f18(f20(c29, f12(c25, c26)), c23), c22), c27)),
+         f5(X_184, c23)) | p21(f5(X_184, c23), X_76)),
+    inference(subst, [],
+              [refute_0_4 :
+               [bind(X_75, $fot(f5(X_184, c23))),
+                bind(X_77,
+                     $fot(f5(X_184,
+                            f14(f16(f18(f20(c29, f12(c25, c26)), c23),
+                                c22), c27))))]])).
+
+cnf(refute_0_6, plain, (p4(X_42, X_42)),
+    inference(subst, [], [p4_5 : [bind(X53, $fot(X_42))]])).
+
+cnf(refute_0_7, plain,
+    (~ p4(X_42, X_41) | ~ p4(X_42, X_42) | p4(X_41, X_42)),
+    inference(subst, [],
+              [p4_16 :
+               [bind(X53, $fot(X_42)), bind(X54, $fot(X_41)),
+                bind(X55, $fot(X_42))]])).
+
+cnf(refute_0_8, plain, (~ p4(X_42, X_41) | p4(X_41, X_42)),
+    inference(resolve, [$cnf(p4(X_42, X_42))], [refute_0_6, refute_0_7])).
+
+cnf(refute_0_9, plain,
+    (~
+       p4(f5(X_179, c23),
+         f5(X_179,
+           f14(f16(f18(f20(c29, f12(c25, c26)), c23), c22), c27))) |
+     p4(f5(X_179, f14(f16(f18(f20(c29, f12(c25, c26)), c23), c22), c27)),
+       f5(X_179, c23))),
+    inference(subst, [],
+              [refute_0_8 :
+               [bind(X_41,
+                     $fot(f5(X_179,
+                            f14(f16(f18(f20(c29, f12(c25, c26)), c23),
+                                c22), c27)))),
+                bind(X_42, $fot(f5(X_179, c23)))]])).
+
+cnf(refute_0_10, plain, (p2(X_151, X_151)),
+    inference(subst, [], [p2_7 : [bind(X27, $fot(X_151))]])).
+
+cnf(refute_0_11, plain,
+    (~ p2(X_151, X_151) | ~ p3(X_150, X_152) |
+     p4(f5(X_151, X_150), f5(X_151, X_152))),
+    inference(subst, [],
+              [p4_31 :
+               [bind(X56, $fot(X_151)), bind(X57, $fot(X_150)),
+                bind(X58, $fot(X_151)), bind(X59, $fot(X_152))]])).
+
+cnf(refute_0_12, plain,
+    (~ p3(X_150, X_152) | p4(f5(X_151, X_150), f5(X_151, X_152))),
+    inference(resolve, [$cnf(p2(X_151, X_151))],
+              [refute_0_10, refute_0_11])).
+
+cnf(refute_0_13, plain,
+    (~ p3(c23, f14(f16(f18(f20(c29, f12(c25, c26)), c23), c22), c27)) |
+     p4(f5(X_151, c23),
+       f5(X_151, f14(f16(f18(f20(c29, f12(c25, c26)), c23), c22), c27)))),
+    inference(subst, [],
+              [refute_0_12 :
+               [bind(X_150, $fot(c23)),
+                bind(X_152,
+                     $fot(f14(f16(f18(f20(c29, f12(c25, c26)), c23), c22),
+                            c27)))]])).
+
+cnf(refute_0_14, plain,
+    (~
+       p21(f5(f7(f10(c24, f12(c25, c26)), c22), c23),
+         f14(f16(f18(f20(c29, f12(c25, c26)), c23), c22), c27)) |
+     p3(c23, f14(f16(f18(f20(c29, f12(c25, c26)), c23), c22), c27))),
+    inference(subst, [],
+              [p3_33 :
+               [bind(X42, $fot(c22)), bind(X43, $fot(c23)),
+                bind(X44,
+                     $fot(f14(f16(f18(f20(c29, f12(c25, c26)), c23), c22),
+                            c27)))]])).
+
+cnf(refute_0_15, plain,
+    (~ p21(f5(f7(f10(c24, f12(c28, f12(c25, c26))), c22), c23), c27) |
+     p21(f5(f7(f10(c24, f12(c25, c26)), c22), c23),
+       f14(f16(f18(f20(c29, f12(c25, c26)), c23), c22), c27))),
+    inference(subst, [],
+              [p21_38 :
+               [bind(X38, $fot(c22)), bind(X39, $fot(f12(c25, c26))),
+                bind(X40, $fot(c23)), bind(X41, $fot(c27))]])).
+
+cnf(refute_0_16, plain,
+    (p21(f5(f7(f10(c24, f12(c25, c26)), c22), c23),
+       f14(f16(f18(f20(c29, f12(c25, c26)), c23), c22), c27))),
+    inference(resolve,
+              [$cnf(p21(f5(f7(f10(c24, f12(c28, f12(c25, c26))), c22),
+                        c23), c27))], [p21_24, refute_0_15])).
+
+cnf(refute_0_17, plain,
+    (p3(c23, f14(f16(f18(f20(c29, f12(c25, c26)), c23), c22), c27))),
+    inference(resolve,
+              [$cnf(p21(f5(f7(f10(c24, f12(c25, c26)), c22), c23),
+                      f14(f16(f18(f20(c29, f12(c25, c26)), c23), c22),
+                        c27)))], [refute_0_16, refute_0_14])).
+
+cnf(refute_0_18, plain,
+    (p4(f5(X_151, c23),
+       f5(X_151, f14(f16(f18(f20(c29, f12(c25, c26)), c23), c22), c27)))),
+    inference(resolve,
+              [$cnf(p3(c23,
+                      f14(f16(f18(f20(c29, f12(c25, c26)), c23), c22),
+                        c27)))], [refute_0_17, refute_0_13])).
+
+cnf(refute_0_19, plain,
+    (p4(f5(X_179, c23),
+       f5(X_179, f14(f16(f18(f20(c29, f12(c25, c26)), c23), c22), c27)))),
+    inference(subst, [], [refute_0_18 : [bind(X_151, $fot(X_179))]])).
+
+cnf(refute_0_20, plain,
+    (p4(f5(X_179, f14(f16(f18(f20(c29, f12(c25, c26)), c23), c22), c27)),
+       f5(X_179, c23))),
+    inference(resolve,
+              [$cnf(p4(f5(X_179, c23),
+                      f5(X_179,
+                        f14(f16(f18(f20(c29, f12(c25, c26)), c23), c22),
+                          c27))))], [refute_0_19, refute_0_9])).
+
+cnf(refute_0_21, plain,
+    (p4(f5(X_184, f14(f16(f18(f20(c29, f12(c25, c26)), c23), c22), c27)),
+       f5(X_184, c23))),
+    inference(subst, [], [refute_0_20 : [bind(X_179, $fot(X_184))]])).
+
+cnf(refute_0_22, plain,
+    (~
+       p21(f5(X_184,
+           f14(f16(f18(f20(c29, f12(c25, c26)), c23), c22), c27)), X_76) |
+     p21(f5(X_184, c23), X_76)),
+    inference(resolve,
+              [$cnf(p4(f5(X_184,
+                        f14(f16(f18(f20(c29, f12(c25, c26)), c23), c22),
+                          c27)), f5(X_184, c23)))],
+              [refute_0_21, refute_0_5])).
+
+cnf(refute_0_23, plain,
+    (~
+       p21(f5(c22, f14(f16(f18(f20(c29, f12(c25, c26)), c23), c22), c27)),
+         c27) | p21(f5(c22, c23), c27)),
+    inference(subst, [],
+              [refute_0_22 :
+               [bind(X_184, $fot(c22)), bind(X_76, $fot(c27))]])).
+
+cnf(refute_0_24, plain, (p21(f5(c22, c23), c27)),
+    inference(resolve,
+              [$cnf(p21(f5(c22,
+                        f14(f16(f18(f20(c29, f12(c25, c26)), c23), c22),
+                          c27)), c27))], [refute_0_1, refute_0_23])).
+
+cnf(refute_0_25, plain,
+    (~ p21(f5(c22, c23), c27) |
+     ~ p21(f5(f7(f10(c24, f12(c25, c26)), c22), c27), c27)),
+    inference(subst, [], [not_p21_35 : [bind(X77, $fot(c27))]])).
+
+cnf(refute_0_26, plain, (p3(X_17, X_17)),
+    inference(subst, [], [p3_6 : [bind(X46, $fot(X_17))]])).
+
+cnf(refute_0_27, plain,
+    (~ p3(X_17, X_17) |
+     p21(f5(f7(f10(c24, f12(c25, c26)), X_15), X_17), X_17)),
+    inference(subst, [],
+              [p21_34 :
+               [bind(X42, $fot(X_15)), bind(X43, $fot(X_17)),
+                bind(X44, $fot(X_17))]])).
+
+cnf(refute_0_28, plain,
+    (p21(f5(f7(f10(c24, f12(c25, c26)), X_15), X_17), X_17)),
+    inference(resolve, [$cnf(p3(X_17, X_17))],
+              [refute_0_26, refute_0_27])).
+
+cnf(refute_0_29, plain,
+    (p21(f5(f7(f10(c24, f12(c25, c26)), c22), c27), c27)),
+    inference(subst, [],
+              [refute_0_28 :
+               [bind(X_15, $fot(c22)), bind(X_17, $fot(c27))]])).
+
+cnf(refute_0_30, plain, (~ p21(f5(c22, c23), c27)),
+    inference(resolve,
+              [$cnf(p21(f5(f7(f10(c24, f12(c25, c26)), c22), c27), c27))],
+              [refute_0_29, refute_0_25])).
+
+cnf(refute_0_31, plain, ($false),
+    inference(resolve, [$cnf(p21(f5(c22, c23), c27))],
+              [refute_0_24, refute_0_30])).
+% SZS output end CNFRefutation for SYN632-1.tptp
+

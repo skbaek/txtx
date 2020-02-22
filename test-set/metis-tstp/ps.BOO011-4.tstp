@@ -1,0 +1,90 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% SZS status Unsatisfiable for BOO011-4.tptp
+
+% SZS output start CNFRefutation for BOO011-4.tptp
+cnf(commutativity_of_add, axiom, (add(X, Y) = add(Y, X))).
+
+cnf(additive_id1, axiom, (add(X, additive_identity) = X)).
+
+cnf(additive_inverse1, axiom,
+    (add(X, inverse(X)) = multiplicative_identity)).
+
+cnf(prove_inverse_of_1_is_0, negated_conjecture,
+    (inverse(additive_identity) != multiplicative_identity)).
+
+cnf(refute_0_0, plain,
+    (add(additive_identity, inverse(additive_identity)) =
+     multiplicative_identity),
+    inference(subst, [],
+              [additive_inverse1 : [bind(X, $fot(additive_identity))]])).
+
+cnf(refute_0_1, plain,
+    (add(X, additive_identity) = add(additive_identity, X)),
+    inference(subst, [],
+              [commutativity_of_add :
+               [bind(Y, $fot(additive_identity))]])).
+
+cnf(refute_0_2, plain,
+    (add(X, additive_identity) != X |
+     add(X, additive_identity) != add(additive_identity, X) |
+     add(additive_identity, X) = X),
+    introduced(tautology,
+               [equality,
+                [$cnf($equal(add(X, additive_identity), X)), [0],
+                 $fot(add(additive_identity, X))]])).
+
+cnf(refute_0_3, plain,
+    (add(X, additive_identity) != X | add(additive_identity, X) = X),
+    inference(resolve,
+              [$cnf($equal(add(X, additive_identity),
+                      add(additive_identity, X)))],
+              [refute_0_1, refute_0_2])).
+
+cnf(refute_0_4, plain, (add(additive_identity, X) = X),
+    inference(resolve, [$cnf($equal(add(X, additive_identity), X))],
+              [additive_id1, refute_0_3])).
+
+cnf(refute_0_5, plain,
+    (add(additive_identity, inverse(additive_identity)) =
+     inverse(additive_identity)),
+    inference(subst, [],
+              [refute_0_4 : [bind(X, $fot(inverse(additive_identity)))]])).
+
+cnf(refute_0_6, plain,
+    (add(additive_identity, inverse(additive_identity)) !=
+     inverse(additive_identity) |
+     add(additive_identity, inverse(additive_identity)) !=
+     multiplicative_identity |
+     inverse(additive_identity) = multiplicative_identity),
+    introduced(tautology,
+               [equality,
+                [$cnf($equal(add(additive_identity,
+                          inverse(additive_identity)),
+                        multiplicative_identity)), [0],
+                 $fot(inverse(additive_identity))]])).
+
+cnf(refute_0_7, plain,
+    (add(additive_identity, inverse(additive_identity)) !=
+     multiplicative_identity |
+     inverse(additive_identity) = multiplicative_identity),
+    inference(resolve,
+              [$cnf($equal(add(additive_identity,
+                        inverse(additive_identity)),
+                      inverse(additive_identity)))],
+              [refute_0_5, refute_0_6])).
+
+cnf(refute_0_8, plain,
+    (inverse(additive_identity) = multiplicative_identity),
+    inference(resolve,
+              [$cnf($equal(add(additive_identity,
+                        inverse(additive_identity)),
+                      multiplicative_identity))],
+              [refute_0_0, refute_0_7])).
+
+cnf(refute_0_9, plain, ($false),
+    inference(resolve,
+              [$cnf($equal(inverse(additive_identity),
+                      multiplicative_identity))],
+              [refute_0_8, prove_inverse_of_1_is_0])).
+% SZS output end CNFRefutation for BOO011-4.tptp
+

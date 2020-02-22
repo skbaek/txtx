@@ -1,0 +1,693 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% SZS status Unsatisfiable for SYO683-1.tptp
+
+% SZS output start CNFRefutation for SYO683-1.tptp
+cnf(clause_469, axiom,
+    (~ 'E'(0, f(A_4)) | ~ 'E'(0, f(suc(A_4))) | iLEQ(suc(A_4), suc(A_4)))).
+
+cnf(clause_398, axiom,
+    (~ 'E'(s(0), f(A_3)) | ~ 'E'(s(0), f(suc(A_3))) |
+     iLEQ(suc(A_3), suc(A_3)))).
+
+cnf(clause_451, axiom, ('LE'(f(A), s(s(s(s(0))))))).
+
+cnf(clause_29, axiom,
+    (~ 'E'(s(s(0)), f(A_2)) | ~ 'E'(s(s(0)), f(suc(A_2))) |
+     iLEQ(suc(A_2), suc(A_2)))).
+
+cnf(clause_560, axiom,
+    (~ 'E'(s(s(s(0))), f(suc(B_159))) | ~ 'E'(s(s(s(0))), f(B_162)) |
+     ~ iLEQ(suc(B_160), suc(B_161)) | ~ 'E'(s(s(s(0))), f(suc(B_162))) |
+     ~ 'E'(s(s(s(0))), f(B_159)) | ~ 'E'(s(s(s(0))), f(B_161)) |
+     ~ 'E'(s(s(s(0))), f(B_160)) | ~ iLEQ(suc(B_159), suc(B_160)) |
+     ~ 'E'(s(s(s(0))), f(A_1)) | ~ 'E'(s(s(s(0))), f(suc(B_161))) |
+     ~ iLEQ(suc(B_161), suc(B_162)) | ~ 'E'(s(s(s(0))), f(suc(B_160))) |
+     ~ 'E'(s(s(s(0))), f(suc(A_1))) | ~ iLEQ(suc(A_1), suc(B_159)))).
+
+cnf(clause_476, axiom,
+    (~ 'LE'(f(suc(B_247)), s(s(s(0)))) | 'E'(s(s(0)), f(suc(B_247))) |
+     'LE'(f(B_247), s(s(0))))).
+
+cnf(clause_97, axiom,
+    (~ 'LE'(f(B_247), s(s(s(0)))) | 'E'(s(s(0)), f(B_247)) |
+     'LE'(f(B_247), s(s(0))))).
+
+cnf(clause_443, axiom,
+    (~ 'LE'(f(suc(B_158)), s(s(s(s(0))))) |
+     'E'(s(s(s(0))), f(suc(B_158))) | 'LE'(f(B_158), s(s(s(0)))))).
+
+cnf(clause_287, axiom, (~ 'LE'(f(z), 0))).
+
+cnf(clause_547, axiom,
+    (~ 'LE'(f(suc(B_309)), s(0)) | 'E'(0, f(suc(B_309))) |
+     'LE'(f(B_309), 0))).
+
+cnf(clause_563, axiom,
+    (~ 'E'(s(s(0)), f(suc(B_249))) | ~ 'E'(s(s(0)), f(B_250)) |
+     ~ iLEQ(suc(A_2), suc(B_248)) | ~ 'E'(s(s(0)), f(B_248)) |
+     ~ 'E'(s(s(0)), f(suc(B_251))) | ~ iLEQ(suc(B_249), suc(B_250)) |
+     ~ 'E'(s(s(0)), f(suc(A_2))) | ~ 'E'(s(s(0)), f(B_251)) |
+     ~ 'E'(s(s(0)), f(suc(B_248))) | ~ 'E'(s(s(0)), f(suc(B_250))) |
+     ~ iLEQ(suc(B_248), suc(B_249)) | ~ 'E'(s(s(0)), f(B_249)) |
+     ~ 'E'(s(s(0)), f(A_2)) | ~ iLEQ(suc(B_250), suc(B_251)))).
+
+cnf(clause_539, axiom,
+    (~ 'LE'(f(B_158), s(s(s(s(0))))) | 'E'(s(s(s(0))), f(B_158)) |
+     'LE'(f(B_158), s(s(s(0)))))).
+
+cnf(clause_59, axiom,
+    (~ 'E'(s(s(s(0))), f(A_1)) | ~ 'E'(s(s(s(0))), f(suc(A_1))) |
+     iLEQ(suc(A_1), suc(A_1)))).
+
+cnf(clause_222, axiom,
+    (~ 'LE'(f(suc(B_291)), s(s(0))) | 'E'(s(0), f(suc(B_291))) |
+     'LE'(f(B_291), s(0)))).
+
+cnf(clause_44, axiom,
+    (~ 'LE'(f(B_291), s(s(0))) | 'E'(s(0), f(B_291)) |
+     'LE'(f(B_291), s(0)))).
+
+cnf(clause_442, axiom,
+    (~ 'E'(0, f(suc(B_310))) | ~ 'E'(0, f(suc(B_311))) |
+     ~ 'E'(0, f(B_311)) | ~ 'E'(0, f(suc(B_313))) | ~ 'E'(0, f(B_310)) |
+     ~ 'E'(0, f(B_312)) | ~ 'E'(0, f(suc(B_312))) | ~ 'E'(0, f(B_313)) |
+     ~ iLEQ(suc(B_311), suc(B_312)) | ~ iLEQ(suc(B_310), suc(B_311)) |
+     ~ iLEQ(suc(A_4), suc(B_310)) | ~ 'E'(0, f(suc(A_4))) |
+     ~ iLEQ(suc(B_312), suc(B_313)) | ~ 'E'(0, f(A_4)))).
+
+cnf(clause_89, axiom,
+    (~ 'LE'(f(B_309), s(0)) | 'E'(0, f(B_309)) | 'LE'(f(B_309), 0))).
+
+cnf(clause_151, axiom,
+    (~ 'E'(s(0), f(suc(B_294))) | ~ 'E'(s(0), f(B_295)) |
+     ~ 'E'(s(0), f(suc(B_295))) | ~ 'E'(s(0), f(suc(B_292))) |
+     ~ 'E'(s(0), f(suc(A_3))) | ~ 'E'(s(0), f(B_294)) |
+     ~ 'E'(s(0), f(B_292)) | ~ iLEQ(suc(A_3), suc(B_292)) |
+     ~ 'E'(s(0), f(B_293)) | ~ iLEQ(suc(B_294), suc(B_295)) |
+     ~ 'E'(s(0), f(A_3)) | ~ 'E'(s(0), f(suc(B_293))) |
+     ~ iLEQ(suc(B_293), suc(B_294)) | ~ iLEQ(suc(B_292), suc(B_293)))).
+
+cnf(refute_0_0, plain,
+    (~ 'LE'(f(suc(X_109)), s(0)) | 'E'(0, f(suc(X_109))) |
+     'LE'(f(X_109), 0)),
+    inference(subst, [], [clause_547 : [bind(B_309, $fot(X_109))]])).
+
+cnf(refute_0_1, plain,
+    (~ 'LE'(f(X_61), s(s(0))) | 'E'(s(0), f(X_61)) | 'LE'(f(X_61), s(0))),
+    inference(subst, [], [clause_44 : [bind(B_291, $fot(X_61))]])).
+
+cnf(refute_0_2, plain,
+    (~ 'LE'(f(X_37), s(s(0))) | 'E'(s(0), f(X_37)) | 'LE'(f(X_37), s(0))),
+    inference(subst, [], [clause_44 : [bind(B_291, $fot(X_37))]])).
+
+cnf(refute_0_3, plain,
+    (~ 'LE'(f(X_36), s(s(s(0)))) | 'E'(s(s(0)), f(X_36)) |
+     'LE'(f(X_36), s(s(0)))),
+    inference(subst, [], [clause_97 : [bind(B_247, $fot(X_36))]])).
+
+cnf(refute_0_4, plain, ('LE'(f(B_158), s(s(s(s(0)))))),
+    inference(subst, [], [clause_451 : [bind(A, $fot(B_158))]])).
+
+cnf(refute_0_5, plain,
+    ('E'(s(s(s(0))), f(B_158)) | 'LE'(f(B_158), s(s(s(0))))),
+    inference(resolve, [$cnf('LE'(f(B_158), s(s(s(s(0))))))],
+              [refute_0_4, clause_539])).
+
+cnf(refute_0_6, plain,
+    ('E'(s(s(s(0))), f(X_13)) | 'LE'(f(X_13), s(s(s(0))))),
+    inference(subst, [], [refute_0_5 : [bind(B_158, $fot(X_13))]])).
+
+cnf(refute_0_7, plain,
+    (~ 'LE'(f(X_13), s(s(s(0)))) | 'E'(s(s(0)), f(X_13)) |
+     'LE'(f(X_13), s(s(0)))),
+    inference(subst, [], [clause_97 : [bind(B_247, $fot(X_13))]])).
+
+cnf(refute_0_8, plain,
+    ('E'(s(s(0)), f(X_13)) | 'E'(s(s(s(0))), f(X_13)) |
+     'LE'(f(X_13), s(s(0)))),
+    inference(resolve, [$cnf('LE'(f(X_13), s(s(s(0)))))],
+              [refute_0_6, refute_0_7])).
+
+cnf(refute_0_9, plain,
+    ('E'(s(s(0)), f(X_20)) | 'E'(s(s(s(0))), f(X_20)) |
+     'LE'(f(X_20), s(s(0)))),
+    inference(subst, [], [refute_0_8 : [bind(X_13, $fot(X_20))]])).
+
+cnf(refute_0_10, plain, ('LE'(f(suc(B_158)), s(s(s(s(0)))))),
+    inference(subst, [], [clause_451 : [bind(A, $fot(suc(B_158)))]])).
+
+cnf(refute_0_11, plain,
+    ('E'(s(s(s(0))), f(suc(B_158))) | 'LE'(f(B_158), s(s(s(0))))),
+    inference(resolve, [$cnf('LE'(f(suc(B_158)), s(s(s(s(0))))))],
+              [refute_0_10, clause_443])).
+
+cnf(refute_0_12, plain,
+    ('E'(s(s(s(0))), f(suc(X_18))) | 'LE'(f(X_18), s(s(s(0))))),
+    inference(subst, [], [refute_0_11 : [bind(B_158, $fot(X_18))]])).
+
+cnf(refute_0_13, plain,
+    (~ 'E'(s(s(s(0))), f(X_18)) | ~ 'E'(s(s(s(0))), f(suc(X_18))) |
+     ~ iLEQ(suc(X_18), suc(X_18))),
+    inference(subst, [],
+              [clause_560 :
+               [bind(A_1, $fot(X_18)), bind(B_159, $fot(X_18)),
+                bind(B_160, $fot(X_18)), bind(B_161, $fot(X_18)),
+                bind(B_162, $fot(X_18))]])).
+
+cnf(refute_0_14, plain,
+    (~ 'E'(s(s(s(0))), f(X_18)) | ~ iLEQ(suc(X_18), suc(X_18)) |
+     'LE'(f(X_18), s(s(s(0))))),
+    inference(resolve, [$cnf('E'(s(s(s(0))), f(suc(X_18))))],
+              [refute_0_12, refute_0_13])).
+
+cnf(refute_0_15, plain,
+    (~ 'E'(s(s(s(0))), f(X_20)) | ~ iLEQ(suc(X_20), suc(X_20)) |
+     'LE'(f(X_20), s(s(s(0))))),
+    inference(subst, [], [refute_0_14 : [bind(X_18, $fot(X_20))]])).
+
+cnf(refute_0_16, plain,
+    (~ iLEQ(suc(X_20), suc(X_20)) | 'E'(s(s(0)), f(X_20)) |
+     'LE'(f(X_20), s(s(0))) | 'LE'(f(X_20), s(s(s(0))))),
+    inference(resolve, [$cnf('E'(s(s(s(0))), f(X_20)))],
+              [refute_0_9, refute_0_15])).
+
+cnf(refute_0_17, plain,
+    (~ iLEQ(suc(X_35), suc(X_35)) | 'E'(s(s(0)), f(X_35)) |
+     'LE'(f(X_35), s(s(0))) | 'LE'(f(X_35), s(s(s(0))))),
+    inference(subst, [], [refute_0_16 : [bind(X_20, $fot(X_35))]])).
+
+cnf(refute_0_18, plain,
+    ('E'(s(s(0)), f(X_19)) | 'E'(s(s(s(0))), f(X_19)) |
+     'LE'(f(X_19), s(s(0)))),
+    inference(subst, [], [refute_0_8 : [bind(X_13, $fot(X_19))]])).
+
+cnf(refute_0_19, plain,
+    ('E'(s(s(s(0))), f(suc(X_17))) | 'LE'(f(X_17), s(s(s(0))))),
+    inference(subst, [], [refute_0_11 : [bind(B_158, $fot(X_17))]])).
+
+cnf(refute_0_20, plain,
+    (~ 'E'(s(s(s(0))), f(X_17)) | ~ 'E'(s(s(s(0))), f(suc(X_17))) |
+     iLEQ(suc(X_17), suc(X_17))),
+    inference(subst, [], [clause_59 : [bind(A_1, $fot(X_17))]])).
+
+cnf(refute_0_21, plain,
+    (~ 'E'(s(s(s(0))), f(X_17)) | 'LE'(f(X_17), s(s(s(0)))) |
+     iLEQ(suc(X_17), suc(X_17))),
+    inference(resolve, [$cnf('E'(s(s(s(0))), f(suc(X_17))))],
+              [refute_0_19, refute_0_20])).
+
+cnf(refute_0_22, plain,
+    (~ 'E'(s(s(s(0))), f(X_19)) | 'LE'(f(X_19), s(s(s(0)))) |
+     iLEQ(suc(X_19), suc(X_19))),
+    inference(subst, [], [refute_0_21 : [bind(X_17, $fot(X_19))]])).
+
+cnf(refute_0_23, plain,
+    ('E'(s(s(0)), f(X_19)) | 'LE'(f(X_19), s(s(0))) |
+     'LE'(f(X_19), s(s(s(0)))) | iLEQ(suc(X_19), suc(X_19))),
+    inference(resolve, [$cnf('E'(s(s(s(0))), f(X_19)))],
+              [refute_0_18, refute_0_22])).
+
+cnf(refute_0_24, plain,
+    ('E'(s(s(0)), f(X_35)) | 'LE'(f(X_35), s(s(0))) |
+     'LE'(f(X_35), s(s(s(0)))) | iLEQ(suc(X_35), suc(X_35))),
+    inference(subst, [], [refute_0_23 : [bind(X_19, $fot(X_35))]])).
+
+cnf(refute_0_25, plain,
+    ('E'(s(s(0)), f(X_35)) | 'LE'(f(X_35), s(s(0))) |
+     'LE'(f(X_35), s(s(s(0))))),
+    inference(resolve, [$cnf(iLEQ(suc(X_35), suc(X_35)))],
+              [refute_0_24, refute_0_17])).
+
+cnf(refute_0_26, plain,
+    ('E'(s(s(0)), f(X_36)) | 'LE'(f(X_36), s(s(0))) |
+     'LE'(f(X_36), s(s(s(0))))),
+    inference(subst, [], [refute_0_25 : [bind(X_35, $fot(X_36))]])).
+
+cnf(refute_0_27, plain, ('E'(s(s(0)), f(X_36)) | 'LE'(f(X_36), s(s(0)))),
+    inference(resolve, [$cnf('LE'(f(X_36), s(s(s(0)))))],
+              [refute_0_26, refute_0_3])).
+
+cnf(refute_0_28, plain, ('E'(s(s(0)), f(X_37)) | 'LE'(f(X_37), s(s(0)))),
+    inference(subst, [], [refute_0_27 : [bind(X_36, $fot(X_37))]])).
+
+cnf(refute_0_29, plain,
+    ('E'(s(0), f(X_37)) | 'E'(s(s(0)), f(X_37)) | 'LE'(f(X_37), s(0))),
+    inference(resolve, [$cnf('LE'(f(X_37), s(s(0))))],
+              [refute_0_28, refute_0_2])).
+
+cnf(refute_0_30, plain,
+    ('E'(s(0), f(X_46)) | 'E'(s(s(0)), f(X_46)) | 'LE'(f(X_46), s(0))),
+    inference(subst, [], [refute_0_29 : [bind(X_37, $fot(X_46))]])).
+
+cnf(refute_0_31, plain,
+    (~ 'E'(s(s(0)), f(X_45)) | ~ 'E'(s(s(0)), f(suc(X_45))) |
+     ~ iLEQ(suc(X_45), suc(X_45))),
+    inference(subst, [],
+              [clause_563 :
+               [bind(A_2, $fot(X_45)), bind(B_248, $fot(X_45)),
+                bind(B_249, $fot(X_45)), bind(B_250, $fot(X_45)),
+                bind(B_251, $fot(X_45))]])).
+
+cnf(refute_0_32, plain,
+    (~ 'LE'(f(suc(X_44)), s(s(s(0)))) | 'E'(s(s(0)), f(suc(X_44))) |
+     'LE'(f(X_44), s(s(0)))),
+    inference(subst, [], [clause_476 : [bind(B_247, $fot(X_44))]])).
+
+cnf(refute_0_33, plain,
+    ('E'(s(s(s(0))), f(suc(X_15))) | 'LE'(f(suc(X_15)), s(s(s(0))))),
+    inference(subst, [], [refute_0_5 : [bind(B_158, $fot(suc(X_15)))]])).
+
+cnf(refute_0_34, plain,
+    (~ 'LE'(f(suc(X_15)), s(s(s(0)))) | 'E'(s(s(0)), f(suc(X_15))) |
+     'LE'(f(X_15), s(s(0)))),
+    inference(subst, [], [clause_476 : [bind(B_247, $fot(X_15))]])).
+
+cnf(refute_0_35, plain,
+    ('E'(s(s(0)), f(suc(X_15))) | 'E'(s(s(s(0))), f(suc(X_15))) |
+     'LE'(f(X_15), s(s(0)))),
+    inference(resolve, [$cnf('LE'(f(suc(X_15)), s(s(s(0)))))],
+              [refute_0_33, refute_0_34])).
+
+cnf(refute_0_36, plain,
+    (~ 'E'(s(s(s(0))), f(suc(X_15))) |
+     ~ iLEQ(suc(suc(X_15)), suc(suc(X_15))) |
+     'LE'(f(suc(X_15)), s(s(s(0))))),
+    inference(subst, [], [refute_0_14 : [bind(X_18, $fot(suc(X_15)))]])).
+
+cnf(refute_0_37, plain,
+    (~ iLEQ(suc(suc(X_15)), suc(suc(X_15))) | 'E'(s(s(0)), f(suc(X_15))) |
+     'LE'(f(X_15), s(s(0))) | 'LE'(f(suc(X_15)), s(s(s(0))))),
+    inference(resolve, [$cnf('E'(s(s(s(0))), f(suc(X_15))))],
+              [refute_0_35, refute_0_36])).
+
+cnf(refute_0_38, plain,
+    (~ iLEQ(suc(suc(X_43)), suc(suc(X_43))) | 'E'(s(s(0)), f(suc(X_43))) |
+     'LE'(f(X_43), s(s(0))) | 'LE'(f(suc(X_43)), s(s(s(0))))),
+    inference(subst, [], [refute_0_37 : [bind(X_15, $fot(X_43))]])).
+
+cnf(refute_0_39, plain,
+    (~ 'E'(s(s(s(0))), f(suc(X_15))) | 'LE'(f(suc(X_15)), s(s(s(0)))) |
+     iLEQ(suc(suc(X_15)), suc(suc(X_15)))),
+    inference(subst, [], [refute_0_21 : [bind(X_17, $fot(suc(X_15)))]])).
+
+cnf(refute_0_40, plain,
+    ('E'(s(s(0)), f(suc(X_15))) | 'LE'(f(X_15), s(s(0))) |
+     'LE'(f(suc(X_15)), s(s(s(0)))) |
+     iLEQ(suc(suc(X_15)), suc(suc(X_15)))),
+    inference(resolve, [$cnf('E'(s(s(s(0))), f(suc(X_15))))],
+              [refute_0_35, refute_0_39])).
+
+cnf(refute_0_41, plain,
+    ('E'(s(s(0)), f(suc(X_43))) | 'LE'(f(X_43), s(s(0))) |
+     'LE'(f(suc(X_43)), s(s(s(0)))) |
+     iLEQ(suc(suc(X_43)), suc(suc(X_43)))),
+    inference(subst, [], [refute_0_40 : [bind(X_15, $fot(X_43))]])).
+
+cnf(refute_0_42, plain,
+    ('E'(s(s(0)), f(suc(X_43))) | 'LE'(f(X_43), s(s(0))) |
+     'LE'(f(suc(X_43)), s(s(s(0))))),
+    inference(resolve, [$cnf(iLEQ(suc(suc(X_43)), suc(suc(X_43))))],
+              [refute_0_41, refute_0_38])).
+
+cnf(refute_0_43, plain,
+    ('E'(s(s(0)), f(suc(X_44))) | 'LE'(f(X_44), s(s(0))) |
+     'LE'(f(suc(X_44)), s(s(s(0))))),
+    inference(subst, [], [refute_0_42 : [bind(X_43, $fot(X_44))]])).
+
+cnf(refute_0_44, plain,
+    ('E'(s(s(0)), f(suc(X_44))) | 'LE'(f(X_44), s(s(0)))),
+    inference(resolve, [$cnf('LE'(f(suc(X_44)), s(s(s(0)))))],
+              [refute_0_43, refute_0_32])).
+
+cnf(refute_0_45, plain,
+    ('E'(s(s(0)), f(suc(X_45))) | 'LE'(f(X_45), s(s(0)))),
+    inference(subst, [], [refute_0_44 : [bind(X_44, $fot(X_45))]])).
+
+cnf(refute_0_46, plain,
+    (~ 'E'(s(s(0)), f(X_45)) | ~ iLEQ(suc(X_45), suc(X_45)) |
+     'LE'(f(X_45), s(s(0)))),
+    inference(resolve, [$cnf('E'(s(s(0)), f(suc(X_45))))],
+              [refute_0_45, refute_0_31])).
+
+cnf(refute_0_47, plain,
+    (~ 'E'(s(s(0)), f(X_46)) | ~ iLEQ(suc(X_46), suc(X_46)) |
+     'LE'(f(X_46), s(s(0)))),
+    inference(subst, [], [refute_0_46 : [bind(X_45, $fot(X_46))]])).
+
+cnf(refute_0_48, plain,
+    (~ iLEQ(suc(X_46), suc(X_46)) | 'E'(s(0), f(X_46)) |
+     'LE'(f(X_46), s(0)) | 'LE'(f(X_46), s(s(0)))),
+    inference(resolve, [$cnf('E'(s(s(0)), f(X_46)))],
+              [refute_0_30, refute_0_47])).
+
+cnf(refute_0_49, plain,
+    (~ iLEQ(suc(X_59), suc(X_59)) | 'E'(s(0), f(X_59)) |
+     'LE'(f(X_59), s(0)) | 'LE'(f(X_59), s(s(0)))),
+    inference(subst, [], [refute_0_48 : [bind(X_46, $fot(X_59))]])).
+
+cnf(refute_0_50, plain,
+    ('E'(s(0), f(X_47)) | 'E'(s(s(0)), f(X_47)) | 'LE'(f(X_47), s(0))),
+    inference(subst, [], [refute_0_29 : [bind(X_37, $fot(X_47))]])).
+
+cnf(refute_0_51, plain,
+    (~ 'E'(s(s(0)), f(X_45)) | ~ 'E'(s(s(0)), f(suc(X_45))) |
+     iLEQ(suc(X_45), suc(X_45))),
+    inference(subst, [], [clause_29 : [bind(A_2, $fot(X_45))]])).
+
+cnf(refute_0_52, plain,
+    (~ 'E'(s(s(0)), f(X_45)) | 'LE'(f(X_45), s(s(0))) |
+     iLEQ(suc(X_45), suc(X_45))),
+    inference(resolve, [$cnf('E'(s(s(0)), f(suc(X_45))))],
+              [refute_0_45, refute_0_51])).
+
+cnf(refute_0_53, plain,
+    (~ 'E'(s(s(0)), f(X_47)) | 'LE'(f(X_47), s(s(0))) |
+     iLEQ(suc(X_47), suc(X_47))),
+    inference(subst, [], [refute_0_52 : [bind(X_45, $fot(X_47))]])).
+
+cnf(refute_0_54, plain,
+    ('E'(s(0), f(X_47)) | 'LE'(f(X_47), s(0)) | 'LE'(f(X_47), s(s(0))) |
+     iLEQ(suc(X_47), suc(X_47))),
+    inference(resolve, [$cnf('E'(s(s(0)), f(X_47)))],
+              [refute_0_50, refute_0_53])).
+
+cnf(refute_0_55, plain,
+    ('E'(s(0), f(X_59)) | 'LE'(f(X_59), s(0)) | 'LE'(f(X_59), s(s(0))) |
+     iLEQ(suc(X_59), suc(X_59))),
+    inference(subst, [], [refute_0_54 : [bind(X_47, $fot(X_59))]])).
+
+cnf(refute_0_56, plain,
+    ('E'(s(0), f(X_59)) | 'LE'(f(X_59), s(0)) | 'LE'(f(X_59), s(s(0)))),
+    inference(resolve, [$cnf(iLEQ(suc(X_59), suc(X_59)))],
+              [refute_0_55, refute_0_49])).
+
+cnf(refute_0_57, plain,
+    ('E'(s(0), f(X_61)) | 'LE'(f(X_61), s(0)) | 'LE'(f(X_61), s(s(0)))),
+    inference(subst, [], [refute_0_56 : [bind(X_59, $fot(X_61))]])).
+
+cnf(refute_0_58, plain, ('E'(s(0), f(X_61)) | 'LE'(f(X_61), s(0))),
+    inference(resolve, [$cnf('LE'(f(X_61), s(s(0))))],
+              [refute_0_57, refute_0_1])).
+
+cnf(refute_0_59, plain,
+    ('E'(s(0), f(suc(B_309))) | 'LE'(f(suc(B_309)), s(0))),
+    inference(subst, [], [refute_0_58 : [bind(X_61, $fot(suc(B_309)))]])).
+
+cnf(refute_0_60, plain,
+    ('E'(0, f(suc(B_309))) | 'E'(s(0), f(suc(B_309))) | 'LE'(f(B_309), 0)),
+    inference(resolve, [$cnf('LE'(f(suc(B_309)), s(0)))],
+              [refute_0_59, clause_547])).
+
+cnf(refute_0_61, plain,
+    ('E'(0, f(suc(X_108))) | 'E'(s(0), f(suc(X_108))) | 'LE'(f(X_108), 0)),
+    inference(subst, [], [refute_0_60 : [bind(B_309, $fot(X_108))]])).
+
+cnf(refute_0_62, plain,
+    (~ 'E'(s(0), f(X_80)) | ~ 'E'(s(0), f(suc(X_80))) |
+     ~ iLEQ(suc(X_80), suc(X_80))),
+    inference(subst, [],
+              [clause_151 :
+               [bind(A_3, $fot(X_80)), bind(B_292, $fot(X_80)),
+                bind(B_293, $fot(X_80)), bind(B_294, $fot(X_80)),
+                bind(B_295, $fot(X_80))]])).
+
+cnf(refute_0_63, plain,
+    (~ 'LE'(f(suc(X_79)), s(s(0))) | 'E'(s(0), f(suc(X_79))) |
+     'LE'(f(X_79), s(0))),
+    inference(subst, [], [clause_222 : [bind(B_291, $fot(X_79))]])).
+
+cnf(refute_0_64, plain,
+    ('E'(s(s(0)), f(suc(B_291))) | 'LE'(f(suc(B_291)), s(s(0)))),
+    inference(subst, [], [refute_0_27 : [bind(X_36, $fot(suc(B_291)))]])).
+
+cnf(refute_0_65, plain,
+    ('E'(s(0), f(suc(B_291))) | 'E'(s(s(0)), f(suc(B_291))) |
+     'LE'(f(B_291), s(0))),
+    inference(resolve, [$cnf('LE'(f(suc(B_291)), s(s(0))))],
+              [refute_0_64, clause_222])).
+
+cnf(refute_0_66, plain,
+    ('E'(s(0), f(suc(X_78))) | 'E'(s(s(0)), f(suc(X_78))) |
+     'LE'(f(X_78), s(0))),
+    inference(subst, [], [refute_0_65 : [bind(B_291, $fot(X_78))]])).
+
+cnf(refute_0_67, plain,
+    (~ 'E'(s(s(0)), f(suc(X_71))) |
+     ~ iLEQ(suc(suc(X_71)), suc(suc(X_71))) | 'LE'(f(suc(X_71)), s(s(0)))),
+    inference(subst, [], [refute_0_46 : [bind(X_45, $fot(suc(X_71)))]])).
+
+cnf(refute_0_68, plain,
+    (~ 'E'(s(s(0)), f(suc(B_291))) | 'LE'(f(suc(B_291)), s(s(0))) |
+     iLEQ(suc(suc(B_291)), suc(suc(B_291)))),
+    inference(subst, [], [refute_0_52 : [bind(X_45, $fot(suc(B_291)))]])).
+
+cnf(refute_0_69, plain,
+    ('E'(s(0), f(suc(B_291))) | 'LE'(f(B_291), s(0)) |
+     'LE'(f(suc(B_291)), s(s(0))) |
+     iLEQ(suc(suc(B_291)), suc(suc(B_291)))),
+    inference(resolve, [$cnf('E'(s(s(0)), f(suc(B_291))))],
+              [refute_0_65, refute_0_68])).
+
+cnf(refute_0_70, plain,
+    ('E'(s(0), f(suc(X_71))) | 'LE'(f(X_71), s(0)) |
+     'LE'(f(suc(X_71)), s(s(0))) | iLEQ(suc(suc(X_71)), suc(suc(X_71)))),
+    inference(subst, [], [refute_0_69 : [bind(B_291, $fot(X_71))]])).
+
+cnf(refute_0_71, plain,
+    (~ 'E'(s(s(0)), f(suc(X_71))) | 'E'(s(0), f(suc(X_71))) |
+     'LE'(f(X_71), s(0)) | 'LE'(f(suc(X_71)), s(s(0)))),
+    inference(resolve, [$cnf(iLEQ(suc(suc(X_71)), suc(suc(X_71))))],
+              [refute_0_70, refute_0_67])).
+
+cnf(refute_0_72, plain,
+    (~ 'E'(s(s(0)), f(suc(X_78))) | 'E'(s(0), f(suc(X_78))) |
+     'LE'(f(X_78), s(0)) | 'LE'(f(suc(X_78)), s(s(0)))),
+    inference(subst, [], [refute_0_71 : [bind(X_71, $fot(X_78))]])).
+
+cnf(refute_0_73, plain,
+    ('E'(s(0), f(suc(X_78))) | 'LE'(f(X_78), s(0)) |
+     'LE'(f(suc(X_78)), s(s(0)))),
+    inference(resolve, [$cnf('E'(s(s(0)), f(suc(X_78))))],
+              [refute_0_66, refute_0_72])).
+
+cnf(refute_0_74, plain,
+    ('E'(s(0), f(suc(X_79))) | 'LE'(f(X_79), s(0)) |
+     'LE'(f(suc(X_79)), s(s(0)))),
+    inference(subst, [], [refute_0_73 : [bind(X_78, $fot(X_79))]])).
+
+cnf(refute_0_75, plain, ('E'(s(0), f(suc(X_79))) | 'LE'(f(X_79), s(0))),
+    inference(resolve, [$cnf('LE'(f(suc(X_79)), s(s(0))))],
+              [refute_0_74, refute_0_63])).
+
+cnf(refute_0_76, plain, ('E'(s(0), f(suc(X_80))) | 'LE'(f(X_80), s(0))),
+    inference(subst, [], [refute_0_75 : [bind(X_79, $fot(X_80))]])).
+
+cnf(refute_0_77, plain,
+    (~ 'E'(s(0), f(X_80)) | ~ iLEQ(suc(X_80), suc(X_80)) |
+     'LE'(f(X_80), s(0))),
+    inference(resolve, [$cnf('E'(s(0), f(suc(X_80))))],
+              [refute_0_76, refute_0_62])).
+
+cnf(refute_0_78, plain,
+    (~ 'E'(s(0), f(suc(X_97))) | ~ iLEQ(suc(suc(X_97)), suc(suc(X_97))) |
+     'LE'(f(suc(X_97)), s(0))),
+    inference(subst, [], [refute_0_77 : [bind(X_80, $fot(suc(X_97)))]])).
+
+cnf(refute_0_79, plain,
+    (~ 'E'(s(0), f(X_80)) | ~ 'E'(s(0), f(suc(X_80))) |
+     iLEQ(suc(X_80), suc(X_80))),
+    inference(subst, [], [clause_398 : [bind(A_3, $fot(X_80))]])).
+
+cnf(refute_0_80, plain,
+    (~ 'E'(s(0), f(X_80)) | 'LE'(f(X_80), s(0)) |
+     iLEQ(suc(X_80), suc(X_80))),
+    inference(resolve, [$cnf('E'(s(0), f(suc(X_80))))],
+              [refute_0_76, refute_0_79])).
+
+cnf(refute_0_81, plain,
+    (~ 'E'(s(0), f(suc(B_309))) | 'LE'(f(suc(B_309)), s(0)) |
+     iLEQ(suc(suc(B_309)), suc(suc(B_309)))),
+    inference(subst, [], [refute_0_80 : [bind(X_80, $fot(suc(B_309)))]])).
+
+cnf(refute_0_82, plain,
+    ('E'(0, f(suc(B_309))) | 'LE'(f(B_309), 0) |
+     'LE'(f(suc(B_309)), s(0)) | iLEQ(suc(suc(B_309)), suc(suc(B_309)))),
+    inference(resolve, [$cnf('E'(s(0), f(suc(B_309))))],
+              [refute_0_60, refute_0_81])).
+
+cnf(refute_0_83, plain,
+    ('E'(0, f(suc(X_97))) | 'LE'(f(X_97), 0) | 'LE'(f(suc(X_97)), s(0)) |
+     iLEQ(suc(suc(X_97)), suc(suc(X_97)))),
+    inference(subst, [], [refute_0_82 : [bind(B_309, $fot(X_97))]])).
+
+cnf(refute_0_84, plain,
+    (~ 'E'(s(0), f(suc(X_97))) | 'E'(0, f(suc(X_97))) | 'LE'(f(X_97), 0) |
+     'LE'(f(suc(X_97)), s(0))),
+    inference(resolve, [$cnf(iLEQ(suc(suc(X_97)), suc(suc(X_97))))],
+              [refute_0_83, refute_0_78])).
+
+cnf(refute_0_85, plain,
+    (~ 'E'(s(0), f(suc(X_108))) | 'E'(0, f(suc(X_108))) |
+     'LE'(f(X_108), 0) | 'LE'(f(suc(X_108)), s(0))),
+    inference(subst, [], [refute_0_84 : [bind(X_97, $fot(X_108))]])).
+
+cnf(refute_0_86, plain,
+    ('E'(0, f(suc(X_108))) | 'LE'(f(X_108), 0) |
+     'LE'(f(suc(X_108)), s(0))),
+    inference(resolve, [$cnf('E'(s(0), f(suc(X_108))))],
+              [refute_0_61, refute_0_85])).
+
+cnf(refute_0_87, plain,
+    ('E'(0, f(suc(X_109))) | 'LE'(f(X_109), 0) |
+     'LE'(f(suc(X_109)), s(0))),
+    inference(subst, [], [refute_0_86 : [bind(X_108, $fot(X_109))]])).
+
+cnf(refute_0_88, plain, ('E'(0, f(suc(X_109))) | 'LE'(f(X_109), 0)),
+    inference(resolve, [$cnf('LE'(f(suc(X_109)), s(0)))],
+              [refute_0_87, refute_0_0])).
+
+cnf(refute_0_89, plain, ('E'(0, f(suc(z))) | 'LE'(f(z), 0)),
+    inference(subst, [], [refute_0_88 : [bind(X_109, $fot(z))]])).
+
+cnf(refute_0_90, plain,
+    (~ 'E'(0, f(suc(z))) | ~ 'E'(0, f(z)) | ~ iLEQ(suc(z), suc(z))),
+    inference(subst, [],
+              [clause_442 :
+               [bind(A_4, $fot(z)), bind(B_310, $fot(z)),
+                bind(B_311, $fot(z)), bind(B_312, $fot(z)),
+                bind(B_313, $fot(z))]])).
+
+cnf(refute_0_91, plain,
+    (~ 'LE'(f(X_94), s(0)) | 'E'(0, f(X_94)) | 'LE'(f(X_94), 0)),
+    inference(subst, [], [clause_89 : [bind(B_309, $fot(X_94))]])).
+
+cnf(refute_0_92, plain,
+    (~ 'LE'(f(X_62), s(0)) | 'E'(0, f(X_62)) | 'LE'(f(X_62), 0)),
+    inference(subst, [], [clause_89 : [bind(B_309, $fot(X_62))]])).
+
+cnf(refute_0_93, plain, ('E'(s(0), f(X_62)) | 'LE'(f(X_62), s(0))),
+    inference(subst, [], [refute_0_58 : [bind(X_61, $fot(X_62))]])).
+
+cnf(refute_0_94, plain,
+    ('E'(0, f(X_62)) | 'E'(s(0), f(X_62)) | 'LE'(f(X_62), 0)),
+    inference(resolve, [$cnf('LE'(f(X_62), s(0)))],
+              [refute_0_93, refute_0_92])).
+
+cnf(refute_0_95, plain,
+    ('E'(0, f(X_93)) | 'E'(s(0), f(X_93)) | 'LE'(f(X_93), 0)),
+    inference(subst, [], [refute_0_94 : [bind(X_62, $fot(X_93))]])).
+
+cnf(refute_0_96, plain, ('E'(s(0), f(suc(X_92))) | 'LE'(f(X_92), s(0))),
+    inference(subst, [], [refute_0_75 : [bind(X_79, $fot(X_92))]])).
+
+cnf(refute_0_97, plain,
+    ('E'(0, f(X_81)) | 'E'(s(0), f(X_81)) | 'LE'(f(X_81), 0)),
+    inference(subst, [], [refute_0_94 : [bind(X_62, $fot(X_81))]])).
+
+cnf(refute_0_98, plain,
+    (~ 'E'(s(0), f(X_81)) | 'LE'(f(X_81), s(0)) |
+     iLEQ(suc(X_81), suc(X_81))),
+    inference(subst, [], [refute_0_80 : [bind(X_80, $fot(X_81))]])).
+
+cnf(refute_0_99, plain,
+    ('E'(0, f(X_81)) | 'LE'(f(X_81), 0) | 'LE'(f(X_81), s(0)) |
+     iLEQ(suc(X_81), suc(X_81))),
+    inference(resolve, [$cnf('E'(s(0), f(X_81)))],
+              [refute_0_97, refute_0_98])).
+
+cnf(refute_0_100, plain,
+    ('E'(0, f(X_91)) | 'LE'(f(X_91), 0) | 'LE'(f(X_91), s(0)) |
+     iLEQ(suc(X_91), suc(X_91))),
+    inference(subst, [], [refute_0_99 : [bind(X_81, $fot(X_91))]])).
+
+cnf(refute_0_101, plain,
+    (~ 'E'(s(0), f(X_91)) | ~ 'E'(s(0), f(suc(X_91))) |
+     ~ iLEQ(suc(X_91), suc(X_91))),
+    inference(subst, [],
+              [clause_151 :
+               [bind(A_3, $fot(X_91)), bind(B_292, $fot(X_91)),
+                bind(B_293, $fot(X_91)), bind(B_294, $fot(X_91)),
+                bind(B_295, $fot(X_91))]])).
+
+cnf(refute_0_102, plain,
+    (~ 'E'(s(0), f(X_91)) | ~ 'E'(s(0), f(suc(X_91))) | 'E'(0, f(X_91)) |
+     'LE'(f(X_91), 0) | 'LE'(f(X_91), s(0))),
+    inference(resolve, [$cnf(iLEQ(suc(X_91), suc(X_91)))],
+              [refute_0_100, refute_0_101])).
+
+cnf(refute_0_103, plain,
+    (~ 'E'(s(0), f(X_92)) | ~ 'E'(s(0), f(suc(X_92))) | 'E'(0, f(X_92)) |
+     'LE'(f(X_92), 0) | 'LE'(f(X_92), s(0))),
+    inference(subst, [], [refute_0_102 : [bind(X_91, $fot(X_92))]])).
+
+cnf(refute_0_104, plain,
+    (~ 'E'(s(0), f(X_92)) | 'E'(0, f(X_92)) | 'LE'(f(X_92), 0) |
+     'LE'(f(X_92), s(0))),
+    inference(resolve, [$cnf('E'(s(0), f(suc(X_92))))],
+              [refute_0_96, refute_0_103])).
+
+cnf(refute_0_105, plain,
+    (~ 'E'(s(0), f(X_93)) | 'E'(0, f(X_93)) | 'LE'(f(X_93), 0) |
+     'LE'(f(X_93), s(0))),
+    inference(subst, [], [refute_0_104 : [bind(X_92, $fot(X_93))]])).
+
+cnf(refute_0_106, plain,
+    ('E'(0, f(X_93)) | 'LE'(f(X_93), 0) | 'LE'(f(X_93), s(0))),
+    inference(resolve, [$cnf('E'(s(0), f(X_93)))],
+              [refute_0_95, refute_0_105])).
+
+cnf(refute_0_107, plain,
+    ('E'(0, f(X_94)) | 'LE'(f(X_94), 0) | 'LE'(f(X_94), s(0))),
+    inference(subst, [], [refute_0_106 : [bind(X_93, $fot(X_94))]])).
+
+cnf(refute_0_108, plain, ('E'(0, f(X_94)) | 'LE'(f(X_94), 0)),
+    inference(resolve, [$cnf('LE'(f(X_94), s(0)))],
+              [refute_0_107, refute_0_91])).
+
+cnf(refute_0_109, plain, ('E'(0, f(z)) | 'LE'(f(z), 0)),
+    inference(subst, [], [refute_0_108 : [bind(X_94, $fot(z))]])).
+
+cnf(refute_0_110, plain, ('E'(0, f(z))),
+    inference(resolve, [$cnf('LE'(f(z), 0))], [refute_0_109, clause_287])).
+
+cnf(refute_0_111, plain,
+    (~ 'E'(0, f(X_110)) | ~ 'E'(0, f(suc(X_110))) |
+     iLEQ(suc(X_110), suc(X_110))),
+    inference(subst, [], [clause_469 : [bind(A_4, $fot(X_110))]])).
+
+cnf(refute_0_112, plain, ('E'(0, f(suc(X_110))) | 'LE'(f(X_110), 0)),
+    inference(subst, [], [refute_0_88 : [bind(X_109, $fot(X_110))]])).
+
+cnf(refute_0_113, plain,
+    (~ 'E'(0, f(X_110)) | 'LE'(f(X_110), 0) |
+     iLEQ(suc(X_110), suc(X_110))),
+    inference(resolve, [$cnf('E'(0, f(suc(X_110))))],
+              [refute_0_112, refute_0_111])).
+
+cnf(refute_0_114, plain,
+    (~ 'E'(0, f(z)) | 'LE'(f(z), 0) | iLEQ(suc(z), suc(z))),
+    inference(subst, [], [refute_0_113 : [bind(X_110, $fot(z))]])).
+
+cnf(refute_0_115, plain, ('LE'(f(z), 0) | iLEQ(suc(z), suc(z))),
+    inference(resolve, [$cnf('E'(0, f(z)))],
+              [refute_0_110, refute_0_114])).
+
+cnf(refute_0_116, plain, (iLEQ(suc(z), suc(z))),
+    inference(resolve, [$cnf('LE'(f(z), 0))], [refute_0_115, clause_287])).
+
+cnf(refute_0_117, plain, (~ 'E'(0, f(suc(z))) | ~ 'E'(0, f(z))),
+    inference(resolve, [$cnf(iLEQ(suc(z), suc(z)))],
+              [refute_0_116, refute_0_90])).
+
+cnf(refute_0_118, plain, (~ 'E'(0, f(suc(z)))),
+    inference(resolve, [$cnf('E'(0, f(z)))],
+              [refute_0_110, refute_0_117])).
+
+cnf(refute_0_119, plain, ('LE'(f(z), 0)),
+    inference(resolve, [$cnf('E'(0, f(suc(z))))],
+              [refute_0_89, refute_0_118])).
+
+cnf(refute_0_120, plain, ($false),
+    inference(resolve, [$cnf('LE'(f(z), 0))], [refute_0_119, clause_287])).
+% SZS output end CNFRefutation for SYO683-1.tptp
+

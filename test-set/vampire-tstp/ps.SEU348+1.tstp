@@ -1,0 +1,231 @@
+% Refutation found. Thanks to Tanya!
+% SZS status Theorem for SEU348+1
+% SZS output start Proof for SEU348+1
+fof(f978,plain,(
+  $false),
+  inference(avatar_sat_refutation,[],[f281,f282,f940,f977])).
+fof(f977,plain,(
+  ~spl19_1 | spl19_2),
+  inference(avatar_contradiction_clause,[],[f976])).
+fof(f976,plain,(
+  $false | (~spl19_1 | spl19_2)),
+  inference(subsumption_resolution,[],[f975,f941])).
+fof(f941,plain,(
+  ~latt_set_smaller(sK17,sK18,sK16) | spl19_2),
+  inference(forward_demodulation,[],[f280,f481])).
+fof(f481,plain,(
+  sK18 = cast_to_el_of_lattice(sK17,sK18)),
+  inference(subsumption_resolution,[],[f480,f260])).
+fof(f260,plain,(
+  ~empty_carrier(sK17)),
+  inference(cnf_transformation,[],[f170])).
+fof(f170,plain,(
+  ((~latt_set_smaller(sK17,cast_to_el_of_lattice(sK17,sK18),sK16) | ~relstr_element_smaller(poset_of_lattice(sK17),sK16,sK18)) & (latt_set_smaller(sK17,cast_to_el_of_lattice(sK17,sK18),sK16) | relstr_element_smaller(poset_of_lattice(sK17),sK16,sK18)) & element(sK18,the_carrier(poset_of_lattice(sK17)))) & latt_str(sK17) & lattice(sK17) & ~empty_carrier(sK17)),
+  inference(skolemisation,[status(esa),new_symbols(skolem,[sK16,sK17,sK18])],[f167,f169,f168])).
+fof(f168,plain,(
+  ? [X0,X1] : (? [X2] : ((~latt_set_smaller(X1,cast_to_el_of_lattice(X1,X2),X0) | ~relstr_element_smaller(poset_of_lattice(X1),X0,X2)) & (latt_set_smaller(X1,cast_to_el_of_lattice(X1,X2),X0) | relstr_element_smaller(poset_of_lattice(X1),X0,X2)) & element(X2,the_carrier(poset_of_lattice(X1)))) & latt_str(X1) & lattice(X1) & ~empty_carrier(X1)) => (? [X2] : ((~latt_set_smaller(sK17,cast_to_el_of_lattice(sK17,X2),sK16) | ~relstr_element_smaller(poset_of_lattice(sK17),sK16,X2)) & (latt_set_smaller(sK17,cast_to_el_of_lattice(sK17,X2),sK16) | relstr_element_smaller(poset_of_lattice(sK17),sK16,X2)) & element(X2,the_carrier(poset_of_lattice(sK17)))) & latt_str(sK17) & lattice(sK17) & ~empty_carrier(sK17))),
+  introduced(choice_axiom,[])).
+fof(f169,plain,(
+  ? [X2] : ((~latt_set_smaller(sK17,cast_to_el_of_lattice(sK17,X2),sK16) | ~relstr_element_smaller(poset_of_lattice(sK17),sK16,X2)) & (latt_set_smaller(sK17,cast_to_el_of_lattice(sK17,X2),sK16) | relstr_element_smaller(poset_of_lattice(sK17),sK16,X2)) & element(X2,the_carrier(poset_of_lattice(sK17)))) => ((~latt_set_smaller(sK17,cast_to_el_of_lattice(sK17,sK18),sK16) | ~relstr_element_smaller(poset_of_lattice(sK17),sK16,sK18)) & (latt_set_smaller(sK17,cast_to_el_of_lattice(sK17,sK18),sK16) | relstr_element_smaller(poset_of_lattice(sK17),sK16,sK18)) & element(sK18,the_carrier(poset_of_lattice(sK17))))),
+  introduced(choice_axiom,[])).
+fof(f167,plain,(
+  ? [X0,X1] : (? [X2] : ((~latt_set_smaller(X1,cast_to_el_of_lattice(X1,X2),X0) | ~relstr_element_smaller(poset_of_lattice(X1),X0,X2)) & (latt_set_smaller(X1,cast_to_el_of_lattice(X1,X2),X0) | relstr_element_smaller(poset_of_lattice(X1),X0,X2)) & element(X2,the_carrier(poset_of_lattice(X1)))) & latt_str(X1) & lattice(X1) & ~empty_carrier(X1))),
+  inference(flattening,[],[f166])).
+fof(f166,plain,(
+  ? [X0,X1] : (? [X2] : (((~latt_set_smaller(X1,cast_to_el_of_lattice(X1,X2),X0) | ~relstr_element_smaller(poset_of_lattice(X1),X0,X2)) & (latt_set_smaller(X1,cast_to_el_of_lattice(X1,X2),X0) | relstr_element_smaller(poset_of_lattice(X1),X0,X2))) & element(X2,the_carrier(poset_of_lattice(X1)))) & latt_str(X1) & lattice(X1) & ~empty_carrier(X1))),
+  inference(nnf_transformation,[],[f122])).
+fof(f122,plain,(
+  ? [X0,X1] : (? [X2] : ((relstr_element_smaller(poset_of_lattice(X1),X0,X2) <~> latt_set_smaller(X1,cast_to_el_of_lattice(X1,X2),X0)) & element(X2,the_carrier(poset_of_lattice(X1)))) & latt_str(X1) & lattice(X1) & ~empty_carrier(X1))),
+  inference(flattening,[],[f121])).
+fof(f121,plain,(
+  ? [X0,X1] : (? [X2] : ((relstr_element_smaller(poset_of_lattice(X1),X0,X2) <~> latt_set_smaller(X1,cast_to_el_of_lattice(X1,X2),X0)) & element(X2,the_carrier(poset_of_lattice(X1)))) & (latt_str(X1) & lattice(X1) & ~empty_carrier(X1)))),
+  inference(ennf_transformation,[],[f59])).
+fof(f59,negated_conjecture,(
+  ~! [X0,X1] : ((latt_str(X1) & lattice(X1) & ~empty_carrier(X1)) => ! [X2] : (element(X2,the_carrier(poset_of_lattice(X1))) => (relstr_element_smaller(poset_of_lattice(X1),X0,X2) <=> latt_set_smaller(X1,cast_to_el_of_lattice(X1,X2),X0))))),
+  inference(negated_conjecture,[],[f58])).
+fof(f58,conjecture,(
+  ! [X0,X1] : ((latt_str(X1) & lattice(X1) & ~empty_carrier(X1)) => ! [X2] : (element(X2,the_carrier(poset_of_lattice(X1))) => (relstr_element_smaller(poset_of_lattice(X1),X0,X2) <=> latt_set_smaller(X1,cast_to_el_of_lattice(X1,X2),X0))))),
+  file('SEU348+1.tptp',unknown)).
+fof(f480,plain,(
+  sK18 = cast_to_el_of_lattice(sK17,sK18) | empty_carrier(sK17)),
+  inference(subsumption_resolution,[],[f479,f261])).
+fof(f261,plain,(
+  lattice(sK17)),
+  inference(cnf_transformation,[],[f170])).
+fof(f479,plain,(
+  sK18 = cast_to_el_of_lattice(sK17,sK18) | ~lattice(sK17) | empty_carrier(sK17)),
+  inference(subsumption_resolution,[],[f478,f262])).
+fof(f262,plain,(
+  latt_str(sK17)),
+  inference(cnf_transformation,[],[f170])).
+fof(f478,plain,(
+  sK18 = cast_to_el_of_lattice(sK17,sK18) | ~latt_str(sK17) | ~lattice(sK17) | empty_carrier(sK17)),
+  inference(resolution,[],[f184,f263])).
+fof(f263,plain,(
+  element(sK18,the_carrier(poset_of_lattice(sK17)))),
+  inference(cnf_transformation,[],[f170])).
+fof(f184,plain,(
+  ( ! [X0,X1] : (~element(X1,the_carrier(poset_of_lattice(X0))) | cast_to_el_of_lattice(X0,X1) = X1 | ~latt_str(X0) | ~lattice(X0) | empty_carrier(X0)) )),
+  inference(cnf_transformation,[],[f84])).
+fof(f84,plain,(
+  ! [X0] : (! [X1] : (cast_to_el_of_lattice(X0,X1) = X1 | ~element(X1,the_carrier(poset_of_lattice(X0)))) | ~latt_str(X0) | ~lattice(X0) | empty_carrier(X0))),
+  inference(flattening,[],[f83])).
+fof(f83,plain,(
+  ! [X0] : (! [X1] : (cast_to_el_of_lattice(X0,X1) = X1 | ~element(X1,the_carrier(poset_of_lattice(X0)))) | (~latt_str(X0) | ~lattice(X0) | empty_carrier(X0)))),
+  inference(ennf_transformation,[],[f8])).
+fof(f8,axiom,(
+  ! [X0] : ((latt_str(X0) & lattice(X0) & ~empty_carrier(X0)) => ! [X1] : (element(X1,the_carrier(poset_of_lattice(X0))) => cast_to_el_of_lattice(X0,X1) = X1))),
+  file('SEU348+1.tptp',unknown)).
+fof(f280,plain,(
+  ~latt_set_smaller(sK17,cast_to_el_of_lattice(sK17,sK18),sK16) | spl19_2),
+  inference(avatar_component_clause,[],[f278])).
+fof(f278,plain,(
+  spl19_2 <=> latt_set_smaller(sK17,cast_to_el_of_lattice(sK17,sK18),sK16)),
+  introduced(avatar_definition,[new_symbols(naming,[spl19_2])])).
+fof(f975,plain,(
+  latt_set_smaller(sK17,sK18,sK16) | ~spl19_1),
+  inference(resolution,[],[f560,f275])).
+fof(f275,plain,(
+  relstr_element_smaller(poset_of_lattice(sK17),sK16,sK18) | ~spl19_1),
+  inference(avatar_component_clause,[],[f274])).
+fof(f274,plain,(
+  spl19_1 <=> relstr_element_smaller(poset_of_lattice(sK17),sK16,sK18)),
+  introduced(avatar_definition,[new_symbols(naming,[spl19_1])])).
+fof(f560,plain,(
+  ( ! [X0] : (~relstr_element_smaller(poset_of_lattice(sK17),X0,sK18) | latt_set_smaller(sK17,sK18,X0)) )),
+  inference(subsumption_resolution,[],[f559,f260])).
+fof(f559,plain,(
+  ( ! [X0] : (~relstr_element_smaller(poset_of_lattice(sK17),X0,sK18) | latt_set_smaller(sK17,sK18,X0) | empty_carrier(sK17)) )),
+  inference(subsumption_resolution,[],[f558,f261])).
+fof(f558,plain,(
+  ( ! [X0] : (~relstr_element_smaller(poset_of_lattice(sK17),X0,sK18) | latt_set_smaller(sK17,sK18,X0) | ~lattice(sK17) | empty_carrier(sK17)) )),
+  inference(subsumption_resolution,[],[f557,f262])).
+fof(f557,plain,(
+  ( ! [X0] : (~relstr_element_smaller(poset_of_lattice(sK17),X0,sK18) | latt_set_smaller(sK17,sK18,X0) | ~latt_str(sK17) | ~lattice(sK17) | empty_carrier(sK17)) )),
+  inference(subsumption_resolution,[],[f555,f497])).
+fof(f497,plain,(
+  element(sK18,the_carrier(sK17))),
+  inference(subsumption_resolution,[],[f496,f260])).
+fof(f496,plain,(
+  element(sK18,the_carrier(sK17)) | empty_carrier(sK17)),
+  inference(subsumption_resolution,[],[f495,f261])).
+fof(f495,plain,(
+  element(sK18,the_carrier(sK17)) | ~lattice(sK17) | empty_carrier(sK17)),
+  inference(subsumption_resolution,[],[f494,f262])).
+fof(f494,plain,(
+  element(sK18,the_carrier(sK17)) | ~latt_str(sK17) | ~lattice(sK17) | empty_carrier(sK17)),
+  inference(subsumption_resolution,[],[f491,f263])).
+fof(f491,plain,(
+  element(sK18,the_carrier(sK17)) | ~element(sK18,the_carrier(poset_of_lattice(sK17))) | ~latt_str(sK17) | ~lattice(sK17) | empty_carrier(sK17)),
+  inference(superposition,[],[f198,f481])).
+fof(f198,plain,(
+  ( ! [X0,X1] : (element(cast_to_el_of_lattice(X0,X1),the_carrier(X0)) | ~element(X1,the_carrier(poset_of_lattice(X0))) | ~latt_str(X0) | ~lattice(X0) | empty_carrier(X0)) )),
+  inference(cnf_transformation,[],[f93])).
+fof(f93,plain,(
+  ! [X0,X1] : (element(cast_to_el_of_lattice(X0,X1),the_carrier(X0)) | ~element(X1,the_carrier(poset_of_lattice(X0))) | ~latt_str(X0) | ~lattice(X0) | empty_carrier(X0))),
+  inference(flattening,[],[f92])).
+fof(f92,plain,(
+  ! [X0,X1] : (element(cast_to_el_of_lattice(X0,X1),the_carrier(X0)) | (~element(X1,the_carrier(poset_of_lattice(X0))) | ~latt_str(X0) | ~lattice(X0) | empty_carrier(X0)))),
+  inference(ennf_transformation,[],[f16])).
+fof(f16,axiom,(
+  ! [X0,X1] : ((element(X1,the_carrier(poset_of_lattice(X0))) & latt_str(X0) & lattice(X0) & ~empty_carrier(X0)) => element(cast_to_el_of_lattice(X0,X1),the_carrier(X0)))),
+  file('SEU348+1.tptp',unknown)).
+fof(f555,plain,(
+  ( ! [X0] : (~relstr_element_smaller(poset_of_lattice(sK17),X0,sK18) | latt_set_smaller(sK17,sK18,X0) | ~element(sK18,the_carrier(sK17)) | ~latt_str(sK17) | ~lattice(sK17) | empty_carrier(sK17)) )),
+  inference(superposition,[],[f259,f502])).
+fof(f502,plain,(
+  sK18 = cast_to_el_of_LattPOSet(sK17,sK18)),
+  inference(subsumption_resolution,[],[f501,f260])).
+fof(f501,plain,(
+  sK18 = cast_to_el_of_LattPOSet(sK17,sK18) | empty_carrier(sK17)),
+  inference(subsumption_resolution,[],[f500,f261])).
+fof(f500,plain,(
+  sK18 = cast_to_el_of_LattPOSet(sK17,sK18) | ~lattice(sK17) | empty_carrier(sK17)),
+  inference(subsumption_resolution,[],[f498,f262])).
+fof(f498,plain,(
+  sK18 = cast_to_el_of_LattPOSet(sK17,sK18) | ~latt_str(sK17) | ~lattice(sK17) | empty_carrier(sK17)),
+  inference(resolution,[],[f497,f183])).
+fof(f183,plain,(
+  ( ! [X0,X1] : (~element(X1,the_carrier(X0)) | cast_to_el_of_LattPOSet(X0,X1) = X1 | ~latt_str(X0) | ~lattice(X0) | empty_carrier(X0)) )),
+  inference(cnf_transformation,[],[f82])).
+fof(f82,plain,(
+  ! [X0] : (! [X1] : (cast_to_el_of_LattPOSet(X0,X1) = X1 | ~element(X1,the_carrier(X0))) | ~latt_str(X0) | ~lattice(X0) | empty_carrier(X0))),
+  inference(flattening,[],[f81])).
+fof(f81,plain,(
+  ! [X0] : (! [X1] : (cast_to_el_of_LattPOSet(X0,X1) = X1 | ~element(X1,the_carrier(X0))) | (~latt_str(X0) | ~lattice(X0) | empty_carrier(X0)))),
+  inference(ennf_transformation,[],[f7])).
+fof(f7,axiom,(
+  ! [X0] : ((latt_str(X0) & lattice(X0) & ~empty_carrier(X0)) => ! [X1] : (element(X1,the_carrier(X0)) => cast_to_el_of_LattPOSet(X0,X1) = X1))),
+  file('SEU348+1.tptp',unknown)).
+fof(f259,plain,(
+  ( ! [X2,X0,X1] : (~relstr_element_smaller(poset_of_lattice(X1),X0,cast_to_el_of_LattPOSet(X1,X2)) | latt_set_smaller(X1,X2,X0) | ~element(X2,the_carrier(X1)) | ~latt_str(X1) | ~lattice(X1) | empty_carrier(X1)) )),
+  inference(cnf_transformation,[],[f165])).
+fof(f165,plain,(
+  ! [X0,X1] : (! [X2] : (((latt_set_smaller(X1,X2,X0) | ~relstr_element_smaller(poset_of_lattice(X1),X0,cast_to_el_of_LattPOSet(X1,X2))) & (relstr_element_smaller(poset_of_lattice(X1),X0,cast_to_el_of_LattPOSet(X1,X2)) | ~latt_set_smaller(X1,X2,X0))) | ~element(X2,the_carrier(X1))) | ~latt_str(X1) | ~lattice(X1) | empty_carrier(X1))),
+  inference(nnf_transformation,[],[f120])).
+fof(f120,plain,(
+  ! [X0,X1] : (! [X2] : ((latt_set_smaller(X1,X2,X0) <=> relstr_element_smaller(poset_of_lattice(X1),X0,cast_to_el_of_LattPOSet(X1,X2))) | ~element(X2,the_carrier(X1))) | ~latt_str(X1) | ~lattice(X1) | empty_carrier(X1))),
+  inference(flattening,[],[f119])).
+fof(f119,plain,(
+  ! [X0,X1] : (! [X2] : ((latt_set_smaller(X1,X2,X0) <=> relstr_element_smaller(poset_of_lattice(X1),X0,cast_to_el_of_LattPOSet(X1,X2))) | ~element(X2,the_carrier(X1))) | (~latt_str(X1) | ~lattice(X1) | empty_carrier(X1)))),
+  inference(ennf_transformation,[],[f57])).
+fof(f57,axiom,(
+  ! [X0,X1] : ((latt_str(X1) & lattice(X1) & ~empty_carrier(X1)) => ! [X2] : (element(X2,the_carrier(X1)) => (latt_set_smaller(X1,X2,X0) <=> relstr_element_smaller(poset_of_lattice(X1),X0,cast_to_el_of_LattPOSet(X1,X2)))))),
+  file('SEU348+1.tptp',unknown)).
+fof(f940,plain,(
+  spl19_1 | ~spl19_2),
+  inference(avatar_contradiction_clause,[],[f939])).
+fof(f939,plain,(
+  $false | (spl19_1 | ~spl19_2)),
+  inference(subsumption_resolution,[],[f938,f482])).
+fof(f482,plain,(
+  latt_set_smaller(sK17,sK18,sK16) | ~spl19_2),
+  inference(backward_demodulation,[],[f481,f279])).
+fof(f279,plain,(
+  latt_set_smaller(sK17,cast_to_el_of_lattice(sK17,sK18),sK16) | ~spl19_2),
+  inference(avatar_component_clause,[],[f278])).
+fof(f938,plain,(
+  ~latt_set_smaller(sK17,sK18,sK16) | spl19_1),
+  inference(resolution,[],[f552,f276])).
+fof(f276,plain,(
+  ~relstr_element_smaller(poset_of_lattice(sK17),sK16,sK18) | spl19_1),
+  inference(avatar_component_clause,[],[f274])).
+fof(f552,plain,(
+  ( ! [X0] : (relstr_element_smaller(poset_of_lattice(sK17),X0,sK18) | ~latt_set_smaller(sK17,sK18,X0)) )),
+  inference(subsumption_resolution,[],[f551,f260])).
+fof(f551,plain,(
+  ( ! [X0] : (relstr_element_smaller(poset_of_lattice(sK17),X0,sK18) | ~latt_set_smaller(sK17,sK18,X0) | empty_carrier(sK17)) )),
+  inference(subsumption_resolution,[],[f550,f261])).
+fof(f550,plain,(
+  ( ! [X0] : (relstr_element_smaller(poset_of_lattice(sK17),X0,sK18) | ~latt_set_smaller(sK17,sK18,X0) | ~lattice(sK17) | empty_carrier(sK17)) )),
+  inference(subsumption_resolution,[],[f549,f262])).
+fof(f549,plain,(
+  ( ! [X0] : (relstr_element_smaller(poset_of_lattice(sK17),X0,sK18) | ~latt_set_smaller(sK17,sK18,X0) | ~latt_str(sK17) | ~lattice(sK17) | empty_carrier(sK17)) )),
+  inference(subsumption_resolution,[],[f548,f497])).
+fof(f548,plain,(
+  ( ! [X0] : (relstr_element_smaller(poset_of_lattice(sK17),X0,sK18) | ~latt_set_smaller(sK17,sK18,X0) | ~element(sK18,the_carrier(sK17)) | ~latt_str(sK17) | ~lattice(sK17) | empty_carrier(sK17)) )),
+  inference(superposition,[],[f258,f502])).
+fof(f258,plain,(
+  ( ! [X2,X0,X1] : (relstr_element_smaller(poset_of_lattice(X1),X0,cast_to_el_of_LattPOSet(X1,X2)) | ~latt_set_smaller(X1,X2,X0) | ~element(X2,the_carrier(X1)) | ~latt_str(X1) | ~lattice(X1) | empty_carrier(X1)) )),
+  inference(cnf_transformation,[],[f165])).
+fof(f282,plain,(
+  spl19_1 | spl19_2),
+  inference(avatar_split_clause,[],[f264,f278,f274])).
+fof(f264,plain,(
+  latt_set_smaller(sK17,cast_to_el_of_lattice(sK17,sK18),sK16) | relstr_element_smaller(poset_of_lattice(sK17),sK16,sK18)),
+  inference(cnf_transformation,[],[f170])).
+fof(f281,plain,(
+  ~spl19_1 | ~spl19_2),
+  inference(avatar_split_clause,[],[f265,f278,f274])).
+fof(f265,plain,(
+  ~latt_set_smaller(sK17,cast_to_el_of_lattice(sK17,sK18),sK16) | ~relstr_element_smaller(poset_of_lattice(sK17),sK16,sK18)),
+  inference(cnf_transformation,[],[f170])).
+% SZS output end Proof for SEU348+1
+% ------------------------------
+% Version: Vampire 4.4.0 (commit d98a3d53 on 2020-01-14 21:02:12 +0100)
+% Termination reason: Refutation
+
+% Memory used [KB]: 5500
+% Time elapsed: 0.017 s
+% ------------------------------
+% ------------------------------

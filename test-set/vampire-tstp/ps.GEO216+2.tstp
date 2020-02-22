@@ -1,0 +1,57 @@
+% Refutation found. Thanks to Tanya!
+% SZS status Theorem for GEO216+2
+% SZS output start Proof for GEO216+2
+fof(f70,plain,(
+  $false),
+  inference(subsumption_resolution,[],[f69,f50])).
+fof(f50,plain,(
+  ( ! [X0] : (~convergent_lines(X0,X0)) )),
+  inference(cnf_transformation,[],[f3])).
+fof(f3,axiom,(
+  ! [X0] : ~convergent_lines(X0,X0)),
+  file('GEO216+2.tptp',unknown)).
+fof(f69,plain,(
+  convergent_lines(sK0,sK0)),
+  inference(resolution,[],[f62,f68])).
+fof(f68,plain,(
+  ~unorthogonal_lines(sK0,sK0)),
+  inference(cnf_transformation,[],[f47])).
+fof(f47,plain,(
+  ~unorthogonal_lines(sK0,sK0)),
+  inference(skolemisation,[status(esa),new_symbols(skolem,[sK0])],[f45,f46])).
+fof(f46,plain,(
+  ? [X0] : ~unorthogonal_lines(X0,X0) => ~unorthogonal_lines(sK0,sK0)),
+  introduced(choice_axiom,[])).
+fof(f45,plain,(
+  ? [X0] : ~unorthogonal_lines(X0,X0)),
+  inference(ennf_transformation,[],[f22])).
+fof(f22,plain,(
+  ~! [X0] : unorthogonal_lines(X0,X0)),
+  inference(rectify,[],[f17])).
+fof(f17,negated_conjecture,(
+  ~! [X5] : unorthogonal_lines(X5,X5)),
+  inference(negated_conjecture,[],[f16])).
+fof(f16,conjecture,(
+  ! [X5] : unorthogonal_lines(X5,X5)),
+  file('GEO216+2.tptp',unknown)).
+fof(f62,plain,(
+  ( ! [X0,X1] : (unorthogonal_lines(X0,X1) | convergent_lines(X0,X1)) )),
+  inference(cnf_transformation,[],[f40])).
+fof(f40,plain,(
+  ! [X0,X1] : (unorthogonal_lines(X0,X1) | convergent_lines(X0,X1))),
+  inference(ennf_transformation,[],[f19])).
+fof(f19,plain,(
+  ! [X0,X1] : ~(~unorthogonal_lines(X0,X1) & ~convergent_lines(X0,X1))),
+  inference(rectify,[],[f13])).
+fof(f13,axiom,(
+  ! [X5,X6] : ~(~unorthogonal_lines(X5,X6) & ~convergent_lines(X5,X6))),
+  file('GEO216+2.tptp',unknown)).
+% SZS output end Proof for GEO216+2
+% ------------------------------
+% Version: Vampire 4.4.0 (commit d98a3d53 on 2020-01-14 21:02:12 +0100)
+% Termination reason: Refutation
+
+% Memory used [KB]: 4861
+% Time elapsed: 0.003 s
+% ------------------------------
+% ------------------------------

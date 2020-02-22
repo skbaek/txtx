@@ -1,0 +1,120 @@
+% Refutation found. Thanks to Tanya!
+% SZS status Unsatisfiable for LCL110-2
+% SZS output start Proof for LCL110-2
+fof(f3182,plain,(
+  $false),
+  inference(trivial_inequality_removal,[],[f3144])).
+fof(f3144,plain,(
+  truth != truth),
+  inference(superposition,[],[f5,f2954])).
+fof(f2954,plain,(
+  ( ! [X1] : (truth = implies(not(not(X1)),X1)) )),
+  inference(superposition,[],[f2234,f1])).
+fof(f1,axiom,(
+  ( ! [X0] : (implies(truth,X0) = X0) )),
+  file('LCL110-2.tptp',unknown)).
+fof(f2234,plain,(
+  ( ! [X0] : (truth = implies(truth,implies(not(not(X0)),X0))) )),
+  inference(forward_demodulation,[],[f2229,f1])).
+fof(f2229,plain,(
+  ( ! [X0] : (truth = implies(truth,implies(implies(truth,not(not(X0))),X0))) )),
+  inference(backward_demodulation,[],[f2193,f970])).
+fof(f970,plain,(
+  ( ! [X0] : (truth = implies(truth,implies(implies(not(not(truth)),not(not(X0))),X0))) )),
+  inference(forward_demodulation,[],[f881,f1])).
+fof(f881,plain,(
+  ( ! [X0] : (truth = implies(truth,implies(truth,implies(implies(not(not(truth)),not(not(X0))),X0)))) )),
+  inference(superposition,[],[f29,f8])).
+fof(f8,plain,(
+  ( ! [X0] : (truth = implies(implies(not(X0),not(truth)),X0)) )),
+  inference(superposition,[],[f4,f1])).
+fof(f4,axiom,(
+  ( ! [X0,X1] : (truth = implies(implies(not(X0),not(X1)),implies(X1,X0))) )),
+  file('LCL110-2.tptp',unknown)).
+fof(f29,plain,(
+  ( ! [X10,X8,X9] : (truth = implies(truth,implies(implies(implies(X9,X8),X10),implies(implies(not(X8),not(X9)),X10)))) )),
+  inference(superposition,[],[f2,f4])).
+fof(f2,axiom,(
+  ( ! [X2,X0,X1] : (truth = implies(implies(X0,X1),implies(implies(X1,X2),implies(X0,X2)))) )),
+  file('LCL110-2.tptp',unknown)).
+fof(f2193,plain,(
+  truth = not(not(truth))),
+  inference(superposition,[],[f1818,f1])).
+fof(f1818,plain,(
+  truth = implies(truth,not(not(truth)))),
+  inference(superposition,[],[f1242,f1])).
+fof(f1242,plain,(
+  ( ! [X0] : (truth = implies(truth,implies(X0,not(not(truth))))) )),
+  inference(forward_demodulation,[],[f1241,f121])).
+fof(f121,plain,(
+  ( ! [X4] : (truth = implies(X4,truth)) )),
+  inference(backward_demodulation,[],[f110,f95])).
+fof(f95,plain,(
+  ( ! [X4] : (truth = implies(X4,implies(X4,X4))) )),
+  inference(superposition,[],[f53,f6])).
+fof(f6,plain,(
+  ( ! [X0] : (implies(implies(X0,truth),truth) = implies(X0,X0)) )),
+  inference(superposition,[],[f3,f1])).
+fof(f3,axiom,(
+  ( ! [X0,X1] : (implies(implies(X0,X1),X1) = implies(implies(X1,X0),X0)) )),
+  file('LCL110-2.tptp',unknown)).
+fof(f53,plain,(
+  ( ! [X0,X1] : (truth = implies(X0,implies(implies(X0,X1),X1))) )),
+  inference(forward_demodulation,[],[f26,f1])).
+fof(f26,plain,(
+  ( ! [X0,X1] : (truth = implies(X0,implies(implies(X0,X1),implies(truth,X1)))) )),
+  inference(superposition,[],[f2,f1])).
+fof(f110,plain,(
+  ( ! [X2] : (truth = implies(X2,X2)) )),
+  inference(forward_demodulation,[],[f96,f1])).
+fof(f96,plain,(
+  ( ! [X2] : (truth = implies(implies(truth,X2),X2)) )),
+  inference(superposition,[],[f53,f1])).
+fof(f1241,plain,(
+  ( ! [X0] : (truth = implies(implies(X0,truth),implies(X0,not(not(truth))))) )),
+  inference(forward_demodulation,[],[f1240,f1019])).
+fof(f1019,plain,(
+  ( ! [X1] : (truth = implies(not(truth),X1)) )),
+  inference(superposition,[],[f799,f1])).
+fof(f799,plain,(
+  ( ! [X8] : (truth = implies(truth,implies(not(truth),X8))) )),
+  inference(superposition,[],[f471,f1])).
+fof(f471,plain,(
+  ( ! [X0,X1] : (truth = implies(truth,implies(not(X0),implies(X0,X1)))) )),
+  inference(superposition,[],[f55,f179])).
+fof(f179,plain,(
+  ( ! [X2,X3] : (truth = implies(X2,implies(X3,X2))) )),
+  inference(superposition,[],[f135,f1])).
+fof(f135,plain,(
+  ( ! [X0,X1] : (truth = implies(truth,implies(X0,implies(X1,X0)))) )),
+  inference(backward_demodulation,[],[f121,f33])).
+fof(f33,plain,(
+  ( ! [X0,X1] : (truth = implies(implies(X1,truth),implies(X0,implies(X1,X0)))) )),
+  inference(superposition,[],[f2,f1])).
+fof(f55,plain,(
+  ( ! [X10,X8,X9] : (truth = implies(implies(X10,implies(not(X8),not(X9))),implies(X10,implies(X9,X8)))) )),
+  inference(forward_demodulation,[],[f36,f1])).
+fof(f36,plain,(
+  ( ! [X10,X8,X9] : (truth = implies(implies(X10,implies(not(X8),not(X9))),implies(truth,implies(X10,implies(X9,X8))))) )),
+  inference(superposition,[],[f2,f4])).
+fof(f1240,plain,(
+  ( ! [X0] : (truth = implies(implies(X0,implies(not(truth),not(not(truth)))),implies(X0,not(not(truth))))) )),
+  inference(forward_demodulation,[],[f1124,f1])).
+fof(f1124,plain,(
+  ( ! [X0] : (truth = implies(implies(X0,implies(not(truth),not(not(truth)))),implies(truth,implies(X0,not(not(truth)))))) )),
+  inference(superposition,[],[f34,f8])).
+fof(f34,plain,(
+  ( ! [X4,X2,X3] : (truth = implies(implies(X4,implies(X2,X3)),implies(implies(implies(X3,X2),X2),implies(X4,X3)))) )),
+  inference(superposition,[],[f2,f3])).
+fof(f5,axiom,(
+  truth != implies(not(not(x)),x)),
+  file('LCL110-2.tptp',unknown)).
+% SZS output end Proof for LCL110-2
+% ------------------------------
+% Version: Vampire 4.4.0 (commit d98a3d53 on 2020-01-14 21:02:12 +0100)
+% Termination reason: Refutation
+
+% Memory used [KB]: 7547
+% Time elapsed: 0.046 s
+% ------------------------------
+% ------------------------------

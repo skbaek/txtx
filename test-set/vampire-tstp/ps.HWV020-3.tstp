@@ -1,0 +1,81 @@
+% Refutation found. Thanks to Tanya!
+% SZS status Unsatisfiable for HWV020-3
+% SZS output start Proof for HWV020-3
+fof(f790,plain,(
+  $false),
+  inference(subsumption_resolution,[],[f789,f579])).
+fof(f579,plain,(
+  ( ! [X5] : (p_LES_EQU_(n0,X5)) )),
+  inference(subsumption_resolution,[],[f570,f58])).
+fof(f58,axiom,(
+  ( ! [X27] : (n0 != f_ADD_(X27,n1)) )),
+  file('HWV020-3.tptp',unknown)).
+fof(f570,plain,(
+  ( ! [X5] : (p_LES_EQU_(n0,X5) | n0 = f_ADD_(X5,n1)) )),
+  inference(resolution,[],[f71,f297])).
+fof(f297,plain,(
+  ( ! [X4] : (p_LES_EQU_(n0,f_ADD_(X4,n1))) )),
+  inference(resolution,[],[f274,f59])).
+fof(f59,axiom,(
+  ( ! [X28] : (~p_LES_EQU_(f_ADD_(X28,n1),n0)) )),
+  file('HWV020-3.tptp',unknown)).
+fof(f274,plain,(
+  ( ! [X0,X1] : (p_LES_EQU_(X0,X1) | p_LES_EQU_(X1,X0)) )),
+  inference(resolution,[],[f70,f74])).
+fof(f74,axiom,(
+  ( ! [X48] : (p_LES_EQU_(X48,X48)) )),
+  file('HWV020-3.tptp',unknown)).
+fof(f70,axiom,(
+  ( ! [X43,X41,X42] : (~p_LES_EQU_(X41,X42) | p_LES_EQU_(X43,X42) | p_LES_EQU_(X41,X43)) )),
+  file('HWV020-3.tptp',unknown)).
+fof(f71,axiom,(
+  ( ! [X45,X44] : (~p_LES_EQU_(X45,f_ADD_(X44,n1)) | p_LES_EQU_(X45,X44) | f_ADD_(X44,n1) = X45) )),
+  file('HWV020-3.tptp',unknown)).
+fof(f789,plain,(
+  ~p_LES_EQU_(n0,n0)),
+  inference(forward_demodulation,[],[f788,f167])).
+fof(f167,plain,(
+  n0 = fwork_DOTfifo_DOTrtl_DOTint__level_(t_206)),
+  inference(resolution,[],[f8,f137])).
+fof(f137,axiom,(
+  p__pred_(fwork_DOTfifo_DOTrtl_DOTempty_(t_206))),
+  file('HWV020-3.tptp',unknown)).
+fof(f8,axiom,(
+  ( ! [X5] : (~p__pred_(fwork_DOTfifo_DOTrtl_DOTempty_(X5)) | n0 = fwork_DOTfifo_DOTrtl_DOTint__level_(X5)) )),
+  file('HWV020-3.tptp',unknown)).
+fof(f788,plain,(
+  ~p_LES_EQU_(fwork_DOTfifo_DOTrtl_DOTint__level_(t_206),n0)),
+  inference(subsumption_resolution,[],[f787,f136])).
+fof(f136,axiom,(
+  ~p__pred_(fwork_DOTfifo_DOTrtl_DOTreset_(t_206))),
+  file('HWV020-3.tptp',unknown)).
+fof(f787,plain,(
+  ~p_LES_EQU_(fwork_DOTfifo_DOTrtl_DOTint__level_(t_206),n0) | p__pred_(fwork_DOTfifo_DOTrtl_DOTreset_(t_206))),
+  inference(subsumption_resolution,[],[f773,f134])).
+fof(f134,axiom,(
+  p__pred_(fwork_DOTfifo_DOTrtl_DOTrd_(t_206))),
+  file('HWV020-3.tptp',unknown)).
+fof(f773,plain,(
+  ~p__pred_(fwork_DOTfifo_DOTrtl_DOTrd_(t_206)) | ~p_LES_EQU_(fwork_DOTfifo_DOTrtl_DOTint__level_(t_206),n0) | p__pred_(fwork_DOTfifo_DOTrtl_DOTreset_(t_206))),
+  inference(resolution,[],[f155,f138])).
+fof(f138,axiom,(
+  ~p__pred_(fwork_DOTfifo_DOTrtl_DOTrd__error_(f_ADD_(t_206,n1)))),
+  file('HWV020-3.tptp',unknown)).
+fof(f155,plain,(
+  ( ! [X10] : (p__pred_(fwork_DOTfifo_DOTrtl_DOTrd__error_(f_ADD_(X10,n1))) | ~p__pred_(fwork_DOTfifo_DOTrtl_DOTrd_(X10)) | ~p_LES_EQU_(fwork_DOTfifo_DOTrtl_DOTint__level_(X10),n0) | p__pred_(fwork_DOTfifo_DOTrtl_DOTreset_(X10))) )),
+  inference(subsumption_resolution,[],[f48,f36])).
+fof(f36,axiom,(
+  ( ! [X10] : (p__pred_(fwork_DOTfifo_DOTrtl_DOTreset_(X10)) | ~p__pred_(fwork_DOTfifo_DOTrtl_DOTwr_(X10)) | ~p__pred_(fwork_DOTfifo_DOTrtl_DOTrd_(X10)) | ~p_LES_EQU_(fwork_DOTfifo_DOTrtl_DOTint__level_(X10),n0) | p__pred_(fwork_DOTfifo_DOTrtl_DOTrd__error_(f_ADD_(X10,n1)))) )),
+  file('HWV020-3.tptp',unknown)).
+fof(f48,axiom,(
+  ( ! [X10] : (p__pred_(fwork_DOTfifo_DOTrtl_DOTreset_(X10)) | p__pred_(fwork_DOTfifo_DOTrtl_DOTwr_(X10)) | ~p__pred_(fwork_DOTfifo_DOTrtl_DOTrd_(X10)) | ~p_LES_EQU_(fwork_DOTfifo_DOTrtl_DOTint__level_(X10),n0) | p__pred_(fwork_DOTfifo_DOTrtl_DOTrd__error_(f_ADD_(X10,n1)))) )),
+  file('HWV020-3.tptp',unknown)).
+% SZS output end Proof for HWV020-3
+% ------------------------------
+% Version: Vampire 4.4.0 (commit d98a3d53 on 2020-01-14 21:02:12 +0100)
+% Termination reason: Refutation
+
+% Memory used [KB]: 5628
+% Time elapsed: 0.017 s
+% ------------------------------
+% ------------------------------

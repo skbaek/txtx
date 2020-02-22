@@ -1,0 +1,52 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% SZS status Unsatisfiable for SYN225-1.tptp
+
+% SZS output start CNFRefutation for SYN225-1.tptp
+cnf(axiom_9, axiom, (r0(b))).
+
+cnf(axiom_20, axiom, (l0(a))).
+
+cnf(axiom_32, axiom, (k0(b))).
+
+cnf(rule_021, axiom, (m1(I, J, I) | ~ l0(I) | ~ k0(J))).
+
+cnf(rule_176, axiom, (p2(D, E, D) | ~ m1(E, D, E))).
+
+cnf(rule_215, axiom, (l3(G, H) | ~ r0(G) | ~ p2(G, H, G))).
+
+cnf(prove_this, negated_conjecture, (~ l3(b, a))).
+
+cnf(refute_0_0, plain, (~ m1(a, b, a) | p2(b, a, b)),
+    inference(subst, [],
+              [rule_176 : [bind(D, $fot(b)), bind(E, $fot(a))]])).
+
+cnf(refute_0_1, plain, (~ k0(X_168) | ~ l0(a) | m1(a, X_168, a)),
+    inference(subst, [],
+              [rule_021 : [bind(I, $fot(a)), bind(J, $fot(X_168))]])).
+
+cnf(refute_0_2, plain, (~ k0(X_168) | m1(a, X_168, a)),
+    inference(resolve, [$cnf(l0(a))], [axiom_20, refute_0_1])).
+
+cnf(refute_0_3, plain, (~ k0(b) | m1(a, b, a)),
+    inference(subst, [], [refute_0_2 : [bind(X_168, $fot(b))]])).
+
+cnf(refute_0_4, plain, (m1(a, b, a)),
+    inference(resolve, [$cnf(k0(b))], [axiom_32, refute_0_3])).
+
+cnf(refute_0_5, plain, (p2(b, a, b)),
+    inference(resolve, [$cnf(m1(a, b, a))], [refute_0_4, refute_0_0])).
+
+cnf(refute_0_6, plain, (~ p2(b, a, b) | ~ r0(b) | l3(b, a)),
+    inference(subst, [],
+              [rule_215 : [bind(G, $fot(b)), bind(H, $fot(a))]])).
+
+cnf(refute_0_7, plain, (~ r0(b) | l3(b, a)),
+    inference(resolve, [$cnf(p2(b, a, b))], [refute_0_5, refute_0_6])).
+
+cnf(refute_0_8, plain, (l3(b, a)),
+    inference(resolve, [$cnf(r0(b))], [axiom_9, refute_0_7])).
+
+cnf(refute_0_9, plain, ($false),
+    inference(resolve, [$cnf(l3(b, a))], [refute_0_8, prove_this])).
+% SZS output end CNFRefutation for SYN225-1.tptp
+

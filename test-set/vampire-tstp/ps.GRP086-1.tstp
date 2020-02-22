@@ -1,0 +1,195 @@
+% Refutation found. Thanks to Tanya!
+% SZS status Unsatisfiable for GRP086-1
+% SZS output start Proof for GRP086-1
+fof(f1241,plain,(
+  $false),
+  inference(avatar_sat_refutation,[],[f19,f441,f455,f1219,f1240])).
+fof(f1240,plain,(
+  spl0_4),
+  inference(avatar_contradiction_clause,[],[f1239])).
+fof(f1239,plain,(
+  $false | spl0_4),
+  inference(subsumption_resolution,[],[f18,f437])).
+fof(f437,plain,(
+  ( ! [X28,X27] : (multiply(X28,X27) = multiply(X27,X28)) )),
+  inference(forward_demodulation,[],[f410,f366])).
+fof(f366,plain,(
+  ( ! [X2,X3] : (multiply(X2,inverse(multiply(X3,inverse(X3)))) = X2) )),
+  inference(superposition,[],[f346,f26])).
+fof(f26,plain,(
+  ( ! [X0,X1] : (multiply(X0,multiply(X1,inverse(X1))) = X0) )),
+  inference(superposition,[],[f20,f1])).
+fof(f1,axiom,(
+  ( ! [X2,X0,X1] : (multiply(X0,multiply(multiply(X1,X2),inverse(multiply(X0,X2)))) = X1) )),
+  file('GRP086-1.tptp',unknown)).
+fof(f20,plain,(
+  ( ! [X2,X0,X3,X1] : (multiply(X3,multiply(X1,inverse(multiply(X3,multiply(multiply(X1,X2),inverse(multiply(X0,X2))))))) = X0) )),
+  inference(superposition,[],[f1,f1])).
+fof(f346,plain,(
+  ( ! [X4,X5] : (multiply(multiply(X5,inverse(X4)),X4) = X5) )),
+  inference(superposition,[],[f343,f26])).
+fof(f343,plain,(
+  ( ! [X10,X8,X11] : (multiply(X8,multiply(X11,multiply(multiply(X10,inverse(X11)),inverse(X8)))) = X10) )),
+  inference(forward_demodulation,[],[f340,f317])).
+fof(f317,plain,(
+  ( ! [X2,X0,X1] : (multiply(X1,multiply(X2,inverse(X0))) = multiply(X2,multiply(X1,inverse(X0)))) )),
+  inference(superposition,[],[f289,f40])).
+fof(f40,plain,(
+  ( ! [X2,X3] : (multiply(X3,multiply(X2,inverse(X3))) = X2) )),
+  inference(superposition,[],[f21,f26])).
+fof(f21,plain,(
+  ( ! [X2,X0,X3,X1] : (multiply(X0,multiply(multiply(X3,multiply(multiply(X1,X2),inverse(multiply(X0,X2)))),inverse(X1))) = X3) )),
+  inference(superposition,[],[f1,f1])).
+fof(f289,plain,(
+  ( ! [X6,X4,X5] : (multiply(X4,X5) = multiply(multiply(X6,X5),multiply(X4,inverse(X6)))) )),
+  inference(superposition,[],[f48,f80])).
+fof(f80,plain,(
+  ( ! [X12,X13,X11] : (multiply(multiply(X11,X12),multiply(X13,inverse(multiply(X13,X12)))) = X11) )),
+  inference(superposition,[],[f20,f40])).
+fof(f48,plain,(
+  ( ! [X10,X8,X11] : (multiply(X8,multiply(multiply(X10,multiply(X11,inverse(X8))),inverse(X11))) = X10) )),
+  inference(forward_demodulation,[],[f42,f26])).
+fof(f42,plain,(
+  ( ! [X10,X8,X11,X9] : (multiply(X8,multiply(multiply(X10,multiply(multiply(X11,multiply(X9,inverse(X9))),inverse(X8))),inverse(X11))) = X10) )),
+  inference(superposition,[],[f21,f26])).
+fof(f340,plain,(
+  ( ! [X10,X8,X11] : (multiply(X8,multiply(multiply(X10,inverse(X11)),multiply(X11,inverse(X8)))) = X10) )),
+  inference(backward_demodulation,[],[f325,f48])).
+fof(f325,plain,(
+  ( ! [X8,X7,X9] : (multiply(multiply(X7,X8),X9) = multiply(multiply(X7,X9),X8)) )),
+  inference(superposition,[],[f289,f79])).
+fof(f79,plain,(
+  ( ! [X10,X8,X9] : (multiply(X8,X9) = multiply(X8,multiply(multiply(X10,X9),inverse(X10)))) )),
+  inference(superposition,[],[f21,f40])).
+fof(f410,plain,(
+  ( ! [X28,X26,X27] : (multiply(X28,X27) = multiply(X27,multiply(X28,inverse(multiply(X26,inverse(X26)))))) )),
+  inference(superposition,[],[f289,f347])).
+fof(f347,plain,(
+  ( ! [X6,X7] : (multiply(multiply(X6,inverse(X6)),X7) = X7) )),
+  inference(superposition,[],[f343,f1])).
+fof(f18,plain,(
+  multiply(a4,b4) != multiply(b4,a4) | spl0_4),
+  inference(avatar_component_clause,[],[f16])).
+fof(f16,plain,(
+  spl0_4 <=> multiply(a4,b4) = multiply(b4,a4)),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_4])])).
+fof(f1219,plain,(
+  spl0_3),
+  inference(avatar_contradiction_clause,[],[f1218])).
+fof(f1218,plain,(
+  $false | spl0_3),
+  inference(subsumption_resolution,[],[f1162,f860])).
+fof(f860,plain,(
+  ( ! [X14,X12,X13] : (multiply(X13,multiply(X12,X14)) = multiply(X13,multiply(X14,X12))) )),
+  inference(forward_demodulation,[],[f859,f516])).
+fof(f516,plain,(
+  ( ! [X1] : (inverse(inverse(X1)) = X1) )),
+  inference(superposition,[],[f368,f26])).
+fof(f368,plain,(
+  ( ! [X0,X1] : (multiply(X1,multiply(inverse(X1),X0)) = X0) )),
+  inference(superposition,[],[f343,f346])).
+fof(f859,plain,(
+  ( ! [X14,X12,X13] : (multiply(X13,multiply(X14,inverse(inverse(X12)))) = multiply(X13,multiply(X12,X14))) )),
+  inference(forward_demodulation,[],[f830,f608])).
+fof(f608,plain,(
+  ( ! [X6,X4,X5] : (multiply(multiply(X4,X6),X5) = multiply(X4,multiply(X5,X6))) )),
+  inference(superposition,[],[f585,f1])).
+fof(f585,plain,(
+  ( ! [X4,X7,X5] : (multiply(X4,X5) = multiply(X7,multiply(X4,multiply(X5,inverse(X7))))) )),
+  inference(backward_demodulation,[],[f557,f385])).
+fof(f385,plain,(
+  ( ! [X4,X7,X5] : (multiply(X4,X5) = multiply(X7,multiply(X4,inverse(multiply(X7,inverse(X5)))))) )),
+  inference(backward_demodulation,[],[f384,f78])).
+fof(f78,plain,(
+  ( ! [X6,X4,X7,X5] : (multiply(X4,X5) = multiply(X7,multiply(X4,inverse(multiply(X7,multiply(X6,inverse(multiply(X6,X5)))))))) )),
+  inference(superposition,[],[f22,f40])).
+fof(f22,plain,(
+  ( ! [X4,X2,X0,X3,X1] : (multiply(X3,multiply(X0,inverse(multiply(X3,multiply(X1,inverse(multiply(X4,multiply(multiply(X1,X2),inverse(multiply(X0,X2)))))))))) = X4) )),
+  inference(superposition,[],[f20,f1])).
+fof(f384,plain,(
+  ( ! [X24,X23,X25] : (multiply(X25,multiply(X24,inverse(multiply(X24,X23)))) = multiply(X25,inverse(X23))) )),
+  inference(backward_demodulation,[],[f371,f323])).
+fof(f323,plain,(
+  ( ! [X24,X23,X25,X22] : (multiply(X25,multiply(X24,inverse(multiply(X24,X23)))) = multiply(X22,multiply(X25,inverse(multiply(X22,X23))))) )),
+  inference(superposition,[],[f289,f80])).
+fof(f371,plain,(
+  ( ! [X6,X8,X7] : (multiply(X6,inverse(X7)) = multiply(X8,multiply(X6,inverse(multiply(X8,X7))))) )),
+  inference(superposition,[],[f1,f346])).
+fof(f557,plain,(
+  ( ! [X23,X21,X22] : (multiply(X21,inverse(multiply(X22,inverse(X23)))) = multiply(X21,multiply(X23,inverse(X22)))) )),
+  inference(superposition,[],[f178,f346])).
+fof(f178,plain,(
+  ( ! [X14,X17,X15] : (multiply(multiply(X14,multiply(X15,inverse(X17))),multiply(X17,inverse(X15))) = X14) )),
+  inference(backward_demodulation,[],[f124,f81])).
+fof(f81,plain,(
+  ( ! [X14,X17,X15,X16] : (multiply(multiply(X14,multiply(multiply(X15,X16),inverse(multiply(X17,X16)))),multiply(X17,inverse(X15))) = X14) )),
+  inference(superposition,[],[f22,f40])).
+fof(f124,plain,(
+  ( ! [X17,X15,X18,X16] : (multiply(X18,multiply(multiply(X16,X17),inverse(multiply(X15,X17)))) = multiply(X18,multiply(X16,inverse(X15)))) )),
+  inference(superposition,[],[f79,f1])).
+fof(f830,plain,(
+  ( ! [X14,X12,X13] : (multiply(X13,multiply(X14,inverse(inverse(X12)))) = multiply(multiply(X13,X14),X12)) )),
+  inference(superposition,[],[f481,f585])).
+fof(f481,plain,(
+  ( ! [X50,X51] : (multiply(multiply(inverse(X51),X50),X51) = X50) )),
+  inference(superposition,[],[f346,f437])).
+fof(f1162,plain,(
+  multiply(a3,multiply(b3,c3)) != multiply(a3,multiply(c3,b3)) | spl0_3),
+  inference(superposition,[],[f14,f608])).
+fof(f14,plain,(
+  multiply(multiply(a3,b3),c3) != multiply(a3,multiply(b3,c3)) | spl0_3),
+  inference(avatar_component_clause,[],[f12])).
+fof(f12,plain,(
+  spl0_3 <=> multiply(multiply(a3,b3),c3) = multiply(a3,multiply(b3,c3))),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_3])])).
+fof(f455,plain,(
+  spl0_2),
+  inference(avatar_contradiction_clause,[],[f454])).
+fof(f454,plain,(
+  $false | spl0_2),
+  inference(subsumption_resolution,[],[f453,f347])).
+fof(f453,plain,(
+  a2 != multiply(multiply(b2,inverse(b2)),a2) | spl0_2),
+  inference(forward_demodulation,[],[f10,f437])).
+fof(f10,plain,(
+  a2 != multiply(multiply(inverse(b2),b2),a2) | spl0_2),
+  inference(avatar_component_clause,[],[f8])).
+fof(f8,plain,(
+  spl0_2 <=> a2 = multiply(multiply(inverse(b2),b2),a2)),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_2])])).
+fof(f441,plain,(
+  spl0_1),
+  inference(avatar_contradiction_clause,[],[f440])).
+fof(f440,plain,(
+  $false | spl0_1),
+  inference(subsumption_resolution,[],[f439,f397])).
+fof(f397,plain,(
+  ( ! [X6,X7] : (multiply(X6,inverse(X6)) = multiply(X7,inverse(X7))) )),
+  inference(superposition,[],[f347,f26])).
+fof(f439,plain,(
+  multiply(b1,inverse(b1)) != multiply(a1,inverse(a1)) | spl0_1),
+  inference(forward_demodulation,[],[f438,f437])).
+fof(f438,plain,(
+  multiply(inverse(a1),a1) != multiply(b1,inverse(b1)) | spl0_1),
+  inference(backward_demodulation,[],[f437,f6])).
+fof(f6,plain,(
+  multiply(inverse(a1),a1) != multiply(inverse(b1),b1) | spl0_1),
+  inference(avatar_component_clause,[],[f4])).
+fof(f4,plain,(
+  spl0_1 <=> multiply(inverse(a1),a1) = multiply(inverse(b1),b1)),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_1])])).
+fof(f19,plain,(
+  ~spl0_1 | ~spl0_2 | ~spl0_3 | ~spl0_4),
+  inference(avatar_split_clause,[],[f2,f16,f12,f8,f4])).
+fof(f2,axiom,(
+  multiply(a4,b4) != multiply(b4,a4) | multiply(multiply(a3,b3),c3) != multiply(a3,multiply(b3,c3)) | a2 != multiply(multiply(inverse(b2),b2),a2) | multiply(inverse(a1),a1) != multiply(inverse(b1),b1)),
+  file('GRP086-1.tptp',unknown)).
+% SZS output end Proof for GRP086-1
+% ------------------------------
+% Version: Vampire 4.4.0 (commit d98a3d53 on 2020-01-14 21:02:12 +0100)
+% Termination reason: Refutation
+
+% Memory used [KB]: 6140
+% Time elapsed: 0.024 s
+% ------------------------------
+% ------------------------------

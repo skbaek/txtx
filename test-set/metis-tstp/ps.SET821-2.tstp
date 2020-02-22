@@ -1,0 +1,392 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% SZS status Unsatisfiable for SET821-2.tptp
+
+% SZS output start CNFRefutation for SET821-2.tptp
+cnf(cls_Orderings_Oorder__less__irrefl__iff1_0, axiom,
+    (~ class_Orderings_Oorder(T_a) | ~ c_less(V_x, V_x, T_a))).
+
+cnf(cls_Set_OComplD__dest_0, axiom,
+    (~ c_in(V_c, V_A, T_a) |
+     ~ c_in(V_c, c_uminus(V_A, tc_set(T_a)), T_a))).
+
+cnf(cls_Set_OComplI_0, axiom,
+    (c_in(V_c, V_A, T_a) | c_in(V_c, c_uminus(V_A, tc_set(T_a)), T_a))).
+
+cnf(cls_Set_OinsertCI_0, axiom,
+    (~ c_in(V_a, V_B, T_a) | c_in(V_a, c_insert(V_b, V_B, T_a), T_a))).
+
+cnf(cls_Set_OinsertCI_1, axiom, (c_in(V_x, c_insert(V_x, V_B, T_a), T_a))).
+
+cnf(cls_Set_OinsertE_0, axiom,
+    (~ c_in(V_a, c_insert(V_b, V_A, T_a), T_a) | c_in(V_a, V_A, T_a) |
+     V_a = V_b)).
+
+cnf(cls_conjecture_0, negated_conjecture,
+    (c_less(v_a, v_b, tc_IntDef_Oint))).
+
+cnf(cls_conjecture_1, negated_conjecture,
+    (c_less(v_b, v_c, tc_IntDef_Oint))).
+
+cnf(cls_conjecture_2, negated_conjecture,
+    (c_in(v_c, V_U, tc_IntDef_Oint) | ~ c_in(v_b, V_U, tc_IntDef_Oint) |
+     c_in(v_a, V_U, tc_IntDef_Oint))).
+
+cnf(clsarity_IntDef__Oint_31, axiom,
+    (class_Orderings_Oorder(tc_IntDef_Oint))).
+
+cnf(refute_0_0, plain,
+    (~ c_less(v_a, v_a, tc_IntDef_Oint) |
+     ~ class_Orderings_Oorder(tc_IntDef_Oint)),
+    inference(subst, [],
+              [cls_Orderings_Oorder__less__irrefl__iff1_0 :
+               [bind(T_a, $fot(tc_IntDef_Oint)), bind(V_x, $fot(v_a))]])).
+
+cnf(refute_0_1, plain,
+    (~ c_less(v_b, v_b, tc_IntDef_Oint) |
+     ~ class_Orderings_Oorder(tc_IntDef_Oint)),
+    inference(subst, [],
+              [cls_Orderings_Oorder__less__irrefl__iff1_0 :
+               [bind(T_a, $fot(tc_IntDef_Oint)), bind(V_x, $fot(v_b))]])).
+
+cnf(refute_0_2, plain,
+    (~ c_in(X_23, c_insert(X_24, c_insert(X_23, X_21, X_22), X_22), X_22) |
+     c_in(X_23,
+       c_insert(V_b, c_insert(X_24, c_insert(X_23, X_21, X_22), X_22),
+         X_22), X_22)),
+    inference(subst, [],
+              [cls_Set_OinsertCI_0 :
+               [bind(T_a, $fot(X_22)),
+                bind(V_B,
+                     $fot(c_insert(X_24, c_insert(X_23, X_21, X_22),
+                            X_22))), bind(V_a, $fot(X_23))]])).
+
+cnf(refute_0_3, plain, (c_in(X_19, c_insert(X_19, V_B, X_17), X_17)),
+    inference(subst, [],
+              [cls_Set_OinsertCI_1 :
+               [bind(T_a, $fot(X_17)), bind(V_x, $fot(X_19))]])).
+
+cnf(refute_0_4, plain,
+    (~ c_in(X_19, c_insert(X_19, V_B, X_17), X_17) |
+     c_in(X_19, c_insert(X_20, c_insert(X_19, V_B, X_17), X_17), X_17)),
+    inference(subst, [],
+              [cls_Set_OinsertCI_0 :
+               [bind(T_a, $fot(X_17)),
+                bind(V_B, $fot(c_insert(X_19, V_B, X_17))),
+                bind(V_a, $fot(X_19)), bind(V_b, $fot(X_20))]])).
+
+cnf(refute_0_5, plain,
+    (c_in(X_19, c_insert(X_20, c_insert(X_19, V_B, X_17), X_17), X_17)),
+    inference(resolve, [$cnf(c_in(X_19, c_insert(X_19, V_B, X_17), X_17))],
+              [refute_0_3, refute_0_4])).
+
+cnf(refute_0_6, plain,
+    (c_in(X_23, c_insert(X_24, c_insert(X_23, X_21, X_22), X_22), X_22)),
+    inference(subst, [],
+              [refute_0_5 :
+               [bind(V_B, $fot(X_21)), bind(X_17, $fot(X_22)),
+                bind(X_19, $fot(X_23)), bind(X_20, $fot(X_24))]])).
+
+cnf(refute_0_7, plain,
+    (c_in(X_23,
+       c_insert(V_b, c_insert(X_24, c_insert(X_23, X_21, X_22), X_22),
+         X_22), X_22)),
+    inference(resolve,
+              [$cnf(c_in(X_23,
+                      c_insert(X_24, c_insert(X_23, X_21, X_22), X_22),
+                      X_22))], [refute_0_6, refute_0_2])).
+
+cnf(refute_0_8, plain,
+    (c_in(v_b,
+       c_insert(V_b,
+         c_insert(X_24, c_insert(v_b, X_21, tc_IntDef_Oint),
+           tc_IntDef_Oint), tc_IntDef_Oint), tc_IntDef_Oint)),
+    inference(subst, [],
+              [refute_0_7 :
+               [bind(X_22, $fot(tc_IntDef_Oint)),
+                bind(X_23, $fot(v_b))]])).
+
+cnf(refute_0_9, plain,
+    (~ c_in(v_b, V_A, tc_IntDef_Oint) |
+     ~ c_in(v_b, c_uminus(V_A, tc_set(tc_IntDef_Oint)), tc_IntDef_Oint)),
+    inference(subst, [],
+              [cls_Set_OComplD__dest_0 :
+               [bind(T_a, $fot(tc_IntDef_Oint)), bind(V_c, $fot(v_b))]])).
+
+cnf(refute_0_10, plain,
+    (~ c_in(v_b, c_insert(v_a, X_62, tc_IntDef_Oint), tc_IntDef_Oint) |
+     v_b = v_a | c_in(v_b, X_62, tc_IntDef_Oint)),
+    inference(subst, [],
+              [cls_Set_OinsertE_0 :
+               [bind(T_a, $fot(tc_IntDef_Oint)), bind(V_A, $fot(X_62)),
+                bind(V_a, $fot(v_b)), bind(V_b, $fot(v_a))]])).
+
+cnf(refute_0_11, plain,
+    (~ c_in(v_a, c_insert(v_c, X_15, tc_IntDef_Oint), tc_IntDef_Oint) |
+     ~
+       c_in(v_a,
+         c_uminus(c_insert(v_c, X_15, tc_IntDef_Oint),
+           tc_set(tc_IntDef_Oint)), tc_IntDef_Oint)),
+    inference(subst, [],
+              [cls_Set_OComplD__dest_0 :
+               [bind(T_a, $fot(tc_IntDef_Oint)),
+                bind(V_A, $fot(c_insert(v_c, X_15, tc_IntDef_Oint))),
+                bind(V_c, $fot(v_a))]])).
+
+cnf(refute_0_12, plain,
+    (c_in(v_c, c_insert(v_c, V_B, tc_IntDef_Oint), tc_IntDef_Oint)),
+    inference(subst, [],
+              [cls_Set_OinsertCI_1 :
+               [bind(T_a, $fot(tc_IntDef_Oint)), bind(V_x, $fot(v_c))]])).
+
+cnf(refute_0_13, plain,
+    (~ c_in(v_c, X_13, tc_IntDef_Oint) |
+     ~ c_in(v_c, c_uminus(X_13, tc_set(tc_IntDef_Oint)), tc_IntDef_Oint)),
+    inference(subst, [],
+              [cls_Set_OComplD__dest_0 :
+               [bind(T_a, $fot(tc_IntDef_Oint)), bind(V_A, $fot(X_13)),
+                bind(V_c, $fot(v_c))]])).
+
+cnf(refute_0_14, plain,
+    (~ c_in(v_b, c_uminus(X_11, tc_set(tc_IntDef_Oint)), tc_IntDef_Oint) |
+     c_in(v_a, c_uminus(X_11, tc_set(tc_IntDef_Oint)), tc_IntDef_Oint) |
+     c_in(v_c, c_uminus(X_11, tc_set(tc_IntDef_Oint)), tc_IntDef_Oint)),
+    inference(subst, [],
+              [cls_conjecture_2 :
+               [bind(V_U,
+                     $fot(c_uminus(X_11, tc_set(tc_IntDef_Oint))))]])).
+
+cnf(refute_0_15, plain,
+    (c_in(v_b, X_11, tc_IntDef_Oint) |
+     c_in(v_b, c_uminus(X_11, tc_set(tc_IntDef_Oint)), tc_IntDef_Oint)),
+    inference(subst, [],
+              [cls_Set_OComplI_0 :
+               [bind(T_a, $fot(tc_IntDef_Oint)), bind(V_A, $fot(X_11)),
+                bind(V_c, $fot(v_b))]])).
+
+cnf(refute_0_16, plain,
+    (c_in(v_a, c_uminus(X_11, tc_set(tc_IntDef_Oint)), tc_IntDef_Oint) |
+     c_in(v_b, X_11, tc_IntDef_Oint) |
+     c_in(v_c, c_uminus(X_11, tc_set(tc_IntDef_Oint)), tc_IntDef_Oint)),
+    inference(resolve,
+              [$cnf(c_in(v_b, c_uminus(X_11, tc_set(tc_IntDef_Oint)),
+                      tc_IntDef_Oint))], [refute_0_15, refute_0_14])).
+
+cnf(refute_0_17, plain,
+    (c_in(v_a, c_uminus(X_13, tc_set(tc_IntDef_Oint)), tc_IntDef_Oint) |
+     c_in(v_b, X_13, tc_IntDef_Oint) |
+     c_in(v_c, c_uminus(X_13, tc_set(tc_IntDef_Oint)), tc_IntDef_Oint)),
+    inference(subst, [], [refute_0_16 : [bind(X_11, $fot(X_13))]])).
+
+cnf(refute_0_18, plain,
+    (~ c_in(v_c, X_13, tc_IntDef_Oint) |
+     c_in(v_a, c_uminus(X_13, tc_set(tc_IntDef_Oint)), tc_IntDef_Oint) |
+     c_in(v_b, X_13, tc_IntDef_Oint)),
+    inference(resolve,
+              [$cnf(c_in(v_c, c_uminus(X_13, tc_set(tc_IntDef_Oint)),
+                      tc_IntDef_Oint))], [refute_0_17, refute_0_13])).
+
+cnf(refute_0_19, plain,
+    (~ c_in(v_c, c_insert(v_c, V_B, tc_IntDef_Oint), tc_IntDef_Oint) |
+     c_in(v_a,
+       c_uminus(c_insert(v_c, V_B, tc_IntDef_Oint),
+         tc_set(tc_IntDef_Oint)), tc_IntDef_Oint) |
+     c_in(v_b, c_insert(v_c, V_B, tc_IntDef_Oint), tc_IntDef_Oint)),
+    inference(subst, [],
+              [refute_0_18 :
+               [bind(X_13, $fot(c_insert(v_c, V_B, tc_IntDef_Oint)))]])).
+
+cnf(refute_0_20, plain,
+    (c_in(v_a,
+       c_uminus(c_insert(v_c, V_B, tc_IntDef_Oint),
+         tc_set(tc_IntDef_Oint)), tc_IntDef_Oint) |
+     c_in(v_b, c_insert(v_c, V_B, tc_IntDef_Oint), tc_IntDef_Oint)),
+    inference(resolve,
+              [$cnf(c_in(v_c, c_insert(v_c, V_B, tc_IntDef_Oint),
+                      tc_IntDef_Oint))], [refute_0_12, refute_0_19])).
+
+cnf(refute_0_21, plain,
+    (c_in(v_a,
+       c_uminus(c_insert(v_c, X_15, tc_IntDef_Oint),
+         tc_set(tc_IntDef_Oint)), tc_IntDef_Oint) |
+     c_in(v_b, c_insert(v_c, X_15, tc_IntDef_Oint), tc_IntDef_Oint)),
+    inference(subst, [], [refute_0_20 : [bind(V_B, $fot(X_15))]])).
+
+cnf(refute_0_22, plain,
+    (~ c_in(v_a, c_insert(v_c, X_15, tc_IntDef_Oint), tc_IntDef_Oint) |
+     c_in(v_b, c_insert(v_c, X_15, tc_IntDef_Oint), tc_IntDef_Oint)),
+    inference(resolve,
+              [$cnf(c_in(v_a,
+                      c_uminus(c_insert(v_c, X_15, tc_IntDef_Oint),
+                        tc_set(tc_IntDef_Oint)), tc_IntDef_Oint))],
+              [refute_0_21, refute_0_11])).
+
+cnf(refute_0_23, plain,
+    (~
+       c_in(v_a,
+         c_insert(v_c, c_insert(v_a, X_21, tc_IntDef_Oint),
+           tc_IntDef_Oint), tc_IntDef_Oint) |
+     c_in(v_b,
+       c_insert(v_c, c_insert(v_a, X_21, tc_IntDef_Oint), tc_IntDef_Oint),
+       tc_IntDef_Oint)),
+    inference(subst, [],
+              [refute_0_22 :
+               [bind(X_15, $fot(c_insert(v_a, X_21, tc_IntDef_Oint)))]])).
+
+cnf(refute_0_24, plain,
+    (c_in(v_a,
+       c_insert(v_c, c_insert(v_a, X_21, tc_IntDef_Oint), tc_IntDef_Oint),
+       tc_IntDef_Oint)),
+    inference(subst, [],
+              [refute_0_5 :
+               [bind(V_B, $fot(X_21)), bind(X_17, $fot(tc_IntDef_Oint)),
+                bind(X_19, $fot(v_a)), bind(X_20, $fot(v_c))]])).
+
+cnf(refute_0_25, plain,
+    (c_in(v_b,
+       c_insert(v_c, c_insert(v_a, X_21, tc_IntDef_Oint), tc_IntDef_Oint),
+       tc_IntDef_Oint)),
+    inference(resolve,
+              [$cnf(c_in(v_a,
+                      c_insert(v_c, c_insert(v_a, X_21, tc_IntDef_Oint),
+                        tc_IntDef_Oint), tc_IntDef_Oint))],
+              [refute_0_24, refute_0_23])).
+
+cnf(refute_0_26, plain,
+    (~
+       c_in(v_b,
+         c_insert(v_c, c_insert(v_a, X_21, tc_IntDef_Oint),
+           tc_IntDef_Oint), tc_IntDef_Oint) | v_b = v_c |
+     c_in(v_b, c_insert(v_a, X_21, tc_IntDef_Oint), tc_IntDef_Oint)),
+    inference(subst, [],
+              [cls_Set_OinsertE_0 :
+               [bind(T_a, $fot(tc_IntDef_Oint)),
+                bind(V_A, $fot(c_insert(v_a, X_21, tc_IntDef_Oint))),
+                bind(V_a, $fot(v_b)), bind(V_b, $fot(v_c))]])).
+
+cnf(refute_0_27, plain,
+    (v_b = v_c |
+     c_in(v_b, c_insert(v_a, X_21, tc_IntDef_Oint), tc_IntDef_Oint)),
+    inference(resolve,
+              [$cnf(c_in(v_b,
+                      c_insert(v_c, c_insert(v_a, X_21, tc_IntDef_Oint),
+                        tc_IntDef_Oint), tc_IntDef_Oint))],
+              [refute_0_25, refute_0_26])).
+
+cnf(refute_0_28, plain,
+    (v_b = v_c |
+     c_in(v_b, c_insert(v_a, X_62, tc_IntDef_Oint), tc_IntDef_Oint)),
+    inference(subst, [], [refute_0_27 : [bind(X_21, $fot(X_62))]])).
+
+cnf(refute_0_29, plain,
+    (v_b = v_a | v_b = v_c | c_in(v_b, X_62, tc_IntDef_Oint)),
+    inference(resolve,
+              [$cnf(c_in(v_b, c_insert(v_a, X_62, tc_IntDef_Oint),
+                      tc_IntDef_Oint))], [refute_0_28, refute_0_10])).
+
+cnf(refute_0_30, plain,
+    (v_b = v_a | v_b = v_c |
+     c_in(v_b, c_uminus(V_A, tc_set(tc_IntDef_Oint)), tc_IntDef_Oint)),
+    inference(subst, [],
+              [refute_0_29 :
+               [bind(X_62,
+                     $fot(c_uminus(V_A, tc_set(tc_IntDef_Oint))))]])).
+
+cnf(refute_0_31, plain,
+    (~ c_in(v_b, V_A, tc_IntDef_Oint) | v_b = v_a | v_b = v_c),
+    inference(resolve,
+              [$cnf(c_in(v_b, c_uminus(V_A, tc_set(tc_IntDef_Oint)),
+                      tc_IntDef_Oint))], [refute_0_30, refute_0_9])).
+
+cnf(refute_0_32, plain,
+    (~
+       c_in(v_b,
+         c_insert(V_b,
+           c_insert(X_24, c_insert(v_b, X_21, tc_IntDef_Oint),
+             tc_IntDef_Oint), tc_IntDef_Oint), tc_IntDef_Oint) |
+     v_b = v_a | v_b = v_c),
+    inference(subst, [],
+              [refute_0_31 :
+               [bind(V_A,
+                     $fot(c_insert(V_b,
+                            c_insert(X_24,
+                              c_insert(v_b, X_21, tc_IntDef_Oint),
+                              tc_IntDef_Oint), tc_IntDef_Oint)))]])).
+
+cnf(refute_0_33, plain, (v_b = v_a | v_b = v_c),
+    inference(resolve,
+              [$cnf(c_in(v_b,
+                      c_insert(V_b,
+                        c_insert(X_24, c_insert(v_b, X_21, tc_IntDef_Oint),
+                          tc_IntDef_Oint), tc_IntDef_Oint),
+                      tc_IntDef_Oint))], [refute_0_8, refute_0_32])).
+
+cnf(refute_0_34, plain, (X = X), introduced(tautology, [refl, [$fot(X)]])).
+
+cnf(refute_0_35, plain, (X != X | X != Y | Y = X),
+    introduced(tautology, [equality, [$cnf($equal(X, X)), [0], $fot(Y)]])).
+
+cnf(refute_0_36, plain, (X != Y | Y = X),
+    inference(resolve, [$cnf($equal(X, X))], [refute_0_34, refute_0_35])).
+
+cnf(refute_0_37, plain, (v_b != v_c | v_c = v_b),
+    inference(subst, [],
+              [refute_0_36 : [bind(X, $fot(v_b)), bind(Y, $fot(v_c))]])).
+
+cnf(refute_0_38, plain, (v_b = v_a | v_c = v_b),
+    inference(resolve, [$cnf($equal(v_b, v_c))],
+              [refute_0_33, refute_0_37])).
+
+cnf(refute_0_39, plain,
+    (v_c != v_b | ~ c_less(v_b, v_c, tc_IntDef_Oint) |
+     c_less(v_b, v_b, tc_IntDef_Oint)),
+    introduced(tautology,
+               [equality,
+                [$cnf(c_less(v_b, v_c, tc_IntDef_Oint)), [1],
+                 $fot(v_b)]])).
+
+cnf(refute_0_40, plain,
+    (~ c_less(v_b, v_c, tc_IntDef_Oint) | v_b = v_a |
+     c_less(v_b, v_b, tc_IntDef_Oint)),
+    inference(resolve, [$cnf($equal(v_c, v_b))],
+              [refute_0_38, refute_0_39])).
+
+cnf(refute_0_41, plain, (v_b = v_a | c_less(v_b, v_b, tc_IntDef_Oint)),
+    inference(resolve, [$cnf(c_less(v_b, v_c, tc_IntDef_Oint))],
+              [cls_conjecture_1, refute_0_40])).
+
+cnf(refute_0_42, plain,
+    (~ class_Orderings_Oorder(tc_IntDef_Oint) | v_b = v_a),
+    inference(resolve, [$cnf(c_less(v_b, v_b, tc_IntDef_Oint))],
+              [refute_0_41, refute_0_1])).
+
+cnf(refute_0_43, plain, (v_b = v_a),
+    inference(resolve, [$cnf(class_Orderings_Oorder(tc_IntDef_Oint))],
+              [clsarity_IntDef__Oint_31, refute_0_42])).
+
+cnf(refute_0_44, plain,
+    (v_b != v_a | ~ c_less(v_a, v_b, tc_IntDef_Oint) |
+     c_less(v_a, v_a, tc_IntDef_Oint)),
+    introduced(tautology,
+               [equality,
+                [$cnf(c_less(v_a, v_b, tc_IntDef_Oint)), [1],
+                 $fot(v_a)]])).
+
+cnf(refute_0_45, plain,
+    (~ c_less(v_a, v_b, tc_IntDef_Oint) |
+     c_less(v_a, v_a, tc_IntDef_Oint)),
+    inference(resolve, [$cnf($equal(v_b, v_a))],
+              [refute_0_43, refute_0_44])).
+
+cnf(refute_0_46, plain, (c_less(v_a, v_a, tc_IntDef_Oint)),
+    inference(resolve, [$cnf(c_less(v_a, v_b, tc_IntDef_Oint))],
+              [cls_conjecture_0, refute_0_45])).
+
+cnf(refute_0_47, plain, (~ class_Orderings_Oorder(tc_IntDef_Oint)),
+    inference(resolve, [$cnf(c_less(v_a, v_a, tc_IntDef_Oint))],
+              [refute_0_46, refute_0_0])).
+
+cnf(refute_0_48, plain, ($false),
+    inference(resolve, [$cnf(class_Orderings_Oorder(tc_IntDef_Oint))],
+              [clsarity_IntDef__Oint_31, refute_0_47])).
+% SZS output end CNFRefutation for SET821-2.tptp
+

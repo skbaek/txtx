@@ -1,0 +1,33 @@
+% Refutation found. Thanks to Tanya!
+% SZS status Unsatisfiable for ALG434-1
+% SZS output start Proof for ALG434-1
+fof(f2231,plain,(
+  $false),
+  inference(subsumption_resolution,[],[f2230,f383])).
+fof(f383,axiom,(
+  class_Ring__and__Field_Ocomm__semiring__1(tc_Complex_Ocomplex)),
+  file('ALG434-1.tptp',unknown)).
+fof(f2230,plain,(
+  ~class_Ring__and__Field_Ocomm__semiring__1(tc_Complex_Ocomplex)),
+  inference(subsumption_resolution,[],[f2220,f371])).
+fof(f371,axiom,(
+  c_Ring__and__Field_Odvd__class_Odvd(v_p,v_q,tc_Polynomial_Opoly(tc_Complex_Ocomplex))),
+  file('ALG434-1.tptp',unknown)).
+fof(f2220,plain,(
+  ~c_Ring__and__Field_Odvd__class_Odvd(v_p,v_q,tc_Polynomial_Opoly(tc_Complex_Ocomplex)) | ~class_Ring__and__Field_Ocomm__semiring__1(tc_Complex_Ocomplex)),
+  inference(resolution,[],[f367,f375])).
+fof(f375,axiom,(
+  ~c_Ring__and__Field_Odvd__class_Odvd(v_p,c_Polynomial_Osmult(v_a,v_q,tc_Complex_Ocomplex),tc_Polynomial_Opoly(tc_Complex_Ocomplex))),
+  file('ALG434-1.tptp',unknown)).
+fof(f367,axiom,(
+  ( ! [X0,X5,X3,X1] : (c_Ring__and__Field_Odvd__class_Odvd(X1,c_Polynomial_Osmult(X5,X3,X0),tc_Polynomial_Opoly(X0)) | ~c_Ring__and__Field_Odvd__class_Odvd(X1,X3,tc_Polynomial_Opoly(X0)) | ~class_Ring__and__Field_Ocomm__semiring__1(X0)) )),
+  file('ALG434-1.tptp',unknown)).
+% SZS output end Proof for ALG434-1
+% ------------------------------
+% Version: Vampire 4.4.0 (commit d98a3d53 on 2020-01-14 21:02:12 +0100)
+% Termination reason: Refutation
+
+% Memory used [KB]: 6396
+% Time elapsed: 0.039 s
+% ------------------------------
+% ------------------------------

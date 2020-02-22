@@ -1,0 +1,86 @@
+%------------------------------------------------------------------------------
+% File     : RNG004-1 : TPTP v7.3.0. Released v1.0.0.
+% Domain   : Ring Theory
+% Problem  : X*Y = -X*-Y
+% Version  : [MOW76] axioms.
+% English  :
+
+% Refs     : [MOW76] McCharen et al. (1976), Problems and Experiments for a
+% Source   : [MOW76]
+% Names    : R2 [MOW76]
+%          : minuses.ver1.in [ANL]
+
+% Status   : Unsatisfiable
+% Rating   : 0.22 v7.3.0, 0.11 v7.2.0, 0.12 v7.1.0, 0.14 v6.3.0, 0.00 v6.1.0, 0.20 v6.0.0, 0.33 v5.5.0, 0.50 v5.4.0, 0.53 v5.3.0, 0.58 v5.2.0, 0.38 v5.1.0, 0.29 v5.0.0, 0.14 v4.1.0, 0.11 v4.0.1, 0.00 v4.0.0, 0.17 v3.5.0, 0.00 v3.3.0, 0.14 v3.2.0, 0.00 v3.1.0, 0.22 v2.7.0, 0.00 v2.6.0, 0.29 v2.5.0, 0.00 v2.3.0, 0.17 v2.2.1, 0.56 v2.2.0, 0.57 v2.1.0, 0.50 v2.0.0
+% Syntax   : Number of clauses     :   20 (   0 non-Horn;   9 unit;  14 RR)
+%            Number of atoms       :   53 (   3 equality)
+%            Maximal clause size   :    5 (   3 average)
+%            Number of predicates  :    3 (   0 propositional; 2-3 arity)
+%            Number of functors    :    8 (   5 constant; 0-2 arity)
+%            Number of variables   :   71 (   0 singleton)
+%            Maximal term depth    :    2 (   1 average)
+% SPC      : CNF_UNS_RFO_SEQ_HRN
+
+% Comments :
+%          : tptp2X 
+%------------------------------------------------------------------------------
+cnf(additive_identity1,axiom,
+    ( sum(additive_identity,X,X) )).
+
+cnf(additive_identity2,axiom,
+    ( sum(X,additive_identity,X) )).
+
+cnf(closure_of_multiplication,axiom,
+    ( product(X,Y,multiply(X,Y)) )).
+
+cnf(closure_of_addition,axiom,
+    ( sum(X,Y,add(X,Y)) )).
+
+cnf(left_inverse,axiom,
+    ( sum(additive_inverse(X),X,additive_identity) )).
+
+cnf(right_inverse,axiom,
+    ( sum(X,additive_inverse(X),additive_identity) )).
+
+cnf(associativity_of_addition1,axiom,
+    ( ~ sum(X,Y,U) | ~ sum(Y,Z,V) | ~ sum(U,Z,W) | sum(X,V,W) )).
+
+cnf(associativity_of_addition2,axiom,
+    ( ~ sum(X,Y,U) | ~ sum(Y,Z,V) | ~ sum(X,V,W) | sum(U,Z,W) )).
+
+cnf(commutativity_of_addition,axiom,
+    ( ~ sum(X,Y,Z) | sum(Y,X,Z) )).
+
+cnf(associativity_of_multiplication1,axiom,
+    ( ~ product(X,Y,U) | ~ product(Y,Z,V) | ~ product(U,Z,W) | product(X,V,W) )).
+
+cnf(associativity_of_multiplication2,axiom,
+    ( ~ product(X,Y,U) | ~ product(Y,Z,V) | ~ product(X,V,W) | product(U,Z,W) )).
+
+cnf(distributivity1,axiom,
+    ( ~ product(X,Y,V1) | ~ product(X,Z,V2) | ~ sum(Y,Z,V3) | ~ product(X,V3,V4) | sum(V1,V2,V4) )).
+
+cnf(distributivity2,axiom,
+    ( ~ product(X,Y,V1) | ~ product(X,Z,V2) | ~ sum(Y,Z,V3) | ~ sum(V1,V2,V4) | product(X,V3,V4) )).
+
+cnf(distributivity3,axiom,
+    ( ~ product(Y,X,V1) | ~ product(Z,X,V2) | ~ sum(Y,Z,V3) | ~ product(V3,X,V4) | sum(V1,V2,V4) )).
+
+cnf(distributivity4,axiom,
+    ( ~ product(Y,X,V1) | ~ product(Z,X,V2) | ~ sum(Y,Z,V3) | ~ sum(V1,V2,V4) | product(V3,X,V4) )).
+
+cnf(addition_is_well_defined,axiom,
+    ( ~ sum(X,Y,U) | ~ sum(X,Y,V) | U = V )).
+
+cnf(multiplication_is_well_defined,axiom,
+    ( ~ product(X,Y,U) | ~ product(X,Y,V) | U = V )).
+
+cnf(a_times_b,hypothesis,
+    ( product(a,b,c) )).
+
+cnf(a_inverse_times_b_inverse,hypothesis,
+    ( product(additive_inverse(a),additive_inverse(b),d) )).
+
+cnf(prove_c_equals_d,negated_conjecture,
+    ( c != d )).
+%------------------------------------------------------------------------------

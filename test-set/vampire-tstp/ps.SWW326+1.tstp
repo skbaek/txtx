@@ -1,0 +1,162 @@
+% Refutation found. Thanks to Tanya!
+% SZS status Theorem for SWW326+1
+% SZS output start Proof for SWW326+1
+fof(f605982,plain,(
+  $false),
+  inference(avatar_sat_refutation,[],[f29842,f29847,f29851,f29852,f29861,f186441,f389617,f605981])).
+fof(f605981,plain,(
+  ~spl500_9 | ~spl500_13),
+  inference(avatar_contradiction_clause,[],[f605980])).
+fof(f605980,plain,(
+  $false | (~spl500_9 | ~spl500_13)),
+  inference(resolution,[],[f605979,f23362])).
+fof(f23362,plain,(
+  v_P(sK497,sK498)),
+  inference(cnf_transformation,[],[f16374])).
+fof(f16374,plain,(
+  (((hBOOL(hAPP(v_b,sK499)) | ~v_P(sK497,sK499)) & c_Natural_Oevaln(c_Com_Ocom_OWhile(v_b,v_c),sK498,v_n,sK499)) & v_P(sK497,sK498)) & ! [X3] : (c_Hoare__Mirabelle_Otriple__valid(t_a,v_n,X3) | ~hBOOL(hAPP(hAPP(c_member(tc_Hoare__Mirabelle_Otriple(t_a)),X3),v_G)))),
+  inference(skolemisation,[status(esa),new_symbols(skolem,[sK497,sK498,sK499])],[f16371,f16373,f16372])).
+fof(f16372,plain,(
+  ? [X0,X1] : (? [X2] : ((hBOOL(hAPP(v_b,X2)) | ~v_P(X0,X2)) & c_Natural_Oevaln(c_Com_Ocom_OWhile(v_b,v_c),X1,v_n,X2)) & v_P(X0,X1)) => (? [X2] : ((hBOOL(hAPP(v_b,X2)) | ~v_P(sK497,X2)) & c_Natural_Oevaln(c_Com_Ocom_OWhile(v_b,v_c),sK498,v_n,X2)) & v_P(sK497,sK498))),
+  introduced(choice_axiom,[])).
+fof(f16373,plain,(
+  ? [X2] : ((hBOOL(hAPP(v_b,X2)) | ~v_P(sK497,X2)) & c_Natural_Oevaln(c_Com_Ocom_OWhile(v_b,v_c),sK498,v_n,X2)) => ((hBOOL(hAPP(v_b,sK499)) | ~v_P(sK497,sK499)) & c_Natural_Oevaln(c_Com_Ocom_OWhile(v_b,v_c),sK498,v_n,sK499))),
+  introduced(choice_axiom,[])).
+fof(f16371,plain,(
+  ? [X0,X1] : (? [X2] : ((hBOOL(hAPP(v_b,X2)) | ~v_P(X0,X2)) & c_Natural_Oevaln(c_Com_Ocom_OWhile(v_b,v_c),X1,v_n,X2)) & v_P(X0,X1)) & ! [X3] : (c_Hoare__Mirabelle_Otriple__valid(t_a,v_n,X3) | ~hBOOL(hAPP(hAPP(c_member(tc_Hoare__Mirabelle_Otriple(t_a)),X3),v_G)))),
+  inference(rectify,[],[f14338])).
+fof(f14338,plain,(
+  ? [X1,X2] : (? [X3] : ((hBOOL(hAPP(v_b,X3)) | ~v_P(X1,X3)) & c_Natural_Oevaln(c_Com_Ocom_OWhile(v_b,v_c),X2,v_n,X3)) & v_P(X1,X2)) & ! [X0] : (c_Hoare__Mirabelle_Otriple__valid(t_a,v_n,X0) | ~hBOOL(hAPP(hAPP(c_member(tc_Hoare__Mirabelle_Otriple(t_a)),X0),v_G)))),
+  inference(ennf_transformation,[],[f10099])).
+fof(f10099,plain,(
+  ~(! [X0] : (hBOOL(hAPP(hAPP(c_member(tc_Hoare__Mirabelle_Otriple(t_a)),X0),v_G)) => c_Hoare__Mirabelle_Otriple__valid(t_a,v_n,X0)) => ! [X1,X2] : (v_P(X1,X2) => ! [X3] : (c_Natural_Oevaln(c_Com_Ocom_OWhile(v_b,v_c),X2,v_n,X3) => (~hBOOL(hAPP(v_b,X3)) & v_P(X1,X3)))))),
+  inference(rectify,[],[f5208])).
+fof(f5208,negated_conjecture,(
+  ~(! [X2] : (hBOOL(hAPP(hAPP(c_member(tc_Hoare__Mirabelle_Otriple(t_a)),X2),v_G)) => c_Hoare__Mirabelle_Otriple__valid(t_a,v_n,X2)) => ! [X26,X27] : (v_P(X26,X27) => ! [X28] : (c_Natural_Oevaln(c_Com_Ocom_OWhile(v_b,v_c),X27,v_n,X28) => (~hBOOL(hAPP(v_b,X28)) & v_P(X26,X28)))))),
+  inference(negated_conjecture,[],[f5207])).
+fof(f5207,conjecture,(
+  ! [X2] : (hBOOL(hAPP(hAPP(c_member(tc_Hoare__Mirabelle_Otriple(t_a)),X2),v_G)) => c_Hoare__Mirabelle_Otriple__valid(t_a,v_n,X2)) => ! [X26,X27] : (v_P(X26,X27) => ! [X28] : (c_Natural_Oevaln(c_Com_Ocom_OWhile(v_b,v_c),X27,v_n,X28) => (~hBOOL(hAPP(v_b,X28)) & v_P(X26,X28))))),
+  file('SWW326+1.tptp',unknown)).
+fof(f605979,plain,(
+  ( ! [X0] : (~v_P(X0,sK498)) ) | (~spl500_9 | ~spl500_13)),
+  inference(subsumption_resolution,[],[f605977,f29860])).
+fof(f29860,plain,(
+  hBOOL(hAPP(v_b,sK499)) | ~spl500_13),
+  inference(avatar_component_clause,[],[f29858])).
+fof(f29858,plain,(
+  spl500_13 <=> hBOOL(hAPP(v_b,sK499))),
+  introduced(avatar_definition,[new_symbols(naming,[spl500_13])])).
+fof(f605977,plain,(
+  ( ! [X0] : (~v_P(X0,sK498) | ~hBOOL(hAPP(v_b,sK499))) ) | ~spl500_9),
+  inference(resolution,[],[f29841,f23363])).
+fof(f23363,plain,(
+  c_Natural_Oevaln(c_Com_Ocom_OWhile(v_b,v_c),sK498,v_n,sK499)),
+  inference(cnf_transformation,[],[f16374])).
+fof(f29841,plain,(
+  ( ! [X2,X0,X1] : (~c_Natural_Oevaln(c_Com_Ocom_OWhile(v_b,v_c),X0,v_n,X1) | ~v_P(X2,X0) | ~hBOOL(hAPP(v_b,X1))) ) | ~spl500_9),
+  inference(avatar_component_clause,[],[f29840])).
+fof(f29840,plain,(
+  spl500_9 <=> ! [X1,X0,X2] : (~hBOOL(hAPP(v_b,X1)) | ~v_P(X2,X0) | ~c_Natural_Oevaln(c_Com_Ocom_OWhile(v_b,v_c),X0,v_n,X1))),
+  introduced(avatar_definition,[new_symbols(naming,[spl500_9])])).
+fof(f389617,plain,(
+  spl500_12 | ~spl500_11),
+  inference(avatar_split_clause,[],[f389614,f29849,f29854])).
+fof(f29854,plain,(
+  spl500_12 <=> v_P(sK497,sK499)),
+  introduced(avatar_definition,[new_symbols(naming,[spl500_12])])).
+fof(f29849,plain,(
+  spl500_11 <=> ! [X1,X0,X2] : (v_P(X2,X1) | ~c_Natural_Oevaln(c_Com_Ocom_OWhile(v_b,v_c),X0,v_n,X1) | ~v_P(X2,X0))),
+  introduced(avatar_definition,[new_symbols(naming,[spl500_11])])).
+fof(f389614,plain,(
+  v_P(sK497,sK499) | ~spl500_11),
+  inference(resolution,[],[f389611,f23362])).
+fof(f389611,plain,(
+  ( ! [X0] : (~v_P(X0,sK498) | v_P(X0,sK499)) ) | ~spl500_11),
+  inference(resolution,[],[f29850,f23363])).
+fof(f29850,plain,(
+  ( ! [X2,X0,X1] : (~c_Natural_Oevaln(c_Com_Ocom_OWhile(v_b,v_c),X0,v_n,X1) | v_P(X2,X1) | ~v_P(X2,X0)) ) | ~spl500_11),
+  inference(avatar_component_clause,[],[f29849])).
+fof(f186441,plain,(
+  spl500_8 | ~spl500_10),
+  inference(avatar_contradiction_clause,[],[f186440])).
+fof(f186440,plain,(
+  $false | (spl500_8 | ~spl500_10)),
+  inference(subsumption_resolution,[],[f186438,f29838])).
+fof(f29838,plain,(
+  ~c_Hoare__Mirabelle_Otriple__valid(t_a,v_n,sK496) | spl500_8),
+  inference(avatar_component_clause,[],[f29836])).
+fof(f29836,plain,(
+  spl500_8 <=> c_Hoare__Mirabelle_Otriple__valid(t_a,v_n,sK496)),
+  introduced(avatar_definition,[new_symbols(naming,[spl500_8])])).
+fof(f186438,plain,(
+  c_Hoare__Mirabelle_Otriple__valid(t_a,v_n,sK496) | ~spl500_10),
+  inference(resolution,[],[f23361,f29846])).
+fof(f29846,plain,(
+  hBOOL(hAPP(hAPP(c_member(tc_Hoare__Mirabelle_Otriple(t_a)),sK496),v_G)) | ~spl500_10),
+  inference(avatar_component_clause,[],[f29844])).
+fof(f29844,plain,(
+  spl500_10 <=> hBOOL(hAPP(hAPP(c_member(tc_Hoare__Mirabelle_Otriple(t_a)),sK496),v_G))),
+  introduced(avatar_definition,[new_symbols(naming,[spl500_10])])).
+fof(f23361,plain,(
+  ( ! [X3] : (~hBOOL(hAPP(hAPP(c_member(tc_Hoare__Mirabelle_Otriple(t_a)),X3),v_G)) | c_Hoare__Mirabelle_Otriple__valid(t_a,v_n,X3)) )),
+  inference(cnf_transformation,[],[f16374])).
+fof(f29861,plain,(
+  ~spl500_12 | spl500_13),
+  inference(avatar_split_clause,[],[f23364,f29858,f29854])).
+fof(f23364,plain,(
+  hBOOL(hAPP(v_b,sK499)) | ~v_P(sK497,sK499)),
+  inference(cnf_transformation,[],[f16374])).
+fof(f29852,plain,(
+  spl500_10 | spl500_11),
+  inference(avatar_split_clause,[],[f23357,f29849,f29844])).
+fof(f23357,plain,(
+  ( ! [X2,X0,X1] : (v_P(X2,X1) | ~v_P(X2,X0) | hBOOL(hAPP(hAPP(c_member(tc_Hoare__Mirabelle_Otriple(t_a)),sK496),v_G)) | ~c_Natural_Oevaln(c_Com_Ocom_OWhile(v_b,v_c),X0,v_n,X1)) )),
+  inference(cnf_transformation,[],[f16370])).
+fof(f16370,plain,(
+  ! [X0,X1] : (! [X2] : ((~hBOOL(hAPP(v_b,X1)) & v_P(X2,X1)) | ~v_P(X2,X0)) | (~c_Hoare__Mirabelle_Otriple__valid(t_a,v_n,sK496) & hBOOL(hAPP(hAPP(c_member(tc_Hoare__Mirabelle_Otriple(t_a)),sK496),v_G))) | ~c_Natural_Oevaln(c_Com_Ocom_OWhile(v_b,v_c),X0,v_n,X1))),
+  inference(skolemisation,[status(esa),new_symbols(skolem,[sK496])],[f16368,f16369])).
+fof(f16369,plain,(
+  ? [X3] : (~c_Hoare__Mirabelle_Otriple__valid(t_a,v_n,X3) & hBOOL(hAPP(hAPP(c_member(tc_Hoare__Mirabelle_Otriple(t_a)),X3),v_G))) => (~c_Hoare__Mirabelle_Otriple__valid(t_a,v_n,sK496) & hBOOL(hAPP(hAPP(c_member(tc_Hoare__Mirabelle_Otriple(t_a)),sK496),v_G)))),
+  introduced(choice_axiom,[])).
+fof(f16368,plain,(
+  ! [X0,X1] : (! [X2] : ((~hBOOL(hAPP(v_b,X1)) & v_P(X2,X1)) | ~v_P(X2,X0)) | ? [X3] : (~c_Hoare__Mirabelle_Otriple__valid(t_a,v_n,X3) & hBOOL(hAPP(hAPP(c_member(tc_Hoare__Mirabelle_Otriple(t_a)),X3),v_G))) | ~c_Natural_Oevaln(c_Com_Ocom_OWhile(v_b,v_c),X0,v_n,X1))),
+  inference(rectify,[],[f14337])).
+fof(f14337,plain,(
+  ! [X0,X1] : (! [X3] : ((~hBOOL(hAPP(v_b,X1)) & v_P(X3,X1)) | ~v_P(X3,X0)) | ? [X2] : (~c_Hoare__Mirabelle_Otriple__valid(t_a,v_n,X2) & hBOOL(hAPP(hAPP(c_member(tc_Hoare__Mirabelle_Otriple(t_a)),X2),v_G))) | ~c_Natural_Oevaln(c_Com_Ocom_OWhile(v_b,v_c),X0,v_n,X1))),
+  inference(flattening,[],[f14336])).
+fof(f14336,plain,(
+  ! [X0,X1] : ((! [X3] : ((~hBOOL(hAPP(v_b,X1)) & v_P(X3,X1)) | ~v_P(X3,X0)) | ? [X2] : (~c_Hoare__Mirabelle_Otriple__valid(t_a,v_n,X2) & hBOOL(hAPP(hAPP(c_member(tc_Hoare__Mirabelle_Otriple(t_a)),X2),v_G)))) | ~c_Natural_Oevaln(c_Com_Ocom_OWhile(v_b,v_c),X0,v_n,X1))),
+  inference(ennf_transformation,[],[f10098])).
+fof(f10098,plain,(
+  ! [X0,X1] : (c_Natural_Oevaln(c_Com_Ocom_OWhile(v_b,v_c),X0,v_n,X1) => (! [X2] : (hBOOL(hAPP(hAPP(c_member(tc_Hoare__Mirabelle_Otriple(t_a)),X2),v_G)) => c_Hoare__Mirabelle_Otriple__valid(t_a,v_n,X2)) => ! [X3] : (v_P(X3,X0) => (~hBOOL(hAPP(v_b,X1)) & v_P(X3,X1)))))),
+  inference(rectify,[],[f5206])).
+fof(f5206,axiom,(
+  ! [X27,X28] : (c_Natural_Oevaln(c_Com_Ocom_OWhile(v_b,v_c),X27,v_n,X28) => (! [X2] : (hBOOL(hAPP(hAPP(c_member(tc_Hoare__Mirabelle_Otriple(t_a)),X2),v_G)) => c_Hoare__Mirabelle_Otriple__valid(t_a,v_n,X2)) => ! [X26] : (v_P(X26,X27) => (~hBOOL(hAPP(v_b,X28)) & v_P(X26,X28)))))),
+  file('SWW326+1.tptp',unknown)).
+fof(f29851,plain,(
+  ~spl500_8 | spl500_11),
+  inference(avatar_split_clause,[],[f23358,f29849,f29836])).
+fof(f23358,plain,(
+  ( ! [X2,X0,X1] : (v_P(X2,X1) | ~v_P(X2,X0) | ~c_Hoare__Mirabelle_Otriple__valid(t_a,v_n,sK496) | ~c_Natural_Oevaln(c_Com_Ocom_OWhile(v_b,v_c),X0,v_n,X1)) )),
+  inference(cnf_transformation,[],[f16370])).
+fof(f29847,plain,(
+  spl500_10 | spl500_9),
+  inference(avatar_split_clause,[],[f23359,f29840,f29844])).
+fof(f23359,plain,(
+  ( ! [X2,X0,X1] : (~hBOOL(hAPP(v_b,X1)) | ~v_P(X2,X0) | hBOOL(hAPP(hAPP(c_member(tc_Hoare__Mirabelle_Otriple(t_a)),sK496),v_G)) | ~c_Natural_Oevaln(c_Com_Ocom_OWhile(v_b,v_c),X0,v_n,X1)) )),
+  inference(cnf_transformation,[],[f16370])).
+fof(f29842,plain,(
+  ~spl500_8 | spl500_9),
+  inference(avatar_split_clause,[],[f23360,f29840,f29836])).
+fof(f23360,plain,(
+  ( ! [X2,X0,X1] : (~hBOOL(hAPP(v_b,X1)) | ~v_P(X2,X0) | ~c_Hoare__Mirabelle_Otriple__valid(t_a,v_n,sK496) | ~c_Natural_Oevaln(c_Com_Ocom_OWhile(v_b,v_c),X0,v_n,X1)) )),
+  inference(cnf_transformation,[],[f16370])).
+% SZS output end Proof for SWW326+1
+% ------------------------------
+% Version: Vampire 4.4.0 (commit d98a3d53 on 2020-01-14 21:02:12 +0100)
+% Termination reason: Refutation
+
+% Memory used [KB]: 246648
+% Time elapsed: 15.002 s
+% ------------------------------
+% ------------------------------

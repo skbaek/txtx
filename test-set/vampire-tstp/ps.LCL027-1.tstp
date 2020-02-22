@@ -1,0 +1,48 @@
+% Refutation found. Thanks to Tanya!
+% SZS status Unsatisfiable for LCL027-1
+% SZS output start Proof for LCL027-1
+fof(f78,plain,(
+  $false),
+  inference(resolution,[],[f71,f5])).
+fof(f5,axiom,(
+  ~is_a_theorem(implies(falsehood,a))),
+  file('LCL027-1.tptp',unknown)).
+fof(f71,plain,(
+  ( ! [X0] : (is_a_theorem(implies(falsehood,X0))) )),
+  inference(resolution,[],[f36,f2])).
+fof(f2,axiom,(
+  ( ! [X0,X1] : (is_a_theorem(implies(X0,implies(X1,X0)))) )),
+  file('LCL027-1.tptp',unknown)).
+fof(f36,plain,(
+  ( ! [X6,X7] : (~is_a_theorem(implies(X6,implies(implies(X7,falsehood),falsehood))) | is_a_theorem(implies(X6,X7))) )),
+  inference(resolution,[],[f24,f3])).
+fof(f3,axiom,(
+  ( ! [X0] : (is_a_theorem(implies(implies(implies(X0,falsehood),falsehood),X0))) )),
+  file('LCL027-1.tptp',unknown)).
+fof(f24,plain,(
+  ( ! [X4,X2,X3] : (~is_a_theorem(implies(X3,X4)) | is_a_theorem(implies(X2,X4)) | ~is_a_theorem(implies(X2,X3))) )),
+  inference(resolution,[],[f21,f6])).
+fof(f6,plain,(
+  ( ! [X0,X1] : (is_a_theorem(implies(X1,X0)) | ~is_a_theorem(X0)) )),
+  inference(resolution,[],[f1,f2])).
+fof(f1,axiom,(
+  ( ! [X0,X1] : (~is_a_theorem(implies(X0,X1)) | ~is_a_theorem(X0) | is_a_theorem(X1)) )),
+  file('LCL027-1.tptp',unknown)).
+fof(f21,plain,(
+  ( ! [X2,X0,X1] : (~is_a_theorem(implies(X0,implies(X1,X2))) | ~is_a_theorem(implies(X0,X1)) | is_a_theorem(implies(X0,X2))) )),
+  inference(resolution,[],[f10,f1])).
+fof(f10,plain,(
+  ( ! [X2,X0,X1] : (is_a_theorem(implies(implies(X0,X1),implies(X0,X2))) | ~is_a_theorem(implies(X0,implies(X1,X2)))) )),
+  inference(resolution,[],[f4,f1])).
+fof(f4,axiom,(
+  ( ! [X2,X0,X1] : (is_a_theorem(implies(implies(X0,implies(X1,X2)),implies(implies(X0,X1),implies(X0,X2))))) )),
+  file('LCL027-1.tptp',unknown)).
+% SZS output end Proof for LCL027-1
+% ------------------------------
+% Version: Vampire 4.4.0 (commit d98a3d53 on 2020-01-14 21:02:12 +0100)
+% Termination reason: Refutation
+
+% Memory used [KB]: 4861
+% Time elapsed: 0.001 s
+% ------------------------------
+% ------------------------------

@@ -1,0 +1,33 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% SZS status Unsatisfiable for GRP041-2.tptp
+
+% SZS output start CNFRefutation for GRP041-2.tptp
+cnf(left_identity, axiom, (product(identity, X, X))).
+
+cnf(total_function2, axiom,
+    (~ product(X, Y, Z) | ~ product(X, Y, W) | equalish(Z, W))).
+
+cnf(prove_reflexivity, negated_conjecture, (~ equalish(a, a))).
+
+cnf(refute_0_0, plain, (product(identity, X_6, X_6)),
+    inference(subst, [], [left_identity : [bind(X, $fot(X_6))]])).
+
+cnf(refute_0_1, plain,
+    (~ product(identity, X_6, X_6) | equalish(X_6, X_6)),
+    inference(subst, [],
+              [total_function2 :
+               [bind(W, $fot(X_6)), bind(X, $fot(identity)),
+                bind(Y, $fot(X_6)), bind(Z, $fot(X_6))]])).
+
+cnf(refute_0_2, plain, (equalish(X_6, X_6)),
+    inference(resolve, [$cnf(product(identity, X_6, X_6))],
+              [refute_0_0, refute_0_1])).
+
+cnf(refute_0_3, plain, (equalish(a, a)),
+    inference(subst, [], [refute_0_2 : [bind(X_6, $fot(a))]])).
+
+cnf(refute_0_4, plain, ($false),
+    inference(resolve, [$cnf(equalish(a, a))],
+              [refute_0_3, prove_reflexivity])).
+% SZS output end CNFRefutation for GRP041-2.tptp
+

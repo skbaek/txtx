@@ -1,0 +1,35 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% SZS status Unsatisfiable for SYN044-1.tptp
+
+% SZS output start CNFRefutation for SYN044-1.tptp
+cnf(clause_1, axiom, (~ q | r)).
+
+cnf(clause_2, axiom, (~ r | p)).
+
+cnf(clause_3, axiom, (~ r | q)).
+
+cnf(clause_4, axiom, (~ p | q | r)).
+
+cnf(clause_5, negated_conjecture, (~ p | ~ q)).
+
+cnf(clause_6, negated_conjecture, (p | q)).
+
+cnf(refute_0_0, plain, (p | r),
+    inference(resolve, [$cnf(q)], [clause_6, clause_1])).
+
+cnf(refute_0_1, plain, (p),
+    inference(resolve, [$cnf(r)], [refute_0_0, clause_2])).
+
+cnf(refute_0_2, plain, (q | r),
+    inference(resolve, [$cnf(p)], [refute_0_1, clause_4])).
+
+cnf(refute_0_3, plain, (q),
+    inference(resolve, [$cnf(r)], [refute_0_2, clause_3])).
+
+cnf(refute_0_4, plain, (~ p),
+    inference(resolve, [$cnf(q)], [refute_0_3, clause_5])).
+
+cnf(refute_0_5, plain, ($false),
+    inference(resolve, [$cnf(p)], [refute_0_1, refute_0_4])).
+% SZS output end CNFRefutation for SYN044-1.tptp
+

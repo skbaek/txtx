@@ -1,0 +1,99 @@
+% Refutation found. Thanks to Tanya!
+% SZS status Unsatisfiable for ANA007-1
+% SZS output start Proof for ANA007-1
+fof(f51633,plain,(
+  $false),
+  inference(subsumption_resolution,[],[f51632,f10502])).
+fof(f10502,plain,(
+  ( ! [X20] : (c_lessequals(X20,X20,t_b)) )),
+  inference(subsumption_resolution,[],[f10501,f4208])).
+fof(f4208,plain,(
+  class_OrderedGroup_Opordered__ab__group__add(t_b)),
+  inference(resolution,[],[f4194,f2307])).
+fof(f2307,axiom,(
+  ( ! [X87] : (~class_Ring__and__Field_Olordered__ring(X87) | class_OrderedGroup_Opordered__ab__group__add(X87)) )),
+  file('ANA007-1.tptp',unknown)).
+fof(f4194,plain,(
+  class_Ring__and__Field_Olordered__ring(t_b)),
+  inference(resolution,[],[f2460,f2784])).
+fof(f2784,axiom,(
+  class_Ring__and__Field_Oordered__idom(t_b)),
+  file('ANA007-1.tptp',unknown)).
+fof(f2460,axiom,(
+  ( ! [X87] : (~class_Ring__and__Field_Oordered__idom(X87) | class_Ring__and__Field_Olordered__ring(X87)) )),
+  file('ANA007-1.tptp',unknown)).
+fof(f10501,plain,(
+  ( ! [X20] : (c_lessequals(X20,X20,t_b) | ~class_OrderedGroup_Opordered__ab__group__add(t_b)) )),
+  inference(subsumption_resolution,[],[f10497,f5580])).
+fof(f5580,plain,(
+  c_lessequals(c_0,c_0,t_b)),
+  inference(subsumption_resolution,[],[f5577,f4241])).
+fof(f4241,plain,(
+  class_Ring__and__Field_Oordered__semidom(t_b)),
+  inference(resolution,[],[f2468,f2784])).
+fof(f2468,axiom,(
+  ( ! [X87] : (~class_Ring__and__Field_Oordered__idom(X87) | class_Ring__and__Field_Oordered__semidom(X87)) )),
+  file('ANA007-1.tptp',unknown)).
+fof(f5577,plain,(
+  c_lessequals(c_0,c_0,t_b) | ~class_Ring__and__Field_Oordered__semidom(t_b)),
+  inference(superposition,[],[f699,f5418])).
+fof(f5418,plain,(
+  c_0 = c_NatArith_Oof__nat(c_0,t_b)),
+  inference(resolution,[],[f698,f4241])).
+fof(f698,axiom,(
+  ( ! [X0] : (~class_Ring__and__Field_Oordered__semidom(X0) | c_0 = c_NatArith_Oof__nat(c_0,X0)) )),
+  file('ANA007-1.tptp',unknown)).
+fof(f699,axiom,(
+  ( ! [X0,X11] : (c_lessequals(c_0,c_NatArith_Oof__nat(X11,X0),X0) | ~class_Ring__and__Field_Oordered__semidom(X0)) )),
+  file('ANA007-1.tptp',unknown)).
+fof(f10497,plain,(
+  ( ! [X20] : (~c_lessequals(c_0,c_0,t_b) | c_lessequals(X20,X20,t_b) | ~class_OrderedGroup_Opordered__ab__group__add(t_b)) )),
+  inference(superposition,[],[f1094,f5636])).
+fof(f5636,plain,(
+  ( ! [X1] : (c_0 = c_minus(X1,X1,t_b)) )),
+  inference(resolution,[],[f1099,f3886])).
+fof(f3886,plain,(
+  class_OrderedGroup_Oab__group__add(t_b)),
+  inference(resolution,[],[f3870,f2139])).
+fof(f2139,axiom,(
+  ( ! [X87] : (~class_Ring__and__Field_Ocomm__ring__1(X87) | class_OrderedGroup_Oab__group__add(X87)) )),
+  file('ANA007-1.tptp',unknown)).
+fof(f3870,plain,(
+  class_Ring__and__Field_Ocomm__ring__1(t_b)),
+  inference(resolution,[],[f2417,f2784])).
+fof(f2417,axiom,(
+  ( ! [X87] : (~class_Ring__and__Field_Oordered__idom(X87) | class_Ring__and__Field_Ocomm__ring__1(X87)) )),
+  file('ANA007-1.tptp',unknown)).
+fof(f1099,axiom,(
+  ( ! [X0,X3] : (~class_OrderedGroup_Oab__group__add(X0) | c_0 = c_minus(X3,X3,X0)) )),
+  file('ANA007-1.tptp',unknown)).
+fof(f1094,axiom,(
+  ( ! [X0,X3,X1] : (~c_lessequals(c_minus(X3,X1,X0),c_0,X0) | c_lessequals(X3,X1,X0) | ~class_OrderedGroup_Opordered__ab__group__add(X0)) )),
+  file('ANA007-1.tptp',unknown)).
+fof(f51632,plain,(
+  ~c_lessequals(c_HOL_Oabs(v_f(v_x(c_1)),t_b),c_HOL_Oabs(v_f(v_x(c_1)),t_b),t_b)),
+  inference(superposition,[],[f2783,f5644])).
+fof(f5644,plain,(
+  ( ! [X10] : (c_times(c_1,X10,t_b) = X10) )),
+  inference(resolution,[],[f1111,f3891])).
+fof(f3891,plain,(
+  class_OrderedGroup_Omonoid__mult(t_b)),
+  inference(resolution,[],[f3870,f2144])).
+fof(f2144,axiom,(
+  ( ! [X87] : (~class_Ring__and__Field_Ocomm__ring__1(X87) | class_OrderedGroup_Omonoid__mult(X87)) )),
+  file('ANA007-1.tptp',unknown)).
+fof(f1111,axiom,(
+  ( ! [X0,X10] : (~class_OrderedGroup_Omonoid__mult(X0) | c_times(c_1,X10,X0) = X10) )),
+  file('ANA007-1.tptp',unknown)).
+fof(f2783,axiom,(
+  ( ! [X29] : (~c_lessequals(c_HOL_Oabs(v_f(v_x(X29)),t_b),c_times(X29,c_HOL_Oabs(v_f(v_x(X29)),t_b),t_b),t_b)) )),
+  file('ANA007-1.tptp',unknown)).
+% SZS output end Proof for ANA007-1
+% ------------------------------
+% Version: Vampire 4.4.0 (commit d98a3d53 on 2020-01-14 21:02:12 +0100)
+% Termination reason: Refutation
+
+% Memory used [KB]: 22899
+% Time elapsed: 0.537 s
+% ------------------------------
+% ------------------------------

@@ -1,0 +1,102 @@
+% Refutation found. Thanks to Tanya!
+% SZS status Unsatisfiable for GRP544-1
+% SZS output start Proof for GRP544-1
+fof(f656,plain,(
+  $false),
+  inference(trivial_inequality_removal,[],[f655])).
+fof(f655,plain,(
+  divide(a,divide(identity,b)) != divide(a,divide(identity,b))),
+  inference(superposition,[],[f6,f210])).
+fof(f210,plain,(
+  ( ! [X6,X7] : (divide(X7,divide(identity,X6)) = divide(X6,divide(identity,X7))) )),
+  inference(superposition,[],[f150,f147])).
+fof(f147,plain,(
+  ( ! [X2,X1] : (divide(divide(X2,divide(identity,X1)),X2) = X1) )),
+  inference(backward_demodulation,[],[f130,f55])).
+fof(f55,plain,(
+  ( ! [X2,X1] : (divide(divide(identity,divide(divide(identity,X1),X2)),X2) = X1) )),
+  inference(backward_demodulation,[],[f52,f12])).
+fof(f12,plain,(
+  ( ! [X2,X1] : (divide(divide(identity,divide(divide(identity,divide(X1,identity)),X2)),X2) = X1) )),
+  inference(backward_demodulation,[],[f9,f1])).
+fof(f1,axiom,(
+  ( ! [X2,X0,X1] : (divide(divide(identity,divide(divide(divide(X0,X1),X2),X0)),X2) = X1) )),
+  file('GRP544-1.tptp',unknown)).
+fof(f9,plain,(
+  ( ! [X2,X0,X1] : (divide(divide(divide(X0,X1),X2),X0) = divide(divide(identity,divide(X1,identity)),X2)) )),
+  inference(superposition,[],[f1,f1])).
+fof(f52,plain,(
+  ( ! [X0] : (divide(X0,identity) = X0) )),
+  inference(backward_demodulation,[],[f44,f34])).
+fof(f34,plain,(
+  ( ! [X0] : (divide(X0,identity) = divide(identity,divide(identity,X0))) )),
+  inference(forward_demodulation,[],[f33,f19])).
+fof(f19,plain,(
+  ( ! [X1] : (divide(identity,divide(identity,divide(X1,identity))) = X1) )),
+  inference(forward_demodulation,[],[f16,f4])).
+fof(f4,axiom,(
+  ( ! [X0] : (identity = divide(X0,X0)) )),
+  file('GRP544-1.tptp',unknown)).
+fof(f16,plain,(
+  ( ! [X1] : (divide(divide(identity,identity),divide(identity,divide(X1,identity))) = X1) )),
+  inference(superposition,[],[f12,f4])).
+fof(f33,plain,(
+  ( ! [X0] : (divide(identity,divide(identity,X0)) = divide(identity,divide(identity,divide(divide(X0,identity),identity)))) )),
+  inference(forward_demodulation,[],[f29,f15])).
+fof(f15,plain,(
+  ( ! [X0] : (divide(identity,divide(X0,identity)) = divide(divide(identity,X0),identity)) )),
+  inference(superposition,[],[f12,f12])).
+fof(f29,plain,(
+  ( ! [X0] : (divide(identity,divide(identity,X0)) = divide(identity,divide(divide(identity,divide(X0,identity)),identity))) )),
+  inference(superposition,[],[f19,f12])).
+fof(f44,plain,(
+  ( ! [X0] : (divide(identity,divide(identity,X0)) = X0) )),
+  inference(superposition,[],[f36,f4])).
+fof(f36,plain,(
+  ( ! [X4,X3] : (divide(divide(X3,identity),divide(X3,X4)) = X4) )),
+  inference(backward_demodulation,[],[f34,f10])).
+fof(f10,plain,(
+  ( ! [X4,X3] : (divide(divide(identity,divide(identity,X3)),divide(X3,X4)) = X4) )),
+  inference(superposition,[],[f1,f4])).
+fof(f130,plain,(
+  ( ! [X2,X3] : (divide(identity,divide(X2,X3)) = divide(X3,X2)) )),
+  inference(superposition,[],[f126,f62])).
+fof(f62,plain,(
+  ( ! [X4,X3] : (divide(X3,divide(X3,X4)) = X4) )),
+  inference(backward_demodulation,[],[f52,f36])).
+fof(f126,plain,(
+  ( ! [X2,X3] : (divide(identity,X3) = divide(divide(X2,X3),X2)) )),
+  inference(forward_demodulation,[],[f113,f4])).
+fof(f113,plain,(
+  ( ! [X2,X3] : (divide(divide(identity,identity),X3) = divide(divide(X2,X3),X2)) )),
+  inference(superposition,[],[f53,f52])).
+fof(f53,plain,(
+  ( ! [X2,X0,X1] : (divide(divide(divide(X0,X1),X2),X0) = divide(divide(identity,X1),X2)) )),
+  inference(backward_demodulation,[],[f52,f9])).
+fof(f150,plain,(
+  ( ! [X2,X3] : (divide(divide(X3,X2),divide(identity,X2)) = X3) )),
+  inference(backward_demodulation,[],[f130,f93])).
+fof(f93,plain,(
+  ( ! [X2,X3] : (divide(divide(identity,divide(X2,X3)),divide(identity,X2)) = X3) )),
+  inference(superposition,[],[f7,f62])).
+fof(f7,plain,(
+  ( ! [X0,X1] : (divide(divide(identity,divide(divide(identity,X1),X0)),X1) = X0) )),
+  inference(superposition,[],[f1,f4])).
+fof(f6,plain,(
+  divide(a,divide(identity,b)) != divide(b,divide(identity,a))),
+  inference(definition_unfolding,[],[f5,f2,f2])).
+fof(f2,axiom,(
+  ( ! [X0,X1] : (multiply(X0,X1) = divide(X0,divide(identity,X1))) )),
+  file('GRP544-1.tptp',unknown)).
+fof(f5,axiom,(
+  multiply(a,b) != multiply(b,a)),
+  file('GRP544-1.tptp',unknown)).
+% SZS output end Proof for GRP544-1
+% ------------------------------
+% Version: Vampire 4.4.0 (commit d98a3d53 on 2020-01-14 21:02:12 +0100)
+% Termination reason: Refutation
+
+% Memory used [KB]: 5245
+% Time elapsed: 0.008 s
+% ------------------------------
+% ------------------------------

@@ -1,0 +1,831 @@
+% Refutation found. Thanks to Tanya!
+% SZS status Unsatisfiable for GRP441-1
+% SZS output start Proof for GRP441-1
+fof(f46209,plain,(
+  $false),
+  inference(trivial_inequality_removal,[],[f46179])).
+fof(f46179,plain,(
+  multiply(a3,multiply(b3,c3)) != multiply(a3,multiply(b3,c3))),
+  inference(superposition,[],[f2,f44259])).
+fof(f44259,plain,(
+  ( ! [X19,X20,X18] : (multiply(X18,multiply(X19,X20)) = multiply(multiply(X18,X19),X20)) )),
+  inference(superposition,[],[f44209,f27910])).
+fof(f27910,plain,(
+  ( ! [X119,X117] : (multiply(multiply(X119,X117),inverse(X117)) = X119) )),
+  inference(forward_demodulation,[],[f27788,f27878])).
+fof(f27878,plain,(
+  ( ! [X312,X309] : (multiply(X309,multiply(inverse(X312),X312)) = X309) )),
+  inference(backward_demodulation,[],[f27868,f24129])).
+fof(f24129,plain,(
+  ( ! [X310,X312,X309,X311] : (multiply(multiply(multiply(X309,multiply(X310,inverse(multiply(X311,X310)))),X311),multiply(inverse(X312),X312)) = X309) )),
+  inference(forward_demodulation,[],[f24023,f17914])).
+fof(f17914,plain,(
+  ( ! [X3] : (inverse(inverse(X3)) = X3) )),
+  inference(backward_demodulation,[],[f17800,f16527])).
+fof(f16527,plain,(
+  ( ! [X6,X4,X7,X5,X3] : (inverse(inverse(X3)) = multiply(X7,multiply(inverse(X7),inverse(inverse(inverse(inverse(multiply(X3,multiply(X4,inverse(multiply(multiply(X5,inverse(multiply(inverse(multiply(X6,inverse(X6))),X5))),X4))))))))))) )),
+  inference(superposition,[],[f16474,f5003])).
+fof(f5003,plain,(
+  ( ! [X2,X0,X3,X1] : (multiply(inverse(inverse(multiply(X0,multiply(X1,inverse(multiply(multiply(X2,inverse(multiply(inverse(X3),X2))),X1)))))),X3) = X0) )),
+  inference(superposition,[],[f4398,f2588])).
+fof(f2588,plain,(
+  ( ! [X4,X0,X3] : (multiply(inverse(X0),multiply(X0,multiply(X3,inverse(multiply(inverse(X4),X3))))) = X4) )),
+  inference(superposition,[],[f1093,f795])).
+fof(f795,plain,(
+  ( ! [X6,X2,X8,X7] : (multiply(X6,multiply(X7,multiply(multiply(inverse(X7),X8),inverse(multiply(inverse(X2),multiply(X6,X8)))))) = X2) )),
+  inference(superposition,[],[f22,f9])).
+fof(f9,plain,(
+  ( ! [X4,X2,X0,X5,X3,X1] : (inverse(multiply(X4,multiply(X5,multiply(multiply(inverse(X5),multiply(multiply(inverse(X4),multiply(multiply(inverse(X1),X2),inverse(multiply(X3,multiply(X0,X2))))),X3)),X0)))) = X1) )),
+  inference(superposition,[],[f4,f1])).
+fof(f1,axiom,(
+  ( ! [X2,X0,X3,X1] : (inverse(multiply(X0,multiply(X1,multiply(multiply(inverse(X1),X2),inverse(multiply(X3,multiply(X0,X2))))))) = X3) )),
+  file('GRP441-1.tptp',unknown)).
+fof(f4,plain,(
+  ( ! [X4,X2,X0,X3,X1] : (inverse(multiply(X1,multiply(X4,multiply(multiply(inverse(X4),multiply(multiply(inverse(X1),X2),inverse(multiply(X3,multiply(X0,X2))))),X3)))) = X0) )),
+  inference(superposition,[],[f1,f1])).
+fof(f22,plain,(
+  ( ! [X6,X4,X2,X0,X8,X7,X5,X3,X1] : (multiply(X1,multiply(X2,multiply(multiply(inverse(X2),X3),inverse(multiply(X4,multiply(X1,X3)))))) = inverse(multiply(X7,multiply(X8,multiply(multiply(inverse(X8),multiply(multiply(inverse(X7),multiply(multiply(X4,X5),inverse(multiply(X6,multiply(X0,X5))))),X6)),X0))))) )),
+  inference(superposition,[],[f4,f3])).
+fof(f3,plain,(
+  ( ! [X6,X4,X2,X0,X5,X3,X1] : (inverse(multiply(X4,multiply(multiply(X0,multiply(X1,multiply(multiply(inverse(X1),X2),inverse(multiply(X3,multiply(X0,X2)))))),multiply(multiply(X3,X5),inverse(multiply(X6,multiply(X4,X5))))))) = X6) )),
+  inference(superposition,[],[f1,f1])).
+fof(f1093,plain,(
+  ( ! [X14,X12,X15,X13,X11,X16] : (multiply(X15,multiply(X11,multiply(X14,inverse(multiply(inverse(X16),multiply(X15,multiply(X12,multiply(multiply(inverse(X12),X13),inverse(multiply(inverse(X14),multiply(inverse(X11),X13))))))))))) = X16) )),
+  inference(superposition,[],[f795,f795])).
+fof(f4398,plain,(
+  ( ! [X6,X4,X5,X3] : (multiply(inverse(X4),multiply(X4,multiply(multiply(X5,multiply(X6,inverse(multiply(X3,X6)))),X3))) = X5) )),
+  inference(superposition,[],[f3013,f1])).
+fof(f3013,plain,(
+  ( ! [X2,X0,X3,X1] : (multiply(inverse(X3),multiply(X3,multiply(multiply(X0,multiply(X1,inverse(multiply(inverse(X2),X1)))),inverse(X2)))) = X0) )),
+  inference(superposition,[],[f2588,f2588])).
+fof(f16474,plain,(
+  ( ! [X64,X62,X63] : (multiply(X64,multiply(inverse(X64),inverse(inverse(X63)))) = inverse(inverse(multiply(X63,multiply(X62,inverse(X62)))))) )),
+  inference(superposition,[],[f801,f5056])).
+fof(f5056,plain,(
+  ( ! [X484,X482,X485,X481,X483] : (multiply(multiply(X481,multiply(multiply(X482,multiply(X483,inverse(multiply(X484,X483)))),X484)),multiply(X485,multiply(inverse(X485),inverse(X482)))) = X481) )),
+  inference(superposition,[],[f3198,f4398])).
+fof(f3198,plain,(
+  ( ! [X4,X8,X7] : (multiply(X7,multiply(X4,multiply(inverse(X4),inverse(multiply(inverse(X8),X7))))) = X8) )),
+  inference(forward_demodulation,[],[f3037,f3036])).
+fof(f3036,plain,(
+  ( ! [X2,X0,X3,X1] : (multiply(X0,multiply(X3,multiply(multiply(inverse(X3),multiply(X1,inverse(multiply(inverse(X2),X1)))),inverse(X2)))) = X0) )),
+  inference(superposition,[],[f795,f2588])).
+fof(f3037,plain,(
+  ( ! [X6,X4,X8,X7,X5,X9] : (multiply(X7,multiply(X4,multiply(inverse(X4),inverse(multiply(inverse(X8),multiply(X7,multiply(X9,multiply(multiply(inverse(X9),multiply(X5,inverse(multiply(inverse(X6),X5)))),inverse(X6))))))))) = X8) )),
+  inference(superposition,[],[f1093,f2588])).
+fof(f801,plain,(
+  ( ! [X59,X57,X60,X58,X56,X55] : (inverse(inverse(multiply(X56,multiply(X57,multiply(multiply(inverse(X57),multiply(multiply(inverse(X56),multiply(multiply(X55,X58),inverse(multiply(X59,multiply(X60,X58))))),X59)),X60))))) = X55) )),
+  inference(superposition,[],[f1,f22])).
+fof(f17800,plain,(
+  ( ! [X30,X28,X31,X29,X32] : (multiply(X32,multiply(inverse(X32),inverse(inverse(inverse(inverse(multiply(X28,multiply(X29,inverse(multiply(multiply(X30,inverse(multiply(inverse(multiply(X31,inverse(X31))),X30))),X29)))))))))) = X28) )),
+  inference(superposition,[],[f17287,f5003])).
+fof(f17287,plain,(
+  ( ! [X379,X380,X378] : (multiply(X380,multiply(inverse(X380),inverse(inverse(X378)))) = multiply(X378,multiply(X379,inverse(X379)))) )),
+  inference(superposition,[],[f16529,f17224])).
+fof(f17224,plain,(
+  ( ! [X68,X64] : (multiply(X64,inverse(X64)) = multiply(X68,inverse(X68))) )),
+  inference(forward_demodulation,[],[f16934,f5598])).
+fof(f5598,plain,(
+  ( ! [X6,X4,X5,X3] : (multiply(X4,multiply(X5,multiply(multiply(inverse(X5),multiply(X6,inverse(multiply(X3,X6)))),X3))) = X4) )),
+  inference(superposition,[],[f3036,f1])).
+fof(f16934,plain,(
+  ( ! [X68,X66,X64,X67,X65] : (multiply(X68,multiply(inverse(X68),multiply(X65,multiply(multiply(inverse(X65),multiply(X66,inverse(multiply(X67,X66)))),X67)))) = multiply(X64,inverse(X64))) )),
+  inference(superposition,[],[f16815,f5598])).
+fof(f16815,plain,(
+  ( ! [X6,X2,X7] : (multiply(X7,multiply(inverse(X7),X2)) = multiply(X6,multiply(inverse(X6),X2))) )),
+  inference(superposition,[],[f16529,f801])).
+fof(f16529,plain,(
+  ( ! [X2,X0,X3] : (multiply(X3,multiply(inverse(X3),inverse(inverse(X0)))) = multiply(X2,multiply(inverse(X2),inverse(inverse(X0))))) )),
+  inference(superposition,[],[f16474,f16474])).
+fof(f24023,plain,(
+  ( ! [X310,X312,X309,X311] : (multiply(inverse(inverse(multiply(multiply(X309,multiply(X310,inverse(multiply(X311,X310)))),X311))),multiply(inverse(X312),X312)) = X309) )),
+  inference(superposition,[],[f4398,f23516])).
+fof(f23516,plain,(
+  ( ! [X8,X9] : (multiply(inverse(X9),X9) = multiply(inverse(X8),X8)) )),
+  inference(superposition,[],[f19693,f17914])).
+fof(f19693,plain,(
+  ( ! [X10,X9] : (multiply(X10,inverse(X10)) = multiply(inverse(X9),X9)) )),
+  inference(backward_demodulation,[],[f19524,f17242])).
+fof(f17242,plain,(
+  ( ! [X6,X10,X8,X7,X5,X9] : (multiply(X10,inverse(X10)) = multiply(multiply(X5,multiply(X6,multiply(multiply(inverse(X6),multiply(multiply(inverse(X5),X7),inverse(multiply(X8,multiply(X9,X7))))),X8))),X9)) )),
+  inference(superposition,[],[f17224,f4])).
+fof(f19524,plain,(
+  ( ! [X78,X76,X74,X77,X75] : (inverse(X78) = multiply(X74,multiply(X75,multiply(multiply(inverse(X75),multiply(multiply(inverse(X74),X76),inverse(multiply(X77,multiply(X78,X76))))),X77)))) )),
+  inference(backward_demodulation,[],[f18764,f277])).
+fof(f277,plain,(
+  ( ! [X80,X78,X76,X74,X85,X83,X81,X79,X77,X75,X73,X86,X84,X82] : (multiply(X74,multiply(X75,multiply(multiply(inverse(X75),multiply(multiply(inverse(X74),X76),inverse(multiply(X77,multiply(X78,X76))))),X77))) = inverse(multiply(X81,multiply(multiply(X82,multiply(X83,multiply(multiply(inverse(X83),multiply(multiply(inverse(X82),X84),inverse(multiply(X85,multiply(X86,X84))))),X85))),multiply(multiply(X86,multiply(multiply(inverse(X81),multiply(multiply(X78,X79),inverse(multiply(X80,multiply(X73,X79))))),X80)),X73))))) )),
+  inference(superposition,[],[f6,f12])).
+fof(f12,plain,(
+  ( ! [X6,X12,X10,X8,X7,X13,X11,X9] : (inverse(multiply(X11,multiply(multiply(X6,multiply(X7,multiply(multiply(inverse(X7),multiply(multiply(inverse(X6),X8),inverse(multiply(X9,multiply(X10,X8))))),X9))),multiply(multiply(X10,X12),inverse(multiply(X13,multiply(X11,X12))))))) = X13) )),
+  inference(superposition,[],[f1,f4])).
+fof(f6,plain,(
+  ( ! [X14,X12,X10,X8,X15,X13,X11,X9,X16] : (inverse(multiply(X13,multiply(multiply(X8,multiply(X9,multiply(multiply(inverse(X9),multiply(multiply(inverse(X8),X10),inverse(multiply(X11,multiply(X12,X10))))),X11))),multiply(multiply(X12,multiply(multiply(inverse(X13),X14),inverse(multiply(X15,multiply(X16,X14))))),X15)))) = X16) )),
+  inference(superposition,[],[f4,f4])).
+fof(f18764,plain,(
+  ( ! [X92,X90,X88,X87,X85,X83,X91,X89,X86,X84] : (inverse(X83) = inverse(multiply(X84,multiply(multiply(X88,multiply(X89,multiply(multiply(inverse(X89),multiply(multiply(inverse(X88),X90),inverse(multiply(X91,multiply(X92,X90))))),X91))),multiply(multiply(X92,multiply(multiply(inverse(X84),multiply(multiply(X83,X85),inverse(multiply(X86,multiply(X87,X85))))),X86)),X87))))) )),
+  inference(backward_demodulation,[],[f18667,f209])).
+fof(f209,plain,(
+  ( ! [X80,X92,X90,X88,X87,X85,X83,X81,X91,X89,X86,X84,X82] : (multiply(X80,multiply(X81,multiply(multiply(inverse(X81),X82),inverse(multiply(X83,multiply(X80,X82)))))) = inverse(multiply(X84,multiply(multiply(X88,multiply(X89,multiply(multiply(inverse(X89),multiply(multiply(inverse(X88),X90),inverse(multiply(X91,multiply(X92,X90))))),X91))),multiply(multiply(X92,multiply(multiply(inverse(X84),multiply(multiply(X83,X85),inverse(multiply(X86,multiply(X87,X85))))),X86)),X87))))) )),
+  inference(superposition,[],[f12,f7])).
+fof(f7,plain,(
+  ( ! [X6,X4,X2,X0,X7,X5,X3,X1] : (inverse(multiply(multiply(X0,multiply(X1,multiply(multiply(inverse(X1),X2),inverse(multiply(X3,multiply(X0,X2)))))),multiply(X4,multiply(multiply(inverse(X4),multiply(multiply(X3,X5),inverse(multiply(X6,multiply(X7,X5))))),X6)))) = X7) )),
+  inference(superposition,[],[f4,f1])).
+fof(f18667,plain,(
+  ( ! [X2,X0,X3,X1] : (multiply(X0,multiply(X1,multiply(multiply(inverse(X1),X2),inverse(multiply(X3,multiply(X0,X2)))))) = inverse(X3)) )),
+  inference(backward_demodulation,[],[f18334,f61])).
+fof(f61,plain,(
+  ( ! [X6,X4,X2,X0,X8,X7,X5,X3,X1,X9] : (multiply(X0,multiply(X1,multiply(multiply(inverse(X1),X2),inverse(multiply(X3,multiply(X0,X2)))))) = inverse(multiply(X4,multiply(X5,multiply(multiply(inverse(X5),multiply(multiply(inverse(X4),multiply(multiply(X3,multiply(multiply(inverse(X6),X7),inverse(multiply(X8,multiply(X9,X7))))),X8)),X9)),X6))))) )),
+  inference(superposition,[],[f10,f1])).
+fof(f10,plain,(
+  ( ! [X6,X12,X10,X8,X7,X11,X9] : (inverse(multiply(X11,multiply(X12,multiply(multiply(inverse(X12),multiply(multiply(inverse(X11),multiply(multiply(inverse(X7),multiply(multiply(inverse(X6),X8),inverse(multiply(X9,multiply(X10,X8))))),X9)),X10)),X6)))) = X7) )),
+  inference(superposition,[],[f4,f4])).
+fof(f18334,plain,(
+  ( ! [X45,X43,X41,X36,X44,X42,X40] : (inverse(X36) = inverse(multiply(X40,multiply(X41,multiply(multiply(inverse(X41),multiply(multiply(inverse(X40),multiply(multiply(X36,multiply(multiply(inverse(X42),X43),inverse(multiply(X44,multiply(X45,X43))))),X44)),X45)),X42))))) )),
+  inference(backward_demodulation,[],[f18039,f64])).
+fof(f64,plain,(
+  ( ! [X39,X37,X35,X45,X43,X41,X38,X36,X34,X44,X42,X40] : (multiply(X34,multiply(X35,multiply(multiply(inverse(X35),multiply(multiply(inverse(X34),multiply(multiply(inverse(X36),X37),inverse(multiply(X38,multiply(X39,X37))))),X38)),X39))) = inverse(multiply(X40,multiply(X41,multiply(multiply(inverse(X41),multiply(multiply(inverse(X40),multiply(multiply(X36,multiply(multiply(inverse(X42),X43),inverse(multiply(X44,multiply(X45,X43))))),X44)),X45)),X42))))) )),
+  inference(superposition,[],[f10,f9])).
+fof(f18039,plain,(
+  ( ! [X6,X10,X8,X7,X5,X9] : (multiply(X6,multiply(X10,multiply(multiply(inverse(X10),multiply(multiply(inverse(X6),multiply(multiply(X5,X7),inverse(multiply(X8,multiply(X9,X7))))),X8)),X9))) = X5) )),
+  inference(backward_demodulation,[],[f17914,f1114])).
+fof(f1114,plain,(
+  ( ! [X6,X10,X8,X7,X5,X9] : (multiply(X6,multiply(X10,multiply(multiply(inverse(X10),multiply(multiply(inverse(X6),multiply(multiply(inverse(inverse(X5)),X7),inverse(multiply(X8,multiply(X9,X7))))),X8)),X9))) = X5) )),
+  inference(superposition,[],[f795,f4])).
+fof(f27868,plain,(
+  ( ! [X1106,X1104,X1107] : (multiply(multiply(X1106,multiply(X1107,inverse(multiply(X1104,X1107)))),X1104) = X1106) )),
+  inference(backward_demodulation,[],[f27748,f18319])).
+fof(f18319,plain,(
+  ( ! [X1106,X1104,X1107,X1105] : (multiply(multiply(X1106,multiply(X1107,inverse(multiply(multiply(X1104,inverse(multiply(X1105,inverse(X1105)))),X1107)))),X1104) = X1106) )),
+  inference(forward_demodulation,[],[f18014,f17914])).
+fof(f18014,plain,(
+  ( ! [X1106,X1104,X1107,X1105] : (multiply(multiply(X1106,multiply(X1107,inverse(multiply(multiply(inverse(inverse(X1104)),inverse(multiply(X1105,inverse(X1105)))),X1107)))),X1104) = X1106) )),
+  inference(backward_demodulation,[],[f17914,f17311])).
+fof(f17311,plain,(
+  ( ! [X1106,X1104,X1107,X1105] : (multiply(inverse(inverse(multiply(X1106,multiply(X1107,inverse(multiply(multiply(inverse(inverse(X1104)),inverse(multiply(X1105,inverse(X1105)))),X1107)))))),X1104) = X1106) )),
+  inference(superposition,[],[f5003,f17224])).
+fof(f27748,plain,(
+  ( ! [X8,X11] : (multiply(X11,inverse(multiply(X8,inverse(X8)))) = X11) )),
+  inference(backward_demodulation,[],[f27737,f25186])).
+fof(f25186,plain,(
+  ( ! [X10,X8,X11,X9] : (multiply(X11,inverse(multiply(X8,multiply(multiply(inverse(X8),multiply(X9,inverse(multiply(X10,X9)))),X10)))) = X11) )),
+  inference(backward_demodulation,[],[f24945,f7018])).
+fof(f7018,plain,(
+  ( ! [X6,X10,X8,X7,X11,X9] : (multiply(X11,multiply(X6,multiply(inverse(X6),multiply(X7,inverse(multiply(multiply(X8,multiply(multiply(inverse(X8),multiply(X9,inverse(multiply(X10,X9)))),X10)),X7)))))) = X11) )),
+  inference(superposition,[],[f5598,f5598])).
+fof(f24945,plain,(
+  ( ! [X80,X81,X82] : (inverse(X80) = multiply(X82,multiply(inverse(X82),multiply(X81,inverse(multiply(X80,X81)))))) )),
+  inference(superposition,[],[f21509,f18184])).
+fof(f18184,plain,(
+  ( ! [X1399,X1400,X1396] : (multiply(X1396,multiply(X1400,multiply(X1399,inverse(multiply(X1400,X1399))))) = X1396) )),
+  inference(backward_demodulation,[],[f17914,f17230])).
+fof(f17230,plain,(
+  ( ! [X1399,X1400,X1396] : (multiply(inverse(inverse(X1396)),multiply(X1400,multiply(X1399,inverse(multiply(X1400,X1399))))) = X1396) )),
+  inference(forward_demodulation,[],[f17090,f16935])).
+fof(f16935,plain,(
+  ( ! [X127,X125,X128,X126,X129] : (multiply(X125,X128) = multiply(X129,multiply(inverse(X129),multiply(X126,multiply(multiply(inverse(X126),X127),inverse(multiply(inverse(X128),multiply(inverse(X125),X127)))))))) )),
+  inference(superposition,[],[f16815,f795])).
+fof(f17090,plain,(
+  ( ! [X1397,X1399,X1400,X1396,X1398,X1401] : (multiply(inverse(inverse(X1396)),multiply(X1400,multiply(X1399,inverse(multiply(X1401,multiply(inverse(X1401),multiply(X1397,multiply(multiply(inverse(X1397),X1398),inverse(multiply(inverse(X1399),multiply(inverse(X1400),X1398))))))))))) = X1396) )),
+  inference(superposition,[],[f1093,f16815])).
+fof(f21509,plain,(
+  ( ! [X167,X165,X166] : (multiply(X167,multiply(inverse(X167),X166)) = multiply(inverse(X165),multiply(X165,X166))) )),
+  inference(backward_demodulation,[],[f21484,f16918])).
+fof(f16918,plain,(
+  ( ! [X167,X165,X163,X166,X164,X162] : (multiply(X167,multiply(inverse(X167),X166)) = multiply(multiply(X162,multiply(X163,multiply(multiply(inverse(X163),multiply(inverse(X162),inverse(multiply(X164,X165)))),X164))),multiply(X165,X166))) )),
+  inference(superposition,[],[f16815,f5853])).
+fof(f5853,plain,(
+  ( ! [X629,X628,X630,X624] : (inverse(multiply(X628,multiply(X629,multiply(multiply(inverse(X629),multiply(inverse(X628),inverse(multiply(X630,X624)))),X630)))) = X624) )),
+  inference(forward_demodulation,[],[f5684,f5598])).
+fof(f5684,plain,(
+  ( ! [X629,X625,X627,X628,X630,X624,X626] : (inverse(multiply(X628,multiply(X629,multiply(multiply(inverse(X629),multiply(multiply(inverse(X628),multiply(X625,multiply(multiply(inverse(X625),multiply(X626,inverse(multiply(inverse(X627),X626)))),inverse(X627)))),inverse(multiply(X630,X624)))),X630)))) = X624) )),
+  inference(superposition,[],[f4,f3036])).
+fof(f21484,plain,(
+  ( ! [X1808,X1806,X1809,X1807] : (inverse(X1809) = multiply(X1806,multiply(X1807,multiply(multiply(inverse(X1807),multiply(inverse(X1806),inverse(multiply(X1808,X1809)))),X1808)))) )),
+  inference(backward_demodulation,[],[f21466,f9803])).
+fof(f9803,plain,(
+  ( ! [X1810,X1808,X1806,X1811,X1809,X1807] : (multiply(X1806,multiply(X1807,multiply(multiply(inverse(X1807),multiply(inverse(X1806),inverse(multiply(X1808,X1809)))),X1808))) = multiply(X1810,multiply(X1811,multiply(inverse(X1811),inverse(multiply(X1809,X1810)))))) )),
+  inference(superposition,[],[f3198,f5853])).
+fof(f21466,plain,(
+  ( ! [X1310,X1309,X1308] : (inverse(X1310) = multiply(X1308,multiply(X1309,multiply(inverse(X1309),inverse(multiply(X1310,X1308)))))) )),
+  inference(backward_demodulation,[],[f19389,f6535])).
+fof(f6535,plain,(
+  ( ! [X1310,X1309,X1311,X1312,X1308] : (multiply(X1308,multiply(X1309,multiply(inverse(X1309),inverse(multiply(X1310,X1308))))) = multiply(inverse(X1311),multiply(X1311,multiply(X1312,inverse(multiply(X1310,X1312)))))) )),
+  inference(superposition,[],[f2588,f5849])).
+fof(f5849,plain,(
+  ( ! [X596,X595,X591] : (inverse(multiply(X591,multiply(X595,multiply(inverse(X595),inverse(multiply(X596,X591)))))) = X596) )),
+  inference(forward_demodulation,[],[f5680,f5598])).
+fof(f5680,plain,(
+  ( ! [X596,X592,X594,X593,X595,X591] : (inverse(multiply(X591,multiply(X595,multiply(multiply(inverse(X595),multiply(X592,multiply(multiply(inverse(X592),multiply(X593,inverse(multiply(inverse(X594),X593)))),inverse(X594)))),inverse(multiply(X596,X591)))))) = X596) )),
+  inference(superposition,[],[f1,f3036])).
+fof(f19389,plain,(
+  ( ! [X4,X5,X3] : (inverse(X3) = multiply(inverse(X4),multiply(X4,multiply(X5,inverse(multiply(X3,X5)))))) )),
+  inference(backward_demodulation,[],[f18667,f2992])).
+fof(f2992,plain,(
+  ( ! [X4,X2,X0,X5,X3,X1] : (multiply(X0,multiply(X1,multiply(multiply(inverse(X1),X2),inverse(multiply(X3,multiply(X0,X2)))))) = multiply(inverse(X4),multiply(X4,multiply(X5,inverse(multiply(X3,X5)))))) )),
+  inference(superposition,[],[f2588,f1])).
+fof(f27737,plain,(
+  ( ! [X101,X99,X100,X98] : (multiply(X98,X99) = multiply(X98,multiply(multiply(X99,multiply(X100,inverse(multiply(X101,X100)))),X101))) )),
+  inference(backward_demodulation,[],[f27649,f9595])).
+fof(f9595,plain,(
+  ( ! [X103,X101,X99,X102,X100,X98] : (multiply(X98,multiply(multiply(X99,multiply(X100,inverse(multiply(X101,X100)))),X101)) = inverse(multiply(X102,multiply(X103,multiply(multiply(inverse(X103),multiply(inverse(X102),inverse(X99))),inverse(X98)))))) )),
+  inference(superposition,[],[f5853,f4398])).
+fof(f27649,plain,(
+  ( ! [X4,X2,X0,X3] : (multiply(X0,X2) = inverse(multiply(X3,multiply(X4,multiply(multiply(inverse(X4),multiply(inverse(X3),inverse(X2))),inverse(X0)))))) )),
+  inference(backward_demodulation,[],[f27632,f7894])).
+fof(f7894,plain,(
+  ( ! [X4,X2,X0,X3,X1] : (multiply(X0,multiply(X1,inverse(multiply(inverse(X2),X1)))) = inverse(multiply(X3,multiply(X4,multiply(multiply(inverse(X4),multiply(inverse(X3),inverse(X2))),inverse(X0)))))) )),
+  inference(superposition,[],[f1,f3573])).
+fof(f3573,plain,(
+  ( ! [X2,X0,X3,X1] : (multiply(multiply(X0,multiply(X1,inverse(multiply(inverse(X2),X1)))),multiply(X3,multiply(inverse(X3),inverse(X2)))) = X0) )),
+  inference(superposition,[],[f3198,f2588])).
+fof(f27632,plain,(
+  ( ! [X650,X651] : (multiply(X650,inverse(multiply(inverse(X651),X650))) = X651) )),
+  inference(forward_demodulation,[],[f27631,f27463])).
+fof(f27463,plain,(
+  ( ! [X4,X13] : (multiply(inverse(X13),multiply(X13,X4)) = X4) )),
+  inference(backward_demodulation,[],[f26953,f3197])).
+fof(f3197,plain,(
+  ( ! [X6,X4,X7,X5,X13] : (multiply(inverse(X13),multiply(X13,multiply(multiply(X5,multiply(multiply(inverse(X5),X6),inverse(multiply(X7,multiply(inverse(X4),X6))))),X7))) = X4) )),
+  inference(forward_demodulation,[],[f3014,f801])).
+fof(f3014,plain,(
+  ( ! [X6,X4,X12,X10,X8,X7,X5,X13,X11,X9] : (multiply(inverse(X13),multiply(X13,multiply(multiply(X5,multiply(multiply(inverse(X5),X6),inverse(multiply(X7,multiply(inverse(X4),X6))))),inverse(inverse(multiply(X8,multiply(X9,multiply(multiply(inverse(X9),multiply(multiply(inverse(X8),multiply(multiply(X7,X10),inverse(multiply(X11,multiply(X12,X10))))),X11)),X12)))))))) = X4) )),
+  inference(superposition,[],[f2588,f22])).
+fof(f26953,plain,(
+  ( ! [X6,X4,X7,X5] : (multiply(multiply(X5,multiply(multiply(inverse(X5),X6),inverse(multiply(X7,multiply(inverse(X4),X6))))),X7) = X4) )),
+  inference(backward_demodulation,[],[f26952,f3748])).
+fof(f3748,plain,(
+  ( ! [X6,X4,X7,X5,X13] : (multiply(multiply(X5,multiply(multiply(inverse(X5),X6),inverse(multiply(X7,multiply(inverse(X4),X6))))),multiply(X13,multiply(inverse(X13),X7))) = X4) )),
+  inference(forward_demodulation,[],[f3574,f801])).
+fof(f3574,plain,(
+  ( ! [X6,X4,X12,X10,X8,X7,X5,X13,X11,X9] : (multiply(multiply(X5,multiply(multiply(inverse(X5),X6),inverse(multiply(X7,multiply(inverse(X4),X6))))),multiply(X13,multiply(inverse(X13),inverse(inverse(multiply(X8,multiply(X9,multiply(multiply(inverse(X9),multiply(multiply(inverse(X8),multiply(multiply(X7,X10),inverse(multiply(X11,multiply(X12,X10))))),X11)),X12)))))))) = X4) )),
+  inference(superposition,[],[f3198,f22])).
+fof(f26952,plain,(
+  ( ! [X62,X63] : (multiply(X62,multiply(inverse(X62),X63)) = X63) )),
+  inference(forward_demodulation,[],[f26887,f18184])).
+fof(f26887,plain,(
+  ( ! [X61,X62,X60,X63] : (multiply(X62,multiply(inverse(X62),X63)) = multiply(X63,multiply(X60,multiply(X61,inverse(multiply(X60,X61)))))) )),
+  inference(superposition,[],[f18187,f25187])).
+fof(f25187,plain,(
+  ( ! [X269,X271,X270] : (multiply(X271,inverse(multiply(X269,multiply(X270,inverse(multiply(X269,X270)))))) = X271) )),
+  inference(backward_demodulation,[],[f24945,f24529])).
+fof(f24529,plain,(
+  ( ! [X269,X271,X267,X268,X270] : (multiply(X271,multiply(X267,multiply(inverse(X267),multiply(X268,inverse(multiply(multiply(X269,multiply(X270,inverse(multiply(X269,X270)))),X268)))))) = X271) )),
+  inference(superposition,[],[f5598,f18184])).
+fof(f18187,plain,(
+  ( ! [X379,X380,X378] : (multiply(X380,multiply(inverse(X380),X378)) = multiply(X378,multiply(X379,inverse(X379)))) )),
+  inference(backward_demodulation,[],[f17914,f17287])).
+fof(f27631,plain,(
+  ( ! [X650,X651,X647] : (multiply(X650,multiply(inverse(X647),multiply(X647,inverse(multiply(inverse(X651),X650))))) = X651) )),
+  inference(forward_demodulation,[],[f27564,f27556])).
+fof(f27556,plain,(
+  ( ! [X385,X384] : (multiply(X384,multiply(X385,inverse(X385))) = X384) )),
+  inference(backward_demodulation,[],[f27554,f17289])).
+fof(f17289,plain,(
+  ( ! [X385,X384,X386] : (inverse(inverse(multiply(X384,multiply(X386,inverse(X386))))) = multiply(X384,multiply(X385,inverse(X385)))) )),
+  inference(superposition,[],[f16474,f17224])).
+fof(f27554,plain,(
+  ( ! [X4,X5] : (inverse(inverse(multiply(X4,multiply(X5,inverse(X5))))) = X4) )),
+  inference(forward_demodulation,[],[f27553,f26952])).
+fof(f27553,plain,(
+  ( ! [X4,X7,X5] : (multiply(X7,multiply(inverse(X7),X4)) = inverse(inverse(multiply(X4,multiply(X5,inverse(X5)))))) )),
+  inference(forward_demodulation,[],[f27548,f27546])).
+fof(f27546,plain,(
+  ( ! [X132,X135,X133] : (multiply(X132,X133) = multiply(multiply(X132,X133),multiply(X135,inverse(X135)))) )),
+  inference(backward_demodulation,[],[f27469,f25817])).
+fof(f25817,plain,(
+  ( ! [X134,X132,X135,X133] : (multiply(X132,multiply(X133,multiply(X134,inverse(X134)))) = multiply(multiply(X132,X133),multiply(X135,inverse(X135)))) )),
+  inference(forward_demodulation,[],[f25581,f17914])).
+fof(f25581,plain,(
+  ( ! [X134,X132,X135,X133] : (multiply(multiply(inverse(inverse(X132)),X133),multiply(X135,inverse(X135))) = multiply(X132,multiply(X133,multiply(X134,inverse(X134))))) )),
+  inference(superposition,[],[f18187,f18187])).
+fof(f27469,plain,(
+  ( ! [X447,X446,X448] : (multiply(X446,X447) = multiply(X446,multiply(X447,multiply(X448,inverse(X448))))) )),
+  inference(backward_demodulation,[],[f27463,f25894])).
+fof(f25894,plain,(
+  ( ! [X447,X449,X446,X448] : (multiply(X446,multiply(X447,multiply(X448,inverse(X448)))) = multiply(inverse(X449),multiply(X449,multiply(X446,X447)))) )),
+  inference(forward_demodulation,[],[f25729,f17914])).
+fof(f25729,plain,(
+  ( ! [X447,X449,X446,X448] : (multiply(inverse(X449),multiply(X449,multiply(inverse(inverse(X446)),X447))) = multiply(X446,multiply(X447,multiply(X448,inverse(X448))))) )),
+  inference(superposition,[],[f21509,f18187])).
+fof(f27548,plain,(
+  ( ! [X4,X8,X7,X5] : (multiply(X7,multiply(inverse(X7),X4)) = inverse(inverse(multiply(multiply(X4,multiply(X5,inverse(X5))),multiply(X8,inverse(X8)))))) )),
+  inference(backward_demodulation,[],[f27469,f17954])).
+fof(f17954,plain,(
+  ( ! [X6,X4,X8,X7,X5] : (inverse(inverse(multiply(multiply(X4,multiply(X5,inverse(X5))),multiply(X8,inverse(X8))))) = multiply(X7,multiply(inverse(X7),multiply(X4,multiply(X6,inverse(X6)))))) )),
+  inference(backward_demodulation,[],[f17914,f16663])).
+fof(f16663,plain,(
+  ( ! [X6,X4,X8,X7,X5] : (inverse(inverse(multiply(multiply(X4,multiply(X5,inverse(X5))),multiply(X8,inverse(X8))))) = multiply(X7,multiply(inverse(X7),inverse(inverse(multiply(X4,multiply(X6,inverse(X6)))))))) )),
+  inference(superposition,[],[f16474,f16518])).
+fof(f16518,plain,(
+  ( ! [X2,X3,X1] : (inverse(inverse(multiply(X1,multiply(X2,inverse(X2))))) = inverse(inverse(multiply(X1,multiply(X3,inverse(X3)))))) )),
+  inference(superposition,[],[f16474,f16474])).
+fof(f27564,plain,(
+  ( ! [X650,X649,X651,X647] : (multiply(X650,multiply(inverse(X647),multiply(multiply(X647,multiply(X649,inverse(X649))),inverse(multiply(inverse(X651),X650))))) = X651) )),
+  inference(backward_demodulation,[],[f27556,f17961])).
+fof(f17961,plain,(
+  ( ! [X648,X650,X649,X651,X647] : (multiply(X650,multiply(inverse(multiply(X647,multiply(X648,inverse(X648)))),multiply(multiply(X647,multiply(X649,inverse(X649))),inverse(multiply(inverse(X651),X650))))) = X651) )),
+  inference(backward_demodulation,[],[f17914,f16674])).
+fof(f16674,plain,(
+  ( ! [X648,X650,X649,X651,X647] : (multiply(X650,multiply(inverse(multiply(X647,multiply(X648,inverse(X648)))),multiply(inverse(inverse(multiply(X647,multiply(X649,inverse(X649))))),inverse(multiply(inverse(X651),X650))))) = X651) )),
+  inference(superposition,[],[f3198,f16518])).
+fof(f27788,plain,(
+  ( ! [X118,X119,X117] : (multiply(multiply(X119,X117),multiply(inverse(X117),multiply(inverse(X118),X118))) = X119) )),
+  inference(backward_demodulation,[],[f27737,f23979])).
+fof(f23979,plain,(
+  ( ! [X121,X118,X120,X119,X117] : (multiply(multiply(X119,multiply(multiply(X117,multiply(X120,inverse(multiply(X121,X120)))),X121)),multiply(inverse(X117),multiply(inverse(X118),X118))) = X119) )),
+  inference(superposition,[],[f5056,f23516])).
+fof(f44209,plain,(
+  ( ! [X54,X56,X55] : (multiply(X54,X56) = multiply(multiply(X54,inverse(X55)),multiply(X55,X56))) )),
+  inference(forward_demodulation,[],[f44208,f17914])).
+fof(f44208,plain,(
+  ( ! [X54,X56,X55] : (multiply(multiply(X54,inverse(X55)),multiply(X55,X56)) = multiply(inverse(inverse(X54)),X56)) )),
+  inference(forward_demodulation,[],[f43953,f44105])).
+fof(f44105,plain,(
+  ( ! [X52,X53,X51] : (multiply(X51,X52) = multiply(inverse(X53),multiply(multiply(X53,X51),X52))) )),
+  inference(forward_demodulation,[],[f43952,f17914])).
+fof(f43952,plain,(
+  ( ! [X52,X53,X51] : (multiply(X51,X52) = multiply(inverse(X53),multiply(multiply(X53,inverse(inverse(X51))),X52))) )),
+  inference(superposition,[],[f38506,f27463])).
+fof(f38506,plain,(
+  ( ! [X103,X99,X102] : (multiply(inverse(X103),multiply(multiply(X103,inverse(X102)),multiply(X102,X99))) = X99) )),
+  inference(forward_demodulation,[],[f38505,f28242])).
+fof(f28242,plain,(
+  ( ! [X6,X4] : (inverse(multiply(X6,inverse(X4))) = multiply(X4,inverse(X6))) )),
+  inference(backward_demodulation,[],[f28232,f28161])).
+fof(f28161,plain,(
+  ( ! [X6,X4,X5] : (multiply(X4,multiply(X5,inverse(multiply(X6,X5)))) = inverse(multiply(X6,inverse(X4)))) )),
+  inference(backward_demodulation,[],[f28147,f8885])).
+fof(f8885,plain,(
+  ( ! [X6,X4,X8,X7,X5] : (multiply(X4,multiply(X5,inverse(multiply(X6,X5)))) = inverse(multiply(X7,multiply(X8,multiply(multiply(inverse(X8),multiply(inverse(X7),X6)),inverse(X4)))))) )),
+  inference(superposition,[],[f1,f7866])).
+fof(f7866,plain,(
+  ( ! [X6,X4,X5,X3] : (multiply(multiply(X4,multiply(X5,inverse(multiply(X3,X5)))),multiply(X6,multiply(inverse(X6),X3))) = X4) )),
+  inference(superposition,[],[f3573,f1])).
+fof(f28147,plain,(
+  ( ! [X92,X90,X88,X91] : (multiply(X91,multiply(X92,multiply(multiply(inverse(X92),multiply(inverse(X91),X90)),inverse(X88)))) = multiply(X90,inverse(X88))) )),
+  inference(backward_demodulation,[],[f28142,f23105])).
+fof(f23105,plain,(
+  ( ! [X92,X90,X88,X91,X89] : (inverse(multiply(X88,multiply(X89,inverse(multiply(X90,X89))))) = multiply(X91,multiply(X92,multiply(multiply(inverse(X92),multiply(inverse(X91),X90)),inverse(X88))))) )),
+  inference(superposition,[],[f18667,f7866])).
+fof(f28142,plain,(
+  ( ! [X547,X548,X550] : (multiply(X550,inverse(X547)) = inverse(multiply(X547,multiply(X548,inverse(multiply(X550,X548)))))) )),
+  inference(forward_demodulation,[],[f27474,f27632])).
+fof(f27474,plain,(
+  ( ! [X549,X547,X548,X550] : (inverse(multiply(X547,multiply(X548,inverse(multiply(multiply(X549,inverse(multiply(inverse(X550),X549))),X548))))) = multiply(X550,inverse(X547))) )),
+  inference(backward_demodulation,[],[f27463,f14064])).
+fof(f14064,plain,(
+  ( ! [X549,X551,X547,X548,X550] : (inverse(multiply(X547,multiply(X548,inverse(multiply(multiply(X549,inverse(multiply(inverse(X550),X549))),X548))))) = multiply(inverse(X551),multiply(X551,multiply(X550,inverse(X547))))) )),
+  inference(superposition,[],[f2588,f5003])).
+fof(f28232,plain,(
+  ( ! [X80,X82] : (inverse(X80) = multiply(X82,inverse(multiply(X80,X82)))) )),
+  inference(forward_demodulation,[],[f28217,f17914])).
+fof(f28217,plain,(
+  ( ! [X80,X82] : (inverse(X80) = multiply(X82,inverse(multiply(X80,inverse(inverse(X82)))))) )),
+  inference(backward_demodulation,[],[f28161,f24945])).
+fof(f38505,plain,(
+  ( ! [X103,X99,X102] : (multiply(inverse(X103),multiply(inverse(multiply(X102,inverse(X103))),multiply(X102,X99))) = X99) )),
+  inference(forward_demodulation,[],[f38504,f28930])).
+fof(f28930,plain,(
+  ( ! [X1360,X1361] : (multiply(inverse(X1360),X1361) = inverse(multiply(inverse(X1361),X1360))) )),
+  inference(forward_demodulation,[],[f28929,f26952])).
+fof(f28929,plain,(
+  ( ! [X1360,X1361,X1363] : (multiply(inverse(X1360),X1361) = inverse(multiply(multiply(X1363,multiply(inverse(X1363),inverse(X1361))),X1360))) )),
+  inference(forward_demodulation,[],[f26989,f26952])).
+fof(f26989,plain,(
+  ( ! [X1360,X1364,X1361,X1363] : (multiply(inverse(X1360),X1361) = inverse(multiply(multiply(X1363,multiply(inverse(X1363),inverse(X1361))),multiply(X1364,multiply(inverse(X1364),X1360))))) )),
+  inference(backward_demodulation,[],[f26952,f17082])).
+fof(f17082,plain,(
+  ( ! [X1360,X1362,X1364,X1361,X1363] : (multiply(inverse(X1360),X1361) = inverse(multiply(multiply(X1363,multiply(inverse(X1363),inverse(multiply(X1362,multiply(inverse(X1362),X1361))))),multiply(X1364,multiply(inverse(X1364),X1360))))) )),
+  inference(superposition,[],[f6395,f16815])).
+fof(f6395,plain,(
+  ( ! [X237,X235,X238,X236] : (inverse(multiply(multiply(X236,multiply(inverse(X236),inverse(multiply(X237,X235)))),multiply(X238,multiply(inverse(X238),X237)))) = X235) )),
+  inference(superposition,[],[f5849,f5849])).
+fof(f38504,plain,(
+  ( ! [X103,X99,X102] : (multiply(inverse(X103),inverse(multiply(inverse(multiply(X102,X99)),multiply(X102,inverse(X103))))) = X99) )),
+  inference(forward_demodulation,[],[f38503,f28232])).
+fof(f38503,plain,(
+  ( ! [X103,X99,X102,X104] : (multiply(inverse(X103),multiply(X104,inverse(multiply(multiply(inverse(multiply(X102,X99)),multiply(X102,inverse(X103))),X104)))) = X99) )),
+  inference(forward_demodulation,[],[f38480,f36486])).
+fof(f36486,plain,(
+  ( ! [X6,X4,X7,X5] : (inverse(multiply(multiply(X5,X6),X7)) = multiply(inverse(multiply(multiply(multiply(X4,X5),X6),X7)),X4)) )),
+  inference(forward_demodulation,[],[f36257,f29295])).
+fof(f29295,plain,(
+  ( ! [X4,X5] : (multiply(multiply(inverse(X5),X5),X4) = X4) )),
+  inference(forward_demodulation,[],[f29294,f28930])).
+fof(f29294,plain,(
+  ( ! [X4,X5] : (multiply(inverse(multiply(inverse(X5),X5)),X4) = X4) )),
+  inference(forward_demodulation,[],[f27076,f26952])).
+fof(f27076,plain,(
+  ( ! [X6,X4,X5] : (multiply(multiply(X6,multiply(inverse(X6),inverse(multiply(inverse(X5),X5)))),X4) = X4) )),
+  inference(backward_demodulation,[],[f26952,f23528])).
+fof(f23528,plain,(
+  ( ! [X6,X4,X7,X5] : (multiply(multiply(X6,multiply(inverse(X6),inverse(multiply(inverse(X5),X5)))),multiply(X7,multiply(inverse(X7),X4))) = X4) )),
+  inference(superposition,[],[f6455,f19693])).
+fof(f6455,plain,(
+  ( ! [X528,X526,X525,X527] : (multiply(multiply(X526,multiply(inverse(X526),inverse(multiply(X527,inverse(X525))))),multiply(X528,multiply(inverse(X528),X527))) = X525) )),
+  inference(superposition,[],[f3198,f5849])).
+fof(f36257,plain,(
+  ( ! [X6,X4,X8,X7,X5] : (multiply(inverse(multiply(multiply(multiply(X4,X5),X6),X7)),X4) = inverse(multiply(multiply(multiply(multiply(inverse(X8),X8),X5),X6),X7))) )),
+  inference(superposition,[],[f35422,f23516])).
+fof(f35422,plain,(
+  ( ! [X21,X19,X25,X22,X20] : (inverse(multiply(multiply(multiply(multiply(inverse(X20),multiply(inverse(multiply(multiply(multiply(X25,X22),X21),X19)),X25)),X22),X21),X19)) = X20) )),
+  inference(forward_demodulation,[],[f35382,f28755])).
+fof(f28755,plain,(
+  ( ! [X89,X86] : (multiply(inverse(X86),inverse(X89)) = inverse(multiply(X89,X86))) )),
+  inference(backward_demodulation,[],[f28754,f28620])).
+fof(f28620,plain,(
+  ( ! [X88,X87,X89,X86] : (multiply(X87,multiply(multiply(inverse(X87),multiply(inverse(X86),inverse(multiply(X88,X89)))),X88)) = multiply(inverse(X86),inverse(X89))) )),
+  inference(backward_demodulation,[],[f28608,f9607])).
+fof(f9607,plain,(
+  ( ! [X90,X88,X87,X91,X89,X86] : (multiply(X87,multiply(multiply(inverse(X87),multiply(inverse(X86),inverse(multiply(X88,X89)))),X88)) = inverse(multiply(X90,multiply(X91,multiply(multiply(inverse(X91),multiply(inverse(X90),X89)),X86))))) )),
+  inference(superposition,[],[f5853,f5853])).
+fof(f28608,plain,(
+  ( ! [X0,X8,X7,X3] : (inverse(multiply(X7,multiply(X8,multiply(multiply(inverse(X8),multiply(inverse(X7),X3)),X0)))) = multiply(inverse(X0),inverse(X3))) )),
+  inference(backward_demodulation,[],[f28517,f9810])).
+fof(f9810,plain,(
+  ( ! [X2,X0,X8,X7,X3,X1] : (multiply(X1,multiply(multiply(inverse(X1),X2),inverse(multiply(X3,multiply(X0,X2))))) = inverse(multiply(X7,multiply(X8,multiply(multiply(inverse(X8),multiply(inverse(X7),X3)),X0))))) )),
+  inference(forward_demodulation,[],[f9582,f1])).
+fof(f9582,plain,(
+  ( ! [X6,X4,X2,X0,X8,X7,X5,X3,X1] : (multiply(X1,multiply(multiply(inverse(X1),X2),inverse(multiply(X3,multiply(X0,X2))))) = inverse(multiply(X7,multiply(X8,multiply(multiply(inverse(X8),multiply(inverse(X7),inverse(multiply(X4,multiply(X5,multiply(multiply(inverse(X5),X6),inverse(multiply(X3,multiply(X4,X6))))))))),X0))))) )),
+  inference(superposition,[],[f5853,f796])).
+fof(f796,plain,(
+  ( ! [X19,X17,X15,X11,X20,X18,X16] : (multiply(X15,multiply(X16,multiply(multiply(inverse(X16),X17),inverse(multiply(X11,multiply(X15,X17)))))) = multiply(X18,multiply(X19,multiply(multiply(inverse(X19),X20),inverse(multiply(X11,multiply(X18,X20))))))) )),
+  inference(superposition,[],[f22,f22])).
+fof(f28517,plain,(
+  ( ! [X30,X31,X29,X27] : (multiply(inverse(X27),inverse(X30)) = multiply(X31,multiply(multiply(inverse(X31),X29),inverse(multiply(X30,multiply(X27,X29)))))) )),
+  inference(backward_demodulation,[],[f28153,f24895])).
+fof(f24895,plain,(
+  ( ! [X30,X28,X31,X29,X27] : (multiply(X31,multiply(inverse(X31),multiply(X28,multiply(multiply(inverse(X28),X29),inverse(multiply(X30,multiply(X27,X29))))))) = multiply(inverse(X27),inverse(X30))) )),
+  inference(superposition,[],[f21509,f18667])).
+fof(f28153,plain,(
+  ( ! [X596,X598,X597,X593] : (multiply(X596,multiply(X598,multiply(multiply(inverse(X598),X597),inverse(X593)))) = multiply(multiply(X596,X597),inverse(X593))) )),
+  inference(backward_demodulation,[],[f28142,f27733])).
+fof(f27733,plain,(
+  ( ! [X596,X598,X594,X597,X593] : (multiply(X596,multiply(X598,multiply(multiply(inverse(X598),X597),inverse(X593)))) = inverse(multiply(X593,multiply(X594,inverse(multiply(multiply(X596,X597),X594)))))) )),
+  inference(backward_demodulation,[],[f27632,f14072])).
+fof(f14072,plain,(
+  ( ! [X596,X598,X594,X597,X593,X595] : (inverse(multiply(X593,multiply(X594,inverse(multiply(multiply(X595,inverse(multiply(inverse(multiply(X596,X597)),X595))),X594))))) = multiply(X596,multiply(X598,multiply(multiply(inverse(X598),X597),inverse(X593))))) )),
+  inference(superposition,[],[f795,f5003])).
+fof(f28754,plain,(
+  ( ! [X88,X87,X89,X86] : (multiply(X87,multiply(multiply(inverse(X87),multiply(inverse(X86),inverse(multiply(X88,X89)))),X88)) = inverse(multiply(X89,X86))) )),
+  inference(forward_demodulation,[],[f26972,f26952])).
+fof(f26972,plain,(
+  ( ! [X88,X87,X91,X89,X86] : (multiply(X87,multiply(multiply(inverse(X87),multiply(inverse(X86),inverse(multiply(X88,X89)))),X88)) = inverse(multiply(X89,multiply(X91,multiply(inverse(X91),X86))))) )),
+  inference(backward_demodulation,[],[f26952,f11204])).
+fof(f11204,plain,(
+  ( ! [X90,X88,X87,X91,X89,X86] : (multiply(X87,multiply(multiply(inverse(X87),multiply(inverse(X86),inverse(multiply(X88,X89)))),X88)) = inverse(multiply(multiply(X90,multiply(inverse(X90),X89)),multiply(X91,multiply(inverse(X91),X86))))) )),
+  inference(superposition,[],[f6395,f5853])).
+fof(f35382,plain,(
+  ( ! [X21,X19,X25,X22,X20] : (inverse(multiply(multiply(multiply(multiply(inverse(X20),multiply(multiply(inverse(X19),inverse(multiply(multiply(X25,X22),X21))),X25)),X22),X21),X19)) = X20) )),
+  inference(backward_demodulation,[],[f35345,f35196])).
+fof(f35196,plain,(
+  ( ! [X24,X21,X19,X25,X22,X20] : (inverse(multiply(multiply(multiply(multiply(inverse(X20),multiply(multiply(inverse(X19),multiply(inverse(multiply(multiply(X24,multiply(X25,X22)),X21)),X24)),X25)),X22),X21),X19)) = X20) )),
+  inference(forward_demodulation,[],[f35195,f17914])).
+fof(f35195,plain,(
+  ( ! [X24,X21,X19,X25,X22,X20] : (inverse(multiply(multiply(multiply(multiply(inverse(X20),multiply(multiply(inverse(X19),multiply(inverse(multiply(multiply(X24,multiply(X25,inverse(inverse(X22)))),X21)),X24)),X25)),X22),X21),X19)) = X20) )),
+  inference(forward_demodulation,[],[f35194,f28232])).
+fof(f35194,plain,(
+  ( ! [X24,X23,X21,X19,X25,X22,X20] : (inverse(multiply(multiply(multiply(multiply(inverse(X20),multiply(multiply(inverse(X19),multiply(inverse(multiply(multiply(X24,multiply(X25,multiply(X23,inverse(multiply(inverse(X22),X23))))),X21)),X24)),X25)),X22),X21),X19)) = X20) )),
+  inference(forward_demodulation,[],[f35193,f33939])).
+fof(f33939,plain,(
+  ( ! [X596,X597,X593] : (multiply(multiply(X596,X597),inverse(X593)) = multiply(X596,multiply(X597,inverse(X593)))) )),
+  inference(backward_demodulation,[],[f33938,f28153])).
+fof(f33938,plain,(
+  ( ! [X141,X139,X137] : (multiply(X139,inverse(X137)) = multiply(X141,multiply(multiply(inverse(X141),X139),inverse(X137)))) )),
+  inference(forward_demodulation,[],[f33937,f28242])).
+fof(f33937,plain,(
+  ( ! [X141,X139,X137] : (multiply(X139,inverse(X137)) = multiply(X141,inverse(multiply(X137,inverse(multiply(inverse(X141),X139)))))) )),
+  inference(forward_demodulation,[],[f33511,f28873])).
+fof(f28873,plain,(
+  ( ! [X88,X87,X89,X86] : (inverse(multiply(X89,X86)) = multiply(X87,multiply(inverse(multiply(multiply(multiply(X88,X89),X86),X87)),X88))) )),
+  inference(forward_demodulation,[],[f28793,f28755])).
+fof(f28793,plain,(
+  ( ! [X88,X87,X89,X86] : (inverse(multiply(X89,X86)) = multiply(X87,multiply(multiply(inverse(X87),inverse(multiply(multiply(X88,X89),X86))),X88))) )),
+  inference(backward_demodulation,[],[f28755,f28754])).
+fof(f33511,plain,(
+  ( ! [X142,X143,X141,X139,X137] : (multiply(X139,inverse(X137)) = multiply(X141,multiply(X142,multiply(inverse(multiply(multiply(multiply(X143,X137),inverse(multiply(inverse(X141),X139))),X142)),X143)))) )),
+  inference(backward_demodulation,[],[f33250,f29321])).
+fof(f29321,plain,(
+  ( ! [X142,X143,X141,X139,X137] : (multiply(X141,multiply(X142,multiply(multiply(inverse(X142),multiply(multiply(inverse(X141),X139),inverse(multiply(X143,X137)))),X143))) = multiply(X139,inverse(X137))) )),
+  inference(forward_demodulation,[],[f29320,f28242])).
+fof(f29320,plain,(
+  ( ! [X142,X143,X141,X139,X137] : (multiply(X141,multiply(X142,multiply(multiply(inverse(X142),multiply(multiply(inverse(X141),X139),inverse(multiply(X143,X137)))),X143))) = inverse(multiply(X137,inverse(X139)))) )),
+  inference(forward_demodulation,[],[f27080,f28232])).
+fof(f27080,plain,(
+  ( ! [X142,X138,X143,X141,X139,X137] : (inverse(multiply(X137,multiply(X138,inverse(multiply(X139,X138))))) = multiply(X141,multiply(X142,multiply(multiply(inverse(X142),multiply(multiply(inverse(X141),X139),inverse(multiply(X143,X137)))),X143)))) )),
+  inference(backward_demodulation,[],[f26952,f23733])).
+fof(f23733,plain,(
+  ( ! [X142,X140,X138,X143,X141,X139,X137] : (inverse(multiply(X137,multiply(X138,inverse(multiply(X139,X138))))) = multiply(X141,multiply(X142,multiply(multiply(inverse(X142),multiply(multiply(inverse(X141),multiply(X140,multiply(inverse(X140),X139))),inverse(multiply(X143,X137)))),X143)))) )),
+  inference(superposition,[],[f19524,f7866])).
+fof(f33250,plain,(
+  ( ! [X47,X45,X46] : (inverse(multiply(multiply(X45,inverse(X46)),X47)) = multiply(inverse(X47),multiply(X46,inverse(X45)))) )),
+  inference(superposition,[],[f28755,f28242])).
+fof(f35193,plain,(
+  ( ! [X24,X23,X21,X19,X25,X22,X20] : (inverse(multiply(multiply(multiply(multiply(inverse(X20),multiply(multiply(inverse(X19),multiply(inverse(multiply(multiply(X24,multiply(multiply(X25,X23),inverse(multiply(inverse(X22),X23)))),X21)),X24)),X25)),X22),X21),X19)) = X20) )),
+  inference(forward_demodulation,[],[f35192,f33939])).
+fof(f35192,plain,(
+  ( ! [X24,X23,X21,X19,X25,X22,X20] : (inverse(multiply(multiply(multiply(multiply(inverse(X20),multiply(multiply(inverse(X19),multiply(inverse(multiply(multiply(multiply(X24,multiply(X25,X23)),inverse(multiply(inverse(X22),X23))),X21)),X24)),X25)),X22),X21),X19)) = X20) )),
+  inference(forward_demodulation,[],[f33520,f34993])).
+fof(f34993,plain,(
+  ( ! [X6,X12,X8,X11,X9] : (multiply(inverse(X11),multiply(X12,multiply(multiply(inverse(X12),multiply(multiply(X11,X8),X9)),X6))) = multiply(multiply(X8,X9),X6)) )),
+  inference(forward_demodulation,[],[f34992,f17914])).
+fof(f34992,plain,(
+  ( ! [X6,X12,X8,X11,X9] : (multiply(inverse(X11),multiply(X12,multiply(multiply(inverse(X12),multiply(multiply(X11,X8),X9)),X6))) = inverse(inverse(multiply(multiply(X8,X9),X6)))) )),
+  inference(forward_demodulation,[],[f34991,f27910])).
+fof(f34991,plain,(
+  ( ! [X6,X12,X8,X7,X11,X9] : (multiply(inverse(X11),multiply(X12,multiply(multiply(inverse(X12),multiply(multiply(X11,X8),X9)),X6))) = inverse(inverse(multiply(multiply(X8,multiply(multiply(X9,X7),inverse(X7))),X6)))) )),
+  inference(forward_demodulation,[],[f34990,f33939])).
+fof(f34990,plain,(
+  ( ! [X6,X12,X8,X7,X11,X9] : (multiply(inverse(X11),multiply(X12,multiply(multiply(inverse(X12),multiply(multiply(X11,X8),X9)),X6))) = inverse(inverse(multiply(multiply(multiply(X8,multiply(X9,X7)),inverse(X7)),X6)))) )),
+  inference(forward_demodulation,[],[f34200,f33250])).
+fof(f34200,plain,(
+  ( ! [X6,X12,X8,X7,X11,X9] : (multiply(inverse(X11),multiply(X12,multiply(multiply(inverse(X12),multiply(multiply(X11,X8),X9)),X6))) = inverse(multiply(inverse(X6),multiply(X7,inverse(multiply(X8,multiply(X9,X7))))))) )),
+  inference(backward_demodulation,[],[f33939,f31306])).
+fof(f31306,plain,(
+  ( ! [X6,X12,X8,X7,X11,X9] : (inverse(multiply(multiply(inverse(X6),X7),inverse(multiply(X8,multiply(X9,X7))))) = multiply(inverse(X11),multiply(X12,multiply(multiply(inverse(X12),multiply(multiply(X11,X8),X9)),X6)))) )),
+  inference(forward_demodulation,[],[f31231,f29295])).
+fof(f31231,plain,(
+  ( ! [X6,X12,X10,X8,X7,X11,X9] : (inverse(multiply(multiply(inverse(X6),X7),inverse(multiply(X8,multiply(X9,X7))))) = multiply(inverse(X11),multiply(X12,multiply(multiply(inverse(X12),multiply(multiply(X11,multiply(multiply(inverse(X10),X10),X8)),X9)),X6)))) )),
+  inference(superposition,[],[f22350,f23516])).
+fof(f22350,plain,(
+  ( ! [X111,X109,X107,X102,X110,X108,X106] : (inverse(X102) = multiply(inverse(X106),multiply(X111,multiply(multiply(inverse(X111),multiply(multiply(X106,multiply(multiply(inverse(X102),multiply(multiply(inverse(X107),X108),inverse(multiply(X109,multiply(X110,X108))))),X109)),X110)),X107)))) )),
+  inference(forward_demodulation,[],[f18484,f18667])).
+fof(f18484,plain,(
+  ( ! [X103,X111,X109,X107,X105,X102,X110,X108,X106,X104] : (inverse(X102) = multiply(multiply(X103,multiply(X104,multiply(multiply(inverse(X104),X105),inverse(multiply(X106,multiply(X103,X105)))))),multiply(X111,multiply(multiply(inverse(X111),multiply(multiply(X106,multiply(multiply(inverse(X102),multiply(multiply(inverse(X107),X108),inverse(multiply(X109,multiply(X110,X108))))),X109)),X110)),X107)))) )),
+  inference(backward_demodulation,[],[f18039,f743])).
+fof(f743,plain,(
+  ( ! [X103,X111,X109,X107,X105,X116,X114,X112,X102,X110,X108,X106,X104,X115,X113] : (inverse(multiply(X112,multiply(X113,multiply(multiply(inverse(X113),multiply(multiply(inverse(X112),multiply(multiply(X102,X114),inverse(multiply(X115,multiply(X116,X114))))),X115)),X116)))) = multiply(multiply(X103,multiply(X104,multiply(multiply(inverse(X104),X105),inverse(multiply(X106,multiply(X103,X105)))))),multiply(X111,multiply(multiply(inverse(X111),multiply(multiply(X106,multiply(multiply(inverse(X102),multiply(multiply(inverse(X107),X108),inverse(multiply(X109,multiply(X110,X108))))),X109)),X110)),X107)))) )),
+  inference(superposition,[],[f22,f20])).
+fof(f20,plain,(
+  ( ! [X14,X12,X10,X8,X15,X13,X11,X9,X16] : (inverse(multiply(X9,multiply(multiply(X13,multiply(X14,multiply(multiply(inverse(X14),X15),inverse(multiply(X16,multiply(X13,X15)))))),multiply(multiply(X16,multiply(multiply(inverse(X9),multiply(multiply(inverse(X8),X10),inverse(multiply(X11,multiply(X12,X10))))),X11)),X12)))) = X8) )),
+  inference(superposition,[],[f3,f4])).
+fof(f33520,plain,(
+  ( ! [X30,X24,X23,X21,X19,X29,X25,X22,X20] : (inverse(multiply(inverse(X29),multiply(X30,multiply(multiply(inverse(X30),multiply(multiply(X29,multiply(multiply(inverse(X20),multiply(multiply(inverse(X19),multiply(inverse(multiply(multiply(multiply(X24,multiply(X25,X23)),inverse(multiply(inverse(X22),X23))),X21)),X24)),X25)),X22)),X21)),X19)))) = X20) )),
+  inference(backward_demodulation,[],[f33250,f18740])).
+fof(f18740,plain,(
+  ( ! [X30,X24,X23,X21,X19,X29,X25,X22,X20] : (inverse(multiply(inverse(X29),multiply(X30,multiply(multiply(inverse(X30),multiply(multiply(X29,multiply(multiply(inverse(X20),multiply(multiply(inverse(X19),multiply(multiply(inverse(X21),multiply(multiply(inverse(X22),X23),inverse(multiply(X24,multiply(X25,X23))))),X24)),X25)),X22)),X21)),X19)))) = X20) )),
+  inference(backward_demodulation,[],[f18667,f152])).
+fof(f152,plain,(
+  ( ! [X30,X28,X26,X24,X23,X21,X19,X29,X27,X25,X22,X20] : (inverse(multiply(multiply(X26,multiply(X27,multiply(multiply(inverse(X27),X28),inverse(multiply(X29,multiply(X26,X28)))))),multiply(X30,multiply(multiply(inverse(X30),multiply(multiply(X29,multiply(multiply(inverse(X20),multiply(multiply(inverse(X19),multiply(multiply(inverse(X21),multiply(multiply(inverse(X22),X23),inverse(multiply(X24,multiply(X25,X23))))),X24)),X25)),X22)),X21)),X19)))) = X20) )),
+  inference(superposition,[],[f7,f10])).
+fof(f35345,plain,(
+  ( ! [X4,X2,X0,X5,X1] : (multiply(X0,multiply(inverse(multiply(multiply(X4,multiply(X5,X2)),X1)),X4)) = multiply(X0,inverse(multiply(multiply(X5,X2),X1)))) )),
+  inference(forward_demodulation,[],[f35344,f34646])).
+fof(f34646,plain,(
+  ( ! [X4,X0,X5,X3,X1] : (inverse(multiply(X5,multiply(multiply(inverse(X5),multiply(X3,X4)),multiply(X1,inverse(X0))))) = multiply(X0,inverse(multiply(multiply(X3,X4),X1)))) )),
+  inference(backward_demodulation,[],[f34644,f34637])).
+fof(f34637,plain,(
+  ( ! [X4,X0,X5,X3,X1] : (inverse(multiply(X5,multiply(multiply(inverse(X5),multiply(X3,X4)),multiply(X1,inverse(X0))))) = inverse(multiply(multiply(X3,X4),multiply(X1,inverse(X0))))) )),
+  inference(forward_demodulation,[],[f34636,f27910])).
+fof(f34636,plain,(
+  ( ! [X4,X2,X0,X5,X3,X1] : (inverse(multiply(X5,multiply(multiply(inverse(X5),multiply(X3,X4)),multiply(X1,inverse(X0))))) = inverse(multiply(multiply(X3,multiply(multiply(X4,X2),inverse(X2))),multiply(X1,inverse(X0))))) )),
+  inference(forward_demodulation,[],[f34635,f33939])).
+fof(f34635,plain,(
+  ( ! [X4,X2,X0,X5,X3,X1] : (inverse(multiply(X5,multiply(multiply(inverse(X5),multiply(X3,X4)),multiply(X1,inverse(X0))))) = inverse(multiply(multiply(multiply(X3,multiply(X4,X2)),inverse(X2)),multiply(X1,inverse(X0))))) )),
+  inference(forward_demodulation,[],[f34634,f33939])).
+fof(f34634,plain,(
+  ( ! [X4,X2,X0,X5,X3,X1] : (inverse(multiply(X5,multiply(multiply(inverse(X5),multiply(X3,X4)),multiply(X1,inverse(X0))))) = inverse(multiply(multiply(multiply(multiply(X3,multiply(X4,X2)),inverse(X2)),X1),inverse(X0)))) )),
+  inference(forward_demodulation,[],[f34633,f28242])).
+fof(f34633,plain,(
+  ( ! [X4,X2,X0,X5,X3,X1] : (inverse(multiply(X5,multiply(multiply(inverse(X5),multiply(X3,X4)),multiply(X1,inverse(X0))))) = inverse(inverse(multiply(X0,inverse(multiply(multiply(multiply(X3,multiply(X4,X2)),inverse(X2)),X1)))))) )),
+  inference(forward_demodulation,[],[f34632,f33250])).
+fof(f34632,plain,(
+  ( ! [X4,X2,X0,X5,X3,X1] : (inverse(multiply(X5,multiply(multiply(inverse(X5),multiply(X3,X4)),multiply(X1,inverse(X0))))) = inverse(inverse(multiply(X0,multiply(inverse(X1),multiply(X2,inverse(multiply(X3,multiply(X4,X2))))))))) )),
+  inference(forward_demodulation,[],[f34631,f33939])).
+fof(f34631,plain,(
+  ( ! [X4,X2,X0,X5,X3,X1] : (inverse(inverse(multiply(X0,multiply(multiply(inverse(X1),X2),inverse(multiply(X3,multiply(X4,X2))))))) = inverse(multiply(X5,multiply(multiply(inverse(X5),multiply(X3,X4)),multiply(X1,inverse(X0)))))) )),
+  inference(forward_demodulation,[],[f34087,f33939])).
+fof(f34087,plain,(
+  ( ! [X4,X2,X0,X5,X3,X1] : (inverse(inverse(multiply(X0,multiply(multiply(inverse(X1),X2),inverse(multiply(X3,multiply(X4,X2))))))) = inverse(multiply(X5,multiply(multiply(multiply(inverse(X5),multiply(X3,X4)),X1),inverse(X0))))) )),
+  inference(backward_demodulation,[],[f33939,f31757])).
+fof(f31757,plain,(
+  ( ! [X4,X2,X0,X5,X3,X1] : (inverse(multiply(multiply(X5,multiply(multiply(inverse(X5),multiply(X3,X4)),X1)),inverse(X0))) = inverse(inverse(multiply(X0,multiply(multiply(inverse(X1),X2),inverse(multiply(X3,multiply(X4,X2)))))))) )),
+  inference(superposition,[],[f28507,f27463])).
+fof(f28507,plain,(
+  ( ! [X94,X92,X88,X99,X95,X93,X100] : (inverse(X99) = inverse(multiply(multiply(X100,multiply(multiply(inverse(X100),multiply(multiply(X99,multiply(multiply(X92,multiply(multiply(inverse(X88),X93),inverse(multiply(X94,multiply(X95,X93))))),X94)),X95)),X88)),inverse(X92)))) )),
+  inference(backward_demodulation,[],[f28153,f20179])).
+fof(f20179,plain,(
+  ( ! [X94,X92,X88,X101,X99,X95,X93,X100] : (inverse(X99) = inverse(multiply(X100,multiply(X101,multiply(multiply(inverse(X101),multiply(multiply(inverse(X100),multiply(multiply(X99,multiply(multiply(X92,multiply(multiply(inverse(X88),X93),inverse(multiply(X94,multiply(X95,X93))))),X94)),X95)),X88)),inverse(X92)))))) )),
+  inference(forward_demodulation,[],[f18898,f18667])).
+fof(f18898,plain,(
+  ( ! [X94,X92,X88,X101,X99,X97,X95,X93,X100,X98,X96] : (multiply(X96,multiply(X97,multiply(multiply(inverse(X97),X98),inverse(multiply(X99,multiply(X96,X98)))))) = inverse(multiply(X100,multiply(X101,multiply(multiply(inverse(X101),multiply(multiply(inverse(X100),multiply(multiply(X99,multiply(multiply(X92,multiply(multiply(inverse(X88),X93),inverse(multiply(X94,multiply(X95,X93))))),X94)),X95)),X88)),inverse(X92)))))) )),
+  inference(backward_demodulation,[],[f18667,f788])).
+fof(f788,plain,(
+  ( ! [X94,X92,X90,X88,X101,X99,X97,X95,X93,X91,X89,X100,X98,X96] : (multiply(X96,multiply(X97,multiply(multiply(inverse(X97),X98),inverse(multiply(X99,multiply(X96,X98)))))) = inverse(multiply(X100,multiply(X101,multiply(multiply(inverse(X101),multiply(multiply(inverse(X100),multiply(multiply(X99,multiply(multiply(X92,multiply(multiply(inverse(X88),X93),inverse(multiply(X94,multiply(X95,X93))))),X94)),X95)),X88)),multiply(X89,multiply(X90,multiply(multiply(inverse(X90),X91),inverse(multiply(X92,multiply(X89,X91))))))))))) )),
+  inference(superposition,[],[f22,f5])).
+fof(f5,plain,(
+  ( ! [X6,X4,X2,X0,X7,X5,X3,X1] : (inverse(multiply(X4,multiply(multiply(X0,multiply(X1,multiply(multiply(inverse(X1),X2),inverse(multiply(X3,multiply(X0,X2)))))),multiply(multiply(X3,multiply(multiply(inverse(X4),X5),inverse(multiply(X6,multiply(X7,X5))))),X6)))) = X7) )),
+  inference(superposition,[],[f4,f1])).
+fof(f34644,plain,(
+  ( ! [X4,X0,X3,X1] : (inverse(multiply(multiply(X3,X4),multiply(X1,inverse(X0)))) = multiply(X0,inverse(multiply(multiply(X3,X4),X1)))) )),
+  inference(forward_demodulation,[],[f34643,f27910])).
+fof(f34643,plain,(
+  ( ! [X4,X2,X0,X3,X1] : (inverse(multiply(multiply(X3,X4),multiply(X1,inverse(X0)))) = multiply(X0,inverse(multiply(multiply(X3,multiply(multiply(X4,X2),inverse(X2))),X1)))) )),
+  inference(forward_demodulation,[],[f34642,f33939])).
+fof(f34642,plain,(
+  ( ! [X4,X2,X0,X3,X1] : (multiply(X0,inverse(multiply(multiply(multiply(X3,multiply(X4,X2)),inverse(X2)),X1))) = inverse(multiply(multiply(X3,X4),multiply(X1,inverse(X0))))) )),
+  inference(forward_demodulation,[],[f34641,f33250])).
+fof(f34641,plain,(
+  ( ! [X4,X2,X0,X3,X1] : (multiply(X0,multiply(inverse(X1),multiply(X2,inverse(multiply(X3,multiply(X4,X2)))))) = inverse(multiply(multiply(X3,X4),multiply(X1,inverse(X0))))) )),
+  inference(forward_demodulation,[],[f34640,f33939])).
+fof(f34640,plain,(
+  ( ! [X4,X2,X0,X3,X1] : (multiply(X0,multiply(multiply(inverse(X1),X2),inverse(multiply(X3,multiply(X4,X2))))) = inverse(multiply(multiply(X3,X4),multiply(X1,inverse(X0))))) )),
+  inference(forward_demodulation,[],[f34639,f34637])).
+fof(f34639,plain,(
+  ( ! [X4,X2,X0,X5,X3,X1] : (multiply(X0,multiply(multiply(inverse(X1),X2),inverse(multiply(X3,multiply(X4,X2))))) = inverse(multiply(X5,multiply(multiply(inverse(X5),multiply(X3,X4)),multiply(X1,inverse(X0)))))) )),
+  inference(forward_demodulation,[],[f34088,f33939])).
+fof(f34088,plain,(
+  ( ! [X4,X2,X0,X5,X3,X1] : (multiply(X0,multiply(multiply(inverse(X1),X2),inverse(multiply(X3,multiply(X4,X2))))) = inverse(multiply(X5,multiply(multiply(multiply(inverse(X5),multiply(X3,X4)),X1),inverse(X0))))) )),
+  inference(backward_demodulation,[],[f33939,f31573])).
+fof(f31573,plain,(
+  ( ! [X4,X2,X0,X5,X3,X1] : (multiply(X0,multiply(multiply(inverse(X1),X2),inverse(multiply(X3,multiply(X4,X2))))) = inverse(multiply(multiply(X5,multiply(multiply(inverse(X5),multiply(X3,X4)),X1)),inverse(X0)))) )),
+  inference(superposition,[],[f28504,f27463])).
+fof(f28504,plain,(
+  ( ! [X47,X43,X50,X48,X53,X51,X49] : (inverse(multiply(multiply(X51,multiply(multiply(inverse(X51),multiply(multiply(inverse(X53),multiply(multiply(X47,multiply(multiply(inverse(X43),X48),inverse(multiply(X49,multiply(X50,X48))))),X49)),X50)),X43)),inverse(X47))) = X53) )),
+  inference(backward_demodulation,[],[f28153,f18719])).
+fof(f18719,plain,(
+  ( ! [X47,X43,X52,X50,X48,X53,X51,X49] : (inverse(multiply(X51,multiply(X52,multiply(multiply(inverse(X52),multiply(multiply(inverse(X51),multiply(multiply(inverse(X53),multiply(multiply(X47,multiply(multiply(inverse(X43),X48),inverse(multiply(X49,multiply(X50,X48))))),X49)),X50)),X43)),inverse(X47))))) = X53) )),
+  inference(backward_demodulation,[],[f18667,f116])).
+fof(f116,plain,(
+  ( ! [X47,X45,X43,X52,X50,X48,X46,X44,X53,X51,X49] : (inverse(multiply(X51,multiply(X52,multiply(multiply(inverse(X52),multiply(multiply(inverse(X51),multiply(multiply(inverse(X53),multiply(multiply(X47,multiply(multiply(inverse(X43),X48),inverse(multiply(X49,multiply(X50,X48))))),X49)),X50)),X43)),multiply(X44,multiply(X45,multiply(multiply(inverse(X45),X46),inverse(multiply(X47,multiply(X44,X46)))))))))) = X53) )),
+  inference(superposition,[],[f9,f5])).
+fof(f35344,plain,(
+  ( ! [X6,X4,X2,X0,X5,X1] : (multiply(X0,multiply(inverse(multiply(multiply(X4,multiply(X5,X2)),X1)),X4)) = inverse(multiply(X6,multiply(multiply(inverse(X6),multiply(X5,X2)),multiply(X1,inverse(X0)))))) )),
+  inference(forward_demodulation,[],[f35343,f33939])).
+fof(f35343,plain,(
+  ( ! [X6,X4,X2,X0,X5,X1] : (multiply(X0,multiply(inverse(multiply(multiply(X4,multiply(X5,X2)),X1)),X4)) = inverse(multiply(X6,multiply(multiply(multiply(inverse(X6),multiply(X5,X2)),X1),inverse(X0))))) )),
+  inference(forward_demodulation,[],[f35342,f33939])).
+fof(f35342,plain,(
+  ( ! [X6,X4,X2,X0,X5,X1] : (inverse(multiply(multiply(X6,multiply(multiply(inverse(X6),multiply(X5,X2)),X1)),inverse(X0))) = multiply(X0,multiply(inverse(multiply(multiply(X4,multiply(X5,X2)),X1)),X4))) )),
+  inference(forward_demodulation,[],[f35341,f17914])).
+fof(f35341,plain,(
+  ( ! [X6,X4,X2,X0,X5,X1] : (inverse(multiply(multiply(X6,multiply(multiply(inverse(X6),multiply(X5,X2)),X1)),inverse(X0))) = multiply(X0,multiply(inverse(multiply(multiply(X4,multiply(X5,inverse(inverse(X2)))),X1)),X4))) )),
+  inference(forward_demodulation,[],[f35340,f28232])).
+fof(f35340,plain,(
+  ( ! [X6,X4,X2,X0,X5,X3,X1] : (inverse(multiply(multiply(X6,multiply(multiply(inverse(X6),multiply(X5,X2)),X1)),inverse(X0))) = multiply(X0,multiply(inverse(multiply(multiply(X4,multiply(X5,multiply(X3,inverse(multiply(inverse(X2),X3))))),X1)),X4))) )),
+  inference(forward_demodulation,[],[f35339,f33939])).
+fof(f35339,plain,(
+  ( ! [X6,X4,X2,X0,X5,X3,X1] : (inverse(multiply(multiply(X6,multiply(multiply(inverse(X6),multiply(X5,X2)),X1)),inverse(X0))) = multiply(X0,multiply(inverse(multiply(multiply(X4,multiply(multiply(X5,X3),inverse(multiply(inverse(X2),X3)))),X1)),X4))) )),
+  inference(forward_demodulation,[],[f33552,f33939])).
+fof(f33552,plain,(
+  ( ! [X6,X4,X2,X0,X5,X3,X1] : (inverse(multiply(multiply(X6,multiply(multiply(inverse(X6),multiply(X5,X2)),X1)),inverse(X0))) = multiply(X0,multiply(inverse(multiply(multiply(multiply(X4,multiply(X5,X3)),inverse(multiply(inverse(X2),X3))),X1)),X4))) )),
+  inference(backward_demodulation,[],[f33250,f33029])).
+fof(f33029,plain,(
+  ( ! [X6,X4,X2,X0,X5,X3,X1] : (multiply(X0,multiply(multiply(inverse(X1),multiply(multiply(inverse(X2),X3),inverse(multiply(X4,multiply(X5,X3))))),X4)) = inverse(multiply(multiply(X6,multiply(multiply(inverse(X6),multiply(X5,X2)),X1)),inverse(X0)))) )),
+  inference(superposition,[],[f28506,f27463])).
+fof(f28506,plain,(
+  ( ! [X167,X163,X171,X169,X174,X172,X170,X168] : (inverse(multiply(multiply(X172,multiply(multiply(inverse(X172),multiply(multiply(inverse(X174),multiply(multiply(X167,multiply(multiply(inverse(X163),multiply(multiply(inverse(X168),X169),inverse(multiply(X170,multiply(X171,X169))))),X170)),X171)),X168)),X163)),inverse(X167))) = X174) )),
+  inference(backward_demodulation,[],[f28153,f18851])).
+fof(f18851,plain,(
+  ( ! [X167,X163,X173,X171,X169,X174,X172,X170,X168] : (inverse(multiply(X172,multiply(X173,multiply(multiply(inverse(X173),multiply(multiply(inverse(X172),multiply(multiply(inverse(X174),multiply(multiply(X167,multiply(multiply(inverse(X163),multiply(multiply(inverse(X168),X169),inverse(multiply(X170,multiply(X171,X169))))),X170)),X171)),X168)),X163)),inverse(X167))))) = X174) )),
+  inference(backward_demodulation,[],[f18667,f680])).
+fof(f680,plain,(
+  ( ! [X167,X165,X163,X173,X171,X169,X166,X164,X174,X172,X170,X168] : (inverse(multiply(X172,multiply(X173,multiply(multiply(inverse(X173),multiply(multiply(inverse(X172),multiply(multiply(inverse(X174),multiply(multiply(X167,multiply(multiply(inverse(X163),multiply(multiply(inverse(X168),X169),inverse(multiply(X170,multiply(X171,X169))))),X170)),X171)),X168)),X163)),multiply(X164,multiply(X165,multiply(multiply(inverse(X165),X166),inverse(multiply(X167,multiply(X164,X166)))))))))) = X174) )),
+  inference(superposition,[],[f9,f20])).
+fof(f38480,plain,(
+  ( ! [X103,X99,X102,X106,X104] : (multiply(inverse(X103),multiply(X104,multiply(inverse(multiply(multiply(multiply(X106,inverse(multiply(X102,X99))),multiply(X102,inverse(X103))),X104)),X106))) = X99) )),
+  inference(backward_demodulation,[],[f38479,f28866])).
+fof(f28866,plain,(
+  ( ! [X103,X99,X105,X102,X106,X104] : (multiply(inverse(X103),multiply(X104,multiply(multiply(inverse(X104),multiply(multiply(X103,inverse(multiply(multiply(X105,multiply(X106,inverse(multiply(X102,X99)))),X102))),X105)),X106))) = X99) )),
+  inference(forward_demodulation,[],[f28774,f28755])).
+fof(f28774,plain,(
+  ( ! [X103,X99,X105,X102,X106,X104] : (multiply(inverse(X103),multiply(X104,multiply(multiply(inverse(X104),multiply(multiply(X103,multiply(inverse(X102),inverse(multiply(X105,multiply(X106,inverse(multiply(X102,X99))))))),X105)),X106))) = X99) )),
+  inference(backward_demodulation,[],[f28755,f28567])).
+fof(f28567,plain,(
+  ( ! [X103,X99,X105,X102,X106,X104] : (multiply(inverse(X103),multiply(X104,multiply(multiply(inverse(X104),multiply(multiply(X103,multiply(inverse(X102),inverse(multiply(X105,multiply(X106,multiply(inverse(X99),inverse(X102))))))),X105)),X106))) = X99) )),
+  inference(backward_demodulation,[],[f28462,f25932])).
+fof(f25932,plain,(
+  ( ! [X103,X101,X99,X105,X102,X100,X106,X104] : (multiply(inverse(X103),multiply(X104,multiply(multiply(inverse(X104),multiply(multiply(X103,multiply(inverse(X102),inverse(multiply(X105,multiply(X106,multiply(inverse(X100),multiply(multiply(X100,X101),inverse(multiply(X102,multiply(X99,X101)))))))))),X105)),X106))) = X99) )),
+  inference(superposition,[],[f22801,f19719])).
+fof(f19719,plain,(
+  ( ! [X177,X171,X178,X176] : (inverse(X178) = multiply(X171,multiply(inverse(X176),multiply(multiply(X176,X177),inverse(multiply(X178,multiply(X171,X177))))))) )),
+  inference(forward_demodulation,[],[f19718,f19519])).
+fof(f19519,plain,(
+  ( ! [X47,X52,X48,X46,X42,X53] : (inverse(X46) = inverse(multiply(inverse(X52),multiply(X53,multiply(multiply(inverse(X53),multiply(multiply(X52,multiply(multiply(X46,X47),inverse(multiply(X48,multiply(X42,X47))))),X48)),X42))))) )),
+  inference(forward_demodulation,[],[f18742,f18667])).
+fof(f18742,plain,(
+  ( ! [X47,X52,X50,X48,X46,X42,X53,X51,X49] : (inverse(X46) = inverse(multiply(multiply(X49,multiply(X50,multiply(multiply(inverse(X50),X51),inverse(multiply(X52,multiply(X49,X51)))))),multiply(X53,multiply(multiply(inverse(X53),multiply(multiply(X52,multiply(multiply(X46,X47),inverse(multiply(X48,multiply(X42,X47))))),X48)),X42))))) )),
+  inference(backward_demodulation,[],[f18667,f154])).
+fof(f154,plain,(
+  ( ! [X47,X45,X43,X52,X50,X48,X46,X44,X42,X53,X51,X49] : (multiply(X43,multiply(X44,multiply(multiply(inverse(X44),X45),inverse(multiply(X46,multiply(X43,X45)))))) = inverse(multiply(multiply(X49,multiply(X50,multiply(multiply(inverse(X50),X51),inverse(multiply(X52,multiply(X49,X51)))))),multiply(X53,multiply(multiply(inverse(X53),multiply(multiply(X52,multiply(multiply(X46,X47),inverse(multiply(X48,multiply(X42,X47))))),X48)),X42))))) )),
+  inference(superposition,[],[f7,f3])).
+fof(f19718,plain,(
+  ( ! [X177,X185,X171,X180,X178,X176,X186,X170,X179] : (multiply(X171,multiply(inverse(X176),multiply(multiply(X176,X177),inverse(multiply(X178,multiply(X171,X177)))))) = inverse(multiply(inverse(X185),multiply(X186,multiply(multiply(inverse(X186),multiply(multiply(X185,multiply(multiply(X178,X179),inverse(multiply(X180,multiply(X170,X179))))),X180)),X170))))) )),
+  inference(forward_demodulation,[],[f19652,f19524])).
+fof(f19652,plain,(
+  ( ! [X177,X185,X171,X182,X180,X178,X176,X186,X184,X170,X183,X181,X179] : (inverse(multiply(multiply(X181,multiply(X182,multiply(multiply(inverse(X182),multiply(multiply(inverse(X181),X183),inverse(multiply(X184,multiply(X185,X183))))),X184))),multiply(X186,multiply(multiply(inverse(X186),multiply(multiply(X185,multiply(multiply(X178,X179),inverse(multiply(X180,multiply(X170,X179))))),X180)),X170)))) = multiply(X171,multiply(inverse(X176),multiply(multiply(X176,X177),inverse(multiply(X178,multiply(X171,X177))))))) )),
+  inference(backward_demodulation,[],[f19524,f1321])).
+fof(f1321,plain,(
+  ( ! [X177,X185,X175,X173,X171,X182,X180,X178,X176,X186,X184,X174,X172,X170,X183,X181,X179] : (multiply(X171,multiply(multiply(X172,multiply(X173,multiply(multiply(inverse(X173),multiply(multiply(inverse(X172),X174),inverse(multiply(X175,multiply(X176,X174))))),X175))),multiply(multiply(X176,X177),inverse(multiply(X178,multiply(X171,X177)))))) = inverse(multiply(multiply(X181,multiply(X182,multiply(multiply(inverse(X182),multiply(multiply(inverse(X181),X183),inverse(multiply(X184,multiply(X185,X183))))),X184))),multiply(X186,multiply(multiply(inverse(X186),multiply(multiply(X185,multiply(multiply(X178,X179),inverse(multiply(X180,multiply(X170,X179))))),X180)),X170))))) )),
+  inference(superposition,[],[f8,f14])).
+fof(f14,plain,(
+  ( ! [X14,X12,X10,X19,X17,X15,X13,X11,X20,X18,X16] : (inverse(multiply(X15,multiply(multiply(X16,multiply(multiply(X10,multiply(X11,multiply(multiply(inverse(X11),multiply(multiply(inverse(X10),X12),inverse(multiply(X13,multiply(X14,X12))))),X13))),multiply(multiply(X14,X17),inverse(multiply(X18,multiply(X16,X17)))))),multiply(multiply(X18,X19),inverse(multiply(X20,multiply(X15,X19))))))) = X20) )),
+  inference(superposition,[],[f3,f4])).
+fof(f8,plain,(
+  ( ! [X14,X12,X10,X8,X15,X13,X11,X9,X16] : (inverse(multiply(multiply(X8,multiply(X9,multiply(multiply(inverse(X9),multiply(multiply(inverse(X8),X10),inverse(multiply(X11,multiply(X12,X10))))),X11))),multiply(X13,multiply(multiply(inverse(X13),multiply(multiply(X12,X14),inverse(multiply(X15,multiply(X16,X14))))),X15)))) = X16) )),
+  inference(superposition,[],[f4,f4])).
+fof(f22801,plain,(
+  ( ! [X492,X494,X487,X493,X495,X491] : (multiply(inverse(X491),multiply(X495,multiply(multiply(inverse(X495),multiply(multiply(X491,multiply(multiply(X487,X492),inverse(multiply(X493,multiply(X494,X492))))),X493)),X494))) = X487) )),
+  inference(forward_demodulation,[],[f22800,f18667])).
+fof(f22800,plain,(
+  ( ! [X492,X494,X488,X490,X487,X493,X495,X489,X491] : (multiply(multiply(X488,multiply(X489,multiply(multiply(inverse(X489),X490),inverse(multiply(X491,multiply(X488,X490)))))),multiply(X495,multiply(multiply(inverse(X495),multiply(multiply(X491,multiply(multiply(X487,X492),inverse(multiply(X493,multiply(X494,X492))))),X493)),X494))) = X487) )),
+  inference(forward_demodulation,[],[f22799,f17914])).
+fof(f22799,plain,(
+  ( ! [X492,X494,X488,X490,X487,X493,X495,X489,X491] : (multiply(multiply(X488,multiply(X489,multiply(multiply(inverse(X489),X490),inverse(multiply(X491,multiply(X488,X490)))))),multiply(X495,multiply(multiply(inverse(X495),multiply(multiply(X491,multiply(multiply(X487,X492),inverse(multiply(X493,multiply(X494,X492))))),X493)),X494))) = inverse(inverse(X487))) )),
+  inference(forward_demodulation,[],[f18666,f18667])).
+fof(f18666,plain,(
+  ( ! [X484,X486,X492,X494,X488,X490,X485,X487,X493,X495,X489,X491] : (multiply(multiply(X488,multiply(X489,multiply(multiply(inverse(X489),X490),inverse(multiply(X491,multiply(X488,X490)))))),multiply(X495,multiply(multiply(inverse(X495),multiply(multiply(X491,multiply(multiply(X487,X492),inverse(multiply(X493,multiply(X494,X492))))),X493)),X494))) = inverse(multiply(X484,multiply(X485,multiply(multiply(inverse(X485),X486),inverse(multiply(X487,multiply(X484,X486)))))))) )),
+  inference(backward_demodulation,[],[f18039,f1995])).
+fof(f1995,plain,(
+  ( ! [X499,X484,X486,X492,X494,X488,X490,X500,X496,X498,X485,X487,X493,X495,X489,X491,X497] : (inverse(multiply(X496,multiply(X497,multiply(multiply(inverse(X497),multiply(multiply(inverse(X496),multiply(multiply(multiply(X484,multiply(X485,multiply(multiply(inverse(X485),X486),inverse(multiply(X487,multiply(X484,X486)))))),X498),inverse(multiply(X499,multiply(X500,X498))))),X499)),X500)))) = multiply(multiply(X488,multiply(X489,multiply(multiply(inverse(X489),X490),inverse(multiply(X491,multiply(X488,X490)))))),multiply(X495,multiply(multiply(inverse(X495),multiply(multiply(X491,multiply(multiply(X487,X492),inverse(multiply(X493,multiply(X494,X492))))),X493)),X494)))) )),
+  inference(superposition,[],[f22,f21])).
+fof(f21,plain,(
+  ( ! [X26,X24,X23,X21,X19,X17,X27,X25,X22,X20,X18] : (inverse(multiply(multiply(X18,multiply(X19,multiply(multiply(inverse(X19),X20),inverse(multiply(X21,multiply(X18,X20)))))),multiply(multiply(X24,multiply(X25,multiply(multiply(inverse(X25),X26),inverse(multiply(X27,multiply(X24,X26)))))),multiply(multiply(X27,multiply(multiply(X21,X22),inverse(multiply(X23,multiply(X17,X22))))),X23)))) = X17) )),
+  inference(superposition,[],[f3,f3])).
+fof(f28462,plain,(
+  ( ! [X30,X31,X29,X27] : (multiply(inverse(X27),inverse(X30)) = multiply(inverse(X31),multiply(multiply(X31,X29),inverse(multiply(X30,multiply(X27,X29)))))) )),
+  inference(backward_demodulation,[],[f28153,f26187])).
+fof(f26187,plain,(
+  ( ! [X30,X28,X31,X29,X27] : (multiply(inverse(X27),inverse(X30)) = multiply(inverse(X31),multiply(X31,multiply(X28,multiply(multiply(inverse(X28),X29),inverse(multiply(X30,multiply(X27,X29)))))))) )),
+  inference(superposition,[],[f24828,f18667])).
+fof(f24828,plain,(
+  ( ! [X12,X10,X11] : (multiply(inverse(X12),multiply(X12,X11)) = multiply(inverse(X10),multiply(X10,X11))) )),
+  inference(superposition,[],[f21509,f17914])).
+fof(f38479,plain,(
+  ( ! [X4,X2,X0,X3,X1] : (multiply(inverse(X0),multiply(multiply(X1,inverse(multiply(multiply(X2,X3),X4))),X2)) = inverse(multiply(multiply(X3,multiply(X4,inverse(X1))),X0))) )),
+  inference(forward_demodulation,[],[f38069,f34797])).
+fof(f34797,plain,(
+  ( ! [X6,X4,X0,X5,X3,X1] : (inverse(multiply(X5,multiply(X6,multiply(inverse(multiply(multiply(X1,multiply(inverse(multiply(X3,X4)),X5)),X6)),X0)))) = inverse(multiply(multiply(X3,multiply(X4,inverse(X1))),X0))) )),
+  inference(forward_demodulation,[],[f34796,f28232])).
+fof(f34796,plain,(
+  ( ! [X6,X4,X2,X0,X5,X3,X1] : (inverse(multiply(X5,multiply(X6,multiply(inverse(multiply(multiply(X1,multiply(inverse(multiply(X3,X4)),X5)),X6)),X0)))) = inverse(multiply(multiply(X3,multiply(X4,multiply(X2,inverse(multiply(X1,X2))))),X0))) )),
+  inference(forward_demodulation,[],[f34152,f33939])).
+fof(f34152,plain,(
+  ( ! [X6,X4,X2,X0,X5,X3,X1] : (inverse(multiply(X5,multiply(X6,multiply(inverse(multiply(multiply(X1,multiply(inverse(multiply(X3,X4)),X5)),X6)),X0)))) = inverse(multiply(multiply(X3,multiply(multiply(X4,X2),inverse(multiply(X1,X2)))),X0))) )),
+  inference(backward_demodulation,[],[f33939,f33879])).
+fof(f33879,plain,(
+  ( ! [X6,X4,X2,X0,X5,X3,X1] : (inverse(multiply(multiply(multiply(X3,multiply(X4,X2)),inverse(multiply(X1,X2))),X0)) = inverse(multiply(X5,multiply(X6,multiply(inverse(multiply(multiply(X1,multiply(inverse(multiply(X3,X4)),X5)),X6)),X0))))) )),
+  inference(forward_demodulation,[],[f33461,f28930])).
+fof(f33461,plain,(
+  ( ! [X6,X4,X2,X0,X5,X3,X1] : (inverse(multiply(multiply(multiply(X3,multiply(X4,X2)),inverse(multiply(X1,X2))),X0)) = inverse(multiply(X5,multiply(X6,multiply(inverse(multiply(multiply(X1,inverse(multiply(inverse(X5),multiply(X3,X4)))),X6)),X0))))) )),
+  inference(backward_demodulation,[],[f33250,f32586])).
+fof(f32586,plain,(
+  ( ! [X6,X4,X2,X0,X5,X3,X1] : (inverse(multiply(X5,multiply(X6,multiply(multiply(inverse(X6),multiply(multiply(inverse(X5),multiply(X3,X4)),inverse(X1))),X0)))) = inverse(multiply(multiply(multiply(X3,multiply(X4,X2)),inverse(multiply(X1,X2))),X0))) )),
+  inference(forward_demodulation,[],[f32585,f28242])).
+fof(f32585,plain,(
+  ( ! [X6,X4,X2,X0,X5,X3,X1] : (inverse(multiply(inverse(multiply(multiply(X1,X2),inverse(multiply(X3,multiply(X4,X2))))),X0)) = inverse(multiply(X5,multiply(X6,multiply(multiply(inverse(X6),multiply(multiply(inverse(X5),multiply(X3,X4)),inverse(X1))),X0))))) )),
+  inference(forward_demodulation,[],[f32482,f28930])).
+fof(f32482,plain,(
+  ( ! [X6,X4,X2,X0,X5,X3,X1] : (inverse(multiply(X5,multiply(X6,multiply(multiply(inverse(X6),multiply(multiply(inverse(X5),multiply(X3,X4)),inverse(X1))),X0)))) = inverse(inverse(multiply(inverse(X0),multiply(multiply(X1,X2),inverse(multiply(X3,multiply(X4,X2)))))))) )),
+  inference(superposition,[],[f20183,f27463])).
+fof(f20183,plain,(
+  ( ! [X167,X165,X173,X166,X164,X174,X172,X168] : (inverse(X172) = inverse(multiply(X173,multiply(X174,multiply(multiply(inverse(X174),multiply(multiply(inverse(X173),multiply(multiply(X172,multiply(multiply(inverse(X165),multiply(multiply(X164,X166),inverse(multiply(X167,multiply(X168,X166))))),X167)),X168)),inverse(X164))),X165))))) )),
+  inference(forward_demodulation,[],[f18902,f18667])).
+fof(f18902,plain,(
+  ( ! [X167,X165,X163,X161,X173,X166,X164,X162,X174,X172,X168] : (inverse(X172) = inverse(multiply(X173,multiply(X174,multiply(multiply(inverse(X174),multiply(multiply(inverse(X173),multiply(multiply(X172,multiply(multiply(inverse(X165),multiply(multiply(X164,X166),inverse(multiply(X167,multiply(X168,X166))))),X167)),X168)),multiply(X161,multiply(X162,multiply(multiply(inverse(X162),X163),inverse(multiply(X164,multiply(X161,X163)))))))),X165))))) )),
+  inference(backward_demodulation,[],[f18667,f793])).
+fof(f793,plain,(
+  ( ! [X167,X165,X163,X161,X173,X171,X169,X166,X164,X162,X174,X172,X170,X168] : (multiply(X169,multiply(X170,multiply(multiply(inverse(X170),X171),inverse(multiply(X172,multiply(X169,X171)))))) = inverse(multiply(X173,multiply(X174,multiply(multiply(inverse(X174),multiply(multiply(inverse(X173),multiply(multiply(X172,multiply(multiply(inverse(X165),multiply(multiply(X164,X166),inverse(multiply(X167,multiply(X168,X166))))),X167)),X168)),multiply(X161,multiply(X162,multiply(multiply(inverse(X162),X163),inverse(multiply(X164,multiply(X161,X163)))))))),X165))))) )),
+  inference(superposition,[],[f22,f7])).
+fof(f38069,plain,(
+  ( ! [X6,X4,X2,X0,X5,X3,X1] : (multiply(inverse(X0),multiply(multiply(X1,inverse(multiply(multiply(X2,X3),X4))),X2)) = inverse(multiply(X5,multiply(X6,multiply(inverse(multiply(multiply(X1,multiply(inverse(multiply(X3,X4)),X5)),X6)),X0))))) )),
+  inference(superposition,[],[f35030,f27463])).
+fof(f35030,plain,(
+  ( ! [X61,X64,X54,X62,X60,X58,X65,X63] : (inverse(multiply(X62,multiply(X63,multiply(inverse(multiply(multiply(X58,multiply(inverse(multiply(multiply(inverse(X64),multiply(multiply(inverse(X65),multiply(multiply(X58,inverse(multiply(multiply(X60,X61),X54))),X60)),X61)),X54)),X62)),X63)),X65)))) = X64) )),
+  inference(forward_demodulation,[],[f35029,f27910])).
+fof(f35029,plain,(
+  ( ! [X61,X59,X64,X54,X62,X60,X58,X65,X63] : (inverse(multiply(X62,multiply(X63,multiply(inverse(multiply(multiply(X58,multiply(inverse(multiply(multiply(inverse(X64),multiply(multiply(inverse(X65),multiply(multiply(X58,inverse(multiply(multiply(X60,multiply(multiply(X61,X59),inverse(X59))),X54))),X60)),X61)),X54)),X62)),X63)),X65)))) = X64) )),
+  inference(forward_demodulation,[],[f35028,f33939])).
+fof(f35028,plain,(
+  ( ! [X61,X59,X64,X54,X62,X60,X58,X65,X63] : (inverse(multiply(X62,multiply(X63,multiply(inverse(multiply(multiply(X58,multiply(inverse(multiply(multiply(inverse(X64),multiply(multiply(inverse(X65),multiply(multiply(X58,inverse(multiply(multiply(multiply(X60,multiply(X61,X59)),inverse(X59)),X54))),X60)),X61)),X54)),X62)),X63)),X65)))) = X64) )),
+  inference(forward_demodulation,[],[f34208,f33250])).
+fof(f34208,plain,(
+  ( ! [X61,X59,X64,X54,X62,X60,X58,X65,X63] : (inverse(multiply(X62,multiply(X63,multiply(inverse(multiply(multiply(X58,multiply(inverse(multiply(multiply(inverse(X64),multiply(multiply(inverse(X65),multiply(multiply(X58,multiply(inverse(X54),multiply(X59,inverse(multiply(X60,multiply(X61,X59)))))),X60)),X61)),X54)),X62)),X63)),X65)))) = X64) )),
+  inference(backward_demodulation,[],[f33939,f33816])).
+fof(f33816,plain,(
+  ( ! [X61,X59,X64,X54,X62,X60,X58,X65,X63] : (inverse(multiply(X62,multiply(X63,multiply(inverse(multiply(multiply(X58,multiply(inverse(multiply(multiply(inverse(X64),multiply(multiply(inverse(X65),multiply(multiply(X58,multiply(multiply(inverse(X54),X59),inverse(multiply(X60,multiply(X61,X59))))),X60)),X61)),X54)),X62)),X63)),X65)))) = X64) )),
+  inference(forward_demodulation,[],[f33427,f28930])).
+fof(f33427,plain,(
+  ( ! [X61,X59,X64,X54,X62,X60,X58,X65,X63] : (inverse(multiply(X62,multiply(X63,multiply(inverse(multiply(multiply(X58,inverse(multiply(inverse(X62),multiply(multiply(inverse(X64),multiply(multiply(inverse(X65),multiply(multiply(X58,multiply(multiply(inverse(X54),X59),inverse(multiply(X60,multiply(X61,X59))))),X60)),X61)),X54)))),X63)),X65)))) = X64) )),
+  inference(backward_demodulation,[],[f33250,f18720])).
+fof(f18720,plain,(
+  ( ! [X61,X59,X64,X54,X62,X60,X58,X65,X63] : (inverse(multiply(X62,multiply(X63,multiply(multiply(inverse(X63),multiply(multiply(inverse(X62),multiply(multiply(inverse(X64),multiply(multiply(inverse(X65),multiply(multiply(X58,multiply(multiply(inverse(X54),X59),inverse(multiply(X60,multiply(X61,X59))))),X60)),X61)),X54)),inverse(X58))),X65)))) = X64) )),
+  inference(backward_demodulation,[],[f18667,f117])).
+fof(f117,plain,(
+  ( ! [X61,X59,X57,X64,X54,X62,X60,X58,X56,X65,X55,X63] : (inverse(multiply(X62,multiply(X63,multiply(multiply(inverse(X63),multiply(multiply(inverse(X62),multiply(multiply(inverse(X64),multiply(multiply(inverse(X65),multiply(multiply(X58,multiply(multiply(inverse(X54),X59),inverse(multiply(X60,multiply(X61,X59))))),X60)),X61)),X54)),multiply(X55,multiply(X56,multiply(multiply(inverse(X56),X57),inverse(multiply(X58,multiply(X55,X57)))))))),X65)))) = X64) )),
+  inference(superposition,[],[f10,f5])).
+fof(f43953,plain,(
+  ( ! [X57,X54,X56,X55] : (multiply(multiply(X54,inverse(X55)),multiply(X55,X56)) = multiply(inverse(X57),multiply(multiply(X57,inverse(inverse(X54))),X56))) )),
+  inference(superposition,[],[f38506,f38506])).
+fof(f2,axiom,(
+  multiply(multiply(a3,b3),c3) != multiply(a3,multiply(b3,c3))),
+  file('GRP441-1.tptp',unknown)).
+% SZS output end Proof for GRP441-1
+% ------------------------------
+% Version: Vampire 4.4.0 (commit d98a3d53 on 2020-01-14 21:02:12 +0100)
+% Termination reason: Refutation
+
+% Memory used [KB]: 114880
+% Time elapsed: 5.146 s
+% ------------------------------
+% ------------------------------

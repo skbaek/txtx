@@ -1,0 +1,84 @@
+% Refutation found. Thanks to Tanya!
+% SZS status Unsatisfiable for SYN011-1
+% SZS output start Proof for SYN011-1
+fof(f45,plain,(
+  $false),
+  inference(avatar_sat_refutation,[],[f17,f26,f31,f32,f37,f42,f43,f44])).
+fof(f44,plain,(
+  spl0_2),
+  inference(avatar_split_clause,[],[f8,f14])).
+fof(f14,plain,(
+  spl0_2 <=> t),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_2])])).
+fof(f8,axiom,(
+  t),
+  file('SYN011-1.tptp',unknown)).
+fof(f43,plain,(
+  ~spl0_7 | ~spl0_5),
+  inference(avatar_split_clause,[],[f7,f28,f39])).
+fof(f39,plain,(
+  spl0_7 <=> r),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_7])])).
+fof(f28,plain,(
+  spl0_5 <=> l),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_5])])).
+fof(f7,axiom,(
+  ~l | ~r),
+  file('SYN011-1.tptp',unknown)).
+fof(f42,plain,(
+  spl0_7 | spl0_6 | spl0_1),
+  inference(avatar_split_clause,[],[f6,f10,f34,f39])).
+fof(f34,plain,(
+  spl0_6 <=> p),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_6])])).
+fof(f10,plain,(
+  spl0_1 <=> n),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_1])])).
+fof(f6,axiom,(
+  n | p | r),
+  file('SYN011-1.tptp',unknown)).
+fof(f37,plain,(
+  ~spl0_5 | ~spl0_6),
+  inference(avatar_split_clause,[],[f5,f34,f28])).
+fof(f5,axiom,(
+  ~p | ~l),
+  file('SYN011-1.tptp',unknown)).
+fof(f32,plain,(
+  spl0_5 | ~spl0_4),
+  inference(avatar_split_clause,[],[f4,f23,f28])).
+fof(f23,plain,(
+  spl0_4 <=> q),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_4])])).
+fof(f4,axiom,(
+  ~q | l),
+  file('SYN011-1.tptp',unknown)).
+fof(f31,plain,(
+  spl0_5 | ~spl0_3),
+  inference(avatar_split_clause,[],[f3,f19,f28])).
+fof(f19,plain,(
+  spl0_3 <=> m),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_3])])).
+fof(f3,axiom,(
+  ~m | l),
+  file('SYN011-1.tptp',unknown)).
+fof(f26,plain,(
+  spl0_3 | spl0_4 | spl0_1),
+  inference(avatar_split_clause,[],[f2,f10,f23,f19])).
+fof(f2,axiom,(
+  n | q | m),
+  file('SYN011-1.tptp',unknown)).
+fof(f17,plain,(
+  ~spl0_1 | ~spl0_2),
+  inference(avatar_split_clause,[],[f1,f14,f10])).
+fof(f1,axiom,(
+  ~t | ~n),
+  file('SYN011-1.tptp',unknown)).
+% SZS output end Proof for SYN011-1
+% ------------------------------
+% Version: Vampire 4.4.0 (commit d98a3d53 on 2020-01-14 21:02:12 +0100)
+% Termination reason: Refutation
+
+% Memory used [KB]: 4861
+% Time elapsed: 0.001 s
+% ------------------------------
+% ------------------------------

@@ -1,0 +1,1407 @@
+% Refutation found. Thanks to Tanya!
+% SZS status Theorem for LAT366+1
+% SZS output start Proof for LAT366+1
+fof(f32258,plain,(
+  $false),
+  inference(avatar_sat_refutation,[],[f1129,f1130,f1411,f2846,f3029,f3253,f3268,f3271,f3274,f3319,f3328,f3362,f4210,f4763,f7113,f7445,f16561,f16684,f16874,f16942,f16957,f16975,f17085,f32220,f32239,f32257])).
+fof(f32257,plain,(
+  ~spl50_1 | spl50_7 | ~spl50_72 | spl50_1819),
+  inference(avatar_contradiction_clause,[],[f32256])).
+fof(f32256,plain,(
+  $false | (~spl50_1 | spl50_7 | ~spl50_72 | spl50_1819)),
+  inference(subsumption_resolution,[],[f32255,f3219])).
+fof(f3219,plain,(
+  v4_yellow_0(k2_yellow_2(sK9,sK9,sK10),sK9) | spl50_7),
+  inference(subsumption_resolution,[],[f3218,f1329])).
+fof(f1329,plain,(
+  ~v3_struct_0(sK9) | spl50_7),
+  inference(avatar_component_clause,[],[f1328])).
+fof(f1328,plain,(
+  spl50_7 <=> v3_struct_0(sK9)),
+  introduced(avatar_definition,[new_symbols(naming,[spl50_7])])).
+fof(f3218,plain,(
+  v4_yellow_0(k2_yellow_2(sK9,sK9,sK10),sK9) | v3_struct_0(sK9)),
+  inference(subsumption_resolution,[],[f3217,f571])).
+fof(f571,plain,(
+  l1_orders_2(sK9)),
+  inference(cnf_transformation,[],[f480])).
+fof(f480,plain,(
+  ((((((~r1_waybel_3(k2_yellow_2(sK9,sK9,sK10),sK13,sK14) | ~r1_waybel_3(sK9,sK11,sK12)) & (r1_waybel_3(k2_yellow_2(sK9,sK9,sK10),sK13,sK14) | r1_waybel_3(sK9,sK11,sK12)) & sK12 = sK14 & sK11 = sK13 & m1_subset_1(sK14,u1_struct_0(k2_yellow_2(sK9,sK9,sK10)))) & m1_subset_1(sK13,u1_struct_0(k2_yellow_2(sK9,sK9,sK10)))) & m1_subset_1(sK12,u1_struct_0(sK9))) & m1_subset_1(sK11,u1_struct_0(sK9))) & v22_waybel_0(sK10,sK9,sK9) & m2_relset_1(sK10,u1_struct_0(sK9),u1_struct_0(sK9)) & v8_waybel_1(sK10,sK9) & v1_funct_2(sK10,u1_struct_0(sK9),u1_struct_0(sK9)) & v1_funct_1(sK10)) & l1_orders_2(sK9) & v3_lattice3(sK9) & v2_lattice3(sK9) & v1_lattice3(sK9) & v4_orders_2(sK9) & v3_orders_2(sK9) & v2_orders_2(sK9)),
+  inference(skolemisation,[status(esa),new_symbols(skolem,[sK9,sK10,sK11,sK12,sK13,sK14])],[f473,f479,f478,f477,f476,f475,f474])).
+fof(f474,plain,(
+  ? [X0] : (? [X1] : (? [X2] : (? [X3] : (? [X4] : (? [X5] : ((~r1_waybel_3(k2_yellow_2(X0,X0,X1),X4,X5) | ~r1_waybel_3(X0,X2,X3)) & (r1_waybel_3(k2_yellow_2(X0,X0,X1),X4,X5) | r1_waybel_3(X0,X2,X3)) & X3 = X5 & X2 = X4 & m1_subset_1(X5,u1_struct_0(k2_yellow_2(X0,X0,X1)))) & m1_subset_1(X4,u1_struct_0(k2_yellow_2(X0,X0,X1)))) & m1_subset_1(X3,u1_struct_0(X0))) & m1_subset_1(X2,u1_struct_0(X0))) & v22_waybel_0(X1,X0,X0) & m2_relset_1(X1,u1_struct_0(X0),u1_struct_0(X0)) & v8_waybel_1(X1,X0) & v1_funct_2(X1,u1_struct_0(X0),u1_struct_0(X0)) & v1_funct_1(X1)) & l1_orders_2(X0) & v3_lattice3(X0) & v2_lattice3(X0) & v1_lattice3(X0) & v4_orders_2(X0) & v3_orders_2(X0) & v2_orders_2(X0)) => (? [X1] : (? [X2] : (? [X3] : (? [X4] : (? [X5] : ((~r1_waybel_3(k2_yellow_2(sK9,sK9,X1),X4,X5) | ~r1_waybel_3(sK9,X2,X3)) & (r1_waybel_3(k2_yellow_2(sK9,sK9,X1),X4,X5) | r1_waybel_3(sK9,X2,X3)) & X3 = X5 & X2 = X4 & m1_subset_1(X5,u1_struct_0(k2_yellow_2(sK9,sK9,X1)))) & m1_subset_1(X4,u1_struct_0(k2_yellow_2(sK9,sK9,X1)))) & m1_subset_1(X3,u1_struct_0(sK9))) & m1_subset_1(X2,u1_struct_0(sK9))) & v22_waybel_0(X1,sK9,sK9) & m2_relset_1(X1,u1_struct_0(sK9),u1_struct_0(sK9)) & v8_waybel_1(X1,sK9) & v1_funct_2(X1,u1_struct_0(sK9),u1_struct_0(sK9)) & v1_funct_1(X1)) & l1_orders_2(sK9) & v3_lattice3(sK9) & v2_lattice3(sK9) & v1_lattice3(sK9) & v4_orders_2(sK9) & v3_orders_2(sK9) & v2_orders_2(sK9))),
+  introduced(choice_axiom,[])).
+fof(f475,plain,(
+  ? [X1] : (? [X2] : (? [X3] : (? [X4] : (? [X5] : ((~r1_waybel_3(k2_yellow_2(sK9,sK9,X1),X4,X5) | ~r1_waybel_3(sK9,X2,X3)) & (r1_waybel_3(k2_yellow_2(sK9,sK9,X1),X4,X5) | r1_waybel_3(sK9,X2,X3)) & X3 = X5 & X2 = X4 & m1_subset_1(X5,u1_struct_0(k2_yellow_2(sK9,sK9,X1)))) & m1_subset_1(X4,u1_struct_0(k2_yellow_2(sK9,sK9,X1)))) & m1_subset_1(X3,u1_struct_0(sK9))) & m1_subset_1(X2,u1_struct_0(sK9))) & v22_waybel_0(X1,sK9,sK9) & m2_relset_1(X1,u1_struct_0(sK9),u1_struct_0(sK9)) & v8_waybel_1(X1,sK9) & v1_funct_2(X1,u1_struct_0(sK9),u1_struct_0(sK9)) & v1_funct_1(X1)) => (? [X2] : (? [X3] : (? [X4] : (? [X5] : ((~r1_waybel_3(k2_yellow_2(sK9,sK9,sK10),X4,X5) | ~r1_waybel_3(sK9,X2,X3)) & (r1_waybel_3(k2_yellow_2(sK9,sK9,sK10),X4,X5) | r1_waybel_3(sK9,X2,X3)) & X3 = X5 & X2 = X4 & m1_subset_1(X5,u1_struct_0(k2_yellow_2(sK9,sK9,sK10)))) & m1_subset_1(X4,u1_struct_0(k2_yellow_2(sK9,sK9,sK10)))) & m1_subset_1(X3,u1_struct_0(sK9))) & m1_subset_1(X2,u1_struct_0(sK9))) & v22_waybel_0(sK10,sK9,sK9) & m2_relset_1(sK10,u1_struct_0(sK9),u1_struct_0(sK9)) & v8_waybel_1(sK10,sK9) & v1_funct_2(sK10,u1_struct_0(sK9),u1_struct_0(sK9)) & v1_funct_1(sK10))),
+  introduced(choice_axiom,[])).
+fof(f476,plain,(
+  ? [X2] : (? [X3] : (? [X4] : (? [X5] : ((~r1_waybel_3(k2_yellow_2(sK9,sK9,sK10),X4,X5) | ~r1_waybel_3(sK9,X2,X3)) & (r1_waybel_3(k2_yellow_2(sK9,sK9,sK10),X4,X5) | r1_waybel_3(sK9,X2,X3)) & X3 = X5 & X2 = X4 & m1_subset_1(X5,u1_struct_0(k2_yellow_2(sK9,sK9,sK10)))) & m1_subset_1(X4,u1_struct_0(k2_yellow_2(sK9,sK9,sK10)))) & m1_subset_1(X3,u1_struct_0(sK9))) & m1_subset_1(X2,u1_struct_0(sK9))) => (? [X3] : (? [X4] : (? [X5] : ((~r1_waybel_3(k2_yellow_2(sK9,sK9,sK10),X4,X5) | ~r1_waybel_3(sK9,sK11,X3)) & (r1_waybel_3(k2_yellow_2(sK9,sK9,sK10),X4,X5) | r1_waybel_3(sK9,sK11,X3)) & X3 = X5 & sK11 = X4 & m1_subset_1(X5,u1_struct_0(k2_yellow_2(sK9,sK9,sK10)))) & m1_subset_1(X4,u1_struct_0(k2_yellow_2(sK9,sK9,sK10)))) & m1_subset_1(X3,u1_struct_0(sK9))) & m1_subset_1(sK11,u1_struct_0(sK9)))),
+  introduced(choice_axiom,[])).
+fof(f477,plain,(
+  ? [X3] : (? [X4] : (? [X5] : ((~r1_waybel_3(k2_yellow_2(sK9,sK9,sK10),X4,X5) | ~r1_waybel_3(sK9,sK11,X3)) & (r1_waybel_3(k2_yellow_2(sK9,sK9,sK10),X4,X5) | r1_waybel_3(sK9,sK11,X3)) & X3 = X5 & sK11 = X4 & m1_subset_1(X5,u1_struct_0(k2_yellow_2(sK9,sK9,sK10)))) & m1_subset_1(X4,u1_struct_0(k2_yellow_2(sK9,sK9,sK10)))) & m1_subset_1(X3,u1_struct_0(sK9))) => (? [X4] : (? [X5] : ((~r1_waybel_3(k2_yellow_2(sK9,sK9,sK10),X4,X5) | ~r1_waybel_3(sK9,sK11,sK12)) & (r1_waybel_3(k2_yellow_2(sK9,sK9,sK10),X4,X5) | r1_waybel_3(sK9,sK11,sK12)) & sK12 = X5 & sK11 = X4 & m1_subset_1(X5,u1_struct_0(k2_yellow_2(sK9,sK9,sK10)))) & m1_subset_1(X4,u1_struct_0(k2_yellow_2(sK9,sK9,sK10)))) & m1_subset_1(sK12,u1_struct_0(sK9)))),
+  introduced(choice_axiom,[])).
+fof(f478,plain,(
+  ? [X4] : (? [X5] : ((~r1_waybel_3(k2_yellow_2(sK9,sK9,sK10),X4,X5) | ~r1_waybel_3(sK9,sK11,sK12)) & (r1_waybel_3(k2_yellow_2(sK9,sK9,sK10),X4,X5) | r1_waybel_3(sK9,sK11,sK12)) & sK12 = X5 & sK11 = X4 & m1_subset_1(X5,u1_struct_0(k2_yellow_2(sK9,sK9,sK10)))) & m1_subset_1(X4,u1_struct_0(k2_yellow_2(sK9,sK9,sK10)))) => (? [X5] : ((~r1_waybel_3(k2_yellow_2(sK9,sK9,sK10),sK13,X5) | ~r1_waybel_3(sK9,sK11,sK12)) & (r1_waybel_3(k2_yellow_2(sK9,sK9,sK10),sK13,X5) | r1_waybel_3(sK9,sK11,sK12)) & sK12 = X5 & sK11 = sK13 & m1_subset_1(X5,u1_struct_0(k2_yellow_2(sK9,sK9,sK10)))) & m1_subset_1(sK13,u1_struct_0(k2_yellow_2(sK9,sK9,sK10))))),
+  introduced(choice_axiom,[])).
+fof(f479,plain,(
+  ? [X5] : ((~r1_waybel_3(k2_yellow_2(sK9,sK9,sK10),sK13,X5) | ~r1_waybel_3(sK9,sK11,sK12)) & (r1_waybel_3(k2_yellow_2(sK9,sK9,sK10),sK13,X5) | r1_waybel_3(sK9,sK11,sK12)) & sK12 = X5 & sK11 = sK13 & m1_subset_1(X5,u1_struct_0(k2_yellow_2(sK9,sK9,sK10)))) => ((~r1_waybel_3(k2_yellow_2(sK9,sK9,sK10),sK13,sK14) | ~r1_waybel_3(sK9,sK11,sK12)) & (r1_waybel_3(k2_yellow_2(sK9,sK9,sK10),sK13,sK14) | r1_waybel_3(sK9,sK11,sK12)) & sK12 = sK14 & sK11 = sK13 & m1_subset_1(sK14,u1_struct_0(k2_yellow_2(sK9,sK9,sK10))))),
+  introduced(choice_axiom,[])).
+fof(f473,plain,(
+  ? [X0] : (? [X1] : (? [X2] : (? [X3] : (? [X4] : (? [X5] : ((~r1_waybel_3(k2_yellow_2(X0,X0,X1),X4,X5) | ~r1_waybel_3(X0,X2,X3)) & (r1_waybel_3(k2_yellow_2(X0,X0,X1),X4,X5) | r1_waybel_3(X0,X2,X3)) & X3 = X5 & X2 = X4 & m1_subset_1(X5,u1_struct_0(k2_yellow_2(X0,X0,X1)))) & m1_subset_1(X4,u1_struct_0(k2_yellow_2(X0,X0,X1)))) & m1_subset_1(X3,u1_struct_0(X0))) & m1_subset_1(X2,u1_struct_0(X0))) & v22_waybel_0(X1,X0,X0) & m2_relset_1(X1,u1_struct_0(X0),u1_struct_0(X0)) & v8_waybel_1(X1,X0) & v1_funct_2(X1,u1_struct_0(X0),u1_struct_0(X0)) & v1_funct_1(X1)) & l1_orders_2(X0) & v3_lattice3(X0) & v2_lattice3(X0) & v1_lattice3(X0) & v4_orders_2(X0) & v3_orders_2(X0) & v2_orders_2(X0))),
+  inference(flattening,[],[f472])).
+fof(f472,plain,(
+  ? [X0] : (? [X1] : (? [X2] : (? [X3] : (? [X4] : (? [X5] : (((~r1_waybel_3(k2_yellow_2(X0,X0,X1),X4,X5) | ~r1_waybel_3(X0,X2,X3)) & (r1_waybel_3(k2_yellow_2(X0,X0,X1),X4,X5) | r1_waybel_3(X0,X2,X3))) & X3 = X5 & X2 = X4 & m1_subset_1(X5,u1_struct_0(k2_yellow_2(X0,X0,X1)))) & m1_subset_1(X4,u1_struct_0(k2_yellow_2(X0,X0,X1)))) & m1_subset_1(X3,u1_struct_0(X0))) & m1_subset_1(X2,u1_struct_0(X0))) & v22_waybel_0(X1,X0,X0) & m2_relset_1(X1,u1_struct_0(X0),u1_struct_0(X0)) & v8_waybel_1(X1,X0) & v1_funct_2(X1,u1_struct_0(X0),u1_struct_0(X0)) & v1_funct_1(X1)) & l1_orders_2(X0) & v3_lattice3(X0) & v2_lattice3(X0) & v1_lattice3(X0) & v4_orders_2(X0) & v3_orders_2(X0) & v2_orders_2(X0))),
+  inference(nnf_transformation,[],[f238])).
+fof(f238,plain,(
+  ? [X0] : (? [X1] : (? [X2] : (? [X3] : (? [X4] : (? [X5] : ((r1_waybel_3(X0,X2,X3) <~> r1_waybel_3(k2_yellow_2(X0,X0,X1),X4,X5)) & X3 = X5 & X2 = X4 & m1_subset_1(X5,u1_struct_0(k2_yellow_2(X0,X0,X1)))) & m1_subset_1(X4,u1_struct_0(k2_yellow_2(X0,X0,X1)))) & m1_subset_1(X3,u1_struct_0(X0))) & m1_subset_1(X2,u1_struct_0(X0))) & v22_waybel_0(X1,X0,X0) & m2_relset_1(X1,u1_struct_0(X0),u1_struct_0(X0)) & v8_waybel_1(X1,X0) & v1_funct_2(X1,u1_struct_0(X0),u1_struct_0(X0)) & v1_funct_1(X1)) & l1_orders_2(X0) & v3_lattice3(X0) & v2_lattice3(X0) & v1_lattice3(X0) & v4_orders_2(X0) & v3_orders_2(X0) & v2_orders_2(X0))),
+  inference(flattening,[],[f237])).
+fof(f237,plain,(
+  ? [X0] : (? [X1] : ((? [X2] : (? [X3] : (? [X4] : (? [X5] : (((r1_waybel_3(X0,X2,X3) <~> r1_waybel_3(k2_yellow_2(X0,X0,X1),X4,X5)) & (X3 = X5 & X2 = X4)) & m1_subset_1(X5,u1_struct_0(k2_yellow_2(X0,X0,X1)))) & m1_subset_1(X4,u1_struct_0(k2_yellow_2(X0,X0,X1)))) & m1_subset_1(X3,u1_struct_0(X0))) & m1_subset_1(X2,u1_struct_0(X0))) & v22_waybel_0(X1,X0,X0)) & (m2_relset_1(X1,u1_struct_0(X0),u1_struct_0(X0)) & v8_waybel_1(X1,X0) & v1_funct_2(X1,u1_struct_0(X0),u1_struct_0(X0)) & v1_funct_1(X1))) & (l1_orders_2(X0) & v3_lattice3(X0) & v2_lattice3(X0) & v1_lattice3(X0) & v4_orders_2(X0) & v3_orders_2(X0) & v2_orders_2(X0)))),
+  inference(ennf_transformation,[],[f2])).
+fof(f2,negated_conjecture,(
+  ~! [X0] : ((l1_orders_2(X0) & v3_lattice3(X0) & v2_lattice3(X0) & v1_lattice3(X0) & v4_orders_2(X0) & v3_orders_2(X0) & v2_orders_2(X0)) => ! [X1] : ((m2_relset_1(X1,u1_struct_0(X0),u1_struct_0(X0)) & v8_waybel_1(X1,X0) & v1_funct_2(X1,u1_struct_0(X0),u1_struct_0(X0)) & v1_funct_1(X1)) => (v22_waybel_0(X1,X0,X0) => ! [X2] : (m1_subset_1(X2,u1_struct_0(X0)) => ! [X3] : (m1_subset_1(X3,u1_struct_0(X0)) => ! [X4] : (m1_subset_1(X4,u1_struct_0(k2_yellow_2(X0,X0,X1))) => ! [X5] : (m1_subset_1(X5,u1_struct_0(k2_yellow_2(X0,X0,X1))) => ((X3 = X5 & X2 = X4) => (r1_waybel_3(X0,X2,X3) <=> r1_waybel_3(k2_yellow_2(X0,X0,X1),X4,X5))))))))))),
+  inference(negated_conjecture,[],[f1])).
+fof(f1,conjecture,(
+  ! [X0] : ((l1_orders_2(X0) & v3_lattice3(X0) & v2_lattice3(X0) & v1_lattice3(X0) & v4_orders_2(X0) & v3_orders_2(X0) & v2_orders_2(X0)) => ! [X1] : ((m2_relset_1(X1,u1_struct_0(X0),u1_struct_0(X0)) & v8_waybel_1(X1,X0) & v1_funct_2(X1,u1_struct_0(X0),u1_struct_0(X0)) & v1_funct_1(X1)) => (v22_waybel_0(X1,X0,X0) => ! [X2] : (m1_subset_1(X2,u1_struct_0(X0)) => ! [X3] : (m1_subset_1(X3,u1_struct_0(X0)) => ! [X4] : (m1_subset_1(X4,u1_struct_0(k2_yellow_2(X0,X0,X1))) => ! [X5] : (m1_subset_1(X5,u1_struct_0(k2_yellow_2(X0,X0,X1))) => ((X3 = X5 & X2 = X4) => (r1_waybel_3(X0,X2,X3) <=> r1_waybel_3(k2_yellow_2(X0,X0,X1),X4,X5))))))))))),
+  file('LAT366+1.tptp',unknown)).
+fof(f3217,plain,(
+  v4_yellow_0(k2_yellow_2(sK9,sK9,sK10),sK9) | ~l1_orders_2(sK9) | v3_struct_0(sK9)),
+  inference(subsumption_resolution,[],[f3216,f572])).
+fof(f572,plain,(
+  v1_funct_1(sK10)),
+  inference(cnf_transformation,[],[f480])).
+fof(f3216,plain,(
+  v4_yellow_0(k2_yellow_2(sK9,sK9,sK10),sK9) | ~v1_funct_1(sK10) | ~l1_orders_2(sK9) | v3_struct_0(sK9)),
+  inference(subsumption_resolution,[],[f3215,f573])).
+fof(f573,plain,(
+  v1_funct_2(sK10,u1_struct_0(sK9),u1_struct_0(sK9))),
+  inference(cnf_transformation,[],[f480])).
+fof(f3215,plain,(
+  v4_yellow_0(k2_yellow_2(sK9,sK9,sK10),sK9) | ~v1_funct_2(sK10,u1_struct_0(sK9),u1_struct_0(sK9)) | ~v1_funct_1(sK10) | ~l1_orders_2(sK9) | v3_struct_0(sK9)),
+  inference(duplicate_literal_removal,[],[f3196])).
+fof(f3196,plain,(
+  v4_yellow_0(k2_yellow_2(sK9,sK9,sK10),sK9) | ~v1_funct_2(sK10,u1_struct_0(sK9),u1_struct_0(sK9)) | ~v1_funct_1(sK10) | ~l1_orders_2(sK9) | v3_struct_0(sK9) | ~l1_orders_2(sK9) | v3_struct_0(sK9)),
+  inference(resolution,[],[f750,f1467])).
+fof(f1467,plain,(
+  m1_relset_1(sK10,u1_struct_0(sK9),u1_struct_0(sK9))),
+  inference(resolution,[],[f1097,f575])).
+fof(f575,plain,(
+  m2_relset_1(sK10,u1_struct_0(sK9),u1_struct_0(sK9))),
+  inference(cnf_transformation,[],[f480])).
+fof(f1097,plain,(
+  ( ! [X2,X0,X1] : (~m2_relset_1(X2,X0,X1) | m1_relset_1(X2,X0,X1)) )),
+  inference(cnf_transformation,[],[f563])).
+fof(f563,plain,(
+  ! [X0,X1,X2] : ((m2_relset_1(X2,X0,X1) | ~m1_relset_1(X2,X0,X1)) & (m1_relset_1(X2,X0,X1) | ~m2_relset_1(X2,X0,X1)))),
+  inference(nnf_transformation,[],[f145])).
+fof(f145,axiom,(
+  ! [X0,X1,X2] : (m2_relset_1(X2,X0,X1) <=> m1_relset_1(X2,X0,X1))),
+  file('LAT366+1.tptp',unknown)).
+fof(f750,plain,(
+  ( ! [X2,X0,X1] : (~m1_relset_1(X2,u1_struct_0(X0),u1_struct_0(X1)) | v4_yellow_0(k2_yellow_2(X0,X1,X2),X1) | ~v1_funct_2(X2,u1_struct_0(X0),u1_struct_0(X1)) | ~v1_funct_1(X2) | ~l1_orders_2(X1) | v3_struct_0(X1) | ~l1_orders_2(X0) | v3_struct_0(X0)) )),
+  inference(cnf_transformation,[],[f336])).
+fof(f336,plain,(
+  ! [X0,X1,X2] : ((m1_yellow_0(k2_yellow_2(X0,X1,X2),X1) & v4_yellow_0(k2_yellow_2(X0,X1,X2),X1) & v1_orders_2(k2_yellow_2(X0,X1,X2))) | ~m1_relset_1(X2,u1_struct_0(X0),u1_struct_0(X1)) | ~v1_funct_2(X2,u1_struct_0(X0),u1_struct_0(X1)) | ~v1_funct_1(X2) | ~l1_orders_2(X1) | v3_struct_0(X1) | ~l1_orders_2(X0) | v3_struct_0(X0))),
+  inference(flattening,[],[f335])).
+fof(f335,plain,(
+  ! [X0,X1,X2] : ((m1_yellow_0(k2_yellow_2(X0,X1,X2),X1) & v4_yellow_0(k2_yellow_2(X0,X1,X2),X1) & v1_orders_2(k2_yellow_2(X0,X1,X2))) | (~m1_relset_1(X2,u1_struct_0(X0),u1_struct_0(X1)) | ~v1_funct_2(X2,u1_struct_0(X0),u1_struct_0(X1)) | ~v1_funct_1(X2) | ~l1_orders_2(X1) | v3_struct_0(X1) | ~l1_orders_2(X0) | v3_struct_0(X0)))),
+  inference(ennf_transformation,[],[f69])).
+fof(f69,axiom,(
+  ! [X0,X1,X2] : ((m1_relset_1(X2,u1_struct_0(X0),u1_struct_0(X1)) & v1_funct_2(X2,u1_struct_0(X0),u1_struct_0(X1)) & v1_funct_1(X2) & l1_orders_2(X1) & ~v3_struct_0(X1) & l1_orders_2(X0) & ~v3_struct_0(X0)) => (m1_yellow_0(k2_yellow_2(X0,X1,X2),X1) & v4_yellow_0(k2_yellow_2(X0,X1,X2),X1) & v1_orders_2(k2_yellow_2(X0,X1,X2))))),
+  file('LAT366+1.tptp',unknown)).
+fof(f32255,plain,(
+  ~v4_yellow_0(k2_yellow_2(sK9,sK9,sK10),sK9) | (~spl50_1 | spl50_7 | ~spl50_72 | spl50_1819)),
+  inference(subsumption_resolution,[],[f32254,f3968])).
+fof(f3968,plain,(
+  v8_yellow_0(k2_yellow_2(sK9,sK9,sK10),sK9) | spl50_7),
+  inference(subsumption_resolution,[],[f3967,f1329])).
+fof(f3967,plain,(
+  v8_yellow_0(k2_yellow_2(sK9,sK9,sK10),sK9) | v3_struct_0(sK9)),
+  inference(subsumption_resolution,[],[f3966,f565])).
+fof(f565,plain,(
+  v2_orders_2(sK9)),
+  inference(cnf_transformation,[],[f480])).
+fof(f3966,plain,(
+  v8_yellow_0(k2_yellow_2(sK9,sK9,sK10),sK9) | ~v2_orders_2(sK9) | v3_struct_0(sK9)),
+  inference(subsumption_resolution,[],[f3965,f566])).
+fof(f566,plain,(
+  v3_orders_2(sK9)),
+  inference(cnf_transformation,[],[f480])).
+fof(f3965,plain,(
+  v8_yellow_0(k2_yellow_2(sK9,sK9,sK10),sK9) | ~v3_orders_2(sK9) | ~v2_orders_2(sK9) | v3_struct_0(sK9)),
+  inference(subsumption_resolution,[],[f3964,f567])).
+fof(f567,plain,(
+  v4_orders_2(sK9)),
+  inference(cnf_transformation,[],[f480])).
+fof(f3964,plain,(
+  v8_yellow_0(k2_yellow_2(sK9,sK9,sK10),sK9) | ~v4_orders_2(sK9) | ~v3_orders_2(sK9) | ~v2_orders_2(sK9) | v3_struct_0(sK9)),
+  inference(subsumption_resolution,[],[f3963,f571])).
+fof(f3963,plain,(
+  v8_yellow_0(k2_yellow_2(sK9,sK9,sK10),sK9) | ~l1_orders_2(sK9) | ~v4_orders_2(sK9) | ~v3_orders_2(sK9) | ~v2_orders_2(sK9) | v3_struct_0(sK9)),
+  inference(subsumption_resolution,[],[f3962,f572])).
+fof(f3962,plain,(
+  v8_yellow_0(k2_yellow_2(sK9,sK9,sK10),sK9) | ~v1_funct_1(sK10) | ~l1_orders_2(sK9) | ~v4_orders_2(sK9) | ~v3_orders_2(sK9) | ~v2_orders_2(sK9) | v3_struct_0(sK9)),
+  inference(subsumption_resolution,[],[f3961,f573])).
+fof(f3961,plain,(
+  v8_yellow_0(k2_yellow_2(sK9,sK9,sK10),sK9) | ~v1_funct_2(sK10,u1_struct_0(sK9),u1_struct_0(sK9)) | ~v1_funct_1(sK10) | ~l1_orders_2(sK9) | ~v4_orders_2(sK9) | ~v3_orders_2(sK9) | ~v2_orders_2(sK9) | v3_struct_0(sK9)),
+  inference(subsumption_resolution,[],[f3954,f574])).
+fof(f574,plain,(
+  v8_waybel_1(sK10,sK9)),
+  inference(cnf_transformation,[],[f480])).
+fof(f3954,plain,(
+  ~v8_waybel_1(sK10,sK9) | v8_yellow_0(k2_yellow_2(sK9,sK9,sK10),sK9) | ~v1_funct_2(sK10,u1_struct_0(sK9),u1_struct_0(sK9)) | ~v1_funct_1(sK10) | ~l1_orders_2(sK9) | ~v4_orders_2(sK9) | ~v3_orders_2(sK9) | ~v2_orders_2(sK9) | v3_struct_0(sK9)),
+  inference(resolution,[],[f1114,f575])).
+fof(f1114,plain,(
+  ( ! [X0,X1] : (~m2_relset_1(X1,u1_struct_0(X0),u1_struct_0(X0)) | ~v8_waybel_1(X1,X0) | v8_yellow_0(k2_yellow_2(X0,X0,X1),X0) | ~v1_funct_2(X1,u1_struct_0(X0),u1_struct_0(X0)) | ~v1_funct_1(X1) | ~l1_orders_2(X0) | ~v4_orders_2(X0) | ~v3_orders_2(X0) | ~v2_orders_2(X0) | v3_struct_0(X0)) )),
+  inference(cnf_transformation,[],[f449])).
+fof(f449,plain,(
+  ! [X0] : (! [X1] : (((v8_yellow_0(k2_yellow_2(X0,X0,X1),X0) | ~v8_waybel_1(X1,X0)) & (v7_yellow_0(k2_yellow_2(X0,X0,X1),X0) | ~v7_waybel_1(X1,X0))) | ~m2_relset_1(X1,u1_struct_0(X0),u1_struct_0(X0)) | ~v1_funct_2(X1,u1_struct_0(X0),u1_struct_0(X0)) | ~v1_funct_1(X1)) | ~l1_orders_2(X0) | ~v4_orders_2(X0) | ~v3_orders_2(X0) | ~v2_orders_2(X0) | v3_struct_0(X0))),
+  inference(flattening,[],[f448])).
+fof(f448,plain,(
+  ! [X0] : (! [X1] : (((v8_yellow_0(k2_yellow_2(X0,X0,X1),X0) | ~v8_waybel_1(X1,X0)) & (v7_yellow_0(k2_yellow_2(X0,X0,X1),X0) | ~v7_waybel_1(X1,X0))) | (~m2_relset_1(X1,u1_struct_0(X0),u1_struct_0(X0)) | ~v1_funct_2(X1,u1_struct_0(X0),u1_struct_0(X0)) | ~v1_funct_1(X1))) | (~l1_orders_2(X0) | ~v4_orders_2(X0) | ~v3_orders_2(X0) | ~v2_orders_2(X0) | v3_struct_0(X0)))),
+  inference(ennf_transformation,[],[f156])).
+fof(f156,axiom,(
+  ! [X0] : ((l1_orders_2(X0) & v4_orders_2(X0) & v3_orders_2(X0) & v2_orders_2(X0) & ~v3_struct_0(X0)) => ! [X1] : ((m2_relset_1(X1,u1_struct_0(X0),u1_struct_0(X0)) & v1_funct_2(X1,u1_struct_0(X0),u1_struct_0(X0)) & v1_funct_1(X1)) => ((v8_waybel_1(X1,X0) => v8_yellow_0(k2_yellow_2(X0,X0,X1),X0)) & (v7_waybel_1(X1,X0) => v7_yellow_0(k2_yellow_2(X0,X0,X1),X0)))))),
+  file('LAT366+1.tptp',unknown)).
+fof(f32254,plain,(
+  ~v8_yellow_0(k2_yellow_2(sK9,sK9,sK10),sK9) | ~v4_yellow_0(k2_yellow_2(sK9,sK9,sK10),sK9) | (~spl50_1 | ~spl50_72 | spl50_1819)),
+  inference(subsumption_resolution,[],[f32253,f3247])).
+fof(f3247,plain,(
+  m1_yellow_0(k2_yellow_2(sK9,sK9,sK10),sK9) | ~spl50_72),
+  inference(avatar_component_clause,[],[f3246])).
+fof(f3246,plain,(
+  spl50_72 <=> m1_yellow_0(k2_yellow_2(sK9,sK9,sK10),sK9)),
+  introduced(avatar_definition,[new_symbols(naming,[spl50_72])])).
+fof(f32253,plain,(
+  ~m1_yellow_0(k2_yellow_2(sK9,sK9,sK10),sK9) | ~v8_yellow_0(k2_yellow_2(sK9,sK9,sK10),sK9) | ~v4_yellow_0(k2_yellow_2(sK9,sK9,sK10),sK9) | (~spl50_1 | spl50_1819)),
+  inference(subsumption_resolution,[],[f32252,f1132])).
+fof(f1132,plain,(
+  m1_subset_1(sK11,u1_struct_0(k2_yellow_2(sK9,sK9,sK10)))),
+  inference(forward_demodulation,[],[f579,f581])).
+fof(f581,plain,(
+  sK11 = sK13),
+  inference(cnf_transformation,[],[f480])).
+fof(f579,plain,(
+  m1_subset_1(sK13,u1_struct_0(k2_yellow_2(sK9,sK9,sK10)))),
+  inference(cnf_transformation,[],[f480])).
+fof(f32252,plain,(
+  ~m1_subset_1(sK11,u1_struct_0(k2_yellow_2(sK9,sK9,sK10))) | ~m1_yellow_0(k2_yellow_2(sK9,sK9,sK10),sK9) | ~v8_yellow_0(k2_yellow_2(sK9,sK9,sK10),sK9) | ~v4_yellow_0(k2_yellow_2(sK9,sK9,sK10),sK9) | (~spl50_1 | spl50_1819)),
+  inference(subsumption_resolution,[],[f32250,f32235])).
+fof(f32235,plain,(
+  ~r1_waybel_3(k2_yellow_2(sK9,sK9,sK10),sK11,sK12) | spl50_1819),
+  inference(avatar_component_clause,[],[f32233])).
+fof(f32233,plain,(
+  spl50_1819 <=> r1_waybel_3(k2_yellow_2(sK9,sK9,sK10),sK11,sK12)),
+  introduced(avatar_definition,[new_symbols(naming,[spl50_1819])])).
+fof(f32250,plain,(
+  r1_waybel_3(k2_yellow_2(sK9,sK9,sK10),sK11,sK12) | ~m1_subset_1(sK11,u1_struct_0(k2_yellow_2(sK9,sK9,sK10))) | ~m1_yellow_0(k2_yellow_2(sK9,sK9,sK10),sK9) | ~v8_yellow_0(k2_yellow_2(sK9,sK9,sK10),sK9) | ~v4_yellow_0(k2_yellow_2(sK9,sK9,sK10),sK9) | ~spl50_1),
+  inference(resolution,[],[f32249,f1131])).
+fof(f1131,plain,(
+  m1_subset_1(sK12,u1_struct_0(k2_yellow_2(sK9,sK9,sK10)))),
+  inference(forward_demodulation,[],[f580,f582])).
+fof(f582,plain,(
+  sK12 = sK14),
+  inference(cnf_transformation,[],[f480])).
+fof(f580,plain,(
+  m1_subset_1(sK14,u1_struct_0(k2_yellow_2(sK9,sK9,sK10)))),
+  inference(cnf_transformation,[],[f480])).
+fof(f32249,plain,(
+  ( ! [X0] : (~m1_subset_1(sK12,u1_struct_0(X0)) | r1_waybel_3(X0,sK11,sK12) | ~m1_subset_1(sK11,u1_struct_0(X0)) | ~m1_yellow_0(X0,sK9) | ~v8_yellow_0(X0,sK9) | ~v4_yellow_0(X0,sK9)) ) | ~spl50_1),
+  inference(subsumption_resolution,[],[f32248,f565])).
+fof(f32248,plain,(
+  ( ! [X0] : (r1_waybel_3(X0,sK11,sK12) | ~m1_subset_1(sK12,u1_struct_0(X0)) | ~m1_subset_1(sK11,u1_struct_0(X0)) | ~m1_yellow_0(X0,sK9) | ~v8_yellow_0(X0,sK9) | ~v4_yellow_0(X0,sK9) | ~v2_orders_2(sK9)) ) | ~spl50_1),
+  inference(subsumption_resolution,[],[f32247,f566])).
+fof(f32247,plain,(
+  ( ! [X0] : (r1_waybel_3(X0,sK11,sK12) | ~m1_subset_1(sK12,u1_struct_0(X0)) | ~m1_subset_1(sK11,u1_struct_0(X0)) | ~m1_yellow_0(X0,sK9) | ~v8_yellow_0(X0,sK9) | ~v4_yellow_0(X0,sK9) | ~v3_orders_2(sK9) | ~v2_orders_2(sK9)) ) | ~spl50_1),
+  inference(subsumption_resolution,[],[f32246,f567])).
+fof(f32246,plain,(
+  ( ! [X0] : (r1_waybel_3(X0,sK11,sK12) | ~m1_subset_1(sK12,u1_struct_0(X0)) | ~m1_subset_1(sK11,u1_struct_0(X0)) | ~m1_yellow_0(X0,sK9) | ~v8_yellow_0(X0,sK9) | ~v4_yellow_0(X0,sK9) | ~v4_orders_2(sK9) | ~v3_orders_2(sK9) | ~v2_orders_2(sK9)) ) | ~spl50_1),
+  inference(subsumption_resolution,[],[f32245,f568])).
+fof(f568,plain,(
+  v1_lattice3(sK9)),
+  inference(cnf_transformation,[],[f480])).
+fof(f32245,plain,(
+  ( ! [X0] : (r1_waybel_3(X0,sK11,sK12) | ~m1_subset_1(sK12,u1_struct_0(X0)) | ~m1_subset_1(sK11,u1_struct_0(X0)) | ~m1_yellow_0(X0,sK9) | ~v8_yellow_0(X0,sK9) | ~v4_yellow_0(X0,sK9) | ~v1_lattice3(sK9) | ~v4_orders_2(sK9) | ~v3_orders_2(sK9) | ~v2_orders_2(sK9)) ) | ~spl50_1),
+  inference(subsumption_resolution,[],[f32244,f569])).
+fof(f569,plain,(
+  v2_lattice3(sK9)),
+  inference(cnf_transformation,[],[f480])).
+fof(f32244,plain,(
+  ( ! [X0] : (r1_waybel_3(X0,sK11,sK12) | ~m1_subset_1(sK12,u1_struct_0(X0)) | ~m1_subset_1(sK11,u1_struct_0(X0)) | ~m1_yellow_0(X0,sK9) | ~v8_yellow_0(X0,sK9) | ~v4_yellow_0(X0,sK9) | ~v2_lattice3(sK9) | ~v1_lattice3(sK9) | ~v4_orders_2(sK9) | ~v3_orders_2(sK9) | ~v2_orders_2(sK9)) ) | ~spl50_1),
+  inference(subsumption_resolution,[],[f32243,f570])).
+fof(f570,plain,(
+  v3_lattice3(sK9)),
+  inference(cnf_transformation,[],[f480])).
+fof(f32243,plain,(
+  ( ! [X0] : (r1_waybel_3(X0,sK11,sK12) | ~m1_subset_1(sK12,u1_struct_0(X0)) | ~m1_subset_1(sK11,u1_struct_0(X0)) | ~m1_yellow_0(X0,sK9) | ~v8_yellow_0(X0,sK9) | ~v4_yellow_0(X0,sK9) | ~v3_lattice3(sK9) | ~v2_lattice3(sK9) | ~v1_lattice3(sK9) | ~v4_orders_2(sK9) | ~v3_orders_2(sK9) | ~v2_orders_2(sK9)) ) | ~spl50_1),
+  inference(subsumption_resolution,[],[f32242,f571])).
+fof(f32242,plain,(
+  ( ! [X0] : (r1_waybel_3(X0,sK11,sK12) | ~m1_subset_1(sK12,u1_struct_0(X0)) | ~m1_subset_1(sK11,u1_struct_0(X0)) | ~m1_yellow_0(X0,sK9) | ~v8_yellow_0(X0,sK9) | ~v4_yellow_0(X0,sK9) | ~l1_orders_2(sK9) | ~v3_lattice3(sK9) | ~v2_lattice3(sK9) | ~v1_lattice3(sK9) | ~v4_orders_2(sK9) | ~v3_orders_2(sK9) | ~v2_orders_2(sK9)) ) | ~spl50_1),
+  inference(subsumption_resolution,[],[f32241,f577])).
+fof(f577,plain,(
+  m1_subset_1(sK11,u1_struct_0(sK9))),
+  inference(cnf_transformation,[],[f480])).
+fof(f32241,plain,(
+  ( ! [X0] : (r1_waybel_3(X0,sK11,sK12) | ~m1_subset_1(sK12,u1_struct_0(X0)) | ~m1_subset_1(sK11,u1_struct_0(X0)) | ~m1_subset_1(sK11,u1_struct_0(sK9)) | ~m1_yellow_0(X0,sK9) | ~v8_yellow_0(X0,sK9) | ~v4_yellow_0(X0,sK9) | ~l1_orders_2(sK9) | ~v3_lattice3(sK9) | ~v2_lattice3(sK9) | ~v1_lattice3(sK9) | ~v4_orders_2(sK9) | ~v3_orders_2(sK9) | ~v2_orders_2(sK9)) ) | ~spl50_1),
+  inference(subsumption_resolution,[],[f32240,f578])).
+fof(f578,plain,(
+  m1_subset_1(sK12,u1_struct_0(sK9))),
+  inference(cnf_transformation,[],[f480])).
+fof(f32240,plain,(
+  ( ! [X0] : (r1_waybel_3(X0,sK11,sK12) | ~m1_subset_1(sK12,u1_struct_0(X0)) | ~m1_subset_1(sK11,u1_struct_0(X0)) | ~m1_subset_1(sK12,u1_struct_0(sK9)) | ~m1_subset_1(sK11,u1_struct_0(sK9)) | ~m1_yellow_0(X0,sK9) | ~v8_yellow_0(X0,sK9) | ~v4_yellow_0(X0,sK9) | ~l1_orders_2(sK9) | ~v3_lattice3(sK9) | ~v2_lattice3(sK9) | ~v1_lattice3(sK9) | ~v4_orders_2(sK9) | ~v3_orders_2(sK9) | ~v2_orders_2(sK9)) ) | ~spl50_1),
+  inference(resolution,[],[f1123,f1139])).
+fof(f1139,plain,(
+  ( ! [X4,X0,X5,X1] : (~r1_waybel_3(X0,X4,X5) | r1_waybel_3(X1,X4,X5) | ~m1_subset_1(X5,u1_struct_0(X1)) | ~m1_subset_1(X4,u1_struct_0(X1)) | ~m1_subset_1(X5,u1_struct_0(X0)) | ~m1_subset_1(X4,u1_struct_0(X0)) | ~m1_yellow_0(X1,X0) | ~v8_yellow_0(X1,X0) | ~v4_yellow_0(X1,X0) | ~l1_orders_2(X0) | ~v3_lattice3(X0) | ~v2_lattice3(X0) | ~v1_lattice3(X0) | ~v4_orders_2(X0) | ~v3_orders_2(X0) | ~v2_orders_2(X0)) )),
+  inference(subsumption_resolution,[],[f1120,f696])).
+fof(f696,plain,(
+  ( ! [X0,X1] : (~v8_yellow_0(X1,X0) | ~v3_struct_0(X1) | ~m1_yellow_0(X1,X0) | ~l1_orders_2(X0) | ~v3_lattice3(X0) | ~v2_lattice3(X0) | ~v1_lattice3(X0) | ~v4_orders_2(X0) | ~v3_orders_2(X0) | ~v2_orders_2(X0)) )),
+  inference(cnf_transformation,[],[f294])).
+fof(f294,plain,(
+  ! [X0] : (! [X1] : (~v3_struct_0(X1) | ~v8_yellow_0(X1,X0) | ~m1_yellow_0(X1,X0)) | ~l1_orders_2(X0) | ~v3_lattice3(X0) | ~v2_lattice3(X0) | ~v1_lattice3(X0) | ~v4_orders_2(X0) | ~v3_orders_2(X0) | ~v2_orders_2(X0))),
+  inference(flattening,[],[f293])).
+fof(f293,plain,(
+  ! [X0] : (! [X1] : ((~v3_struct_0(X1) | ~v8_yellow_0(X1,X0)) | ~m1_yellow_0(X1,X0)) | (~l1_orders_2(X0) | ~v3_lattice3(X0) | ~v2_lattice3(X0) | ~v1_lattice3(X0) | ~v4_orders_2(X0) | ~v3_orders_2(X0) | ~v2_orders_2(X0)))),
+  inference(ennf_transformation,[],[f44])).
+fof(f44,axiom,(
+  ! [X0] : ((l1_orders_2(X0) & v3_lattice3(X0) & v2_lattice3(X0) & v1_lattice3(X0) & v4_orders_2(X0) & v3_orders_2(X0) & v2_orders_2(X0)) => ! [X1] : (m1_yellow_0(X1,X0) => (v8_yellow_0(X1,X0) => ~v3_struct_0(X1))))),
+  file('LAT366+1.tptp',unknown)).
+fof(f1120,plain,(
+  ( ! [X4,X0,X5,X1] : (r1_waybel_3(X1,X4,X5) | ~r1_waybel_3(X0,X4,X5) | ~m1_subset_1(X5,u1_struct_0(X1)) | ~m1_subset_1(X4,u1_struct_0(X1)) | ~m1_subset_1(X5,u1_struct_0(X0)) | ~m1_subset_1(X4,u1_struct_0(X0)) | ~m1_yellow_0(X1,X0) | ~v8_yellow_0(X1,X0) | ~v4_yellow_0(X1,X0) | v3_struct_0(X1) | ~l1_orders_2(X0) | ~v3_lattice3(X0) | ~v2_lattice3(X0) | ~v1_lattice3(X0) | ~v4_orders_2(X0) | ~v3_orders_2(X0) | ~v2_orders_2(X0)) )),
+  inference(equality_resolution,[],[f1119])).
+fof(f1119,plain,(
+  ( ! [X4,X2,X0,X5,X1] : (r1_waybel_3(X1,X4,X5) | ~r1_waybel_3(X0,X2,X5) | X2 != X4 | ~m1_subset_1(X5,u1_struct_0(X1)) | ~m1_subset_1(X4,u1_struct_0(X1)) | ~m1_subset_1(X5,u1_struct_0(X0)) | ~m1_subset_1(X2,u1_struct_0(X0)) | ~m1_yellow_0(X1,X0) | ~v8_yellow_0(X1,X0) | ~v4_yellow_0(X1,X0) | v3_struct_0(X1) | ~l1_orders_2(X0) | ~v3_lattice3(X0) | ~v2_lattice3(X0) | ~v1_lattice3(X0) | ~v4_orders_2(X0) | ~v3_orders_2(X0) | ~v2_orders_2(X0)) )),
+  inference(equality_resolution,[],[f1110])).
+fof(f1110,plain,(
+  ( ! [X4,X2,X0,X5,X3,X1] : (r1_waybel_3(X1,X4,X5) | ~r1_waybel_3(X0,X2,X3) | X3 != X5 | X2 != X4 | ~m1_subset_1(X5,u1_struct_0(X1)) | ~m1_subset_1(X4,u1_struct_0(X1)) | ~m1_subset_1(X3,u1_struct_0(X0)) | ~m1_subset_1(X2,u1_struct_0(X0)) | ~m1_yellow_0(X1,X0) | ~v8_yellow_0(X1,X0) | ~v4_yellow_0(X1,X0) | v3_struct_0(X1) | ~l1_orders_2(X0) | ~v3_lattice3(X0) | ~v2_lattice3(X0) | ~v1_lattice3(X0) | ~v4_orders_2(X0) | ~v3_orders_2(X0) | ~v2_orders_2(X0)) )),
+  inference(cnf_transformation,[],[f444])).
+fof(f444,plain,(
+  ! [X0] : (! [X1] : (! [X2] : (! [X3] : (! [X4] : (! [X5] : (r1_waybel_3(X1,X4,X5) | ~r1_waybel_3(X0,X2,X3) | X3 != X5 | X2 != X4 | ~m1_subset_1(X5,u1_struct_0(X1))) | ~m1_subset_1(X4,u1_struct_0(X1))) | ~m1_subset_1(X3,u1_struct_0(X0))) | ~m1_subset_1(X2,u1_struct_0(X0))) | ~m1_yellow_0(X1,X0) | ~v8_yellow_0(X1,X0) | ~v4_yellow_0(X1,X0) | v3_struct_0(X1)) | ~l1_orders_2(X0) | ~v3_lattice3(X0) | ~v2_lattice3(X0) | ~v1_lattice3(X0) | ~v4_orders_2(X0) | ~v3_orders_2(X0) | ~v2_orders_2(X0))),
+  inference(flattening,[],[f443])).
+fof(f443,plain,(
+  ! [X0] : (! [X1] : (! [X2] : (! [X3] : (! [X4] : (! [X5] : ((r1_waybel_3(X1,X4,X5) | (~r1_waybel_3(X0,X2,X3) | X3 != X5 | X2 != X4)) | ~m1_subset_1(X5,u1_struct_0(X1))) | ~m1_subset_1(X4,u1_struct_0(X1))) | ~m1_subset_1(X3,u1_struct_0(X0))) | ~m1_subset_1(X2,u1_struct_0(X0))) | (~m1_yellow_0(X1,X0) | ~v8_yellow_0(X1,X0) | ~v4_yellow_0(X1,X0) | v3_struct_0(X1))) | (~l1_orders_2(X0) | ~v3_lattice3(X0) | ~v2_lattice3(X0) | ~v1_lattice3(X0) | ~v4_orders_2(X0) | ~v3_orders_2(X0) | ~v2_orders_2(X0)))),
+  inference(ennf_transformation,[],[f153])).
+fof(f153,axiom,(
+  ! [X0] : ((l1_orders_2(X0) & v3_lattice3(X0) & v2_lattice3(X0) & v1_lattice3(X0) & v4_orders_2(X0) & v3_orders_2(X0) & v2_orders_2(X0)) => ! [X1] : ((m1_yellow_0(X1,X0) & v8_yellow_0(X1,X0) & v4_yellow_0(X1,X0) & ~v3_struct_0(X1)) => ! [X2] : (m1_subset_1(X2,u1_struct_0(X0)) => ! [X3] : (m1_subset_1(X3,u1_struct_0(X0)) => ! [X4] : (m1_subset_1(X4,u1_struct_0(X1)) => ! [X5] : (m1_subset_1(X5,u1_struct_0(X1)) => ((r1_waybel_3(X0,X2,X3) & X3 = X5 & X2 = X4) => r1_waybel_3(X1,X4,X5))))))))),
+  file('LAT366+1.tptp',unknown)).
+fof(f1123,plain,(
+  r1_waybel_3(sK9,sK11,sK12) | ~spl50_1),
+  inference(avatar_component_clause,[],[f1122])).
+fof(f1122,plain,(
+  spl50_1 <=> r1_waybel_3(sK9,sK11,sK12)),
+  introduced(avatar_definition,[new_symbols(naming,[spl50_1])])).
+fof(f32239,plain,(
+  ~spl50_1819 | spl50_2),
+  inference(avatar_split_clause,[],[f32238,f1126,f32233])).
+fof(f1126,plain,(
+  spl50_2 <=> r1_waybel_3(k2_yellow_2(sK9,sK9,sK10),sK13,sK14)),
+  introduced(avatar_definition,[new_symbols(naming,[spl50_2])])).
+fof(f32238,plain,(
+  ~r1_waybel_3(k2_yellow_2(sK9,sK9,sK10),sK11,sK12) | spl50_2),
+  inference(forward_demodulation,[],[f32237,f581])).
+fof(f32237,plain,(
+  ~r1_waybel_3(k2_yellow_2(sK9,sK9,sK10),sK13,sK12) | spl50_2),
+  inference(forward_demodulation,[],[f1128,f582])).
+fof(f1128,plain,(
+  ~r1_waybel_3(k2_yellow_2(sK9,sK9,sK10),sK13,sK14) | spl50_2),
+  inference(avatar_component_clause,[],[f1126])).
+fof(f32220,plain,(
+  spl50_1 | ~spl50_2 | spl50_7 | ~spl50_112),
+  inference(avatar_contradiction_clause,[],[f32219])).
+fof(f32219,plain,(
+  $false | (spl50_1 | ~spl50_2 | spl50_7 | ~spl50_112)),
+  inference(subsumption_resolution,[],[f32218,f1141])).
+fof(f1141,plain,(
+  r1_waybel_3(k2_yellow_2(sK9,sK9,sK10),sK11,sK12) | ~spl50_2),
+  inference(forward_demodulation,[],[f1140,f581])).
+fof(f1140,plain,(
+  r1_waybel_3(k2_yellow_2(sK9,sK9,sK10),sK13,sK12) | ~spl50_2),
+  inference(forward_demodulation,[],[f1127,f582])).
+fof(f1127,plain,(
+  r1_waybel_3(k2_yellow_2(sK9,sK9,sK10),sK13,sK14) | ~spl50_2),
+  inference(avatar_component_clause,[],[f1126])).
+fof(f32218,plain,(
+  ~r1_waybel_3(k2_yellow_2(sK9,sK9,sK10),sK11,sK12) | (spl50_1 | spl50_7 | ~spl50_112)),
+  inference(subsumption_resolution,[],[f32217,f1132])).
+fof(f32217,plain,(
+  ~m1_subset_1(sK11,u1_struct_0(k2_yellow_2(sK9,sK9,sK10))) | ~r1_waybel_3(k2_yellow_2(sK9,sK9,sK10),sK11,sK12) | (spl50_1 | spl50_7 | ~spl50_112)),
+  inference(subsumption_resolution,[],[f32205,f1124])).
+fof(f1124,plain,(
+  ~r1_waybel_3(sK9,sK11,sK12) | spl50_1),
+  inference(avatar_component_clause,[],[f1122])).
+fof(f32205,plain,(
+  r1_waybel_3(sK9,sK11,sK12) | ~m1_subset_1(sK11,u1_struct_0(k2_yellow_2(sK9,sK9,sK10))) | ~r1_waybel_3(k2_yellow_2(sK9,sK9,sK10),sK11,sK12) | (spl50_7 | ~spl50_112)),
+  inference(superposition,[],[f7112,f4749])).
+fof(f4749,plain,(
+  sK11 = k7_yellow_2(u1_struct_0(k2_yellow_2(sK9,sK9,sK10)),sK9,k3_waybel_1(sK9,sK9,sK10),sK11) | spl50_7),
+  inference(subsumption_resolution,[],[f4748,f1329])).
+fof(f4748,plain,(
+  sK11 = k7_yellow_2(u1_struct_0(k2_yellow_2(sK9,sK9,sK10)),sK9,k3_waybel_1(sK9,sK9,sK10),sK11) | v3_struct_0(sK9)),
+  inference(subsumption_resolution,[],[f4747,f571])).
+fof(f4747,plain,(
+  sK11 = k7_yellow_2(u1_struct_0(k2_yellow_2(sK9,sK9,sK10)),sK9,k3_waybel_1(sK9,sK9,sK10),sK11) | ~l1_orders_2(sK9) | v3_struct_0(sK9)),
+  inference(subsumption_resolution,[],[f4746,f572])).
+fof(f4746,plain,(
+  sK11 = k7_yellow_2(u1_struct_0(k2_yellow_2(sK9,sK9,sK10)),sK9,k3_waybel_1(sK9,sK9,sK10),sK11) | ~v1_funct_1(sK10) | ~l1_orders_2(sK9) | v3_struct_0(sK9)),
+  inference(subsumption_resolution,[],[f4745,f573])).
+fof(f4745,plain,(
+  sK11 = k7_yellow_2(u1_struct_0(k2_yellow_2(sK9,sK9,sK10)),sK9,k3_waybel_1(sK9,sK9,sK10),sK11) | ~v1_funct_2(sK10,u1_struct_0(sK9),u1_struct_0(sK9)) | ~v1_funct_1(sK10) | ~l1_orders_2(sK9) | v3_struct_0(sK9)),
+  inference(subsumption_resolution,[],[f4738,f575])).
+fof(f4738,plain,(
+  sK11 = k7_yellow_2(u1_struct_0(k2_yellow_2(sK9,sK9,sK10)),sK9,k3_waybel_1(sK9,sK9,sK10),sK11) | ~m2_relset_1(sK10,u1_struct_0(sK9),u1_struct_0(sK9)) | ~v1_funct_2(sK10,u1_struct_0(sK9),u1_struct_0(sK9)) | ~v1_funct_1(sK10) | ~l1_orders_2(sK9) | v3_struct_0(sK9)),
+  inference(duplicate_literal_removal,[],[f4733])).
+fof(f4733,plain,(
+  sK11 = k7_yellow_2(u1_struct_0(k2_yellow_2(sK9,sK9,sK10)),sK9,k3_waybel_1(sK9,sK9,sK10),sK11) | ~m2_relset_1(sK10,u1_struct_0(sK9),u1_struct_0(sK9)) | ~v1_funct_2(sK10,u1_struct_0(sK9),u1_struct_0(sK9)) | ~v1_funct_1(sK10) | ~l1_orders_2(sK9) | v3_struct_0(sK9) | ~l1_orders_2(sK9) | v3_struct_0(sK9)),
+  inference(resolution,[],[f1109,f1132])).
+fof(f1109,plain,(
+  ( ! [X2,X0,X3,X1] : (~m1_subset_1(X3,u1_struct_0(k2_yellow_2(X0,X1,X2))) | k7_yellow_2(u1_struct_0(k2_yellow_2(X0,X1,X2)),X1,k3_waybel_1(X0,X1,X2),X3) = X3 | ~m2_relset_1(X2,u1_struct_0(X0),u1_struct_0(X1)) | ~v1_funct_2(X2,u1_struct_0(X0),u1_struct_0(X1)) | ~v1_funct_1(X2) | ~l1_orders_2(X1) | v3_struct_0(X1) | ~l1_orders_2(X0) | v3_struct_0(X0)) )),
+  inference(cnf_transformation,[],[f442])).
+fof(f442,plain,(
+  ! [X0] : (! [X1] : (! [X2] : (! [X3] : (k7_yellow_2(u1_struct_0(k2_yellow_2(X0,X1,X2)),X1,k3_waybel_1(X0,X1,X2),X3) = X3 | ~m1_subset_1(X3,u1_struct_0(k2_yellow_2(X0,X1,X2)))) | ~m2_relset_1(X2,u1_struct_0(X0),u1_struct_0(X1)) | ~v1_funct_2(X2,u1_struct_0(X0),u1_struct_0(X1)) | ~v1_funct_1(X2)) | ~l1_orders_2(X1) | v3_struct_0(X1)) | ~l1_orders_2(X0) | v3_struct_0(X0))),
+  inference(flattening,[],[f441])).
+fof(f441,plain,(
+  ! [X0] : (! [X1] : (! [X2] : (! [X3] : (k7_yellow_2(u1_struct_0(k2_yellow_2(X0,X1,X2)),X1,k3_waybel_1(X0,X1,X2),X3) = X3 | ~m1_subset_1(X3,u1_struct_0(k2_yellow_2(X0,X1,X2)))) | (~m2_relset_1(X2,u1_struct_0(X0),u1_struct_0(X1)) | ~v1_funct_2(X2,u1_struct_0(X0),u1_struct_0(X1)) | ~v1_funct_1(X2))) | (~l1_orders_2(X1) | v3_struct_0(X1))) | (~l1_orders_2(X0) | v3_struct_0(X0)))),
+  inference(ennf_transformation,[],[f152])).
+fof(f152,axiom,(
+  ! [X0] : ((l1_orders_2(X0) & ~v3_struct_0(X0)) => ! [X1] : ((l1_orders_2(X1) & ~v3_struct_0(X1)) => ! [X2] : ((m2_relset_1(X2,u1_struct_0(X0),u1_struct_0(X1)) & v1_funct_2(X2,u1_struct_0(X0),u1_struct_0(X1)) & v1_funct_1(X2)) => ! [X3] : (m1_subset_1(X3,u1_struct_0(k2_yellow_2(X0,X1,X2))) => k7_yellow_2(u1_struct_0(k2_yellow_2(X0,X1,X2)),X1,k3_waybel_1(X0,X1,X2),X3) = X3))))),
+  file('LAT366+1.tptp',unknown)).
+fof(f7112,plain,(
+  ( ! [X0] : (r1_waybel_3(sK9,k7_yellow_2(u1_struct_0(k2_yellow_2(sK9,sK9,sK10)),sK9,k3_waybel_1(sK9,sK9,sK10),X0),sK12) | ~m1_subset_1(X0,u1_struct_0(k2_yellow_2(sK9,sK9,sK10))) | ~r1_waybel_3(k2_yellow_2(sK9,sK9,sK10),X0,sK12)) ) | ~spl50_112),
+  inference(avatar_component_clause,[],[f7111])).
+fof(f7111,plain,(
+  spl50_112 <=> ! [X0] : (r1_waybel_3(sK9,k7_yellow_2(u1_struct_0(k2_yellow_2(sK9,sK9,sK10)),sK9,k3_waybel_1(sK9,sK9,sK10),X0),sK12) | ~m1_subset_1(X0,u1_struct_0(k2_yellow_2(sK9,sK9,sK10))) | ~r1_waybel_3(k2_yellow_2(sK9,sK9,sK10),X0,sK12))),
+  introduced(avatar_definition,[new_symbols(naming,[spl50_112])])).
+fof(f17085,plain,(
+  spl50_124),
+  inference(avatar_contradiction_clause,[],[f17084])).
+fof(f17084,plain,(
+  $false | spl50_124),
+  inference(subsumption_resolution,[],[f17083,f565])).
+fof(f17083,plain,(
+  ~v2_orders_2(sK9) | spl50_124),
+  inference(subsumption_resolution,[],[f17082,f566])).
+fof(f17082,plain,(
+  ~v3_orders_2(sK9) | ~v2_orders_2(sK9) | spl50_124),
+  inference(subsumption_resolution,[],[f17081,f567])).
+fof(f17081,plain,(
+  ~v4_orders_2(sK9) | ~v3_orders_2(sK9) | ~v2_orders_2(sK9) | spl50_124),
+  inference(subsumption_resolution,[],[f17080,f568])).
+fof(f17080,plain,(
+  ~v1_lattice3(sK9) | ~v4_orders_2(sK9) | ~v3_orders_2(sK9) | ~v2_orders_2(sK9) | spl50_124),
+  inference(subsumption_resolution,[],[f17079,f569])).
+fof(f17079,plain,(
+  ~v2_lattice3(sK9) | ~v1_lattice3(sK9) | ~v4_orders_2(sK9) | ~v3_orders_2(sK9) | ~v2_orders_2(sK9) | spl50_124),
+  inference(subsumption_resolution,[],[f17078,f570])).
+fof(f17078,plain,(
+  ~v3_lattice3(sK9) | ~v2_lattice3(sK9) | ~v1_lattice3(sK9) | ~v4_orders_2(sK9) | ~v3_orders_2(sK9) | ~v2_orders_2(sK9) | spl50_124),
+  inference(subsumption_resolution,[],[f17077,f571])).
+fof(f17077,plain,(
+  ~l1_orders_2(sK9) | ~v3_lattice3(sK9) | ~v2_lattice3(sK9) | ~v1_lattice3(sK9) | ~v4_orders_2(sK9) | ~v3_orders_2(sK9) | ~v2_orders_2(sK9) | spl50_124),
+  inference(subsumption_resolution,[],[f17076,f572])).
+fof(f17076,plain,(
+  ~v1_funct_1(sK10) | ~l1_orders_2(sK9) | ~v3_lattice3(sK9) | ~v2_lattice3(sK9) | ~v1_lattice3(sK9) | ~v4_orders_2(sK9) | ~v3_orders_2(sK9) | ~v2_orders_2(sK9) | spl50_124),
+  inference(subsumption_resolution,[],[f17075,f573])).
+fof(f17075,plain,(
+  ~v1_funct_2(sK10,u1_struct_0(sK9),u1_struct_0(sK9)) | ~v1_funct_1(sK10) | ~l1_orders_2(sK9) | ~v3_lattice3(sK9) | ~v2_lattice3(sK9) | ~v1_lattice3(sK9) | ~v4_orders_2(sK9) | ~v3_orders_2(sK9) | ~v2_orders_2(sK9) | spl50_124),
+  inference(subsumption_resolution,[],[f17074,f574])).
+fof(f17074,plain,(
+  ~v8_waybel_1(sK10,sK9) | ~v1_funct_2(sK10,u1_struct_0(sK9),u1_struct_0(sK9)) | ~v1_funct_1(sK10) | ~l1_orders_2(sK9) | ~v3_lattice3(sK9) | ~v2_lattice3(sK9) | ~v1_lattice3(sK9) | ~v4_orders_2(sK9) | ~v3_orders_2(sK9) | ~v2_orders_2(sK9) | spl50_124),
+  inference(subsumption_resolution,[],[f17073,f575])).
+fof(f17073,plain,(
+  ~m2_relset_1(sK10,u1_struct_0(sK9),u1_struct_0(sK9)) | ~v8_waybel_1(sK10,sK9) | ~v1_funct_2(sK10,u1_struct_0(sK9),u1_struct_0(sK9)) | ~v1_funct_1(sK10) | ~l1_orders_2(sK9) | ~v3_lattice3(sK9) | ~v2_lattice3(sK9) | ~v1_lattice3(sK9) | ~v4_orders_2(sK9) | ~v3_orders_2(sK9) | ~v2_orders_2(sK9) | spl50_124),
+  inference(subsumption_resolution,[],[f17072,f576])).
+fof(f576,plain,(
+  v22_waybel_0(sK10,sK9,sK9)),
+  inference(cnf_transformation,[],[f480])).
+fof(f17072,plain,(
+  ~v22_waybel_0(sK10,sK9,sK9) | ~m2_relset_1(sK10,u1_struct_0(sK9),u1_struct_0(sK9)) | ~v8_waybel_1(sK10,sK9) | ~v1_funct_2(sK10,u1_struct_0(sK9),u1_struct_0(sK9)) | ~v1_funct_1(sK10) | ~l1_orders_2(sK9) | ~v3_lattice3(sK9) | ~v2_lattice3(sK9) | ~v1_lattice3(sK9) | ~v4_orders_2(sK9) | ~v3_orders_2(sK9) | ~v2_orders_2(sK9) | spl50_124),
+  inference(resolution,[],[f7444,f1107])).
+fof(f1107,plain,(
+  ( ! [X0,X1] : (v22_waybel_0(k2_waybel_1(X0,X0,X1),X0,k2_yellow_2(X0,X0,X1)) | ~v22_waybel_0(X1,X0,X0) | ~m2_relset_1(X1,u1_struct_0(X0),u1_struct_0(X0)) | ~v8_waybel_1(X1,X0) | ~v1_funct_2(X1,u1_struct_0(X0),u1_struct_0(X0)) | ~v1_funct_1(X1) | ~l1_orders_2(X0) | ~v3_lattice3(X0) | ~v2_lattice3(X0) | ~v1_lattice3(X0) | ~v4_orders_2(X0) | ~v3_orders_2(X0) | ~v2_orders_2(X0)) )),
+  inference(cnf_transformation,[],[f564])).
+fof(f564,plain,(
+  ! [X0] : (! [X1] : (((v22_waybel_0(X1,X0,X0) | ~v22_waybel_0(k2_waybel_1(X0,X0,X1),X0,k2_yellow_2(X0,X0,X1))) & (v22_waybel_0(k2_waybel_1(X0,X0,X1),X0,k2_yellow_2(X0,X0,X1)) | ~v22_waybel_0(X1,X0,X0))) | ~m2_relset_1(X1,u1_struct_0(X0),u1_struct_0(X0)) | ~v8_waybel_1(X1,X0) | ~v1_funct_2(X1,u1_struct_0(X0),u1_struct_0(X0)) | ~v1_funct_1(X1)) | ~l1_orders_2(X0) | ~v3_lattice3(X0) | ~v2_lattice3(X0) | ~v1_lattice3(X0) | ~v4_orders_2(X0) | ~v3_orders_2(X0) | ~v2_orders_2(X0))),
+  inference(nnf_transformation,[],[f440])).
+fof(f440,plain,(
+  ! [X0] : (! [X1] : ((v22_waybel_0(X1,X0,X0) <=> v22_waybel_0(k2_waybel_1(X0,X0,X1),X0,k2_yellow_2(X0,X0,X1))) | ~m2_relset_1(X1,u1_struct_0(X0),u1_struct_0(X0)) | ~v8_waybel_1(X1,X0) | ~v1_funct_2(X1,u1_struct_0(X0),u1_struct_0(X0)) | ~v1_funct_1(X1)) | ~l1_orders_2(X0) | ~v3_lattice3(X0) | ~v2_lattice3(X0) | ~v1_lattice3(X0) | ~v4_orders_2(X0) | ~v3_orders_2(X0) | ~v2_orders_2(X0))),
+  inference(flattening,[],[f439])).
+fof(f439,plain,(
+  ! [X0] : (! [X1] : ((v22_waybel_0(X1,X0,X0) <=> v22_waybel_0(k2_waybel_1(X0,X0,X1),X0,k2_yellow_2(X0,X0,X1))) | (~m2_relset_1(X1,u1_struct_0(X0),u1_struct_0(X0)) | ~v8_waybel_1(X1,X0) | ~v1_funct_2(X1,u1_struct_0(X0),u1_struct_0(X0)) | ~v1_funct_1(X1))) | (~l1_orders_2(X0) | ~v3_lattice3(X0) | ~v2_lattice3(X0) | ~v1_lattice3(X0) | ~v4_orders_2(X0) | ~v3_orders_2(X0) | ~v2_orders_2(X0)))),
+  inference(ennf_transformation,[],[f151])).
+fof(f151,axiom,(
+  ! [X0] : ((l1_orders_2(X0) & v3_lattice3(X0) & v2_lattice3(X0) & v1_lattice3(X0) & v4_orders_2(X0) & v3_orders_2(X0) & v2_orders_2(X0)) => ! [X1] : ((m2_relset_1(X1,u1_struct_0(X0),u1_struct_0(X0)) & v8_waybel_1(X1,X0) & v1_funct_2(X1,u1_struct_0(X0),u1_struct_0(X0)) & v1_funct_1(X1)) => (v22_waybel_0(X1,X0,X0) <=> v22_waybel_0(k2_waybel_1(X0,X0,X1),X0,k2_yellow_2(X0,X0,X1)))))),
+  file('LAT366+1.tptp',unknown)).
+fof(f7444,plain,(
+  ~v22_waybel_0(k2_waybel_1(sK9,sK9,sK10),sK9,k2_yellow_2(sK9,sK9,sK10)) | spl50_124),
+  inference(avatar_component_clause,[],[f7442])).
+fof(f7442,plain,(
+  spl50_124 <=> v22_waybel_0(k2_waybel_1(sK9,sK9,sK10),sK9,k2_yellow_2(sK9,sK9,sK10))),
+  introduced(avatar_definition,[new_symbols(naming,[spl50_124])])).
+fof(f16975,plain,(
+  spl50_118),
+  inference(avatar_contradiction_clause,[],[f16974])).
+fof(f16974,plain,(
+  $false | spl50_118),
+  inference(subsumption_resolution,[],[f16973,f565])).
+fof(f16973,plain,(
+  ~v2_orders_2(sK9) | spl50_118),
+  inference(subsumption_resolution,[],[f16972,f566])).
+fof(f16972,plain,(
+  ~v3_orders_2(sK9) | ~v2_orders_2(sK9) | spl50_118),
+  inference(subsumption_resolution,[],[f16971,f567])).
+fof(f16971,plain,(
+  ~v4_orders_2(sK9) | ~v3_orders_2(sK9) | ~v2_orders_2(sK9) | spl50_118),
+  inference(subsumption_resolution,[],[f16970,f568])).
+fof(f16970,plain,(
+  ~v1_lattice3(sK9) | ~v4_orders_2(sK9) | ~v3_orders_2(sK9) | ~v2_orders_2(sK9) | spl50_118),
+  inference(subsumption_resolution,[],[f16969,f569])).
+fof(f16969,plain,(
+  ~v2_lattice3(sK9) | ~v1_lattice3(sK9) | ~v4_orders_2(sK9) | ~v3_orders_2(sK9) | ~v2_orders_2(sK9) | spl50_118),
+  inference(subsumption_resolution,[],[f16968,f570])).
+fof(f16968,plain,(
+  ~v3_lattice3(sK9) | ~v2_lattice3(sK9) | ~v1_lattice3(sK9) | ~v4_orders_2(sK9) | ~v3_orders_2(sK9) | ~v2_orders_2(sK9) | spl50_118),
+  inference(subsumption_resolution,[],[f16967,f571])).
+fof(f16967,plain,(
+  ~l1_orders_2(sK9) | ~v3_lattice3(sK9) | ~v2_lattice3(sK9) | ~v1_lattice3(sK9) | ~v4_orders_2(sK9) | ~v3_orders_2(sK9) | ~v2_orders_2(sK9) | spl50_118),
+  inference(subsumption_resolution,[],[f16966,f572])).
+fof(f16966,plain,(
+  ~v1_funct_1(sK10) | ~l1_orders_2(sK9) | ~v3_lattice3(sK9) | ~v2_lattice3(sK9) | ~v1_lattice3(sK9) | ~v4_orders_2(sK9) | ~v3_orders_2(sK9) | ~v2_orders_2(sK9) | spl50_118),
+  inference(subsumption_resolution,[],[f16965,f573])).
+fof(f16965,plain,(
+  ~v1_funct_2(sK10,u1_struct_0(sK9),u1_struct_0(sK9)) | ~v1_funct_1(sK10) | ~l1_orders_2(sK9) | ~v3_lattice3(sK9) | ~v2_lattice3(sK9) | ~v1_lattice3(sK9) | ~v4_orders_2(sK9) | ~v3_orders_2(sK9) | ~v2_orders_2(sK9) | spl50_118),
+  inference(subsumption_resolution,[],[f16964,f574])).
+fof(f16964,plain,(
+  ~v8_waybel_1(sK10,sK9) | ~v1_funct_2(sK10,u1_struct_0(sK9),u1_struct_0(sK9)) | ~v1_funct_1(sK10) | ~l1_orders_2(sK9) | ~v3_lattice3(sK9) | ~v2_lattice3(sK9) | ~v1_lattice3(sK9) | ~v4_orders_2(sK9) | ~v3_orders_2(sK9) | ~v2_orders_2(sK9) | spl50_118),
+  inference(subsumption_resolution,[],[f16963,f575])).
+fof(f16963,plain,(
+  ~m2_relset_1(sK10,u1_struct_0(sK9),u1_struct_0(sK9)) | ~v8_waybel_1(sK10,sK9) | ~v1_funct_2(sK10,u1_struct_0(sK9),u1_struct_0(sK9)) | ~v1_funct_1(sK10) | ~l1_orders_2(sK9) | ~v3_lattice3(sK9) | ~v2_lattice3(sK9) | ~v1_lattice3(sK9) | ~v4_orders_2(sK9) | ~v3_orders_2(sK9) | ~v2_orders_2(sK9) | spl50_118),
+  inference(resolution,[],[f7356,f1103])).
+fof(f1103,plain,(
+  ( ! [X0,X1] : (v17_waybel_0(k2_waybel_1(X0,X0,X1),X0,k2_yellow_2(X0,X0,X1)) | ~m2_relset_1(X1,u1_struct_0(X0),u1_struct_0(X0)) | ~v8_waybel_1(X1,X0) | ~v1_funct_2(X1,u1_struct_0(X0),u1_struct_0(X0)) | ~v1_funct_1(X1) | ~l1_orders_2(X0) | ~v3_lattice3(X0) | ~v2_lattice3(X0) | ~v1_lattice3(X0) | ~v4_orders_2(X0) | ~v3_orders_2(X0) | ~v2_orders_2(X0)) )),
+  inference(cnf_transformation,[],[f438])).
+fof(f438,plain,(
+  ! [X0] : (! [X1] : ((k2_waybel_1(X0,X0,X1) = k2_waybel34(X0,k2_yellow_2(X0,X0,X1),k3_waybel_1(X0,X0,X1)) & k3_waybel_1(X0,X0,X1) = k1_waybel34(X0,k2_yellow_2(X0,X0,X1),k2_waybel_1(X0,X0,X1)) & v18_waybel_0(k3_waybel_1(X0,X0,X1),k2_yellow_2(X0,X0,X1),X0) & v17_waybel_0(k2_waybel_1(X0,X0,X1),X0,k2_yellow_2(X0,X0,X1))) | ~m2_relset_1(X1,u1_struct_0(X0),u1_struct_0(X0)) | ~v8_waybel_1(X1,X0) | ~v1_funct_2(X1,u1_struct_0(X0),u1_struct_0(X0)) | ~v1_funct_1(X1)) | ~l1_orders_2(X0) | ~v3_lattice3(X0) | ~v2_lattice3(X0) | ~v1_lattice3(X0) | ~v4_orders_2(X0) | ~v3_orders_2(X0) | ~v2_orders_2(X0))),
+  inference(flattening,[],[f437])).
+fof(f437,plain,(
+  ! [X0] : (! [X1] : ((k2_waybel_1(X0,X0,X1) = k2_waybel34(X0,k2_yellow_2(X0,X0,X1),k3_waybel_1(X0,X0,X1)) & k3_waybel_1(X0,X0,X1) = k1_waybel34(X0,k2_yellow_2(X0,X0,X1),k2_waybel_1(X0,X0,X1)) & v18_waybel_0(k3_waybel_1(X0,X0,X1),k2_yellow_2(X0,X0,X1),X0) & v17_waybel_0(k2_waybel_1(X0,X0,X1),X0,k2_yellow_2(X0,X0,X1))) | (~m2_relset_1(X1,u1_struct_0(X0),u1_struct_0(X0)) | ~v8_waybel_1(X1,X0) | ~v1_funct_2(X1,u1_struct_0(X0),u1_struct_0(X0)) | ~v1_funct_1(X1))) | (~l1_orders_2(X0) | ~v3_lattice3(X0) | ~v2_lattice3(X0) | ~v1_lattice3(X0) | ~v4_orders_2(X0) | ~v3_orders_2(X0) | ~v2_orders_2(X0)))),
+  inference(ennf_transformation,[],[f150])).
+fof(f150,axiom,(
+  ! [X0] : ((l1_orders_2(X0) & v3_lattice3(X0) & v2_lattice3(X0) & v1_lattice3(X0) & v4_orders_2(X0) & v3_orders_2(X0) & v2_orders_2(X0)) => ! [X1] : ((m2_relset_1(X1,u1_struct_0(X0),u1_struct_0(X0)) & v8_waybel_1(X1,X0) & v1_funct_2(X1,u1_struct_0(X0),u1_struct_0(X0)) & v1_funct_1(X1)) => (k2_waybel_1(X0,X0,X1) = k2_waybel34(X0,k2_yellow_2(X0,X0,X1),k3_waybel_1(X0,X0,X1)) & k3_waybel_1(X0,X0,X1) = k1_waybel34(X0,k2_yellow_2(X0,X0,X1),k2_waybel_1(X0,X0,X1)) & v18_waybel_0(k3_waybel_1(X0,X0,X1),k2_yellow_2(X0,X0,X1),X0) & v17_waybel_0(k2_waybel_1(X0,X0,X1),X0,k2_yellow_2(X0,X0,X1)))))),
+  file('LAT366+1.tptp',unknown)).
+fof(f7356,plain,(
+  ~v17_waybel_0(k2_waybel_1(sK9,sK9,sK10),sK9,k2_yellow_2(sK9,sK9,sK10)) | spl50_118),
+  inference(avatar_component_clause,[],[f7354])).
+fof(f7354,plain,(
+  spl50_118 <=> v17_waybel_0(k2_waybel_1(sK9,sK9,sK10),sK9,k2_yellow_2(sK9,sK9,sK10))),
+  introduced(avatar_definition,[new_symbols(naming,[spl50_118])])).
+fof(f16957,plain,(
+  spl50_873 | ~spl50_110),
+  inference(avatar_split_clause,[],[f16893,f7103,f16652])).
+fof(f16652,plain,(
+  spl50_873 <=> m1_relset_1(k3_waybel_1(sK9,sK9,sK10),u1_struct_0(k2_yellow_2(sK9,sK9,sK10)),u1_struct_0(sK9))),
+  introduced(avatar_definition,[new_symbols(naming,[spl50_873])])).
+fof(f7103,plain,(
+  spl50_110 <=> m2_relset_1(k3_waybel_1(sK9,sK9,sK10),u1_struct_0(k2_yellow_2(sK9,sK9,sK10)),u1_struct_0(sK9))),
+  introduced(avatar_definition,[new_symbols(naming,[spl50_110])])).
+fof(f16893,plain,(
+  m1_relset_1(k3_waybel_1(sK9,sK9,sK10),u1_struct_0(k2_yellow_2(sK9,sK9,sK10)),u1_struct_0(sK9)) | ~spl50_110),
+  inference(resolution,[],[f7104,f1097])).
+fof(f7104,plain,(
+  m2_relset_1(k3_waybel_1(sK9,sK9,sK10),u1_struct_0(k2_yellow_2(sK9,sK9,sK10)),u1_struct_0(sK9)) | ~spl50_110),
+  inference(avatar_component_clause,[],[f7103])).
+fof(f16942,plain,(
+  ~spl50_873 | spl50_116 | spl50_7 | ~spl50_37 | ~spl50_39 | ~spl50_48 | ~spl50_50 | ~spl50_52 | ~spl50_54 | ~spl50_109),
+  inference(avatar_split_clause,[],[f16941,f7099,f2581,f2570,f2560,f2550,f2504,f2495,f1328,f7316,f16652])).
+fof(f7316,plain,(
+  spl50_116 <=> v1_funct_2(k2_waybel_1(sK9,sK9,sK10),u1_struct_0(sK9),u1_struct_0(k2_yellow_2(sK9,sK9,sK10)))),
+  introduced(avatar_definition,[new_symbols(naming,[spl50_116])])).
+fof(f2495,plain,(
+  spl50_37 <=> l1_orders_2(k2_yellow_2(sK9,sK9,sK10))),
+  introduced(avatar_definition,[new_symbols(naming,[spl50_37])])).
+fof(f2504,plain,(
+  spl50_39 <=> v2_orders_2(k2_yellow_2(sK9,sK9,sK10))),
+  introduced(avatar_definition,[new_symbols(naming,[spl50_39])])).
+fof(f2550,plain,(
+  spl50_48 <=> v3_orders_2(k2_yellow_2(sK9,sK9,sK10))),
+  introduced(avatar_definition,[new_symbols(naming,[spl50_48])])).
+fof(f2560,plain,(
+  spl50_50 <=> v4_orders_2(k2_yellow_2(sK9,sK9,sK10))),
+  introduced(avatar_definition,[new_symbols(naming,[spl50_50])])).
+fof(f2570,plain,(
+  spl50_52 <=> v2_lattice3(k2_yellow_2(sK9,sK9,sK10))),
+  introduced(avatar_definition,[new_symbols(naming,[spl50_52])])).
+fof(f2581,plain,(
+  spl50_54 <=> v1_lattice3(k2_yellow_2(sK9,sK9,sK10))),
+  introduced(avatar_definition,[new_symbols(naming,[spl50_54])])).
+fof(f7099,plain,(
+  spl50_109 <=> v1_funct_2(k3_waybel_1(sK9,sK9,sK10),u1_struct_0(k2_yellow_2(sK9,sK9,sK10)),u1_struct_0(sK9))),
+  introduced(avatar_definition,[new_symbols(naming,[spl50_109])])).
+fof(f16941,plain,(
+  v1_funct_2(k2_waybel_1(sK9,sK9,sK10),u1_struct_0(sK9),u1_struct_0(k2_yellow_2(sK9,sK9,sK10))) | ~m1_relset_1(k3_waybel_1(sK9,sK9,sK10),u1_struct_0(k2_yellow_2(sK9,sK9,sK10)),u1_struct_0(sK9)) | (spl50_7 | ~spl50_37 | ~spl50_39 | ~spl50_48 | ~spl50_50 | ~spl50_52 | ~spl50_54 | ~spl50_109)),
+  inference(subsumption_resolution,[],[f16940,f565])).
+fof(f16940,plain,(
+  v1_funct_2(k2_waybel_1(sK9,sK9,sK10),u1_struct_0(sK9),u1_struct_0(k2_yellow_2(sK9,sK9,sK10))) | ~m1_relset_1(k3_waybel_1(sK9,sK9,sK10),u1_struct_0(k2_yellow_2(sK9,sK9,sK10)),u1_struct_0(sK9)) | ~v2_orders_2(sK9) | (spl50_7 | ~spl50_37 | ~spl50_39 | ~spl50_48 | ~spl50_50 | ~spl50_52 | ~spl50_54 | ~spl50_109)),
+  inference(subsumption_resolution,[],[f16939,f566])).
+fof(f16939,plain,(
+  v1_funct_2(k2_waybel_1(sK9,sK9,sK10),u1_struct_0(sK9),u1_struct_0(k2_yellow_2(sK9,sK9,sK10))) | ~m1_relset_1(k3_waybel_1(sK9,sK9,sK10),u1_struct_0(k2_yellow_2(sK9,sK9,sK10)),u1_struct_0(sK9)) | ~v3_orders_2(sK9) | ~v2_orders_2(sK9) | (spl50_7 | ~spl50_37 | ~spl50_39 | ~spl50_48 | ~spl50_50 | ~spl50_52 | ~spl50_54 | ~spl50_109)),
+  inference(subsumption_resolution,[],[f16938,f567])).
+fof(f16938,plain,(
+  v1_funct_2(k2_waybel_1(sK9,sK9,sK10),u1_struct_0(sK9),u1_struct_0(k2_yellow_2(sK9,sK9,sK10))) | ~m1_relset_1(k3_waybel_1(sK9,sK9,sK10),u1_struct_0(k2_yellow_2(sK9,sK9,sK10)),u1_struct_0(sK9)) | ~v4_orders_2(sK9) | ~v3_orders_2(sK9) | ~v2_orders_2(sK9) | (spl50_7 | ~spl50_37 | ~spl50_39 | ~spl50_48 | ~spl50_50 | ~spl50_52 | ~spl50_54 | ~spl50_109)),
+  inference(subsumption_resolution,[],[f16937,f568])).
+fof(f16937,plain,(
+  v1_funct_2(k2_waybel_1(sK9,sK9,sK10),u1_struct_0(sK9),u1_struct_0(k2_yellow_2(sK9,sK9,sK10))) | ~m1_relset_1(k3_waybel_1(sK9,sK9,sK10),u1_struct_0(k2_yellow_2(sK9,sK9,sK10)),u1_struct_0(sK9)) | ~v1_lattice3(sK9) | ~v4_orders_2(sK9) | ~v3_orders_2(sK9) | ~v2_orders_2(sK9) | (spl50_7 | ~spl50_37 | ~spl50_39 | ~spl50_48 | ~spl50_50 | ~spl50_52 | ~spl50_54 | ~spl50_109)),
+  inference(subsumption_resolution,[],[f16936,f569])).
+fof(f16936,plain,(
+  v1_funct_2(k2_waybel_1(sK9,sK9,sK10),u1_struct_0(sK9),u1_struct_0(k2_yellow_2(sK9,sK9,sK10))) | ~m1_relset_1(k3_waybel_1(sK9,sK9,sK10),u1_struct_0(k2_yellow_2(sK9,sK9,sK10)),u1_struct_0(sK9)) | ~v2_lattice3(sK9) | ~v1_lattice3(sK9) | ~v4_orders_2(sK9) | ~v3_orders_2(sK9) | ~v2_orders_2(sK9) | (spl50_7 | ~spl50_37 | ~spl50_39 | ~spl50_48 | ~spl50_50 | ~spl50_52 | ~spl50_54 | ~spl50_109)),
+  inference(subsumption_resolution,[],[f16935,f571])).
+fof(f16935,plain,(
+  v1_funct_2(k2_waybel_1(sK9,sK9,sK10),u1_struct_0(sK9),u1_struct_0(k2_yellow_2(sK9,sK9,sK10))) | ~m1_relset_1(k3_waybel_1(sK9,sK9,sK10),u1_struct_0(k2_yellow_2(sK9,sK9,sK10)),u1_struct_0(sK9)) | ~l1_orders_2(sK9) | ~v2_lattice3(sK9) | ~v1_lattice3(sK9) | ~v4_orders_2(sK9) | ~v3_orders_2(sK9) | ~v2_orders_2(sK9) | (spl50_7 | ~spl50_37 | ~spl50_39 | ~spl50_48 | ~spl50_50 | ~spl50_52 | ~spl50_54 | ~spl50_109)),
+  inference(subsumption_resolution,[],[f16934,f2505])).
+fof(f2505,plain,(
+  v2_orders_2(k2_yellow_2(sK9,sK9,sK10)) | ~spl50_39),
+  inference(avatar_component_clause,[],[f2504])).
+fof(f16934,plain,(
+  v1_funct_2(k2_waybel_1(sK9,sK9,sK10),u1_struct_0(sK9),u1_struct_0(k2_yellow_2(sK9,sK9,sK10))) | ~m1_relset_1(k3_waybel_1(sK9,sK9,sK10),u1_struct_0(k2_yellow_2(sK9,sK9,sK10)),u1_struct_0(sK9)) | ~v2_orders_2(k2_yellow_2(sK9,sK9,sK10)) | ~l1_orders_2(sK9) | ~v2_lattice3(sK9) | ~v1_lattice3(sK9) | ~v4_orders_2(sK9) | ~v3_orders_2(sK9) | ~v2_orders_2(sK9) | (spl50_7 | ~spl50_37 | ~spl50_48 | ~spl50_50 | ~spl50_52 | ~spl50_54 | ~spl50_109)),
+  inference(subsumption_resolution,[],[f16933,f2551])).
+fof(f2551,plain,(
+  v3_orders_2(k2_yellow_2(sK9,sK9,sK10)) | ~spl50_48),
+  inference(avatar_component_clause,[],[f2550])).
+fof(f16933,plain,(
+  v1_funct_2(k2_waybel_1(sK9,sK9,sK10),u1_struct_0(sK9),u1_struct_0(k2_yellow_2(sK9,sK9,sK10))) | ~m1_relset_1(k3_waybel_1(sK9,sK9,sK10),u1_struct_0(k2_yellow_2(sK9,sK9,sK10)),u1_struct_0(sK9)) | ~v3_orders_2(k2_yellow_2(sK9,sK9,sK10)) | ~v2_orders_2(k2_yellow_2(sK9,sK9,sK10)) | ~l1_orders_2(sK9) | ~v2_lattice3(sK9) | ~v1_lattice3(sK9) | ~v4_orders_2(sK9) | ~v3_orders_2(sK9) | ~v2_orders_2(sK9) | (spl50_7 | ~spl50_37 | ~spl50_50 | ~spl50_52 | ~spl50_54 | ~spl50_109)),
+  inference(subsumption_resolution,[],[f16932,f2561])).
+fof(f2561,plain,(
+  v4_orders_2(k2_yellow_2(sK9,sK9,sK10)) | ~spl50_50),
+  inference(avatar_component_clause,[],[f2560])).
+fof(f16932,plain,(
+  v1_funct_2(k2_waybel_1(sK9,sK9,sK10),u1_struct_0(sK9),u1_struct_0(k2_yellow_2(sK9,sK9,sK10))) | ~m1_relset_1(k3_waybel_1(sK9,sK9,sK10),u1_struct_0(k2_yellow_2(sK9,sK9,sK10)),u1_struct_0(sK9)) | ~v4_orders_2(k2_yellow_2(sK9,sK9,sK10)) | ~v3_orders_2(k2_yellow_2(sK9,sK9,sK10)) | ~v2_orders_2(k2_yellow_2(sK9,sK9,sK10)) | ~l1_orders_2(sK9) | ~v2_lattice3(sK9) | ~v1_lattice3(sK9) | ~v4_orders_2(sK9) | ~v3_orders_2(sK9) | ~v2_orders_2(sK9) | (spl50_7 | ~spl50_37 | ~spl50_52 | ~spl50_54 | ~spl50_109)),
+  inference(subsumption_resolution,[],[f16931,f2582])).
+fof(f2582,plain,(
+  v1_lattice3(k2_yellow_2(sK9,sK9,sK10)) | ~spl50_54),
+  inference(avatar_component_clause,[],[f2581])).
+fof(f16931,plain,(
+  v1_funct_2(k2_waybel_1(sK9,sK9,sK10),u1_struct_0(sK9),u1_struct_0(k2_yellow_2(sK9,sK9,sK10))) | ~m1_relset_1(k3_waybel_1(sK9,sK9,sK10),u1_struct_0(k2_yellow_2(sK9,sK9,sK10)),u1_struct_0(sK9)) | ~v1_lattice3(k2_yellow_2(sK9,sK9,sK10)) | ~v4_orders_2(k2_yellow_2(sK9,sK9,sK10)) | ~v3_orders_2(k2_yellow_2(sK9,sK9,sK10)) | ~v2_orders_2(k2_yellow_2(sK9,sK9,sK10)) | ~l1_orders_2(sK9) | ~v2_lattice3(sK9) | ~v1_lattice3(sK9) | ~v4_orders_2(sK9) | ~v3_orders_2(sK9) | ~v2_orders_2(sK9) | (spl50_7 | ~spl50_37 | ~spl50_52 | ~spl50_109)),
+  inference(subsumption_resolution,[],[f16930,f2571])).
+fof(f2571,plain,(
+  v2_lattice3(k2_yellow_2(sK9,sK9,sK10)) | ~spl50_52),
+  inference(avatar_component_clause,[],[f2570])).
+fof(f16930,plain,(
+  v1_funct_2(k2_waybel_1(sK9,sK9,sK10),u1_struct_0(sK9),u1_struct_0(k2_yellow_2(sK9,sK9,sK10))) | ~m1_relset_1(k3_waybel_1(sK9,sK9,sK10),u1_struct_0(k2_yellow_2(sK9,sK9,sK10)),u1_struct_0(sK9)) | ~v2_lattice3(k2_yellow_2(sK9,sK9,sK10)) | ~v1_lattice3(k2_yellow_2(sK9,sK9,sK10)) | ~v4_orders_2(k2_yellow_2(sK9,sK9,sK10)) | ~v3_orders_2(k2_yellow_2(sK9,sK9,sK10)) | ~v2_orders_2(k2_yellow_2(sK9,sK9,sK10)) | ~l1_orders_2(sK9) | ~v2_lattice3(sK9) | ~v1_lattice3(sK9) | ~v4_orders_2(sK9) | ~v3_orders_2(sK9) | ~v2_orders_2(sK9) | (spl50_7 | ~spl50_37 | ~spl50_109)),
+  inference(subsumption_resolution,[],[f16929,f2496])).
+fof(f2496,plain,(
+  l1_orders_2(k2_yellow_2(sK9,sK9,sK10)) | ~spl50_37),
+  inference(avatar_component_clause,[],[f2495])).
+fof(f16929,plain,(
+  v1_funct_2(k2_waybel_1(sK9,sK9,sK10),u1_struct_0(sK9),u1_struct_0(k2_yellow_2(sK9,sK9,sK10))) | ~m1_relset_1(k3_waybel_1(sK9,sK9,sK10),u1_struct_0(k2_yellow_2(sK9,sK9,sK10)),u1_struct_0(sK9)) | ~l1_orders_2(k2_yellow_2(sK9,sK9,sK10)) | ~v2_lattice3(k2_yellow_2(sK9,sK9,sK10)) | ~v1_lattice3(k2_yellow_2(sK9,sK9,sK10)) | ~v4_orders_2(k2_yellow_2(sK9,sK9,sK10)) | ~v3_orders_2(k2_yellow_2(sK9,sK9,sK10)) | ~v2_orders_2(k2_yellow_2(sK9,sK9,sK10)) | ~l1_orders_2(sK9) | ~v2_lattice3(sK9) | ~v1_lattice3(sK9) | ~v4_orders_2(sK9) | ~v3_orders_2(sK9) | ~v2_orders_2(sK9) | (spl50_7 | ~spl50_109)),
+  inference(subsumption_resolution,[],[f16928,f2990])).
+fof(f2990,plain,(
+  v1_funct_1(k3_waybel_1(sK9,sK9,sK10)) | spl50_7),
+  inference(subsumption_resolution,[],[f2989,f1329])).
+fof(f2989,plain,(
+  v1_funct_1(k3_waybel_1(sK9,sK9,sK10)) | v3_struct_0(sK9)),
+  inference(subsumption_resolution,[],[f2988,f571])).
+fof(f2988,plain,(
+  v1_funct_1(k3_waybel_1(sK9,sK9,sK10)) | ~l1_orders_2(sK9) | v3_struct_0(sK9)),
+  inference(subsumption_resolution,[],[f2987,f572])).
+fof(f2987,plain,(
+  v1_funct_1(k3_waybel_1(sK9,sK9,sK10)) | ~v1_funct_1(sK10) | ~l1_orders_2(sK9) | v3_struct_0(sK9)),
+  inference(subsumption_resolution,[],[f2986,f573])).
+fof(f2986,plain,(
+  v1_funct_1(k3_waybel_1(sK9,sK9,sK10)) | ~v1_funct_2(sK10,u1_struct_0(sK9),u1_struct_0(sK9)) | ~v1_funct_1(sK10) | ~l1_orders_2(sK9) | v3_struct_0(sK9)),
+  inference(duplicate_literal_removal,[],[f2967])).
+fof(f2967,plain,(
+  v1_funct_1(k3_waybel_1(sK9,sK9,sK10)) | ~v1_funct_2(sK10,u1_struct_0(sK9),u1_struct_0(sK9)) | ~v1_funct_1(sK10) | ~l1_orders_2(sK9) | v3_struct_0(sK9) | ~l1_orders_2(sK9) | v3_struct_0(sK9)),
+  inference(resolution,[],[f752,f1467])).
+fof(f752,plain,(
+  ( ! [X2,X0,X1] : (~m1_relset_1(X2,u1_struct_0(X0),u1_struct_0(X1)) | v1_funct_1(k3_waybel_1(X0,X1,X2)) | ~v1_funct_2(X2,u1_struct_0(X0),u1_struct_0(X1)) | ~v1_funct_1(X2) | ~l1_orders_2(X1) | v3_struct_0(X1) | ~l1_orders_2(X0) | v3_struct_0(X0)) )),
+  inference(cnf_transformation,[],[f338])).
+fof(f338,plain,(
+  ! [X0,X1,X2] : ((m2_relset_1(k3_waybel_1(X0,X1,X2),u1_struct_0(k2_yellow_2(X0,X1,X2)),u1_struct_0(X1)) & v1_funct_2(k3_waybel_1(X0,X1,X2),u1_struct_0(k2_yellow_2(X0,X1,X2)),u1_struct_0(X1)) & v1_funct_1(k3_waybel_1(X0,X1,X2))) | ~m1_relset_1(X2,u1_struct_0(X0),u1_struct_0(X1)) | ~v1_funct_2(X2,u1_struct_0(X0),u1_struct_0(X1)) | ~v1_funct_1(X2) | ~l1_orders_2(X1) | v3_struct_0(X1) | ~l1_orders_2(X0) | v3_struct_0(X0))),
+  inference(flattening,[],[f337])).
+fof(f337,plain,(
+  ! [X0,X1,X2] : ((m2_relset_1(k3_waybel_1(X0,X1,X2),u1_struct_0(k2_yellow_2(X0,X1,X2)),u1_struct_0(X1)) & v1_funct_2(k3_waybel_1(X0,X1,X2),u1_struct_0(k2_yellow_2(X0,X1,X2)),u1_struct_0(X1)) & v1_funct_1(k3_waybel_1(X0,X1,X2))) | (~m1_relset_1(X2,u1_struct_0(X0),u1_struct_0(X1)) | ~v1_funct_2(X2,u1_struct_0(X0),u1_struct_0(X1)) | ~v1_funct_1(X2) | ~l1_orders_2(X1) | v3_struct_0(X1) | ~l1_orders_2(X0) | v3_struct_0(X0)))),
+  inference(ennf_transformation,[],[f71])).
+fof(f71,axiom,(
+  ! [X0,X1,X2] : ((m1_relset_1(X2,u1_struct_0(X0),u1_struct_0(X1)) & v1_funct_2(X2,u1_struct_0(X0),u1_struct_0(X1)) & v1_funct_1(X2) & l1_orders_2(X1) & ~v3_struct_0(X1) & l1_orders_2(X0) & ~v3_struct_0(X0)) => (m2_relset_1(k3_waybel_1(X0,X1,X2),u1_struct_0(k2_yellow_2(X0,X1,X2)),u1_struct_0(X1)) & v1_funct_2(k3_waybel_1(X0,X1,X2),u1_struct_0(k2_yellow_2(X0,X1,X2)),u1_struct_0(X1)) & v1_funct_1(k3_waybel_1(X0,X1,X2))))),
+  file('LAT366+1.tptp',unknown)).
+fof(f16928,plain,(
+  v1_funct_2(k2_waybel_1(sK9,sK9,sK10),u1_struct_0(sK9),u1_struct_0(k2_yellow_2(sK9,sK9,sK10))) | ~m1_relset_1(k3_waybel_1(sK9,sK9,sK10),u1_struct_0(k2_yellow_2(sK9,sK9,sK10)),u1_struct_0(sK9)) | ~v1_funct_1(k3_waybel_1(sK9,sK9,sK10)) | ~l1_orders_2(k2_yellow_2(sK9,sK9,sK10)) | ~v2_lattice3(k2_yellow_2(sK9,sK9,sK10)) | ~v1_lattice3(k2_yellow_2(sK9,sK9,sK10)) | ~v4_orders_2(k2_yellow_2(sK9,sK9,sK10)) | ~v3_orders_2(k2_yellow_2(sK9,sK9,sK10)) | ~v2_orders_2(k2_yellow_2(sK9,sK9,sK10)) | ~l1_orders_2(sK9) | ~v2_lattice3(sK9) | ~v1_lattice3(sK9) | ~v4_orders_2(sK9) | ~v3_orders_2(sK9) | ~v2_orders_2(sK9) | ~spl50_109),
+  inference(subsumption_resolution,[],[f7452,f7100])).
+fof(f7100,plain,(
+  v1_funct_2(k3_waybel_1(sK9,sK9,sK10),u1_struct_0(k2_yellow_2(sK9,sK9,sK10)),u1_struct_0(sK9)) | ~spl50_109),
+  inference(avatar_component_clause,[],[f7099])).
+fof(f7452,plain,(
+  v1_funct_2(k2_waybel_1(sK9,sK9,sK10),u1_struct_0(sK9),u1_struct_0(k2_yellow_2(sK9,sK9,sK10))) | ~m1_relset_1(k3_waybel_1(sK9,sK9,sK10),u1_struct_0(k2_yellow_2(sK9,sK9,sK10)),u1_struct_0(sK9)) | ~v1_funct_2(k3_waybel_1(sK9,sK9,sK10),u1_struct_0(k2_yellow_2(sK9,sK9,sK10)),u1_struct_0(sK9)) | ~v1_funct_1(k3_waybel_1(sK9,sK9,sK10)) | ~l1_orders_2(k2_yellow_2(sK9,sK9,sK10)) | ~v2_lattice3(k2_yellow_2(sK9,sK9,sK10)) | ~v1_lattice3(k2_yellow_2(sK9,sK9,sK10)) | ~v4_orders_2(k2_yellow_2(sK9,sK9,sK10)) | ~v3_orders_2(k2_yellow_2(sK9,sK9,sK10)) | ~v2_orders_2(k2_yellow_2(sK9,sK9,sK10)) | ~l1_orders_2(sK9) | ~v2_lattice3(sK9) | ~v1_lattice3(sK9) | ~v4_orders_2(sK9) | ~v3_orders_2(sK9) | ~v2_orders_2(sK9)),
+  inference(superposition,[],[f744,f4804])).
+fof(f4804,plain,(
+  k2_waybel_1(sK9,sK9,sK10) = k2_waybel34(sK9,k2_yellow_2(sK9,sK9,sK10),k3_waybel_1(sK9,sK9,sK10))),
+  inference(subsumption_resolution,[],[f4803,f565])).
+fof(f4803,plain,(
+  k2_waybel_1(sK9,sK9,sK10) = k2_waybel34(sK9,k2_yellow_2(sK9,sK9,sK10),k3_waybel_1(sK9,sK9,sK10)) | ~v2_orders_2(sK9)),
+  inference(subsumption_resolution,[],[f4802,f566])).
+fof(f4802,plain,(
+  k2_waybel_1(sK9,sK9,sK10) = k2_waybel34(sK9,k2_yellow_2(sK9,sK9,sK10),k3_waybel_1(sK9,sK9,sK10)) | ~v3_orders_2(sK9) | ~v2_orders_2(sK9)),
+  inference(subsumption_resolution,[],[f4801,f567])).
+fof(f4801,plain,(
+  k2_waybel_1(sK9,sK9,sK10) = k2_waybel34(sK9,k2_yellow_2(sK9,sK9,sK10),k3_waybel_1(sK9,sK9,sK10)) | ~v4_orders_2(sK9) | ~v3_orders_2(sK9) | ~v2_orders_2(sK9)),
+  inference(subsumption_resolution,[],[f4800,f568])).
+fof(f4800,plain,(
+  k2_waybel_1(sK9,sK9,sK10) = k2_waybel34(sK9,k2_yellow_2(sK9,sK9,sK10),k3_waybel_1(sK9,sK9,sK10)) | ~v1_lattice3(sK9) | ~v4_orders_2(sK9) | ~v3_orders_2(sK9) | ~v2_orders_2(sK9)),
+  inference(subsumption_resolution,[],[f4799,f569])).
+fof(f4799,plain,(
+  k2_waybel_1(sK9,sK9,sK10) = k2_waybel34(sK9,k2_yellow_2(sK9,sK9,sK10),k3_waybel_1(sK9,sK9,sK10)) | ~v2_lattice3(sK9) | ~v1_lattice3(sK9) | ~v4_orders_2(sK9) | ~v3_orders_2(sK9) | ~v2_orders_2(sK9)),
+  inference(subsumption_resolution,[],[f4798,f570])).
+fof(f4798,plain,(
+  k2_waybel_1(sK9,sK9,sK10) = k2_waybel34(sK9,k2_yellow_2(sK9,sK9,sK10),k3_waybel_1(sK9,sK9,sK10)) | ~v3_lattice3(sK9) | ~v2_lattice3(sK9) | ~v1_lattice3(sK9) | ~v4_orders_2(sK9) | ~v3_orders_2(sK9) | ~v2_orders_2(sK9)),
+  inference(subsumption_resolution,[],[f4797,f571])).
+fof(f4797,plain,(
+  k2_waybel_1(sK9,sK9,sK10) = k2_waybel34(sK9,k2_yellow_2(sK9,sK9,sK10),k3_waybel_1(sK9,sK9,sK10)) | ~l1_orders_2(sK9) | ~v3_lattice3(sK9) | ~v2_lattice3(sK9) | ~v1_lattice3(sK9) | ~v4_orders_2(sK9) | ~v3_orders_2(sK9) | ~v2_orders_2(sK9)),
+  inference(subsumption_resolution,[],[f4796,f572])).
+fof(f4796,plain,(
+  k2_waybel_1(sK9,sK9,sK10) = k2_waybel34(sK9,k2_yellow_2(sK9,sK9,sK10),k3_waybel_1(sK9,sK9,sK10)) | ~v1_funct_1(sK10) | ~l1_orders_2(sK9) | ~v3_lattice3(sK9) | ~v2_lattice3(sK9) | ~v1_lattice3(sK9) | ~v4_orders_2(sK9) | ~v3_orders_2(sK9) | ~v2_orders_2(sK9)),
+  inference(subsumption_resolution,[],[f4795,f573])).
+fof(f4795,plain,(
+  k2_waybel_1(sK9,sK9,sK10) = k2_waybel34(sK9,k2_yellow_2(sK9,sK9,sK10),k3_waybel_1(sK9,sK9,sK10)) | ~v1_funct_2(sK10,u1_struct_0(sK9),u1_struct_0(sK9)) | ~v1_funct_1(sK10) | ~l1_orders_2(sK9) | ~v3_lattice3(sK9) | ~v2_lattice3(sK9) | ~v1_lattice3(sK9) | ~v4_orders_2(sK9) | ~v3_orders_2(sK9) | ~v2_orders_2(sK9)),
+  inference(subsumption_resolution,[],[f4788,f574])).
+fof(f4788,plain,(
+  k2_waybel_1(sK9,sK9,sK10) = k2_waybel34(sK9,k2_yellow_2(sK9,sK9,sK10),k3_waybel_1(sK9,sK9,sK10)) | ~v8_waybel_1(sK10,sK9) | ~v1_funct_2(sK10,u1_struct_0(sK9),u1_struct_0(sK9)) | ~v1_funct_1(sK10) | ~l1_orders_2(sK9) | ~v3_lattice3(sK9) | ~v2_lattice3(sK9) | ~v1_lattice3(sK9) | ~v4_orders_2(sK9) | ~v3_orders_2(sK9) | ~v2_orders_2(sK9)),
+  inference(resolution,[],[f1106,f575])).
+fof(f1106,plain,(
+  ( ! [X0,X1] : (~m2_relset_1(X1,u1_struct_0(X0),u1_struct_0(X0)) | k2_waybel_1(X0,X0,X1) = k2_waybel34(X0,k2_yellow_2(X0,X0,X1),k3_waybel_1(X0,X0,X1)) | ~v8_waybel_1(X1,X0) | ~v1_funct_2(X1,u1_struct_0(X0),u1_struct_0(X0)) | ~v1_funct_1(X1) | ~l1_orders_2(X0) | ~v3_lattice3(X0) | ~v2_lattice3(X0) | ~v1_lattice3(X0) | ~v4_orders_2(X0) | ~v3_orders_2(X0) | ~v2_orders_2(X0)) )),
+  inference(cnf_transformation,[],[f438])).
+fof(f744,plain,(
+  ( ! [X2,X0,X1] : (v1_funct_2(k2_waybel34(X0,X1,X2),u1_struct_0(X0),u1_struct_0(X1)) | ~m1_relset_1(X2,u1_struct_0(X1),u1_struct_0(X0)) | ~v1_funct_2(X2,u1_struct_0(X1),u1_struct_0(X0)) | ~v1_funct_1(X2) | ~l1_orders_2(X1) | ~v2_lattice3(X1) | ~v1_lattice3(X1) | ~v4_orders_2(X1) | ~v3_orders_2(X1) | ~v2_orders_2(X1) | ~l1_orders_2(X0) | ~v2_lattice3(X0) | ~v1_lattice3(X0) | ~v4_orders_2(X0) | ~v3_orders_2(X0) | ~v2_orders_2(X0)) )),
+  inference(cnf_transformation,[],[f332])).
+fof(f332,plain,(
+  ! [X0,X1,X2] : ((m2_relset_1(k2_waybel34(X0,X1,X2),u1_struct_0(X0),u1_struct_0(X1)) & v1_funct_2(k2_waybel34(X0,X1,X2),u1_struct_0(X0),u1_struct_0(X1)) & v1_funct_1(k2_waybel34(X0,X1,X2))) | ~m1_relset_1(X2,u1_struct_0(X1),u1_struct_0(X0)) | ~v1_funct_2(X2,u1_struct_0(X1),u1_struct_0(X0)) | ~v1_funct_1(X2) | ~l1_orders_2(X1) | ~v2_lattice3(X1) | ~v1_lattice3(X1) | ~v4_orders_2(X1) | ~v3_orders_2(X1) | ~v2_orders_2(X1) | ~l1_orders_2(X0) | ~v2_lattice3(X0) | ~v1_lattice3(X0) | ~v4_orders_2(X0) | ~v3_orders_2(X0) | ~v2_orders_2(X0))),
+  inference(flattening,[],[f331])).
+fof(f331,plain,(
+  ! [X0,X1,X2] : ((m2_relset_1(k2_waybel34(X0,X1,X2),u1_struct_0(X0),u1_struct_0(X1)) & v1_funct_2(k2_waybel34(X0,X1,X2),u1_struct_0(X0),u1_struct_0(X1)) & v1_funct_1(k2_waybel34(X0,X1,X2))) | (~m1_relset_1(X2,u1_struct_0(X1),u1_struct_0(X0)) | ~v1_funct_2(X2,u1_struct_0(X1),u1_struct_0(X0)) | ~v1_funct_1(X2) | ~l1_orders_2(X1) | ~v2_lattice3(X1) | ~v1_lattice3(X1) | ~v4_orders_2(X1) | ~v3_orders_2(X1) | ~v2_orders_2(X1) | ~l1_orders_2(X0) | ~v2_lattice3(X0) | ~v1_lattice3(X0) | ~v4_orders_2(X0) | ~v3_orders_2(X0) | ~v2_orders_2(X0)))),
+  inference(ennf_transformation,[],[f67])).
+fof(f67,axiom,(
+  ! [X0,X1,X2] : ((m1_relset_1(X2,u1_struct_0(X1),u1_struct_0(X0)) & v1_funct_2(X2,u1_struct_0(X1),u1_struct_0(X0)) & v1_funct_1(X2) & l1_orders_2(X1) & v2_lattice3(X1) & v1_lattice3(X1) & v4_orders_2(X1) & v3_orders_2(X1) & v2_orders_2(X1) & l1_orders_2(X0) & v2_lattice3(X0) & v1_lattice3(X0) & v4_orders_2(X0) & v3_orders_2(X0) & v2_orders_2(X0)) => (m2_relset_1(k2_waybel34(X0,X1,X2),u1_struct_0(X0),u1_struct_0(X1)) & v1_funct_2(k2_waybel34(X0,X1,X2),u1_struct_0(X0),u1_struct_0(X1)) & v1_funct_1(k2_waybel34(X0,X1,X2))))),
+  file('LAT366+1.tptp',unknown)).
+fof(f16874,plain,(
+  spl50_7 | spl50_110),
+  inference(avatar_contradiction_clause,[],[f16873])).
+fof(f16873,plain,(
+  $false | (spl50_7 | spl50_110)),
+  inference(subsumption_resolution,[],[f16872,f1329])).
+fof(f16872,plain,(
+  v3_struct_0(sK9) | spl50_110),
+  inference(subsumption_resolution,[],[f16871,f571])).
+fof(f16871,plain,(
+  ~l1_orders_2(sK9) | v3_struct_0(sK9) | spl50_110),
+  inference(subsumption_resolution,[],[f16870,f572])).
+fof(f16870,plain,(
+  ~v1_funct_1(sK10) | ~l1_orders_2(sK9) | v3_struct_0(sK9) | spl50_110),
+  inference(subsumption_resolution,[],[f16869,f573])).
+fof(f16869,plain,(
+  ~v1_funct_2(sK10,u1_struct_0(sK9),u1_struct_0(sK9)) | ~v1_funct_1(sK10) | ~l1_orders_2(sK9) | v3_struct_0(sK9) | spl50_110),
+  inference(subsumption_resolution,[],[f16868,f1467])).
+fof(f16868,plain,(
+  ~m1_relset_1(sK10,u1_struct_0(sK9),u1_struct_0(sK9)) | ~v1_funct_2(sK10,u1_struct_0(sK9),u1_struct_0(sK9)) | ~v1_funct_1(sK10) | ~l1_orders_2(sK9) | v3_struct_0(sK9) | spl50_110),
+  inference(duplicate_literal_removal,[],[f16867])).
+fof(f16867,plain,(
+  ~m1_relset_1(sK10,u1_struct_0(sK9),u1_struct_0(sK9)) | ~v1_funct_2(sK10,u1_struct_0(sK9),u1_struct_0(sK9)) | ~v1_funct_1(sK10) | ~l1_orders_2(sK9) | v3_struct_0(sK9) | ~l1_orders_2(sK9) | v3_struct_0(sK9) | spl50_110),
+  inference(resolution,[],[f7105,f754])).
+fof(f754,plain,(
+  ( ! [X2,X0,X1] : (m2_relset_1(k3_waybel_1(X0,X1,X2),u1_struct_0(k2_yellow_2(X0,X1,X2)),u1_struct_0(X1)) | ~m1_relset_1(X2,u1_struct_0(X0),u1_struct_0(X1)) | ~v1_funct_2(X2,u1_struct_0(X0),u1_struct_0(X1)) | ~v1_funct_1(X2) | ~l1_orders_2(X1) | v3_struct_0(X1) | ~l1_orders_2(X0) | v3_struct_0(X0)) )),
+  inference(cnf_transformation,[],[f338])).
+fof(f7105,plain,(
+  ~m2_relset_1(k3_waybel_1(sK9,sK9,sK10),u1_struct_0(k2_yellow_2(sK9,sK9,sK10)),u1_struct_0(sK9)) | spl50_110),
+  inference(avatar_component_clause,[],[f7103])).
+fof(f16684,plain,(
+  ~spl50_109 | ~spl50_873 | spl50_123 | spl50_7 | ~spl50_37 | ~spl50_39 | ~spl50_48 | ~spl50_50 | ~spl50_52 | ~spl50_54),
+  inference(avatar_split_clause,[],[f16683,f2581,f2570,f2560,f2550,f2504,f2495,f1328,f7438,f16652,f7099])).
+fof(f7438,plain,(
+  spl50_123 <=> m2_relset_1(k2_waybel_1(sK9,sK9,sK10),u1_struct_0(sK9),u1_struct_0(k2_yellow_2(sK9,sK9,sK10)))),
+  introduced(avatar_definition,[new_symbols(naming,[spl50_123])])).
+fof(f16683,plain,(
+  m2_relset_1(k2_waybel_1(sK9,sK9,sK10),u1_struct_0(sK9),u1_struct_0(k2_yellow_2(sK9,sK9,sK10))) | ~m1_relset_1(k3_waybel_1(sK9,sK9,sK10),u1_struct_0(k2_yellow_2(sK9,sK9,sK10)),u1_struct_0(sK9)) | ~v1_funct_2(k3_waybel_1(sK9,sK9,sK10),u1_struct_0(k2_yellow_2(sK9,sK9,sK10)),u1_struct_0(sK9)) | (spl50_7 | ~spl50_37 | ~spl50_39 | ~spl50_48 | ~spl50_50 | ~spl50_52 | ~spl50_54)),
+  inference(subsumption_resolution,[],[f16682,f565])).
+fof(f16682,plain,(
+  m2_relset_1(k2_waybel_1(sK9,sK9,sK10),u1_struct_0(sK9),u1_struct_0(k2_yellow_2(sK9,sK9,sK10))) | ~m1_relset_1(k3_waybel_1(sK9,sK9,sK10),u1_struct_0(k2_yellow_2(sK9,sK9,sK10)),u1_struct_0(sK9)) | ~v1_funct_2(k3_waybel_1(sK9,sK9,sK10),u1_struct_0(k2_yellow_2(sK9,sK9,sK10)),u1_struct_0(sK9)) | ~v2_orders_2(sK9) | (spl50_7 | ~spl50_37 | ~spl50_39 | ~spl50_48 | ~spl50_50 | ~spl50_52 | ~spl50_54)),
+  inference(subsumption_resolution,[],[f16681,f566])).
+fof(f16681,plain,(
+  m2_relset_1(k2_waybel_1(sK9,sK9,sK10),u1_struct_0(sK9),u1_struct_0(k2_yellow_2(sK9,sK9,sK10))) | ~m1_relset_1(k3_waybel_1(sK9,sK9,sK10),u1_struct_0(k2_yellow_2(sK9,sK9,sK10)),u1_struct_0(sK9)) | ~v1_funct_2(k3_waybel_1(sK9,sK9,sK10),u1_struct_0(k2_yellow_2(sK9,sK9,sK10)),u1_struct_0(sK9)) | ~v3_orders_2(sK9) | ~v2_orders_2(sK9) | (spl50_7 | ~spl50_37 | ~spl50_39 | ~spl50_48 | ~spl50_50 | ~spl50_52 | ~spl50_54)),
+  inference(subsumption_resolution,[],[f16680,f567])).
+fof(f16680,plain,(
+  m2_relset_1(k2_waybel_1(sK9,sK9,sK10),u1_struct_0(sK9),u1_struct_0(k2_yellow_2(sK9,sK9,sK10))) | ~m1_relset_1(k3_waybel_1(sK9,sK9,sK10),u1_struct_0(k2_yellow_2(sK9,sK9,sK10)),u1_struct_0(sK9)) | ~v1_funct_2(k3_waybel_1(sK9,sK9,sK10),u1_struct_0(k2_yellow_2(sK9,sK9,sK10)),u1_struct_0(sK9)) | ~v4_orders_2(sK9) | ~v3_orders_2(sK9) | ~v2_orders_2(sK9) | (spl50_7 | ~spl50_37 | ~spl50_39 | ~spl50_48 | ~spl50_50 | ~spl50_52 | ~spl50_54)),
+  inference(subsumption_resolution,[],[f16679,f568])).
+fof(f16679,plain,(
+  m2_relset_1(k2_waybel_1(sK9,sK9,sK10),u1_struct_0(sK9),u1_struct_0(k2_yellow_2(sK9,sK9,sK10))) | ~m1_relset_1(k3_waybel_1(sK9,sK9,sK10),u1_struct_0(k2_yellow_2(sK9,sK9,sK10)),u1_struct_0(sK9)) | ~v1_funct_2(k3_waybel_1(sK9,sK9,sK10),u1_struct_0(k2_yellow_2(sK9,sK9,sK10)),u1_struct_0(sK9)) | ~v1_lattice3(sK9) | ~v4_orders_2(sK9) | ~v3_orders_2(sK9) | ~v2_orders_2(sK9) | (spl50_7 | ~spl50_37 | ~spl50_39 | ~spl50_48 | ~spl50_50 | ~spl50_52 | ~spl50_54)),
+  inference(subsumption_resolution,[],[f16678,f569])).
+fof(f16678,plain,(
+  m2_relset_1(k2_waybel_1(sK9,sK9,sK10),u1_struct_0(sK9),u1_struct_0(k2_yellow_2(sK9,sK9,sK10))) | ~m1_relset_1(k3_waybel_1(sK9,sK9,sK10),u1_struct_0(k2_yellow_2(sK9,sK9,sK10)),u1_struct_0(sK9)) | ~v1_funct_2(k3_waybel_1(sK9,sK9,sK10),u1_struct_0(k2_yellow_2(sK9,sK9,sK10)),u1_struct_0(sK9)) | ~v2_lattice3(sK9) | ~v1_lattice3(sK9) | ~v4_orders_2(sK9) | ~v3_orders_2(sK9) | ~v2_orders_2(sK9) | (spl50_7 | ~spl50_37 | ~spl50_39 | ~spl50_48 | ~spl50_50 | ~spl50_52 | ~spl50_54)),
+  inference(subsumption_resolution,[],[f16677,f571])).
+fof(f16677,plain,(
+  m2_relset_1(k2_waybel_1(sK9,sK9,sK10),u1_struct_0(sK9),u1_struct_0(k2_yellow_2(sK9,sK9,sK10))) | ~m1_relset_1(k3_waybel_1(sK9,sK9,sK10),u1_struct_0(k2_yellow_2(sK9,sK9,sK10)),u1_struct_0(sK9)) | ~v1_funct_2(k3_waybel_1(sK9,sK9,sK10),u1_struct_0(k2_yellow_2(sK9,sK9,sK10)),u1_struct_0(sK9)) | ~l1_orders_2(sK9) | ~v2_lattice3(sK9) | ~v1_lattice3(sK9) | ~v4_orders_2(sK9) | ~v3_orders_2(sK9) | ~v2_orders_2(sK9) | (spl50_7 | ~spl50_37 | ~spl50_39 | ~spl50_48 | ~spl50_50 | ~spl50_52 | ~spl50_54)),
+  inference(subsumption_resolution,[],[f16676,f2505])).
+fof(f16676,plain,(
+  m2_relset_1(k2_waybel_1(sK9,sK9,sK10),u1_struct_0(sK9),u1_struct_0(k2_yellow_2(sK9,sK9,sK10))) | ~m1_relset_1(k3_waybel_1(sK9,sK9,sK10),u1_struct_0(k2_yellow_2(sK9,sK9,sK10)),u1_struct_0(sK9)) | ~v1_funct_2(k3_waybel_1(sK9,sK9,sK10),u1_struct_0(k2_yellow_2(sK9,sK9,sK10)),u1_struct_0(sK9)) | ~v2_orders_2(k2_yellow_2(sK9,sK9,sK10)) | ~l1_orders_2(sK9) | ~v2_lattice3(sK9) | ~v1_lattice3(sK9) | ~v4_orders_2(sK9) | ~v3_orders_2(sK9) | ~v2_orders_2(sK9) | (spl50_7 | ~spl50_37 | ~spl50_48 | ~spl50_50 | ~spl50_52 | ~spl50_54)),
+  inference(subsumption_resolution,[],[f16675,f2551])).
+fof(f16675,plain,(
+  m2_relset_1(k2_waybel_1(sK9,sK9,sK10),u1_struct_0(sK9),u1_struct_0(k2_yellow_2(sK9,sK9,sK10))) | ~m1_relset_1(k3_waybel_1(sK9,sK9,sK10),u1_struct_0(k2_yellow_2(sK9,sK9,sK10)),u1_struct_0(sK9)) | ~v1_funct_2(k3_waybel_1(sK9,sK9,sK10),u1_struct_0(k2_yellow_2(sK9,sK9,sK10)),u1_struct_0(sK9)) | ~v3_orders_2(k2_yellow_2(sK9,sK9,sK10)) | ~v2_orders_2(k2_yellow_2(sK9,sK9,sK10)) | ~l1_orders_2(sK9) | ~v2_lattice3(sK9) | ~v1_lattice3(sK9) | ~v4_orders_2(sK9) | ~v3_orders_2(sK9) | ~v2_orders_2(sK9) | (spl50_7 | ~spl50_37 | ~spl50_50 | ~spl50_52 | ~spl50_54)),
+  inference(subsumption_resolution,[],[f16674,f2561])).
+fof(f16674,plain,(
+  m2_relset_1(k2_waybel_1(sK9,sK9,sK10),u1_struct_0(sK9),u1_struct_0(k2_yellow_2(sK9,sK9,sK10))) | ~m1_relset_1(k3_waybel_1(sK9,sK9,sK10),u1_struct_0(k2_yellow_2(sK9,sK9,sK10)),u1_struct_0(sK9)) | ~v1_funct_2(k3_waybel_1(sK9,sK9,sK10),u1_struct_0(k2_yellow_2(sK9,sK9,sK10)),u1_struct_0(sK9)) | ~v4_orders_2(k2_yellow_2(sK9,sK9,sK10)) | ~v3_orders_2(k2_yellow_2(sK9,sK9,sK10)) | ~v2_orders_2(k2_yellow_2(sK9,sK9,sK10)) | ~l1_orders_2(sK9) | ~v2_lattice3(sK9) | ~v1_lattice3(sK9) | ~v4_orders_2(sK9) | ~v3_orders_2(sK9) | ~v2_orders_2(sK9) | (spl50_7 | ~spl50_37 | ~spl50_52 | ~spl50_54)),
+  inference(subsumption_resolution,[],[f16673,f2582])).
+fof(f16673,plain,(
+  m2_relset_1(k2_waybel_1(sK9,sK9,sK10),u1_struct_0(sK9),u1_struct_0(k2_yellow_2(sK9,sK9,sK10))) | ~m1_relset_1(k3_waybel_1(sK9,sK9,sK10),u1_struct_0(k2_yellow_2(sK9,sK9,sK10)),u1_struct_0(sK9)) | ~v1_funct_2(k3_waybel_1(sK9,sK9,sK10),u1_struct_0(k2_yellow_2(sK9,sK9,sK10)),u1_struct_0(sK9)) | ~v1_lattice3(k2_yellow_2(sK9,sK9,sK10)) | ~v4_orders_2(k2_yellow_2(sK9,sK9,sK10)) | ~v3_orders_2(k2_yellow_2(sK9,sK9,sK10)) | ~v2_orders_2(k2_yellow_2(sK9,sK9,sK10)) | ~l1_orders_2(sK9) | ~v2_lattice3(sK9) | ~v1_lattice3(sK9) | ~v4_orders_2(sK9) | ~v3_orders_2(sK9) | ~v2_orders_2(sK9) | (spl50_7 | ~spl50_37 | ~spl50_52)),
+  inference(subsumption_resolution,[],[f16672,f2571])).
+fof(f16672,plain,(
+  m2_relset_1(k2_waybel_1(sK9,sK9,sK10),u1_struct_0(sK9),u1_struct_0(k2_yellow_2(sK9,sK9,sK10))) | ~m1_relset_1(k3_waybel_1(sK9,sK9,sK10),u1_struct_0(k2_yellow_2(sK9,sK9,sK10)),u1_struct_0(sK9)) | ~v1_funct_2(k3_waybel_1(sK9,sK9,sK10),u1_struct_0(k2_yellow_2(sK9,sK9,sK10)),u1_struct_0(sK9)) | ~v2_lattice3(k2_yellow_2(sK9,sK9,sK10)) | ~v1_lattice3(k2_yellow_2(sK9,sK9,sK10)) | ~v4_orders_2(k2_yellow_2(sK9,sK9,sK10)) | ~v3_orders_2(k2_yellow_2(sK9,sK9,sK10)) | ~v2_orders_2(k2_yellow_2(sK9,sK9,sK10)) | ~l1_orders_2(sK9) | ~v2_lattice3(sK9) | ~v1_lattice3(sK9) | ~v4_orders_2(sK9) | ~v3_orders_2(sK9) | ~v2_orders_2(sK9) | (spl50_7 | ~spl50_37)),
+  inference(subsumption_resolution,[],[f16671,f2496])).
+fof(f16671,plain,(
+  m2_relset_1(k2_waybel_1(sK9,sK9,sK10),u1_struct_0(sK9),u1_struct_0(k2_yellow_2(sK9,sK9,sK10))) | ~m1_relset_1(k3_waybel_1(sK9,sK9,sK10),u1_struct_0(k2_yellow_2(sK9,sK9,sK10)),u1_struct_0(sK9)) | ~v1_funct_2(k3_waybel_1(sK9,sK9,sK10),u1_struct_0(k2_yellow_2(sK9,sK9,sK10)),u1_struct_0(sK9)) | ~l1_orders_2(k2_yellow_2(sK9,sK9,sK10)) | ~v2_lattice3(k2_yellow_2(sK9,sK9,sK10)) | ~v1_lattice3(k2_yellow_2(sK9,sK9,sK10)) | ~v4_orders_2(k2_yellow_2(sK9,sK9,sK10)) | ~v3_orders_2(k2_yellow_2(sK9,sK9,sK10)) | ~v2_orders_2(k2_yellow_2(sK9,sK9,sK10)) | ~l1_orders_2(sK9) | ~v2_lattice3(sK9) | ~v1_lattice3(sK9) | ~v4_orders_2(sK9) | ~v3_orders_2(sK9) | ~v2_orders_2(sK9) | spl50_7),
+  inference(subsumption_resolution,[],[f7451,f2990])).
+fof(f7451,plain,(
+  m2_relset_1(k2_waybel_1(sK9,sK9,sK10),u1_struct_0(sK9),u1_struct_0(k2_yellow_2(sK9,sK9,sK10))) | ~m1_relset_1(k3_waybel_1(sK9,sK9,sK10),u1_struct_0(k2_yellow_2(sK9,sK9,sK10)),u1_struct_0(sK9)) | ~v1_funct_2(k3_waybel_1(sK9,sK9,sK10),u1_struct_0(k2_yellow_2(sK9,sK9,sK10)),u1_struct_0(sK9)) | ~v1_funct_1(k3_waybel_1(sK9,sK9,sK10)) | ~l1_orders_2(k2_yellow_2(sK9,sK9,sK10)) | ~v2_lattice3(k2_yellow_2(sK9,sK9,sK10)) | ~v1_lattice3(k2_yellow_2(sK9,sK9,sK10)) | ~v4_orders_2(k2_yellow_2(sK9,sK9,sK10)) | ~v3_orders_2(k2_yellow_2(sK9,sK9,sK10)) | ~v2_orders_2(k2_yellow_2(sK9,sK9,sK10)) | ~l1_orders_2(sK9) | ~v2_lattice3(sK9) | ~v1_lattice3(sK9) | ~v4_orders_2(sK9) | ~v3_orders_2(sK9) | ~v2_orders_2(sK9)),
+  inference(superposition,[],[f745,f4804])).
+fof(f745,plain,(
+  ( ! [X2,X0,X1] : (m2_relset_1(k2_waybel34(X0,X1,X2),u1_struct_0(X0),u1_struct_0(X1)) | ~m1_relset_1(X2,u1_struct_0(X1),u1_struct_0(X0)) | ~v1_funct_2(X2,u1_struct_0(X1),u1_struct_0(X0)) | ~v1_funct_1(X2) | ~l1_orders_2(X1) | ~v2_lattice3(X1) | ~v1_lattice3(X1) | ~v4_orders_2(X1) | ~v3_orders_2(X1) | ~v2_orders_2(X1) | ~l1_orders_2(X0) | ~v2_lattice3(X0) | ~v1_lattice3(X0) | ~v4_orders_2(X0) | ~v3_orders_2(X0) | ~v2_orders_2(X0)) )),
+  inference(cnf_transformation,[],[f332])).
+fof(f16561,plain,(
+  spl50_7 | spl50_109),
+  inference(avatar_contradiction_clause,[],[f16560])).
+fof(f16560,plain,(
+  $false | (spl50_7 | spl50_109)),
+  inference(subsumption_resolution,[],[f16559,f1329])).
+fof(f16559,plain,(
+  v3_struct_0(sK9) | spl50_109),
+  inference(subsumption_resolution,[],[f16558,f571])).
+fof(f16558,plain,(
+  ~l1_orders_2(sK9) | v3_struct_0(sK9) | spl50_109),
+  inference(subsumption_resolution,[],[f16557,f572])).
+fof(f16557,plain,(
+  ~v1_funct_1(sK10) | ~l1_orders_2(sK9) | v3_struct_0(sK9) | spl50_109),
+  inference(subsumption_resolution,[],[f16556,f573])).
+fof(f16556,plain,(
+  ~v1_funct_2(sK10,u1_struct_0(sK9),u1_struct_0(sK9)) | ~v1_funct_1(sK10) | ~l1_orders_2(sK9) | v3_struct_0(sK9) | spl50_109),
+  inference(subsumption_resolution,[],[f16555,f1467])).
+fof(f16555,plain,(
+  ~m1_relset_1(sK10,u1_struct_0(sK9),u1_struct_0(sK9)) | ~v1_funct_2(sK10,u1_struct_0(sK9),u1_struct_0(sK9)) | ~v1_funct_1(sK10) | ~l1_orders_2(sK9) | v3_struct_0(sK9) | spl50_109),
+  inference(duplicate_literal_removal,[],[f16554])).
+fof(f16554,plain,(
+  ~m1_relset_1(sK10,u1_struct_0(sK9),u1_struct_0(sK9)) | ~v1_funct_2(sK10,u1_struct_0(sK9),u1_struct_0(sK9)) | ~v1_funct_1(sK10) | ~l1_orders_2(sK9) | v3_struct_0(sK9) | ~l1_orders_2(sK9) | v3_struct_0(sK9) | spl50_109),
+  inference(resolution,[],[f7101,f753])).
+fof(f753,plain,(
+  ( ! [X2,X0,X1] : (v1_funct_2(k3_waybel_1(X0,X1,X2),u1_struct_0(k2_yellow_2(X0,X1,X2)),u1_struct_0(X1)) | ~m1_relset_1(X2,u1_struct_0(X0),u1_struct_0(X1)) | ~v1_funct_2(X2,u1_struct_0(X0),u1_struct_0(X1)) | ~v1_funct_1(X2) | ~l1_orders_2(X1) | v3_struct_0(X1) | ~l1_orders_2(X0) | v3_struct_0(X0)) )),
+  inference(cnf_transformation,[],[f338])).
+fof(f7101,plain,(
+  ~v1_funct_2(k3_waybel_1(sK9,sK9,sK10),u1_struct_0(k2_yellow_2(sK9,sK9,sK10)),u1_struct_0(sK9)) | spl50_109),
+  inference(avatar_component_clause,[],[f7099])).
+fof(f7445,plain,(
+  ~spl50_116 | ~spl50_118 | ~spl50_123 | ~spl50_124 | spl50_111 | spl50_7 | ~spl50_37 | ~spl50_39 | ~spl50_48 | ~spl50_50 | ~spl50_52 | ~spl50_54 | ~spl50_75),
+  inference(avatar_split_clause,[],[f7436,f3348,f2581,f2570,f2560,f2550,f2504,f2495,f1328,f7107,f7442,f7438,f7354,f7316])).
+fof(f7107,plain,(
+  spl50_111 <=> v1_waybel34(k3_waybel_1(sK9,sK9,sK10),k2_yellow_2(sK9,sK9,sK10),sK9)),
+  introduced(avatar_definition,[new_symbols(naming,[spl50_111])])).
+fof(f3348,plain,(
+  spl50_75 <=> v3_lattice3(k2_yellow_2(sK9,sK9,sK10))),
+  introduced(avatar_definition,[new_symbols(naming,[spl50_75])])).
+fof(f7436,plain,(
+  v1_waybel34(k3_waybel_1(sK9,sK9,sK10),k2_yellow_2(sK9,sK9,sK10),sK9) | ~v22_waybel_0(k2_waybel_1(sK9,sK9,sK10),sK9,k2_yellow_2(sK9,sK9,sK10)) | ~m2_relset_1(k2_waybel_1(sK9,sK9,sK10),u1_struct_0(sK9),u1_struct_0(k2_yellow_2(sK9,sK9,sK10))) | ~v17_waybel_0(k2_waybel_1(sK9,sK9,sK10),sK9,k2_yellow_2(sK9,sK9,sK10)) | ~v1_funct_2(k2_waybel_1(sK9,sK9,sK10),u1_struct_0(sK9),u1_struct_0(k2_yellow_2(sK9,sK9,sK10))) | (spl50_7 | ~spl50_37 | ~spl50_39 | ~spl50_48 | ~spl50_50 | ~spl50_52 | ~spl50_54 | ~spl50_75)),
+  inference(subsumption_resolution,[],[f7435,f565])).
+fof(f7435,plain,(
+  v1_waybel34(k3_waybel_1(sK9,sK9,sK10),k2_yellow_2(sK9,sK9,sK10),sK9) | ~v22_waybel_0(k2_waybel_1(sK9,sK9,sK10),sK9,k2_yellow_2(sK9,sK9,sK10)) | ~m2_relset_1(k2_waybel_1(sK9,sK9,sK10),u1_struct_0(sK9),u1_struct_0(k2_yellow_2(sK9,sK9,sK10))) | ~v17_waybel_0(k2_waybel_1(sK9,sK9,sK10),sK9,k2_yellow_2(sK9,sK9,sK10)) | ~v1_funct_2(k2_waybel_1(sK9,sK9,sK10),u1_struct_0(sK9),u1_struct_0(k2_yellow_2(sK9,sK9,sK10))) | ~v2_orders_2(sK9) | (spl50_7 | ~spl50_37 | ~spl50_39 | ~spl50_48 | ~spl50_50 | ~spl50_52 | ~spl50_54 | ~spl50_75)),
+  inference(subsumption_resolution,[],[f7434,f566])).
+fof(f7434,plain,(
+  v1_waybel34(k3_waybel_1(sK9,sK9,sK10),k2_yellow_2(sK9,sK9,sK10),sK9) | ~v22_waybel_0(k2_waybel_1(sK9,sK9,sK10),sK9,k2_yellow_2(sK9,sK9,sK10)) | ~m2_relset_1(k2_waybel_1(sK9,sK9,sK10),u1_struct_0(sK9),u1_struct_0(k2_yellow_2(sK9,sK9,sK10))) | ~v17_waybel_0(k2_waybel_1(sK9,sK9,sK10),sK9,k2_yellow_2(sK9,sK9,sK10)) | ~v1_funct_2(k2_waybel_1(sK9,sK9,sK10),u1_struct_0(sK9),u1_struct_0(k2_yellow_2(sK9,sK9,sK10))) | ~v3_orders_2(sK9) | ~v2_orders_2(sK9) | (spl50_7 | ~spl50_37 | ~spl50_39 | ~spl50_48 | ~spl50_50 | ~spl50_52 | ~spl50_54 | ~spl50_75)),
+  inference(subsumption_resolution,[],[f7433,f567])).
+fof(f7433,plain,(
+  v1_waybel34(k3_waybel_1(sK9,sK9,sK10),k2_yellow_2(sK9,sK9,sK10),sK9) | ~v22_waybel_0(k2_waybel_1(sK9,sK9,sK10),sK9,k2_yellow_2(sK9,sK9,sK10)) | ~m2_relset_1(k2_waybel_1(sK9,sK9,sK10),u1_struct_0(sK9),u1_struct_0(k2_yellow_2(sK9,sK9,sK10))) | ~v17_waybel_0(k2_waybel_1(sK9,sK9,sK10),sK9,k2_yellow_2(sK9,sK9,sK10)) | ~v1_funct_2(k2_waybel_1(sK9,sK9,sK10),u1_struct_0(sK9),u1_struct_0(k2_yellow_2(sK9,sK9,sK10))) | ~v4_orders_2(sK9) | ~v3_orders_2(sK9) | ~v2_orders_2(sK9) | (spl50_7 | ~spl50_37 | ~spl50_39 | ~spl50_48 | ~spl50_50 | ~spl50_52 | ~spl50_54 | ~spl50_75)),
+  inference(subsumption_resolution,[],[f7432,f568])).
+fof(f7432,plain,(
+  v1_waybel34(k3_waybel_1(sK9,sK9,sK10),k2_yellow_2(sK9,sK9,sK10),sK9) | ~v22_waybel_0(k2_waybel_1(sK9,sK9,sK10),sK9,k2_yellow_2(sK9,sK9,sK10)) | ~m2_relset_1(k2_waybel_1(sK9,sK9,sK10),u1_struct_0(sK9),u1_struct_0(k2_yellow_2(sK9,sK9,sK10))) | ~v17_waybel_0(k2_waybel_1(sK9,sK9,sK10),sK9,k2_yellow_2(sK9,sK9,sK10)) | ~v1_funct_2(k2_waybel_1(sK9,sK9,sK10),u1_struct_0(sK9),u1_struct_0(k2_yellow_2(sK9,sK9,sK10))) | ~v1_lattice3(sK9) | ~v4_orders_2(sK9) | ~v3_orders_2(sK9) | ~v2_orders_2(sK9) | (spl50_7 | ~spl50_37 | ~spl50_39 | ~spl50_48 | ~spl50_50 | ~spl50_52 | ~spl50_54 | ~spl50_75)),
+  inference(subsumption_resolution,[],[f7431,f569])).
+fof(f7431,plain,(
+  v1_waybel34(k3_waybel_1(sK9,sK9,sK10),k2_yellow_2(sK9,sK9,sK10),sK9) | ~v22_waybel_0(k2_waybel_1(sK9,sK9,sK10),sK9,k2_yellow_2(sK9,sK9,sK10)) | ~m2_relset_1(k2_waybel_1(sK9,sK9,sK10),u1_struct_0(sK9),u1_struct_0(k2_yellow_2(sK9,sK9,sK10))) | ~v17_waybel_0(k2_waybel_1(sK9,sK9,sK10),sK9,k2_yellow_2(sK9,sK9,sK10)) | ~v1_funct_2(k2_waybel_1(sK9,sK9,sK10),u1_struct_0(sK9),u1_struct_0(k2_yellow_2(sK9,sK9,sK10))) | ~v2_lattice3(sK9) | ~v1_lattice3(sK9) | ~v4_orders_2(sK9) | ~v3_orders_2(sK9) | ~v2_orders_2(sK9) | (spl50_7 | ~spl50_37 | ~spl50_39 | ~spl50_48 | ~spl50_50 | ~spl50_52 | ~spl50_54 | ~spl50_75)),
+  inference(subsumption_resolution,[],[f7430,f570])).
+fof(f7430,plain,(
+  v1_waybel34(k3_waybel_1(sK9,sK9,sK10),k2_yellow_2(sK9,sK9,sK10),sK9) | ~v22_waybel_0(k2_waybel_1(sK9,sK9,sK10),sK9,k2_yellow_2(sK9,sK9,sK10)) | ~m2_relset_1(k2_waybel_1(sK9,sK9,sK10),u1_struct_0(sK9),u1_struct_0(k2_yellow_2(sK9,sK9,sK10))) | ~v17_waybel_0(k2_waybel_1(sK9,sK9,sK10),sK9,k2_yellow_2(sK9,sK9,sK10)) | ~v1_funct_2(k2_waybel_1(sK9,sK9,sK10),u1_struct_0(sK9),u1_struct_0(k2_yellow_2(sK9,sK9,sK10))) | ~v3_lattice3(sK9) | ~v2_lattice3(sK9) | ~v1_lattice3(sK9) | ~v4_orders_2(sK9) | ~v3_orders_2(sK9) | ~v2_orders_2(sK9) | (spl50_7 | ~spl50_37 | ~spl50_39 | ~spl50_48 | ~spl50_50 | ~spl50_52 | ~spl50_54 | ~spl50_75)),
+  inference(subsumption_resolution,[],[f7429,f571])).
+fof(f7429,plain,(
+  v1_waybel34(k3_waybel_1(sK9,sK9,sK10),k2_yellow_2(sK9,sK9,sK10),sK9) | ~v22_waybel_0(k2_waybel_1(sK9,sK9,sK10),sK9,k2_yellow_2(sK9,sK9,sK10)) | ~m2_relset_1(k2_waybel_1(sK9,sK9,sK10),u1_struct_0(sK9),u1_struct_0(k2_yellow_2(sK9,sK9,sK10))) | ~v17_waybel_0(k2_waybel_1(sK9,sK9,sK10),sK9,k2_yellow_2(sK9,sK9,sK10)) | ~v1_funct_2(k2_waybel_1(sK9,sK9,sK10),u1_struct_0(sK9),u1_struct_0(k2_yellow_2(sK9,sK9,sK10))) | ~l1_orders_2(sK9) | ~v3_lattice3(sK9) | ~v2_lattice3(sK9) | ~v1_lattice3(sK9) | ~v4_orders_2(sK9) | ~v3_orders_2(sK9) | ~v2_orders_2(sK9) | (spl50_7 | ~spl50_37 | ~spl50_39 | ~spl50_48 | ~spl50_50 | ~spl50_52 | ~spl50_54 | ~spl50_75)),
+  inference(subsumption_resolution,[],[f7428,f2505])).
+fof(f7428,plain,(
+  v1_waybel34(k3_waybel_1(sK9,sK9,sK10),k2_yellow_2(sK9,sK9,sK10),sK9) | ~v22_waybel_0(k2_waybel_1(sK9,sK9,sK10),sK9,k2_yellow_2(sK9,sK9,sK10)) | ~m2_relset_1(k2_waybel_1(sK9,sK9,sK10),u1_struct_0(sK9),u1_struct_0(k2_yellow_2(sK9,sK9,sK10))) | ~v17_waybel_0(k2_waybel_1(sK9,sK9,sK10),sK9,k2_yellow_2(sK9,sK9,sK10)) | ~v1_funct_2(k2_waybel_1(sK9,sK9,sK10),u1_struct_0(sK9),u1_struct_0(k2_yellow_2(sK9,sK9,sK10))) | ~v2_orders_2(k2_yellow_2(sK9,sK9,sK10)) | ~l1_orders_2(sK9) | ~v3_lattice3(sK9) | ~v2_lattice3(sK9) | ~v1_lattice3(sK9) | ~v4_orders_2(sK9) | ~v3_orders_2(sK9) | ~v2_orders_2(sK9) | (spl50_7 | ~spl50_37 | ~spl50_48 | ~spl50_50 | ~spl50_52 | ~spl50_54 | ~spl50_75)),
+  inference(subsumption_resolution,[],[f7427,f2551])).
+fof(f7427,plain,(
+  v1_waybel34(k3_waybel_1(sK9,sK9,sK10),k2_yellow_2(sK9,sK9,sK10),sK9) | ~v22_waybel_0(k2_waybel_1(sK9,sK9,sK10),sK9,k2_yellow_2(sK9,sK9,sK10)) | ~m2_relset_1(k2_waybel_1(sK9,sK9,sK10),u1_struct_0(sK9),u1_struct_0(k2_yellow_2(sK9,sK9,sK10))) | ~v17_waybel_0(k2_waybel_1(sK9,sK9,sK10),sK9,k2_yellow_2(sK9,sK9,sK10)) | ~v1_funct_2(k2_waybel_1(sK9,sK9,sK10),u1_struct_0(sK9),u1_struct_0(k2_yellow_2(sK9,sK9,sK10))) | ~v3_orders_2(k2_yellow_2(sK9,sK9,sK10)) | ~v2_orders_2(k2_yellow_2(sK9,sK9,sK10)) | ~l1_orders_2(sK9) | ~v3_lattice3(sK9) | ~v2_lattice3(sK9) | ~v1_lattice3(sK9) | ~v4_orders_2(sK9) | ~v3_orders_2(sK9) | ~v2_orders_2(sK9) | (spl50_7 | ~spl50_37 | ~spl50_50 | ~spl50_52 | ~spl50_54 | ~spl50_75)),
+  inference(subsumption_resolution,[],[f7426,f2561])).
+fof(f7426,plain,(
+  v1_waybel34(k3_waybel_1(sK9,sK9,sK10),k2_yellow_2(sK9,sK9,sK10),sK9) | ~v22_waybel_0(k2_waybel_1(sK9,sK9,sK10),sK9,k2_yellow_2(sK9,sK9,sK10)) | ~m2_relset_1(k2_waybel_1(sK9,sK9,sK10),u1_struct_0(sK9),u1_struct_0(k2_yellow_2(sK9,sK9,sK10))) | ~v17_waybel_0(k2_waybel_1(sK9,sK9,sK10),sK9,k2_yellow_2(sK9,sK9,sK10)) | ~v1_funct_2(k2_waybel_1(sK9,sK9,sK10),u1_struct_0(sK9),u1_struct_0(k2_yellow_2(sK9,sK9,sK10))) | ~v4_orders_2(k2_yellow_2(sK9,sK9,sK10)) | ~v3_orders_2(k2_yellow_2(sK9,sK9,sK10)) | ~v2_orders_2(k2_yellow_2(sK9,sK9,sK10)) | ~l1_orders_2(sK9) | ~v3_lattice3(sK9) | ~v2_lattice3(sK9) | ~v1_lattice3(sK9) | ~v4_orders_2(sK9) | ~v3_orders_2(sK9) | ~v2_orders_2(sK9) | (spl50_7 | ~spl50_37 | ~spl50_52 | ~spl50_54 | ~spl50_75)),
+  inference(subsumption_resolution,[],[f7425,f2582])).
+fof(f7425,plain,(
+  v1_waybel34(k3_waybel_1(sK9,sK9,sK10),k2_yellow_2(sK9,sK9,sK10),sK9) | ~v22_waybel_0(k2_waybel_1(sK9,sK9,sK10),sK9,k2_yellow_2(sK9,sK9,sK10)) | ~m2_relset_1(k2_waybel_1(sK9,sK9,sK10),u1_struct_0(sK9),u1_struct_0(k2_yellow_2(sK9,sK9,sK10))) | ~v17_waybel_0(k2_waybel_1(sK9,sK9,sK10),sK9,k2_yellow_2(sK9,sK9,sK10)) | ~v1_funct_2(k2_waybel_1(sK9,sK9,sK10),u1_struct_0(sK9),u1_struct_0(k2_yellow_2(sK9,sK9,sK10))) | ~v1_lattice3(k2_yellow_2(sK9,sK9,sK10)) | ~v4_orders_2(k2_yellow_2(sK9,sK9,sK10)) | ~v3_orders_2(k2_yellow_2(sK9,sK9,sK10)) | ~v2_orders_2(k2_yellow_2(sK9,sK9,sK10)) | ~l1_orders_2(sK9) | ~v3_lattice3(sK9) | ~v2_lattice3(sK9) | ~v1_lattice3(sK9) | ~v4_orders_2(sK9) | ~v3_orders_2(sK9) | ~v2_orders_2(sK9) | (spl50_7 | ~spl50_37 | ~spl50_52 | ~spl50_75)),
+  inference(subsumption_resolution,[],[f7424,f2571])).
+fof(f7424,plain,(
+  v1_waybel34(k3_waybel_1(sK9,sK9,sK10),k2_yellow_2(sK9,sK9,sK10),sK9) | ~v22_waybel_0(k2_waybel_1(sK9,sK9,sK10),sK9,k2_yellow_2(sK9,sK9,sK10)) | ~m2_relset_1(k2_waybel_1(sK9,sK9,sK10),u1_struct_0(sK9),u1_struct_0(k2_yellow_2(sK9,sK9,sK10))) | ~v17_waybel_0(k2_waybel_1(sK9,sK9,sK10),sK9,k2_yellow_2(sK9,sK9,sK10)) | ~v1_funct_2(k2_waybel_1(sK9,sK9,sK10),u1_struct_0(sK9),u1_struct_0(k2_yellow_2(sK9,sK9,sK10))) | ~v2_lattice3(k2_yellow_2(sK9,sK9,sK10)) | ~v1_lattice3(k2_yellow_2(sK9,sK9,sK10)) | ~v4_orders_2(k2_yellow_2(sK9,sK9,sK10)) | ~v3_orders_2(k2_yellow_2(sK9,sK9,sK10)) | ~v2_orders_2(k2_yellow_2(sK9,sK9,sK10)) | ~l1_orders_2(sK9) | ~v3_lattice3(sK9) | ~v2_lattice3(sK9) | ~v1_lattice3(sK9) | ~v4_orders_2(sK9) | ~v3_orders_2(sK9) | ~v2_orders_2(sK9) | (spl50_7 | ~spl50_37 | ~spl50_75)),
+  inference(subsumption_resolution,[],[f7423,f3349])).
+fof(f3349,plain,(
+  v3_lattice3(k2_yellow_2(sK9,sK9,sK10)) | ~spl50_75),
+  inference(avatar_component_clause,[],[f3348])).
+fof(f7423,plain,(
+  v1_waybel34(k3_waybel_1(sK9,sK9,sK10),k2_yellow_2(sK9,sK9,sK10),sK9) | ~v22_waybel_0(k2_waybel_1(sK9,sK9,sK10),sK9,k2_yellow_2(sK9,sK9,sK10)) | ~m2_relset_1(k2_waybel_1(sK9,sK9,sK10),u1_struct_0(sK9),u1_struct_0(k2_yellow_2(sK9,sK9,sK10))) | ~v17_waybel_0(k2_waybel_1(sK9,sK9,sK10),sK9,k2_yellow_2(sK9,sK9,sK10)) | ~v1_funct_2(k2_waybel_1(sK9,sK9,sK10),u1_struct_0(sK9),u1_struct_0(k2_yellow_2(sK9,sK9,sK10))) | ~v3_lattice3(k2_yellow_2(sK9,sK9,sK10)) | ~v2_lattice3(k2_yellow_2(sK9,sK9,sK10)) | ~v1_lattice3(k2_yellow_2(sK9,sK9,sK10)) | ~v4_orders_2(k2_yellow_2(sK9,sK9,sK10)) | ~v3_orders_2(k2_yellow_2(sK9,sK9,sK10)) | ~v2_orders_2(k2_yellow_2(sK9,sK9,sK10)) | ~l1_orders_2(sK9) | ~v3_lattice3(sK9) | ~v2_lattice3(sK9) | ~v1_lattice3(sK9) | ~v4_orders_2(sK9) | ~v3_orders_2(sK9) | ~v2_orders_2(sK9) | (spl50_7 | ~spl50_37)),
+  inference(subsumption_resolution,[],[f7422,f2496])).
+fof(f7422,plain,(
+  v1_waybel34(k3_waybel_1(sK9,sK9,sK10),k2_yellow_2(sK9,sK9,sK10),sK9) | ~v22_waybel_0(k2_waybel_1(sK9,sK9,sK10),sK9,k2_yellow_2(sK9,sK9,sK10)) | ~m2_relset_1(k2_waybel_1(sK9,sK9,sK10),u1_struct_0(sK9),u1_struct_0(k2_yellow_2(sK9,sK9,sK10))) | ~v17_waybel_0(k2_waybel_1(sK9,sK9,sK10),sK9,k2_yellow_2(sK9,sK9,sK10)) | ~v1_funct_2(k2_waybel_1(sK9,sK9,sK10),u1_struct_0(sK9),u1_struct_0(k2_yellow_2(sK9,sK9,sK10))) | ~l1_orders_2(k2_yellow_2(sK9,sK9,sK10)) | ~v3_lattice3(k2_yellow_2(sK9,sK9,sK10)) | ~v2_lattice3(k2_yellow_2(sK9,sK9,sK10)) | ~v1_lattice3(k2_yellow_2(sK9,sK9,sK10)) | ~v4_orders_2(k2_yellow_2(sK9,sK9,sK10)) | ~v3_orders_2(k2_yellow_2(sK9,sK9,sK10)) | ~v2_orders_2(k2_yellow_2(sK9,sK9,sK10)) | ~l1_orders_2(sK9) | ~v3_lattice3(sK9) | ~v2_lattice3(sK9) | ~v1_lattice3(sK9) | ~v4_orders_2(sK9) | ~v3_orders_2(sK9) | ~v2_orders_2(sK9) | spl50_7),
+  inference(subsumption_resolution,[],[f7300,f2913])).
+fof(f2913,plain,(
+  v1_funct_1(k2_waybel_1(sK9,sK9,sK10)) | spl50_7),
+  inference(subsumption_resolution,[],[f2912,f1329])).
+fof(f2912,plain,(
+  v1_funct_1(k2_waybel_1(sK9,sK9,sK10)) | v3_struct_0(sK9)),
+  inference(subsumption_resolution,[],[f2911,f571])).
+fof(f2911,plain,(
+  v1_funct_1(k2_waybel_1(sK9,sK9,sK10)) | ~l1_orders_2(sK9) | v3_struct_0(sK9)),
+  inference(subsumption_resolution,[],[f2910,f572])).
+fof(f2910,plain,(
+  v1_funct_1(k2_waybel_1(sK9,sK9,sK10)) | ~v1_funct_1(sK10) | ~l1_orders_2(sK9) | v3_struct_0(sK9)),
+  inference(subsumption_resolution,[],[f2909,f573])).
+fof(f2909,plain,(
+  v1_funct_1(k2_waybel_1(sK9,sK9,sK10)) | ~v1_funct_2(sK10,u1_struct_0(sK9),u1_struct_0(sK9)) | ~v1_funct_1(sK10) | ~l1_orders_2(sK9) | v3_struct_0(sK9)),
+  inference(duplicate_literal_removal,[],[f2890])).
+fof(f2890,plain,(
+  v1_funct_1(k2_waybel_1(sK9,sK9,sK10)) | ~v1_funct_2(sK10,u1_struct_0(sK9),u1_struct_0(sK9)) | ~v1_funct_1(sK10) | ~l1_orders_2(sK9) | v3_struct_0(sK9) | ~l1_orders_2(sK9) | v3_struct_0(sK9)),
+  inference(resolution,[],[f746,f1467])).
+fof(f746,plain,(
+  ( ! [X2,X0,X1] : (~m1_relset_1(X2,u1_struct_0(X0),u1_struct_0(X1)) | v1_funct_1(k2_waybel_1(X0,X1,X2)) | ~v1_funct_2(X2,u1_struct_0(X0),u1_struct_0(X1)) | ~v1_funct_1(X2) | ~l1_orders_2(X1) | v3_struct_0(X1) | ~l1_orders_2(X0) | v3_struct_0(X0)) )),
+  inference(cnf_transformation,[],[f334])).
+fof(f334,plain,(
+  ! [X0,X1,X2] : ((m2_relset_1(k2_waybel_1(X0,X1,X2),u1_struct_0(X0),u1_struct_0(k2_yellow_2(X0,X1,X2))) & v1_funct_2(k2_waybel_1(X0,X1,X2),u1_struct_0(X0),u1_struct_0(k2_yellow_2(X0,X1,X2))) & v1_funct_1(k2_waybel_1(X0,X1,X2))) | ~m1_relset_1(X2,u1_struct_0(X0),u1_struct_0(X1)) | ~v1_funct_2(X2,u1_struct_0(X0),u1_struct_0(X1)) | ~v1_funct_1(X2) | ~l1_orders_2(X1) | v3_struct_0(X1) | ~l1_orders_2(X0) | v3_struct_0(X0))),
+  inference(flattening,[],[f333])).
+fof(f333,plain,(
+  ! [X0,X1,X2] : ((m2_relset_1(k2_waybel_1(X0,X1,X2),u1_struct_0(X0),u1_struct_0(k2_yellow_2(X0,X1,X2))) & v1_funct_2(k2_waybel_1(X0,X1,X2),u1_struct_0(X0),u1_struct_0(k2_yellow_2(X0,X1,X2))) & v1_funct_1(k2_waybel_1(X0,X1,X2))) | (~m1_relset_1(X2,u1_struct_0(X0),u1_struct_0(X1)) | ~v1_funct_2(X2,u1_struct_0(X0),u1_struct_0(X1)) | ~v1_funct_1(X2) | ~l1_orders_2(X1) | v3_struct_0(X1) | ~l1_orders_2(X0) | v3_struct_0(X0)))),
+  inference(ennf_transformation,[],[f68])).
+fof(f68,axiom,(
+  ! [X0,X1,X2] : ((m1_relset_1(X2,u1_struct_0(X0),u1_struct_0(X1)) & v1_funct_2(X2,u1_struct_0(X0),u1_struct_0(X1)) & v1_funct_1(X2) & l1_orders_2(X1) & ~v3_struct_0(X1) & l1_orders_2(X0) & ~v3_struct_0(X0)) => (m2_relset_1(k2_waybel_1(X0,X1,X2),u1_struct_0(X0),u1_struct_0(k2_yellow_2(X0,X1,X2))) & v1_funct_2(k2_waybel_1(X0,X1,X2),u1_struct_0(X0),u1_struct_0(k2_yellow_2(X0,X1,X2))) & v1_funct_1(k2_waybel_1(X0,X1,X2))))),
+  file('LAT366+1.tptp',unknown)).
+fof(f7300,plain,(
+  v1_waybel34(k3_waybel_1(sK9,sK9,sK10),k2_yellow_2(sK9,sK9,sK10),sK9) | ~v22_waybel_0(k2_waybel_1(sK9,sK9,sK10),sK9,k2_yellow_2(sK9,sK9,sK10)) | ~m2_relset_1(k2_waybel_1(sK9,sK9,sK10),u1_struct_0(sK9),u1_struct_0(k2_yellow_2(sK9,sK9,sK10))) | ~v17_waybel_0(k2_waybel_1(sK9,sK9,sK10),sK9,k2_yellow_2(sK9,sK9,sK10)) | ~v1_funct_2(k2_waybel_1(sK9,sK9,sK10),u1_struct_0(sK9),u1_struct_0(k2_yellow_2(sK9,sK9,sK10))) | ~v1_funct_1(k2_waybel_1(sK9,sK9,sK10)) | ~l1_orders_2(k2_yellow_2(sK9,sK9,sK10)) | ~v3_lattice3(k2_yellow_2(sK9,sK9,sK10)) | ~v2_lattice3(k2_yellow_2(sK9,sK9,sK10)) | ~v1_lattice3(k2_yellow_2(sK9,sK9,sK10)) | ~v4_orders_2(k2_yellow_2(sK9,sK9,sK10)) | ~v3_orders_2(k2_yellow_2(sK9,sK9,sK10)) | ~v2_orders_2(k2_yellow_2(sK9,sK9,sK10)) | ~l1_orders_2(sK9) | ~v3_lattice3(sK9) | ~v2_lattice3(sK9) | ~v1_lattice3(sK9) | ~v4_orders_2(sK9) | ~v3_orders_2(sK9) | ~v2_orders_2(sK9)),
+  inference(superposition,[],[f1101,f4784])).
+fof(f4784,plain,(
+  k3_waybel_1(sK9,sK9,sK10) = k1_waybel34(sK9,k2_yellow_2(sK9,sK9,sK10),k2_waybel_1(sK9,sK9,sK10))),
+  inference(subsumption_resolution,[],[f4783,f565])).
+fof(f4783,plain,(
+  k3_waybel_1(sK9,sK9,sK10) = k1_waybel34(sK9,k2_yellow_2(sK9,sK9,sK10),k2_waybel_1(sK9,sK9,sK10)) | ~v2_orders_2(sK9)),
+  inference(subsumption_resolution,[],[f4782,f566])).
+fof(f4782,plain,(
+  k3_waybel_1(sK9,sK9,sK10) = k1_waybel34(sK9,k2_yellow_2(sK9,sK9,sK10),k2_waybel_1(sK9,sK9,sK10)) | ~v3_orders_2(sK9) | ~v2_orders_2(sK9)),
+  inference(subsumption_resolution,[],[f4781,f567])).
+fof(f4781,plain,(
+  k3_waybel_1(sK9,sK9,sK10) = k1_waybel34(sK9,k2_yellow_2(sK9,sK9,sK10),k2_waybel_1(sK9,sK9,sK10)) | ~v4_orders_2(sK9) | ~v3_orders_2(sK9) | ~v2_orders_2(sK9)),
+  inference(subsumption_resolution,[],[f4780,f568])).
+fof(f4780,plain,(
+  k3_waybel_1(sK9,sK9,sK10) = k1_waybel34(sK9,k2_yellow_2(sK9,sK9,sK10),k2_waybel_1(sK9,sK9,sK10)) | ~v1_lattice3(sK9) | ~v4_orders_2(sK9) | ~v3_orders_2(sK9) | ~v2_orders_2(sK9)),
+  inference(subsumption_resolution,[],[f4779,f569])).
+fof(f4779,plain,(
+  k3_waybel_1(sK9,sK9,sK10) = k1_waybel34(sK9,k2_yellow_2(sK9,sK9,sK10),k2_waybel_1(sK9,sK9,sK10)) | ~v2_lattice3(sK9) | ~v1_lattice3(sK9) | ~v4_orders_2(sK9) | ~v3_orders_2(sK9) | ~v2_orders_2(sK9)),
+  inference(subsumption_resolution,[],[f4778,f570])).
+fof(f4778,plain,(
+  k3_waybel_1(sK9,sK9,sK10) = k1_waybel34(sK9,k2_yellow_2(sK9,sK9,sK10),k2_waybel_1(sK9,sK9,sK10)) | ~v3_lattice3(sK9) | ~v2_lattice3(sK9) | ~v1_lattice3(sK9) | ~v4_orders_2(sK9) | ~v3_orders_2(sK9) | ~v2_orders_2(sK9)),
+  inference(subsumption_resolution,[],[f4777,f571])).
+fof(f4777,plain,(
+  k3_waybel_1(sK9,sK9,sK10) = k1_waybel34(sK9,k2_yellow_2(sK9,sK9,sK10),k2_waybel_1(sK9,sK9,sK10)) | ~l1_orders_2(sK9) | ~v3_lattice3(sK9) | ~v2_lattice3(sK9) | ~v1_lattice3(sK9) | ~v4_orders_2(sK9) | ~v3_orders_2(sK9) | ~v2_orders_2(sK9)),
+  inference(subsumption_resolution,[],[f4776,f572])).
+fof(f4776,plain,(
+  k3_waybel_1(sK9,sK9,sK10) = k1_waybel34(sK9,k2_yellow_2(sK9,sK9,sK10),k2_waybel_1(sK9,sK9,sK10)) | ~v1_funct_1(sK10) | ~l1_orders_2(sK9) | ~v3_lattice3(sK9) | ~v2_lattice3(sK9) | ~v1_lattice3(sK9) | ~v4_orders_2(sK9) | ~v3_orders_2(sK9) | ~v2_orders_2(sK9)),
+  inference(subsumption_resolution,[],[f4775,f573])).
+fof(f4775,plain,(
+  k3_waybel_1(sK9,sK9,sK10) = k1_waybel34(sK9,k2_yellow_2(sK9,sK9,sK10),k2_waybel_1(sK9,sK9,sK10)) | ~v1_funct_2(sK10,u1_struct_0(sK9),u1_struct_0(sK9)) | ~v1_funct_1(sK10) | ~l1_orders_2(sK9) | ~v3_lattice3(sK9) | ~v2_lattice3(sK9) | ~v1_lattice3(sK9) | ~v4_orders_2(sK9) | ~v3_orders_2(sK9) | ~v2_orders_2(sK9)),
+  inference(subsumption_resolution,[],[f4768,f574])).
+fof(f4768,plain,(
+  k3_waybel_1(sK9,sK9,sK10) = k1_waybel34(sK9,k2_yellow_2(sK9,sK9,sK10),k2_waybel_1(sK9,sK9,sK10)) | ~v8_waybel_1(sK10,sK9) | ~v1_funct_2(sK10,u1_struct_0(sK9),u1_struct_0(sK9)) | ~v1_funct_1(sK10) | ~l1_orders_2(sK9) | ~v3_lattice3(sK9) | ~v2_lattice3(sK9) | ~v1_lattice3(sK9) | ~v4_orders_2(sK9) | ~v3_orders_2(sK9) | ~v2_orders_2(sK9)),
+  inference(resolution,[],[f1105,f575])).
+fof(f1105,plain,(
+  ( ! [X0,X1] : (~m2_relset_1(X1,u1_struct_0(X0),u1_struct_0(X0)) | k3_waybel_1(X0,X0,X1) = k1_waybel34(X0,k2_yellow_2(X0,X0,X1),k2_waybel_1(X0,X0,X1)) | ~v8_waybel_1(X1,X0) | ~v1_funct_2(X1,u1_struct_0(X0),u1_struct_0(X0)) | ~v1_funct_1(X1) | ~l1_orders_2(X0) | ~v3_lattice3(X0) | ~v2_lattice3(X0) | ~v1_lattice3(X0) | ~v4_orders_2(X0) | ~v3_orders_2(X0) | ~v2_orders_2(X0)) )),
+  inference(cnf_transformation,[],[f438])).
+fof(f1101,plain,(
+  ( ! [X2,X0,X1] : (v1_waybel34(k1_waybel34(X0,X1,X2),X1,X0) | ~v22_waybel_0(X2,X0,X1) | ~m2_relset_1(X2,u1_struct_0(X0),u1_struct_0(X1)) | ~v17_waybel_0(X2,X0,X1) | ~v1_funct_2(X2,u1_struct_0(X0),u1_struct_0(X1)) | ~v1_funct_1(X2) | ~l1_orders_2(X1) | ~v3_lattice3(X1) | ~v2_lattice3(X1) | ~v1_lattice3(X1) | ~v4_orders_2(X1) | ~v3_orders_2(X1) | ~v2_orders_2(X1) | ~l1_orders_2(X0) | ~v3_lattice3(X0) | ~v2_lattice3(X0) | ~v1_lattice3(X0) | ~v4_orders_2(X0) | ~v3_orders_2(X0) | ~v2_orders_2(X0)) )),
+  inference(cnf_transformation,[],[f434])).
+fof(f434,plain,(
+  ! [X0] : (! [X1] : (! [X2] : (v1_waybel34(k1_waybel34(X0,X1,X2),X1,X0) | ~v22_waybel_0(X2,X0,X1) | ~m2_relset_1(X2,u1_struct_0(X0),u1_struct_0(X1)) | ~v17_waybel_0(X2,X0,X1) | ~v1_funct_2(X2,u1_struct_0(X0),u1_struct_0(X1)) | ~v1_funct_1(X2)) | ~l1_orders_2(X1) | ~v3_lattice3(X1) | ~v2_lattice3(X1) | ~v1_lattice3(X1) | ~v4_orders_2(X1) | ~v3_orders_2(X1) | ~v2_orders_2(X1)) | ~l1_orders_2(X0) | ~v3_lattice3(X0) | ~v2_lattice3(X0) | ~v1_lattice3(X0) | ~v4_orders_2(X0) | ~v3_orders_2(X0) | ~v2_orders_2(X0))),
+  inference(flattening,[],[f433])).
+fof(f433,plain,(
+  ! [X0] : (! [X1] : (! [X2] : ((v1_waybel34(k1_waybel34(X0,X1,X2),X1,X0) | ~v22_waybel_0(X2,X0,X1)) | (~m2_relset_1(X2,u1_struct_0(X0),u1_struct_0(X1)) | ~v17_waybel_0(X2,X0,X1) | ~v1_funct_2(X2,u1_struct_0(X0),u1_struct_0(X1)) | ~v1_funct_1(X2))) | (~l1_orders_2(X1) | ~v3_lattice3(X1) | ~v2_lattice3(X1) | ~v1_lattice3(X1) | ~v4_orders_2(X1) | ~v3_orders_2(X1) | ~v2_orders_2(X1))) | (~l1_orders_2(X0) | ~v3_lattice3(X0) | ~v2_lattice3(X0) | ~v1_lattice3(X0) | ~v4_orders_2(X0) | ~v3_orders_2(X0) | ~v2_orders_2(X0)))),
+  inference(ennf_transformation,[],[f148])).
+fof(f148,axiom,(
+  ! [X0] : ((l1_orders_2(X0) & v3_lattice3(X0) & v2_lattice3(X0) & v1_lattice3(X0) & v4_orders_2(X0) & v3_orders_2(X0) & v2_orders_2(X0)) => ! [X1] : ((l1_orders_2(X1) & v3_lattice3(X1) & v2_lattice3(X1) & v1_lattice3(X1) & v4_orders_2(X1) & v3_orders_2(X1) & v2_orders_2(X1)) => ! [X2] : ((m2_relset_1(X2,u1_struct_0(X0),u1_struct_0(X1)) & v17_waybel_0(X2,X0,X1) & v1_funct_2(X2,u1_struct_0(X0),u1_struct_0(X1)) & v1_funct_1(X2)) => (v22_waybel_0(X2,X0,X1) => v1_waybel34(k1_waybel34(X0,X1,X2),X1,X0)))))),
+  file('LAT366+1.tptp',unknown)).
+fof(f7113,plain,(
+  ~spl50_109 | ~spl50_110 | ~spl50_111 | spl50_112 | spl50_7 | spl50_26 | ~spl50_37 | ~spl50_39),
+  inference(avatar_split_clause,[],[f7097,f2504,f2495,f1622,f1328,f7111,f7107,f7103,f7099])).
+fof(f1622,plain,(
+  spl50_26 <=> v3_struct_0(k2_yellow_2(sK9,sK9,sK10))),
+  introduced(avatar_definition,[new_symbols(naming,[spl50_26])])).
+fof(f7097,plain,(
+  ( ! [X0] : (r1_waybel_3(sK9,k7_yellow_2(u1_struct_0(k2_yellow_2(sK9,sK9,sK10)),sK9,k3_waybel_1(sK9,sK9,sK10),X0),sK12) | ~r1_waybel_3(k2_yellow_2(sK9,sK9,sK10),X0,sK12) | ~m1_subset_1(X0,u1_struct_0(k2_yellow_2(sK9,sK9,sK10))) | ~v1_waybel34(k3_waybel_1(sK9,sK9,sK10),k2_yellow_2(sK9,sK9,sK10),sK9) | ~m2_relset_1(k3_waybel_1(sK9,sK9,sK10),u1_struct_0(k2_yellow_2(sK9,sK9,sK10)),u1_struct_0(sK9)) | ~v1_funct_2(k3_waybel_1(sK9,sK9,sK10),u1_struct_0(k2_yellow_2(sK9,sK9,sK10)),u1_struct_0(sK9))) ) | (spl50_7 | spl50_26 | ~spl50_37 | ~spl50_39)),
+  inference(subsumption_resolution,[],[f7096,f1623])).
+fof(f1623,plain,(
+  ~v3_struct_0(k2_yellow_2(sK9,sK9,sK10)) | spl50_26),
+  inference(avatar_component_clause,[],[f1622])).
+fof(f7096,plain,(
+  ( ! [X0] : (r1_waybel_3(sK9,k7_yellow_2(u1_struct_0(k2_yellow_2(sK9,sK9,sK10)),sK9,k3_waybel_1(sK9,sK9,sK10),X0),sK12) | ~r1_waybel_3(k2_yellow_2(sK9,sK9,sK10),X0,sK12) | ~m1_subset_1(X0,u1_struct_0(k2_yellow_2(sK9,sK9,sK10))) | ~v1_waybel34(k3_waybel_1(sK9,sK9,sK10),k2_yellow_2(sK9,sK9,sK10),sK9) | ~m2_relset_1(k3_waybel_1(sK9,sK9,sK10),u1_struct_0(k2_yellow_2(sK9,sK9,sK10)),u1_struct_0(sK9)) | ~v1_funct_2(k3_waybel_1(sK9,sK9,sK10),u1_struct_0(k2_yellow_2(sK9,sK9,sK10)),u1_struct_0(sK9)) | v3_struct_0(k2_yellow_2(sK9,sK9,sK10))) ) | (spl50_7 | ~spl50_37 | ~spl50_39)),
+  inference(subsumption_resolution,[],[f7095,f2505])).
+fof(f7095,plain,(
+  ( ! [X0] : (r1_waybel_3(sK9,k7_yellow_2(u1_struct_0(k2_yellow_2(sK9,sK9,sK10)),sK9,k3_waybel_1(sK9,sK9,sK10),X0),sK12) | ~r1_waybel_3(k2_yellow_2(sK9,sK9,sK10),X0,sK12) | ~m1_subset_1(X0,u1_struct_0(k2_yellow_2(sK9,sK9,sK10))) | ~v1_waybel34(k3_waybel_1(sK9,sK9,sK10),k2_yellow_2(sK9,sK9,sK10),sK9) | ~m2_relset_1(k3_waybel_1(sK9,sK9,sK10),u1_struct_0(k2_yellow_2(sK9,sK9,sK10)),u1_struct_0(sK9)) | ~v1_funct_2(k3_waybel_1(sK9,sK9,sK10),u1_struct_0(k2_yellow_2(sK9,sK9,sK10)),u1_struct_0(sK9)) | ~v2_orders_2(k2_yellow_2(sK9,sK9,sK10)) | v3_struct_0(k2_yellow_2(sK9,sK9,sK10))) ) | (spl50_7 | ~spl50_37)),
+  inference(subsumption_resolution,[],[f7094,f2496])).
+fof(f7094,plain,(
+  ( ! [X0] : (r1_waybel_3(sK9,k7_yellow_2(u1_struct_0(k2_yellow_2(sK9,sK9,sK10)),sK9,k3_waybel_1(sK9,sK9,sK10),X0),sK12) | ~r1_waybel_3(k2_yellow_2(sK9,sK9,sK10),X0,sK12) | ~m1_subset_1(X0,u1_struct_0(k2_yellow_2(sK9,sK9,sK10))) | ~v1_waybel34(k3_waybel_1(sK9,sK9,sK10),k2_yellow_2(sK9,sK9,sK10),sK9) | ~m2_relset_1(k3_waybel_1(sK9,sK9,sK10),u1_struct_0(k2_yellow_2(sK9,sK9,sK10)),u1_struct_0(sK9)) | ~v1_funct_2(k3_waybel_1(sK9,sK9,sK10),u1_struct_0(k2_yellow_2(sK9,sK9,sK10)),u1_struct_0(sK9)) | ~l1_orders_2(k2_yellow_2(sK9,sK9,sK10)) | ~v2_orders_2(k2_yellow_2(sK9,sK9,sK10)) | v3_struct_0(k2_yellow_2(sK9,sK9,sK10))) ) | spl50_7),
+  inference(subsumption_resolution,[],[f7093,f1329])).
+fof(f7093,plain,(
+  ( ! [X0] : (r1_waybel_3(sK9,k7_yellow_2(u1_struct_0(k2_yellow_2(sK9,sK9,sK10)),sK9,k3_waybel_1(sK9,sK9,sK10),X0),sK12) | ~r1_waybel_3(k2_yellow_2(sK9,sK9,sK10),X0,sK12) | ~m1_subset_1(X0,u1_struct_0(k2_yellow_2(sK9,sK9,sK10))) | ~v1_waybel34(k3_waybel_1(sK9,sK9,sK10),k2_yellow_2(sK9,sK9,sK10),sK9) | ~m2_relset_1(k3_waybel_1(sK9,sK9,sK10),u1_struct_0(k2_yellow_2(sK9,sK9,sK10)),u1_struct_0(sK9)) | ~v1_funct_2(k3_waybel_1(sK9,sK9,sK10),u1_struct_0(k2_yellow_2(sK9,sK9,sK10)),u1_struct_0(sK9)) | v3_struct_0(sK9) | ~l1_orders_2(k2_yellow_2(sK9,sK9,sK10)) | ~v2_orders_2(k2_yellow_2(sK9,sK9,sK10)) | v3_struct_0(k2_yellow_2(sK9,sK9,sK10))) ) | spl50_7),
+  inference(subsumption_resolution,[],[f7092,f565])).
+fof(f7092,plain,(
+  ( ! [X0] : (r1_waybel_3(sK9,k7_yellow_2(u1_struct_0(k2_yellow_2(sK9,sK9,sK10)),sK9,k3_waybel_1(sK9,sK9,sK10),X0),sK12) | ~r1_waybel_3(k2_yellow_2(sK9,sK9,sK10),X0,sK12) | ~m1_subset_1(X0,u1_struct_0(k2_yellow_2(sK9,sK9,sK10))) | ~v1_waybel34(k3_waybel_1(sK9,sK9,sK10),k2_yellow_2(sK9,sK9,sK10),sK9) | ~m2_relset_1(k3_waybel_1(sK9,sK9,sK10),u1_struct_0(k2_yellow_2(sK9,sK9,sK10)),u1_struct_0(sK9)) | ~v1_funct_2(k3_waybel_1(sK9,sK9,sK10),u1_struct_0(k2_yellow_2(sK9,sK9,sK10)),u1_struct_0(sK9)) | ~v2_orders_2(sK9) | v3_struct_0(sK9) | ~l1_orders_2(k2_yellow_2(sK9,sK9,sK10)) | ~v2_orders_2(k2_yellow_2(sK9,sK9,sK10)) | v3_struct_0(k2_yellow_2(sK9,sK9,sK10))) ) | spl50_7),
+  inference(subsumption_resolution,[],[f7091,f571])).
+fof(f7091,plain,(
+  ( ! [X0] : (r1_waybel_3(sK9,k7_yellow_2(u1_struct_0(k2_yellow_2(sK9,sK9,sK10)),sK9,k3_waybel_1(sK9,sK9,sK10),X0),sK12) | ~r1_waybel_3(k2_yellow_2(sK9,sK9,sK10),X0,sK12) | ~m1_subset_1(X0,u1_struct_0(k2_yellow_2(sK9,sK9,sK10))) | ~v1_waybel34(k3_waybel_1(sK9,sK9,sK10),k2_yellow_2(sK9,sK9,sK10),sK9) | ~m2_relset_1(k3_waybel_1(sK9,sK9,sK10),u1_struct_0(k2_yellow_2(sK9,sK9,sK10)),u1_struct_0(sK9)) | ~v1_funct_2(k3_waybel_1(sK9,sK9,sK10),u1_struct_0(k2_yellow_2(sK9,sK9,sK10)),u1_struct_0(sK9)) | ~l1_orders_2(sK9) | ~v2_orders_2(sK9) | v3_struct_0(sK9) | ~l1_orders_2(k2_yellow_2(sK9,sK9,sK10)) | ~v2_orders_2(k2_yellow_2(sK9,sK9,sK10)) | v3_struct_0(k2_yellow_2(sK9,sK9,sK10))) ) | spl50_7),
+  inference(subsumption_resolution,[],[f7090,f2990])).
+fof(f7090,plain,(
+  ( ! [X0] : (r1_waybel_3(sK9,k7_yellow_2(u1_struct_0(k2_yellow_2(sK9,sK9,sK10)),sK9,k3_waybel_1(sK9,sK9,sK10),X0),sK12) | ~r1_waybel_3(k2_yellow_2(sK9,sK9,sK10),X0,sK12) | ~m1_subset_1(X0,u1_struct_0(k2_yellow_2(sK9,sK9,sK10))) | ~v1_waybel34(k3_waybel_1(sK9,sK9,sK10),k2_yellow_2(sK9,sK9,sK10),sK9) | ~m2_relset_1(k3_waybel_1(sK9,sK9,sK10),u1_struct_0(k2_yellow_2(sK9,sK9,sK10)),u1_struct_0(sK9)) | ~v1_funct_2(k3_waybel_1(sK9,sK9,sK10),u1_struct_0(k2_yellow_2(sK9,sK9,sK10)),u1_struct_0(sK9)) | ~v1_funct_1(k3_waybel_1(sK9,sK9,sK10)) | ~l1_orders_2(sK9) | ~v2_orders_2(sK9) | v3_struct_0(sK9) | ~l1_orders_2(k2_yellow_2(sK9,sK9,sK10)) | ~v2_orders_2(k2_yellow_2(sK9,sK9,sK10)) | v3_struct_0(k2_yellow_2(sK9,sK9,sK10))) ) | spl50_7),
+  inference(subsumption_resolution,[],[f7087,f1131])).
+fof(f7087,plain,(
+  ( ! [X0] : (r1_waybel_3(sK9,k7_yellow_2(u1_struct_0(k2_yellow_2(sK9,sK9,sK10)),sK9,k3_waybel_1(sK9,sK9,sK10),X0),sK12) | ~r1_waybel_3(k2_yellow_2(sK9,sK9,sK10),X0,sK12) | ~m1_subset_1(sK12,u1_struct_0(k2_yellow_2(sK9,sK9,sK10))) | ~m1_subset_1(X0,u1_struct_0(k2_yellow_2(sK9,sK9,sK10))) | ~v1_waybel34(k3_waybel_1(sK9,sK9,sK10),k2_yellow_2(sK9,sK9,sK10),sK9) | ~m2_relset_1(k3_waybel_1(sK9,sK9,sK10),u1_struct_0(k2_yellow_2(sK9,sK9,sK10)),u1_struct_0(sK9)) | ~v1_funct_2(k3_waybel_1(sK9,sK9,sK10),u1_struct_0(k2_yellow_2(sK9,sK9,sK10)),u1_struct_0(sK9)) | ~v1_funct_1(k3_waybel_1(sK9,sK9,sK10)) | ~l1_orders_2(sK9) | ~v2_orders_2(sK9) | v3_struct_0(sK9) | ~l1_orders_2(k2_yellow_2(sK9,sK9,sK10)) | ~v2_orders_2(k2_yellow_2(sK9,sK9,sK10)) | v3_struct_0(k2_yellow_2(sK9,sK9,sK10))) ) | spl50_7),
+  inference(superposition,[],[f733,f4744])).
+fof(f4744,plain,(
+  sK12 = k7_yellow_2(u1_struct_0(k2_yellow_2(sK9,sK9,sK10)),sK9,k3_waybel_1(sK9,sK9,sK10),sK12) | spl50_7),
+  inference(subsumption_resolution,[],[f4743,f1329])).
+fof(f4743,plain,(
+  sK12 = k7_yellow_2(u1_struct_0(k2_yellow_2(sK9,sK9,sK10)),sK9,k3_waybel_1(sK9,sK9,sK10),sK12) | v3_struct_0(sK9)),
+  inference(subsumption_resolution,[],[f4742,f571])).
+fof(f4742,plain,(
+  sK12 = k7_yellow_2(u1_struct_0(k2_yellow_2(sK9,sK9,sK10)),sK9,k3_waybel_1(sK9,sK9,sK10),sK12) | ~l1_orders_2(sK9) | v3_struct_0(sK9)),
+  inference(subsumption_resolution,[],[f4741,f572])).
+fof(f4741,plain,(
+  sK12 = k7_yellow_2(u1_struct_0(k2_yellow_2(sK9,sK9,sK10)),sK9,k3_waybel_1(sK9,sK9,sK10),sK12) | ~v1_funct_1(sK10) | ~l1_orders_2(sK9) | v3_struct_0(sK9)),
+  inference(subsumption_resolution,[],[f4740,f573])).
+fof(f4740,plain,(
+  sK12 = k7_yellow_2(u1_struct_0(k2_yellow_2(sK9,sK9,sK10)),sK9,k3_waybel_1(sK9,sK9,sK10),sK12) | ~v1_funct_2(sK10,u1_struct_0(sK9),u1_struct_0(sK9)) | ~v1_funct_1(sK10) | ~l1_orders_2(sK9) | v3_struct_0(sK9)),
+  inference(subsumption_resolution,[],[f4739,f575])).
+fof(f4739,plain,(
+  sK12 = k7_yellow_2(u1_struct_0(k2_yellow_2(sK9,sK9,sK10)),sK9,k3_waybel_1(sK9,sK9,sK10),sK12) | ~m2_relset_1(sK10,u1_struct_0(sK9),u1_struct_0(sK9)) | ~v1_funct_2(sK10,u1_struct_0(sK9),u1_struct_0(sK9)) | ~v1_funct_1(sK10) | ~l1_orders_2(sK9) | v3_struct_0(sK9)),
+  inference(duplicate_literal_removal,[],[f4732])).
+fof(f4732,plain,(
+  sK12 = k7_yellow_2(u1_struct_0(k2_yellow_2(sK9,sK9,sK10)),sK9,k3_waybel_1(sK9,sK9,sK10),sK12) | ~m2_relset_1(sK10,u1_struct_0(sK9),u1_struct_0(sK9)) | ~v1_funct_2(sK10,u1_struct_0(sK9),u1_struct_0(sK9)) | ~v1_funct_1(sK10) | ~l1_orders_2(sK9) | v3_struct_0(sK9) | ~l1_orders_2(sK9) | v3_struct_0(sK9)),
+  inference(resolution,[],[f1109,f1131])).
+fof(f733,plain,(
+  ( ! [X6,X2,X0,X5,X1] : (r1_waybel_3(X1,k7_yellow_2(u1_struct_0(X0),X1,X2,X5),k7_yellow_2(u1_struct_0(X0),X1,X2,X6)) | ~r1_waybel_3(X0,X5,X6) | ~m1_subset_1(X6,u1_struct_0(X0)) | ~m1_subset_1(X5,u1_struct_0(X0)) | ~v1_waybel34(X2,X0,X1) | ~m2_relset_1(X2,u1_struct_0(X0),u1_struct_0(X1)) | ~v1_funct_2(X2,u1_struct_0(X0),u1_struct_0(X1)) | ~v1_funct_1(X2) | ~l1_orders_2(X1) | ~v2_orders_2(X1) | v3_struct_0(X1) | ~l1_orders_2(X0) | ~v2_orders_2(X0) | v3_struct_0(X0)) )),
+  inference(cnf_transformation,[],[f487])).
+fof(f487,plain,(
+  ! [X0] : (! [X1] : (! [X2] : (((v1_waybel34(X2,X0,X1) | ((~r1_waybel_3(X1,k7_yellow_2(u1_struct_0(X0),X1,X2,sK15(X0,X1,X2)),k7_yellow_2(u1_struct_0(X0),X1,X2,sK16(X0,X1,X2))) & r1_waybel_3(X0,sK15(X0,X1,X2),sK16(X0,X1,X2)) & m1_subset_1(sK16(X0,X1,X2),u1_struct_0(X0))) & m1_subset_1(sK15(X0,X1,X2),u1_struct_0(X0)))) & (! [X5] : (! [X6] : (r1_waybel_3(X1,k7_yellow_2(u1_struct_0(X0),X1,X2,X5),k7_yellow_2(u1_struct_0(X0),X1,X2,X6)) | ~r1_waybel_3(X0,X5,X6) | ~m1_subset_1(X6,u1_struct_0(X0))) | ~m1_subset_1(X5,u1_struct_0(X0))) | ~v1_waybel34(X2,X0,X1))) | ~m2_relset_1(X2,u1_struct_0(X0),u1_struct_0(X1)) | ~v1_funct_2(X2,u1_struct_0(X0),u1_struct_0(X1)) | ~v1_funct_1(X2)) | ~l1_orders_2(X1) | ~v2_orders_2(X1) | v3_struct_0(X1)) | ~l1_orders_2(X0) | ~v2_orders_2(X0) | v3_struct_0(X0))),
+  inference(skolemisation,[status(esa),new_symbols(skolem,[sK15,sK16])],[f484,f486,f485])).
+fof(f485,plain,(
+  ! [X2,X1,X0] : (? [X3] : (? [X4] : (~r1_waybel_3(X1,k7_yellow_2(u1_struct_0(X0),X1,X2,X3),k7_yellow_2(u1_struct_0(X0),X1,X2,X4)) & r1_waybel_3(X0,X3,X4) & m1_subset_1(X4,u1_struct_0(X0))) & m1_subset_1(X3,u1_struct_0(X0))) => (? [X4] : (~r1_waybel_3(X1,k7_yellow_2(u1_struct_0(X0),X1,X2,sK15(X0,X1,X2)),k7_yellow_2(u1_struct_0(X0),X1,X2,X4)) & r1_waybel_3(X0,sK15(X0,X1,X2),X4) & m1_subset_1(X4,u1_struct_0(X0))) & m1_subset_1(sK15(X0,X1,X2),u1_struct_0(X0))))),
+  introduced(choice_axiom,[])).
+fof(f486,plain,(
+  ! [X2,X1,X0] : (? [X4] : (~r1_waybel_3(X1,k7_yellow_2(u1_struct_0(X0),X1,X2,sK15(X0,X1,X2)),k7_yellow_2(u1_struct_0(X0),X1,X2,X4)) & r1_waybel_3(X0,sK15(X0,X1,X2),X4) & m1_subset_1(X4,u1_struct_0(X0))) => (~r1_waybel_3(X1,k7_yellow_2(u1_struct_0(X0),X1,X2,sK15(X0,X1,X2)),k7_yellow_2(u1_struct_0(X0),X1,X2,sK16(X0,X1,X2))) & r1_waybel_3(X0,sK15(X0,X1,X2),sK16(X0,X1,X2)) & m1_subset_1(sK16(X0,X1,X2),u1_struct_0(X0))))),
+  introduced(choice_axiom,[])).
+fof(f484,plain,(
+  ! [X0] : (! [X1] : (! [X2] : (((v1_waybel34(X2,X0,X1) | ? [X3] : (? [X4] : (~r1_waybel_3(X1,k7_yellow_2(u1_struct_0(X0),X1,X2,X3),k7_yellow_2(u1_struct_0(X0),X1,X2,X4)) & r1_waybel_3(X0,X3,X4) & m1_subset_1(X4,u1_struct_0(X0))) & m1_subset_1(X3,u1_struct_0(X0)))) & (! [X5] : (! [X6] : (r1_waybel_3(X1,k7_yellow_2(u1_struct_0(X0),X1,X2,X5),k7_yellow_2(u1_struct_0(X0),X1,X2,X6)) | ~r1_waybel_3(X0,X5,X6) | ~m1_subset_1(X6,u1_struct_0(X0))) | ~m1_subset_1(X5,u1_struct_0(X0))) | ~v1_waybel34(X2,X0,X1))) | ~m2_relset_1(X2,u1_struct_0(X0),u1_struct_0(X1)) | ~v1_funct_2(X2,u1_struct_0(X0),u1_struct_0(X1)) | ~v1_funct_1(X2)) | ~l1_orders_2(X1) | ~v2_orders_2(X1) | v3_struct_0(X1)) | ~l1_orders_2(X0) | ~v2_orders_2(X0) | v3_struct_0(X0))),
+  inference(rectify,[],[f483])).
+fof(f483,plain,(
+  ! [X0] : (! [X1] : (! [X2] : (((v1_waybel34(X2,X0,X1) | ? [X3] : (? [X4] : (~r1_waybel_3(X1,k7_yellow_2(u1_struct_0(X0),X1,X2,X3),k7_yellow_2(u1_struct_0(X0),X1,X2,X4)) & r1_waybel_3(X0,X3,X4) & m1_subset_1(X4,u1_struct_0(X0))) & m1_subset_1(X3,u1_struct_0(X0)))) & (! [X3] : (! [X4] : (r1_waybel_3(X1,k7_yellow_2(u1_struct_0(X0),X1,X2,X3),k7_yellow_2(u1_struct_0(X0),X1,X2,X4)) | ~r1_waybel_3(X0,X3,X4) | ~m1_subset_1(X4,u1_struct_0(X0))) | ~m1_subset_1(X3,u1_struct_0(X0))) | ~v1_waybel34(X2,X0,X1))) | ~m2_relset_1(X2,u1_struct_0(X0),u1_struct_0(X1)) | ~v1_funct_2(X2,u1_struct_0(X0),u1_struct_0(X1)) | ~v1_funct_1(X2)) | ~l1_orders_2(X1) | ~v2_orders_2(X1) | v3_struct_0(X1)) | ~l1_orders_2(X0) | ~v2_orders_2(X0) | v3_struct_0(X0))),
+  inference(nnf_transformation,[],[f327])).
+fof(f327,plain,(
+  ! [X0] : (! [X1] : (! [X2] : ((v1_waybel34(X2,X0,X1) <=> ! [X3] : (! [X4] : (r1_waybel_3(X1,k7_yellow_2(u1_struct_0(X0),X1,X2,X3),k7_yellow_2(u1_struct_0(X0),X1,X2,X4)) | ~r1_waybel_3(X0,X3,X4) | ~m1_subset_1(X4,u1_struct_0(X0))) | ~m1_subset_1(X3,u1_struct_0(X0)))) | ~m2_relset_1(X2,u1_struct_0(X0),u1_struct_0(X1)) | ~v1_funct_2(X2,u1_struct_0(X0),u1_struct_0(X1)) | ~v1_funct_1(X2)) | ~l1_orders_2(X1) | ~v2_orders_2(X1) | v3_struct_0(X1)) | ~l1_orders_2(X0) | ~v2_orders_2(X0) | v3_struct_0(X0))),
+  inference(flattening,[],[f326])).
+fof(f326,plain,(
+  ! [X0] : (! [X1] : (! [X2] : ((v1_waybel34(X2,X0,X1) <=> ! [X3] : (! [X4] : ((r1_waybel_3(X1,k7_yellow_2(u1_struct_0(X0),X1,X2,X3),k7_yellow_2(u1_struct_0(X0),X1,X2,X4)) | ~r1_waybel_3(X0,X3,X4)) | ~m1_subset_1(X4,u1_struct_0(X0))) | ~m1_subset_1(X3,u1_struct_0(X0)))) | (~m2_relset_1(X2,u1_struct_0(X0),u1_struct_0(X1)) | ~v1_funct_2(X2,u1_struct_0(X0),u1_struct_0(X1)) | ~v1_funct_1(X2))) | (~l1_orders_2(X1) | ~v2_orders_2(X1) | v3_struct_0(X1))) | (~l1_orders_2(X0) | ~v2_orders_2(X0) | v3_struct_0(X0)))),
+  inference(ennf_transformation,[],[f61])).
+fof(f61,axiom,(
+  ! [X0] : ((l1_orders_2(X0) & v2_orders_2(X0) & ~v3_struct_0(X0)) => ! [X1] : ((l1_orders_2(X1) & v2_orders_2(X1) & ~v3_struct_0(X1)) => ! [X2] : ((m2_relset_1(X2,u1_struct_0(X0),u1_struct_0(X1)) & v1_funct_2(X2,u1_struct_0(X0),u1_struct_0(X1)) & v1_funct_1(X2)) => (v1_waybel34(X2,X0,X1) <=> ! [X3] : (m1_subset_1(X3,u1_struct_0(X0)) => ! [X4] : (m1_subset_1(X4,u1_struct_0(X0)) => (r1_waybel_3(X0,X3,X4) => r1_waybel_3(X1,k7_yellow_2(u1_struct_0(X0),X1,X2,X3),k7_yellow_2(u1_struct_0(X0),X1,X2,X4)))))))))),
+  file('LAT366+1.tptp',unknown)).
+fof(f4763,plain,(
+  spl50_73 | spl50_7 | ~spl50_72),
+  inference(avatar_split_clause,[],[f4762,f3246,f1328,f3250])).
+fof(f3250,plain,(
+  spl50_73 <=> v6_yellow_0(k2_yellow_2(sK9,sK9,sK10),sK9)),
+  introduced(avatar_definition,[new_symbols(naming,[spl50_73])])).
+fof(f4762,plain,(
+  v6_yellow_0(k2_yellow_2(sK9,sK9,sK10),sK9) | (spl50_7 | ~spl50_72)),
+  inference(subsumption_resolution,[],[f4761,f1329])).
+fof(f4761,plain,(
+  v6_yellow_0(k2_yellow_2(sK9,sK9,sK10),sK9) | v3_struct_0(sK9) | (spl50_7 | ~spl50_72)),
+  inference(subsumption_resolution,[],[f4760,f571])).
+fof(f4760,plain,(
+  v6_yellow_0(k2_yellow_2(sK9,sK9,sK10),sK9) | ~l1_orders_2(sK9) | v3_struct_0(sK9) | (spl50_7 | ~spl50_72)),
+  inference(subsumption_resolution,[],[f4754,f3247])).
+fof(f4754,plain,(
+  v6_yellow_0(k2_yellow_2(sK9,sK9,sK10),sK9) | ~m1_yellow_0(k2_yellow_2(sK9,sK9,sK10),sK9) | ~l1_orders_2(sK9) | v3_struct_0(sK9) | spl50_7),
+  inference(resolution,[],[f3968,f591])).
+fof(f591,plain,(
+  ( ! [X0,X1] : (~v8_yellow_0(X1,X0) | v6_yellow_0(X1,X0) | ~m1_yellow_0(X1,X0) | ~l1_orders_2(X0) | v3_struct_0(X0)) )),
+  inference(cnf_transformation,[],[f245])).
+fof(f245,plain,(
+  ! [X0] : (! [X1] : (v6_yellow_0(X1,X0) | ~v8_yellow_0(X1,X0) | ~m1_yellow_0(X1,X0)) | ~l1_orders_2(X0) | v3_struct_0(X0))),
+  inference(flattening,[],[f244])).
+fof(f244,plain,(
+  ! [X0] : (! [X1] : ((v6_yellow_0(X1,X0) | ~v8_yellow_0(X1,X0)) | ~m1_yellow_0(X1,X0)) | (~l1_orders_2(X0) | v3_struct_0(X0)))),
+  inference(ennf_transformation,[],[f7])).
+fof(f7,axiom,(
+  ! [X0] : ((l1_orders_2(X0) & ~v3_struct_0(X0)) => ! [X1] : (m1_yellow_0(X1,X0) => (v8_yellow_0(X1,X0) => v6_yellow_0(X1,X0))))),
+  file('LAT366+1.tptp',unknown)).
+fof(f4210,plain,(
+  ~spl50_70 | spl50_75),
+  inference(avatar_contradiction_clause,[],[f4209])).
+fof(f4209,plain,(
+  $false | (~spl50_70 | spl50_75)),
+  inference(subsumption_resolution,[],[f4208,f565])).
+fof(f4208,plain,(
+  ~v2_orders_2(sK9) | (~spl50_70 | spl50_75)),
+  inference(subsumption_resolution,[],[f4207,f566])).
+fof(f4207,plain,(
+  ~v3_orders_2(sK9) | ~v2_orders_2(sK9) | (~spl50_70 | spl50_75)),
+  inference(subsumption_resolution,[],[f4206,f567])).
+fof(f4206,plain,(
+  ~v4_orders_2(sK9) | ~v3_orders_2(sK9) | ~v2_orders_2(sK9) | (~spl50_70 | spl50_75)),
+  inference(subsumption_resolution,[],[f4205,f568])).
+fof(f4205,plain,(
+  ~v1_lattice3(sK9) | ~v4_orders_2(sK9) | ~v3_orders_2(sK9) | ~v2_orders_2(sK9) | (~spl50_70 | spl50_75)),
+  inference(subsumption_resolution,[],[f4204,f569])).
+fof(f4204,plain,(
+  ~v2_lattice3(sK9) | ~v1_lattice3(sK9) | ~v4_orders_2(sK9) | ~v3_orders_2(sK9) | ~v2_orders_2(sK9) | (~spl50_70 | spl50_75)),
+  inference(subsumption_resolution,[],[f4203,f570])).
+fof(f4203,plain,(
+  ~v3_lattice3(sK9) | ~v2_lattice3(sK9) | ~v1_lattice3(sK9) | ~v4_orders_2(sK9) | ~v3_orders_2(sK9) | ~v2_orders_2(sK9) | (~spl50_70 | spl50_75)),
+  inference(subsumption_resolution,[],[f4202,f571])).
+fof(f4202,plain,(
+  ~l1_orders_2(sK9) | ~v3_lattice3(sK9) | ~v2_lattice3(sK9) | ~v1_lattice3(sK9) | ~v4_orders_2(sK9) | ~v3_orders_2(sK9) | ~v2_orders_2(sK9) | (~spl50_70 | spl50_75)),
+  inference(subsumption_resolution,[],[f4201,f572])).
+fof(f4201,plain,(
+  ~v1_funct_1(sK10) | ~l1_orders_2(sK9) | ~v3_lattice3(sK9) | ~v2_lattice3(sK9) | ~v1_lattice3(sK9) | ~v4_orders_2(sK9) | ~v3_orders_2(sK9) | ~v2_orders_2(sK9) | (~spl50_70 | spl50_75)),
+  inference(subsumption_resolution,[],[f4200,f573])).
+fof(f4200,plain,(
+  ~v1_funct_2(sK10,u1_struct_0(sK9),u1_struct_0(sK9)) | ~v1_funct_1(sK10) | ~l1_orders_2(sK9) | ~v3_lattice3(sK9) | ~v2_lattice3(sK9) | ~v1_lattice3(sK9) | ~v4_orders_2(sK9) | ~v3_orders_2(sK9) | ~v2_orders_2(sK9) | (~spl50_70 | spl50_75)),
+  inference(subsumption_resolution,[],[f4199,f2714])).
+fof(f2714,plain,(
+  v6_waybel_1(sK10,sK9) | ~spl50_70),
+  inference(avatar_component_clause,[],[f2713])).
+fof(f2713,plain,(
+  spl50_70 <=> v6_waybel_1(sK10,sK9)),
+  introduced(avatar_definition,[new_symbols(naming,[spl50_70])])).
+fof(f4199,plain,(
+  ~v6_waybel_1(sK10,sK9) | ~v1_funct_2(sK10,u1_struct_0(sK9),u1_struct_0(sK9)) | ~v1_funct_1(sK10) | ~l1_orders_2(sK9) | ~v3_lattice3(sK9) | ~v2_lattice3(sK9) | ~v1_lattice3(sK9) | ~v4_orders_2(sK9) | ~v3_orders_2(sK9) | ~v2_orders_2(sK9) | spl50_75),
+  inference(subsumption_resolution,[],[f4181,f3535])).
+fof(f3535,plain,(
+  ~sP2(sK10,sK9) | spl50_75),
+  inference(resolution,[],[f3350,f791])).
+fof(f791,plain,(
+  ( ! [X0,X1] : (v3_lattice3(k2_yellow_2(X1,X1,X0)) | ~sP2(X0,X1)) )),
+  inference(cnf_transformation,[],[f501])).
+fof(f501,plain,(
+  ! [X0,X1] : ((v3_lattice3(k2_yellow_2(X1,X1,X0)) & v2_lattice3(k2_yellow_2(X1,X1,X0)) & v1_lattice3(k2_yellow_2(X1,X1,X0)) & v25_waybel_0(k2_yellow_2(X1,X1,X0)) & v24_waybel_0(k2_yellow_2(X1,X1,X0)) & v4_yellow_0(k2_yellow_2(X1,X1,X0),X1) & v3_yellow_0(k2_yellow_2(X1,X1,X0)) & v2_yellow_0(k2_yellow_2(X1,X1,X0)) & v1_yellow_0(k2_yellow_2(X1,X1,X0)) & v4_orders_2(k2_yellow_2(X1,X1,X0)) & v3_orders_2(k2_yellow_2(X1,X1,X0)) & v2_orders_2(k2_yellow_2(X1,X1,X0)) & v1_orders_2(k2_yellow_2(X1,X1,X0)) & ~v3_struct_0(k2_yellow_2(X1,X1,X0))) | ~sP2(X0,X1))),
+  inference(rectify,[],[f500])).
+fof(f500,plain,(
+  ! [X1,X0] : ((v3_lattice3(k2_yellow_2(X0,X0,X1)) & v2_lattice3(k2_yellow_2(X0,X0,X1)) & v1_lattice3(k2_yellow_2(X0,X0,X1)) & v25_waybel_0(k2_yellow_2(X0,X0,X1)) & v24_waybel_0(k2_yellow_2(X0,X0,X1)) & v4_yellow_0(k2_yellow_2(X0,X0,X1),X0) & v3_yellow_0(k2_yellow_2(X0,X0,X1)) & v2_yellow_0(k2_yellow_2(X0,X0,X1)) & v1_yellow_0(k2_yellow_2(X0,X0,X1)) & v4_orders_2(k2_yellow_2(X0,X0,X1)) & v3_orders_2(k2_yellow_2(X0,X0,X1)) & v2_orders_2(k2_yellow_2(X0,X0,X1)) & v1_orders_2(k2_yellow_2(X0,X0,X1)) & ~v3_struct_0(k2_yellow_2(X0,X0,X1))) | ~sP2(X1,X0))),
+  inference(nnf_transformation,[],[f458])).
+fof(f458,plain,(
+  ! [X1,X0] : ((v3_lattice3(k2_yellow_2(X0,X0,X1)) & v2_lattice3(k2_yellow_2(X0,X0,X1)) & v1_lattice3(k2_yellow_2(X0,X0,X1)) & v25_waybel_0(k2_yellow_2(X0,X0,X1)) & v24_waybel_0(k2_yellow_2(X0,X0,X1)) & v4_yellow_0(k2_yellow_2(X0,X0,X1),X0) & v3_yellow_0(k2_yellow_2(X0,X0,X1)) & v2_yellow_0(k2_yellow_2(X0,X0,X1)) & v1_yellow_0(k2_yellow_2(X0,X0,X1)) & v4_orders_2(k2_yellow_2(X0,X0,X1)) & v3_orders_2(k2_yellow_2(X0,X0,X1)) & v2_orders_2(k2_yellow_2(X0,X0,X1)) & v1_orders_2(k2_yellow_2(X0,X0,X1)) & ~v3_struct_0(k2_yellow_2(X0,X0,X1))) | ~sP2(X1,X0))),
+  introduced(predicate_definition_introduction,[new_symbols(naming,[sP2])])).
+fof(f3350,plain,(
+  ~v3_lattice3(k2_yellow_2(sK9,sK9,sK10)) | spl50_75),
+  inference(avatar_component_clause,[],[f3348])).
+fof(f4181,plain,(
+  sP2(sK10,sK9) | ~v6_waybel_1(sK10,sK9) | ~v1_funct_2(sK10,u1_struct_0(sK9),u1_struct_0(sK9)) | ~v1_funct_1(sK10) | ~l1_orders_2(sK9) | ~v3_lattice3(sK9) | ~v2_lattice3(sK9) | ~v1_lattice3(sK9) | ~v4_orders_2(sK9) | ~v3_orders_2(sK9) | ~v2_orders_2(sK9)),
+  inference(resolution,[],[f792,f1467])).
+fof(f792,plain,(
+  ( ! [X0,X1] : (~m1_relset_1(X1,u1_struct_0(X0),u1_struct_0(X0)) | sP2(X1,X0) | ~v6_waybel_1(X1,X0) | ~v1_funct_2(X1,u1_struct_0(X0),u1_struct_0(X0)) | ~v1_funct_1(X1) | ~l1_orders_2(X0) | ~v3_lattice3(X0) | ~v2_lattice3(X0) | ~v1_lattice3(X0) | ~v4_orders_2(X0) | ~v3_orders_2(X0) | ~v2_orders_2(X0)) )),
+  inference(cnf_transformation,[],[f459])).
+fof(f459,plain,(
+  ! [X0,X1] : (sP2(X1,X0) | ~m1_relset_1(X1,u1_struct_0(X0),u1_struct_0(X0)) | ~v6_waybel_1(X1,X0) | ~v1_funct_2(X1,u1_struct_0(X0),u1_struct_0(X0)) | ~v1_funct_1(X1) | ~l1_orders_2(X0) | ~v3_lattice3(X0) | ~v2_lattice3(X0) | ~v1_lattice3(X0) | ~v4_orders_2(X0) | ~v3_orders_2(X0) | ~v2_orders_2(X0))),
+  inference(definition_folding,[],[f351,f458])).
+fof(f351,plain,(
+  ! [X0,X1] : ((v3_lattice3(k2_yellow_2(X0,X0,X1)) & v2_lattice3(k2_yellow_2(X0,X0,X1)) & v1_lattice3(k2_yellow_2(X0,X0,X1)) & v25_waybel_0(k2_yellow_2(X0,X0,X1)) & v24_waybel_0(k2_yellow_2(X0,X0,X1)) & v4_yellow_0(k2_yellow_2(X0,X0,X1),X0) & v3_yellow_0(k2_yellow_2(X0,X0,X1)) & v2_yellow_0(k2_yellow_2(X0,X0,X1)) & v1_yellow_0(k2_yellow_2(X0,X0,X1)) & v4_orders_2(k2_yellow_2(X0,X0,X1)) & v3_orders_2(k2_yellow_2(X0,X0,X1)) & v2_orders_2(k2_yellow_2(X0,X0,X1)) & v1_orders_2(k2_yellow_2(X0,X0,X1)) & ~v3_struct_0(k2_yellow_2(X0,X0,X1))) | ~m1_relset_1(X1,u1_struct_0(X0),u1_struct_0(X0)) | ~v6_waybel_1(X1,X0) | ~v1_funct_2(X1,u1_struct_0(X0),u1_struct_0(X0)) | ~v1_funct_1(X1) | ~l1_orders_2(X0) | ~v3_lattice3(X0) | ~v2_lattice3(X0) | ~v1_lattice3(X0) | ~v4_orders_2(X0) | ~v3_orders_2(X0) | ~v2_orders_2(X0))),
+  inference(flattening,[],[f350])).
+fof(f350,plain,(
+  ! [X0,X1] : ((v3_lattice3(k2_yellow_2(X0,X0,X1)) & v2_lattice3(k2_yellow_2(X0,X0,X1)) & v1_lattice3(k2_yellow_2(X0,X0,X1)) & v25_waybel_0(k2_yellow_2(X0,X0,X1)) & v24_waybel_0(k2_yellow_2(X0,X0,X1)) & v4_yellow_0(k2_yellow_2(X0,X0,X1),X0) & v3_yellow_0(k2_yellow_2(X0,X0,X1)) & v2_yellow_0(k2_yellow_2(X0,X0,X1)) & v1_yellow_0(k2_yellow_2(X0,X0,X1)) & v4_orders_2(k2_yellow_2(X0,X0,X1)) & v3_orders_2(k2_yellow_2(X0,X0,X1)) & v2_orders_2(k2_yellow_2(X0,X0,X1)) & v1_orders_2(k2_yellow_2(X0,X0,X1)) & ~v3_struct_0(k2_yellow_2(X0,X0,X1))) | (~m1_relset_1(X1,u1_struct_0(X0),u1_struct_0(X0)) | ~v6_waybel_1(X1,X0) | ~v1_funct_2(X1,u1_struct_0(X0),u1_struct_0(X0)) | ~v1_funct_1(X1) | ~l1_orders_2(X0) | ~v3_lattice3(X0) | ~v2_lattice3(X0) | ~v1_lattice3(X0) | ~v4_orders_2(X0) | ~v3_orders_2(X0) | ~v2_orders_2(X0)))),
+  inference(ennf_transformation,[],[f90])).
+fof(f90,axiom,(
+  ! [X0,X1] : ((m1_relset_1(X1,u1_struct_0(X0),u1_struct_0(X0)) & v6_waybel_1(X1,X0) & v1_funct_2(X1,u1_struct_0(X0),u1_struct_0(X0)) & v1_funct_1(X1) & l1_orders_2(X0) & v3_lattice3(X0) & v2_lattice3(X0) & v1_lattice3(X0) & v4_orders_2(X0) & v3_orders_2(X0) & v2_orders_2(X0)) => (v3_lattice3(k2_yellow_2(X0,X0,X1)) & v2_lattice3(k2_yellow_2(X0,X0,X1)) & v1_lattice3(k2_yellow_2(X0,X0,X1)) & v25_waybel_0(k2_yellow_2(X0,X0,X1)) & v24_waybel_0(k2_yellow_2(X0,X0,X1)) & v4_yellow_0(k2_yellow_2(X0,X0,X1),X0) & v3_yellow_0(k2_yellow_2(X0,X0,X1)) & v2_yellow_0(k2_yellow_2(X0,X0,X1)) & v1_yellow_0(k2_yellow_2(X0,X0,X1)) & v4_orders_2(k2_yellow_2(X0,X0,X1)) & v3_orders_2(k2_yellow_2(X0,X0,X1)) & v2_orders_2(k2_yellow_2(X0,X0,X1)) & v1_orders_2(k2_yellow_2(X0,X0,X1)) & ~v3_struct_0(k2_yellow_2(X0,X0,X1))))),
+  file('LAT366+1.tptp',unknown)).
+fof(f3362,plain,(
+  spl50_52 | ~spl50_75 | spl50_26 | ~spl50_37),
+  inference(avatar_split_clause,[],[f3361,f2495,f1622,f3348,f2570])).
+fof(f3361,plain,(
+  ~v3_lattice3(k2_yellow_2(sK9,sK9,sK10)) | v2_lattice3(k2_yellow_2(sK9,sK9,sK10)) | (spl50_26 | ~spl50_37)),
+  inference(subsumption_resolution,[],[f3338,f1623])).
+fof(f3338,plain,(
+  ~v3_lattice3(k2_yellow_2(sK9,sK9,sK10)) | v3_struct_0(k2_yellow_2(sK9,sK9,sK10)) | v2_lattice3(k2_yellow_2(sK9,sK9,sK10)) | ~spl50_37),
+  inference(resolution,[],[f2496,f665])).
+fof(f665,plain,(
+  ( ! [X0] : (~l1_orders_2(X0) | ~v3_lattice3(X0) | v3_struct_0(X0) | v2_lattice3(X0)) )),
+  inference(cnf_transformation,[],[f278])).
+fof(f278,plain,(
+  ! [X0] : ((v2_lattice3(X0) & v1_lattice3(X0) & ~v3_struct_0(X0)) | ~v3_lattice3(X0) | v3_struct_0(X0) | ~l1_orders_2(X0))),
+  inference(flattening,[],[f277])).
+fof(f277,plain,(
+  ! [X0] : (((v2_lattice3(X0) & v1_lattice3(X0) & ~v3_struct_0(X0)) | (~v3_lattice3(X0) | v3_struct_0(X0))) | ~l1_orders_2(X0))),
+  inference(ennf_transformation,[],[f33])).
+fof(f33,axiom,(
+  ! [X0] : (l1_orders_2(X0) => ((v3_lattice3(X0) & ~v3_struct_0(X0)) => (v2_lattice3(X0) & v1_lattice3(X0) & ~v3_struct_0(X0))))),
+  file('LAT366+1.tptp',unknown)).
+fof(f3328,plain,(
+  spl50_37 | ~spl50_72),
+  inference(avatar_split_clause,[],[f3327,f3246,f2495])).
+fof(f3327,plain,(
+  l1_orders_2(k2_yellow_2(sK9,sK9,sK10)) | ~spl50_72),
+  inference(subsumption_resolution,[],[f3323,f571])).
+fof(f3323,plain,(
+  l1_orders_2(k2_yellow_2(sK9,sK9,sK10)) | ~l1_orders_2(sK9) | ~spl50_72),
+  inference(resolution,[],[f3247,f761])).
+fof(f761,plain,(
+  ( ! [X0,X1] : (~m1_yellow_0(X1,X0) | l1_orders_2(X1) | ~l1_orders_2(X0)) )),
+  inference(cnf_transformation,[],[f344])).
+fof(f344,plain,(
+  ! [X0] : (! [X1] : (l1_orders_2(X1) | ~m1_yellow_0(X1,X0)) | ~l1_orders_2(X0))),
+  inference(ennf_transformation,[],[f79])).
+fof(f79,axiom,(
+  ! [X0] : (l1_orders_2(X0) => ! [X1] : (m1_yellow_0(X1,X0) => l1_orders_2(X1)))),
+  file('LAT366+1.tptp',unknown)).
+fof(f3319,plain,(
+  spl50_72 | spl50_7),
+  inference(avatar_split_clause,[],[f3318,f1328,f3246])).
+fof(f3318,plain,(
+  m1_yellow_0(k2_yellow_2(sK9,sK9,sK10),sK9) | spl50_7),
+  inference(subsumption_resolution,[],[f3317,f1329])).
+fof(f3317,plain,(
+  m1_yellow_0(k2_yellow_2(sK9,sK9,sK10),sK9) | v3_struct_0(sK9)),
+  inference(subsumption_resolution,[],[f3316,f571])).
+fof(f3316,plain,(
+  m1_yellow_0(k2_yellow_2(sK9,sK9,sK10),sK9) | ~l1_orders_2(sK9) | v3_struct_0(sK9)),
+  inference(subsumption_resolution,[],[f3315,f572])).
+fof(f3315,plain,(
+  m1_yellow_0(k2_yellow_2(sK9,sK9,sK10),sK9) | ~v1_funct_1(sK10) | ~l1_orders_2(sK9) | v3_struct_0(sK9)),
+  inference(subsumption_resolution,[],[f3294,f573])).
+fof(f3294,plain,(
+  m1_yellow_0(k2_yellow_2(sK9,sK9,sK10),sK9) | ~v1_funct_2(sK10,u1_struct_0(sK9),u1_struct_0(sK9)) | ~v1_funct_1(sK10) | ~l1_orders_2(sK9) | v3_struct_0(sK9)),
+  inference(duplicate_literal_removal,[],[f3275])).
+fof(f3275,plain,(
+  m1_yellow_0(k2_yellow_2(sK9,sK9,sK10),sK9) | ~v1_funct_2(sK10,u1_struct_0(sK9),u1_struct_0(sK9)) | ~v1_funct_1(sK10) | ~l1_orders_2(sK9) | v3_struct_0(sK9) | ~l1_orders_2(sK9) | v3_struct_0(sK9)),
+  inference(resolution,[],[f751,f1467])).
+fof(f751,plain,(
+  ( ! [X2,X0,X1] : (~m1_relset_1(X2,u1_struct_0(X0),u1_struct_0(X1)) | m1_yellow_0(k2_yellow_2(X0,X1,X2),X1) | ~v1_funct_2(X2,u1_struct_0(X0),u1_struct_0(X1)) | ~v1_funct_1(X2) | ~l1_orders_2(X1) | v3_struct_0(X1) | ~l1_orders_2(X0) | v3_struct_0(X0)) )),
+  inference(cnf_transformation,[],[f336])).
+fof(f3274,plain,(
+  ~spl50_72 | spl50_39 | spl50_7),
+  inference(avatar_split_clause,[],[f3273,f1328,f2504,f3246])).
+fof(f3273,plain,(
+  v2_orders_2(k2_yellow_2(sK9,sK9,sK10)) | ~m1_yellow_0(k2_yellow_2(sK9,sK9,sK10),sK9) | spl50_7),
+  inference(subsumption_resolution,[],[f3272,f565])).
+fof(f3272,plain,(
+  v2_orders_2(k2_yellow_2(sK9,sK9,sK10)) | ~m1_yellow_0(k2_yellow_2(sK9,sK9,sK10),sK9) | ~v2_orders_2(sK9) | spl50_7),
+  inference(subsumption_resolution,[],[f3239,f571])).
+fof(f3239,plain,(
+  v2_orders_2(k2_yellow_2(sK9,sK9,sK10)) | ~m1_yellow_0(k2_yellow_2(sK9,sK9,sK10),sK9) | ~l1_orders_2(sK9) | ~v2_orders_2(sK9) | spl50_7),
+  inference(resolution,[],[f3219,f714])).
+fof(f714,plain,(
+  ( ! [X0,X1] : (~v4_yellow_0(X1,X0) | v2_orders_2(X1) | ~m1_yellow_0(X1,X0) | ~l1_orders_2(X0) | ~v2_orders_2(X0)) )),
+  inference(cnf_transformation,[],[f309])).
+fof(f309,plain,(
+  ! [X0] : (! [X1] : ((v4_yellow_0(X1,X0) & v2_orders_2(X1)) | ~v4_yellow_0(X1,X0) | ~m1_yellow_0(X1,X0)) | ~l1_orders_2(X0) | ~v2_orders_2(X0))),
+  inference(flattening,[],[f308])).
+fof(f308,plain,(
+  ! [X0] : (! [X1] : (((v4_yellow_0(X1,X0) & v2_orders_2(X1)) | ~v4_yellow_0(X1,X0)) | ~m1_yellow_0(X1,X0)) | (~l1_orders_2(X0) | ~v2_orders_2(X0)))),
+  inference(ennf_transformation,[],[f52])).
+fof(f52,axiom,(
+  ! [X0] : ((l1_orders_2(X0) & v2_orders_2(X0)) => ! [X1] : (m1_yellow_0(X1,X0) => (v4_yellow_0(X1,X0) => (v4_yellow_0(X1,X0) & v2_orders_2(X1)))))),
+  file('LAT366+1.tptp',unknown)).
+fof(f3271,plain,(
+  ~spl50_72 | spl50_48 | spl50_7),
+  inference(avatar_split_clause,[],[f3270,f1328,f2550,f3246])).
+fof(f3270,plain,(
+  v3_orders_2(k2_yellow_2(sK9,sK9,sK10)) | ~m1_yellow_0(k2_yellow_2(sK9,sK9,sK10),sK9) | spl50_7),
+  inference(subsumption_resolution,[],[f3269,f566])).
+fof(f3269,plain,(
+  v3_orders_2(k2_yellow_2(sK9,sK9,sK10)) | ~m1_yellow_0(k2_yellow_2(sK9,sK9,sK10),sK9) | ~v3_orders_2(sK9) | spl50_7),
+  inference(subsumption_resolution,[],[f3238,f571])).
+fof(f3238,plain,(
+  v3_orders_2(k2_yellow_2(sK9,sK9,sK10)) | ~m1_yellow_0(k2_yellow_2(sK9,sK9,sK10),sK9) | ~l1_orders_2(sK9) | ~v3_orders_2(sK9) | spl50_7),
+  inference(resolution,[],[f3219,f719])).
+fof(f719,plain,(
+  ( ! [X0,X1] : (~v4_yellow_0(X1,X0) | v3_orders_2(X1) | ~m1_yellow_0(X1,X0) | ~l1_orders_2(X0) | ~v3_orders_2(X0)) )),
+  inference(cnf_transformation,[],[f313])).
+fof(f313,plain,(
+  ! [X0] : (! [X1] : ((v4_yellow_0(X1,X0) & v3_orders_2(X1)) | ~v4_yellow_0(X1,X0) | ~m1_yellow_0(X1,X0)) | ~l1_orders_2(X0) | ~v3_orders_2(X0))),
+  inference(flattening,[],[f312])).
+fof(f312,plain,(
+  ! [X0] : (! [X1] : (((v4_yellow_0(X1,X0) & v3_orders_2(X1)) | ~v4_yellow_0(X1,X0)) | ~m1_yellow_0(X1,X0)) | (~l1_orders_2(X0) | ~v3_orders_2(X0)))),
+  inference(ennf_transformation,[],[f54])).
+fof(f54,axiom,(
+  ! [X0] : ((l1_orders_2(X0) & v3_orders_2(X0)) => ! [X1] : (m1_yellow_0(X1,X0) => (v4_yellow_0(X1,X0) => (v4_yellow_0(X1,X0) & v3_orders_2(X1)))))),
+  file('LAT366+1.tptp',unknown)).
+fof(f3268,plain,(
+  ~spl50_72 | spl50_50 | spl50_7),
+  inference(avatar_split_clause,[],[f3267,f1328,f2560,f3246])).
+fof(f3267,plain,(
+  v4_orders_2(k2_yellow_2(sK9,sK9,sK10)) | ~m1_yellow_0(k2_yellow_2(sK9,sK9,sK10),sK9) | spl50_7),
+  inference(subsumption_resolution,[],[f3266,f567])).
+fof(f3266,plain,(
+  v4_orders_2(k2_yellow_2(sK9,sK9,sK10)) | ~m1_yellow_0(k2_yellow_2(sK9,sK9,sK10),sK9) | ~v4_orders_2(sK9) | spl50_7),
+  inference(subsumption_resolution,[],[f3237,f571])).
+fof(f3237,plain,(
+  v4_orders_2(k2_yellow_2(sK9,sK9,sK10)) | ~m1_yellow_0(k2_yellow_2(sK9,sK9,sK10),sK9) | ~l1_orders_2(sK9) | ~v4_orders_2(sK9) | spl50_7),
+  inference(resolution,[],[f3219,f724])).
+fof(f724,plain,(
+  ( ! [X0,X1] : (~v4_yellow_0(X1,X0) | v4_orders_2(X1) | ~m1_yellow_0(X1,X0) | ~l1_orders_2(X0) | ~v4_orders_2(X0)) )),
+  inference(cnf_transformation,[],[f317])).
+fof(f317,plain,(
+  ! [X0] : (! [X1] : ((v4_yellow_0(X1,X0) & v4_orders_2(X1)) | ~v4_yellow_0(X1,X0) | ~m1_yellow_0(X1,X0)) | ~l1_orders_2(X0) | ~v4_orders_2(X0))),
+  inference(flattening,[],[f316])).
+fof(f316,plain,(
+  ! [X0] : (! [X1] : (((v4_yellow_0(X1,X0) & v4_orders_2(X1)) | ~v4_yellow_0(X1,X0)) | ~m1_yellow_0(X1,X0)) | (~l1_orders_2(X0) | ~v4_orders_2(X0)))),
+  inference(ennf_transformation,[],[f56])).
+fof(f56,axiom,(
+  ! [X0] : ((l1_orders_2(X0) & v4_orders_2(X0)) => ! [X1] : (m1_yellow_0(X1,X0) => (v4_yellow_0(X1,X0) => (v4_yellow_0(X1,X0) & v4_orders_2(X1)))))),
+  file('LAT366+1.tptp',unknown)).
+fof(f3253,plain,(
+  ~spl50_72 | spl50_54 | ~spl50_73 | spl50_7 | spl50_26),
+  inference(avatar_split_clause,[],[f3244,f1622,f1328,f3250,f2581,f3246])).
+fof(f3244,plain,(
+  ~v6_yellow_0(k2_yellow_2(sK9,sK9,sK10),sK9) | v1_lattice3(k2_yellow_2(sK9,sK9,sK10)) | ~m1_yellow_0(k2_yellow_2(sK9,sK9,sK10),sK9) | (spl50_7 | spl50_26)),
+  inference(subsumption_resolution,[],[f3243,f566])).
+fof(f3243,plain,(
+  ~v6_yellow_0(k2_yellow_2(sK9,sK9,sK10),sK9) | v1_lattice3(k2_yellow_2(sK9,sK9,sK10)) | ~m1_yellow_0(k2_yellow_2(sK9,sK9,sK10),sK9) | ~v3_orders_2(sK9) | (spl50_7 | spl50_26)),
+  inference(subsumption_resolution,[],[f3242,f567])).
+fof(f3242,plain,(
+  ~v6_yellow_0(k2_yellow_2(sK9,sK9,sK10),sK9) | v1_lattice3(k2_yellow_2(sK9,sK9,sK10)) | ~m1_yellow_0(k2_yellow_2(sK9,sK9,sK10),sK9) | ~v4_orders_2(sK9) | ~v3_orders_2(sK9) | (spl50_7 | spl50_26)),
+  inference(subsumption_resolution,[],[f3241,f568])).
+fof(f3241,plain,(
+  ~v6_yellow_0(k2_yellow_2(sK9,sK9,sK10),sK9) | v1_lattice3(k2_yellow_2(sK9,sK9,sK10)) | ~m1_yellow_0(k2_yellow_2(sK9,sK9,sK10),sK9) | ~v1_lattice3(sK9) | ~v4_orders_2(sK9) | ~v3_orders_2(sK9) | (spl50_7 | spl50_26)),
+  inference(subsumption_resolution,[],[f3240,f571])).
+fof(f3240,plain,(
+  ~v6_yellow_0(k2_yellow_2(sK9,sK9,sK10),sK9) | v1_lattice3(k2_yellow_2(sK9,sK9,sK10)) | ~m1_yellow_0(k2_yellow_2(sK9,sK9,sK10),sK9) | ~l1_orders_2(sK9) | ~v1_lattice3(sK9) | ~v4_orders_2(sK9) | ~v3_orders_2(sK9) | (spl50_7 | spl50_26)),
+  inference(subsumption_resolution,[],[f3234,f1623])).
+fof(f3234,plain,(
+  ~v6_yellow_0(k2_yellow_2(sK9,sK9,sK10),sK9) | v1_lattice3(k2_yellow_2(sK9,sK9,sK10)) | v3_struct_0(k2_yellow_2(sK9,sK9,sK10)) | ~m1_yellow_0(k2_yellow_2(sK9,sK9,sK10),sK9) | ~l1_orders_2(sK9) | ~v1_lattice3(sK9) | ~v4_orders_2(sK9) | ~v3_orders_2(sK9) | spl50_7),
+  inference(resolution,[],[f3219,f615])).
+fof(f615,plain,(
+  ( ! [X0,X1] : (~v4_yellow_0(X1,X0) | ~v6_yellow_0(X1,X0) | v1_lattice3(X1) | v3_struct_0(X1) | ~m1_yellow_0(X1,X0) | ~l1_orders_2(X0) | ~v1_lattice3(X0) | ~v4_orders_2(X0) | ~v3_orders_2(X0)) )),
+  inference(cnf_transformation,[],[f253])).
+fof(f253,plain,(
+  ! [X0] : (! [X1] : ((v6_yellow_0(X1,X0) & v4_yellow_0(X1,X0) & v1_lattice3(X1) & v4_orders_2(X1) & v3_orders_2(X1) & ~v3_struct_0(X1)) | ~v6_yellow_0(X1,X0) | ~v4_yellow_0(X1,X0) | v3_struct_0(X1) | ~m1_yellow_0(X1,X0)) | ~l1_orders_2(X0) | ~v1_lattice3(X0) | ~v4_orders_2(X0) | ~v3_orders_2(X0))),
+  inference(flattening,[],[f252])).
+fof(f252,plain,(
+  ! [X0] : (! [X1] : (((v6_yellow_0(X1,X0) & v4_yellow_0(X1,X0) & v1_lattice3(X1) & v4_orders_2(X1) & v3_orders_2(X1) & ~v3_struct_0(X1)) | (~v6_yellow_0(X1,X0) | ~v4_yellow_0(X1,X0) | v3_struct_0(X1))) | ~m1_yellow_0(X1,X0)) | (~l1_orders_2(X0) | ~v1_lattice3(X0) | ~v4_orders_2(X0) | ~v3_orders_2(X0)))),
+  inference(ennf_transformation,[],[f13])).
+fof(f13,axiom,(
+  ! [X0] : ((l1_orders_2(X0) & v1_lattice3(X0) & v4_orders_2(X0) & v3_orders_2(X0)) => ! [X1] : (m1_yellow_0(X1,X0) => ((v6_yellow_0(X1,X0) & v4_yellow_0(X1,X0) & ~v3_struct_0(X1)) => (v6_yellow_0(X1,X0) & v4_yellow_0(X1,X0) & v1_lattice3(X1) & v4_orders_2(X1) & v3_orders_2(X1) & ~v3_struct_0(X1)))))),
+  file('LAT366+1.tptp',unknown)).
+fof(f3029,plain,(
+  ~spl50_26 | spl50_7),
+  inference(avatar_split_clause,[],[f3028,f1328,f1622])).
+fof(f3028,plain,(
+  ~v3_struct_0(k2_yellow_2(sK9,sK9,sK10)) | spl50_7),
+  inference(subsumption_resolution,[],[f3027,f1329])).
+fof(f3027,plain,(
+  ~v3_struct_0(k2_yellow_2(sK9,sK9,sK10)) | v3_struct_0(sK9)),
+  inference(subsumption_resolution,[],[f3026,f571])).
+fof(f3026,plain,(
+  ~v3_struct_0(k2_yellow_2(sK9,sK9,sK10)) | ~l1_orders_2(sK9) | v3_struct_0(sK9)),
+  inference(subsumption_resolution,[],[f3025,f572])).
+fof(f3025,plain,(
+  ~v3_struct_0(k2_yellow_2(sK9,sK9,sK10)) | ~v1_funct_1(sK10) | ~l1_orders_2(sK9) | v3_struct_0(sK9)),
+  inference(subsumption_resolution,[],[f3024,f573])).
+fof(f3024,plain,(
+  ~v3_struct_0(k2_yellow_2(sK9,sK9,sK10)) | ~v1_funct_2(sK10,u1_struct_0(sK9),u1_struct_0(sK9)) | ~v1_funct_1(sK10) | ~l1_orders_2(sK9) | v3_struct_0(sK9)),
+  inference(duplicate_literal_removal,[],[f3005])).
+fof(f3005,plain,(
+  ~v3_struct_0(k2_yellow_2(sK9,sK9,sK10)) | ~v1_funct_2(sK10,u1_struct_0(sK9),u1_struct_0(sK9)) | ~v1_funct_1(sK10) | ~l1_orders_2(sK9) | v3_struct_0(sK9) | ~l1_orders_2(sK9) | v3_struct_0(sK9)),
+  inference(resolution,[],[f834,f1467])).
+fof(f834,plain,(
+  ( ! [X2,X0,X1] : (~m1_relset_1(X2,u1_struct_0(X0),u1_struct_0(X1)) | ~v3_struct_0(k2_yellow_2(X0,X1,X2)) | ~v1_funct_2(X2,u1_struct_0(X0),u1_struct_0(X1)) | ~v1_funct_1(X2) | ~l1_orders_2(X1) | v3_struct_0(X1) | ~l1_orders_2(X0) | v3_struct_0(X0)) )),
+  inference(cnf_transformation,[],[f368])).
+fof(f368,plain,(
+  ! [X0,X1,X2] : ((v4_yellow_0(k2_yellow_2(X0,X1,X2),X1) & v1_orders_2(k2_yellow_2(X0,X1,X2)) & ~v3_struct_0(k2_yellow_2(X0,X1,X2))) | ~m1_relset_1(X2,u1_struct_0(X0),u1_struct_0(X1)) | ~v1_funct_2(X2,u1_struct_0(X0),u1_struct_0(X1)) | ~v1_funct_1(X2) | ~l1_orders_2(X1) | v3_struct_0(X1) | ~l1_orders_2(X0) | v3_struct_0(X0))),
+  inference(flattening,[],[f367])).
+fof(f367,plain,(
+  ! [X0,X1,X2] : ((v4_yellow_0(k2_yellow_2(X0,X1,X2),X1) & v1_orders_2(k2_yellow_2(X0,X1,X2)) & ~v3_struct_0(k2_yellow_2(X0,X1,X2))) | (~m1_relset_1(X2,u1_struct_0(X0),u1_struct_0(X1)) | ~v1_funct_2(X2,u1_struct_0(X0),u1_struct_0(X1)) | ~v1_funct_1(X2) | ~l1_orders_2(X1) | v3_struct_0(X1) | ~l1_orders_2(X0) | v3_struct_0(X0)))),
+  inference(ennf_transformation,[],[f99])).
+fof(f99,axiom,(
+  ! [X0,X1,X2] : ((m1_relset_1(X2,u1_struct_0(X0),u1_struct_0(X1)) & v1_funct_2(X2,u1_struct_0(X0),u1_struct_0(X1)) & v1_funct_1(X2) & l1_orders_2(X1) & ~v3_struct_0(X1) & l1_orders_2(X0) & ~v3_struct_0(X0)) => (v4_yellow_0(k2_yellow_2(X0,X1,X2),X1) & v1_orders_2(k2_yellow_2(X0,X1,X2)) & ~v3_struct_0(k2_yellow_2(X0,X1,X2))))),
+  file('LAT366+1.tptp',unknown)).
+fof(f2846,plain,(
+  spl50_70 | spl50_7),
+  inference(avatar_split_clause,[],[f2845,f1328,f2713])).
+fof(f2845,plain,(
+  v6_waybel_1(sK10,sK9) | spl50_7),
+  inference(subsumption_resolution,[],[f2844,f1329])).
+fof(f2844,plain,(
+  v6_waybel_1(sK10,sK9) | v3_struct_0(sK9)),
+  inference(subsumption_resolution,[],[f2843,f571])).
+fof(f2843,plain,(
+  v6_waybel_1(sK10,sK9) | ~l1_orders_2(sK9) | v3_struct_0(sK9)),
+  inference(subsumption_resolution,[],[f2842,f572])).
+fof(f2842,plain,(
+  ~v1_funct_1(sK10) | v6_waybel_1(sK10,sK9) | ~l1_orders_2(sK9) | v3_struct_0(sK9)),
+  inference(subsumption_resolution,[],[f2841,f573])).
+fof(f2841,plain,(
+  ~v1_funct_2(sK10,u1_struct_0(sK9),u1_struct_0(sK9)) | ~v1_funct_1(sK10) | v6_waybel_1(sK10,sK9) | ~l1_orders_2(sK9) | v3_struct_0(sK9)),
+  inference(subsumption_resolution,[],[f2824,f574])).
+fof(f2824,plain,(
+  ~v8_waybel_1(sK10,sK9) | ~v1_funct_2(sK10,u1_struct_0(sK9),u1_struct_0(sK9)) | ~v1_funct_1(sK10) | v6_waybel_1(sK10,sK9) | ~l1_orders_2(sK9) | v3_struct_0(sK9)),
+  inference(resolution,[],[f707,f1467])).
+fof(f707,plain,(
+  ( ! [X0,X1] : (~m1_relset_1(X1,u1_struct_0(X0),u1_struct_0(X0)) | ~v8_waybel_1(X1,X0) | ~v1_funct_2(X1,u1_struct_0(X0),u1_struct_0(X0)) | ~v1_funct_1(X1) | v6_waybel_1(X1,X0) | ~l1_orders_2(X0) | v3_struct_0(X0)) )),
+  inference(cnf_transformation,[],[f301])).
+fof(f301,plain,(
+  ! [X0] : (! [X1] : ((v6_waybel_1(X1,X0) & v1_funct_2(X1,u1_struct_0(X0),u1_struct_0(X0)) & ~v1_xboole_0(X1) & v1_funct_1(X1)) | ~v8_waybel_1(X1,X0) | ~v1_funct_2(X1,u1_struct_0(X0),u1_struct_0(X0)) | ~v1_funct_1(X1) | ~m1_relset_1(X1,u1_struct_0(X0),u1_struct_0(X0))) | ~l1_orders_2(X0) | v3_struct_0(X0))),
+  inference(flattening,[],[f300])).
+fof(f300,plain,(
+  ! [X0] : (! [X1] : (((v6_waybel_1(X1,X0) & v1_funct_2(X1,u1_struct_0(X0),u1_struct_0(X0)) & ~v1_xboole_0(X1) & v1_funct_1(X1)) | (~v8_waybel_1(X1,X0) | ~v1_funct_2(X1,u1_struct_0(X0),u1_struct_0(X0)) | ~v1_funct_1(X1))) | ~m1_relset_1(X1,u1_struct_0(X0),u1_struct_0(X0))) | (~l1_orders_2(X0) | v3_struct_0(X0)))),
+  inference(ennf_transformation,[],[f216])).
+fof(f216,plain,(
+  ! [X0] : ((l1_orders_2(X0) & ~v3_struct_0(X0)) => ! [X1] : (m1_relset_1(X1,u1_struct_0(X0),u1_struct_0(X0)) => ((v8_waybel_1(X1,X0) & v1_funct_2(X1,u1_struct_0(X0),u1_struct_0(X0)) & v1_funct_1(X1)) => (v6_waybel_1(X1,X0) & v1_funct_2(X1,u1_struct_0(X0),u1_struct_0(X0)) & ~v1_xboole_0(X1) & v1_funct_1(X1)))))),
+  inference(pure_predicate_removal,[],[f48])).
+fof(f48,axiom,(
+  ! [X0] : ((l1_orders_2(X0) & ~v3_struct_0(X0)) => ! [X1] : (m1_relset_1(X1,u1_struct_0(X0),u1_struct_0(X0)) => ((v8_waybel_1(X1,X0) & v1_funct_2(X1,u1_struct_0(X0),u1_struct_0(X0)) & v1_funct_1(X1)) => (v6_waybel_1(X1,X0) & v1_partfun1(X1,u1_struct_0(X0),u1_struct_0(X0)) & v1_funct_2(X1,u1_struct_0(X0),u1_struct_0(X0)) & ~v1_xboole_0(X1) & v1_funct_1(X1)))))),
+  file('LAT366+1.tptp',unknown)).
+fof(f1411,plain,(
+  ~spl50_7),
+  inference(avatar_contradiction_clause,[],[f1410])).
+fof(f1410,plain,(
+  $false | ~spl50_7),
+  inference(subsumption_resolution,[],[f1409,f571])).
+fof(f1409,plain,(
+  ~l1_orders_2(sK9) | ~spl50_7),
+  inference(subsumption_resolution,[],[f1405,f568])).
+fof(f1405,plain,(
+  ~v1_lattice3(sK9) | ~l1_orders_2(sK9) | ~spl50_7),
+  inference(resolution,[],[f1330,f644])).
+fof(f644,plain,(
+  ( ! [X0] : (~v3_struct_0(X0) | ~v1_lattice3(X0) | ~l1_orders_2(X0)) )),
+  inference(cnf_transformation,[],[f266])).
+fof(f266,plain,(
+  ! [X0] : (~v3_struct_0(X0) | ~v1_lattice3(X0) | ~l1_orders_2(X0))),
+  inference(flattening,[],[f265])).
+fof(f265,plain,(
+  ! [X0] : ((~v3_struct_0(X0) | ~v1_lattice3(X0)) | ~l1_orders_2(X0))),
+  inference(ennf_transformation,[],[f25])).
+fof(f25,axiom,(
+  ! [X0] : (l1_orders_2(X0) => (v1_lattice3(X0) => ~v3_struct_0(X0)))),
+  file('LAT366+1.tptp',unknown)).
+fof(f1330,plain,(
+  v3_struct_0(sK9) | ~spl50_7),
+  inference(avatar_component_clause,[],[f1328])).
+fof(f1130,plain,(
+  spl50_1 | spl50_2),
+  inference(avatar_split_clause,[],[f583,f1126,f1122])).
+fof(f583,plain,(
+  r1_waybel_3(k2_yellow_2(sK9,sK9,sK10),sK13,sK14) | r1_waybel_3(sK9,sK11,sK12)),
+  inference(cnf_transformation,[],[f480])).
+fof(f1129,plain,(
+  ~spl50_1 | ~spl50_2),
+  inference(avatar_split_clause,[],[f584,f1126,f1122])).
+fof(f584,plain,(
+  ~r1_waybel_3(k2_yellow_2(sK9,sK9,sK10),sK13,sK14) | ~r1_waybel_3(sK9,sK11,sK12)),
+  inference(cnf_transformation,[],[f480])).
+% SZS output end Proof for LAT366+1
+% ------------------------------
+% Version: Vampire 4.4.0 (commit d98a3d53 on 2020-01-14 21:02:12 +0100)
+% Termination reason: Refutation
+
+% Memory used [KB]: 27376
+% Time elapsed: 0.404 s
+% ------------------------------
+% ------------------------------

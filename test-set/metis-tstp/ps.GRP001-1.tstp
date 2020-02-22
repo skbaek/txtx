@@ -1,0 +1,745 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% SZS status Unsatisfiable for GRP001-1.tptp
+
+% SZS output start CNFRefutation for GRP001-1.tptp
+cnf(left_identity, axiom, (product(identity, X, X))).
+
+cnf(left_inverse, axiom, (product(inverse(X), X, identity))).
+
+cnf(total_function1, axiom, (product(X, Y, multiply(X, Y)))).
+
+cnf(total_function2, axiom,
+    (~ product(X, Y, Z) | ~ product(X, Y, W) | Z = W)).
+
+cnf(associativity1, axiom,
+    (~ product(X, Y, U) | ~ product(Y, Z, V) | ~ product(U, Z, W) |
+     product(X, V, W))).
+
+cnf(associativity2, axiom,
+    (~ product(X, Y, U) | ~ product(Y, Z, V) | ~ product(X, V, W) |
+     product(U, Z, W))).
+
+cnf(square_element, hypothesis, (product(X, X, identity))).
+
+cnf(a_times_b_is_c, negated_conjecture, (product(a, b, c))).
+
+cnf(prove_b_times_a_is_c, negated_conjecture, (~ product(b, a, c))).
+
+cnf(refute_0_0, plain, (product(X_204, X_203, multiply(X_204, X_203))),
+    inference(subst, [],
+              [total_function1 :
+               [bind(X, $fot(X_204)), bind(Y, $fot(X_203))]])).
+
+cnf(refute_0_1, plain, (product(inverse(X_177), X_177, identity)),
+    inference(subst, [], [left_inverse : [bind(X, $fot(X_177))]])).
+
+cnf(refute_0_2, plain, (product(identity, X_126, X_126)),
+    inference(subst, [], [left_identity : [bind(X, $fot(X_126))]])).
+
+cnf(refute_0_3, plain,
+    (~ product(X_127, X_128, identity) | ~ product(X_128, X_126, X_125) |
+     ~ product(identity, X_126, X_126) | product(X_127, X_125, X_126)),
+    inference(subst, [],
+              [associativity1 :
+               [bind(U, $fot(identity)), bind(V, $fot(X_125)),
+                bind(W, $fot(X_126)), bind(X, $fot(X_127)),
+                bind(Y, $fot(X_128)), bind(Z, $fot(X_126))]])).
+
+cnf(refute_0_4, plain,
+    (~ product(X_127, X_128, identity) | ~ product(X_128, X_126, X_125) |
+     product(X_127, X_125, X_126)),
+    inference(resolve, [$cnf(product(identity, X_126, X_126))],
+              [refute_0_2, refute_0_3])).
+
+cnf(refute_0_5, plain,
+    (~ product(X_177, X_175, X_174) |
+     ~ product(inverse(X_177), X_177, identity) |
+     product(inverse(X_177), X_174, X_175)),
+    inference(subst, [],
+              [refute_0_4 :
+               [bind(X_125, $fot(X_174)), bind(X_126, $fot(X_175)),
+                bind(X_127, $fot(inverse(X_177))),
+                bind(X_128, $fot(X_177))]])).
+
+cnf(refute_0_6, plain,
+    (~ product(X_177, X_175, X_174) |
+     product(inverse(X_177), X_174, X_175)),
+    inference(resolve, [$cnf(product(inverse(X_177), X_177, identity))],
+              [refute_0_1, refute_0_5])).
+
+cnf(refute_0_7, plain,
+    (~ product(X_204, X_203, multiply(X_204, X_203)) |
+     product(inverse(X_204), multiply(X_204, X_203), X_203)),
+    inference(subst, [],
+              [refute_0_6 :
+               [bind(X_174, $fot(multiply(X_204, X_203))),
+                bind(X_175, $fot(X_203)), bind(X_177, $fot(X_204))]])).
+
+cnf(refute_0_8, plain,
+    (product(inverse(X_204), multiply(X_204, X_203), X_203)),
+    inference(resolve,
+              [$cnf(product(X_204, X_203, multiply(X_204, X_203)))],
+              [refute_0_0, refute_0_7])).
+
+cnf(refute_0_9, plain, (product(X_90, X_91, multiply(X_90, X_91))),
+    inference(subst, [],
+              [total_function1 :
+               [bind(X, $fot(X_90)), bind(Y, $fot(X_91))]])).
+
+cnf(refute_0_10, plain,
+    (~ product(X_90, X_91, X_92) |
+     ~ product(X_90, X_91, multiply(X_90, X_91)) |
+     X_92 = multiply(X_90, X_91)),
+    inference(subst, [],
+              [total_function2 :
+               [bind(W, $fot(multiply(X_90, X_91))), bind(X, $fot(X_90)),
+                bind(Y, $fot(X_91)), bind(Z, $fot(X_92))]])).
+
+cnf(refute_0_11, plain,
+    (~ product(X_90, X_91, X_92) | X_92 = multiply(X_90, X_91)),
+    inference(resolve, [$cnf(product(X_90, X_91, multiply(X_90, X_91)))],
+              [refute_0_9, refute_0_10])).
+
+cnf(refute_0_12, plain,
+    (~ product(inverse(X_205), identity, X_205) |
+     X_205 = multiply(inverse(X_205), identity)),
+    inference(subst, [],
+              [refute_0_11 :
+               [bind(X_90, $fot(inverse(X_205))),
+                bind(X_91, $fot(identity)), bind(X_92, $fot(X_205))]])).
+
+cnf(refute_0_13, plain, (product(X_203, X_203, identity)),
+    inference(subst, [], [square_element : [bind(X, $fot(X_203))]])).
+
+cnf(refute_0_14, plain,
+    (~ product(X_203, X_203, identity) |
+     product(inverse(X_203), identity, X_203)),
+    inference(subst, [],
+              [refute_0_6 :
+               [bind(X_174, $fot(identity)), bind(X_175, $fot(X_203)),
+                bind(X_177, $fot(X_203))]])).
+
+cnf(refute_0_15, plain, (product(inverse(X_203), identity, X_203)),
+    inference(resolve, [$cnf(product(X_203, X_203, identity))],
+              [refute_0_13, refute_0_14])).
+
+cnf(refute_0_16, plain, (product(inverse(X_205), identity, X_205)),
+    inference(subst, [], [refute_0_15 : [bind(X_203, $fot(X_205))]])).
+
+cnf(refute_0_17, plain, (X_205 = multiply(inverse(X_205), identity)),
+    inference(resolve, [$cnf(product(inverse(X_205), identity, X_205))],
+              [refute_0_16, refute_0_12])).
+
+cnf(refute_0_18, plain,
+    (product(X_78, identity, multiply(X_78, identity))),
+    inference(subst, [],
+              [total_function1 :
+               [bind(X, $fot(X_78)), bind(Y, $fot(identity))]])).
+
+cnf(refute_0_19, plain, (product(X_75, X_75, identity)),
+    inference(subst, [], [square_element : [bind(X, $fot(X_75))]])).
+
+cnf(refute_0_20, plain,
+    (~ product(X_75, X_75, identity) | ~ product(X_75, identity, X_74) |
+     product(identity, X_75, X_74)),
+    inference(subst, [],
+              [associativity2 :
+               [bind(U, $fot(identity)), bind(V, $fot(identity)),
+                bind(W, $fot(X_74)), bind(X, $fot(X_75)),
+                bind(Y, $fot(X_75)), bind(Z, $fot(X_75))]])).
+
+cnf(refute_0_21, plain,
+    (~ product(X_75, identity, X_74) | product(identity, X_75, X_74)),
+    inference(resolve, [$cnf(product(X_75, X_75, identity))],
+              [refute_0_19, refute_0_20])).
+
+cnf(refute_0_22, plain,
+    (~ product(X_78, identity, multiply(X_78, identity)) |
+     product(identity, X_78, multiply(X_78, identity))),
+    inference(subst, [],
+              [refute_0_21 :
+               [bind(X_74, $fot(multiply(X_78, identity))),
+                bind(X_75, $fot(X_78))]])).
+
+cnf(refute_0_23, plain,
+    (product(identity, X_78, multiply(X_78, identity))),
+    inference(resolve,
+              [$cnf(product(X_78, identity, multiply(X_78, identity)))],
+              [refute_0_18, refute_0_22])).
+
+cnf(refute_0_24, plain,
+    (product(identity, X_94, multiply(X_94, identity))),
+    inference(subst, [], [refute_0_23 : [bind(X_78, $fot(X_94))]])).
+
+cnf(refute_0_25, plain, (product(identity, X_89, X_89)),
+    inference(subst, [], [left_identity : [bind(X, $fot(X_89))]])).
+
+cnf(refute_0_26, plain,
+    (~ product(identity, X_89, X_89) | ~ product(identity, X_89, X_92) |
+     X_92 = X_89),
+    inference(subst, [],
+              [total_function2 :
+               [bind(W, $fot(X_89)), bind(X, $fot(identity)),
+                bind(Y, $fot(X_89)), bind(Z, $fot(X_92))]])).
+
+cnf(refute_0_27, plain, (~ product(identity, X_89, X_92) | X_92 = X_89),
+    inference(resolve, [$cnf(product(identity, X_89, X_89))],
+              [refute_0_25, refute_0_26])).
+
+cnf(refute_0_28, plain,
+    (~ product(identity, X_94, multiply(X_94, identity)) |
+     multiply(X_94, identity) = X_94),
+    inference(subst, [],
+              [refute_0_27 :
+               [bind(X_89, $fot(X_94)),
+                bind(X_92, $fot(multiply(X_94, identity)))]])).
+
+cnf(refute_0_29, plain, (multiply(X_94, identity) = X_94),
+    inference(resolve,
+              [$cnf(product(identity, X_94, multiply(X_94, identity)))],
+              [refute_0_24, refute_0_28])).
+
+cnf(refute_0_30, plain,
+    (multiply(inverse(X_205), identity) = inverse(X_205)),
+    inference(subst, [],
+              [refute_0_29 : [bind(X_94, $fot(inverse(X_205)))]])).
+
+cnf(refute_0_31, plain,
+    (X_205 != multiply(inverse(X_205), identity) |
+     multiply(inverse(X_205), identity) != inverse(X_205) |
+     X_205 = inverse(X_205)),
+    introduced(tautology,
+               [equality,
+                [$cnf(~ $equal(X_205, inverse(X_205))), [0],
+                 $fot(multiply(inverse(X_205), identity))]])).
+
+cnf(refute_0_32, plain,
+    (X_205 != multiply(inverse(X_205), identity) | X_205 = inverse(X_205)),
+    inference(resolve,
+              [$cnf($equal(multiply(inverse(X_205), identity),
+                      inverse(X_205)))], [refute_0_30, refute_0_31])).
+
+cnf(refute_0_33, plain, (X_205 = inverse(X_205)),
+    inference(resolve,
+              [$cnf($equal(X_205, multiply(inverse(X_205), identity)))],
+              [refute_0_17, refute_0_32])).
+
+cnf(refute_0_34, plain, (X0 = X0),
+    introduced(tautology, [refl, [$fot(X0)]])).
+
+cnf(refute_0_35, plain, (X0 != X0 | X0 != Y0 | Y0 = X0),
+    introduced(tautology,
+               [equality, [$cnf($equal(X0, X0)), [0], $fot(Y0)]])).
+
+cnf(refute_0_36, plain, (X0 != Y0 | Y0 = X0),
+    inference(resolve, [$cnf($equal(X0, X0))],
+              [refute_0_34, refute_0_35])).
+
+cnf(refute_0_37, plain, (X_205 != inverse(X_205) | inverse(X_205) = X_205),
+    inference(subst, [],
+              [refute_0_36 :
+               [bind(X0, $fot(X_205)), bind(Y0, $fot(inverse(X_205)))]])).
+
+cnf(refute_0_38, plain, (inverse(X_205) = X_205),
+    inference(resolve, [$cnf($equal(X_205, inverse(X_205)))],
+              [refute_0_33, refute_0_37])).
+
+cnf(refute_0_39, plain, (inverse(X_204) = X_204),
+    inference(subst, [], [refute_0_38 : [bind(X_205, $fot(X_204))]])).
+
+cnf(refute_0_40, plain,
+    (inverse(X_204) != X_204 |
+     ~ product(inverse(X_204), multiply(X_204, X_203), X_203) |
+     product(X_204, multiply(X_204, X_203), X_203)),
+    introduced(tautology,
+               [equality,
+                [$cnf(product(inverse(X_204), multiply(X_204, X_203),
+                        X_203)), [0], $fot(X_204)]])).
+
+cnf(refute_0_41, plain,
+    (~ product(inverse(X_204), multiply(X_204, X_203), X_203) |
+     product(X_204, multiply(X_204, X_203), X_203)),
+    inference(resolve, [$cnf($equal(inverse(X_204), X_204))],
+              [refute_0_39, refute_0_40])).
+
+cnf(refute_0_42, plain, (product(X_204, multiply(X_204, X_203), X_203)),
+    inference(resolve,
+              [$cnf(product(inverse(X_204), multiply(X_204, X_203),
+                      X_203))], [refute_0_8, refute_0_41])).
+
+cnf(refute_0_43, plain, (product(b, multiply(b, c), c)),
+    inference(subst, [],
+              [refute_0_42 :
+               [bind(X_203, $fot(c)), bind(X_204, $fot(b))]])).
+
+cnf(refute_0_44, plain,
+    (~ product(c, b, multiply(b, c)) | multiply(b, c) = multiply(c, b)),
+    inference(subst, [],
+              [refute_0_11 :
+               [bind(X_90, $fot(c)), bind(X_91, $fot(b)),
+                bind(X_92, $fot(multiply(b, c)))]])).
+
+cnf(refute_0_45, plain,
+    (~ product(X_127, multiply(X_207, a), identity) |
+     ~ product(multiply(X_207, a), multiply(X_207, c), b) |
+     product(X_127, b, multiply(X_207, c))),
+    inference(subst, [],
+              [refute_0_4 :
+               [bind(X_125, $fot(b)),
+                bind(X_126, $fot(multiply(X_207, c))),
+                bind(X_128, $fot(multiply(X_207, a)))]])).
+
+cnf(refute_0_46, plain,
+    (product(multiply(X_145, a), b, multiply(multiply(X_145, a), b))),
+    inference(subst, [],
+              [total_function1 :
+               [bind(X, $fot(multiply(X_145, a))), bind(Y, $fot(b))]])).
+
+cnf(refute_0_47, plain,
+    (~ product(X_144, c, multiply(multiply(X_144, a), b)) |
+     multiply(multiply(X_144, a), b) = multiply(X_144, c)),
+    inference(subst, [],
+              [refute_0_11 :
+               [bind(X_90, $fot(X_144)), bind(X_91, $fot(c)),
+                bind(X_92, $fot(multiply(multiply(X_144, a), b)))]])).
+
+cnf(refute_0_48, plain,
+    (product(multiply(X_143, a), b, multiply(multiply(X_143, a), b))),
+    inference(subst, [],
+              [total_function1 :
+               [bind(X, $fot(multiply(X_143, a))), bind(Y, $fot(b))]])).
+
+cnf(refute_0_49, plain, (product(X_132, a, multiply(X_132, a))),
+    inference(subst, [],
+              [total_function1 :
+               [bind(X, $fot(X_132)), bind(Y, $fot(a))]])).
+
+cnf(refute_0_50, plain,
+    (~ product(X_124, b, X_126) | ~ product(X_127, a, X_124) |
+     ~ product(a, b, c) | product(X_127, c, X_126)),
+    inference(subst, [],
+              [associativity1 :
+               [bind(U, $fot(X_124)), bind(V, $fot(c)),
+                bind(W, $fot(X_126)), bind(X, $fot(X_127)),
+                bind(Y, $fot(a)), bind(Z, $fot(b))]])).
+
+cnf(refute_0_51, plain,
+    (~ product(X_124, b, X_126) | ~ product(X_127, a, X_124) |
+     product(X_127, c, X_126)),
+    inference(resolve, [$cnf(product(a, b, c))],
+              [a_times_b_is_c, refute_0_50])).
+
+cnf(refute_0_52, plain,
+    (~ product(X_132, a, multiply(X_132, a)) |
+     ~ product(multiply(X_132, a), b, X_131) | product(X_132, c, X_131)),
+    inference(subst, [],
+              [refute_0_51 :
+               [bind(X_124, $fot(multiply(X_132, a))),
+                bind(X_126, $fot(X_131)), bind(X_127, $fot(X_132))]])).
+
+cnf(refute_0_53, plain,
+    (~ product(multiply(X_132, a), b, X_131) | product(X_132, c, X_131)),
+    inference(resolve, [$cnf(product(X_132, a, multiply(X_132, a)))],
+              [refute_0_49, refute_0_52])).
+
+cnf(refute_0_54, plain,
+    (~ product(multiply(X_143, a), b, multiply(multiply(X_143, a), b)) |
+     product(X_143, c, multiply(multiply(X_143, a), b))),
+    inference(subst, [],
+              [refute_0_53 :
+               [bind(X_131, $fot(multiply(multiply(X_143, a), b))),
+                bind(X_132, $fot(X_143))]])).
+
+cnf(refute_0_55, plain,
+    (product(X_143, c, multiply(multiply(X_143, a), b))),
+    inference(resolve,
+              [$cnf(product(multiply(X_143, a), b,
+                      multiply(multiply(X_143, a), b)))],
+              [refute_0_48, refute_0_54])).
+
+cnf(refute_0_56, plain,
+    (product(X_144, c, multiply(multiply(X_144, a), b))),
+    inference(subst, [], [refute_0_55 : [bind(X_143, $fot(X_144))]])).
+
+cnf(refute_0_57, plain,
+    (multiply(multiply(X_144, a), b) = multiply(X_144, c)),
+    inference(resolve,
+              [$cnf(product(X_144, c, multiply(multiply(X_144, a), b)))],
+              [refute_0_56, refute_0_47])).
+
+cnf(refute_0_58, plain,
+    (multiply(multiply(X_145, a), b) = multiply(X_145, c)),
+    inference(subst, [], [refute_0_57 : [bind(X_144, $fot(X_145))]])).
+
+cnf(refute_0_59, plain,
+    (multiply(multiply(X_145, a), b) != multiply(X_145, c) |
+     ~ product(multiply(X_145, a), b, multiply(multiply(X_145, a), b)) |
+     product(multiply(X_145, a), b, multiply(X_145, c))),
+    introduced(tautology,
+               [equality,
+                [$cnf(product(multiply(X_145, a), b,
+                        multiply(multiply(X_145, a), b))), [2],
+                 $fot(multiply(X_145, c))]])).
+
+cnf(refute_0_60, plain,
+    (~ product(multiply(X_145, a), b, multiply(multiply(X_145, a), b)) |
+     product(multiply(X_145, a), b, multiply(X_145, c))),
+    inference(resolve,
+              [$cnf($equal(multiply(multiply(X_145, a), b),
+                      multiply(X_145, c)))], [refute_0_58, refute_0_59])).
+
+cnf(refute_0_61, plain,
+    (product(multiply(X_145, a), b, multiply(X_145, c))),
+    inference(resolve,
+              [$cnf(product(multiply(X_145, a), b,
+                      multiply(multiply(X_145, a), b)))],
+              [refute_0_46, refute_0_60])).
+
+cnf(refute_0_62, plain,
+    (~ product(multiply(X_145, a), b, multiply(X_145, c)) |
+     product(inverse(multiply(X_145, a)), multiply(X_145, c), b)),
+    inference(subst, [],
+              [refute_0_6 :
+               [bind(X_174, $fot(multiply(X_145, c))),
+                bind(X_175, $fot(b)),
+                bind(X_177, $fot(multiply(X_145, a)))]])).
+
+cnf(refute_0_63, plain,
+    (product(inverse(multiply(X_145, a)), multiply(X_145, c), b)),
+    inference(resolve,
+              [$cnf(product(multiply(X_145, a), b, multiply(X_145, c)))],
+              [refute_0_61, refute_0_62])).
+
+cnf(refute_0_64, plain, (inverse(multiply(X_145, a)) = multiply(X_145, a)),
+    inference(subst, [],
+              [refute_0_38 : [bind(X_205, $fot(multiply(X_145, a)))]])).
+
+cnf(refute_0_65, plain,
+    (inverse(multiply(X_145, a)) != multiply(X_145, a) |
+     ~ product(inverse(multiply(X_145, a)), multiply(X_145, c), b) |
+     product(multiply(X_145, a), multiply(X_145, c), b)),
+    introduced(tautology,
+               [equality,
+                [$cnf(product(inverse(multiply(X_145, a)),
+                        multiply(X_145, c), b)), [0],
+                 $fot(multiply(X_145, a))]])).
+
+cnf(refute_0_66, plain,
+    (~ product(inverse(multiply(X_145, a)), multiply(X_145, c), b) |
+     product(multiply(X_145, a), multiply(X_145, c), b)),
+    inference(resolve,
+              [$cnf($equal(inverse(multiply(X_145, a)),
+                      multiply(X_145, a)))], [refute_0_64, refute_0_65])).
+
+cnf(refute_0_67, plain,
+    (product(multiply(X_145, a), multiply(X_145, c), b)),
+    inference(resolve,
+              [$cnf(product(inverse(multiply(X_145, a)),
+                      multiply(X_145, c), b))],
+              [refute_0_63, refute_0_66])).
+
+cnf(refute_0_68, plain,
+    (product(multiply(X_207, a), multiply(X_207, c), b)),
+    inference(subst, [], [refute_0_67 : [bind(X_145, $fot(X_207))]])).
+
+cnf(refute_0_69, plain,
+    (~ product(X_127, multiply(X_207, a), identity) |
+     product(X_127, b, multiply(X_207, c))),
+    inference(resolve,
+              [$cnf(product(multiply(X_207, a), multiply(X_207, c), b))],
+              [refute_0_68, refute_0_45])).
+
+cnf(refute_0_70, plain,
+    (~ product(c, multiply(b, a), identity) |
+     product(c, b, multiply(b, c))),
+    inference(subst, [],
+              [refute_0_69 :
+               [bind(X_127, $fot(c)), bind(X_207, $fot(b))]])).
+
+cnf(refute_0_71, plain, (product(b, a, multiply(b, a))),
+    inference(subst, [],
+              [total_function1 : [bind(X, $fot(b)), bind(Y, $fot(a))]])).
+
+cnf(refute_0_72, plain, (product(c, c, identity)),
+    inference(subst, [], [square_element : [bind(X, $fot(c))]])).
+
+cnf(refute_0_73, plain,
+    (~ product(X_127, c, identity) | ~ product(c, a, b) |
+     product(X_127, b, a)),
+    inference(subst, [],
+              [refute_0_4 :
+               [bind(X_125, $fot(b)), bind(X_126, $fot(a)),
+                bind(X_128, $fot(c))]])).
+
+cnf(refute_0_74, plain, (product(c, a, multiply(c, a))),
+    inference(subst, [],
+              [total_function1 : [bind(X, $fot(c)), bind(Y, $fot(a))]])).
+
+cnf(refute_0_75, plain,
+    (~ product(multiply(c, a), identity, b) |
+     b = multiply(multiply(c, a), identity)),
+    inference(subst, [],
+              [refute_0_11 :
+               [bind(X_90, $fot(multiply(c, a))),
+                bind(X_91, $fot(identity)), bind(X_92, $fot(b))]])).
+
+cnf(refute_0_76, plain,
+    (product(multiply(c, a), multiply(c, a), identity)),
+    inference(subst, [],
+              [square_element : [bind(X, $fot(multiply(c, a)))]])).
+
+cnf(refute_0_77, plain, (product(multiply(c, a), b, multiply(c, c))),
+    inference(subst, [], [refute_0_61 : [bind(X_145, $fot(c))]])).
+
+cnf(refute_0_78, plain, (product(X_103, X_103, multiply(X_103, X_103))),
+    inference(subst, [],
+              [total_function1 :
+               [bind(X, $fot(X_103)), bind(Y, $fot(X_103))]])).
+
+cnf(refute_0_79, plain, (product(X_91, X_91, identity)),
+    inference(subst, [], [square_element : [bind(X, $fot(X_91))]])).
+
+cnf(refute_0_80, plain,
+    (~ product(X_91, X_91, X_92) | ~ product(X_91, X_91, identity) |
+     X_92 = identity),
+    inference(subst, [],
+              [total_function2 :
+               [bind(W, $fot(identity)), bind(X, $fot(X_91)),
+                bind(Y, $fot(X_91)), bind(Z, $fot(X_92))]])).
+
+cnf(refute_0_81, plain, (~ product(X_91, X_91, X_92) | X_92 = identity),
+    inference(resolve, [$cnf(product(X_91, X_91, identity))],
+              [refute_0_79, refute_0_80])).
+
+cnf(refute_0_82, plain,
+    (~ product(X_103, X_103, multiply(X_103, X_103)) |
+     multiply(X_103, X_103) = identity),
+    inference(subst, [],
+              [refute_0_81 :
+               [bind(X_91, $fot(X_103)),
+                bind(X_92, $fot(multiply(X_103, X_103)))]])).
+
+cnf(refute_0_83, plain, (multiply(X_103, X_103) = identity),
+    inference(resolve,
+              [$cnf(product(X_103, X_103, multiply(X_103, X_103)))],
+              [refute_0_78, refute_0_82])).
+
+cnf(refute_0_84, plain, (multiply(c, c) = identity),
+    inference(subst, [], [refute_0_83 : [bind(X_103, $fot(c))]])).
+
+cnf(refute_0_85, plain,
+    (multiply(c, c) != identity |
+     ~ product(multiply(c, a), b, multiply(c, c)) |
+     product(multiply(c, a), b, identity)),
+    introduced(tautology,
+               [equality,
+                [$cnf(product(multiply(c, a), b, multiply(c, c))), [2],
+                 $fot(identity)]])).
+
+cnf(refute_0_86, plain,
+    (~ product(multiply(c, a), b, multiply(c, c)) |
+     product(multiply(c, a), b, identity)),
+    inference(resolve, [$cnf($equal(multiply(c, c), identity))],
+              [refute_0_84, refute_0_85])).
+
+cnf(refute_0_87, plain, (product(multiply(c, a), b, identity)),
+    inference(resolve, [$cnf(product(multiply(c, a), b, multiply(c, c)))],
+              [refute_0_77, refute_0_86])).
+
+cnf(refute_0_88, plain,
+    (~ product(X_176, multiply(c, a), identity) |
+     ~ product(multiply(c, a), b, identity) | product(X_176, identity, b)),
+    inference(subst, [],
+              [refute_0_4 :
+               [bind(X_125, $fot(identity)), bind(X_126, $fot(b)),
+                bind(X_127, $fot(X_176)),
+                bind(X_128, $fot(multiply(c, a)))]])).
+
+cnf(refute_0_89, plain,
+    (~ product(X_176, multiply(c, a), identity) |
+     product(X_176, identity, b)),
+    inference(resolve, [$cnf(product(multiply(c, a), b, identity))],
+              [refute_0_87, refute_0_88])).
+
+cnf(refute_0_90, plain,
+    (~ product(multiply(c, a), multiply(c, a), identity) |
+     product(multiply(c, a), identity, b)),
+    inference(subst, [],
+              [refute_0_89 : [bind(X_176, $fot(multiply(c, a)))]])).
+
+cnf(refute_0_91, plain, (product(multiply(c, a), identity, b)),
+    inference(resolve,
+              [$cnf(product(multiply(c, a), multiply(c, a), identity))],
+              [refute_0_76, refute_0_90])).
+
+cnf(refute_0_92, plain, (b = multiply(multiply(c, a), identity)),
+    inference(resolve, [$cnf(product(multiply(c, a), identity, b))],
+              [refute_0_91, refute_0_75])).
+
+cnf(refute_0_93, plain,
+    (multiply(multiply(c, a), identity) = multiply(c, a)),
+    inference(subst, [],
+              [refute_0_29 : [bind(X_94, $fot(multiply(c, a)))]])).
+
+cnf(refute_0_94, plain,
+    (multiply(multiply(c, a), identity) != multiply(c, a) |
+     b != multiply(multiply(c, a), identity) | b = multiply(c, a)),
+    introduced(tautology,
+               [equality,
+                [$cnf($equal(b, multiply(multiply(c, a), identity))), [1],
+                 $fot(multiply(c, a))]])).
+
+cnf(refute_0_95, plain,
+    (b != multiply(multiply(c, a), identity) | b = multiply(c, a)),
+    inference(resolve,
+              [$cnf($equal(multiply(multiply(c, a), identity),
+                      multiply(c, a)))], [refute_0_93, refute_0_94])).
+
+cnf(refute_0_96, plain, (b = multiply(c, a)),
+    inference(resolve,
+              [$cnf($equal(b, multiply(multiply(c, a), identity)))],
+              [refute_0_92, refute_0_95])).
+
+cnf(refute_0_97, plain, (b != multiply(c, a) | multiply(c, a) = b),
+    inference(subst, [],
+              [refute_0_36 :
+               [bind(X0, $fot(b)), bind(Y0, $fot(multiply(c, a)))]])).
+
+cnf(refute_0_98, plain, (multiply(c, a) = b),
+    inference(resolve, [$cnf($equal(b, multiply(c, a)))],
+              [refute_0_96, refute_0_97])).
+
+cnf(refute_0_99, plain,
+    (multiply(c, a) != b | ~ product(c, a, multiply(c, a)) |
+     product(c, a, b)),
+    introduced(tautology,
+               [equality,
+                [$cnf(product(c, a, multiply(c, a))), [2], $fot(b)]])).
+
+cnf(refute_0_100, plain,
+    (~ product(c, a, multiply(c, a)) | product(c, a, b)),
+    inference(resolve, [$cnf($equal(multiply(c, a), b))],
+              [refute_0_98, refute_0_99])).
+
+cnf(refute_0_101, plain, (product(c, a, b)),
+    inference(resolve, [$cnf(product(c, a, multiply(c, a)))],
+              [refute_0_74, refute_0_100])).
+
+cnf(refute_0_102, plain,
+    (~ product(X_127, c, identity) | product(X_127, b, a)),
+    inference(resolve, [$cnf(product(c, a, b))],
+              [refute_0_101, refute_0_73])).
+
+cnf(refute_0_103, plain, (~ product(c, c, identity) | product(c, b, a)),
+    inference(subst, [], [refute_0_102 : [bind(X_127, $fot(c))]])).
+
+cnf(refute_0_104, plain, (product(c, b, a)),
+    inference(resolve, [$cnf(product(c, c, identity))],
+              [refute_0_72, refute_0_103])).
+
+cnf(refute_0_105, plain, (product(X_129, X_129, identity)),
+    inference(subst, [], [square_element : [bind(X, $fot(X_129))]])).
+
+cnf(refute_0_106, plain,
+    (~ product(X_127, X_128, X_129) | ~ product(X_128, X_129, X_125) |
+     ~ product(X_129, X_129, identity) | product(X_127, X_125, identity)),
+    inference(subst, [],
+              [associativity1 :
+               [bind(U, $fot(X_129)), bind(V, $fot(X_125)),
+                bind(W, $fot(identity)), bind(X, $fot(X_127)),
+                bind(Y, $fot(X_128)), bind(Z, $fot(X_129))]])).
+
+cnf(refute_0_107, plain,
+    (~ product(X_127, X_128, X_129) | ~ product(X_128, X_129, X_125) |
+     product(X_127, X_125, identity)),
+    inference(resolve, [$cnf(product(X_129, X_129, identity))],
+              [refute_0_105, refute_0_106])).
+
+cnf(refute_0_108, plain,
+    (~ product(b, a, X_275) | ~ product(c, b, a) |
+     product(c, X_275, identity)),
+    inference(subst, [],
+              [refute_0_107 :
+               [bind(X_125, $fot(X_275)), bind(X_127, $fot(c)),
+                bind(X_128, $fot(b)), bind(X_129, $fot(a))]])).
+
+cnf(refute_0_109, plain,
+    (~ product(b, a, X_275) | product(c, X_275, identity)),
+    inference(resolve, [$cnf(product(c, b, a))],
+              [refute_0_104, refute_0_108])).
+
+cnf(refute_0_110, plain,
+    (~ product(b, a, multiply(b, a)) |
+     product(c, multiply(b, a), identity)),
+    inference(subst, [],
+              [refute_0_109 : [bind(X_275, $fot(multiply(b, a)))]])).
+
+cnf(refute_0_111, plain, (product(c, multiply(b, a), identity)),
+    inference(resolve, [$cnf(product(b, a, multiply(b, a)))],
+              [refute_0_71, refute_0_110])).
+
+cnf(refute_0_112, plain, (product(c, b, multiply(b, c))),
+    inference(resolve, [$cnf(product(c, multiply(b, a), identity))],
+              [refute_0_111, refute_0_70])).
+
+cnf(refute_0_113, plain, (multiply(b, c) = multiply(c, b)),
+    inference(resolve, [$cnf(product(c, b, multiply(b, c)))],
+              [refute_0_112, refute_0_44])).
+
+cnf(refute_0_114, plain, (~ product(c, b, a) | a = multiply(c, b)),
+    inference(subst, [],
+              [refute_0_11 :
+               [bind(X_90, $fot(c)), bind(X_91, $fot(b)),
+                bind(X_92, $fot(a))]])).
+
+cnf(refute_0_115, plain, (a = multiply(c, b)),
+    inference(resolve, [$cnf(product(c, b, a))],
+              [refute_0_104, refute_0_114])).
+
+cnf(refute_0_116, plain, (a != multiply(c, b) | multiply(c, b) = a),
+    inference(subst, [],
+              [refute_0_36 :
+               [bind(X0, $fot(a)), bind(Y0, $fot(multiply(c, b)))]])).
+
+cnf(refute_0_117, plain, (multiply(c, b) = a),
+    inference(resolve, [$cnf($equal(a, multiply(c, b)))],
+              [refute_0_115, refute_0_116])).
+
+cnf(refute_0_118, plain,
+    (multiply(b, c) != multiply(c, b) | multiply(c, b) != a |
+     multiply(b, c) = a),
+    introduced(tautology,
+               [equality,
+                [$cnf(~ $equal(multiply(b, c), a)), [0],
+                 $fot(multiply(c, b))]])).
+
+cnf(refute_0_119, plain,
+    (multiply(b, c) != multiply(c, b) | multiply(b, c) = a),
+    inference(resolve, [$cnf($equal(multiply(c, b), a))],
+              [refute_0_117, refute_0_118])).
+
+cnf(refute_0_120, plain, (multiply(b, c) = a),
+    inference(resolve, [$cnf($equal(multiply(b, c), multiply(c, b)))],
+              [refute_0_113, refute_0_119])).
+
+cnf(refute_0_121, plain,
+    (multiply(b, c) != a | ~ product(b, multiply(b, c), c) |
+     product(b, a, c)),
+    introduced(tautology,
+               [equality,
+                [$cnf(product(b, multiply(b, c), c)), [1], $fot(a)]])).
+
+cnf(refute_0_122, plain,
+    (~ product(b, multiply(b, c), c) | product(b, a, c)),
+    inference(resolve, [$cnf($equal(multiply(b, c), a))],
+              [refute_0_120, refute_0_121])).
+
+cnf(refute_0_123, plain, (product(b, a, c)),
+    inference(resolve, [$cnf(product(b, multiply(b, c), c))],
+              [refute_0_43, refute_0_122])).
+
+cnf(refute_0_124, plain, ($false),
+    inference(resolve, [$cnf(product(b, a, c))],
+              [refute_0_123, prove_b_times_a_is_c])).
+% SZS output end CNFRefutation for GRP001-1.tptp
+

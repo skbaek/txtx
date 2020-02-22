@@ -1,0 +1,165 @@
+% Refutation found. Thanks to Tanya!
+% SZS status Theorem for SYN058+1
+% SZS output start Proof for SYN058+1
+fof(f65,plain,(
+  $false),
+  inference(avatar_sat_refutation,[],[f34,f43,f55,f57,f59,f61,f64])).
+fof(f64,plain,(
+  ~spl3_7),
+  inference(avatar_contradiction_clause,[],[f63])).
+fof(f63,plain,(
+  $false | ~spl3_7),
+  inference(subsumption_resolution,[],[f62,f27])).
+fof(f27,plain,(
+  ~big_g(sK2)),
+  inference(cnf_transformation,[],[f20])).
+fof(f20,plain,(
+  ~big_g(sK2) & big_f(sK2) & big_p(sK2)),
+  inference(skolemisation,[status(esa),new_symbols(skolem,[sK2])],[f13,f19])).
+fof(f19,plain,(
+  ? [X0] : (~big_g(X0) & big_f(X0) & big_p(X0)) => (~big_g(sK2) & big_f(sK2) & big_p(sK2))),
+  introduced(choice_axiom,[])).
+fof(f13,plain,(
+  ? [X0] : (~big_g(X0) & big_f(X0) & big_p(X0))),
+  inference(flattening,[],[f12])).
+fof(f12,plain,(
+  ? [X0] : (~big_g(X0) & (big_f(X0) & big_p(X0)))),
+  inference(ennf_transformation,[],[f5])).
+fof(f5,negated_conjecture,(
+  ~! [X0] : ((big_f(X0) & big_p(X0)) => big_g(X0))),
+  inference(negated_conjecture,[],[f4])).
+fof(f4,conjecture,(
+  ! [X0] : ((big_f(X0) & big_p(X0)) => big_g(X0))),
+  file('SYN058+1.tptp',unknown)).
+fof(f62,plain,(
+  big_g(sK2) | ~spl3_7),
+  inference(resolution,[],[f54,f26])).
+fof(f26,plain,(
+  big_f(sK2)),
+  inference(cnf_transformation,[],[f20])).
+fof(f54,plain,(
+  ( ! [X0] : (~big_f(X0) | big_g(X0)) ) | ~spl3_7),
+  inference(avatar_component_clause,[],[f53])).
+fof(f53,plain,(
+  spl3_7 <=> ! [X0] : (big_g(X0) | ~big_f(X0))),
+  introduced(avatar_definition,[new_symbols(naming,[spl3_7])])).
+fof(f61,plain,(
+  ~spl3_4 | ~spl3_6),
+  inference(avatar_contradiction_clause,[],[f60])).
+fof(f60,plain,(
+  $false | (~spl3_4 | ~spl3_6)),
+  inference(subsumption_resolution,[],[f42,f51])).
+fof(f51,plain,(
+  ( ! [X1] : (~big_s(X1)) ) | ~spl3_6),
+  inference(avatar_component_clause,[],[f50])).
+fof(f50,plain,(
+  spl3_6 <=> ! [X1] : ~big_s(X1)),
+  introduced(avatar_definition,[new_symbols(naming,[spl3_6])])).
+fof(f42,plain,(
+  big_s(sK0) | ~spl3_4),
+  inference(avatar_component_clause,[],[f40])).
+fof(f40,plain,(
+  spl3_4 <=> big_s(sK0)),
+  introduced(avatar_definition,[new_symbols(naming,[spl3_4])])).
+fof(f59,plain,(
+  ~spl3_1),
+  inference(avatar_contradiction_clause,[],[f58])).
+fof(f58,plain,(
+  $false | ~spl3_1),
+  inference(resolution,[],[f30,f25])).
+fof(f25,plain,(
+  big_p(sK2)),
+  inference(cnf_transformation,[],[f20])).
+fof(f30,plain,(
+  ( ! [X0] : (~big_p(X0)) ) | ~spl3_1),
+  inference(avatar_component_clause,[],[f29])).
+fof(f29,plain,(
+  spl3_1 <=> ! [X0] : ~big_p(X0)),
+  introduced(avatar_definition,[new_symbols(naming,[spl3_1])])).
+fof(f57,plain,(
+  ~spl3_2 | spl3_3),
+  inference(avatar_contradiction_clause,[],[f56])).
+fof(f56,plain,(
+  $false | (~spl3_2 | spl3_3)),
+  inference(resolution,[],[f38,f33])).
+fof(f33,plain,(
+  ( ! [X1] : (big_q(X1)) ) | ~spl3_2),
+  inference(avatar_component_clause,[],[f32])).
+fof(f32,plain,(
+  spl3_2 <=> ! [X1] : big_q(X1)),
+  introduced(avatar_definition,[new_symbols(naming,[spl3_2])])).
+fof(f38,plain,(
+  ~big_q(sK1) | spl3_3),
+  inference(avatar_component_clause,[],[f36])).
+fof(f36,plain,(
+  spl3_3 <=> big_q(sK1)),
+  introduced(avatar_definition,[new_symbols(naming,[spl3_3])])).
+fof(f55,plain,(
+  spl3_6 | spl3_7),
+  inference(avatar_split_clause,[],[f24,f53,f50])).
+fof(f24,plain,(
+  ( ! [X0,X1] : (big_g(X0) | ~big_f(X0) | ~big_s(X1)) )),
+  inference(cnf_transformation,[],[f18])).
+fof(f18,plain,(
+  ! [X0] : (big_g(X0) | ~big_f(X0)) | ! [X1] : ~big_s(X1)),
+  inference(rectify,[],[f11])).
+fof(f11,plain,(
+  ! [X1] : (big_g(X1) | ~big_f(X1)) | ! [X0] : ~big_s(X0)),
+  inference(ennf_transformation,[],[f7])).
+fof(f7,plain,(
+  ? [X0] : big_s(X0) => ! [X1] : (big_f(X1) => big_g(X1))),
+  inference(rectify,[],[f3])).
+fof(f3,axiom,(
+  ? [X0] : big_s(X0) => ! [X2] : (big_f(X2) => big_g(X2))),
+  file('SYN058+1.tptp',unknown)).
+fof(f43,plain,(
+  ~spl3_3 | spl3_4),
+  inference(avatar_split_clause,[],[f23,f40,f36])).
+fof(f23,plain,(
+  big_s(sK0) | ~big_q(sK1)),
+  inference(cnf_transformation,[],[f17])).
+fof(f17,plain,(
+  (big_s(sK0) & big_q(sK0)) | ~big_q(sK1)),
+  inference(skolemisation,[status(esa),new_symbols(skolem,[sK0,sK1])],[f14,f16,f15])).
+fof(f15,plain,(
+  ? [X0] : (big_s(X0) & big_q(X0)) => (big_s(sK0) & big_q(sK0))),
+  introduced(choice_axiom,[])).
+fof(f16,plain,(
+  ? [X1] : ~big_q(X1) => ~big_q(sK1)),
+  introduced(choice_axiom,[])).
+fof(f14,plain,(
+  ? [X0] : (big_s(X0) & big_q(X0)) | ? [X1] : ~big_q(X1)),
+  inference(rectify,[],[f10])).
+fof(f10,plain,(
+  ? [X1] : (big_s(X1) & big_q(X1)) | ? [X0] : ~big_q(X0)),
+  inference(ennf_transformation,[],[f8])).
+fof(f8,plain,(
+  ! [X0] : big_q(X0) => ? [X1] : (big_s(X1) & big_q(X1))),
+  inference(pure_predicate_removal,[],[f6])).
+fof(f6,plain,(
+  ! [X0] : (big_r(X0) | big_q(X0)) => ? [X1] : (big_s(X1) & big_q(X1))),
+  inference(rectify,[],[f2])).
+fof(f2,axiom,(
+  ! [X0] : (big_r(X0) | big_q(X0)) => ? [X2] : (big_s(X2) & big_q(X2))),
+  file('SYN058+1.tptp',unknown)).
+fof(f34,plain,(
+  spl3_1 | spl3_2),
+  inference(avatar_split_clause,[],[f21,f32,f29])).
+fof(f21,plain,(
+  ( ! [X0,X1] : (big_q(X1) | ~big_p(X0)) )),
+  inference(cnf_transformation,[],[f9])).
+fof(f9,plain,(
+  ! [X0] : (! [X1] : big_q(X1) | ~big_p(X0))),
+  inference(ennf_transformation,[],[f1])).
+fof(f1,axiom,(
+  ! [X0] : (big_p(X0) => ! [X1] : big_q(X1))),
+  file('SYN058+1.tptp',unknown)).
+% SZS output end Proof for SYN058+1
+% ------------------------------
+% Version: Vampire 4.4.0 (commit d98a3d53 on 2020-01-14 21:02:12 +0100)
+% Termination reason: Refutation
+
+% Memory used [KB]: 4861
+% Time elapsed: 0.001 s
+% ------------------------------
+% ------------------------------

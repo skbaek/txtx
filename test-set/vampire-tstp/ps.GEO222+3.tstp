@@ -1,0 +1,141 @@
+% Refutation found. Thanks to Tanya!
+% SZS status Theorem for GEO222+3
+% SZS output start Proof for GEO222+3
+fof(f1461,plain,(
+  $false),
+  inference(subsumption_resolution,[],[f1449,f118])).
+fof(f118,plain,(
+  ( ! [X0,X1] : (~unorthogonal_lines(orthogonal_through_point(X1,X0),X1)) )),
+  inference(cnf_transformation,[],[f41])).
+fof(f41,plain,(
+  ! [X0,X1] : ~unorthogonal_lines(orthogonal_through_point(X1,X0),X1)),
+  inference(rectify,[],[f21])).
+fof(f21,axiom,(
+  ! [X8,X5] : ~unorthogonal_lines(orthogonal_through_point(X5,X8),X5)),
+  file('GEO222+3.tptp',unknown)).
+fof(f1449,plain,(
+  unorthogonal_lines(orthogonal_through_point(orthogonal_through_point(sK1,sK0),sK0),orthogonal_through_point(sK1,sK0))),
+  inference(resolution,[],[f725,f97])).
+fof(f97,plain,(
+  ( ! [X0] : (~convergent_lines(X0,X0)) )),
+  inference(cnf_transformation,[],[f3])).
+fof(f3,axiom,(
+  ! [X0] : ~convergent_lines(X0,X0)),
+  file('GEO222+3.tptp',unknown)).
+fof(f725,plain,(
+  ( ! [X41] : (convergent_lines(X41,orthogonal_through_point(orthogonal_through_point(sK1,sK0),sK0)) | unorthogonal_lines(X41,orthogonal_through_point(sK1,sK0))) )),
+  inference(subsumption_resolution,[],[f714,f118])).
+fof(f714,plain,(
+  ( ! [X41] : (unorthogonal_lines(orthogonal_through_point(sK1,sK0),sK1) | convergent_lines(X41,orthogonal_through_point(orthogonal_through_point(sK1,sK0),sK0)) | unorthogonal_lines(X41,orthogonal_through_point(sK1,sK0))) )),
+  inference(resolution,[],[f188,f137])).
+fof(f137,plain,(
+  ( ! [X0,X1] : (convergent_lines(X0,orthogonal_through_point(X0,X1))) )),
+  inference(resolution,[],[f135,f97])).
+fof(f135,plain,(
+  ( ! [X2,X0,X1] : (convergent_lines(orthogonal_through_point(X0,X1),X2) | convergent_lines(X0,X2)) )),
+  inference(resolution,[],[f100,f133])).
+fof(f133,plain,(
+  ( ! [X0,X1] : (convergent_lines(orthogonal_through_point(X0,X1),X0)) )),
+  inference(resolution,[],[f113,f118])).
+fof(f113,plain,(
+  ( ! [X0,X1] : (unorthogonal_lines(X0,X1) | convergent_lines(X0,X1)) )),
+  inference(cnf_transformation,[],[f39])).
+fof(f39,plain,(
+  ! [X0,X1] : (unorthogonal_lines(X0,X1) | convergent_lines(X0,X1))),
+  inference(rectify,[],[f19])).
+fof(f19,axiom,(
+  ! [X5,X6] : (unorthogonal_lines(X5,X6) | convergent_lines(X5,X6))),
+  file('GEO222+3.tptp',unknown)).
+fof(f100,plain,(
+  ( ! [X2,X0,X1] : (~convergent_lines(X0,X1) | convergent_lines(X0,X2) | convergent_lines(X1,X2)) )),
+  inference(cnf_transformation,[],[f58])).
+fof(f58,plain,(
+  ! [X0,X1,X2] : (convergent_lines(X1,X2) | convergent_lines(X0,X2) | ~convergent_lines(X0,X1))),
+  inference(flattening,[],[f57])).
+fof(f57,plain,(
+  ! [X0,X1,X2] : ((convergent_lines(X1,X2) | convergent_lines(X0,X2)) | ~convergent_lines(X0,X1))),
+  inference(ennf_transformation,[],[f6])).
+fof(f6,axiom,(
+  ! [X0,X1,X2] : (convergent_lines(X0,X1) => (convergent_lines(X1,X2) | convergent_lines(X0,X2)))),
+  file('GEO222+3.tptp',unknown)).
+fof(f188,plain,(
+  ( ! [X4,X3] : (~convergent_lines(X3,orthogonal_through_point(orthogonal_through_point(sK1,sK0),sK0)) | unorthogonal_lines(X3,sK1) | convergent_lines(X4,orthogonal_through_point(orthogonal_through_point(sK1,sK0),sK0)) | unorthogonal_lines(X4,X3)) )),
+  inference(resolution,[],[f146,f123])).
+fof(f123,plain,(
+  ( ! [X2,X0,X1] : (~unorthogonal_lines(X1,X2) | ~convergent_lines(X1,X2) | convergent_lines(X0,X2) | unorthogonal_lines(X0,X1)) )),
+  inference(cnf_transformation,[],[f80])).
+fof(f80,plain,(
+  ! [X0,X1,X2] : (~unorthogonal_lines(X1,X2) | ~convergent_lines(X1,X2) | (unorthogonal_lines(X0,X2) & convergent_lines(X0,X2)) | (unorthogonal_lines(X0,X1) & convergent_lines(X0,X1)))),
+  inference(flattening,[],[f79])).
+fof(f79,plain,(
+  ! [X0,X1,X2] : ((~unorthogonal_lines(X1,X2) | ~convergent_lines(X1,X2)) | ((unorthogonal_lines(X0,X2) & convergent_lines(X0,X2)) | (unorthogonal_lines(X0,X1) & convergent_lines(X0,X1))))),
+  inference(ennf_transformation,[],[f45])).
+fof(f45,plain,(
+  ! [X0,X1,X2] : (((~unorthogonal_lines(X0,X2) | ~convergent_lines(X0,X2)) & (~unorthogonal_lines(X0,X1) | ~convergent_lines(X0,X1))) => (~unorthogonal_lines(X1,X2) | ~convergent_lines(X1,X2)))),
+  inference(rectify,[],[f25])).
+fof(f25,axiom,(
+  ! [X5,X6,X7] : (((~unorthogonal_lines(X5,X7) | ~convergent_lines(X5,X7)) & (~unorthogonal_lines(X5,X6) | ~convergent_lines(X5,X6))) => (~unorthogonal_lines(X6,X7) | ~convergent_lines(X6,X7)))),
+  file('GEO222+3.tptp',unknown)).
+fof(f146,plain,(
+  ( ! [X7] : (unorthogonal_lines(X7,orthogonal_through_point(orthogonal_through_point(sK1,sK0),sK0)) | unorthogonal_lines(X7,sK1)) )),
+  inference(resolution,[],[f126,f134])).
+fof(f134,plain,(
+  convergent_lines(sK1,orthogonal_through_point(orthogonal_through_point(sK1,sK0),sK0))),
+  inference(resolution,[],[f132,f131])).
+fof(f131,plain,(
+  ( ! [X0,X1] : (parallel_lines(X0,X1) | convergent_lines(X0,X1)) )),
+  inference(cnf_transformation,[],[f91])).
+fof(f91,plain,(
+  ! [X0,X1] : (parallel_lines(X0,X1) | convergent_lines(X0,X1))),
+  inference(ennf_transformation,[],[f52])).
+fof(f52,plain,(
+  ! [X0,X1] : (~convergent_lines(X0,X1) => parallel_lines(X0,X1))),
+  inference(unused_predicate_definition_removal,[],[f33])).
+fof(f33,axiom,(
+  ! [X0,X1] : (parallel_lines(X0,X1) <=> ~convergent_lines(X0,X1))),
+  file('GEO222+3.tptp',unknown)).
+fof(f132,plain,(
+  ~parallel_lines(sK1,orthogonal_through_point(orthogonal_through_point(sK1,sK0),sK0))),
+  inference(cnf_transformation,[],[f94])).
+fof(f94,plain,(
+  ~parallel_lines(sK1,orthogonal_through_point(orthogonal_through_point(sK1,sK0),sK0))),
+  inference(skolemisation,[status(esa),new_symbols(skolem,[sK0,sK1])],[f92,f93])).
+fof(f93,plain,(
+  ? [X0,X1] : ~parallel_lines(X1,orthogonal_through_point(orthogonal_through_point(X1,X0),X0)) => ~parallel_lines(sK1,orthogonal_through_point(orthogonal_through_point(sK1,sK0),sK0))),
+  introduced(choice_axiom,[])).
+fof(f92,plain,(
+  ? [X0,X1] : ~parallel_lines(X1,orthogonal_through_point(orthogonal_through_point(X1,X0),X0))),
+  inference(ennf_transformation,[],[f51])).
+fof(f51,plain,(
+  ~! [X0,X1] : parallel_lines(X1,orthogonal_through_point(orthogonal_through_point(X1,X0),X0))),
+  inference(rectify,[],[f37])).
+fof(f37,negated_conjecture,(
+  ~! [X8,X5] : parallel_lines(X5,orthogonal_through_point(orthogonal_through_point(X5,X8),X8))),
+  inference(negated_conjecture,[],[f36])).
+fof(f36,conjecture,(
+  ! [X8,X5] : parallel_lines(X5,orthogonal_through_point(orthogonal_through_point(X5,X8),X8))),
+  file('GEO222+3.tptp',unknown)).
+fof(f126,plain,(
+  ( ! [X2,X0,X1] : (~convergent_lines(X1,X2) | unorthogonal_lines(X0,X2) | unorthogonal_lines(X0,X1)) )),
+  inference(cnf_transformation,[],[f82])).
+fof(f82,plain,(
+  ! [X0,X1,X2] : (~convergent_lines(X1,X2) | unorthogonal_lines(X0,X2) | unorthogonal_lines(X0,X1))),
+  inference(flattening,[],[f81])).
+fof(f81,plain,(
+  ! [X0,X1,X2] : (~convergent_lines(X1,X2) | (unorthogonal_lines(X0,X2) | unorthogonal_lines(X0,X1)))),
+  inference(ennf_transformation,[],[f46])).
+fof(f46,plain,(
+  ! [X0,X1,X2] : ((~unorthogonal_lines(X0,X2) & ~unorthogonal_lines(X0,X1)) => ~convergent_lines(X1,X2))),
+  inference(rectify,[],[f26])).
+fof(f26,axiom,(
+  ! [X5,X6,X7] : ((~unorthogonal_lines(X5,X7) & ~unorthogonal_lines(X5,X6)) => ~convergent_lines(X6,X7))),
+  file('GEO222+3.tptp',unknown)).
+% SZS output end Proof for GEO222+3
+% ------------------------------
+% Version: Vampire 4.4.0 (commit d98a3d53 on 2020-01-14 21:02:12 +0100)
+% Termination reason: Refutation
+
+% Memory used [KB]: 5628
+% Time elapsed: 0.063 s
+% ------------------------------
+% ------------------------------

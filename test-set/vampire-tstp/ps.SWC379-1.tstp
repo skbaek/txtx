@@ -1,0 +1,336 @@
+% Refutation found. Thanks to Tanya!
+% SZS status Unsatisfiable for SWC379-1
+% SZS output start Proof for SWC379-1
+fof(f29521,plain,(
+  $false),
+  inference(avatar_sat_refutation,[],[f249,f260,f264,f269,f274,f279,f284,f350,f3055,f3490,f9546,f10165,f10572,f29520])).
+fof(f29520,plain,(
+  ~spl0_2 | spl0_3 | ~spl0_4 | ~spl0_5 | spl0_249),
+  inference(avatar_contradiction_clause,[],[f29519])).
+fof(f29519,plain,(
+  $false | (~spl0_2 | spl0_3 | ~spl0_4 | ~spl0_5 | spl0_249)),
+  inference(subsumption_resolution,[],[f29518,f248])).
+fof(f248,plain,(
+  ( ! [X1] : (ssItem(X1)) ) | ~spl0_2),
+  inference(avatar_component_clause,[],[f247])).
+fof(f247,plain,(
+  spl0_2 <=> ! [X1] : ssItem(X1)),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_2])])).
+fof(f29518,plain,(
+  ~ssItem(sk6) | (~spl0_2 | spl0_3 | ~spl0_4 | ~spl0_5 | spl0_249)),
+  inference(subsumption_resolution,[],[f29517,f254])).
+fof(f254,plain,(
+  ~memberP(sk3,sk6) | spl0_3),
+  inference(avatar_component_clause,[],[f253])).
+fof(f253,plain,(
+  spl0_3 <=> memberP(sk3,sk6)),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_3])])).
+fof(f29517,plain,(
+  memberP(sk3,sk6) | ~ssItem(sk6) | (~spl0_2 | ~spl0_4 | ~spl0_5 | spl0_249)),
+  inference(subsumption_resolution,[],[f29516,f259])).
+fof(f259,plain,(
+  memberP(sk4,sk6) | ~spl0_4),
+  inference(avatar_component_clause,[],[f257])).
+fof(f257,plain,(
+  spl0_4 <=> memberP(sk4,sk6)),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_4])])).
+fof(f29516,plain,(
+  ~memberP(sk4,sk6) | memberP(sk3,sk6) | ~ssItem(sk6) | (~spl0_2 | ~spl0_5 | spl0_249)),
+  inference(subsumption_resolution,[],[f29511,f9995])).
+fof(f9995,plain,(
+  sk6 != sk5(sk6) | spl0_249),
+  inference(avatar_component_clause,[],[f9994])).
+fof(f9994,plain,(
+  spl0_249 <=> sk6 = sk5(sk6)),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_249])])).
+fof(f29511,plain,(
+  sk6 = sk5(sk6) | ~memberP(sk4,sk6) | memberP(sk3,sk6) | ~ssItem(sk6) | (~spl0_2 | ~spl0_5)),
+  inference(duplicate_literal_removal,[],[f29510])).
+fof(f29510,plain,(
+  sk6 = sk5(sk6) | ~memberP(sk4,sk6) | memberP(sk3,sk6) | ~memberP(sk4,sk6) | memberP(sk3,sk6) | ~ssItem(sk6) | (~spl0_2 | ~spl0_5)),
+  inference(resolution,[],[f25203,f194])).
+fof(f194,axiom,(
+  ( ! [X6] : (leq(sk5(X6),X6) | ~memberP(sk4,X6) | memberP(sk3,X6) | ~ssItem(X6)) )),
+  file('SWC379-1.tptp',unknown)).
+fof(f25203,plain,(
+  ( ! [X0] : (~leq(sk5(X0),sk6) | sk6 = sk5(X0) | ~memberP(sk4,X0) | memberP(sk3,X0)) ) | (~spl0_2 | ~spl0_5)),
+  inference(subsumption_resolution,[],[f9744,f248])).
+fof(f9744,plain,(
+  ( ! [X0] : (sk6 = sk5(X0) | ~leq(sk5(X0),sk6) | ~memberP(sk4,X0) | memberP(sk3,X0) | ~ssItem(X0)) ) | ~spl0_5),
+  inference(subsumption_resolution,[],[f9733,f192])).
+fof(f192,axiom,(
+  ( ! [X6] : (~memberP(sk4,X6) | ssItem(sk5(X6)) | memberP(sk3,X6) | ~ssItem(X6)) )),
+  file('SWC379-1.tptp',unknown)).
+fof(f9733,plain,(
+  ( ! [X0] : (~ssItem(sk5(X0)) | sk6 = sk5(X0) | ~leq(sk5(X0),sk6) | ~memberP(sk4,X0) | memberP(sk3,X0) | ~ssItem(X0)) ) | ~spl0_5),
+  inference(resolution,[],[f263,f193])).
+fof(f193,axiom,(
+  ( ! [X6] : (memberP(sk4,sk5(X6)) | ~memberP(sk4,X6) | memberP(sk3,X6) | ~ssItem(X6)) )),
+  file('SWC379-1.tptp',unknown)).
+fof(f263,plain,(
+  ( ! [X6] : (~memberP(sk4,X6) | ~ssItem(X6) | sk6 = X6 | ~leq(X6,sk6)) ) | ~spl0_5),
+  inference(avatar_component_clause,[],[f262])).
+fof(f262,plain,(
+  spl0_5 <=> ! [X6] : (~leq(X6,sk6) | ~ssItem(X6) | sk6 = X6 | ~memberP(sk4,X6))),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_5])])).
+fof(f10572,plain,(
+  ~spl0_4 | ~spl0_88),
+  inference(avatar_contradiction_clause,[],[f10571])).
+fof(f10571,plain,(
+  $false | (~spl0_4 | ~spl0_88)),
+  inference(subsumption_resolution,[],[f10570,f53])).
+fof(f53,axiom,(
+  ( ! [X0,X1] : (ssList(skaf42(X0,X1))) )),
+  file('SWC379-1.tptp',unknown)).
+fof(f10570,plain,(
+  ~ssList(skaf42(sk4,sk6)) | (~spl0_4 | ~spl0_88)),
+  inference(subsumption_resolution,[],[f10569,f52])).
+fof(f52,axiom,(
+  ( ! [X0,X1] : (ssList(skaf43(X0,X1))) )),
+  file('SWC379-1.tptp',unknown)).
+fof(f10569,plain,(
+  ~ssList(skaf43(sk6,sk4)) | ~ssList(skaf42(sk4,sk6)) | (~spl0_4 | ~spl0_88)),
+  inference(subsumption_resolution,[],[f10568,f198])).
+fof(f198,axiom,(
+  ssItem(sk6)),
+  file('SWC379-1.tptp',unknown)).
+fof(f10568,plain,(
+  ~ssItem(sk6) | ~ssList(skaf43(sk6,sk4)) | ~ssList(skaf42(sk4,sk6)) | (~spl0_4 | ~spl0_88)),
+  inference(subsumption_resolution,[],[f10557,f206])).
+fof(f206,plain,(
+  ssList(sk4)),
+  inference(definition_unfolding,[],[f187,f190])).
+fof(f190,axiom,(
+  sk2 = sk4),
+  file('SWC379-1.tptp',unknown)).
+fof(f187,axiom,(
+  ssList(sk2)),
+  file('SWC379-1.tptp',unknown)).
+fof(f10557,plain,(
+  ~ssList(sk4) | ~ssItem(sk6) | ~ssList(skaf43(sk6,sk4)) | ~ssList(skaf42(sk4,sk6)) | (~spl0_4 | ~spl0_88)),
+  inference(superposition,[],[f3054,f2174])).
+fof(f2174,plain,(
+  sk4 = app(skaf42(sk4,sk6),cons(sk6,skaf43(sk6,sk4))) | ~spl0_4),
+  inference(subsumption_resolution,[],[f2173,f198])).
+fof(f2173,plain,(
+  ~ssItem(sk6) | sk4 = app(skaf42(sk4,sk6),cons(sk6,skaf43(sk6,sk4))) | ~spl0_4),
+  inference(subsumption_resolution,[],[f2151,f206])).
+fof(f2151,plain,(
+  ~ssList(sk4) | ~ssItem(sk6) | sk4 = app(skaf42(sk4,sk6),cons(sk6,skaf43(sk6,sk4))) | ~spl0_4),
+  inference(resolution,[],[f169,f259])).
+fof(f169,axiom,(
+  ( ! [X0,X1] : (~memberP(X0,X1) | ~ssList(X0) | ~ssItem(X1) | app(skaf42(X0,X1),cons(X1,skaf43(X1,X0))) = X0) )),
+  file('SWC379-1.tptp',unknown)).
+fof(f3054,plain,(
+  ( ! [X2,X0,X1] : (~ssList(app(X0,cons(X1,X2))) | ~ssItem(X1) | ~ssList(X2) | ~ssList(X0)) ) | ~spl0_88),
+  inference(avatar_component_clause,[],[f3053])).
+fof(f3053,plain,(
+  spl0_88 <=> ! [X1,X0,X2] : (~ssItem(X1) | ~ssList(app(X0,cons(X1,X2))) | ~ssList(X2) | ~ssList(X0))),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_88])])).
+fof(f10165,plain,(
+  spl0_3 | ~spl0_4 | ~spl0_249),
+  inference(avatar_contradiction_clause,[],[f10164])).
+fof(f10164,plain,(
+  $false | (spl0_3 | ~spl0_4 | ~spl0_249)),
+  inference(subsumption_resolution,[],[f10163,f198])).
+fof(f10163,plain,(
+  ~ssItem(sk6) | (spl0_3 | ~spl0_4 | ~spl0_249)),
+  inference(subsumption_resolution,[],[f10162,f254])).
+fof(f10162,plain,(
+  memberP(sk3,sk6) | ~ssItem(sk6) | (~spl0_4 | ~spl0_249)),
+  inference(subsumption_resolution,[],[f10161,f259])).
+fof(f10161,plain,(
+  ~memberP(sk4,sk6) | memberP(sk3,sk6) | ~ssItem(sk6) | ~spl0_249),
+  inference(trivial_inequality_removal,[],[f10158])).
+fof(f10158,plain,(
+  sk6 != sk6 | ~memberP(sk4,sk6) | memberP(sk3,sk6) | ~ssItem(sk6) | ~spl0_249),
+  inference(superposition,[],[f195,f9996])).
+fof(f9996,plain,(
+  sk6 = sk5(sk6) | ~spl0_249),
+  inference(avatar_component_clause,[],[f9994])).
+fof(f195,axiom,(
+  ( ! [X6] : (sk5(X6) != X6 | ~memberP(sk4,X6) | memberP(sk3,X6) | ~ssItem(X6)) )),
+  file('SWC379-1.tptp',unknown)).
+fof(f9546,plain,(
+  ~spl0_3 | ~spl0_6 | ~spl0_7 | ~spl0_8 | spl0_9),
+  inference(avatar_contradiction_clause,[],[f9545])).
+fof(f9545,plain,(
+  $false | (~spl0_3 | ~spl0_6 | ~spl0_7 | ~spl0_8 | spl0_9)),
+  inference(subsumption_resolution,[],[f9544,f198])).
+fof(f9544,plain,(
+  ~ssItem(sk6) | (~spl0_3 | ~spl0_6 | ~spl0_7 | ~spl0_8 | spl0_9)),
+  inference(subsumption_resolution,[],[f9543,f278])).
+fof(f278,plain,(
+  leq(sk7,sk6) | ~spl0_8),
+  inference(avatar_component_clause,[],[f276])).
+fof(f276,plain,(
+  spl0_8 <=> leq(sk7,sk6)),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_8])])).
+fof(f9543,plain,(
+  ~leq(sk7,sk6) | ~ssItem(sk6) | (~spl0_3 | ~spl0_6 | ~spl0_7 | spl0_9)),
+  inference(subsumption_resolution,[],[f9501,f283])).
+fof(f283,plain,(
+  sk6 != sk7 | spl0_9),
+  inference(avatar_component_clause,[],[f281])).
+fof(f281,plain,(
+  spl0_9 <=> sk6 = sk7),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_9])])).
+fof(f9501,plain,(
+  sk6 = sk7 | ~leq(sk7,sk6) | ~ssItem(sk6) | (~spl0_3 | ~spl0_6 | ~spl0_7)),
+  inference(resolution,[],[f1543,f255])).
+fof(f255,plain,(
+  memberP(sk3,sk6) | ~spl0_3),
+  inference(avatar_component_clause,[],[f253])).
+fof(f1543,plain,(
+  ( ! [X3] : (~memberP(sk3,X3) | sk7 = X3 | ~leq(sk7,X3) | ~ssItem(X3)) ) | (~spl0_6 | ~spl0_7)),
+  inference(subsumption_resolution,[],[f1537,f268])).
+fof(f268,plain,(
+  ssItem(sk7) | ~spl0_6),
+  inference(avatar_component_clause,[],[f266])).
+fof(f266,plain,(
+  spl0_6 <=> ssItem(sk7)),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_6])])).
+fof(f1537,plain,(
+  ( ! [X3] : (~leq(sk7,X3) | sk7 = X3 | ~ssItem(sk7) | ~memberP(sk3,X3) | ~ssItem(X3)) ) | ~spl0_7),
+  inference(resolution,[],[f197,f273])).
+fof(f273,plain,(
+  memberP(sk4,sk7) | ~spl0_7),
+  inference(avatar_component_clause,[],[f271])).
+fof(f271,plain,(
+  spl0_7 <=> memberP(sk4,sk7)),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_7])])).
+fof(f197,axiom,(
+  ( ! [X6,X7] : (~memberP(sk4,X7) | ~leq(X7,X6) | X6 = X7 | ~ssItem(X7) | ~memberP(sk3,X6) | ~ssItem(X6)) )),
+  file('SWC379-1.tptp',unknown)).
+fof(f3490,plain,(
+  ~spl0_87),
+  inference(avatar_contradiction_clause,[],[f3426])).
+fof(f3426,plain,(
+  $false | ~spl0_87),
+  inference(resolution,[],[f3051,f8])).
+fof(f8,axiom,(
+  ssList(nil)),
+  file('SWC379-1.tptp',unknown)).
+fof(f3051,plain,(
+  ( ! [X3] : (~ssList(X3)) ) | ~spl0_87),
+  inference(avatar_component_clause,[],[f3050])).
+fof(f3050,plain,(
+  spl0_87 <=> ! [X3] : ~ssList(X3)),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_87])])).
+fof(f3055,plain,(
+  spl0_87 | spl0_88 | ~spl0_1),
+  inference(avatar_split_clause,[],[f3048,f244,f3053,f3050])).
+fof(f244,plain,(
+  spl0_1 <=> ! [X0] : (duplicatefreeP(X0) | ~ssList(X0))),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_1])])).
+fof(f3048,plain,(
+  ( ! [X2,X0,X3,X1] : (~ssItem(X1) | ~ssList(X0) | ~ssList(X2) | ~ssList(X3) | ~ssList(app(X0,cons(X1,X2)))) ) | ~spl0_1),
+  inference(subsumption_resolution,[],[f3047,f86])).
+fof(f86,axiom,(
+  ( ! [X0,X1] : (ssList(cons(X0,X1)) | ~ssList(X1) | ~ssItem(X0)) )),
+  file('SWC379-1.tptp',unknown)).
+fof(f3047,plain,(
+  ( ! [X2,X0,X3,X1] : (~ssItem(X1) | ~ssList(X0) | ~ssList(X2) | ~ssList(X3) | ~ssList(app(X0,cons(X1,X2))) | ~ssList(cons(X1,X3))) ) | ~spl0_1),
+  inference(subsumption_resolution,[],[f3042,f2407])).
+fof(f2407,plain,(
+  ( ! [X35,X36] : (duplicatefreeP(app(X35,X36)) | ~ssList(X35) | ~ssList(X36)) ) | ~spl0_1),
+  inference(resolution,[],[f245,f85])).
+fof(f85,axiom,(
+  ( ! [X0,X1] : (ssList(app(X1,X0)) | ~ssList(X1) | ~ssList(X0)) )),
+  file('SWC379-1.tptp',unknown)).
+fof(f245,plain,(
+  ( ! [X0] : (~ssList(X0) | duplicatefreeP(X0)) ) | ~spl0_1),
+  inference(avatar_component_clause,[],[f244])).
+fof(f3042,plain,(
+  ( ! [X2,X0,X3,X1] : (~duplicatefreeP(app(app(X0,cons(X1,X2)),cons(X1,X3))) | ~ssItem(X1) | ~ssList(X0) | ~ssList(X2) | ~ssList(X3) | ~ssList(app(X0,cons(X1,X2))) | ~ssList(cons(X1,X3))) )),
+  inference(resolution,[],[f230,f85])).
+fof(f230,plain,(
+  ( ! [X2,X0,X3,X1] : (~ssList(app(app(X0,cons(X1,X2)),cons(X1,X3))) | ~duplicatefreeP(app(app(X0,cons(X1,X2)),cons(X1,X3))) | ~ssItem(X1) | ~ssList(X0) | ~ssList(X2) | ~ssList(X3)) )),
+  inference(equality_resolution,[],[f179])).
+fof(f179,axiom,(
+  ( ! [X4,X2,X0,X3,X1] : (~ssList(X4) | ~duplicatefreeP(X4) | ~ssItem(X1) | ~ssList(X0) | ~ssList(X2) | ~ssList(X3) | app(app(X0,cons(X1,X2)),cons(X1,X3)) != X4) )),
+  file('SWC379-1.tptp',unknown)).
+fof(f350,plain,(
+  spl0_4 | ~spl0_3),
+  inference(avatar_split_clause,[],[f349,f253,f257])).
+fof(f349,plain,(
+  memberP(sk4,sk6) | ~spl0_3),
+  inference(subsumption_resolution,[],[f345,f198])).
+fof(f345,plain,(
+  memberP(sk4,sk6) | ~ssItem(sk6) | ~spl0_3),
+  inference(resolution,[],[f196,f255])).
+fof(f196,axiom,(
+  ( ! [X6] : (~memberP(sk3,X6) | memberP(sk4,X6) | ~ssItem(X6)) )),
+  file('SWC379-1.tptp',unknown)).
+fof(f284,plain,(
+  ~spl0_9 | ~spl0_4 | ~spl0_3),
+  inference(avatar_split_clause,[],[f212,f253,f257,f281])).
+fof(f212,plain,(
+  ~memberP(sk3,sk6) | ~memberP(sk4,sk6) | sk6 != sk7),
+  inference(definition_unfolding,[],[f204,f191,f190])).
+fof(f191,axiom,(
+  sk1 = sk3),
+  file('SWC379-1.tptp',unknown)).
+fof(f204,axiom,(
+  ~memberP(sk1,sk6) | ~memberP(sk2,sk6) | sk6 != sk7),
+  file('SWC379-1.tptp',unknown)).
+fof(f279,plain,(
+  spl0_8 | ~spl0_4 | ~spl0_3),
+  inference(avatar_split_clause,[],[f211,f253,f257,f276])).
+fof(f211,plain,(
+  ~memberP(sk3,sk6) | ~memberP(sk4,sk6) | leq(sk7,sk6)),
+  inference(definition_unfolding,[],[f203,f191,f190])).
+fof(f203,axiom,(
+  ~memberP(sk1,sk6) | ~memberP(sk2,sk6) | leq(sk7,sk6)),
+  file('SWC379-1.tptp',unknown)).
+fof(f274,plain,(
+  spl0_7 | ~spl0_4 | ~spl0_3),
+  inference(avatar_split_clause,[],[f210,f253,f257,f271])).
+fof(f210,plain,(
+  ~memberP(sk3,sk6) | ~memberP(sk4,sk6) | memberP(sk4,sk7)),
+  inference(definition_unfolding,[],[f202,f191,f190,f190])).
+fof(f202,axiom,(
+  ~memberP(sk1,sk6) | ~memberP(sk2,sk6) | memberP(sk2,sk7)),
+  file('SWC379-1.tptp',unknown)).
+fof(f269,plain,(
+  spl0_6 | ~spl0_4 | ~spl0_3),
+  inference(avatar_split_clause,[],[f209,f253,f257,f266])).
+fof(f209,plain,(
+  ~memberP(sk3,sk6) | ~memberP(sk4,sk6) | ssItem(sk7)),
+  inference(definition_unfolding,[],[f201,f191,f190])).
+fof(f201,axiom,(
+  ~memberP(sk1,sk6) | ~memberP(sk2,sk6) | ssItem(sk7)),
+  file('SWC379-1.tptp',unknown)).
+fof(f264,plain,(
+  spl0_3 | spl0_5),
+  inference(avatar_split_clause,[],[f208,f262,f253])).
+fof(f208,plain,(
+  ( ! [X6] : (~leq(X6,sk6) | ~memberP(sk4,X6) | sk6 = X6 | ~ssItem(X6) | memberP(sk3,sk6)) )),
+  inference(definition_unfolding,[],[f200,f190,f191])).
+fof(f200,axiom,(
+  ( ! [X6] : (~leq(X6,sk6) | ~memberP(sk2,X6) | sk6 = X6 | ~ssItem(X6) | memberP(sk1,sk6)) )),
+  file('SWC379-1.tptp',unknown)).
+fof(f260,plain,(
+  spl0_3 | spl0_4),
+  inference(avatar_split_clause,[],[f207,f257,f253])).
+fof(f207,plain,(
+  memberP(sk4,sk6) | memberP(sk3,sk6)),
+  inference(definition_unfolding,[],[f199,f190,f191])).
+fof(f199,axiom,(
+  memberP(sk2,sk6) | memberP(sk1,sk6)),
+  file('SWC379-1.tptp',unknown)).
+fof(f249,plain,(
+  spl0_1 | spl0_2),
+  inference(avatar_split_clause,[],[f72,f247,f244])).
+fof(f72,axiom,(
+  ( ! [X0,X1] : (ssItem(X1) | duplicatefreeP(X0) | ~ssList(X0)) )),
+  file('SWC379-1.tptp',unknown)).
+% SZS output end Proof for SWC379-1
+% ------------------------------
+% Version: Vampire 4.4.0 (commit d98a3d53 on 2020-01-14 21:02:12 +0100)
+% Termination reason: Refutation
+
+% Memory used [KB]: 23283
+% Time elapsed: 0.447 s
+% ------------------------------
+% ------------------------------

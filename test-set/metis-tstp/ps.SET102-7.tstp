@@ -1,0 +1,98 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% SZS status Unsatisfiable for SET102-7.tptp
+
+% SZS output start CNFRefutation for SET102-7.tptp
+cnf(unordered_pair3, axiom,
+    (~ member(Y, universal_class) | member(Y, unordered_pair(X, Y)))).
+
+cnf(unordered_pairs_in_universal, axiom,
+    (member(unordered_pair(X, Y), universal_class))).
+
+cnf(ordered_pair, axiom,
+    (unordered_pair(singleton(X), unordered_pair(X, singleton(Y))) =
+     ordered_pair(X, Y))).
+
+cnf(prove_unordered_pair_member_of_ordered_pair_1, negated_conjecture,
+    (~ member(unordered_pair(x, singleton(y)), ordered_pair(x, y)))).
+
+cnf(refute_0_0, plain,
+    (~ member(unordered_pair(X, Y), universal_class) |
+     member(unordered_pair(X, Y),
+       unordered_pair(X_503, unordered_pair(X, Y)))),
+    inference(subst, [],
+              [unordered_pair3 :
+               [bind(X, $fot(X_503)),
+                bind(Y, $fot(unordered_pair(X, Y)))]])).
+
+cnf(refute_0_1, plain,
+    (member(unordered_pair(X, Y),
+       unordered_pair(X_503, unordered_pair(X, Y)))),
+    inference(resolve,
+              [$cnf(member(unordered_pair(X, Y), universal_class))],
+              [unordered_pairs_in_universal, refute_0_0])).
+
+cnf(refute_0_2, plain,
+    (member(unordered_pair(X_1073, singleton(Y)),
+       unordered_pair(singleton(X_1073),
+         unordered_pair(X_1073, singleton(Y))))),
+    inference(subst, [],
+              [refute_0_1 :
+               [bind(X, $fot(X_1073)), bind(Y, $fot(singleton(Y))),
+                bind(X_503, $fot(singleton(X_1073)))]])).
+
+cnf(refute_0_3, plain,
+    (unordered_pair(singleton(X_1073),
+       unordered_pair(X_1073, singleton(Y))) = ordered_pair(X_1073, Y)),
+    inference(subst, [], [ordered_pair : [bind(X, $fot(X_1073))]])).
+
+cnf(refute_0_4, plain,
+    (unordered_pair(singleton(X_1073),
+       unordered_pair(X_1073, singleton(Y))) != ordered_pair(X_1073, Y) |
+     ~
+       member(unordered_pair(X_1073, singleton(Y)),
+         unordered_pair(singleton(X_1073),
+           unordered_pair(X_1073, singleton(Y)))) |
+     member(unordered_pair(X_1073, singleton(Y)),
+       ordered_pair(X_1073, Y))),
+    introduced(tautology,
+               [equality,
+                [$cnf(member(unordered_pair(X_1073, singleton(Y)),
+                        unordered_pair(singleton(X_1073),
+                          unordered_pair(X_1073, singleton(Y))))), [1],
+                 $fot(ordered_pair(X_1073, Y))]])).
+
+cnf(refute_0_5, plain,
+    (~
+       member(unordered_pair(X_1073, singleton(Y)),
+         unordered_pair(singleton(X_1073),
+           unordered_pair(X_1073, singleton(Y)))) |
+     member(unordered_pair(X_1073, singleton(Y)),
+       ordered_pair(X_1073, Y))),
+    inference(resolve,
+              [$cnf($equal(unordered_pair(singleton(X_1073),
+                        unordered_pair(X_1073, singleton(Y))),
+                      ordered_pair(X_1073, Y)))],
+              [refute_0_3, refute_0_4])).
+
+cnf(refute_0_6, plain,
+    (member(unordered_pair(X_1073, singleton(Y)),
+       ordered_pair(X_1073, Y))),
+    inference(resolve,
+              [$cnf(member(unordered_pair(X_1073, singleton(Y)),
+                      unordered_pair(singleton(X_1073),
+                        unordered_pair(X_1073, singleton(Y)))))],
+              [refute_0_2, refute_0_5])).
+
+cnf(refute_0_7, plain,
+    (member(unordered_pair(x, singleton(y)), ordered_pair(x, y))),
+    inference(subst, [],
+              [refute_0_6 : [bind(Y, $fot(y)), bind(X_1073, $fot(x))]])).
+
+cnf(refute_0_8, plain, ($false),
+    inference(resolve,
+              [$cnf(member(unordered_pair(x, singleton(y)),
+                      ordered_pair(x, y)))],
+              [refute_0_7,
+               prove_unordered_pair_member_of_ordered_pair_1])).
+% SZS output end CNFRefutation for SET102-7.tptp
+

@@ -1,0 +1,66 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% SZS status Unsatisfiable for SYN301-1.tptp
+
+% SZS output start CNFRefutation for SYN301-1.tptp
+cnf(axiom_14, axiom, (p0(b, X))).
+
+cnf(axiom_37, axiom, (n0(b, a))).
+
+cnf(rule_002, axiom, (l1(G, G) | ~ n0(H, G))).
+
+cnf(rule_075, axiom, (p1(a, a, a) | ~ p0(b, a))).
+
+cnf(rule_137, axiom, (n2(A) | ~ p1(B, C, A))).
+
+cnf(rule_244, axiom, (p3(H, H, H) | ~ n2(H))).
+
+cnf(rule_299, axiom, (s4(A) | ~ p3(B, C, D) | ~ l1(A, C))).
+
+cnf(prove_this, negated_conjecture, (~ s4(a))).
+
+cnf(refute_0_0, plain, (~ n0(b, a) | l1(a, a)),
+    inference(subst, [],
+              [rule_002 : [bind(G, $fot(a)), bind(H, $fot(b))]])).
+
+cnf(refute_0_1, plain, (l1(a, a)),
+    inference(resolve, [$cnf(n0(b, a))], [axiom_37, refute_0_0])).
+
+cnf(refute_0_2, plain, (~ n2(a) | p3(a, a, a)),
+    inference(subst, [], [rule_244 : [bind(H, $fot(a))]])).
+
+cnf(refute_0_3, plain, (p0(b, a)),
+    inference(subst, [], [axiom_14 : [bind(X, $fot(a))]])).
+
+cnf(refute_0_4, plain, (p1(a, a, a)),
+    inference(resolve, [$cnf(p0(b, a))], [refute_0_3, rule_075])).
+
+cnf(refute_0_5, plain, (~ p1(a, a, a) | n2(a)),
+    inference(subst, [],
+              [rule_137 :
+               [bind(A, $fot(a)), bind(B, $fot(a)), bind(C, $fot(a))]])).
+
+cnf(refute_0_6, plain, (n2(a)),
+    inference(resolve, [$cnf(p1(a, a, a))], [refute_0_4, refute_0_5])).
+
+cnf(refute_0_7, plain, (p3(a, a, a)),
+    inference(resolve, [$cnf(n2(a))], [refute_0_6, refute_0_2])).
+
+cnf(refute_0_8, plain, (~ l1(X_344, a) | ~ p3(a, a, a) | s4(X_344)),
+    inference(subst, [],
+              [rule_299 :
+               [bind(A, $fot(X_344)), bind(B, $fot(a)), bind(C, $fot(a)),
+                bind(D, $fot(a))]])).
+
+cnf(refute_0_9, plain, (~ l1(X_344, a) | s4(X_344)),
+    inference(resolve, [$cnf(p3(a, a, a))], [refute_0_7, refute_0_8])).
+
+cnf(refute_0_10, plain, (~ l1(a, a) | s4(a)),
+    inference(subst, [], [refute_0_9 : [bind(X_344, $fot(a))]])).
+
+cnf(refute_0_11, plain, (s4(a)),
+    inference(resolve, [$cnf(l1(a, a))], [refute_0_1, refute_0_10])).
+
+cnf(refute_0_12, plain, ($false),
+    inference(resolve, [$cnf(s4(a))], [refute_0_11, prove_this])).
+% SZS output end CNFRefutation for SYN301-1.tptp
+

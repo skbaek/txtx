@@ -1,0 +1,15 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% SZS status Unsatisfiable for SYN145-1.tptp
+
+% SZS output start CNFRefutation for SYN145-1.tptp
+cnf(axiom_3, axiom, (n0(d, e))).
+
+cnf(prove_this, negated_conjecture, (~ n0(d, X))).
+
+cnf(refute_0_0, plain, (~ n0(d, e)),
+    inference(subst, [], [prove_this : [bind(X, $fot(e))]])).
+
+cnf(refute_0_1, plain, ($false),
+    inference(resolve, [$cnf(n0(d, e))], [axiom_3, refute_0_0])).
+% SZS output end CNFRefutation for SYN145-1.tptp
+

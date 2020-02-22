@@ -1,0 +1,118 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% SZS status Unsatisfiable for GRP030-1.tptp
+
+% SZS output start CNFRefutation for GRP030-1.tptp
+cnf(associativity1, axiom,
+    (~ product(X, Y, U) | ~ product(Y, Z, V) | ~ product(U, Z, W) |
+     product(X, V, W))).
+
+cnf(associativity2, axiom,
+    (~ product(X, Y, U) | ~ product(Y, Z, V) | ~ product(X, V, W) |
+     product(U, Z, W))).
+
+cnf(left_identity, hypothesis, (product(identity, A, A))).
+
+cnf(left_inverse, hypothesis, (product(inverse(A), A, identity))).
+
+cnf(prove_identity_is_a_right_identity, negated_conjecture,
+    (~ product(a, identity, a))).
+
+cnf(refute_0_0, plain, (product(identity, identity, identity)),
+    inference(subst, [], [left_identity : [bind(A, $fot(identity))]])).
+
+cnf(refute_0_1, plain,
+    (~ product(X_76, identity, X_75) |
+     ~ product(identity, identity, identity) |
+     product(X_75, identity, X_75)),
+    inference(subst, [],
+              [associativity2 :
+               [bind(U, $fot(X_75)), bind(V, $fot(identity)),
+                bind(W, $fot(X_75)), bind(X, $fot(X_76)),
+                bind(Y, $fot(identity)), bind(Z, $fot(identity))]])).
+
+cnf(refute_0_2, plain,
+    (~ product(X_76, identity, X_75) | product(X_75, identity, X_75)),
+    inference(resolve, [$cnf(product(identity, identity, identity))],
+              [refute_0_0, refute_0_1])).
+
+cnf(refute_0_3, plain,
+    (~ product(inverse(inverse(X_178)), identity, X_178) |
+     product(X_178, identity, X_178)),
+    inference(subst, [],
+              [refute_0_2 :
+               [bind(X_75, $fot(X_178)),
+                bind(X_76, $fot(inverse(inverse(X_178))))]])).
+
+cnf(refute_0_4, plain,
+    (product(inverse(inverse(X_176)), inverse(X_176), identity)),
+    inference(subst, [],
+              [left_inverse : [bind(A, $fot(inverse(X_176)))]])).
+
+cnf(refute_0_5, plain, (product(inverse(X_171), X_171, identity)),
+    inference(subst, [], [left_inverse : [bind(A, $fot(X_171))]])).
+
+cnf(refute_0_6, plain, (product(identity, X_166, X_166)),
+    inference(subst, [], [left_identity : [bind(A, $fot(X_166))]])).
+
+cnf(refute_0_7, plain,
+    (~ product(X_167, X_168, identity) | ~ product(X_168, X_166, X_165) |
+     ~ product(identity, X_166, X_166) | product(X_167, X_165, X_166)),
+    inference(subst, [],
+              [associativity1 :
+               [bind(U, $fot(identity)), bind(V, $fot(X_165)),
+                bind(W, $fot(X_166)), bind(X, $fot(X_167)),
+                bind(Y, $fot(X_168)), bind(Z, $fot(X_166))]])).
+
+cnf(refute_0_8, plain,
+    (~ product(X_167, X_168, identity) | ~ product(X_168, X_166, X_165) |
+     product(X_167, X_165, X_166)),
+    inference(resolve, [$cnf(product(identity, X_166, X_166))],
+              [refute_0_6, refute_0_7])).
+
+cnf(refute_0_9, plain,
+    (~ product(X_172, inverse(X_171), identity) |
+     ~ product(inverse(X_171), X_171, identity) |
+     product(X_172, identity, X_171)),
+    inference(subst, [],
+              [refute_0_8 :
+               [bind(X_165, $fot(identity)), bind(X_166, $fot(X_171)),
+                bind(X_167, $fot(X_172)),
+                bind(X_168, $fot(inverse(X_171)))]])).
+
+cnf(refute_0_10, plain,
+    (~ product(X_172, inverse(X_171), identity) |
+     product(X_172, identity, X_171)),
+    inference(resolve, [$cnf(product(inverse(X_171), X_171, identity))],
+              [refute_0_5, refute_0_9])).
+
+cnf(refute_0_11, plain,
+    (~ product(inverse(inverse(X_176)), inverse(X_176), identity) |
+     product(inverse(inverse(X_176)), identity, X_176)),
+    inference(subst, [],
+              [refute_0_10 :
+               [bind(X_171, $fot(X_176)),
+                bind(X_172, $fot(inverse(inverse(X_176))))]])).
+
+cnf(refute_0_12, plain,
+    (product(inverse(inverse(X_176)), identity, X_176)),
+    inference(resolve,
+              [$cnf(product(inverse(inverse(X_176)), inverse(X_176),
+                      identity))], [refute_0_4, refute_0_11])).
+
+cnf(refute_0_13, plain,
+    (product(inverse(inverse(X_178)), identity, X_178)),
+    inference(subst, [], [refute_0_12 : [bind(X_176, $fot(X_178))]])).
+
+cnf(refute_0_14, plain, (product(X_178, identity, X_178)),
+    inference(resolve,
+              [$cnf(product(inverse(inverse(X_178)), identity, X_178))],
+              [refute_0_13, refute_0_3])).
+
+cnf(refute_0_15, plain, (product(a, identity, a)),
+    inference(subst, [], [refute_0_14 : [bind(X_178, $fot(a))]])).
+
+cnf(refute_0_16, plain, ($false),
+    inference(resolve, [$cnf(product(a, identity, a))],
+              [refute_0_15, prove_identity_is_a_right_identity])).
+% SZS output end CNFRefutation for GRP030-1.tptp
+

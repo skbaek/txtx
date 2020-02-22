@@ -1,0 +1,24 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% SZS status Unsatisfiable for SET054-7.tptp
+
+% SZS output start CNFRefutation for SET054-7.tptp
+cnf(equal_implies_subclass1, axiom, (X != Y | subclass(X, Y))).
+
+cnf(prove_subclass_is_reflexive_1, negated_conjecture, (~ subclass(x, x))).
+
+cnf(refute_0_0, plain, (Y != Y | subclass(Y, Y)),
+    inference(subst, [], [equal_implies_subclass1 : [bind(X, $fot(Y))]])).
+
+cnf(refute_0_1, plain, (Y = Y), introduced(tautology, [refl, [$fot(Y)]])).
+
+cnf(refute_0_2, plain, (subclass(Y, Y)),
+    inference(resolve, [$cnf($equal(Y, Y))], [refute_0_1, refute_0_0])).
+
+cnf(refute_0_3, plain, (subclass(x, x)),
+    inference(subst, [], [refute_0_2 : [bind(Y, $fot(x))]])).
+
+cnf(refute_0_4, plain, ($false),
+    inference(resolve, [$cnf(subclass(x, x))],
+              [refute_0_3, prove_subclass_is_reflexive_1])).
+% SZS output end CNFRefutation for SET054-7.tptp
+

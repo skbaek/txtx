@@ -1,0 +1,63 @@
+% Refutation found. Thanks to Tanya!
+% SZS status Theorem for CSR051+2
+% SZS output start Proof for CSR051+2
+fof(f4066,plain,(
+  $false),
+  inference(avatar_sat_refutation,[],[f3758,f4063,f4065])).
+fof(f4065,plain,(
+  ~spl0_7),
+  inference(avatar_contradiction_clause,[],[f4064])).
+fof(f4064,plain,(
+  $false | ~spl0_7),
+  inference(subsumption_resolution,[],[f3757,f3726])).
+fof(f3726,plain,(
+  ( ! [X0] : (~marriagelicensedocument(X0)) )),
+  inference(cnf_transformation,[],[f2685])).
+fof(f2685,plain,(
+  ! [X0] : (~marriagelicensedocument(X0) & mtvisible(c_tptp_member3356_mt))),
+  inference(ennf_transformation,[],[f1796])).
+fof(f1796,plain,(
+  ~? [X0] : (mtvisible(c_tptp_member3356_mt) => marriagelicensedocument(X0))),
+  inference(rectify,[],[f1133])).
+fof(f1133,negated_conjecture,(
+  ~? [X12] : (mtvisible(c_tptp_member3356_mt) => marriagelicensedocument(X12))),
+  inference(negated_conjecture,[],[f1132])).
+fof(f1132,conjecture,(
+  ? [X12] : (mtvisible(c_tptp_member3356_mt) => marriagelicensedocument(X12))),
+  file('CSR051+2.tptp',unknown)).
+fof(f3757,plain,(
+  marriagelicensedocument(c_tptpmarriagelicensedocument) | ~spl0_7),
+  inference(avatar_component_clause,[],[f3755])).
+fof(f3755,plain,(
+  spl0_7 <=> marriagelicensedocument(c_tptpmarriagelicensedocument)),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_7])])).
+fof(f4063,plain,(
+  spl0_6),
+  inference(avatar_split_clause,[],[f3725,f3751])).
+fof(f3751,plain,(
+  spl0_6 <=> mtvisible(c_tptp_member3356_mt)),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_6])])).
+fof(f3725,plain,(
+  mtvisible(c_tptp_member3356_mt)),
+  inference(cnf_transformation,[],[f2685])).
+fof(f3758,plain,(
+  ~spl0_6 | spl0_7),
+  inference(avatar_split_clause,[],[f2736,f3755,f3751])).
+fof(f2736,plain,(
+  marriagelicensedocument(c_tptpmarriagelicensedocument) | ~mtvisible(c_tptp_member3356_mt)),
+  inference(cnf_transformation,[],[f1914])).
+fof(f1914,plain,(
+  marriagelicensedocument(c_tptpmarriagelicensedocument) | ~mtvisible(c_tptp_member3356_mt)),
+  inference(ennf_transformation,[],[f51])).
+fof(f51,axiom,(
+  mtvisible(c_tptp_member3356_mt) => marriagelicensedocument(c_tptpmarriagelicensedocument)),
+  file('CSR051+2.tptp',unknown)).
+% SZS output end Proof for CSR051+2
+% ------------------------------
+% Version: Vampire 4.4.0 (commit d98a3d53 on 2020-01-14 21:02:12 +0100)
+% Termination reason: Refutation
+
+% Memory used [KB]: 6652
+% Time elapsed: 0.014 s
+% ------------------------------
+% ------------------------------

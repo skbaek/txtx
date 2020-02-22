@@ -1,0 +1,80 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% SZS status Unsatisfiable for SWC365-1.tptp
+
+% SZS output start CNFRefutation for SWC365-1.tptp
+cnf(co1_5, negated_conjecture, (sk2 = sk4)).
+
+cnf(co1_6, negated_conjecture, (sk1 = sk3)).
+
+cnf(co1_7, negated_conjecture, (neq(sk2, nil))).
+
+cnf(co1_8, negated_conjecture, (~ rearsegP(sk2, sk1))).
+
+cnf(co1_11, negated_conjecture, (~ neq(sk4, nil) | rearsegP(sk4, sk3))).
+
+cnf(refute_0_0, plain, (X = X), introduced(tautology, [refl, [$fot(X)]])).
+
+cnf(refute_0_1, plain, (X != X | X != Y | Y = X),
+    introduced(tautology, [equality, [$cnf($equal(X, X)), [0], $fot(Y)]])).
+
+cnf(refute_0_2, plain, (X != Y | Y = X),
+    inference(resolve, [$cnf($equal(X, X))], [refute_0_0, refute_0_1])).
+
+cnf(refute_0_3, plain, (sk2 != sk4 | sk4 = sk2),
+    inference(subst, [],
+              [refute_0_2 : [bind(X, $fot(sk2)), bind(Y, $fot(sk4))]])).
+
+cnf(refute_0_4, plain, (sk4 = sk2),
+    inference(resolve, [$cnf($equal(sk2, sk4))], [co1_5, refute_0_3])).
+
+cnf(refute_0_5, plain, (sk4 != sk2 | ~ neq(sk2, nil) | neq(sk4, nil)),
+    introduced(tautology,
+               [equality, [$cnf(~ neq(sk4, nil)), [0], $fot(sk2)]])).
+
+cnf(refute_0_6, plain, (~ neq(sk2, nil) | neq(sk4, nil)),
+    inference(resolve, [$cnf($equal(sk4, sk2))],
+              [refute_0_4, refute_0_5])).
+
+cnf(refute_0_7, plain, (~ neq(sk2, nil) | rearsegP(sk4, sk3)),
+    inference(resolve, [$cnf(neq(sk4, nil))], [refute_0_6, co1_11])).
+
+cnf(refute_0_8, plain,
+    (sk4 != sk2 | ~ rearsegP(sk4, sk3) | rearsegP(sk2, sk3)),
+    introduced(tautology,
+               [equality, [$cnf(rearsegP(sk4, sk3)), [0], $fot(sk2)]])).
+
+cnf(refute_0_9, plain, (~ rearsegP(sk4, sk3) | rearsegP(sk2, sk3)),
+    inference(resolve, [$cnf($equal(sk4, sk2))],
+              [refute_0_4, refute_0_8])).
+
+cnf(refute_0_10, plain, (sk1 != sk3 | sk3 = sk1),
+    inference(subst, [],
+              [refute_0_2 : [bind(X, $fot(sk1)), bind(Y, $fot(sk3))]])).
+
+cnf(refute_0_11, plain, (sk3 = sk1),
+    inference(resolve, [$cnf($equal(sk1, sk3))], [co1_6, refute_0_10])).
+
+cnf(refute_0_12, plain,
+    (sk3 != sk1 | ~ rearsegP(sk2, sk3) | rearsegP(sk2, sk1)),
+    introduced(tautology,
+               [equality, [$cnf(rearsegP(sk2, sk3)), [1], $fot(sk1)]])).
+
+cnf(refute_0_13, plain, (~ rearsegP(sk2, sk3) | rearsegP(sk2, sk1)),
+    inference(resolve, [$cnf($equal(sk3, sk1))],
+              [refute_0_11, refute_0_12])).
+
+cnf(refute_0_14, plain, (~ rearsegP(sk4, sk3) | rearsegP(sk2, sk1)),
+    inference(resolve, [$cnf(rearsegP(sk2, sk3))],
+              [refute_0_9, refute_0_13])).
+
+cnf(refute_0_15, plain, (~ neq(sk2, nil) | rearsegP(sk2, sk1)),
+    inference(resolve, [$cnf(rearsegP(sk4, sk3))],
+              [refute_0_7, refute_0_14])).
+
+cnf(refute_0_16, plain, (rearsegP(sk2, sk1)),
+    inference(resolve, [$cnf(neq(sk2, nil))], [co1_7, refute_0_15])).
+
+cnf(refute_0_17, plain, ($false),
+    inference(resolve, [$cnf(rearsegP(sk2, sk1))], [refute_0_16, co1_8])).
+% SZS output end CNFRefutation for SWC365-1.tptp
+

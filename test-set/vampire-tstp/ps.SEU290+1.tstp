@@ -1,0 +1,174 @@
+% Refutation found. Thanks to Tanya!
+% SZS status Theorem for SEU290+1
+% SZS output start Proof for SEU290+1
+fof(f404,plain,(
+  $false),
+  inference(subsumption_resolution,[],[f403,f222])).
+fof(f222,plain,(
+  in(sK22,sK20)),
+  inference(cnf_transformation,[],[f142])).
+fof(f142,plain,(
+  ~in(apply(sK23,sK22),relation_rng(sK23)) & empty_set != sK21 & in(sK22,sK20) & relation_of2_as_subset(sK23,sK20,sK21) & quasi_total(sK23,sK20,sK21) & function(sK23)),
+  inference(skolemisation,[status(esa),new_symbols(skolem,[sK20,sK21,sK22,sK23])],[f96,f141])).
+fof(f141,plain,(
+  ? [X0,X1,X2,X3] : (~in(apply(X3,X2),relation_rng(X3)) & empty_set != X1 & in(X2,X0) & relation_of2_as_subset(X3,X0,X1) & quasi_total(X3,X0,X1) & function(X3)) => (~in(apply(sK23,sK22),relation_rng(sK23)) & empty_set != sK21 & in(sK22,sK20) & relation_of2_as_subset(sK23,sK20,sK21) & quasi_total(sK23,sK20,sK21) & function(sK23))),
+  introduced(choice_axiom,[])).
+fof(f96,plain,(
+  ? [X0,X1,X2,X3] : (~in(apply(X3,X2),relation_rng(X3)) & empty_set != X1 & in(X2,X0) & relation_of2_as_subset(X3,X0,X1) & quasi_total(X3,X0,X1) & function(X3))),
+  inference(flattening,[],[f95])).
+fof(f95,plain,(
+  ? [X0,X1,X2,X3] : (((~in(apply(X3,X2),relation_rng(X3)) & empty_set != X1) & in(X2,X0)) & (relation_of2_as_subset(X3,X0,X1) & quasi_total(X3,X0,X1) & function(X3)))),
+  inference(ennf_transformation,[],[f54])).
+fof(f54,negated_conjecture,(
+  ~! [X0,X1,X2,X3] : ((relation_of2_as_subset(X3,X0,X1) & quasi_total(X3,X0,X1) & function(X3)) => (in(X2,X0) => (in(apply(X3,X2),relation_rng(X3)) | empty_set = X1)))),
+  inference(negated_conjecture,[],[f53])).
+fof(f53,conjecture,(
+  ! [X0,X1,X2,X3] : ((relation_of2_as_subset(X3,X0,X1) & quasi_total(X3,X0,X1) & function(X3)) => (in(X2,X0) => (in(apply(X3,X2),relation_rng(X3)) | empty_set = X1)))),
+  file('SEU290+1.tptp',unknown)).
+fof(f403,plain,(
+  ~in(sK22,sK20)),
+  inference(backward_demodulation,[],[f402,f381])).
+fof(f381,plain,(
+  ~in(sK22,relation_dom(sK23))),
+  inference(subsumption_resolution,[],[f380,f374])).
+fof(f374,plain,(
+  relation(sK23)),
+  inference(resolution,[],[f339,f221])).
+fof(f221,plain,(
+  relation_of2_as_subset(sK23,sK20,sK21)),
+  inference(cnf_transformation,[],[f142])).
+fof(f339,plain,(
+  ( ! [X2,X0,X1] : (~relation_of2_as_subset(X0,X1,X2) | relation(X0)) )),
+  inference(resolution,[],[f162,f146])).
+fof(f146,plain,(
+  ( ! [X2,X0,X1] : (~element(X2,powerset(cartesian_product2(X0,X1))) | relation(X2)) )),
+  inference(cnf_transformation,[],[f68])).
+fof(f68,plain,(
+  ! [X0,X1,X2] : (relation(X2) | ~element(X2,powerset(cartesian_product2(X0,X1))))),
+  inference(ennf_transformation,[],[f4])).
+fof(f4,axiom,(
+  ! [X0,X1,X2] : (element(X2,powerset(cartesian_product2(X0,X1))) => relation(X2))),
+  file('SEU290+1.tptp',unknown)).
+fof(f162,plain,(
+  ( ! [X2,X0,X1] : (element(X2,powerset(cartesian_product2(X0,X1))) | ~relation_of2_as_subset(X2,X0,X1)) )),
+  inference(cnf_transformation,[],[f76])).
+fof(f76,plain,(
+  ! [X0,X1,X2] : (element(X2,powerset(cartesian_product2(X0,X1))) | ~relation_of2_as_subset(X2,X0,X1))),
+  inference(ennf_transformation,[],[f17])).
+fof(f17,axiom,(
+  ! [X0,X1,X2] : (relation_of2_as_subset(X2,X0,X1) => element(X2,powerset(cartesian_product2(X0,X1))))),
+  file('SEU290+1.tptp',unknown)).
+fof(f380,plain,(
+  ~in(sK22,relation_dom(sK23)) | ~relation(sK23)),
+  inference(subsumption_resolution,[],[f375,f219])).
+fof(f219,plain,(
+  function(sK23)),
+  inference(cnf_transformation,[],[f142])).
+fof(f375,plain,(
+  ~in(sK22,relation_dom(sK23)) | ~function(sK23) | ~relation(sK23)),
+  inference(resolution,[],[f233,f224])).
+fof(f224,plain,(
+  ~in(apply(sK23,sK22),relation_rng(sK23))),
+  inference(cnf_transformation,[],[f142])).
+fof(f233,plain,(
+  ( ! [X6,X0] : (in(apply(X0,X6),relation_rng(X0)) | ~in(X6,relation_dom(X0)) | ~function(X0) | ~relation(X0)) )),
+  inference(equality_resolution,[],[f232])).
+fof(f232,plain,(
+  ( ! [X6,X0,X1] : (in(apply(X0,X6),X1) | ~in(X6,relation_dom(X0)) | relation_rng(X0) != X1 | ~function(X0) | ~relation(X0)) )),
+  inference(equality_resolution,[],[f157])).
+fof(f157,plain,(
+  ( ! [X6,X0,X5,X1] : (in(X5,X1) | apply(X0,X6) != X5 | ~in(X6,relation_dom(X0)) | relation_rng(X0) != X1 | ~function(X0) | ~relation(X0)) )),
+  inference(cnf_transformation,[],[f105])).
+fof(f105,plain,(
+  ! [X0] : (! [X1] : ((relation_rng(X0) = X1 | ((! [X3] : (apply(X0,X3) != sK0(X0,X1) | ~in(X3,relation_dom(X0))) | ~in(sK0(X0,X1),X1)) & ((sK0(X0,X1) = apply(X0,sK1(X0,X1)) & in(sK1(X0,X1),relation_dom(X0))) | in(sK0(X0,X1),X1)))) & (! [X5] : ((in(X5,X1) | ! [X6] : (apply(X0,X6) != X5 | ~in(X6,relation_dom(X0)))) & ((apply(X0,sK2(X0,X5)) = X5 & in(sK2(X0,X5),relation_dom(X0))) | ~in(X5,X1))) | relation_rng(X0) != X1)) | ~function(X0) | ~relation(X0))),
+  inference(skolemisation,[status(esa),new_symbols(skolem,[sK0,sK1,sK2])],[f101,f104,f103,f102])).
+fof(f102,plain,(
+  ! [X1,X0] : (? [X2] : ((! [X3] : (apply(X0,X3) != X2 | ~in(X3,relation_dom(X0))) | ~in(X2,X1)) & (? [X4] : (apply(X0,X4) = X2 & in(X4,relation_dom(X0))) | in(X2,X1))) => ((! [X3] : (apply(X0,X3) != sK0(X0,X1) | ~in(X3,relation_dom(X0))) | ~in(sK0(X0,X1),X1)) & (? [X4] : (apply(X0,X4) = sK0(X0,X1) & in(X4,relation_dom(X0))) | in(sK0(X0,X1),X1))))),
+  introduced(choice_axiom,[])).
+fof(f103,plain,(
+  ! [X1,X0] : (? [X4] : (apply(X0,X4) = sK0(X0,X1) & in(X4,relation_dom(X0))) => (sK0(X0,X1) = apply(X0,sK1(X0,X1)) & in(sK1(X0,X1),relation_dom(X0))))),
+  introduced(choice_axiom,[])).
+fof(f104,plain,(
+  ! [X5,X0] : (? [X7] : (apply(X0,X7) = X5 & in(X7,relation_dom(X0))) => (apply(X0,sK2(X0,X5)) = X5 & in(sK2(X0,X5),relation_dom(X0))))),
+  introduced(choice_axiom,[])).
+fof(f101,plain,(
+  ! [X0] : (! [X1] : ((relation_rng(X0) = X1 | ? [X2] : ((! [X3] : (apply(X0,X3) != X2 | ~in(X3,relation_dom(X0))) | ~in(X2,X1)) & (? [X4] : (apply(X0,X4) = X2 & in(X4,relation_dom(X0))) | in(X2,X1)))) & (! [X5] : ((in(X5,X1) | ! [X6] : (apply(X0,X6) != X5 | ~in(X6,relation_dom(X0)))) & (? [X7] : (apply(X0,X7) = X5 & in(X7,relation_dom(X0))) | ~in(X5,X1))) | relation_rng(X0) != X1)) | ~function(X0) | ~relation(X0))),
+  inference(rectify,[],[f100])).
+fof(f100,plain,(
+  ! [X0] : (! [X1] : ((relation_rng(X0) = X1 | ? [X2] : ((! [X3] : (apply(X0,X3) != X2 | ~in(X3,relation_dom(X0))) | ~in(X2,X1)) & (? [X3] : (apply(X0,X3) = X2 & in(X3,relation_dom(X0))) | in(X2,X1)))) & (! [X2] : ((in(X2,X1) | ! [X3] : (apply(X0,X3) != X2 | ~in(X3,relation_dom(X0)))) & (? [X3] : (apply(X0,X3) = X2 & in(X3,relation_dom(X0))) | ~in(X2,X1))) | relation_rng(X0) != X1)) | ~function(X0) | ~relation(X0))),
+  inference(nnf_transformation,[],[f74])).
+fof(f74,plain,(
+  ! [X0] : (! [X1] : (relation_rng(X0) = X1 <=> ! [X2] : (in(X2,X1) <=> ? [X3] : (apply(X0,X3) = X2 & in(X3,relation_dom(X0))))) | ~function(X0) | ~relation(X0))),
+  inference(flattening,[],[f73])).
+fof(f73,plain,(
+  ! [X0] : (! [X1] : (relation_rng(X0) = X1 <=> ! [X2] : (in(X2,X1) <=> ? [X3] : (apply(X0,X3) = X2 & in(X3,relation_dom(X0))))) | (~function(X0) | ~relation(X0)))),
+  inference(ennf_transformation,[],[f7])).
+fof(f7,axiom,(
+  ! [X0] : ((function(X0) & relation(X0)) => ! [X1] : (relation_rng(X0) = X1 <=> ! [X2] : (in(X2,X1) <=> ? [X3] : (apply(X0,X3) = X2 & in(X3,relation_dom(X0))))))),
+  file('SEU290+1.tptp',unknown)).
+fof(f402,plain,(
+  sK20 = relation_dom(sK23)),
+  inference(backward_demodulation,[],[f401,f358])).
+fof(f358,plain,(
+  relation_dom_as_subset(sK20,sK21,sK23) = relation_dom(sK23)),
+  inference(resolution,[],[f209,f307])).
+fof(f307,plain,(
+  relation_of2(sK23,sK20,sK21)),
+  inference(resolution,[],[f210,f221])).
+fof(f210,plain,(
+  ( ! [X2,X0,X1] : (~relation_of2_as_subset(X2,X0,X1) | relation_of2(X2,X0,X1)) )),
+  inference(cnf_transformation,[],[f140])).
+fof(f140,plain,(
+  ! [X0,X1,X2] : ((relation_of2_as_subset(X2,X0,X1) | ~relation_of2(X2,X0,X1)) & (relation_of2(X2,X0,X1) | ~relation_of2_as_subset(X2,X0,X1)))),
+  inference(nnf_transformation,[],[f45])).
+fof(f45,axiom,(
+  ! [X0,X1,X2] : (relation_of2_as_subset(X2,X0,X1) <=> relation_of2(X2,X0,X1))),
+  file('SEU290+1.tptp',unknown)).
+fof(f209,plain,(
+  ( ! [X2,X0,X1] : (~relation_of2(X2,X0,X1) | relation_dom_as_subset(X0,X1,X2) = relation_dom(X2)) )),
+  inference(cnf_transformation,[],[f86])).
+fof(f86,plain,(
+  ! [X0,X1,X2] : (relation_dom_as_subset(X0,X1,X2) = relation_dom(X2) | ~relation_of2(X2,X0,X1))),
+  inference(ennf_transformation,[],[f44])).
+fof(f44,axiom,(
+  ! [X0,X1,X2] : (relation_of2(X2,X0,X1) => relation_dom_as_subset(X0,X1,X2) = relation_dom(X2))),
+  file('SEU290+1.tptp',unknown)).
+fof(f401,plain,(
+  sK20 = relation_dom_as_subset(sK20,sK21,sK23)),
+  inference(subsumption_resolution,[],[f400,f221])).
+fof(f400,plain,(
+  sK20 = relation_dom_as_subset(sK20,sK21,sK23) | ~relation_of2_as_subset(sK23,sK20,sK21)),
+  inference(subsumption_resolution,[],[f398,f223])).
+fof(f223,plain,(
+  empty_set != sK21),
+  inference(cnf_transformation,[],[f142])).
+fof(f398,plain,(
+  sK20 = relation_dom_as_subset(sK20,sK21,sK23) | empty_set = sK21 | ~relation_of2_as_subset(sK23,sK20,sK21)),
+  inference(resolution,[],[f149,f220])).
+fof(f220,plain,(
+  quasi_total(sK23,sK20,sK21)),
+  inference(cnf_transformation,[],[f142])).
+fof(f149,plain,(
+  ( ! [X2,X0,X1] : (~quasi_total(X2,X0,X1) | relation_dom_as_subset(X0,X1,X2) = X0 | empty_set = X1 | ~relation_of2_as_subset(X2,X0,X1)) )),
+  inference(cnf_transformation,[],[f99])).
+fof(f99,plain,(
+  ! [X0,X1,X2] : (((((quasi_total(X2,X0,X1) | empty_set != X2) & (empty_set = X2 | ~quasi_total(X2,X0,X1))) | empty_set = X0 | empty_set != X1) & (((quasi_total(X2,X0,X1) | relation_dom_as_subset(X0,X1,X2) != X0) & (relation_dom_as_subset(X0,X1,X2) = X0 | ~quasi_total(X2,X0,X1))) | (empty_set != X0 & empty_set = X1))) | ~relation_of2_as_subset(X2,X0,X1))),
+  inference(nnf_transformation,[],[f72])).
+fof(f72,plain,(
+  ! [X0,X1,X2] : ((((quasi_total(X2,X0,X1) <=> empty_set = X2) | empty_set = X0 | empty_set != X1) & ((quasi_total(X2,X0,X1) <=> relation_dom_as_subset(X0,X1,X2) = X0) | (empty_set != X0 & empty_set = X1))) | ~relation_of2_as_subset(X2,X0,X1))),
+  inference(flattening,[],[f71])).
+fof(f71,plain,(
+  ! [X0,X1,X2] : (((((quasi_total(X2,X0,X1) <=> empty_set = X2) | empty_set = X0) | empty_set != X1) & ((quasi_total(X2,X0,X1) <=> relation_dom_as_subset(X0,X1,X2) = X0) | (empty_set != X0 & empty_set = X1))) | ~relation_of2_as_subset(X2,X0,X1))),
+  inference(ennf_transformation,[],[f6])).
+fof(f6,axiom,(
+  ! [X0,X1,X2] : (relation_of2_as_subset(X2,X0,X1) => ((empty_set = X1 => ((quasi_total(X2,X0,X1) <=> empty_set = X2) | empty_set = X0)) & ((empty_set = X1 => empty_set = X0) => (quasi_total(X2,X0,X1) <=> relation_dom_as_subset(X0,X1,X2) = X0))))),
+  file('SEU290+1.tptp',unknown)).
+% SZS output end Proof for SEU290+1
+% ------------------------------
+% Version: Vampire 4.4.0 (commit d98a3d53 on 2020-01-14 21:02:12 +0100)
+% Termination reason: Refutation
+
+% Memory used [KB]: 5117
+% Time elapsed: 0.007 s
+% ------------------------------
+% ------------------------------

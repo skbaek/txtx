@@ -1,0 +1,64 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% SZS status Unsatisfiable for GEO041-3.tptp
+
+% SZS output start CNFRefutation for GEO041-3.tptp
+cnf(t1, axiom, (~ between(U, V, W) | between(W, V, U))).
+
+cnf(b2, axiom, (~ between(U, V, W) | ~ between(V, U, W) | U = V)).
+
+cnf(v_between_u_and_w, hypothesis, (between(u, v, w))).
+
+cnf(w_between_u_and_v, hypothesis, (between(u, w, v))).
+
+cnf(prove_v_is_w, negated_conjecture, (v != w)).
+
+cnf(refute_0_0, plain, (~ between(u, v, w) | between(w, v, u)),
+    inference(subst, [],
+              [t1 :
+               [bind(U, $fot(u)), bind(V, $fot(v)), bind(W, $fot(w))]])).
+
+cnf(refute_0_1, plain, (between(w, v, u)),
+    inference(resolve, [$cnf(between(u, v, w))],
+              [v_between_u_and_w, refute_0_0])).
+
+cnf(refute_0_2, plain, (~ between(v, w, u) | ~ between(w, v, u) | w = v),
+    inference(subst, [],
+              [b2 :
+               [bind(U, $fot(w)), bind(V, $fot(v)), bind(W, $fot(u))]])).
+
+cnf(refute_0_3, plain, (~ between(v, w, u) | w = v),
+    inference(resolve, [$cnf(between(w, v, u))],
+              [refute_0_1, refute_0_2])).
+
+cnf(refute_0_4, plain, (~ between(u, w, v) | between(v, w, u)),
+    inference(subst, [],
+              [t1 :
+               [bind(U, $fot(u)), bind(V, $fot(w)), bind(W, $fot(v))]])).
+
+cnf(refute_0_5, plain, (between(v, w, u)),
+    inference(resolve, [$cnf(between(u, w, v))],
+              [w_between_u_and_v, refute_0_4])).
+
+cnf(refute_0_6, plain, (w = v),
+    inference(resolve, [$cnf(between(v, w, u))],
+              [refute_0_5, refute_0_3])).
+
+cnf(refute_0_7, plain, (X = X), introduced(tautology, [refl, [$fot(X)]])).
+
+cnf(refute_0_8, plain, (X != X | X != Y | Y = X),
+    introduced(tautology, [equality, [$cnf($equal(X, X)), [0], $fot(Y)]])).
+
+cnf(refute_0_9, plain, (X != Y | Y = X),
+    inference(resolve, [$cnf($equal(X, X))], [refute_0_7, refute_0_8])).
+
+cnf(refute_0_10, plain, (w != v | v = w),
+    inference(subst, [],
+              [refute_0_9 : [bind(X, $fot(w)), bind(Y, $fot(v))]])).
+
+cnf(refute_0_11, plain, (w != v),
+    inference(resolve, [$cnf($equal(v, w))], [refute_0_10, prove_v_is_w])).
+
+cnf(refute_0_12, plain, ($false),
+    inference(resolve, [$cnf($equal(w, v))], [refute_0_6, refute_0_11])).
+% SZS output end CNFRefutation for GEO041-3.tptp
+

@@ -1,0 +1,995 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% SZS status Unsatisfiable for PUZ042-1.tptp
+
+% SZS output start CNFRefutation for PUZ042-1.tptp
+cnf(s1_left, axiom,
+    (~ state(B, V1, V2, V3, V4, H, s1(X, s(Y)), S2, S3, S4, e1(X, Y), E2) |
+     state(B, V1, V2, V3, V4, H, s1(X, Y), S2, S3, S4, e1(X, s(Y)), E2))).
+
+cnf(s1_down, axiom,
+    (~ state(B, V1, V2, V3, V4, H, s1(X, Y), S2, S3, S4, e1(s(X), Y), E2) |
+     state(B, V1, V2, V3, V4, H, s1(s(X), Y), S2, S3, S4, e1(X, Y), E2))).
+
+cnf(s2_left, axiom,
+    (~ state(B, V1, V2, V3, V4, H, S1, s2(X, s(Y)), S3, S4, e1(X, Y), E2) |
+     state(B, V1, V2, V3, V4, H, S1, s2(X, Y), S3, S4, e1(X, s(Y)), E2))).
+
+cnf(s2_down, axiom,
+    (~ state(B, V1, V2, V3, V4, H, S1, s2(X, Y), S3, S4, e1(s(X), Y), E2) |
+     state(B, V1, V2, V3, V4, H, S1, s2(s(X), Y), S3, S4, e1(X, Y), E2))).
+
+cnf(s2_up, axiom,
+    (~ state(B, V1, V2, V3, V4, H, S1, s2(s(X), Y), S3, S4, e1(X, Y), E2) |
+     state(B, V1, V2, V3, V4, H, S1, s2(X, Y), S3, S4, e1(s(X), Y), E2))).
+
+cnf(s3_right, axiom,
+    (~ state(B, V1, V2, V3, V4, H, S1, S2, s3(X, Y), S4, e1(X, s(Y)), E2) |
+     state(B, V1, V2, V3, V4, H, S1, S2, s3(X, s(Y)), S4, e1(X, Y), E2))).
+
+cnf(s3_down, axiom,
+    (~ state(B, V1, V2, V3, V4, H, S1, S2, s3(X, Y), S4, e1(s(X), Y), E2) |
+     state(B, V1, V2, V3, V4, H, S1, S2, s3(s(X), Y), S4, e1(X, Y), E2))).
+
+cnf(s3_up, axiom,
+    (~ state(B, V1, V2, V3, V4, H, S1, S2, s3(s(X), Y), S4, e1(X, Y), E2) |
+     state(B, V1, V2, V3, V4, H, S1, S2, s3(X, Y), S4, e1(s(X), Y), E2))).
+
+cnf(s4_right, axiom,
+    (~ state(B, V1, V2, V3, V4, H, S1, S2, S3, s4(X, Y), e1(X, s(Y)), E2) |
+     state(B, V1, V2, V3, V4, H, S1, S2, S3, s4(X, s(Y)), e1(X, Y), E2))).
+
+cnf(s4_left, axiom,
+    (~ state(B, V1, V2, V3, V4, H, S1, S2, S3, s4(X, s(Y)), e1(X, Y), E2) |
+     state(B, V1, V2, V3, V4, H, S1, S2, S3, s4(X, Y), e1(X, s(Y)), E2))).
+
+cnf(s4_down, axiom,
+    (~ state(B, V1, V2, V3, V4, H, S1, S2, S3, s4(X, Y), e1(s(X), Y), E2) |
+     state(B, V1, V2, V3, V4, H, S1, S2, S3, s4(s(X), Y), e1(X, Y), E2))).
+
+cnf(s4_up, axiom,
+    (~ state(B, V1, V2, V3, V4, H, S1, S2, S3, s4(s(X), Y), e1(X, Y), E2) |
+     state(B, V1, V2, V3, V4, H, S1, S2, S3, s4(X, Y), e1(s(X), Y), E2))).
+
+cnf(v3_down, axiom,
+    (~
+       state(B, V1, V2, v3(X, Y), V4, H, S1, S2, S3, S4, e1(s(s(X)), Y),
+         E2) |
+     state(B, V1, V2, v3(s(X), Y), V4, H, S1, S2, S3, S4, e1(X, Y), E2))).
+
+cnf(v3_up, axiom,
+    (~ state(B, V1, V2, v3(s(X), Y), V4, H, S1, S2, S3, S4, e1(X, Y), E2) |
+     state(B, V1, V2, v3(X, Y), V4, H, S1, S2, S3, S4, e1(s(s(X)), Y),
+       E2))).
+
+cnf(h_right, axiom,
+    (~
+       state(B, V1, V2, V3, V4, h(X, Y), S1, S2, S3, S4, e1(X, s(s(Y))),
+         E2) |
+     state(B, V1, V2, V3, V4, h(X, s(Y)), S1, S2, S3, S4, e1(X, Y), E2))).
+
+cnf(h_left, axiom,
+    (~ state(B, V1, V2, V3, V4, h(X, s(Y)), S1, S2, S3, S4, e1(X, Y), E2) |
+     state(B, V1, V2, V3, V4, h(X, Y), S1, S2, S3, S4, e1(X, s(s(Y))),
+       E2))).
+
+cnf(h_down, axiom,
+    (~
+       state(B, V1, V2, V3, V4, h(X, Y), S1, S2, S3, S4, e1(s(X), Y),
+         e2(s(X), s(Y))) |
+     state(B, V1, V2, V3, V4, h(s(X), Y), S1, S2, S3, S4, e1(X, Y),
+       e2(X, s(Y))))).
+
+cnf(swap_blanks, axiom,
+    (~ state(B, V1, V2, V3, V4, H, S1, S2, S3, S4, e1(X, Y), e2(Q, W)) |
+     state(B, V1, V2, V3, V4, H, S1, S2, S3, S4, e1(Q, W), e2(X, Y)))).
+
+cnf(initial_state, hypothesis,
+    (state(bb(o, s(o)), v1(o, o), v2(o, s(s(s(o)))), v3(s(s(o)), o),
+       v4(s(s(o)), s(s(s(o)))), h(s(s(o)), s(o)), s1(s(s(s(o))), s(o)),
+       s2(s(s(s(o))), s(s(o))), s3(s(s(s(s(o)))), s(o)),
+       s4(s(s(s(s(o)))), s(s(o))), e1(s(s(s(s(o)))), o),
+       e2(s(s(s(s(o)))), s(s(s(o))))))).
+
+cnf(goal_state, negated_conjecture,
+    (~
+       state(B, V1, V2, V3, V4, h(s(s(s(o))), s(o)), S1, S2, S3, S4, E1,
+         E2))).
+
+cnf(refute_0_0, plain,
+    (~
+       state(bb(o, s(o)), v1(o, o), v2(o, s(s(s(o)))), v3(s(s(o)), o),
+         v4(s(s(o)), s(s(s(o)))), h(s(s(o)), s(o)), s1(s(s(s(s(o)))), o),
+         s2(s(s(s(o))), s(o)), s3(s(s(s(s(o)))), s(s(o))),
+         s4(s(s(s(s(o)))), s(s(s(o)))), e1(s(s(s(s(o)))), s(o)),
+         e2(s(s(s(o))), s(s(o)))) |
+     state(bb(o, s(o)), v1(o, o), v2(o, s(s(s(o)))), v3(s(s(o)), o),
+       v4(s(s(o)), s(s(s(o)))), h(s(s(o)), s(o)), s1(s(s(s(s(o)))), o),
+       s2(s(s(s(s(o)))), s(o)), s3(s(s(s(s(o)))), s(s(o))),
+       s4(s(s(s(s(o)))), s(s(s(o)))), e1(s(s(s(o))), s(o)),
+       e2(s(s(s(o))), s(s(o))))),
+    inference(subst, [],
+              [s2_down :
+               [bind(B, $fot(bb(o, s(o)))),
+                bind(E2, $fot(e2(s(s(s(o))), s(s(o))))),
+                bind(H, $fot(h(s(s(o)), s(o)))),
+                bind(S1, $fot(s1(s(s(s(s(o)))), o))),
+                bind(S3, $fot(s3(s(s(s(s(o)))), s(s(o))))),
+                bind(S4, $fot(s4(s(s(s(s(o)))), s(s(s(o)))))),
+                bind(V1, $fot(v1(o, o))),
+                bind(V2, $fot(v2(o, s(s(s(o)))))),
+                bind(V3, $fot(v3(s(s(o)), o))),
+                bind(V4, $fot(v4(s(s(o)), s(s(s(o)))))),
+                bind(X, $fot(s(s(s(o))))), bind(Y, $fot(s(o)))]])).
+
+cnf(refute_0_1, plain,
+    (~
+       state(bb(o, s(o)), v1(o, o), v2(o, s(s(s(o)))), v3(s(s(o)), o),
+         v4(s(s(o)), s(s(s(o)))), h(s(s(o)), s(o)), s1(s(s(s(s(o)))), o),
+         s2(s(s(s(o))), s(o)), s3(s(s(s(s(o)))), s(s(o))),
+         s4(s(s(s(s(o)))), s(s(s(o)))), e1(s(s(s(o))), s(s(o))),
+         e2(s(s(s(s(o)))), s(o))) |
+     state(bb(o, s(o)), v1(o, o), v2(o, s(s(s(o)))), v3(s(s(o)), o),
+       v4(s(s(o)), s(s(s(o)))), h(s(s(o)), s(o)), s1(s(s(s(s(o)))), o),
+       s2(s(s(s(o))), s(o)), s3(s(s(s(s(o)))), s(s(o))),
+       s4(s(s(s(s(o)))), s(s(s(o)))), e1(s(s(s(s(o)))), s(o)),
+       e2(s(s(s(o))), s(s(o))))),
+    inference(subst, [],
+              [swap_blanks :
+               [bind(B, $fot(bb(o, s(o)))),
+                bind(H, $fot(h(s(s(o)), s(o)))),
+                bind(Q, $fot(s(s(s(s(o)))))),
+                bind(S1, $fot(s1(s(s(s(s(o)))), o))),
+                bind(S2, $fot(s2(s(s(s(o))), s(o)))),
+                bind(S3, $fot(s3(s(s(s(s(o)))), s(s(o))))),
+                bind(S4, $fot(s4(s(s(s(s(o)))), s(s(s(o)))))),
+                bind(V1, $fot(v1(o, o))),
+                bind(V2, $fot(v2(o, s(s(s(o)))))),
+                bind(V3, $fot(v3(s(s(o)), o))),
+                bind(V4, $fot(v4(s(s(o)), s(s(s(o)))))),
+                bind(W, $fot(s(o))), bind(X, $fot(s(s(s(o))))),
+                bind(Y, $fot(s(s(o))))]])).
+
+cnf(refute_0_2, plain,
+    (~
+       state(bb(o, s(o)), v1(o, o), v2(o, s(s(s(o)))), v3(s(s(o)), o),
+         v4(s(s(o)), s(s(s(o)))), h(s(s(o)), s(o)), s1(s(s(s(s(o)))), o),
+         s2(s(s(s(o))), s(o)), s3(s(s(s(o))), s(s(o))),
+         s4(s(s(s(s(o)))), s(s(s(o)))), e1(s(s(s(s(o)))), s(s(o))),
+         e2(s(s(s(s(o)))), s(o))) |
+     state(bb(o, s(o)), v1(o, o), v2(o, s(s(s(o)))), v3(s(s(o)), o),
+       v4(s(s(o)), s(s(s(o)))), h(s(s(o)), s(o)), s1(s(s(s(s(o)))), o),
+       s2(s(s(s(o))), s(o)), s3(s(s(s(s(o)))), s(s(o))),
+       s4(s(s(s(s(o)))), s(s(s(o)))), e1(s(s(s(o))), s(s(o))),
+       e2(s(s(s(s(o)))), s(o)))),
+    inference(subst, [],
+              [s3_down :
+               [bind(B, $fot(bb(o, s(o)))),
+                bind(E2, $fot(e2(s(s(s(s(o)))), s(o)))),
+                bind(H, $fot(h(s(s(o)), s(o)))),
+                bind(S1, $fot(s1(s(s(s(s(o)))), o))),
+                bind(S2, $fot(s2(s(s(s(o))), s(o)))),
+                bind(S4, $fot(s4(s(s(s(s(o)))), s(s(s(o)))))),
+                bind(V1, $fot(v1(o, o))),
+                bind(V2, $fot(v2(o, s(s(s(o)))))),
+                bind(V3, $fot(v3(s(s(o)), o))),
+                bind(V4, $fot(v4(s(s(o)), s(s(s(o)))))),
+                bind(X, $fot(s(s(s(o))))), bind(Y, $fot(s(s(o))))]])).
+
+cnf(refute_0_3, plain,
+    (~
+       state(bb(o, s(o)), v1(o, o), v2(o, s(s(s(o)))), v3(s(s(o)), o),
+         v4(s(s(o)), s(s(s(o)))), h(s(s(o)), s(o)), s1(s(s(s(s(o)))), o),
+         s2(s(s(s(o))), s(o)), s3(s(s(s(o))), s(s(o))),
+         s4(s(s(s(s(o)))), s(s(o))), e1(s(s(s(s(o)))), s(s(s(o)))),
+         e2(s(s(s(s(o)))), s(o))) |
+     state(bb(o, s(o)), v1(o, o), v2(o, s(s(s(o)))), v3(s(s(o)), o),
+       v4(s(s(o)), s(s(s(o)))), h(s(s(o)), s(o)), s1(s(s(s(s(o)))), o),
+       s2(s(s(s(o))), s(o)), s3(s(s(s(o))), s(s(o))),
+       s4(s(s(s(s(o)))), s(s(s(o)))), e1(s(s(s(s(o)))), s(s(o))),
+       e2(s(s(s(s(o)))), s(o)))),
+    inference(subst, [],
+              [s4_right :
+               [bind(B, $fot(bb(o, s(o)))),
+                bind(E2, $fot(e2(s(s(s(s(o)))), s(o)))),
+                bind(H, $fot(h(s(s(o)), s(o)))),
+                bind(S1, $fot(s1(s(s(s(s(o)))), o))),
+                bind(S2, $fot(s2(s(s(s(o))), s(o)))),
+                bind(S3, $fot(s3(s(s(s(o))), s(s(o))))),
+                bind(V1, $fot(v1(o, o))),
+                bind(V2, $fot(v2(o, s(s(s(o)))))),
+                bind(V3, $fot(v3(s(s(o)), o))),
+                bind(V4, $fot(v4(s(s(o)), s(s(s(o)))))),
+                bind(X, $fot(s(s(s(s(o)))))), bind(Y, $fot(s(s(o))))]])).
+
+cnf(refute_0_4, plain,
+    (~
+       state(bb(o, s(o)), v1(o, o), v2(o, s(s(s(o)))), v3(s(s(o)), o),
+         v4(s(s(o)), s(s(s(o)))), h(s(s(o)), s(o)), s1(s(s(s(s(o)))), o),
+         s2(s(s(s(o))), s(o)), s3(s(s(s(o))), s(s(o))),
+         s4(s(s(s(s(o)))), s(o)), e1(s(s(s(s(o)))), s(s(o))),
+         e2(s(s(s(s(o)))), s(s(s(o))))) |
+     state(bb(o, s(o)), v1(o, o), v2(o, s(s(s(o)))), v3(s(s(o)), o),
+       v4(s(s(o)), s(s(s(o)))), h(s(s(o)), s(o)), s1(s(s(s(s(o)))), o),
+       s2(s(s(s(o))), s(o)), s3(s(s(s(o))), s(s(o))),
+       s4(s(s(s(s(o)))), s(s(o))), e1(s(s(s(s(o)))), s(o)),
+       e2(s(s(s(s(o)))), s(s(s(o)))))),
+    inference(subst, [],
+              [s4_right :
+               [bind(B, $fot(bb(o, s(o)))),
+                bind(E2, $fot(e2(s(s(s(s(o)))), s(s(s(o)))))),
+                bind(H, $fot(h(s(s(o)), s(o)))),
+                bind(S1, $fot(s1(s(s(s(s(o)))), o))),
+                bind(S2, $fot(s2(s(s(s(o))), s(o)))),
+                bind(S3, $fot(s3(s(s(s(o))), s(s(o))))),
+                bind(V1, $fot(v1(o, o))),
+                bind(V2, $fot(v2(o, s(s(s(o)))))),
+                bind(V3, $fot(v3(s(s(o)), o))),
+                bind(V4, $fot(v4(s(s(o)), s(s(s(o)))))),
+                bind(X, $fot(s(s(s(s(o)))))), bind(Y, $fot(s(o)))]])).
+
+cnf(refute_0_5, plain,
+    (~
+       state(bb(o, s(o)), v1(o, o), v2(o, s(s(s(o)))), v3(s(s(o)), o),
+         v4(s(s(o)), s(s(s(o)))), h(s(s(o)), s(o)), s1(s(s(s(s(o)))), o),
+         s2(s(s(s(o))), s(o)), s3(s(s(s(s(o)))), s(s(o))),
+         s4(s(s(s(s(o)))), s(o)), e1(s(s(s(o))), s(s(o))),
+         e2(s(s(s(s(o)))), s(s(s(o))))) |
+     state(bb(o, s(o)), v1(o, o), v2(o, s(s(s(o)))), v3(s(s(o)), o),
+       v4(s(s(o)), s(s(s(o)))), h(s(s(o)), s(o)), s1(s(s(s(s(o)))), o),
+       s2(s(s(s(o))), s(o)), s3(s(s(s(o))), s(s(o))),
+       s4(s(s(s(s(o)))), s(o)), e1(s(s(s(s(o)))), s(s(o))),
+       e2(s(s(s(s(o)))), s(s(s(o)))))),
+    inference(subst, [],
+              [s3_up :
+               [bind(B, $fot(bb(o, s(o)))),
+                bind(E2, $fot(e2(s(s(s(s(o)))), s(s(s(o)))))),
+                bind(H, $fot(h(s(s(o)), s(o)))),
+                bind(S1, $fot(s1(s(s(s(s(o)))), o))),
+                bind(S2, $fot(s2(s(s(s(o))), s(o)))),
+                bind(S4, $fot(s4(s(s(s(s(o)))), s(o)))),
+                bind(V1, $fot(v1(o, o))),
+                bind(V2, $fot(v2(o, s(s(s(o)))))),
+                bind(V3, $fot(v3(s(s(o)), o))),
+                bind(V4, $fot(v4(s(s(o)), s(s(s(o)))))),
+                bind(X, $fot(s(s(s(o))))), bind(Y, $fot(s(s(o))))]])).
+
+cnf(refute_0_6, plain,
+    (~
+       state(bb(o, s(o)), v1(o, o), v2(o, s(s(s(o)))), v3(s(s(o)), o),
+         v4(s(s(o)), s(s(s(o)))), h(s(s(o)), s(o)), s1(s(s(s(s(o)))), o),
+         s2(s(s(s(o))), s(s(o))), s3(s(s(s(s(o)))), s(s(o))),
+         s4(s(s(s(s(o)))), s(o)), e1(s(s(s(o))), s(o)),
+         e2(s(s(s(s(o)))), s(s(s(o))))) |
+     state(bb(o, s(o)), v1(o, o), v2(o, s(s(s(o)))), v3(s(s(o)), o),
+       v4(s(s(o)), s(s(s(o)))), h(s(s(o)), s(o)), s1(s(s(s(s(o)))), o),
+       s2(s(s(s(o))), s(o)), s3(s(s(s(s(o)))), s(s(o))),
+       s4(s(s(s(s(o)))), s(o)), e1(s(s(s(o))), s(s(o))),
+       e2(s(s(s(s(o)))), s(s(s(o)))))),
+    inference(subst, [],
+              [s2_left :
+               [bind(B, $fot(bb(o, s(o)))),
+                bind(E2, $fot(e2(s(s(s(s(o)))), s(s(s(o)))))),
+                bind(H, $fot(h(s(s(o)), s(o)))),
+                bind(S1, $fot(s1(s(s(s(s(o)))), o))),
+                bind(S3, $fot(s3(s(s(s(s(o)))), s(s(o))))),
+                bind(S4, $fot(s4(s(s(s(s(o)))), s(o)))),
+                bind(V1, $fot(v1(o, o))),
+                bind(V2, $fot(v2(o, s(s(s(o)))))),
+                bind(V3, $fot(v3(s(s(o)), o))),
+                bind(V4, $fot(v4(s(s(o)), s(s(s(o)))))),
+                bind(X, $fot(s(s(s(o))))), bind(Y, $fot(s(o)))]])).
+
+cnf(refute_0_7, plain,
+    (~
+       state(bb(o, s(o)), v1(o, o), v2(o, s(s(s(o)))), v3(s(s(o)), o),
+         v4(s(s(o)), s(s(s(o)))), h(s(s(o)), s(o)), s1(s(s(s(s(o)))), o),
+         s2(s(s(s(o))), s(s(o))), s3(s(s(s(s(o)))), s(s(o))),
+         s4(s(s(s(o))), s(o)), e1(s(s(s(s(o)))), s(o)),
+         e2(s(s(s(s(o)))), s(s(s(o))))) |
+     state(bb(o, s(o)), v1(o, o), v2(o, s(s(s(o)))), v3(s(s(o)), o),
+       v4(s(s(o)), s(s(s(o)))), h(s(s(o)), s(o)), s1(s(s(s(s(o)))), o),
+       s2(s(s(s(o))), s(s(o))), s3(s(s(s(s(o)))), s(s(o))),
+       s4(s(s(s(s(o)))), s(o)), e1(s(s(s(o))), s(o)),
+       e2(s(s(s(s(o)))), s(s(s(o)))))),
+    inference(subst, [],
+              [s4_down :
+               [bind(B, $fot(bb(o, s(o)))),
+                bind(E2, $fot(e2(s(s(s(s(o)))), s(s(s(o)))))),
+                bind(H, $fot(h(s(s(o)), s(o)))),
+                bind(S1, $fot(s1(s(s(s(s(o)))), o))),
+                bind(S2, $fot(s2(s(s(s(o))), s(s(o))))),
+                bind(S3, $fot(s3(s(s(s(s(o)))), s(s(o))))),
+                bind(V1, $fot(v1(o, o))),
+                bind(V2, $fot(v2(o, s(s(s(o)))))),
+                bind(V3, $fot(v3(s(s(o)), o))),
+                bind(V4, $fot(v4(s(s(o)), s(s(s(o)))))),
+                bind(X, $fot(s(s(s(o))))), bind(Y, $fot(s(o)))]])).
+
+cnf(refute_0_8, plain,
+    (~
+       state(bb(o, s(o)), v1(o, o), v2(o, s(s(s(o)))), v3(s(s(o)), o),
+         v4(s(s(o)), s(s(s(o)))), h(s(s(o)), s(o)),
+         s1(s(s(s(s(o)))), s(o)), s2(s(s(s(o))), s(s(o))),
+         s3(s(s(s(s(o)))), s(s(o))), s4(s(s(s(o))), s(o)),
+         e1(s(s(s(s(o)))), o), e2(s(s(s(s(o)))), s(s(s(o))))) |
+     state(bb(o, s(o)), v1(o, o), v2(o, s(s(s(o)))), v3(s(s(o)), o),
+       v4(s(s(o)), s(s(s(o)))), h(s(s(o)), s(o)), s1(s(s(s(s(o)))), o),
+       s2(s(s(s(o))), s(s(o))), s3(s(s(s(s(o)))), s(s(o))),
+       s4(s(s(s(o))), s(o)), e1(s(s(s(s(o)))), s(o)),
+       e2(s(s(s(s(o)))), s(s(s(o)))))),
+    inference(subst, [],
+              [s1_left :
+               [bind(B, $fot(bb(o, s(o)))),
+                bind(E2, $fot(e2(s(s(s(s(o)))), s(s(s(o)))))),
+                bind(H, $fot(h(s(s(o)), s(o)))),
+                bind(S2, $fot(s2(s(s(s(o))), s(s(o))))),
+                bind(S3, $fot(s3(s(s(s(s(o)))), s(s(o))))),
+                bind(S4, $fot(s4(s(s(s(o))), s(o)))),
+                bind(V1, $fot(v1(o, o))),
+                bind(V2, $fot(v2(o, s(s(s(o)))))),
+                bind(V3, $fot(v3(s(s(o)), o))),
+                bind(V4, $fot(v4(s(s(o)), s(s(s(o)))))),
+                bind(X, $fot(s(s(s(s(o)))))), bind(Y, $fot(o))]])).
+
+cnf(refute_0_9, plain,
+    (~
+       state(bb(o, s(o)), v1(o, o), v2(o, s(s(s(o)))), v3(s(s(s(o))), o),
+         v4(s(s(o)), s(s(s(o)))), h(s(s(o)), s(o)),
+         s1(s(s(s(s(o)))), s(o)), s2(s(s(s(o))), s(s(o))),
+         s3(s(s(s(s(o)))), s(s(o))), s4(s(s(s(o))), s(o)), e1(s(s(o)), o),
+         e2(s(s(s(s(o)))), s(s(s(o))))) |
+     state(bb(o, s(o)), v1(o, o), v2(o, s(s(s(o)))), v3(s(s(o)), o),
+       v4(s(s(o)), s(s(s(o)))), h(s(s(o)), s(o)), s1(s(s(s(s(o)))), s(o)),
+       s2(s(s(s(o))), s(s(o))), s3(s(s(s(s(o)))), s(s(o))),
+       s4(s(s(s(o))), s(o)), e1(s(s(s(s(o)))), o),
+       e2(s(s(s(s(o)))), s(s(s(o)))))),
+    inference(subst, [],
+              [v3_up :
+               [bind(B, $fot(bb(o, s(o)))),
+                bind(E2, $fot(e2(s(s(s(s(o)))), s(s(s(o)))))),
+                bind(H, $fot(h(s(s(o)), s(o)))),
+                bind(S1, $fot(s1(s(s(s(s(o)))), s(o)))),
+                bind(S2, $fot(s2(s(s(s(o))), s(s(o))))),
+                bind(S3, $fot(s3(s(s(s(s(o)))), s(s(o))))),
+                bind(S4, $fot(s4(s(s(s(o))), s(o)))),
+                bind(V1, $fot(v1(o, o))),
+                bind(V2, $fot(v2(o, s(s(s(o)))))),
+                bind(V4, $fot(v4(s(s(o)), s(s(s(o)))))),
+                bind(X, $fot(s(s(o)))), bind(Y, $fot(o))]])).
+
+cnf(refute_0_10, plain,
+    (~
+       state(bb(o, s(o)), v1(o, o), v2(o, s(s(s(o)))), v3(s(s(s(o))), o),
+         v4(s(s(o)), s(s(s(o)))), h(s(s(o)), o), s1(s(s(s(s(o)))), s(o)),
+         s2(s(s(s(o))), s(s(o))), s3(s(s(s(s(o)))), s(s(o))),
+         s4(s(s(s(o))), s(o)), e1(s(s(o)), s(s(o))),
+         e2(s(s(s(s(o)))), s(s(s(o))))) |
+     state(bb(o, s(o)), v1(o, o), v2(o, s(s(s(o)))), v3(s(s(s(o))), o),
+       v4(s(s(o)), s(s(s(o)))), h(s(s(o)), s(o)), s1(s(s(s(s(o)))), s(o)),
+       s2(s(s(s(o))), s(s(o))), s3(s(s(s(s(o)))), s(s(o))),
+       s4(s(s(s(o))), s(o)), e1(s(s(o)), o),
+       e2(s(s(s(s(o)))), s(s(s(o)))))),
+    inference(subst, [],
+              [h_right :
+               [bind(B, $fot(bb(o, s(o)))),
+                bind(E2, $fot(e2(s(s(s(s(o)))), s(s(s(o)))))),
+                bind(S1, $fot(s1(s(s(s(s(o)))), s(o)))),
+                bind(S2, $fot(s2(s(s(s(o))), s(s(o))))),
+                bind(S3, $fot(s3(s(s(s(s(o)))), s(s(o))))),
+                bind(S4, $fot(s4(s(s(s(o))), s(o)))),
+                bind(V1, $fot(v1(o, o))),
+                bind(V2, $fot(v2(o, s(s(s(o)))))),
+                bind(V3, $fot(v3(s(s(s(o))), o))),
+                bind(V4, $fot(v4(s(s(o)), s(s(s(o)))))),
+                bind(X, $fot(s(s(o)))), bind(Y, $fot(o))]])).
+
+cnf(refute_0_11, plain,
+    (~
+       state(bb(o, s(o)), v1(o, o), v2(o, s(s(s(o)))), v3(s(s(s(o))), o),
+         v4(s(s(o)), s(s(s(o)))), h(s(s(o)), o), s1(s(s(s(s(o)))), s(o)),
+         s2(s(s(o)), s(s(o))), s3(s(s(s(s(o)))), s(s(o))),
+         s4(s(s(s(o))), s(o)), e1(s(s(s(o))), s(s(o))),
+         e2(s(s(s(s(o)))), s(s(s(o))))) |
+     state(bb(o, s(o)), v1(o, o), v2(o, s(s(s(o)))), v3(s(s(s(o))), o),
+       v4(s(s(o)), s(s(s(o)))), h(s(s(o)), o), s1(s(s(s(s(o)))), s(o)),
+       s2(s(s(s(o))), s(s(o))), s3(s(s(s(s(o)))), s(s(o))),
+       s4(s(s(s(o))), s(o)), e1(s(s(o)), s(s(o))),
+       e2(s(s(s(s(o)))), s(s(s(o)))))),
+    inference(subst, [],
+              [s2_down :
+               [bind(B, $fot(bb(o, s(o)))),
+                bind(E2, $fot(e2(s(s(s(s(o)))), s(s(s(o)))))),
+                bind(H, $fot(h(s(s(o)), o))),
+                bind(S1, $fot(s1(s(s(s(s(o)))), s(o)))),
+                bind(S3, $fot(s3(s(s(s(s(o)))), s(s(o))))),
+                bind(S4, $fot(s4(s(s(s(o))), s(o)))),
+                bind(V1, $fot(v1(o, o))),
+                bind(V2, $fot(v2(o, s(s(s(o)))))),
+                bind(V3, $fot(v3(s(s(s(o))), o))),
+                bind(V4, $fot(v4(s(s(o)), s(s(s(o)))))),
+                bind(X, $fot(s(s(o)))), bind(Y, $fot(s(s(o))))]])).
+
+cnf(refute_0_12, plain,
+    (~
+       state(bb(o, s(o)), v1(o, o), v2(o, s(s(s(o)))), v3(s(s(s(o))), o),
+         v4(s(s(o)), s(s(s(o)))), h(s(s(o)), o), s1(s(s(s(s(o)))), s(o)),
+         s2(s(s(o)), s(s(o))), s3(s(s(s(s(o)))), s(s(o))),
+         s4(s(s(s(o))), s(s(o))), e1(s(s(s(o))), s(o)),
+         e2(s(s(s(s(o)))), s(s(s(o))))) |
+     state(bb(o, s(o)), v1(o, o), v2(o, s(s(s(o)))), v3(s(s(s(o))), o),
+       v4(s(s(o)), s(s(s(o)))), h(s(s(o)), o), s1(s(s(s(s(o)))), s(o)),
+       s2(s(s(o)), s(s(o))), s3(s(s(s(s(o)))), s(s(o))),
+       s4(s(s(s(o))), s(o)), e1(s(s(s(o))), s(s(o))),
+       e2(s(s(s(s(o)))), s(s(s(o)))))),
+    inference(subst, [],
+              [s4_left :
+               [bind(B, $fot(bb(o, s(o)))),
+                bind(E2, $fot(e2(s(s(s(s(o)))), s(s(s(o)))))),
+                bind(H, $fot(h(s(s(o)), o))),
+                bind(S1, $fot(s1(s(s(s(s(o)))), s(o)))),
+                bind(S2, $fot(s2(s(s(o)), s(s(o))))),
+                bind(S3, $fot(s3(s(s(s(s(o)))), s(s(o))))),
+                bind(V1, $fot(v1(o, o))),
+                bind(V2, $fot(v2(o, s(s(s(o)))))),
+                bind(V3, $fot(v3(s(s(s(o))), o))),
+                bind(V4, $fot(v4(s(s(o)), s(s(s(o)))))),
+                bind(X, $fot(s(s(s(o))))), bind(Y, $fot(s(o)))]])).
+
+cnf(refute_0_13, plain,
+    (~
+       state(bb(o, s(o)), v1(o, o), v2(o, s(s(s(o)))), v3(s(s(s(o))), o),
+         v4(s(s(o)), s(s(s(o)))), h(s(s(o)), o), s1(s(s(s(o))), s(o)),
+         s2(s(s(o)), s(s(o))), s3(s(s(s(s(o)))), s(s(o))),
+         s4(s(s(s(o))), s(s(o))), e1(s(s(s(s(o)))), s(o)),
+         e2(s(s(s(s(o)))), s(s(s(o))))) |
+     state(bb(o, s(o)), v1(o, o), v2(o, s(s(s(o)))), v3(s(s(s(o))), o),
+       v4(s(s(o)), s(s(s(o)))), h(s(s(o)), o), s1(s(s(s(s(o)))), s(o)),
+       s2(s(s(o)), s(s(o))), s3(s(s(s(s(o)))), s(s(o))),
+       s4(s(s(s(o))), s(s(o))), e1(s(s(s(o))), s(o)),
+       e2(s(s(s(s(o)))), s(s(s(o)))))),
+    inference(subst, [],
+              [s1_down :
+               [bind(B, $fot(bb(o, s(o)))),
+                bind(E2, $fot(e2(s(s(s(s(o)))), s(s(s(o)))))),
+                bind(H, $fot(h(s(s(o)), o))),
+                bind(S2, $fot(s2(s(s(o)), s(s(o))))),
+                bind(S3, $fot(s3(s(s(s(s(o)))), s(s(o))))),
+                bind(S4, $fot(s4(s(s(s(o))), s(s(o))))),
+                bind(V1, $fot(v1(o, o))),
+                bind(V2, $fot(v2(o, s(s(s(o)))))),
+                bind(V3, $fot(v3(s(s(s(o))), o))),
+                bind(V4, $fot(v4(s(s(o)), s(s(s(o)))))),
+                bind(X, $fot(s(s(s(o))))), bind(Y, $fot(s(o)))]])).
+
+cnf(refute_0_14, plain,
+    (~
+       state(bb(o, s(o)), v1(o, o), v2(o, s(s(s(o)))), v3(s(s(s(o))), o),
+         v4(s(s(o)), s(s(s(o)))), h(s(s(o)), o), s1(s(s(s(o))), s(o)),
+         s2(s(s(o)), s(s(o))), s3(s(s(s(s(o)))), s(o)),
+         s4(s(s(s(o))), s(s(o))), e1(s(s(s(s(o)))), s(s(o))),
+         e2(s(s(s(s(o)))), s(s(s(o))))) |
+     state(bb(o, s(o)), v1(o, o), v2(o, s(s(s(o)))), v3(s(s(s(o))), o),
+       v4(s(s(o)), s(s(s(o)))), h(s(s(o)), o), s1(s(s(s(o))), s(o)),
+       s2(s(s(o)), s(s(o))), s3(s(s(s(s(o)))), s(s(o))),
+       s4(s(s(s(o))), s(s(o))), e1(s(s(s(s(o)))), s(o)),
+       e2(s(s(s(s(o)))), s(s(s(o)))))),
+    inference(subst, [],
+              [s3_right :
+               [bind(B, $fot(bb(o, s(o)))),
+                bind(E2, $fot(e2(s(s(s(s(o)))), s(s(s(o)))))),
+                bind(H, $fot(h(s(s(o)), o))),
+                bind(S1, $fot(s1(s(s(s(o))), s(o)))),
+                bind(S2, $fot(s2(s(s(o)), s(s(o))))),
+                bind(S4, $fot(s4(s(s(s(o))), s(s(o))))),
+                bind(V1, $fot(v1(o, o))),
+                bind(V2, $fot(v2(o, s(s(s(o)))))),
+                bind(V3, $fot(v3(s(s(s(o))), o))),
+                bind(V4, $fot(v4(s(s(o)), s(s(s(o)))))),
+                bind(X, $fot(s(s(s(s(o)))))), bind(Y, $fot(s(o)))]])).
+
+cnf(refute_0_15, plain,
+    (~
+       state(bb(o, s(o)), v1(o, o), v2(o, s(s(s(o)))), v3(s(s(s(o))), o),
+         v4(s(s(o)), s(s(s(o)))), h(s(s(o)), o), s1(s(s(s(o))), s(o)),
+         s2(s(s(o)), s(s(o))), s3(s(s(s(s(o)))), s(o)),
+         s4(s(s(s(s(o)))), s(s(o))), e1(s(s(s(o))), s(s(o))),
+         e2(s(s(s(s(o)))), s(s(s(o))))) |
+     state(bb(o, s(o)), v1(o, o), v2(o, s(s(s(o)))), v3(s(s(s(o))), o),
+       v4(s(s(o)), s(s(s(o)))), h(s(s(o)), o), s1(s(s(s(o))), s(o)),
+       s2(s(s(o)), s(s(o))), s3(s(s(s(s(o)))), s(o)),
+       s4(s(s(s(o))), s(s(o))), e1(s(s(s(s(o)))), s(s(o))),
+       e2(s(s(s(s(o)))), s(s(s(o)))))),
+    inference(subst, [],
+              [s4_up :
+               [bind(B, $fot(bb(o, s(o)))),
+                bind(E2, $fot(e2(s(s(s(s(o)))), s(s(s(o)))))),
+                bind(H, $fot(h(s(s(o)), o))),
+                bind(S1, $fot(s1(s(s(s(o))), s(o)))),
+                bind(S2, $fot(s2(s(s(o)), s(s(o))))),
+                bind(S3, $fot(s3(s(s(s(s(o)))), s(o)))),
+                bind(V1, $fot(v1(o, o))),
+                bind(V2, $fot(v2(o, s(s(s(o)))))),
+                bind(V3, $fot(v3(s(s(s(o))), o))),
+                bind(V4, $fot(v4(s(s(o)), s(s(s(o)))))),
+                bind(X, $fot(s(s(s(o))))), bind(Y, $fot(s(s(o))))]])).
+
+cnf(refute_0_16, plain,
+    (~
+       state(bb(o, s(o)), v1(o, o), v2(o, s(s(s(o)))), v3(s(s(s(o))), o),
+         v4(s(s(o)), s(s(s(o)))), h(s(s(o)), o), s1(s(s(s(o))), s(o)),
+         s2(s(s(s(o))), s(s(o))), s3(s(s(s(s(o)))), s(o)),
+         s4(s(s(s(s(o)))), s(s(o))), e1(s(s(o)), s(s(o))),
+         e2(s(s(s(s(o)))), s(s(s(o))))) |
+     state(bb(o, s(o)), v1(o, o), v2(o, s(s(s(o)))), v3(s(s(s(o))), o),
+       v4(s(s(o)), s(s(s(o)))), h(s(s(o)), o), s1(s(s(s(o))), s(o)),
+       s2(s(s(o)), s(s(o))), s3(s(s(s(s(o)))), s(o)),
+       s4(s(s(s(s(o)))), s(s(o))), e1(s(s(s(o))), s(s(o))),
+       e2(s(s(s(s(o)))), s(s(s(o)))))),
+    inference(subst, [],
+              [s2_up :
+               [bind(B, $fot(bb(o, s(o)))),
+                bind(E2, $fot(e2(s(s(s(s(o)))), s(s(s(o)))))),
+                bind(H, $fot(h(s(s(o)), o))),
+                bind(S1, $fot(s1(s(s(s(o))), s(o)))),
+                bind(S3, $fot(s3(s(s(s(s(o)))), s(o)))),
+                bind(S4, $fot(s4(s(s(s(s(o)))), s(s(o))))),
+                bind(V1, $fot(v1(o, o))),
+                bind(V2, $fot(v2(o, s(s(s(o)))))),
+                bind(V3, $fot(v3(s(s(s(o))), o))),
+                bind(V4, $fot(v4(s(s(o)), s(s(s(o)))))),
+                bind(X, $fot(s(s(o)))), bind(Y, $fot(s(s(o))))]])).
+
+cnf(refute_0_17, plain,
+    (~
+       state(bb(o, s(o)), v1(o, o), v2(o, s(s(s(o)))), v3(s(s(o)), o),
+         v4(s(s(o)), s(s(s(o)))), h(s(s(o)), s(o)), s1(s(s(s(o))), s(o)),
+         s2(s(s(s(o))), s(s(o))), s3(s(s(s(s(o)))), s(o)),
+         s4(s(s(s(s(o)))), s(s(o))), e1(s(s(s(s(o)))), o),
+         e2(s(s(s(s(o)))), s(s(s(o))))) |
+     state(bb(o, s(o)), v1(o, o), v2(o, s(s(s(o)))), v3(s(s(s(o))), o),
+       v4(s(s(o)), s(s(s(o)))), h(s(s(o)), s(o)), s1(s(s(s(o))), s(o)),
+       s2(s(s(s(o))), s(s(o))), s3(s(s(s(s(o)))), s(o)),
+       s4(s(s(s(s(o)))), s(s(o))), e1(s(s(o)), o),
+       e2(s(s(s(s(o)))), s(s(s(o)))))),
+    inference(subst, [],
+              [v3_down :
+               [bind(B, $fot(bb(o, s(o)))),
+                bind(E2, $fot(e2(s(s(s(s(o)))), s(s(s(o)))))),
+                bind(H, $fot(h(s(s(o)), s(o)))),
+                bind(S1, $fot(s1(s(s(s(o))), s(o)))),
+                bind(S2, $fot(s2(s(s(s(o))), s(s(o))))),
+                bind(S3, $fot(s3(s(s(s(s(o)))), s(o)))),
+                bind(S4, $fot(s4(s(s(s(s(o)))), s(s(o))))),
+                bind(V1, $fot(v1(o, o))),
+                bind(V2, $fot(v2(o, s(s(s(o)))))),
+                bind(V4, $fot(v4(s(s(o)), s(s(s(o)))))),
+                bind(X, $fot(s(s(o)))), bind(Y, $fot(o))]])).
+
+cnf(refute_0_18, plain,
+    (state(bb(o, s(o)), v1(o, o), v2(o, s(s(s(o)))), v3(s(s(s(o))), o),
+       v4(s(s(o)), s(s(s(o)))), h(s(s(o)), s(o)), s1(s(s(s(o))), s(o)),
+       s2(s(s(s(o))), s(s(o))), s3(s(s(s(s(o)))), s(o)),
+       s4(s(s(s(s(o)))), s(s(o))), e1(s(s(o)), o),
+       e2(s(s(s(s(o)))), s(s(s(o)))))),
+    inference(resolve,
+              [$cnf(state(bb(o, s(o)), v1(o, o), v2(o, s(s(s(o)))),
+                      v3(s(s(o)), o), v4(s(s(o)), s(s(s(o)))),
+                      h(s(s(o)), s(o)), s1(s(s(s(o))), s(o)),
+                      s2(s(s(s(o))), s(s(o))), s3(s(s(s(s(o)))), s(o)),
+                      s4(s(s(s(s(o)))), s(s(o))), e1(s(s(s(s(o)))), o),
+                      e2(s(s(s(s(o)))), s(s(s(o))))))],
+              [initial_state, refute_0_17])).
+
+cnf(refute_0_19, plain,
+    (~
+       state(bb(o, s(o)), v1(o, o), v2(o, s(s(s(o)))), v3(s(s(s(o))), o),
+         v4(s(s(o)), s(s(s(o)))), h(s(s(o)), s(o)), s1(s(s(s(o))), s(o)),
+         s2(s(s(s(o))), s(s(o))), s3(s(s(s(s(o)))), s(o)),
+         s4(s(s(s(s(o)))), s(s(o))), e1(s(s(o)), o),
+         e2(s(s(s(s(o)))), s(s(s(o))))) |
+     state(bb(o, s(o)), v1(o, o), v2(o, s(s(s(o)))), v3(s(s(s(o))), o),
+       v4(s(s(o)), s(s(s(o)))), h(s(s(o)), o), s1(s(s(s(o))), s(o)),
+       s2(s(s(s(o))), s(s(o))), s3(s(s(s(s(o)))), s(o)),
+       s4(s(s(s(s(o)))), s(s(o))), e1(s(s(o)), s(s(o))),
+       e2(s(s(s(s(o)))), s(s(s(o)))))),
+    inference(subst, [],
+              [h_left :
+               [bind(B, $fot(bb(o, s(o)))),
+                bind(E2, $fot(e2(s(s(s(s(o)))), s(s(s(o)))))),
+                bind(S1, $fot(s1(s(s(s(o))), s(o)))),
+                bind(S2, $fot(s2(s(s(s(o))), s(s(o))))),
+                bind(S3, $fot(s3(s(s(s(s(o)))), s(o)))),
+                bind(S4, $fot(s4(s(s(s(s(o)))), s(s(o))))),
+                bind(V1, $fot(v1(o, o))),
+                bind(V2, $fot(v2(o, s(s(s(o)))))),
+                bind(V3, $fot(v3(s(s(s(o))), o))),
+                bind(V4, $fot(v4(s(s(o)), s(s(s(o)))))),
+                bind(X, $fot(s(s(o)))), bind(Y, $fot(o))]])).
+
+cnf(refute_0_20, plain,
+    (state(bb(o, s(o)), v1(o, o), v2(o, s(s(s(o)))), v3(s(s(s(o))), o),
+       v4(s(s(o)), s(s(s(o)))), h(s(s(o)), o), s1(s(s(s(o))), s(o)),
+       s2(s(s(s(o))), s(s(o))), s3(s(s(s(s(o)))), s(o)),
+       s4(s(s(s(s(o)))), s(s(o))), e1(s(s(o)), s(s(o))),
+       e2(s(s(s(s(o)))), s(s(s(o)))))),
+    inference(resolve,
+              [$cnf(state(bb(o, s(o)), v1(o, o), v2(o, s(s(s(o)))),
+                      v3(s(s(s(o))), o), v4(s(s(o)), s(s(s(o)))),
+                      h(s(s(o)), s(o)), s1(s(s(s(o))), s(o)),
+                      s2(s(s(s(o))), s(s(o))), s3(s(s(s(s(o)))), s(o)),
+                      s4(s(s(s(s(o)))), s(s(o))), e1(s(s(o)), o),
+                      e2(s(s(s(s(o)))), s(s(s(o))))))],
+              [refute_0_18, refute_0_19])).
+
+cnf(refute_0_21, plain,
+    (state(bb(o, s(o)), v1(o, o), v2(o, s(s(s(o)))), v3(s(s(s(o))), o),
+       v4(s(s(o)), s(s(s(o)))), h(s(s(o)), o), s1(s(s(s(o))), s(o)),
+       s2(s(s(o)), s(s(o))), s3(s(s(s(s(o)))), s(o)),
+       s4(s(s(s(s(o)))), s(s(o))), e1(s(s(s(o))), s(s(o))),
+       e2(s(s(s(s(o)))), s(s(s(o)))))),
+    inference(resolve,
+              [$cnf(state(bb(o, s(o)), v1(o, o), v2(o, s(s(s(o)))),
+                      v3(s(s(s(o))), o), v4(s(s(o)), s(s(s(o)))),
+                      h(s(s(o)), o), s1(s(s(s(o))), s(o)),
+                      s2(s(s(s(o))), s(s(o))), s3(s(s(s(s(o)))), s(o)),
+                      s4(s(s(s(s(o)))), s(s(o))), e1(s(s(o)), s(s(o))),
+                      e2(s(s(s(s(o)))), s(s(s(o))))))],
+              [refute_0_20, refute_0_16])).
+
+cnf(refute_0_22, plain,
+    (state(bb(o, s(o)), v1(o, o), v2(o, s(s(s(o)))), v3(s(s(s(o))), o),
+       v4(s(s(o)), s(s(s(o)))), h(s(s(o)), o), s1(s(s(s(o))), s(o)),
+       s2(s(s(o)), s(s(o))), s3(s(s(s(s(o)))), s(o)),
+       s4(s(s(s(o))), s(s(o))), e1(s(s(s(s(o)))), s(s(o))),
+       e2(s(s(s(s(o)))), s(s(s(o)))))),
+    inference(resolve,
+              [$cnf(state(bb(o, s(o)), v1(o, o), v2(o, s(s(s(o)))),
+                      v3(s(s(s(o))), o), v4(s(s(o)), s(s(s(o)))),
+                      h(s(s(o)), o), s1(s(s(s(o))), s(o)),
+                      s2(s(s(o)), s(s(o))), s3(s(s(s(s(o)))), s(o)),
+                      s4(s(s(s(s(o)))), s(s(o))), e1(s(s(s(o))), s(s(o))),
+                      e2(s(s(s(s(o)))), s(s(s(o))))))],
+              [refute_0_21, refute_0_15])).
+
+cnf(refute_0_23, plain,
+    (state(bb(o, s(o)), v1(o, o), v2(o, s(s(s(o)))), v3(s(s(s(o))), o),
+       v4(s(s(o)), s(s(s(o)))), h(s(s(o)), o), s1(s(s(s(o))), s(o)),
+       s2(s(s(o)), s(s(o))), s3(s(s(s(s(o)))), s(s(o))),
+       s4(s(s(s(o))), s(s(o))), e1(s(s(s(s(o)))), s(o)),
+       e2(s(s(s(s(o)))), s(s(s(o)))))),
+    inference(resolve,
+              [$cnf(state(bb(o, s(o)), v1(o, o), v2(o, s(s(s(o)))),
+                      v3(s(s(s(o))), o), v4(s(s(o)), s(s(s(o)))),
+                      h(s(s(o)), o), s1(s(s(s(o))), s(o)),
+                      s2(s(s(o)), s(s(o))), s3(s(s(s(s(o)))), s(o)),
+                      s4(s(s(s(o))), s(s(o))), e1(s(s(s(s(o)))), s(s(o))),
+                      e2(s(s(s(s(o)))), s(s(s(o))))))],
+              [refute_0_22, refute_0_14])).
+
+cnf(refute_0_24, plain,
+    (state(bb(o, s(o)), v1(o, o), v2(o, s(s(s(o)))), v3(s(s(s(o))), o),
+       v4(s(s(o)), s(s(s(o)))), h(s(s(o)), o), s1(s(s(s(s(o)))), s(o)),
+       s2(s(s(o)), s(s(o))), s3(s(s(s(s(o)))), s(s(o))),
+       s4(s(s(s(o))), s(s(o))), e1(s(s(s(o))), s(o)),
+       e2(s(s(s(s(o)))), s(s(s(o)))))),
+    inference(resolve,
+              [$cnf(state(bb(o, s(o)), v1(o, o), v2(o, s(s(s(o)))),
+                      v3(s(s(s(o))), o), v4(s(s(o)), s(s(s(o)))),
+                      h(s(s(o)), o), s1(s(s(s(o))), s(o)),
+                      s2(s(s(o)), s(s(o))), s3(s(s(s(s(o)))), s(s(o))),
+                      s4(s(s(s(o))), s(s(o))), e1(s(s(s(s(o)))), s(o)),
+                      e2(s(s(s(s(o)))), s(s(s(o))))))],
+              [refute_0_23, refute_0_13])).
+
+cnf(refute_0_25, plain,
+    (state(bb(o, s(o)), v1(o, o), v2(o, s(s(s(o)))), v3(s(s(s(o))), o),
+       v4(s(s(o)), s(s(s(o)))), h(s(s(o)), o), s1(s(s(s(s(o)))), s(o)),
+       s2(s(s(o)), s(s(o))), s3(s(s(s(s(o)))), s(s(o))),
+       s4(s(s(s(o))), s(o)), e1(s(s(s(o))), s(s(o))),
+       e2(s(s(s(s(o)))), s(s(s(o)))))),
+    inference(resolve,
+              [$cnf(state(bb(o, s(o)), v1(o, o), v2(o, s(s(s(o)))),
+                      v3(s(s(s(o))), o), v4(s(s(o)), s(s(s(o)))),
+                      h(s(s(o)), o), s1(s(s(s(s(o)))), s(o)),
+                      s2(s(s(o)), s(s(o))), s3(s(s(s(s(o)))), s(s(o))),
+                      s4(s(s(s(o))), s(s(o))), e1(s(s(s(o))), s(o)),
+                      e2(s(s(s(s(o)))), s(s(s(o))))))],
+              [refute_0_24, refute_0_12])).
+
+cnf(refute_0_26, plain,
+    (state(bb(o, s(o)), v1(o, o), v2(o, s(s(s(o)))), v3(s(s(s(o))), o),
+       v4(s(s(o)), s(s(s(o)))), h(s(s(o)), o), s1(s(s(s(s(o)))), s(o)),
+       s2(s(s(s(o))), s(s(o))), s3(s(s(s(s(o)))), s(s(o))),
+       s4(s(s(s(o))), s(o)), e1(s(s(o)), s(s(o))),
+       e2(s(s(s(s(o)))), s(s(s(o)))))),
+    inference(resolve,
+              [$cnf(state(bb(o, s(o)), v1(o, o), v2(o, s(s(s(o)))),
+                      v3(s(s(s(o))), o), v4(s(s(o)), s(s(s(o)))),
+                      h(s(s(o)), o), s1(s(s(s(s(o)))), s(o)),
+                      s2(s(s(o)), s(s(o))), s3(s(s(s(s(o)))), s(s(o))),
+                      s4(s(s(s(o))), s(o)), e1(s(s(s(o))), s(s(o))),
+                      e2(s(s(s(s(o)))), s(s(s(o))))))],
+              [refute_0_25, refute_0_11])).
+
+cnf(refute_0_27, plain,
+    (state(bb(o, s(o)), v1(o, o), v2(o, s(s(s(o)))), v3(s(s(s(o))), o),
+       v4(s(s(o)), s(s(s(o)))), h(s(s(o)), s(o)), s1(s(s(s(s(o)))), s(o)),
+       s2(s(s(s(o))), s(s(o))), s3(s(s(s(s(o)))), s(s(o))),
+       s4(s(s(s(o))), s(o)), e1(s(s(o)), o),
+       e2(s(s(s(s(o)))), s(s(s(o)))))),
+    inference(resolve,
+              [$cnf(state(bb(o, s(o)), v1(o, o), v2(o, s(s(s(o)))),
+                      v3(s(s(s(o))), o), v4(s(s(o)), s(s(s(o)))),
+                      h(s(s(o)), o), s1(s(s(s(s(o)))), s(o)),
+                      s2(s(s(s(o))), s(s(o))), s3(s(s(s(s(o)))), s(s(o))),
+                      s4(s(s(s(o))), s(o)), e1(s(s(o)), s(s(o))),
+                      e2(s(s(s(s(o)))), s(s(s(o))))))],
+              [refute_0_26, refute_0_10])).
+
+cnf(refute_0_28, plain,
+    (state(bb(o, s(o)), v1(o, o), v2(o, s(s(s(o)))), v3(s(s(o)), o),
+       v4(s(s(o)), s(s(s(o)))), h(s(s(o)), s(o)), s1(s(s(s(s(o)))), s(o)),
+       s2(s(s(s(o))), s(s(o))), s3(s(s(s(s(o)))), s(s(o))),
+       s4(s(s(s(o))), s(o)), e1(s(s(s(s(o)))), o),
+       e2(s(s(s(s(o)))), s(s(s(o)))))),
+    inference(resolve,
+              [$cnf(state(bb(o, s(o)), v1(o, o), v2(o, s(s(s(o)))),
+                      v3(s(s(s(o))), o), v4(s(s(o)), s(s(s(o)))),
+                      h(s(s(o)), s(o)), s1(s(s(s(s(o)))), s(o)),
+                      s2(s(s(s(o))), s(s(o))), s3(s(s(s(s(o)))), s(s(o))),
+                      s4(s(s(s(o))), s(o)), e1(s(s(o)), o),
+                      e2(s(s(s(s(o)))), s(s(s(o))))))],
+              [refute_0_27, refute_0_9])).
+
+cnf(refute_0_29, plain,
+    (state(bb(o, s(o)), v1(o, o), v2(o, s(s(s(o)))), v3(s(s(o)), o),
+       v4(s(s(o)), s(s(s(o)))), h(s(s(o)), s(o)), s1(s(s(s(s(o)))), o),
+       s2(s(s(s(o))), s(s(o))), s3(s(s(s(s(o)))), s(s(o))),
+       s4(s(s(s(o))), s(o)), e1(s(s(s(s(o)))), s(o)),
+       e2(s(s(s(s(o)))), s(s(s(o)))))),
+    inference(resolve,
+              [$cnf(state(bb(o, s(o)), v1(o, o), v2(o, s(s(s(o)))),
+                      v3(s(s(o)), o), v4(s(s(o)), s(s(s(o)))),
+                      h(s(s(o)), s(o)), s1(s(s(s(s(o)))), s(o)),
+                      s2(s(s(s(o))), s(s(o))), s3(s(s(s(s(o)))), s(s(o))),
+                      s4(s(s(s(o))), s(o)), e1(s(s(s(s(o)))), o),
+                      e2(s(s(s(s(o)))), s(s(s(o))))))],
+              [refute_0_28, refute_0_8])).
+
+cnf(refute_0_30, plain,
+    (state(bb(o, s(o)), v1(o, o), v2(o, s(s(s(o)))), v3(s(s(o)), o),
+       v4(s(s(o)), s(s(s(o)))), h(s(s(o)), s(o)), s1(s(s(s(s(o)))), o),
+       s2(s(s(s(o))), s(s(o))), s3(s(s(s(s(o)))), s(s(o))),
+       s4(s(s(s(s(o)))), s(o)), e1(s(s(s(o))), s(o)),
+       e2(s(s(s(s(o)))), s(s(s(o)))))),
+    inference(resolve,
+              [$cnf(state(bb(o, s(o)), v1(o, o), v2(o, s(s(s(o)))),
+                      v3(s(s(o)), o), v4(s(s(o)), s(s(s(o)))),
+                      h(s(s(o)), s(o)), s1(s(s(s(s(o)))), o),
+                      s2(s(s(s(o))), s(s(o))), s3(s(s(s(s(o)))), s(s(o))),
+                      s4(s(s(s(o))), s(o)), e1(s(s(s(s(o)))), s(o)),
+                      e2(s(s(s(s(o)))), s(s(s(o))))))],
+              [refute_0_29, refute_0_7])).
+
+cnf(refute_0_31, plain,
+    (state(bb(o, s(o)), v1(o, o), v2(o, s(s(s(o)))), v3(s(s(o)), o),
+       v4(s(s(o)), s(s(s(o)))), h(s(s(o)), s(o)), s1(s(s(s(s(o)))), o),
+       s2(s(s(s(o))), s(o)), s3(s(s(s(s(o)))), s(s(o))),
+       s4(s(s(s(s(o)))), s(o)), e1(s(s(s(o))), s(s(o))),
+       e2(s(s(s(s(o)))), s(s(s(o)))))),
+    inference(resolve,
+              [$cnf(state(bb(o, s(o)), v1(o, o), v2(o, s(s(s(o)))),
+                      v3(s(s(o)), o), v4(s(s(o)), s(s(s(o)))),
+                      h(s(s(o)), s(o)), s1(s(s(s(s(o)))), o),
+                      s2(s(s(s(o))), s(s(o))), s3(s(s(s(s(o)))), s(s(o))),
+                      s4(s(s(s(s(o)))), s(o)), e1(s(s(s(o))), s(o)),
+                      e2(s(s(s(s(o)))), s(s(s(o))))))],
+              [refute_0_30, refute_0_6])).
+
+cnf(refute_0_32, plain,
+    (state(bb(o, s(o)), v1(o, o), v2(o, s(s(s(o)))), v3(s(s(o)), o),
+       v4(s(s(o)), s(s(s(o)))), h(s(s(o)), s(o)), s1(s(s(s(s(o)))), o),
+       s2(s(s(s(o))), s(o)), s3(s(s(s(o))), s(s(o))),
+       s4(s(s(s(s(o)))), s(o)), e1(s(s(s(s(o)))), s(s(o))),
+       e2(s(s(s(s(o)))), s(s(s(o)))))),
+    inference(resolve,
+              [$cnf(state(bb(o, s(o)), v1(o, o), v2(o, s(s(s(o)))),
+                      v3(s(s(o)), o), v4(s(s(o)), s(s(s(o)))),
+                      h(s(s(o)), s(o)), s1(s(s(s(s(o)))), o),
+                      s2(s(s(s(o))), s(o)), s3(s(s(s(s(o)))), s(s(o))),
+                      s4(s(s(s(s(o)))), s(o)), e1(s(s(s(o))), s(s(o))),
+                      e2(s(s(s(s(o)))), s(s(s(o))))))],
+              [refute_0_31, refute_0_5])).
+
+cnf(refute_0_33, plain,
+    (state(bb(o, s(o)), v1(o, o), v2(o, s(s(s(o)))), v3(s(s(o)), o),
+       v4(s(s(o)), s(s(s(o)))), h(s(s(o)), s(o)), s1(s(s(s(s(o)))), o),
+       s2(s(s(s(o))), s(o)), s3(s(s(s(o))), s(s(o))),
+       s4(s(s(s(s(o)))), s(s(o))), e1(s(s(s(s(o)))), s(o)),
+       e2(s(s(s(s(o)))), s(s(s(o)))))),
+    inference(resolve,
+              [$cnf(state(bb(o, s(o)), v1(o, o), v2(o, s(s(s(o)))),
+                      v3(s(s(o)), o), v4(s(s(o)), s(s(s(o)))),
+                      h(s(s(o)), s(o)), s1(s(s(s(s(o)))), o),
+                      s2(s(s(s(o))), s(o)), s3(s(s(s(o))), s(s(o))),
+                      s4(s(s(s(s(o)))), s(o)), e1(s(s(s(s(o)))), s(s(o))),
+                      e2(s(s(s(s(o)))), s(s(s(o))))))],
+              [refute_0_32, refute_0_4])).
+
+cnf(refute_0_34, plain,
+    (~
+       state(bb(o, s(o)), v1(o, o), v2(o, s(s(s(o)))), v3(s(s(o)), o),
+         v4(s(s(o)), s(s(s(o)))), h(s(s(o)), s(o)), s1(s(s(s(s(o)))), o),
+         s2(s(s(s(o))), s(o)), s3(s(s(s(o))), s(s(o))),
+         s4(s(s(s(s(o)))), s(s(o))), e1(s(s(s(s(o)))), s(o)),
+         e2(s(s(s(s(o)))), s(s(s(o))))) |
+     state(bb(o, s(o)), v1(o, o), v2(o, s(s(s(o)))), v3(s(s(o)), o),
+       v4(s(s(o)), s(s(s(o)))), h(s(s(o)), s(o)), s1(s(s(s(s(o)))), o),
+       s2(s(s(s(o))), s(o)), s3(s(s(s(o))), s(s(o))),
+       s4(s(s(s(s(o)))), s(s(o))), e1(s(s(s(s(o)))), s(s(s(o)))),
+       e2(s(s(s(s(o)))), s(o)))),
+    inference(subst, [],
+              [swap_blanks :
+               [bind(B, $fot(bb(o, s(o)))),
+                bind(H, $fot(h(s(s(o)), s(o)))),
+                bind(Q, $fot(s(s(s(s(o)))))),
+                bind(S1, $fot(s1(s(s(s(s(o)))), o))),
+                bind(S2, $fot(s2(s(s(s(o))), s(o)))),
+                bind(S3, $fot(s3(s(s(s(o))), s(s(o))))),
+                bind(S4, $fot(s4(s(s(s(s(o)))), s(s(o))))),
+                bind(V1, $fot(v1(o, o))),
+                bind(V2, $fot(v2(o, s(s(s(o)))))),
+                bind(V3, $fot(v3(s(s(o)), o))),
+                bind(V4, $fot(v4(s(s(o)), s(s(s(o)))))),
+                bind(W, $fot(s(s(s(o))))), bind(X, $fot(s(s(s(s(o)))))),
+                bind(Y, $fot(s(o)))]])).
+
+cnf(refute_0_35, plain,
+    (state(bb(o, s(o)), v1(o, o), v2(o, s(s(s(o)))), v3(s(s(o)), o),
+       v4(s(s(o)), s(s(s(o)))), h(s(s(o)), s(o)), s1(s(s(s(s(o)))), o),
+       s2(s(s(s(o))), s(o)), s3(s(s(s(o))), s(s(o))),
+       s4(s(s(s(s(o)))), s(s(o))), e1(s(s(s(s(o)))), s(s(s(o)))),
+       e2(s(s(s(s(o)))), s(o)))),
+    inference(resolve,
+              [$cnf(state(bb(o, s(o)), v1(o, o), v2(o, s(s(s(o)))),
+                      v3(s(s(o)), o), v4(s(s(o)), s(s(s(o)))),
+                      h(s(s(o)), s(o)), s1(s(s(s(s(o)))), o),
+                      s2(s(s(s(o))), s(o)), s3(s(s(s(o))), s(s(o))),
+                      s4(s(s(s(s(o)))), s(s(o))), e1(s(s(s(s(o)))), s(o)),
+                      e2(s(s(s(s(o)))), s(s(s(o))))))],
+              [refute_0_33, refute_0_34])).
+
+cnf(refute_0_36, plain,
+    (state(bb(o, s(o)), v1(o, o), v2(o, s(s(s(o)))), v3(s(s(o)), o),
+       v4(s(s(o)), s(s(s(o)))), h(s(s(o)), s(o)), s1(s(s(s(s(o)))), o),
+       s2(s(s(s(o))), s(o)), s3(s(s(s(o))), s(s(o))),
+       s4(s(s(s(s(o)))), s(s(s(o)))), e1(s(s(s(s(o)))), s(s(o))),
+       e2(s(s(s(s(o)))), s(o)))),
+    inference(resolve,
+              [$cnf(state(bb(o, s(o)), v1(o, o), v2(o, s(s(s(o)))),
+                      v3(s(s(o)), o), v4(s(s(o)), s(s(s(o)))),
+                      h(s(s(o)), s(o)), s1(s(s(s(s(o)))), o),
+                      s2(s(s(s(o))), s(o)), s3(s(s(s(o))), s(s(o))),
+                      s4(s(s(s(s(o)))), s(s(o))),
+                      e1(s(s(s(s(o)))), s(s(s(o)))),
+                      e2(s(s(s(s(o)))), s(o))))],
+              [refute_0_35, refute_0_3])).
+
+cnf(refute_0_37, plain,
+    (state(bb(o, s(o)), v1(o, o), v2(o, s(s(s(o)))), v3(s(s(o)), o),
+       v4(s(s(o)), s(s(s(o)))), h(s(s(o)), s(o)), s1(s(s(s(s(o)))), o),
+       s2(s(s(s(o))), s(o)), s3(s(s(s(s(o)))), s(s(o))),
+       s4(s(s(s(s(o)))), s(s(s(o)))), e1(s(s(s(o))), s(s(o))),
+       e2(s(s(s(s(o)))), s(o)))),
+    inference(resolve,
+              [$cnf(state(bb(o, s(o)), v1(o, o), v2(o, s(s(s(o)))),
+                      v3(s(s(o)), o), v4(s(s(o)), s(s(s(o)))),
+                      h(s(s(o)), s(o)), s1(s(s(s(s(o)))), o),
+                      s2(s(s(s(o))), s(o)), s3(s(s(s(o))), s(s(o))),
+                      s4(s(s(s(s(o)))), s(s(s(o)))),
+                      e1(s(s(s(s(o)))), s(s(o))),
+                      e2(s(s(s(s(o)))), s(o))))],
+              [refute_0_36, refute_0_2])).
+
+cnf(refute_0_38, plain,
+    (state(bb(o, s(o)), v1(o, o), v2(o, s(s(s(o)))), v3(s(s(o)), o),
+       v4(s(s(o)), s(s(s(o)))), h(s(s(o)), s(o)), s1(s(s(s(s(o)))), o),
+       s2(s(s(s(o))), s(o)), s3(s(s(s(s(o)))), s(s(o))),
+       s4(s(s(s(s(o)))), s(s(s(o)))), e1(s(s(s(s(o)))), s(o)),
+       e2(s(s(s(o))), s(s(o))))),
+    inference(resolve,
+              [$cnf(state(bb(o, s(o)), v1(o, o), v2(o, s(s(s(o)))),
+                      v3(s(s(o)), o), v4(s(s(o)), s(s(s(o)))),
+                      h(s(s(o)), s(o)), s1(s(s(s(s(o)))), o),
+                      s2(s(s(s(o))), s(o)), s3(s(s(s(s(o)))), s(s(o))),
+                      s4(s(s(s(s(o)))), s(s(s(o)))),
+                      e1(s(s(s(o))), s(s(o))), e2(s(s(s(s(o)))), s(o))))],
+              [refute_0_37, refute_0_1])).
+
+cnf(refute_0_39, plain,
+    (state(bb(o, s(o)), v1(o, o), v2(o, s(s(s(o)))), v3(s(s(o)), o),
+       v4(s(s(o)), s(s(s(o)))), h(s(s(o)), s(o)), s1(s(s(s(s(o)))), o),
+       s2(s(s(s(s(o)))), s(o)), s3(s(s(s(s(o)))), s(s(o))),
+       s4(s(s(s(s(o)))), s(s(s(o)))), e1(s(s(s(o))), s(o)),
+       e2(s(s(s(o))), s(s(o))))),
+    inference(resolve,
+              [$cnf(state(bb(o, s(o)), v1(o, o), v2(o, s(s(s(o)))),
+                      v3(s(s(o)), o), v4(s(s(o)), s(s(s(o)))),
+                      h(s(s(o)), s(o)), s1(s(s(s(s(o)))), o),
+                      s2(s(s(s(o))), s(o)), s3(s(s(s(s(o)))), s(s(o))),
+                      s4(s(s(s(s(o)))), s(s(s(o)))),
+                      e1(s(s(s(s(o)))), s(o)), e2(s(s(s(o))), s(s(o)))))],
+              [refute_0_38, refute_0_0])).
+
+cnf(refute_0_40, plain,
+    (~
+       state(bb(o, s(o)), v1(o, o), v2(o, s(s(s(o)))), v3(s(s(o)), o),
+         v4(s(s(o)), s(s(s(o)))), h(s(s(o)), s(o)), s1(s(s(s(s(o)))), o),
+         s2(s(s(s(s(o)))), s(o)), s3(s(s(s(s(o)))), s(s(o))),
+         s4(s(s(s(s(o)))), s(s(s(o)))), e1(s(s(s(o))), s(o)),
+         e2(s(s(s(o))), s(s(o)))) |
+     state(bb(o, s(o)), v1(o, o), v2(o, s(s(s(o)))), v3(s(s(o)), o),
+       v4(s(s(o)), s(s(s(o)))), h(s(s(s(o))), s(o)), s1(s(s(s(s(o)))), o),
+       s2(s(s(s(s(o)))), s(o)), s3(s(s(s(s(o)))), s(s(o))),
+       s4(s(s(s(s(o)))), s(s(s(o)))), e1(s(s(o)), s(o)),
+       e2(s(s(o)), s(s(o))))),
+    inference(subst, [],
+              [h_down :
+               [bind(B, $fot(bb(o, s(o)))),
+                bind(S1, $fot(s1(s(s(s(s(o)))), o))),
+                bind(S2, $fot(s2(s(s(s(s(o)))), s(o)))),
+                bind(S3, $fot(s3(s(s(s(s(o)))), s(s(o))))),
+                bind(S4, $fot(s4(s(s(s(s(o)))), s(s(s(o)))))),
+                bind(V1, $fot(v1(o, o))),
+                bind(V2, $fot(v2(o, s(s(s(o)))))),
+                bind(V3, $fot(v3(s(s(o)), o))),
+                bind(V4, $fot(v4(s(s(o)), s(s(s(o)))))),
+                bind(X, $fot(s(s(o)))), bind(Y, $fot(s(o)))]])).
+
+cnf(refute_0_41, plain,
+    (state(bb(o, s(o)), v1(o, o), v2(o, s(s(s(o)))), v3(s(s(o)), o),
+       v4(s(s(o)), s(s(s(o)))), h(s(s(s(o))), s(o)), s1(s(s(s(s(o)))), o),
+       s2(s(s(s(s(o)))), s(o)), s3(s(s(s(s(o)))), s(s(o))),
+       s4(s(s(s(s(o)))), s(s(s(o)))), e1(s(s(o)), s(o)),
+       e2(s(s(o)), s(s(o))))),
+    inference(resolve,
+              [$cnf(state(bb(o, s(o)), v1(o, o), v2(o, s(s(s(o)))),
+                      v3(s(s(o)), o), v4(s(s(o)), s(s(s(o)))),
+                      h(s(s(o)), s(o)), s1(s(s(s(s(o)))), o),
+                      s2(s(s(s(s(o)))), s(o)), s3(s(s(s(s(o)))), s(s(o))),
+                      s4(s(s(s(s(o)))), s(s(s(o)))), e1(s(s(s(o))), s(o)),
+                      e2(s(s(s(o))), s(s(o)))))],
+              [refute_0_39, refute_0_40])).
+
+cnf(refute_0_42, plain,
+    (~
+       state(bb(o, s(o)), v1(o, o), v2(o, s(s(s(o)))), v3(s(s(o)), o),
+         v4(s(s(o)), s(s(s(o)))), h(s(s(s(o))), s(o)),
+         s1(s(s(s(s(o)))), o), s2(s(s(s(s(o)))), s(o)),
+         s3(s(s(s(s(o)))), s(s(o))), s4(s(s(s(s(o)))), s(s(s(o)))),
+         e1(s(s(o)), s(o)), e2(s(s(o)), s(s(o))))),
+    inference(subst, [],
+              [goal_state :
+               [bind(B, $fot(bb(o, s(o)))),
+                bind(E1, $fot(e1(s(s(o)), s(o)))),
+                bind(E2, $fot(e2(s(s(o)), s(s(o))))),
+                bind(S1, $fot(s1(s(s(s(s(o)))), o))),
+                bind(S2, $fot(s2(s(s(s(s(o)))), s(o)))),
+                bind(S3, $fot(s3(s(s(s(s(o)))), s(s(o))))),
+                bind(S4, $fot(s4(s(s(s(s(o)))), s(s(s(o)))))),
+                bind(V1, $fot(v1(o, o))),
+                bind(V2, $fot(v2(o, s(s(s(o)))))),
+                bind(V3, $fot(v3(s(s(o)), o))),
+                bind(V4, $fot(v4(s(s(o)), s(s(s(o))))))]])).
+
+cnf(refute_0_43, plain, ($false),
+    inference(resolve,
+              [$cnf(state(bb(o, s(o)), v1(o, o), v2(o, s(s(s(o)))),
+                      v3(s(s(o)), o), v4(s(s(o)), s(s(s(o)))),
+                      h(s(s(s(o))), s(o)), s1(s(s(s(s(o)))), o),
+                      s2(s(s(s(s(o)))), s(o)), s3(s(s(s(s(o)))), s(s(o))),
+                      s4(s(s(s(s(o)))), s(s(s(o)))), e1(s(s(o)), s(o)),
+                      e2(s(s(o)), s(s(o)))))],
+              [refute_0_41, refute_0_42])).
+% SZS output end CNFRefutation for PUZ042-1.tptp
+

@@ -1,0 +1,81 @@
+%------------------------------------------------------------------------------
+% File     : SYO683-1 : TPTP v7.3.0. Released v7.3.0.
+% Domain   : Syntactic
+% Problem  : GSM_4_4_1
+% Version  : Especial.
+% English  :
+
+% Refs     : [EH+16] Ebner et al. (2016), System Description: GAPT 2.0
+%          : [Cer18] Cerna (2018), Email to Geoff Sutcliffe
+% Source   : [Cer18]
+% Names    : GSM_4_4_1 [Cer18]
+
+% Status   : Unsatisfiable
+% Rating   : 0.17 v7.3.0
+% Syntax   : Number of clauses     :   18 (   8 non-Horn;   2 unit;  17 RR)
+%            Number of atoms       :   94 (   0 equality)
+%            Maximal clause size   :   14 (   5 average)
+%            Number of predicates  :    3 (   0 propositional; 2-2 arity)
+%            Number of functors    :    5 (   2 constant; 0-1 arity)
+%            Number of variables   :   33 (   1 singleton)
+%            Maximal term depth    :    5 (   2 average)
+% SPC      : CNF_UNS_RFO_NEQ_NHN
+
+% Comments : Created using the GAPT system - https://github.com/gapt/gapt/blob/
+%            master/examples/schema/GradedStrictMonotoneSequenceSchema.scala
+%          : tptp2X 
+%------------------------------------------------------------------------------
+cnf(clause_469,axiom,
+    ( ~ 'E'('0',f(A_4)) | ~ 'E'('0',f(suc(A_4))) | iLEQ(suc(A_4),suc(A_4)) )).
+
+cnf(clause_398,axiom,
+    ( ~ 'E'(s('0'),f(A_3)) | ~ 'E'(s('0'),f(suc(A_3))) | iLEQ(suc(A_3),suc(A_3)) )).
+
+cnf(clause_451,axiom,
+    ( 'LE'(f(A),s(s(s(s('0'))))) )).
+
+cnf(clause_29,axiom,
+    ( ~ 'E'(s(s('0')),f(A_2)) | ~ 'E'(s(s('0')),f(suc(A_2))) | iLEQ(suc(A_2),suc(A_2)) )).
+
+cnf(clause_560,axiom,
+    ( ~ 'E'(s(s(s('0'))),f(suc(B_159))) | ~ 'E'(s(s(s('0'))),f(B_162)) | ~ iLEQ(suc(B_160),suc(B_161)) | ~ 'E'(s(s(s('0'))),f(suc(B_162))) | ~ 'E'(s(s(s('0'))),f(B_159)) | ~ 'E'(s(s(s('0'))),f(B_161)) | ~ 'E'(s(s(s('0'))),f(B_160)) | ~ iLEQ(suc(B_159),suc(B_160)) | ~ 'E'(s(s(s('0'))),f(A_1)) | ~ 'E'(s(s(s('0'))),f(suc(B_161))) | ~ iLEQ(suc(B_161),suc(B_162)) | ~ 'E'(s(s(s('0'))),f(suc(B_160))) | ~ 'E'(s(s(s('0'))),f(suc(A_1))) | ~ iLEQ(suc(A_1),suc(B_159)) )).
+
+cnf(clause_476,axiom,
+    ( ~ 'LE'(f(suc(B_247)),s(s(s('0')))) | 'E'(s(s('0')),f(suc(B_247))) | 'LE'(f(B_247),s(s('0'))) )).
+
+cnf(clause_97,axiom,
+    ( ~ 'LE'(f(B_247),s(s(s('0')))) | 'E'(s(s('0')),f(B_247)) | 'LE'(f(B_247),s(s('0'))) )).
+
+cnf(clause_443,axiom,
+    ( ~ 'LE'(f(suc(B_158)),s(s(s(s('0'))))) | 'E'(s(s(s('0'))),f(suc(B_158))) | 'LE'(f(B_158),s(s(s('0')))) )).
+
+cnf(clause_287,axiom,
+    ( ~ 'LE'(f(z),'0') )).
+
+cnf(clause_547,axiom,
+    ( ~ 'LE'(f(suc(B_309)),s('0')) | 'E'('0',f(suc(B_309))) | 'LE'(f(B_309),'0') )).
+
+cnf(clause_563,axiom,
+    ( ~ 'E'(s(s('0')),f(suc(B_249))) | ~ 'E'(s(s('0')),f(B_250)) | ~ iLEQ(suc(A_2),suc(B_248)) | ~ 'E'(s(s('0')),f(B_248)) | ~ 'E'(s(s('0')),f(suc(B_251))) | ~ iLEQ(suc(B_249),suc(B_250)) | ~ 'E'(s(s('0')),f(suc(A_2))) | ~ 'E'(s(s('0')),f(B_251)) | ~ 'E'(s(s('0')),f(suc(B_248))) | ~ 'E'(s(s('0')),f(suc(B_250))) | ~ iLEQ(suc(B_248),suc(B_249)) | ~ 'E'(s(s('0')),f(B_249)) | ~ 'E'(s(s('0')),f(A_2)) | ~ iLEQ(suc(B_250),suc(B_251)) )).
+
+cnf(clause_539,axiom,
+    ( ~ 'LE'(f(B_158),s(s(s(s('0'))))) | 'E'(s(s(s('0'))),f(B_158)) | 'LE'(f(B_158),s(s(s('0')))) )).
+
+cnf(clause_59,axiom,
+    ( ~ 'E'(s(s(s('0'))),f(A_1)) | ~ 'E'(s(s(s('0'))),f(suc(A_1))) | iLEQ(suc(A_1),suc(A_1)) )).
+
+cnf(clause_222,axiom,
+    ( ~ 'LE'(f(suc(B_291)),s(s('0'))) | 'E'(s('0'),f(suc(B_291))) | 'LE'(f(B_291),s('0')) )).
+
+cnf(clause_44,axiom,
+    ( ~ 'LE'(f(B_291),s(s('0'))) | 'E'(s('0'),f(B_291)) | 'LE'(f(B_291),s('0')) )).
+
+cnf(clause_442,axiom,
+    ( ~ 'E'('0',f(suc(B_310))) | ~ 'E'('0',f(suc(B_311))) | ~ 'E'('0',f(B_311)) | ~ 'E'('0',f(suc(B_313))) | ~ 'E'('0',f(B_310)) | ~ 'E'('0',f(B_312)) | ~ 'E'('0',f(suc(B_312))) | ~ 'E'('0',f(B_313)) | ~ iLEQ(suc(B_311),suc(B_312)) | ~ iLEQ(suc(B_310),suc(B_311)) | ~ iLEQ(suc(A_4),suc(B_310)) | ~ 'E'('0',f(suc(A_4))) | ~ iLEQ(suc(B_312),suc(B_313)) | ~ 'E'('0',f(A_4)) )).
+
+cnf(clause_89,axiom,
+    ( ~ 'LE'(f(B_309),s('0')) | 'E'('0',f(B_309)) | 'LE'(f(B_309),'0') )).
+
+cnf(clause_151,axiom,
+    ( ~ 'E'(s('0'),f(suc(B_294))) | ~ 'E'(s('0'),f(B_295)) | ~ 'E'(s('0'),f(suc(B_295))) | ~ 'E'(s('0'),f(suc(B_292))) | ~ 'E'(s('0'),f(suc(A_3))) | ~ 'E'(s('0'),f(B_294)) | ~ 'E'(s('0'),f(B_292)) | ~ iLEQ(suc(A_3),suc(B_292)) | ~ 'E'(s('0'),f(B_293)) | ~ iLEQ(suc(B_294),suc(B_295)) | ~ 'E'(s('0'),f(A_3)) | ~ 'E'(s('0'),f(suc(B_293))) | ~ iLEQ(suc(B_293),suc(B_294)) | ~ iLEQ(suc(B_292),suc(B_293)) )).
+%------------------------------------------------------------------------------

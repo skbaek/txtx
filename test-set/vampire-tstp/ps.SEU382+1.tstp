@@ -1,0 +1,147 @@
+% Refutation found. Thanks to Tanya!
+% SZS status Theorem for SEU382+1
+% SZS output start Proof for SEU382+1
+fof(f2045,plain,(
+  $false),
+  inference(trivial_inequality_removal,[],[f2031])).
+fof(f2031,plain,(
+  powerset(sK26) != powerset(sK26)),
+  inference(superposition,[],[f590,f1968])).
+fof(f1968,plain,(
+  ( ! [X0] : (the_carrier(rel_str_of(X0,inclusion_relation(X0))) = X0) )),
+  inference(subsumption_resolution,[],[f1967,f722])).
+fof(f722,plain,(
+  ( ! [X0] : (relation_of2(inclusion_relation(X0),X0,X0)) )),
+  inference(resolution,[],[f516,f531])).
+fof(f531,plain,(
+  ( ! [X0] : (relation_of2_as_subset(inclusion_relation(X0),X0,X0)) )),
+  inference(definition_unfolding,[],[f348,f515])).
+fof(f515,plain,(
+  ( ! [X0] : (inclusion_order(X0) = inclusion_relation(X0)) )),
+  inference(cnf_transformation,[],[f77])).
+fof(f77,axiom,(
+  ! [X0] : inclusion_order(X0) = inclusion_relation(X0)),
+  file('SEU382+1.tptp',unknown)).
+fof(f348,plain,(
+  ( ! [X0] : (relation_of2_as_subset(inclusion_order(X0),X0,X0)) )),
+  inference(cnf_transformation,[],[f96])).
+fof(f96,plain,(
+  ! [X0] : relation_of2_as_subset(inclusion_order(X0),X0,X0)),
+  inference(pure_predicate_removal,[],[f95])).
+fof(f95,plain,(
+  ! [X0] : (relation_of2_as_subset(inclusion_order(X0),X0,X0) & reflexive(inclusion_order(X0)))),
+  inference(pure_predicate_removal,[],[f94])).
+fof(f94,plain,(
+  ! [X0] : (relation_of2_as_subset(inclusion_order(X0),X0,X0) & antisymmetric(inclusion_order(X0)) & reflexive(inclusion_order(X0)))),
+  inference(pure_predicate_removal,[],[f93])).
+fof(f93,plain,(
+  ! [X0] : (relation_of2_as_subset(inclusion_order(X0),X0,X0) & transitive(inclusion_order(X0)) & antisymmetric(inclusion_order(X0)) & reflexive(inclusion_order(X0)))),
+  inference(pure_predicate_removal,[],[f31])).
+fof(f31,axiom,(
+  ! [X0] : (relation_of2_as_subset(inclusion_order(X0),X0,X0) & v1_partfun1(inclusion_order(X0),X0,X0) & transitive(inclusion_order(X0)) & antisymmetric(inclusion_order(X0)) & reflexive(inclusion_order(X0)))),
+  file('SEU382+1.tptp',unknown)).
+fof(f516,plain,(
+  ( ! [X2,X0,X1] : (~relation_of2_as_subset(X2,X0,X1) | relation_of2(X2,X0,X1)) )),
+  inference(cnf_transformation,[],[f235])).
+fof(f235,plain,(
+  ! [X0,X1,X2] : ((relation_of2_as_subset(X2,X0,X1) | ~relation_of2(X2,X0,X1)) & (relation_of2(X2,X0,X1) | ~relation_of2_as_subset(X2,X0,X1)))),
+  inference(nnf_transformation,[],[f78])).
+fof(f78,axiom,(
+  ! [X0,X1,X2] : (relation_of2_as_subset(X2,X0,X1) <=> relation_of2(X2,X0,X1))),
+  file('SEU382+1.tptp',unknown)).
+fof(f1967,plain,(
+  ( ! [X0] : (the_carrier(rel_str_of(X0,inclusion_relation(X0))) = X0 | ~relation_of2(inclusion_relation(X0),X0,X0)) )),
+  inference(equality_resolution,[],[f1338])).
+fof(f1338,plain,(
+  ( ! [X6,X8,X7] : (rel_str_of(X6,inclusion_relation(X6)) != rel_str_of(X7,X8) | the_carrier(rel_str_of(X6,inclusion_relation(X6))) = X7 | ~relation_of2(X8,X7,X7)) )),
+  inference(superposition,[],[f421,f826])).
+fof(f826,plain,(
+  ( ! [X0] : (rel_str_of(X0,inclusion_relation(X0)) = rel_str_of(the_carrier(rel_str_of(X0,inclusion_relation(X0))),the_InternalRel(rel_str_of(X0,inclusion_relation(X0))))) )),
+  inference(subsumption_resolution,[],[f818,f532])).
+fof(f532,plain,(
+  ( ! [X0] : (rel_str(rel_str_of(X0,inclusion_relation(X0)))) )),
+  inference(definition_unfolding,[],[f350,f529])).
+fof(f529,plain,(
+  ( ! [X0] : (incl_POSet(X0) = rel_str_of(X0,inclusion_relation(X0))) )),
+  inference(definition_unfolding,[],[f345,f515])).
+fof(f345,plain,(
+  ( ! [X0] : (incl_POSet(X0) = rel_str_of(X0,inclusion_order(X0))) )),
+  inference(cnf_transformation,[],[f27])).
+fof(f27,axiom,(
+  ! [X0] : incl_POSet(X0) = rel_str_of(X0,inclusion_order(X0))),
+  file('SEU382+1.tptp',unknown)).
+fof(f350,plain,(
+  ( ! [X0] : (rel_str(incl_POSet(X0))) )),
+  inference(cnf_transformation,[],[f33])).
+fof(f33,axiom,(
+  ! [X0] : (rel_str(incl_POSet(X0)) & strict_rel_str(incl_POSet(X0)))),
+  file('SEU382+1.tptp',unknown)).
+fof(f818,plain,(
+  ( ! [X0] : (rel_str_of(X0,inclusion_relation(X0)) = rel_str_of(the_carrier(rel_str_of(X0,inclusion_relation(X0))),the_InternalRel(rel_str_of(X0,inclusion_relation(X0)))) | ~rel_str(rel_str_of(X0,inclusion_relation(X0)))) )),
+  inference(resolution,[],[f238,f533])).
+fof(f533,plain,(
+  ( ! [X0] : (strict_rel_str(rel_str_of(X0,inclusion_relation(X0)))) )),
+  inference(definition_unfolding,[],[f349,f529])).
+fof(f349,plain,(
+  ( ! [X0] : (strict_rel_str(incl_POSet(X0))) )),
+  inference(cnf_transformation,[],[f33])).
+fof(f238,plain,(
+  ( ! [X0] : (~strict_rel_str(X0) | rel_str_of(the_carrier(X0),the_InternalRel(X0)) = X0 | ~rel_str(X0)) )),
+  inference(cnf_transformation,[],[f100])).
+fof(f100,plain,(
+  ! [X0] : (rel_str_of(the_carrier(X0),the_InternalRel(X0)) = X0 | ~strict_rel_str(X0) | ~rel_str(X0))),
+  inference(flattening,[],[f99])).
+fof(f99,plain,(
+  ! [X0] : ((rel_str_of(the_carrier(X0),the_InternalRel(X0)) = X0 | ~strict_rel_str(X0)) | ~rel_str(X0))),
+  inference(ennf_transformation,[],[f1])).
+fof(f1,axiom,(
+  ! [X0] : (rel_str(X0) => (strict_rel_str(X0) => rel_str_of(the_carrier(X0),the_InternalRel(X0)) = X0))),
+  file('SEU382+1.tptp',unknown)).
+fof(f421,plain,(
+  ( ! [X2,X0,X3,X1] : (rel_str_of(X0,X1) != rel_str_of(X2,X3) | X0 = X2 | ~relation_of2(X1,X0,X0)) )),
+  inference(cnf_transformation,[],[f161])).
+fof(f161,plain,(
+  ! [X0,X1] : (! [X2,X3] : ((X1 = X3 & X0 = X2) | rel_str_of(X0,X1) != rel_str_of(X2,X3)) | ~relation_of2(X1,X0,X0))),
+  inference(ennf_transformation,[],[f60])).
+fof(f60,axiom,(
+  ! [X0,X1] : (relation_of2(X1,X0,X0) => ! [X2,X3] : (rel_str_of(X0,X1) = rel_str_of(X2,X3) => (X1 = X3 & X0 = X2)))),
+  file('SEU382+1.tptp',unknown)).
+fof(f590,plain,(
+  powerset(sK26) != the_carrier(rel_str_of(powerset(sK26),inclusion_relation(powerset(sK26))))),
+  inference(definition_unfolding,[],[f523,f530])).
+fof(f530,plain,(
+  ( ! [X0] : (boole_POSet(X0) = rel_str_of(powerset(X0),inclusion_relation(powerset(X0)))) )),
+  inference(definition_unfolding,[],[f524,f529])).
+fof(f524,plain,(
+  ( ! [X0] : (boole_POSet(X0) = incl_POSet(powerset(X0))) )),
+  inference(cnf_transformation,[],[f86])).
+fof(f86,axiom,(
+  ! [X0] : boole_POSet(X0) = incl_POSet(powerset(X0))),
+  file('SEU382+1.tptp',unknown)).
+fof(f523,plain,(
+  powerset(sK26) != the_carrier(boole_POSet(sK26))),
+  inference(cnf_transformation,[],[f237])).
+fof(f237,plain,(
+  powerset(sK26) != the_carrier(boole_POSet(sK26))),
+  inference(skolemisation,[status(esa),new_symbols(skolem,[sK26])],[f173,f236])).
+fof(f236,plain,(
+  ? [X0] : powerset(X0) != the_carrier(boole_POSet(X0)) => powerset(sK26) != the_carrier(boole_POSet(sK26))),
+  introduced(choice_axiom,[])).
+fof(f173,plain,(
+  ? [X0] : powerset(X0) != the_carrier(boole_POSet(X0))),
+  inference(ennf_transformation,[],[f85])).
+fof(f85,negated_conjecture,(
+  ~! [X0] : powerset(X0) = the_carrier(boole_POSet(X0))),
+  inference(negated_conjecture,[],[f84])).
+fof(f84,conjecture,(
+  ! [X0] : powerset(X0) = the_carrier(boole_POSet(X0))),
+  file('SEU382+1.tptp',unknown)).
+% SZS output end Proof for SEU382+1
+% ------------------------------
+% Version: Vampire 4.4.0 (commit d98a3d53 on 2020-01-14 21:02:12 +0100)
+% Termination reason: Refutation
+
+% Memory used [KB]: 5756
+% Time elapsed: 0.020 s
+% ------------------------------
+% ------------------------------

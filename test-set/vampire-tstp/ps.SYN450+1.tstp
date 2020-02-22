@@ -1,0 +1,2379 @@
+% Refutation found. Thanks to Tanya!
+% SZS status Theorem for SYN450+1
+% SZS output start Proof for SYN450+1
+fof(f4363,plain,(
+  $false),
+  inference(avatar_sat_refutation,[],[f249,f259,f264,f292,f309,f319,f327,f335,f345,f353,f355,f356,f360,f361,f373,f378,f385,f389,f393,f401,f409,f414,f415,f419,f423,f424,f432,f440,f441,f446,f448,f452,f453,f461,f465,f466,f467,f468,f472,f473,f478,f480,f493,f503,f509,f514,f519,f525,f530,f535,f573,f578,f583,f589,f594,f599,f615,f626,f631,f637,f642,f647,f648,f653,f658,f663,f669,f674,f679,f680,f685,f690,f695,f701,f706,f711,f733,f743,f749,f754,f759,f765,f770,f775,f781,f786,f791,f797,f802,f807,f829,f839,f845,f850,f855,f856,f861,f866,f871,f877,f882,f887,f893,f898,f903,f909,f914,f919,f925,f930,f935,f941,f946,f951,f952,f957,f962,f967,f1095,f1138,f1175,f1313,f1315,f1321,f1340,f1509,f1603,f1652,f1666,f1681,f1716,f1753,f1767,f1818,f1824,f1836,f1877,f2052,f2145,f2281,f2316,f2341,f2361,f2512,f2550,f2554,f2593,f2656,f2678,f2693,f2749,f2826,f2828,f2873,f2874,f2884,f2991,f3033,f3065,f3074,f3116,f3138,f3185,f3202,f3216,f3218,f3272,f3293,f3378,f3379,f3402,f3430,f3507,f3510,f3513,f3605,f3671,f3692,f3694,f3722,f3725,f3787,f3805,f3874,f4104,f4132,f4133,f4134,f4172,f4201,f4298,f4300,f4315,f4356])).
+fof(f4356,plain,(
+  ~spl0_33 | ~spl0_35 | ~spl0_38 | ~spl0_39 | ~spl0_45 | spl0_125 | ~spl0_127),
+  inference(avatar_contradiction_clause,[],[f4355])).
+fof(f4355,plain,(
+  $false | (~spl0_33 | ~spl0_35 | ~spl0_38 | ~spl0_39 | ~spl0_45 | spl0_125 | ~spl0_127)),
+  inference(subsumption_resolution,[],[f4341,f4275])).
+fof(f4275,plain,(
+  ~c1_1(a652) | (~spl0_39 | spl0_125 | ~spl0_127)),
+  inference(subsumption_resolution,[],[f4264,f828])).
+fof(f828,plain,(
+  ~c2_1(a652) | spl0_125),
+  inference(avatar_component_clause,[],[f826])).
+fof(f826,plain,(
+  spl0_125 <=> c2_1(a652)),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_125])])).
+fof(f4264,plain,(
+  c2_1(a652) | ~c1_1(a652) | (~spl0_39 | ~spl0_127)),
+  inference(resolution,[],[f384,f838])).
+fof(f838,plain,(
+  c0_1(a652) | ~spl0_127),
+  inference(avatar_component_clause,[],[f836])).
+fof(f836,plain,(
+  spl0_127 <=> c0_1(a652)),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_127])])).
+fof(f384,plain,(
+  ( ! [X25] : (~c0_1(X25) | c2_1(X25) | ~c1_1(X25)) ) | ~spl0_39),
+  inference(avatar_component_clause,[],[f383])).
+fof(f383,plain,(
+  spl0_39 <=> ! [X25] : (~c1_1(X25) | c2_1(X25) | ~c0_1(X25))),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_39])])).
+fof(f4341,plain,(
+  c1_1(a652) | (~spl0_33 | ~spl0_35 | ~spl0_38 | ~spl0_45 | ~spl0_127)),
+  inference(resolution,[],[f4321,f838])).
+fof(f4321,plain,(
+  ( ! [X23] : (~c0_1(X23) | c1_1(X23)) ) | (~spl0_33 | ~spl0_35 | ~spl0_38 | ~spl0_45)),
+  inference(subsumption_resolution,[],[f368,f4320])).
+fof(f4320,plain,(
+  ( ! [X37] : (c1_1(X37) | c3_1(X37)) ) | (~spl0_33 | ~spl0_38 | ~spl0_45)),
+  inference(subsumption_resolution,[],[f408,f4140])).
+fof(f4140,plain,(
+  ( ! [X27] : (~c2_1(X27) | c1_1(X27)) ) | (~spl0_33 | ~spl0_38)),
+  inference(subsumption_resolution,[],[f381,f359])).
+fof(f359,plain,(
+  ( ! [X19] : (~c3_1(X19) | c1_1(X19) | ~c2_1(X19)) ) | ~spl0_33),
+  inference(avatar_component_clause,[],[f358])).
+fof(f358,plain,(
+  spl0_33 <=> ! [X19] : (~c3_1(X19) | c1_1(X19) | ~c2_1(X19))),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_33])])).
+fof(f381,plain,(
+  ( ! [X27] : (~c2_1(X27) | c1_1(X27) | c3_1(X27)) ) | ~spl0_38),
+  inference(avatar_component_clause,[],[f380])).
+fof(f380,plain,(
+  spl0_38 <=> ! [X27] : (~c2_1(X27) | c1_1(X27) | c3_1(X27))),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_38])])).
+fof(f408,plain,(
+  ( ! [X37] : (c1_1(X37) | c3_1(X37) | c2_1(X37)) ) | ~spl0_45),
+  inference(avatar_component_clause,[],[f407])).
+fof(f407,plain,(
+  spl0_45 <=> ! [X37] : (c3_1(X37) | c1_1(X37) | c2_1(X37))),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_45])])).
+fof(f368,plain,(
+  ( ! [X23] : (~c3_1(X23) | c1_1(X23) | ~c0_1(X23)) ) | ~spl0_35),
+  inference(avatar_component_clause,[],[f367])).
+fof(f367,plain,(
+  spl0_35 <=> ! [X23] : (~c3_1(X23) | c1_1(X23) | ~c0_1(X23))),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_35])])).
+fof(f4315,plain,(
+  ~spl0_54 | spl0_77 | spl0_78 | ~spl0_160),
+  inference(avatar_contradiction_clause,[],[f4314])).
+fof(f4314,plain,(
+  $false | (~spl0_54 | spl0_77 | spl0_78 | ~spl0_160)),
+  inference(subsumption_resolution,[],[f4313,f572])).
+fof(f572,plain,(
+  ~c2_1(a698) | spl0_77),
+  inference(avatar_component_clause,[],[f570])).
+fof(f570,plain,(
+  spl0_77 <=> c2_1(a698)),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_77])])).
+fof(f4313,plain,(
+  c2_1(a698) | (~spl0_54 | spl0_78 | ~spl0_160)),
+  inference(subsumption_resolution,[],[f4293,f577])).
+fof(f577,plain,(
+  ~c0_1(a698) | spl0_78),
+  inference(avatar_component_clause,[],[f575])).
+fof(f575,plain,(
+  spl0_78 <=> c0_1(a698)),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_78])])).
+fof(f4293,plain,(
+  c0_1(a698) | c2_1(a698) | (~spl0_54 | ~spl0_160)),
+  inference(resolution,[],[f451,f2696])).
+fof(f2696,plain,(
+  c3_1(a698) | ~spl0_160),
+  inference(avatar_component_clause,[],[f2695])).
+fof(f2695,plain,(
+  spl0_160 <=> c3_1(a698)),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_160])])).
+fof(f451,plain,(
+  ( ! [X63] : (~c3_1(X63) | c0_1(X63) | c2_1(X63)) ) | ~spl0_54),
+  inference(avatar_component_clause,[],[f450])).
+fof(f450,plain,(
+  spl0_54 <=> ! [X63] : (~c3_1(X63) | c0_1(X63) | c2_1(X63))),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_54])])).
+fof(f4300,plain,(
+  spl0_159 | ~spl0_54 | spl0_129 | ~spl0_130),
+  inference(avatar_split_clause,[],[f4299,f852,f847,f450,f1898])).
+fof(f1898,plain,(
+  spl0_159 <=> c2_1(a651)),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_159])])).
+fof(f847,plain,(
+  spl0_129 <=> c0_1(a651)),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_129])])).
+fof(f852,plain,(
+  spl0_130 <=> c3_1(a651)),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_130])])).
+fof(f4299,plain,(
+  c2_1(a651) | (~spl0_54 | spl0_129 | ~spl0_130)),
+  inference(subsumption_resolution,[],[f4282,f849])).
+fof(f849,plain,(
+  ~c0_1(a651) | spl0_129),
+  inference(avatar_component_clause,[],[f847])).
+fof(f4282,plain,(
+  c0_1(a651) | c2_1(a651) | (~spl0_54 | ~spl0_130)),
+  inference(resolution,[],[f451,f854])).
+fof(f854,plain,(
+  c3_1(a651) | ~spl0_130),
+  inference(avatar_component_clause,[],[f852])).
+fof(f4298,plain,(
+  ~spl0_54 | spl0_140 | ~spl0_141 | spl0_164),
+  inference(avatar_contradiction_clause,[],[f4297])).
+fof(f4297,plain,(
+  $false | (~spl0_54 | spl0_140 | ~spl0_141 | spl0_164)),
+  inference(subsumption_resolution,[],[f4296,f908])).
+fof(f908,plain,(
+  ~c2_1(a645) | spl0_140),
+  inference(avatar_component_clause,[],[f906])).
+fof(f906,plain,(
+  spl0_140 <=> c2_1(a645)),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_140])])).
+fof(f4296,plain,(
+  c2_1(a645) | (~spl0_54 | ~spl0_141 | spl0_164)),
+  inference(subsumption_resolution,[],[f4280,f2929])).
+fof(f2929,plain,(
+  ~c0_1(a645) | spl0_164),
+  inference(avatar_component_clause,[],[f2928])).
+fof(f2928,plain,(
+  spl0_164 <=> c0_1(a645)),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_164])])).
+fof(f4280,plain,(
+  c0_1(a645) | c2_1(a645) | (~spl0_54 | ~spl0_141)),
+  inference(resolution,[],[f451,f913])).
+fof(f913,plain,(
+  c3_1(a645) | ~spl0_141),
+  inference(avatar_component_clause,[],[f911])).
+fof(f911,plain,(
+  spl0_141 <=> c3_1(a645)),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_141])])).
+fof(f4201,plain,(
+  ~spl0_33 | ~spl0_42 | spl0_146 | ~spl0_147),
+  inference(avatar_contradiction_clause,[],[f4200])).
+fof(f4200,plain,(
+  $false | (~spl0_33 | ~spl0_42 | spl0_146 | ~spl0_147)),
+  inference(subsumption_resolution,[],[f4182,f940])).
+fof(f940,plain,(
+  ~c1_1(a642) | spl0_146),
+  inference(avatar_component_clause,[],[f938])).
+fof(f938,plain,(
+  spl0_146 <=> c1_1(a642)),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_146])])).
+fof(f4182,plain,(
+  c1_1(a642) | (~spl0_33 | ~spl0_42 | ~spl0_147)),
+  inference(resolution,[],[f4139,f945])).
+fof(f945,plain,(
+  c3_1(a642) | ~spl0_147),
+  inference(avatar_component_clause,[],[f943])).
+fof(f943,plain,(
+  spl0_147 <=> c3_1(a642)),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_147])])).
+fof(f4139,plain,(
+  ( ! [X33] : (~c3_1(X33) | c1_1(X33)) ) | (~spl0_33 | ~spl0_42)),
+  inference(subsumption_resolution,[],[f396,f359])).
+fof(f396,plain,(
+  ( ! [X33] : (~c3_1(X33) | c1_1(X33) | c2_1(X33)) ) | ~spl0_42),
+  inference(avatar_component_clause,[],[f395])).
+fof(f395,plain,(
+  spl0_42 <=> ! [X33] : (~c3_1(X33) | c1_1(X33) | c2_1(X33))),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_42])])).
+fof(f4172,plain,(
+  ~spl0_46 | ~spl0_51 | ~spl0_54 | ~spl0_59 | spl0_143),
+  inference(avatar_contradiction_clause,[],[f4151])).
+fof(f4151,plain,(
+  $false | (~spl0_46 | ~spl0_51 | ~spl0_54 | ~spl0_59 | spl0_143)),
+  inference(resolution,[],[f4138,f924])).
+fof(f924,plain,(
+  ~c0_1(a643) | spl0_143),
+  inference(avatar_component_clause,[],[f922])).
+fof(f922,plain,(
+  spl0_143 <=> c0_1(a643)),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_143])])).
+fof(f4138,plain,(
+  ( ! [X38] : (c0_1(X38)) ) | (~spl0_46 | ~spl0_51 | ~spl0_54 | ~spl0_59)),
+  inference(subsumption_resolution,[],[f4137,f4136])).
+fof(f4136,plain,(
+  ( ! [X63] : (c0_1(X63) | c2_1(X63)) ) | (~spl0_51 | ~spl0_54 | ~spl0_59)),
+  inference(subsumption_resolution,[],[f451,f4135])).
+fof(f4135,plain,(
+  ( ! [X82] : (c3_1(X82) | c0_1(X82)) ) | (~spl0_51 | ~spl0_59)),
+  inference(subsumption_resolution,[],[f476,f435])).
+fof(f435,plain,(
+  ( ! [X52] : (~c1_1(X52) | c0_1(X52) | c3_1(X52)) ) | ~spl0_51),
+  inference(avatar_component_clause,[],[f434])).
+fof(f434,plain,(
+  spl0_51 <=> ! [X52] : (~c1_1(X52) | c0_1(X52) | c3_1(X52))),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_51])])).
+fof(f476,plain,(
+  ( ! [X82] : (c3_1(X82) | c0_1(X82) | c1_1(X82)) ) | ~spl0_59),
+  inference(avatar_component_clause,[],[f475])).
+fof(f475,plain,(
+  spl0_59 <=> ! [X82] : (c3_1(X82) | c0_1(X82) | c1_1(X82))),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_59])])).
+fof(f4137,plain,(
+  ( ! [X38] : (c0_1(X38) | ~c2_1(X38)) ) | (~spl0_46 | ~spl0_51 | ~spl0_59)),
+  inference(subsumption_resolution,[],[f412,f4135])).
+fof(f412,plain,(
+  ( ! [X38] : (~c3_1(X38) | c0_1(X38) | ~c2_1(X38)) ) | ~spl0_46),
+  inference(avatar_component_clause,[],[f411])).
+fof(f411,plain,(
+  spl0_46 <=> ! [X38] : (~c3_1(X38) | c0_1(X38) | ~c2_1(X38))),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_46])])).
+fof(f4134,plain,(
+  ~spl0_159 | spl0_128 | ~spl0_33 | ~spl0_130),
+  inference(avatar_split_clause,[],[f4063,f852,f358,f842,f1898])).
+fof(f842,plain,(
+  spl0_128 <=> c1_1(a651)),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_128])])).
+fof(f4063,plain,(
+  c1_1(a651) | ~c2_1(a651) | (~spl0_33 | ~spl0_130)),
+  inference(resolution,[],[f854,f359])).
+fof(f4133,plain,(
+  spl0_89 | spl0_155 | ~spl0_51 | ~spl0_91),
+  inference(avatar_split_clause,[],[f3846,f644,f434,f1815,f634])).
+fof(f634,plain,(
+  spl0_89 <=> c3_1(a686)),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_89])])).
+fof(f1815,plain,(
+  spl0_155 <=> c0_1(a686)),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_155])])).
+fof(f644,plain,(
+  spl0_91 <=> c1_1(a686)),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_91])])).
+fof(f3846,plain,(
+  c0_1(a686) | c3_1(a686) | (~spl0_51 | ~spl0_91)),
+  inference(resolution,[],[f435,f646])).
+fof(f646,plain,(
+  c1_1(a686) | ~spl0_91),
+  inference(avatar_component_clause,[],[f644])).
+fof(f4132,plain,(
+  ~spl0_51 | ~spl0_58 | spl0_80 | spl0_81 | ~spl0_82),
+  inference(avatar_contradiction_clause,[],[f4131])).
+fof(f4131,plain,(
+  $false | (~spl0_51 | ~spl0_58 | spl0_80 | spl0_81 | ~spl0_82)),
+  inference(subsumption_resolution,[],[f4130,f588])).
+fof(f588,plain,(
+  ~c3_1(a695) | spl0_80),
+  inference(avatar_component_clause,[],[f586])).
+fof(f586,plain,(
+  spl0_80 <=> c3_1(a695)),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_80])])).
+fof(f4130,plain,(
+  c3_1(a695) | (~spl0_51 | ~spl0_58 | spl0_81 | ~spl0_82)),
+  inference(subsumption_resolution,[],[f4129,f593])).
+fof(f593,plain,(
+  ~c0_1(a695) | spl0_81),
+  inference(avatar_component_clause,[],[f591])).
+fof(f591,plain,(
+  spl0_81 <=> c0_1(a695)),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_81])])).
+fof(f4129,plain,(
+  c0_1(a695) | c3_1(a695) | (~spl0_51 | ~spl0_58 | spl0_81 | ~spl0_82)),
+  inference(resolution,[],[f3929,f435])).
+fof(f3929,plain,(
+  c1_1(a695) | (~spl0_58 | spl0_81 | ~spl0_82)),
+  inference(subsumption_resolution,[],[f3922,f593])).
+fof(f3922,plain,(
+  c0_1(a695) | c1_1(a695) | (~spl0_58 | ~spl0_82)),
+  inference(resolution,[],[f471,f598])).
+fof(f598,plain,(
+  c2_1(a695) | ~spl0_82),
+  inference(avatar_component_clause,[],[f596])).
+fof(f596,plain,(
+  spl0_82 <=> c2_1(a695)),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_82])])).
+fof(f471,plain,(
+  ( ! [X79] : (~c2_1(X79) | c0_1(X79) | c1_1(X79)) ) | ~spl0_58),
+  inference(avatar_component_clause,[],[f470])).
+fof(f470,plain,(
+  spl0_58 <=> ! [X79] : (~c2_1(X79) | c0_1(X79) | c1_1(X79))),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_58])])).
+fof(f4104,plain,(
+  ~spl0_39 | spl0_140 | ~spl0_142 | ~spl0_164),
+  inference(avatar_contradiction_clause,[],[f4103])).
+fof(f4103,plain,(
+  $false | (~spl0_39 | spl0_140 | ~spl0_142 | ~spl0_164)),
+  inference(subsumption_resolution,[],[f4102,f918])).
+fof(f918,plain,(
+  c1_1(a645) | ~spl0_142),
+  inference(avatar_component_clause,[],[f916])).
+fof(f916,plain,(
+  spl0_142 <=> c1_1(a645)),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_142])])).
+fof(f4102,plain,(
+  ~c1_1(a645) | (~spl0_39 | spl0_140 | ~spl0_164)),
+  inference(subsumption_resolution,[],[f4092,f908])).
+fof(f4092,plain,(
+  c2_1(a645) | ~c1_1(a645) | (~spl0_39 | ~spl0_164)),
+  inference(resolution,[],[f384,f2930])).
+fof(f2930,plain,(
+  c0_1(a645) | ~spl0_164),
+  inference(avatar_component_clause,[],[f2928])).
+fof(f3874,plain,(
+  ~spl0_56 | ~spl0_68 | ~spl0_70 | ~spl0_158),
+  inference(avatar_contradiction_clause,[],[f3873])).
+fof(f3873,plain,(
+  $false | (~spl0_56 | ~spl0_68 | ~spl0_70 | ~spl0_158)),
+  inference(subsumption_resolution,[],[f3872,f1891])).
+fof(f1891,plain,(
+  c1_1(a655) | ~spl0_158),
+  inference(avatar_component_clause,[],[f1889])).
+fof(f1889,plain,(
+  spl0_158 <=> c1_1(a655)),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_158])])).
+fof(f3872,plain,(
+  ~c1_1(a655) | (~spl0_56 | ~spl0_68 | ~spl0_70)),
+  inference(subsumption_resolution,[],[f3860,f524])).
+fof(f524,plain,(
+  c3_1(a655) | ~spl0_68),
+  inference(avatar_component_clause,[],[f522])).
+fof(f522,plain,(
+  spl0_68 <=> c3_1(a655)),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_68])])).
+fof(f3860,plain,(
+  ~c3_1(a655) | ~c1_1(a655) | (~spl0_56 | ~spl0_70)),
+  inference(resolution,[],[f460,f534])).
+fof(f534,plain,(
+  c0_1(a655) | ~spl0_70),
+  inference(avatar_component_clause,[],[f532])).
+fof(f532,plain,(
+  spl0_70 <=> c0_1(a655)),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_70])])).
+fof(f460,plain,(
+  ( ! [X68] : (~c0_1(X68) | ~c3_1(X68) | ~c1_1(X68)) ) | ~spl0_56),
+  inference(avatar_component_clause,[],[f459])).
+fof(f459,plain,(
+  spl0_56 <=> ! [X68] : (~c3_1(X68) | ~c0_1(X68) | ~c1_1(X68))),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_56])])).
+fof(f3805,plain,(
+  ~spl0_27 | ~spl0_32 | ~spl0_33 | spl0_146 | ~spl0_147 | ~spl0_148),
+  inference(avatar_contradiction_clause,[],[f3804])).
+fof(f3804,plain,(
+  $false | (~spl0_27 | ~spl0_32 | ~spl0_33 | spl0_146 | ~spl0_147 | ~spl0_148)),
+  inference(subsumption_resolution,[],[f3793,f3709])).
+fof(f3709,plain,(
+  ~c2_1(a642) | (~spl0_33 | spl0_146 | ~spl0_147)),
+  inference(subsumption_resolution,[],[f3696,f940])).
+fof(f3696,plain,(
+  c1_1(a642) | ~c2_1(a642) | (~spl0_33 | ~spl0_147)),
+  inference(resolution,[],[f359,f945])).
+fof(f3793,plain,(
+  c2_1(a642) | (~spl0_27 | ~spl0_32 | ~spl0_148)),
+  inference(resolution,[],[f3789,f950])).
+fof(f950,plain,(
+  c0_1(a642) | ~spl0_148),
+  inference(avatar_component_clause,[],[f948])).
+fof(f948,plain,(
+  spl0_148 <=> c0_1(a642)),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_148])])).
+fof(f3789,plain,(
+  ( ! [X9] : (~c0_1(X9) | c2_1(X9)) ) | (~spl0_27 | ~spl0_32)),
+  inference(subsumption_resolution,[],[f330,f352])).
+fof(f352,plain,(
+  ( ! [X13] : (~c0_1(X13) | c2_1(X13) | c3_1(X13)) ) | ~spl0_32),
+  inference(avatar_component_clause,[],[f351])).
+fof(f351,plain,(
+  spl0_32 <=> ! [X13] : (~c0_1(X13) | c2_1(X13) | c3_1(X13))),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_32])])).
+fof(f330,plain,(
+  ( ! [X9] : (~c3_1(X9) | c2_1(X9) | ~c0_1(X9)) ) | ~spl0_27),
+  inference(avatar_component_clause,[],[f329])).
+fof(f329,plain,(
+  spl0_27 <=> ! [X9] : (~c3_1(X9) | c2_1(X9) | ~c0_1(X9))),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_27])])).
+fof(f3787,plain,(
+  spl0_80 | ~spl0_49 | spl0_81 | ~spl0_82),
+  inference(avatar_split_clause,[],[f3781,f596,f591,f426,f586])).
+fof(f426,plain,(
+  spl0_49 <=> ! [X51] : (~c2_1(X51) | c0_1(X51) | c3_1(X51))),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_49])])).
+fof(f3781,plain,(
+  c3_1(a695) | (~spl0_49 | spl0_81 | ~spl0_82)),
+  inference(subsumption_resolution,[],[f3775,f593])).
+fof(f3775,plain,(
+  c0_1(a695) | c3_1(a695) | (~spl0_49 | ~spl0_82)),
+  inference(resolution,[],[f427,f598])).
+fof(f427,plain,(
+  ( ! [X51] : (~c2_1(X51) | c0_1(X51) | c3_1(X51)) ) | ~spl0_49),
+  inference(avatar_component_clause,[],[f426])).
+fof(f3725,plain,(
+  spl0_158 | ~spl0_33 | ~spl0_68 | ~spl0_69),
+  inference(avatar_split_clause,[],[f3724,f527,f522,f358,f1889])).
+fof(f527,plain,(
+  spl0_69 <=> c2_1(a655)),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_69])])).
+fof(f3724,plain,(
+  c1_1(a655) | (~spl0_33 | ~spl0_68 | ~spl0_69)),
+  inference(subsumption_resolution,[],[f3704,f529])).
+fof(f529,plain,(
+  c2_1(a655) | ~spl0_69),
+  inference(avatar_component_clause,[],[f527])).
+fof(f3704,plain,(
+  c1_1(a655) | ~c2_1(a655) | (~spl0_33 | ~spl0_68)),
+  inference(resolution,[],[f359,f524])).
+fof(f3722,plain,(
+  spl0_149 | ~spl0_33 | ~spl0_150 | ~spl0_151),
+  inference(avatar_split_clause,[],[f3721,f964,f959,f358,f954])).
+fof(f954,plain,(
+  spl0_149 <=> c1_1(a641)),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_149])])).
+fof(f959,plain,(
+  spl0_150 <=> c3_1(a641)),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_150])])).
+fof(f964,plain,(
+  spl0_151 <=> c2_1(a641)),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_151])])).
+fof(f3721,plain,(
+  c1_1(a641) | (~spl0_33 | ~spl0_150 | ~spl0_151)),
+  inference(subsumption_resolution,[],[f3695,f966])).
+fof(f966,plain,(
+  c2_1(a641) | ~spl0_151),
+  inference(avatar_component_clause,[],[f964])).
+fof(f3695,plain,(
+  c1_1(a641) | ~c2_1(a641) | (~spl0_33 | ~spl0_150)),
+  inference(resolution,[],[f359,f961])).
+fof(f961,plain,(
+  c3_1(a641) | ~spl0_150),
+  inference(avatar_component_clause,[],[f959])).
+fof(f3694,plain,(
+  ~spl0_156 | ~spl0_23 | spl0_95 | ~spl0_96),
+  inference(avatar_split_clause,[],[f3693,f671,f666,f312,f1820])).
+fof(f1820,plain,(
+  spl0_156 <=> c3_1(a676)),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_156])])).
+fof(f312,plain,(
+  spl0_23 <=> ! [X5] : (~c3_1(X5) | c2_1(X5) | ~c1_1(X5))),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_23])])).
+fof(f666,plain,(
+  spl0_95 <=> c2_1(a676)),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_95])])).
+fof(f671,plain,(
+  spl0_96 <=> c1_1(a676)),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_96])])).
+fof(f3693,plain,(
+  ~c3_1(a676) | (~spl0_23 | spl0_95 | ~spl0_96)),
+  inference(subsumption_resolution,[],[f3647,f668])).
+fof(f668,plain,(
+  ~c2_1(a676) | spl0_95),
+  inference(avatar_component_clause,[],[f666])).
+fof(f3647,plain,(
+  c2_1(a676) | ~c3_1(a676) | (~spl0_23 | ~spl0_96)),
+  inference(resolution,[],[f313,f673])).
+fof(f673,plain,(
+  c1_1(a676) | ~spl0_96),
+  inference(avatar_component_clause,[],[f671])).
+fof(f313,plain,(
+  ( ! [X5] : (~c1_1(X5) | c2_1(X5) | ~c3_1(X5)) ) | ~spl0_23),
+  inference(avatar_component_clause,[],[f312])).
+fof(f3692,plain,(
+  spl0_156 | ~spl0_32 | spl0_95 | ~spl0_97),
+  inference(avatar_split_clause,[],[f3688,f676,f666,f351,f1820])).
+fof(f676,plain,(
+  spl0_97 <=> c0_1(a676)),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_97])])).
+fof(f3688,plain,(
+  c3_1(a676) | (~spl0_32 | spl0_95 | ~spl0_97)),
+  inference(subsumption_resolution,[],[f3681,f668])).
+fof(f3681,plain,(
+  c2_1(a676) | c3_1(a676) | (~spl0_32 | ~spl0_97)),
+  inference(resolution,[],[f352,f678])).
+fof(f678,plain,(
+  c0_1(a676) | ~spl0_97),
+  inference(avatar_component_clause,[],[f676])).
+fof(f3671,plain,(
+  ~spl0_141 | ~spl0_23 | spl0_140 | ~spl0_142),
+  inference(avatar_split_clause,[],[f3653,f916,f906,f312,f911])).
+fof(f3653,plain,(
+  ~c3_1(a645) | (~spl0_23 | spl0_140 | ~spl0_142)),
+  inference(subsumption_resolution,[],[f3643,f908])).
+fof(f3643,plain,(
+  c2_1(a645) | ~c3_1(a645) | (~spl0_23 | ~spl0_142)),
+  inference(resolution,[],[f313,f918])).
+fof(f3605,plain,(
+  ~spl0_13 | ~spl0_39 | ~spl0_91 | ~spl0_155),
+  inference(avatar_contradiction_clause,[],[f3604])).
+fof(f3604,plain,(
+  $false | (~spl0_13 | ~spl0_39 | ~spl0_91 | ~spl0_155)),
+  inference(subsumption_resolution,[],[f3596,f646])).
+fof(f3596,plain,(
+  ~c1_1(a686) | (~spl0_13 | ~spl0_39 | ~spl0_155)),
+  inference(resolution,[],[f3523,f1817])).
+fof(f1817,plain,(
+  c0_1(a686) | ~spl0_155),
+  inference(avatar_component_clause,[],[f1815])).
+fof(f3523,plain,(
+  ( ! [X0] : (~c0_1(X0) | ~c1_1(X0)) ) | (~spl0_13 | ~spl0_39)),
+  inference(subsumption_resolution,[],[f271,f384])).
+fof(f271,plain,(
+  ( ! [X0] : (~c0_1(X0) | ~c2_1(X0) | ~c1_1(X0)) ) | ~spl0_13),
+  inference(avatar_component_clause,[],[f270])).
+fof(f270,plain,(
+  spl0_13 <=> ! [X0] : (~c2_1(X0) | ~c0_1(X0) | ~c1_1(X0))),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_13])])).
+fof(f3513,plain,(
+  ~spl0_19 | spl0_89 | ~spl0_90 | ~spl0_155),
+  inference(avatar_contradiction_clause,[],[f3512])).
+fof(f3512,plain,(
+  $false | (~spl0_19 | spl0_89 | ~spl0_90 | ~spl0_155)),
+  inference(subsumption_resolution,[],[f3511,f641])).
+fof(f641,plain,(
+  c2_1(a686) | ~spl0_90),
+  inference(avatar_component_clause,[],[f639])).
+fof(f639,plain,(
+  spl0_90 <=> c2_1(a686)),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_90])])).
+fof(f3511,plain,(
+  ~c2_1(a686) | (~spl0_19 | spl0_89 | ~spl0_155)),
+  inference(subsumption_resolution,[],[f3498,f636])).
+fof(f636,plain,(
+  ~c3_1(a686) | spl0_89),
+  inference(avatar_component_clause,[],[f634])).
+fof(f3498,plain,(
+  c3_1(a686) | ~c2_1(a686) | (~spl0_19 | ~spl0_155)),
+  inference(resolution,[],[f295,f1817])).
+fof(f295,plain,(
+  ( ! [X2] : (~c0_1(X2) | c3_1(X2) | ~c2_1(X2)) ) | ~spl0_19),
+  inference(avatar_component_clause,[],[f294])).
+fof(f294,plain,(
+  spl0_19 <=> ! [X2] : (~c2_1(X2) | c3_1(X2) | ~c0_1(X2))),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_19])])).
+fof(f3510,plain,(
+  ~spl0_19 | spl0_110 | ~spl0_112 | ~spl0_154),
+  inference(avatar_contradiction_clause,[],[f3509])).
+fof(f3509,plain,(
+  $false | (~spl0_19 | spl0_110 | ~spl0_112 | ~spl0_154)),
+  inference(subsumption_resolution,[],[f3508,f1789])).
+fof(f1789,plain,(
+  c2_1(a661) | ~spl0_154),
+  inference(avatar_component_clause,[],[f1787])).
+fof(f1787,plain,(
+  spl0_154 <=> c2_1(a661)),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_154])])).
+fof(f3508,plain,(
+  ~c2_1(a661) | (~spl0_19 | spl0_110 | ~spl0_112)),
+  inference(subsumption_resolution,[],[f3496,f748])).
+fof(f748,plain,(
+  ~c3_1(a661) | spl0_110),
+  inference(avatar_component_clause,[],[f746])).
+fof(f746,plain,(
+  spl0_110 <=> c3_1(a661)),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_110])])).
+fof(f3496,plain,(
+  c3_1(a661) | ~c2_1(a661) | (~spl0_19 | ~spl0_112)),
+  inference(resolution,[],[f295,f758])).
+fof(f758,plain,(
+  c0_1(a661) | ~spl0_112),
+  inference(avatar_component_clause,[],[f756])).
+fof(f756,plain,(
+  spl0_112 <=> c0_1(a661)),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_112])])).
+fof(f3507,plain,(
+  ~spl0_19 | spl0_116 | ~spl0_117 | ~spl0_118),
+  inference(avatar_contradiction_clause,[],[f3506])).
+fof(f3506,plain,(
+  $false | (~spl0_19 | spl0_116 | ~spl0_117 | ~spl0_118)),
+  inference(subsumption_resolution,[],[f3505,f785])).
+fof(f785,plain,(
+  c2_1(a657) | ~spl0_117),
+  inference(avatar_component_clause,[],[f783])).
+fof(f783,plain,(
+  spl0_117 <=> c2_1(a657)),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_117])])).
+fof(f3505,plain,(
+  ~c2_1(a657) | (~spl0_19 | spl0_116 | ~spl0_118)),
+  inference(subsumption_resolution,[],[f3494,f780])).
+fof(f780,plain,(
+  ~c3_1(a657) | spl0_116),
+  inference(avatar_component_clause,[],[f778])).
+fof(f778,plain,(
+  spl0_116 <=> c3_1(a657)),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_116])])).
+fof(f3494,plain,(
+  c3_1(a657) | ~c2_1(a657) | (~spl0_19 | ~spl0_118)),
+  inference(resolution,[],[f295,f790])).
+fof(f790,plain,(
+  c0_1(a657) | ~spl0_118),
+  inference(avatar_component_clause,[],[f788])).
+fof(f788,plain,(
+  spl0_118 <=> c0_1(a657)),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_118])])).
+fof(f3430,plain,(
+  ~spl0_19 | ~spl0_25 | ~spl0_33 | ~spl0_120 | ~spl0_121),
+  inference(avatar_contradiction_clause,[],[f3429])).
+fof(f3429,plain,(
+  $false | (~spl0_19 | ~spl0_25 | ~spl0_33 | ~spl0_120 | ~spl0_121)),
+  inference(subsumption_resolution,[],[f3421,f801])).
+fof(f801,plain,(
+  c2_1(a656) | ~spl0_120),
+  inference(avatar_component_clause,[],[f799])).
+fof(f799,plain,(
+  spl0_120 <=> c2_1(a656)),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_120])])).
+fof(f3421,plain,(
+  ~c2_1(a656) | (~spl0_19 | ~spl0_25 | ~spl0_33 | ~spl0_121)),
+  inference(resolution,[],[f3298,f806])).
+fof(f806,plain,(
+  c0_1(a656) | ~spl0_121),
+  inference(avatar_component_clause,[],[f804])).
+fof(f804,plain,(
+  spl0_121 <=> c0_1(a656)),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_121])])).
+fof(f3298,plain,(
+  ( ! [X2] : (~c0_1(X2) | ~c2_1(X2)) ) | (~spl0_19 | ~spl0_25 | ~spl0_33)),
+  inference(subsumption_resolution,[],[f295,f3223])).
+fof(f3223,plain,(
+  ( ! [X19] : (~c3_1(X19) | ~c2_1(X19)) ) | (~spl0_25 | ~spl0_33)),
+  inference(subsumption_resolution,[],[f359,f322])).
+fof(f322,plain,(
+  ( ! [X7] : (~c1_1(X7) | ~c3_1(X7) | ~c2_1(X7)) ) | ~spl0_25),
+  inference(avatar_component_clause,[],[f321])).
+fof(f321,plain,(
+  spl0_25 <=> ! [X7] : (~c3_1(X7) | ~c1_1(X7) | ~c2_1(X7))),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_25])])).
+fof(f3402,plain,(
+  ~spl0_19 | ~spl0_25 | ~spl0_27 | ~spl0_33 | ~spl0_48 | ~spl0_54 | ~spl0_57 | ~spl0_59 | ~spl0_94),
+  inference(avatar_contradiction_clause,[],[f3391])).
+fof(f3391,plain,(
+  $false | (~spl0_19 | ~spl0_25 | ~spl0_27 | ~spl0_33 | ~spl0_48 | ~spl0_54 | ~spl0_57 | ~spl0_59 | ~spl0_94)),
+  inference(resolution,[],[f3364,f662])).
+fof(f662,plain,(
+  c3_1(a682) | ~spl0_94),
+  inference(avatar_component_clause,[],[f660])).
+fof(f660,plain,(
+  spl0_94 <=> c3_1(a682)),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_94])])).
+fof(f3364,plain,(
+  ( ! [X9] : (~c3_1(X9)) ) | (~spl0_19 | ~spl0_25 | ~spl0_27 | ~spl0_33 | ~spl0_48 | ~spl0_54 | ~spl0_57 | ~spl0_59)),
+  inference(subsumption_resolution,[],[f3363,f3308])).
+fof(f3308,plain,(
+  ( ! [X63] : (~c3_1(X63) | c0_1(X63)) ) | (~spl0_25 | ~spl0_33 | ~spl0_54)),
+  inference(subsumption_resolution,[],[f451,f3223])).
+fof(f3363,plain,(
+  ( ! [X9] : (~c3_1(X9) | ~c0_1(X9)) ) | (~spl0_19 | ~spl0_25 | ~spl0_27 | ~spl0_33 | ~spl0_48 | ~spl0_57 | ~spl0_59)),
+  inference(subsumption_resolution,[],[f330,f3361])).
+fof(f3361,plain,(
+  ( ! [X47] : (~c2_1(X47)) ) | (~spl0_19 | ~spl0_25 | ~spl0_33 | ~spl0_48 | ~spl0_57 | ~spl0_59)),
+  inference(subsumption_resolution,[],[f3360,f3298])).
+fof(f3360,plain,(
+  ( ! [X47] : (c0_1(X47) | ~c2_1(X47)) ) | (~spl0_48 | ~spl0_57 | ~spl0_59)),
+  inference(subsumption_resolution,[],[f422,f3295])).
+fof(f3295,plain,(
+  ( ! [X82] : (c0_1(X82) | c1_1(X82)) ) | (~spl0_57 | ~spl0_59)),
+  inference(subsumption_resolution,[],[f476,f464])).
+fof(f464,plain,(
+  ( ! [X72] : (~c3_1(X72) | c0_1(X72) | c1_1(X72)) ) | ~spl0_57),
+  inference(avatar_component_clause,[],[f463])).
+fof(f463,plain,(
+  spl0_57 <=> ! [X72] : (~c3_1(X72) | c0_1(X72) | c1_1(X72))),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_57])])).
+fof(f422,plain,(
+  ( ! [X47] : (~c1_1(X47) | c0_1(X47) | ~c2_1(X47)) ) | ~spl0_48),
+  inference(avatar_component_clause,[],[f421])).
+fof(f421,plain,(
+  spl0_48 <=> ! [X47] : (~c2_1(X47) | c0_1(X47) | ~c1_1(X47))),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_48])])).
+fof(f3379,plain,(
+  ~spl0_19 | ~spl0_25 | ~spl0_33 | ~spl0_48 | ~spl0_57 | ~spl0_59 | ~spl0_100),
+  inference(avatar_contradiction_clause,[],[f3372])).
+fof(f3372,plain,(
+  $false | (~spl0_19 | ~spl0_25 | ~spl0_33 | ~spl0_48 | ~spl0_57 | ~spl0_59 | ~spl0_100)),
+  inference(resolution,[],[f3361,f694])).
+fof(f694,plain,(
+  c2_1(a675) | ~spl0_100),
+  inference(avatar_component_clause,[],[f692])).
+fof(f692,plain,(
+  spl0_100 <=> c2_1(a675)),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_100])])).
+fof(f3378,plain,(
+  ~spl0_19 | ~spl0_25 | ~spl0_33 | ~spl0_48 | ~spl0_57 | ~spl0_59 | ~spl0_85),
+  inference(avatar_contradiction_clause,[],[f3373])).
+fof(f3373,plain,(
+  $false | (~spl0_19 | ~spl0_25 | ~spl0_33 | ~spl0_48 | ~spl0_57 | ~spl0_59 | ~spl0_85)),
+  inference(resolution,[],[f3361,f614])).
+fof(f614,plain,(
+  c2_1(a693) | ~spl0_85),
+  inference(avatar_component_clause,[],[f612])).
+fof(f612,plain,(
+  spl0_85 <=> c2_1(a693)),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_85])])).
+fof(f3293,plain,(
+  ~spl0_151 | ~spl0_25 | ~spl0_33 | ~spl0_150),
+  inference(avatar_split_clause,[],[f3227,f959,f358,f321,f964])).
+fof(f3227,plain,(
+  ~c2_1(a641) | (~spl0_25 | ~spl0_33 | ~spl0_150)),
+  inference(resolution,[],[f3223,f961])).
+fof(f3272,plain,(
+  ~spl0_69 | ~spl0_25 | ~spl0_33 | ~spl0_68),
+  inference(avatar_split_clause,[],[f3244,f522,f358,f321,f527])).
+fof(f3244,plain,(
+  ~c2_1(a655) | (~spl0_25 | ~spl0_33 | ~spl0_68)),
+  inference(resolution,[],[f3223,f524])).
+fof(f3218,plain,(
+  ~spl0_165 | ~spl0_25 | ~spl0_144 | ~spl0_145),
+  inference(avatar_split_clause,[],[f3217,f932,f927,f321,f3194])).
+fof(f3194,plain,(
+  spl0_165 <=> c3_1(a643)),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_165])])).
+fof(f927,plain,(
+  spl0_144 <=> c2_1(a643)),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_144])])).
+fof(f932,plain,(
+  spl0_145 <=> c1_1(a643)),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_145])])).
+fof(f3217,plain,(
+  ~c3_1(a643) | (~spl0_25 | ~spl0_144 | ~spl0_145)),
+  inference(subsumption_resolution,[],[f3214,f929])).
+fof(f929,plain,(
+  c2_1(a643) | ~spl0_144),
+  inference(avatar_component_clause,[],[f927])).
+fof(f3214,plain,(
+  ~c3_1(a643) | ~c2_1(a643) | (~spl0_25 | ~spl0_145)),
+  inference(resolution,[],[f934,f322])).
+fof(f934,plain,(
+  c1_1(a643) | ~spl0_145),
+  inference(avatar_component_clause,[],[f932])).
+fof(f3216,plain,(
+  spl0_165 | ~spl0_51 | spl0_143 | ~spl0_145),
+  inference(avatar_split_clause,[],[f3215,f932,f922,f434,f3194])).
+fof(f3215,plain,(
+  c3_1(a643) | (~spl0_51 | spl0_143 | ~spl0_145)),
+  inference(subsumption_resolution,[],[f3212,f924])).
+fof(f3212,plain,(
+  c0_1(a643) | c3_1(a643) | (~spl0_51 | ~spl0_145)),
+  inference(resolution,[],[f934,f435])).
+fof(f3202,plain,(
+  spl0_155 | ~spl0_49 | spl0_89 | ~spl0_90),
+  inference(avatar_split_clause,[],[f3201,f639,f634,f426,f1815])).
+fof(f3201,plain,(
+  c0_1(a686) | (~spl0_49 | spl0_89 | ~spl0_90)),
+  inference(subsumption_resolution,[],[f2845,f636])).
+fof(f2845,plain,(
+  c0_1(a686) | c3_1(a686) | (~spl0_49 | ~spl0_90)),
+  inference(resolution,[],[f427,f641])).
+fof(f3185,plain,(
+  ~spl0_13 | ~spl0_27 | ~spl0_32 | ~spl0_91 | ~spl0_155),
+  inference(avatar_contradiction_clause,[],[f3184])).
+fof(f3184,plain,(
+  $false | (~spl0_13 | ~spl0_27 | ~spl0_32 | ~spl0_91 | ~spl0_155)),
+  inference(subsumption_resolution,[],[f3175,f646])).
+fof(f3175,plain,(
+  ~c1_1(a686) | (~spl0_13 | ~spl0_27 | ~spl0_32 | ~spl0_155)),
+  inference(resolution,[],[f3146,f1817])).
+fof(f3146,plain,(
+  ( ! [X0] : (~c0_1(X0) | ~c1_1(X0)) ) | (~spl0_13 | ~spl0_27 | ~spl0_32)),
+  inference(subsumption_resolution,[],[f271,f2925])).
+fof(f2925,plain,(
+  ( ! [X9] : (~c0_1(X9) | c2_1(X9)) ) | (~spl0_27 | ~spl0_32)),
+  inference(subsumption_resolution,[],[f330,f352])).
+fof(f3138,plain,(
+  spl0_99 | ~spl0_40 | ~spl0_48 | ~spl0_58 | spl0_98 | ~spl0_100),
+  inference(avatar_split_clause,[],[f3137,f692,f682,f470,f421,f387,f687])).
+fof(f687,plain,(
+  spl0_99 <=> c1_1(a675)),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_99])])).
+fof(f387,plain,(
+  spl0_40 <=> ! [X29] : (~c0_1(X29) | c1_1(X29) | c3_1(X29))),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_40])])).
+fof(f682,plain,(
+  spl0_98 <=> c3_1(a675)),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_98])])).
+fof(f3137,plain,(
+  c1_1(a675) | (~spl0_40 | ~spl0_48 | ~spl0_58 | spl0_98 | ~spl0_100)),
+  inference(subsumption_resolution,[],[f2972,f684])).
+fof(f684,plain,(
+  ~c3_1(a675) | spl0_98),
+  inference(avatar_component_clause,[],[f682])).
+fof(f2972,plain,(
+  c1_1(a675) | c3_1(a675) | (~spl0_40 | ~spl0_48 | ~spl0_58 | ~spl0_100)),
+  inference(resolution,[],[f2732,f388])).
+fof(f388,plain,(
+  ( ! [X29] : (~c0_1(X29) | c1_1(X29) | c3_1(X29)) ) | ~spl0_40),
+  inference(avatar_component_clause,[],[f387])).
+fof(f2732,plain,(
+  c0_1(a675) | (~spl0_48 | ~spl0_58 | ~spl0_100)),
+  inference(resolution,[],[f2724,f694])).
+fof(f2724,plain,(
+  ( ! [X47] : (~c2_1(X47) | c0_1(X47)) ) | (~spl0_48 | ~spl0_58)),
+  inference(subsumption_resolution,[],[f422,f471])).
+fof(f3116,plain,(
+  ~spl0_57 | spl0_128 | spl0_129 | ~spl0_130),
+  inference(avatar_contradiction_clause,[],[f3115])).
+fof(f3115,plain,(
+  $false | (~spl0_57 | spl0_128 | spl0_129 | ~spl0_130)),
+  inference(subsumption_resolution,[],[f3114,f844])).
+fof(f844,plain,(
+  ~c1_1(a651) | spl0_128),
+  inference(avatar_component_clause,[],[f842])).
+fof(f3114,plain,(
+  c1_1(a651) | (~spl0_57 | spl0_129 | ~spl0_130)),
+  inference(subsumption_resolution,[],[f3101,f849])).
+fof(f3101,plain,(
+  c0_1(a651) | c1_1(a651) | (~spl0_57 | ~spl0_130)),
+  inference(resolution,[],[f464,f854])).
+fof(f3074,plain,(
+  ~spl0_42 | spl0_92 | spl0_93 | ~spl0_94),
+  inference(avatar_contradiction_clause,[],[f3073])).
+fof(f3073,plain,(
+  $false | (~spl0_42 | spl0_92 | spl0_93 | ~spl0_94)),
+  inference(subsumption_resolution,[],[f3072,f652])).
+fof(f652,plain,(
+  ~c2_1(a682) | spl0_92),
+  inference(avatar_component_clause,[],[f650])).
+fof(f650,plain,(
+  spl0_92 <=> c2_1(a682)),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_92])])).
+fof(f3072,plain,(
+  c2_1(a682) | (~spl0_42 | spl0_93 | ~spl0_94)),
+  inference(subsumption_resolution,[],[f3057,f657])).
+fof(f657,plain,(
+  ~c1_1(a682) | spl0_93),
+  inference(avatar_component_clause,[],[f655])).
+fof(f655,plain,(
+  spl0_93 <=> c1_1(a682)),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_93])])).
+fof(f3057,plain,(
+  c1_1(a682) | c2_1(a682) | (~spl0_42 | ~spl0_94)),
+  inference(resolution,[],[f396,f662])).
+fof(f3065,plain,(
+  ~spl0_42 | spl0_128 | ~spl0_130 | spl0_159),
+  inference(avatar_contradiction_clause,[],[f3064])).
+fof(f3064,plain,(
+  $false | (~spl0_42 | spl0_128 | ~spl0_130 | spl0_159)),
+  inference(subsumption_resolution,[],[f3063,f1899])).
+fof(f1899,plain,(
+  ~c2_1(a651) | spl0_159),
+  inference(avatar_component_clause,[],[f1898])).
+fof(f3063,plain,(
+  c2_1(a651) | (~spl0_42 | spl0_128 | ~spl0_130)),
+  inference(subsumption_resolution,[],[f3051,f844])).
+fof(f3051,plain,(
+  c1_1(a651) | c2_1(a651) | (~spl0_42 | ~spl0_130)),
+  inference(resolution,[],[f396,f854])).
+fof(f3033,plain,(
+  ~spl0_35 | ~spl0_40 | spl0_146 | ~spl0_148),
+  inference(avatar_contradiction_clause,[],[f3032])).
+fof(f3032,plain,(
+  $false | (~spl0_35 | ~spl0_40 | spl0_146 | ~spl0_148)),
+  inference(subsumption_resolution,[],[f3017,f940])).
+fof(f3017,plain,(
+  c1_1(a642) | (~spl0_35 | ~spl0_40 | ~spl0_148)),
+  inference(resolution,[],[f2926,f950])).
+fof(f2926,plain,(
+  ( ! [X23] : (~c0_1(X23) | c1_1(X23)) ) | (~spl0_35 | ~spl0_40)),
+  inference(subsumption_resolution,[],[f368,f388])).
+fof(f2991,plain,(
+  ~spl0_13 | ~spl0_48 | ~spl0_58 | ~spl0_90 | ~spl0_91),
+  inference(avatar_contradiction_clause,[],[f2990])).
+fof(f2990,plain,(
+  $false | (~spl0_13 | ~spl0_48 | ~spl0_58 | ~spl0_90 | ~spl0_91)),
+  inference(subsumption_resolution,[],[f2980,f641])).
+fof(f2980,plain,(
+  ~c2_1(a686) | (~spl0_13 | ~spl0_48 | ~spl0_58 | ~spl0_91)),
+  inference(resolution,[],[f2882,f646])).
+fof(f2882,plain,(
+  ( ! [X0] : (~c1_1(X0) | ~c2_1(X0)) ) | (~spl0_13 | ~spl0_48 | ~spl0_58)),
+  inference(subsumption_resolution,[],[f271,f2724])).
+fof(f2884,plain,(
+  spl0_101 | ~spl0_31 | spl0_102 | ~spl0_103),
+  inference(avatar_split_clause,[],[f2883,f708,f703,f347,f698])).
+fof(f698,plain,(
+  spl0_101 <=> c3_1(a672)),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_101])])).
+fof(f347,plain,(
+  spl0_31 <=> ! [X12] : (~c1_1(X12) | c2_1(X12) | c3_1(X12))),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_31])])).
+fof(f703,plain,(
+  spl0_102 <=> c2_1(a672)),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_102])])).
+fof(f708,plain,(
+  spl0_103 <=> c1_1(a672)),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_103])])).
+fof(f2883,plain,(
+  c3_1(a672) | (~spl0_31 | spl0_102 | ~spl0_103)),
+  inference(subsumption_resolution,[],[f2740,f705])).
+fof(f705,plain,(
+  ~c2_1(a672) | spl0_102),
+  inference(avatar_component_clause,[],[f703])).
+fof(f2740,plain,(
+  c2_1(a672) | c3_1(a672) | (~spl0_31 | ~spl0_103)),
+  inference(resolution,[],[f348,f710])).
+fof(f710,plain,(
+  c1_1(a672) | ~spl0_103),
+  inference(avatar_component_clause,[],[f708])).
+fof(f348,plain,(
+  ( ! [X12] : (~c1_1(X12) | c2_1(X12) | c3_1(X12)) ) | ~spl0_31),
+  inference(avatar_component_clause,[],[f347])).
+fof(f2874,plain,(
+  spl0_134 | ~spl0_51 | spl0_135 | ~spl0_136),
+  inference(avatar_split_clause,[],[f2860,f884,f879,f434,f874])).
+fof(f874,plain,(
+  spl0_134 <=> c3_1(a647)),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_134])])).
+fof(f879,plain,(
+  spl0_135 <=> c0_1(a647)),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_135])])).
+fof(f884,plain,(
+  spl0_136 <=> c1_1(a647)),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_136])])).
+fof(f2860,plain,(
+  c3_1(a647) | (~spl0_51 | spl0_135 | ~spl0_136)),
+  inference(subsumption_resolution,[],[f2853,f881])).
+fof(f881,plain,(
+  ~c0_1(a647) | spl0_135),
+  inference(avatar_component_clause,[],[f879])).
+fof(f2853,plain,(
+  c0_1(a647) | c3_1(a647) | (~spl0_51 | ~spl0_136)),
+  inference(resolution,[],[f435,f886])).
+fof(f886,plain,(
+  c1_1(a647) | ~spl0_136),
+  inference(avatar_component_clause,[],[f884])).
+fof(f2873,plain,(
+  spl0_132 | spl0_157 | ~spl0_44 | ~spl0_133),
+  inference(avatar_split_clause,[],[f2803,f868,f403,f1833,f863])).
+fof(f863,plain,(
+  spl0_132 <=> c2_1(a648)),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_132])])).
+fof(f1833,plain,(
+  spl0_157 <=> c1_1(a648)),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_157])])).
+fof(f403,plain,(
+  spl0_44 <=> ! [X35] : (~c0_1(X35) | c1_1(X35) | c2_1(X35))),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_44])])).
+fof(f868,plain,(
+  spl0_133 <=> c0_1(a648)),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_133])])).
+fof(f2803,plain,(
+  c1_1(a648) | c2_1(a648) | (~spl0_44 | ~spl0_133)),
+  inference(resolution,[],[f404,f870])).
+fof(f870,plain,(
+  c0_1(a648) | ~spl0_133),
+  inference(avatar_component_clause,[],[f868])).
+fof(f404,plain,(
+  ( ! [X35] : (~c0_1(X35) | c1_1(X35) | c2_1(X35)) ) | ~spl0_44),
+  inference(avatar_component_clause,[],[f403])).
+fof(f2828,plain,(
+  spl0_154 | ~spl0_44 | spl0_111 | ~spl0_112),
+  inference(avatar_split_clause,[],[f2823,f756,f751,f403,f1787])).
+fof(f751,plain,(
+  spl0_111 <=> c1_1(a661)),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_111])])).
+fof(f2823,plain,(
+  c2_1(a661) | (~spl0_44 | spl0_111 | ~spl0_112)),
+  inference(subsumption_resolution,[],[f2808,f753])).
+fof(f753,plain,(
+  ~c1_1(a661) | spl0_111),
+  inference(avatar_component_clause,[],[f751])).
+fof(f2808,plain,(
+  c1_1(a661) | c2_1(a661) | (~spl0_44 | ~spl0_112)),
+  inference(resolution,[],[f404,f758])).
+fof(f2826,plain,(
+  spl0_113 | ~spl0_44 | spl0_114 | ~spl0_115),
+  inference(avatar_split_clause,[],[f2820,f772,f767,f403,f762])).
+fof(f762,plain,(
+  spl0_113 <=> c2_1(a660)),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_113])])).
+fof(f767,plain,(
+  spl0_114 <=> c1_1(a660)),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_114])])).
+fof(f772,plain,(
+  spl0_115 <=> c0_1(a660)),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_115])])).
+fof(f2820,plain,(
+  c2_1(a660) | (~spl0_44 | spl0_114 | ~spl0_115)),
+  inference(subsumption_resolution,[],[f2807,f769])).
+fof(f769,plain,(
+  ~c1_1(a660) | spl0_114),
+  inference(avatar_component_clause,[],[f767])).
+fof(f2807,plain,(
+  c1_1(a660) | c2_1(a660) | (~spl0_44 | ~spl0_115)),
+  inference(resolution,[],[f404,f774])).
+fof(f774,plain,(
+  c0_1(a660) | ~spl0_115),
+  inference(avatar_component_clause,[],[f772])).
+fof(f2749,plain,(
+  spl0_160 | ~spl0_31 | spl0_77 | ~spl0_79),
+  inference(avatar_split_clause,[],[f2746,f580,f570,f347,f2695])).
+fof(f580,plain,(
+  spl0_79 <=> c1_1(a698)),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_79])])).
+fof(f2746,plain,(
+  c3_1(a698) | (~spl0_31 | spl0_77 | ~spl0_79)),
+  inference(subsumption_resolution,[],[f2743,f572])).
+fof(f2743,plain,(
+  c2_1(a698) | c3_1(a698) | (~spl0_31 | ~spl0_79)),
+  inference(resolution,[],[f348,f582])).
+fof(f582,plain,(
+  c1_1(a698) | ~spl0_79),
+  inference(avatar_component_clause,[],[f580])).
+fof(f2693,plain,(
+  ~spl0_13 | ~spl0_65 | ~spl0_66 | ~spl0_67),
+  inference(avatar_contradiction_clause,[],[f2692])).
+fof(f2692,plain,(
+  $false | (~spl0_13 | ~spl0_65 | ~spl0_66 | ~spl0_67)),
+  inference(subsumption_resolution,[],[f2691,f513])).
+fof(f513,plain,(
+  c1_1(a671) | ~spl0_66),
+  inference(avatar_component_clause,[],[f511])).
+fof(f511,plain,(
+  spl0_66 <=> c1_1(a671)),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_66])])).
+fof(f2691,plain,(
+  ~c1_1(a671) | (~spl0_13 | ~spl0_65 | ~spl0_67)),
+  inference(subsumption_resolution,[],[f2689,f508])).
+fof(f508,plain,(
+  c2_1(a671) | ~spl0_65),
+  inference(avatar_component_clause,[],[f506])).
+fof(f506,plain,(
+  spl0_65 <=> c2_1(a671)),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_65])])).
+fof(f2689,plain,(
+  ~c2_1(a671) | ~c1_1(a671) | (~spl0_13 | ~spl0_67)),
+  inference(resolution,[],[f271,f518])).
+fof(f518,plain,(
+  c0_1(a671) | ~spl0_67),
+  inference(avatar_component_clause,[],[f516])).
+fof(f516,plain,(
+  spl0_67 <=> c0_1(a671)),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_67])])).
+fof(f2678,plain,(
+  ~spl0_38 | ~spl0_45 | spl0_137 | spl0_139),
+  inference(avatar_contradiction_clause,[],[f2677])).
+fof(f2677,plain,(
+  $false | (~spl0_38 | ~spl0_45 | spl0_137 | spl0_139)),
+  inference(subsumption_resolution,[],[f2663,f892])).
+fof(f892,plain,(
+  ~c3_1(a646) | spl0_137),
+  inference(avatar_component_clause,[],[f890])).
+fof(f890,plain,(
+  spl0_137 <=> c3_1(a646)),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_137])])).
+fof(f2663,plain,(
+  c3_1(a646) | (~spl0_38 | ~spl0_45 | spl0_139)),
+  inference(resolution,[],[f2643,f902])).
+fof(f902,plain,(
+  ~c1_1(a646) | spl0_139),
+  inference(avatar_component_clause,[],[f900])).
+fof(f900,plain,(
+  spl0_139 <=> c1_1(a646)),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_139])])).
+fof(f2643,plain,(
+  ( ! [X37] : (c1_1(X37) | c3_1(X37)) ) | (~spl0_38 | ~spl0_45)),
+  inference(subsumption_resolution,[],[f408,f381])).
+fof(f2656,plain,(
+  ~spl0_23 | ~spl0_25 | ~spl0_31 | spl0_95 | ~spl0_96),
+  inference(avatar_contradiction_clause,[],[f2655])).
+fof(f2655,plain,(
+  $false | (~spl0_23 | ~spl0_25 | ~spl0_31 | spl0_95 | ~spl0_96)),
+  inference(subsumption_resolution,[],[f2649,f668])).
+fof(f2649,plain,(
+  c2_1(a676) | (~spl0_23 | ~spl0_25 | ~spl0_31 | ~spl0_96)),
+  inference(resolution,[],[f2642,f673])).
+fof(f2642,plain,(
+  ( ! [X12] : (~c1_1(X12) | c2_1(X12)) ) | (~spl0_23 | ~spl0_25 | ~spl0_31)),
+  inference(subsumption_resolution,[],[f348,f1119])).
+fof(f1119,plain,(
+  ( ! [X5] : (~c1_1(X5) | ~c3_1(X5)) ) | (~spl0_23 | ~spl0_25)),
+  inference(subsumption_resolution,[],[f313,f322])).
+fof(f2593,plain,(
+  spl0_137 | ~spl0_40 | ~spl0_59 | spl0_139),
+  inference(avatar_split_clause,[],[f2571,f900,f475,f387,f890])).
+fof(f2571,plain,(
+  c3_1(a646) | (~spl0_40 | ~spl0_59 | spl0_139)),
+  inference(resolution,[],[f2552,f902])).
+fof(f2552,plain,(
+  ( ! [X29] : (c1_1(X29) | c3_1(X29)) ) | (~spl0_40 | ~spl0_59)),
+  inference(subsumption_resolution,[],[f388,f476])).
+fof(f2554,plain,(
+  ~spl0_90 | ~spl0_16 | ~spl0_25 | ~spl0_91),
+  inference(avatar_split_clause,[],[f2522,f644,f321,f282,f639])).
+fof(f282,plain,(
+  spl0_16 <=> ! [X1] : (~c2_1(X1) | c3_1(X1) | ~c1_1(X1))),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_16])])).
+fof(f2522,plain,(
+  ~c2_1(a686) | (~spl0_16 | ~spl0_25 | ~spl0_91)),
+  inference(resolution,[],[f2482,f646])).
+fof(f2482,plain,(
+  ( ! [X1] : (~c1_1(X1) | ~c2_1(X1)) ) | (~spl0_16 | ~spl0_25)),
+  inference(subsumption_resolution,[],[f283,f322])).
+fof(f283,plain,(
+  ( ! [X1] : (~c2_1(X1) | c3_1(X1) | ~c1_1(X1)) ) | ~spl0_16),
+  inference(avatar_component_clause,[],[f282])).
+fof(f2550,plain,(
+  ~spl0_57 | ~spl0_59 | spl0_87 | spl0_88),
+  inference(avatar_contradiction_clause,[],[f2549])).
+fof(f2549,plain,(
+  $false | (~spl0_57 | ~spl0_59 | spl0_87 | spl0_88)),
+  inference(subsumption_resolution,[],[f2533,f625])).
+fof(f625,plain,(
+  ~c1_1(a691) | spl0_87),
+  inference(avatar_component_clause,[],[f623])).
+fof(f623,plain,(
+  spl0_87 <=> c1_1(a691)),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_87])])).
+fof(f2533,plain,(
+  c1_1(a691) | (~spl0_57 | ~spl0_59 | spl0_88)),
+  inference(resolution,[],[f2504,f630])).
+fof(f630,plain,(
+  ~c0_1(a691) | spl0_88),
+  inference(avatar_component_clause,[],[f628])).
+fof(f628,plain,(
+  spl0_88 <=> c0_1(a691)),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_88])])).
+fof(f2504,plain,(
+  ( ! [X72] : (c0_1(X72) | c1_1(X72)) ) | (~spl0_57 | ~spl0_59)),
+  inference(subsumption_resolution,[],[f464,f476])).
+fof(f2512,plain,(
+  ~spl0_156 | ~spl0_23 | ~spl0_25 | ~spl0_96),
+  inference(avatar_split_clause,[],[f2509,f671,f321,f312,f1820])).
+fof(f2509,plain,(
+  ~c3_1(a676) | (~spl0_23 | ~spl0_25 | ~spl0_96)),
+  inference(resolution,[],[f673,f1119])).
+fof(f2361,plain,(
+  ~spl0_48 | ~spl0_58 | spl0_81 | ~spl0_82),
+  inference(avatar_contradiction_clause,[],[f2360])).
+fof(f2360,plain,(
+  $false | (~spl0_48 | ~spl0_58 | spl0_81 | ~spl0_82)),
+  inference(subsumption_resolution,[],[f2354,f593])).
+fof(f2354,plain,(
+  c0_1(a695) | (~spl0_48 | ~spl0_58 | ~spl0_82)),
+  inference(resolution,[],[f2342,f598])).
+fof(f2342,plain,(
+  ( ! [X79] : (~c2_1(X79) | c0_1(X79)) ) | (~spl0_48 | ~spl0_58)),
+  inference(subsumption_resolution,[],[f471,f422])).
+fof(f2341,plain,(
+  spl0_131 | ~spl0_32 | spl0_132 | ~spl0_133),
+  inference(avatar_split_clause,[],[f2337,f868,f863,f351,f858])).
+fof(f858,plain,(
+  spl0_131 <=> c3_1(a648)),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_131])])).
+fof(f2337,plain,(
+  c3_1(a648) | (~spl0_32 | spl0_132 | ~spl0_133)),
+  inference(subsumption_resolution,[],[f2327,f865])).
+fof(f865,plain,(
+  ~c2_1(a648) | spl0_132),
+  inference(avatar_component_clause,[],[f863])).
+fof(f2327,plain,(
+  c2_1(a648) | c3_1(a648) | (~spl0_32 | ~spl0_133)),
+  inference(resolution,[],[f352,f870])).
+fof(f2316,plain,(
+  ~spl0_23 | ~spl0_25 | ~spl0_35 | ~spl0_68 | ~spl0_70),
+  inference(avatar_contradiction_clause,[],[f2315])).
+fof(f2315,plain,(
+  $false | (~spl0_23 | ~spl0_25 | ~spl0_35 | ~spl0_68 | ~spl0_70)),
+  inference(subsumption_resolution,[],[f2307,f524])).
+fof(f2307,plain,(
+  ~c3_1(a655) | (~spl0_23 | ~spl0_25 | ~spl0_35 | ~spl0_70)),
+  inference(resolution,[],[f2290,f534])).
+fof(f2290,plain,(
+  ( ! [X23] : (~c0_1(X23) | ~c3_1(X23)) ) | (~spl0_23 | ~spl0_25 | ~spl0_35)),
+  inference(subsumption_resolution,[],[f368,f1119])).
+fof(f2281,plain,(
+  ~spl0_19 | ~spl0_23 | ~spl0_25 | ~spl0_49 | ~spl0_144 | ~spl0_145),
+  inference(avatar_contradiction_clause,[],[f2280])).
+fof(f2280,plain,(
+  $false | (~spl0_19 | ~spl0_23 | ~spl0_25 | ~spl0_49 | ~spl0_144 | ~spl0_145)),
+  inference(subsumption_resolution,[],[f2267,f1294])).
+fof(f1294,plain,(
+  ~c3_1(a643) | (~spl0_23 | ~spl0_25 | ~spl0_145)),
+  inference(resolution,[],[f934,f1119])).
+fof(f2267,plain,(
+  c3_1(a643) | (~spl0_19 | ~spl0_49 | ~spl0_144)),
+  inference(resolution,[],[f2209,f929])).
+fof(f2209,plain,(
+  ( ! [X2] : (~c2_1(X2) | c3_1(X2)) ) | (~spl0_19 | ~spl0_49)),
+  inference(subsumption_resolution,[],[f295,f427])).
+fof(f2145,plain,(
+  spl0_95 | ~spl0_27 | ~spl0_32 | ~spl0_97),
+  inference(avatar_split_clause,[],[f2140,f676,f351,f329,f666])).
+fof(f2140,plain,(
+  c2_1(a676) | (~spl0_27 | ~spl0_32 | ~spl0_97)),
+  inference(resolution,[],[f678,f2008])).
+fof(f2008,plain,(
+  ( ! [X9] : (~c0_1(X9) | c2_1(X9)) ) | (~spl0_27 | ~spl0_32)),
+  inference(subsumption_resolution,[],[f330,f352])).
+fof(f2052,plain,(
+  ~spl0_32 | ~spl0_55 | spl0_137 | spl0_138),
+  inference(avatar_contradiction_clause,[],[f2051])).
+fof(f2051,plain,(
+  $false | (~spl0_32 | ~spl0_55 | spl0_137 | spl0_138)),
+  inference(subsumption_resolution,[],[f2034,f897])).
+fof(f897,plain,(
+  ~c2_1(a646) | spl0_138),
+  inference(avatar_component_clause,[],[f895])).
+fof(f895,plain,(
+  spl0_138 <=> c2_1(a646)),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_138])])).
+fof(f2034,plain,(
+  c2_1(a646) | (~spl0_32 | ~spl0_55 | spl0_137)),
+  inference(resolution,[],[f2001,f892])).
+fof(f2001,plain,(
+  ( ! [X67] : (c3_1(X67) | c2_1(X67)) ) | (~spl0_32 | ~spl0_55)),
+  inference(subsumption_resolution,[],[f456,f352])).
+fof(f456,plain,(
+  ( ! [X67] : (c3_1(X67) | c0_1(X67) | c2_1(X67)) ) | ~spl0_55),
+  inference(avatar_component_clause,[],[f455])).
+fof(f455,plain,(
+  spl0_55 <=> ! [X67] : (c3_1(X67) | c0_1(X67) | c2_1(X67))),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_55])])).
+fof(f1877,plain,(
+  ~spl0_23 | ~spl0_25 | ~spl0_35 | ~spl0_57 | ~spl0_94),
+  inference(avatar_contradiction_clause,[],[f1874])).
+fof(f1874,plain,(
+  $false | (~spl0_23 | ~spl0_25 | ~spl0_35 | ~spl0_57 | ~spl0_94)),
+  inference(resolution,[],[f1829,f662])).
+fof(f1829,plain,(
+  ( ! [X23] : (~c3_1(X23)) ) | (~spl0_23 | ~spl0_25 | ~spl0_35 | ~spl0_57)),
+  inference(subsumption_resolution,[],[f1828,f1119])).
+fof(f1828,plain,(
+  ( ! [X23] : (~c3_1(X23) | c1_1(X23)) ) | (~spl0_23 | ~spl0_25 | ~spl0_35 | ~spl0_57)),
+  inference(subsumption_resolution,[],[f368,f1774])).
+fof(f1774,plain,(
+  ( ! [X72] : (~c3_1(X72) | c0_1(X72)) ) | (~spl0_23 | ~spl0_25 | ~spl0_57)),
+  inference(subsumption_resolution,[],[f464,f1119])).
+fof(f1836,plain,(
+  ~spl0_157 | spl0_132 | ~spl0_39 | ~spl0_133),
+  inference(avatar_split_clause,[],[f1721,f868,f383,f863,f1833])).
+fof(f1721,plain,(
+  c2_1(a648) | ~c1_1(a648) | (~spl0_39 | ~spl0_133)),
+  inference(resolution,[],[f384,f870])).
+fof(f1824,plain,(
+  ~spl0_96 | spl0_95 | ~spl0_39 | ~spl0_97),
+  inference(avatar_split_clause,[],[f1726,f676,f383,f666,f671])).
+fof(f1726,plain,(
+  c2_1(a676) | ~c1_1(a676) | (~spl0_39 | ~spl0_97)),
+  inference(resolution,[],[f384,f678])).
+fof(f1818,plain,(
+  ~spl0_90 | spl0_155 | ~spl0_48 | ~spl0_91),
+  inference(avatar_split_clause,[],[f1741,f644,f421,f1815,f639])).
+fof(f1741,plain,(
+  c0_1(a686) | ~c2_1(a686) | (~spl0_48 | ~spl0_91)),
+  inference(resolution,[],[f422,f646])).
+fof(f1767,plain,(
+  ~spl0_23 | ~spl0_25 | ~spl0_31 | ~spl0_48 | spl0_135 | ~spl0_136),
+  inference(avatar_contradiction_clause,[],[f1766])).
+fof(f1766,plain,(
+  $false | (~spl0_23 | ~spl0_25 | ~spl0_31 | ~spl0_48 | spl0_135 | ~spl0_136)),
+  inference(subsumption_resolution,[],[f1760,f1747])).
+fof(f1747,plain,(
+  ~c2_1(a647) | (~spl0_48 | spl0_135 | ~spl0_136)),
+  inference(subsumption_resolution,[],[f1739,f881])).
+fof(f1739,plain,(
+  c0_1(a647) | ~c2_1(a647) | (~spl0_48 | ~spl0_136)),
+  inference(resolution,[],[f422,f886])).
+fof(f1760,plain,(
+  c2_1(a647) | (~spl0_23 | ~spl0_25 | ~spl0_31 | ~spl0_136)),
+  inference(resolution,[],[f1754,f886])).
+fof(f1754,plain,(
+  ( ! [X12] : (~c1_1(X12) | c2_1(X12)) ) | (~spl0_23 | ~spl0_25 | ~spl0_31)),
+  inference(subsumption_resolution,[],[f348,f1119])).
+fof(f1753,plain,(
+  ~spl0_144 | ~spl0_48 | spl0_143 | ~spl0_145),
+  inference(avatar_split_clause,[],[f1744,f932,f922,f421,f927])).
+fof(f1744,plain,(
+  ~c2_1(a643) | (~spl0_48 | spl0_143 | ~spl0_145)),
+  inference(subsumption_resolution,[],[f1738,f924])).
+fof(f1738,plain,(
+  c0_1(a643) | ~c2_1(a643) | (~spl0_48 | ~spl0_145)),
+  inference(resolution,[],[f422,f934])).
+fof(f1716,plain,(
+  ~spl0_19 | ~spl0_25 | ~spl0_65 | ~spl0_66 | ~spl0_67),
+  inference(avatar_contradiction_clause,[],[f1715])).
+fof(f1715,plain,(
+  $false | (~spl0_19 | ~spl0_25 | ~spl0_65 | ~spl0_66 | ~spl0_67)),
+  inference(subsumption_resolution,[],[f1714,f508])).
+fof(f1714,plain,(
+  ~c2_1(a671) | (~spl0_19 | ~spl0_25 | ~spl0_65 | ~spl0_66 | ~spl0_67)),
+  inference(subsumption_resolution,[],[f1708,f1636])).
+fof(f1636,plain,(
+  ~c3_1(a671) | (~spl0_25 | ~spl0_65 | ~spl0_66)),
+  inference(subsumption_resolution,[],[f1634,f508])).
+fof(f1634,plain,(
+  ~c3_1(a671) | ~c2_1(a671) | (~spl0_25 | ~spl0_66)),
+  inference(resolution,[],[f513,f322])).
+fof(f1708,plain,(
+  c3_1(a671) | ~c2_1(a671) | (~spl0_19 | ~spl0_67)),
+  inference(resolution,[],[f295,f518])).
+fof(f1681,plain,(
+  ~spl0_19 | ~spl0_32 | spl0_110 | ~spl0_112),
+  inference(avatar_contradiction_clause,[],[f1680])).
+fof(f1680,plain,(
+  $false | (~spl0_19 | ~spl0_32 | spl0_110 | ~spl0_112)),
+  inference(subsumption_resolution,[],[f1674,f748])).
+fof(f1674,plain,(
+  c3_1(a661) | (~spl0_19 | ~spl0_32 | ~spl0_112)),
+  inference(resolution,[],[f1667,f758])).
+fof(f1667,plain,(
+  ( ! [X2] : (~c0_1(X2) | c3_1(X2)) ) | (~spl0_19 | ~spl0_32)),
+  inference(subsumption_resolution,[],[f295,f352])).
+fof(f1666,plain,(
+  ~spl0_27 | ~spl0_32 | spl0_125 | ~spl0_127),
+  inference(avatar_contradiction_clause,[],[f1665])).
+fof(f1665,plain,(
+  $false | (~spl0_27 | ~spl0_32 | spl0_125 | ~spl0_127)),
+  inference(subsumption_resolution,[],[f1656,f828])).
+fof(f1656,plain,(
+  c2_1(a652) | (~spl0_27 | ~spl0_32 | ~spl0_127)),
+  inference(resolution,[],[f1632,f838])).
+fof(f1632,plain,(
+  ( ! [X9] : (~c0_1(X9) | c2_1(X9)) ) | (~spl0_27 | ~spl0_32)),
+  inference(subsumption_resolution,[],[f330,f352])).
+fof(f1652,plain,(
+  ~spl0_41 | ~spl0_44 | spl0_111 | ~spl0_112),
+  inference(avatar_contradiction_clause,[],[f1651])).
+fof(f1651,plain,(
+  $false | (~spl0_41 | ~spl0_44 | spl0_111 | ~spl0_112)),
+  inference(subsumption_resolution,[],[f1641,f753])).
+fof(f1641,plain,(
+  c1_1(a661) | (~spl0_41 | ~spl0_44 | ~spl0_112)),
+  inference(resolution,[],[f1631,f758])).
+fof(f1631,plain,(
+  ( ! [X35] : (~c0_1(X35) | c1_1(X35)) ) | (~spl0_41 | ~spl0_44)),
+  inference(subsumption_resolution,[],[f404,f392])).
+fof(f392,plain,(
+  ( ! [X31] : (~c2_1(X31) | c1_1(X31) | ~c0_1(X31)) ) | ~spl0_41),
+  inference(avatar_component_clause,[],[f391])).
+fof(f391,plain,(
+  spl0_41 <=> ! [X31] : (~c2_1(X31) | c1_1(X31) | ~c0_1(X31))),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_41])])).
+fof(f1603,plain,(
+  spl0_111 | ~spl0_40 | spl0_110 | ~spl0_112),
+  inference(avatar_split_clause,[],[f1602,f756,f746,f387,f751])).
+fof(f1602,plain,(
+  c1_1(a661) | (~spl0_40 | spl0_110 | ~spl0_112)),
+  inference(subsumption_resolution,[],[f1592,f748])).
+fof(f1592,plain,(
+  c1_1(a661) | c3_1(a661) | (~spl0_40 | ~spl0_112)),
+  inference(resolution,[],[f388,f758])).
+fof(f1509,plain,(
+  ~spl0_38 | spl0_98 | spl0_99 | ~spl0_100),
+  inference(avatar_contradiction_clause,[],[f1508])).
+fof(f1508,plain,(
+  $false | (~spl0_38 | spl0_98 | spl0_99 | ~spl0_100)),
+  inference(subsumption_resolution,[],[f1507,f684])).
+fof(f1507,plain,(
+  c3_1(a675) | (~spl0_38 | spl0_99 | ~spl0_100)),
+  inference(subsumption_resolution,[],[f1488,f689])).
+fof(f689,plain,(
+  ~c1_1(a675) | spl0_99),
+  inference(avatar_component_clause,[],[f687])).
+fof(f1488,plain,(
+  c1_1(a675) | c3_1(a675) | (~spl0_38 | ~spl0_100)),
+  inference(resolution,[],[f381,f694])).
+fof(f1340,plain,(
+  ~spl0_13 | ~spl0_41 | ~spl0_46 | ~spl0_49 | ~spl0_69),
+  inference(avatar_contradiction_clause,[],[f1337])).
+fof(f1337,plain,(
+  $false | (~spl0_13 | ~spl0_41 | ~spl0_46 | ~spl0_49 | ~spl0_69)),
+  inference(resolution,[],[f1325,f529])).
+fof(f1325,plain,(
+  ( ! [X31] : (~c2_1(X31)) ) | (~spl0_13 | ~spl0_41 | ~spl0_46 | ~spl0_49)),
+  inference(subsumption_resolution,[],[f1324,f1279])).
+fof(f1279,plain,(
+  ( ! [X51] : (~c2_1(X51) | c0_1(X51)) ) | (~spl0_46 | ~spl0_49)),
+  inference(subsumption_resolution,[],[f427,f412])).
+fof(f1324,plain,(
+  ( ! [X31] : (~c2_1(X31) | ~c0_1(X31)) ) | (~spl0_13 | ~spl0_41)),
+  inference(subsumption_resolution,[],[f392,f271])).
+fof(f1321,plain,(
+  ~spl0_13 | ~spl0_33 | ~spl0_38 | ~spl0_39 | ~spl0_69 | ~spl0_70),
+  inference(avatar_contradiction_clause,[],[f1320])).
+fof(f1320,plain,(
+  $false | (~spl0_13 | ~spl0_33 | ~spl0_38 | ~spl0_39 | ~spl0_69 | ~spl0_70)),
+  inference(subsumption_resolution,[],[f1306,f1144])).
+fof(f1144,plain,(
+  ~c1_1(a655) | (~spl0_13 | ~spl0_39 | ~spl0_70)),
+  inference(resolution,[],[f1120,f534])).
+fof(f1120,plain,(
+  ( ! [X25] : (~c0_1(X25) | ~c1_1(X25)) ) | (~spl0_13 | ~spl0_39)),
+  inference(subsumption_resolution,[],[f384,f271])).
+fof(f1306,plain,(
+  c1_1(a655) | (~spl0_33 | ~spl0_38 | ~spl0_69)),
+  inference(resolution,[],[f1278,f529])).
+fof(f1278,plain,(
+  ( ! [X19] : (~c2_1(X19) | c1_1(X19)) ) | (~spl0_33 | ~spl0_38)),
+  inference(subsumption_resolution,[],[f359,f381])).
+fof(f1315,plain,(
+  ~spl0_33 | ~spl0_38 | spl0_107 | ~spl0_109),
+  inference(avatar_contradiction_clause,[],[f1314])).
+fof(f1314,plain,(
+  $false | (~spl0_33 | ~spl0_38 | spl0_107 | ~spl0_109)),
+  inference(subsumption_resolution,[],[f1300,f732])).
+fof(f732,plain,(
+  ~c1_1(a665) | spl0_107),
+  inference(avatar_component_clause,[],[f730])).
+fof(f730,plain,(
+  spl0_107 <=> c1_1(a665)),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_107])])).
+fof(f1300,plain,(
+  c1_1(a665) | (~spl0_33 | ~spl0_38 | ~spl0_109)),
+  inference(resolution,[],[f1278,f742])).
+fof(f742,plain,(
+  c2_1(a665) | ~spl0_109),
+  inference(avatar_component_clause,[],[f740])).
+fof(f740,plain,(
+  spl0_109 <=> c2_1(a665)),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_109])])).
+fof(f1313,plain,(
+  ~spl0_33 | ~spl0_38 | spl0_119 | ~spl0_120),
+  inference(avatar_contradiction_clause,[],[f1312])).
+fof(f1312,plain,(
+  $false | (~spl0_33 | ~spl0_38 | spl0_119 | ~spl0_120)),
+  inference(subsumption_resolution,[],[f1299,f796])).
+fof(f796,plain,(
+  ~c1_1(a656) | spl0_119),
+  inference(avatar_component_clause,[],[f794])).
+fof(f794,plain,(
+  spl0_119 <=> c1_1(a656)),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_119])])).
+fof(f1299,plain,(
+  c1_1(a656) | (~spl0_33 | ~spl0_38 | ~spl0_120)),
+  inference(resolution,[],[f1278,f801])).
+fof(f1175,plain,(
+  ~spl0_19 | ~spl0_49 | spl0_98 | ~spl0_100),
+  inference(avatar_contradiction_clause,[],[f1174])).
+fof(f1174,plain,(
+  $false | (~spl0_19 | ~spl0_49 | spl0_98 | ~spl0_100)),
+  inference(subsumption_resolution,[],[f1167,f684])).
+fof(f1167,plain,(
+  c3_1(a675) | (~spl0_19 | ~spl0_49 | ~spl0_100)),
+  inference(resolution,[],[f1124,f694])).
+fof(f1124,plain,(
+  ( ! [X51] : (~c2_1(X51) | c3_1(X51)) ) | (~spl0_19 | ~spl0_49)),
+  inference(subsumption_resolution,[],[f427,f295])).
+fof(f1138,plain,(
+  ~spl0_62 | ~spl0_23 | ~spl0_25 | ~spl0_64),
+  inference(avatar_split_clause,[],[f1133,f500,f321,f312,f490])).
+fof(f490,plain,(
+  spl0_62 <=> c3_1(a688)),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_62])])).
+fof(f500,plain,(
+  spl0_64 <=> c1_1(a688)),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_64])])).
+fof(f1133,plain,(
+  ~c3_1(a688) | (~spl0_23 | ~spl0_25 | ~spl0_64)),
+  inference(resolution,[],[f1119,f502])).
+fof(f502,plain,(
+  c1_1(a688) | ~spl0_64),
+  inference(avatar_component_clause,[],[f500])).
+fof(f1095,plain,(
+  ~spl0_47 | ~spl0_51 | ~spl0_57 | ~spl0_59 | spl0_81),
+  inference(avatar_contradiction_clause,[],[f1094])).
+fof(f1094,plain,(
+  $false | (~spl0_47 | ~spl0_51 | ~spl0_57 | ~spl0_59 | spl0_81)),
+  inference(resolution,[],[f1091,f593])).
+fof(f1091,plain,(
+  ( ! [X72] : (c0_1(X72)) ) | (~spl0_47 | ~spl0_51 | ~spl0_57 | ~spl0_59)),
+  inference(subsumption_resolution,[],[f1090,f1076])).
+fof(f1076,plain,(
+  ( ! [X44] : (c0_1(X44) | ~c1_1(X44)) ) | (~spl0_47 | ~spl0_51 | ~spl0_59)),
+  inference(subsumption_resolution,[],[f418,f970])).
+fof(f970,plain,(
+  ( ! [X52] : (c0_1(X52) | c3_1(X52)) ) | (~spl0_51 | ~spl0_59)),
+  inference(subsumption_resolution,[],[f435,f476])).
+fof(f418,plain,(
+  ( ! [X44] : (~c3_1(X44) | c0_1(X44) | ~c1_1(X44)) ) | ~spl0_47),
+  inference(avatar_component_clause,[],[f417])).
+fof(f417,plain,(
+  spl0_47 <=> ! [X44] : (~c3_1(X44) | c0_1(X44) | ~c1_1(X44))),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_47])])).
+fof(f1090,plain,(
+  ( ! [X72] : (c0_1(X72) | c1_1(X72)) ) | (~spl0_57 | ~spl0_59)),
+  inference(subsumption_resolution,[],[f464,f476])).
+fof(f967,plain,(
+  ~spl0_5 | spl0_151),
+  inference(avatar_split_clause,[],[f8,f964,f233])).
+fof(f233,plain,(
+  spl0_5 <=> hskp0),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_5])])).
+fof(f8,plain,(
+  c2_1(a641) | ~hskp0),
+  inference(cnf_transformation,[],[f6])).
+fof(f6,plain,(
+  (hskp17 | hskp14 | hskp24) & (hskp0 | hskp24 | hskp20) & (hskp19 | hskp22 | hskp2) & (hskp17 | hskp14 | hskp1) & (hskp20 | hskp2 | hskp18) & (hskp7 | hskp1 | hskp18) & (hskp25 | hskp23 | ! [X0] : (~c2_1(X0) | ~c1_1(X0) | ~c0_1(X0) | ~ndr1_0)) & (hskp29 | hskp10 | ! [X1] : (~c2_1(X1) | ~c1_1(X1) | c3_1(X1) | ~ndr1_0)) & (hskp9 | hskp15 | ! [X2] : (~c2_1(X2) | ~c0_1(X2) | c3_1(X2) | ~ndr1_0)) & (hskp20 | hskp12 | ! [X3] : (~c2_1(X3) | ~c0_1(X3) | c3_1(X3) | ~ndr1_0)) & (hskp29 | hskp1 | ! [X4] : (~c2_1(X4) | ~c0_1(X4) | c3_1(X4) | ~ndr1_0)) & (hskp15 | hskp3 | ! [X5] : (~c3_1(X5) | ~c1_1(X5) | c2_1(X5) | ~ndr1_0)) & (hskp24 | hskp2 | ! [X6] : (~c3_1(X6) | ~c1_1(X6) | c2_1(X6) | ~ndr1_0)) & (hskp8 | ! [X7] : (~c3_1(X7) | ~c2_1(X7) | ~c1_1(X7) | ~ndr1_0) | ! [X8] : (~c3_1(X8) | ~c1_1(X8) | c2_1(X8) | ~ndr1_0)) & (hskp23 | hskp5 | ! [X9] : (~c3_1(X9) | ~c0_1(X9) | c2_1(X9) | ~ndr1_0)) & (hskp22 | hskp20 | ! [X10] : (~c3_1(X10) | ~c0_1(X10) | c2_1(X10) | ~ndr1_0)) & (hskp21 | hskp11 | ! [X11] : (~c3_1(X11) | ~c0_1(X11) | c2_1(X11) | ~ndr1_0)) & (hskp5 | hskp29 | ! [X12] : (~c1_1(X12) | c3_1(X12) | c2_1(X12) | ~ndr1_0)) & (hskp5 | hskp20 | ! [X13] : (~c0_1(X13) | c3_1(X13) | c2_1(X13) | ~ndr1_0)) & (hskp19 | hskp8 | ! [X14] : (~c0_1(X14) | c3_1(X14) | c2_1(X14) | ~ndr1_0)) & (hskp11 | ! [X15] : (~c3_1(X15) | ~c2_1(X15) | ~c1_1(X15) | ~ndr1_0) | ! [X16] : (~c0_1(X16) | c3_1(X16) | c2_1(X16) | ~ndr1_0)) & (! [X17] : (~c2_1(X17) | ~c0_1(X17) | c3_1(X17) | ~ndr1_0) | ! [X18] : (~c0_1(X18) | c3_1(X18) | c2_1(X18) | ~ndr1_0)) & (hskp19 | hskp17 | ! [X19] : (~c3_1(X19) | ~c2_1(X19) | c1_1(X19) | ~ndr1_0)) & (hskp7 | hskp17 | ! [X20] : (~c3_1(X20) | ~c2_1(X20) | c1_1(X20) | ~ndr1_0)) & (hskp9 | ! [X21] : (~c1_1(X21) | ~c0_1(X21) | c3_1(X21) | ~ndr1_0) | ! [X22] : (~c3_1(X22) | ~c2_1(X22) | c1_1(X22) | ~ndr1_0)) & (hskp4 | hskp18 | ! [X23] : (~c3_1(X23) | ~c0_1(X23) | c1_1(X23) | ~ndr1_0)) & (hskp17 | hskp28 | ! [X24] : (~c3_1(X24) | ~c0_1(X24) | c1_1(X24) | ~ndr1_0)) & (! [X25] : (~c1_1(X25) | ~c0_1(X25) | c2_1(X25) | ~ndr1_0) | ! [X26] : (~c3_1(X26) | ~c2_1(X26) | c1_1(X26) | ~ndr1_0) | ! [X27] : (~c2_1(X27) | c3_1(X27) | c1_1(X27) | ~ndr1_0)) & (hskp7 | ! [X28] : (~c2_1(X28) | ~c1_1(X28) | ~c0_1(X28) | ~ndr1_0) | ! [X29] : (~c0_1(X29) | c3_1(X29) | c1_1(X29) | ~ndr1_0)) & (! [X30] : (~c2_1(X30) | ~c0_1(X30) | c3_1(X30) | ~ndr1_0) | ! [X31] : (~c2_1(X31) | ~c0_1(X31) | c1_1(X31) | ~ndr1_0) | ! [X32] : (~c0_1(X32) | c3_1(X32) | c1_1(X32) | ~ndr1_0)) & (hskp16 | hskp28 | ! [X33] : (~c3_1(X33) | c2_1(X33) | c1_1(X33) | ~ndr1_0)) & (hskp12 | ! [X34] : (~c0_1(X34) | c3_1(X34) | c1_1(X34) | ~ndr1_0) | ! [X35] : (~c0_1(X35) | c2_1(X35) | c1_1(X35) | ~ndr1_0)) & (hskp4 | ! [X36] : (~c3_1(X36) | c2_1(X36) | c1_1(X36) | ~ndr1_0) | ! [X37] : (c3_1(X37) | c2_1(X37) | c1_1(X37) | ~ndr1_0)) & (hskp9 | hskp15 | ! [X38] : (~c3_1(X38) | ~c2_1(X38) | c0_1(X38) | ~ndr1_0)) & (hskp4 | hskp14 | ! [X39] : (~c3_1(X39) | ~c2_1(X39) | c0_1(X39) | ~ndr1_0)) & (hskp7 | ! [X40] : (~c0_1(X40) | c3_1(X40) | c1_1(X40) | ~ndr1_0) | ! [X41] : (~c3_1(X41) | ~c2_1(X41) | c0_1(X41) | ~ndr1_0)) & (! [X42] : (~c1_1(X42) | ~c0_1(X42) | c2_1(X42) | ~ndr1_0) | ! [X43] : (~c0_1(X43) | c3_1(X43) | c1_1(X43) | ~ndr1_0) | ! [X44] : (~c3_1(X44) | ~c1_1(X44) | c0_1(X44) | ~ndr1_0)) & (! [X45] : (~c3_1(X45) | ~c2_1(X45) | ~c1_1(X45) | ~ndr1_0) | ! [X46] : (~c3_1(X46) | ~c2_1(X46) | c1_1(X46) | ~ndr1_0) | ! [X47] : (~c2_1(X47) | ~c1_1(X47) | c0_1(X47) | ~ndr1_0)) & (! [X48] : (~c2_1(X48) | ~c1_1(X48) | ~c0_1(X48) | ~ndr1_0) | ! [X49] : (~c3_1(X49) | ~c2_1(X49) | c1_1(X49) | ~ndr1_0) | ! [X50] : (~c2_1(X50) | ~c1_1(X50) | c0_1(X50) | ~ndr1_0)) & (hskp3 | hskp6 | ! [X51] : (~c2_1(X51) | c3_1(X51) | c0_1(X51) | ~ndr1_0)) & (hskp13 | hskp12 | ! [X52] : (~c1_1(X52) | c3_1(X52) | c0_1(X52) | ~ndr1_0)) & (hskp6 | ! [X53] : (~c3_1(X53) | ~c1_1(X53) | c2_1(X53) | ~ndr1_0) | ! [X54] : (~c1_1(X54) | c3_1(X54) | c0_1(X54) | ~ndr1_0)) & (hskp27 | ! [X55] : (~c3_1(X55) | ~c2_1(X55) | c1_1(X55) | ~ndr1_0) | ! [X56] : (~c1_1(X56) | c3_1(X56) | c0_1(X56) | ~ndr1_0)) & (hskp11 | ! [X57] : (~c3_1(X57) | ~c1_1(X57) | c0_1(X57) | ~ndr1_0) | ! [X58] : (~c1_1(X58) | c3_1(X58) | c0_1(X58) | ~ndr1_0)) & (! [X59] : (~c0_1(X59) | c2_1(X59) | c1_1(X59) | ~ndr1_0) | ! [X60] : (~c2_1(X60) | ~c1_1(X60) | c0_1(X60) | ~ndr1_0) | ! [X61] : (~c1_1(X61) | c3_1(X61) | c0_1(X61) | ~ndr1_0)) & (hskp10 | ! [X62] : (~c1_1(X62) | ~c0_1(X62) | c2_1(X62) | ~ndr1_0) | ! [X63] : (~c3_1(X63) | c2_1(X63) | c0_1(X63) | ~ndr1_0)) & (hskp27 | ! [X64] : (~c3_1(X64) | c2_1(X64) | c1_1(X64) | ~ndr1_0) | ! [X65] : (~c3_1(X65) | c2_1(X65) | c0_1(X65) | ~ndr1_0)) & (hskp9 | ! [X66] : (~c2_1(X66) | c3_1(X66) | c1_1(X66) | ~ndr1_0) | ! [X67] : (c3_1(X67) | c2_1(X67) | c0_1(X67) | ~ndr1_0)) & (! [X68] : (~c3_1(X68) | ~c1_1(X68) | ~c0_1(X68) | ~ndr1_0) | ! [X69] : (c3_1(X69) | c2_1(X69) | c1_1(X69) | ~ndr1_0) | ! [X70] : (c3_1(X70) | c2_1(X70) | c0_1(X70) | ~ndr1_0)) & (hskp3 | ! [X71] : (~c3_1(X71) | ~c2_1(X71) | ~c1_1(X71) | ~ndr1_0) | ! [X72] : (~c3_1(X72) | c1_1(X72) | c0_1(X72) | ~ndr1_0)) & (hskp8 | ! [X73] : (~c2_1(X73) | ~c1_1(X73) | ~c0_1(X73) | ~ndr1_0) | ! [X74] : (~c3_1(X74) | c1_1(X74) | c0_1(X74) | ~ndr1_0)) & (hskp7 | ! [X75] : (~c3_1(X75) | ~c0_1(X75) | c2_1(X75) | ~ndr1_0) | ! [X76] : (~c3_1(X76) | c1_1(X76) | c0_1(X76) | ~ndr1_0)) & (hskp2 | ! [X77] : (~c1_1(X77) | c3_1(X77) | c2_1(X77) | ~ndr1_0) | ! [X78] : (~c3_1(X78) | c1_1(X78) | c0_1(X78) | ~ndr1_0)) & (hskp2 | hskp6 | ! [X79] : (~c2_1(X79) | c1_1(X79) | c0_1(X79) | ~ndr1_0)) & (hskp5 | ! [X80] : (~c2_1(X80) | c3_1(X80) | c1_1(X80) | ~ndr1_0) | ! [X81] : (~c2_1(X81) | c1_1(X81) | c0_1(X81) | ~ndr1_0)) & (hskp4 | hskp3 | ! [X82] : (c3_1(X82) | c1_1(X82) | c0_1(X82) | ~ndr1_0)) & (hskp0 | hskp2 | ! [X83] : (c3_1(X83) | c1_1(X83) | c0_1(X83) | ~ndr1_0)) & (hskp1 | ! [X84] : (~c3_1(X84) | ~c2_1(X84) | c0_1(X84) | ~ndr1_0) | ! [X85] : (c3_1(X85) | c1_1(X85) | c0_1(X85) | ~ndr1_0)) & (! [X86] : (~c1_1(X86) | ~c0_1(X86) | c2_1(X86) | ~ndr1_0) | ! [X87] : (~c2_1(X87) | c1_1(X87) | c0_1(X87) | ~ndr1_0) | ! [X88] : (c3_1(X88) | c1_1(X88) | c0_1(X88) | ~ndr1_0)) & (hskp0 | hskp26 | ! [X89] : (c2_1(X89) | c1_1(X89) | c0_1(X89) | ~ndr1_0)) & ((c3_1(a688) & c2_1(a688) & c1_1(a688) & ndr1_0) | ~hskp29) & ((c2_1(a671) & c1_1(a671) & c0_1(a671) & ndr1_0) | ~hskp28) & ((c3_1(a655) & c2_1(a655) & c0_1(a655) & ndr1_0) | ~hskp27) & ((c3_1(a640) & c1_1(a640) & c0_1(a640) & ndr1_0) | ~hskp26) & ((~c3_1(a710) & ~c2_1(a710) & ~c0_1(a710) & ndr1_0) | ~hskp25) & ((~c2_1(a698) & ~c0_1(a698) & c1_1(a698) & ndr1_0) | ~hskp24) & ((~c3_1(a695) & ~c0_1(a695) & c2_1(a695) & ndr1_0) | ~hskp23) & ((~c0_1(a693) & c3_1(a693) & c2_1(a693) & ndr1_0) | ~hskp22) & ((~c3_1(a691) & ~c1_1(a691) & ~c0_1(a691) & ndr1_0) | ~hskp21) & ((~c3_1(a686) & c2_1(a686) & c1_1(a686) & ndr1_0) | ~hskp20) & ((~c2_1(a682) & ~c1_1(a682) & c3_1(a682) & ndr1_0) | ~hskp19) & ((~c2_1(a676) & c1_1(a676) & c0_1(a676) & ndr1_0) | ~hskp18) & ((~c3_1(a675) & ~c1_1(a675) & c2_1(a675) & ndr1_0) | ~hskp17) & ((~c3_1(a672) & ~c2_1(a672) & c1_1(a672) & ndr1_0) | ~hskp16) & ((~c2_1(a667) & ~c0_1(a667) & c3_1(a667) & ndr1_0) | ~hskp15) & ((~c1_1(a665) & ~c0_1(a665) & c2_1(a665) & ndr1_0) | ~hskp14) & ((~c3_1(a661) & ~c1_1(a661) & c0_1(a661) & ndr1_0) | ~hskp13) & ((~c2_1(a660) & ~c1_1(a660) & c0_1(a660) & ndr1_0) | ~hskp12) & ((~c3_1(a657) & c2_1(a657) & c0_1(a657) & ndr1_0) | ~hskp11) & ((~c1_1(a656) & c2_1(a656) & c0_1(a656) & ndr1_0) | ~hskp10) & ((~c2_1(a654) & ~c1_1(a654) & ~c0_1(a654) & ndr1_0) | ~hskp9) & ((~c2_1(a652) & c3_1(a652) & c0_1(a652) & ndr1_0) | ~hskp8) & ((~c1_1(a651) & ~c0_1(a651) & c3_1(a651) & ndr1_0) | ~hskp7) & ((~c3_1(a648) & ~c2_1(a648) & c0_1(a648) & ndr1_0) | ~hskp6) & ((~c3_1(a647) & ~c0_1(a647) & c1_1(a647) & ndr1_0) | ~hskp5) & ((~c3_1(a646) & ~c2_1(a646) & ~c1_1(a646) & ndr1_0) | ~hskp4) & ((~c2_1(a645) & c3_1(a645) & c1_1(a645) & ndr1_0) | ~hskp3) & ((~c0_1(a643) & c2_1(a643) & c1_1(a643) & ndr1_0) | ~hskp2) & ((~c1_1(a642) & c3_1(a642) & c0_1(a642) & ndr1_0) | ~hskp1) & ((~c1_1(a641) & c3_1(a641) & c2_1(a641) & ndr1_0) | ~hskp0)),
+  inference(flattening,[],[f5])).
+fof(f5,plain,(
+  (hskp17 | hskp14 | hskp24) & (hskp0 | hskp24 | hskp20) & (hskp19 | hskp22 | hskp2) & (hskp17 | hskp14 | hskp1) & (hskp20 | hskp2 | hskp18) & (hskp7 | hskp1 | hskp18) & (hskp25 | hskp23 | ! [X0] : ((~c2_1(X0) | ~c1_1(X0) | ~c0_1(X0)) | ~ndr1_0)) & (hskp29 | hskp10 | ! [X1] : ((~c2_1(X1) | ~c1_1(X1) | c3_1(X1)) | ~ndr1_0)) & (hskp9 | hskp15 | ! [X2] : ((~c2_1(X2) | ~c0_1(X2) | c3_1(X2)) | ~ndr1_0)) & (hskp20 | hskp12 | ! [X3] : ((~c2_1(X3) | ~c0_1(X3) | c3_1(X3)) | ~ndr1_0)) & (hskp29 | hskp1 | ! [X4] : ((~c2_1(X4) | ~c0_1(X4) | c3_1(X4)) | ~ndr1_0)) & (hskp15 | hskp3 | ! [X5] : ((~c3_1(X5) | ~c1_1(X5) | c2_1(X5)) | ~ndr1_0)) & (hskp24 | hskp2 | ! [X6] : ((~c3_1(X6) | ~c1_1(X6) | c2_1(X6)) | ~ndr1_0)) & (hskp8 | ! [X7] : ((~c3_1(X7) | ~c2_1(X7) | ~c1_1(X7)) | ~ndr1_0) | ! [X8] : ((~c3_1(X8) | ~c1_1(X8) | c2_1(X8)) | ~ndr1_0)) & (hskp23 | hskp5 | ! [X9] : ((~c3_1(X9) | ~c0_1(X9) | c2_1(X9)) | ~ndr1_0)) & (hskp22 | hskp20 | ! [X10] : ((~c3_1(X10) | ~c0_1(X10) | c2_1(X10)) | ~ndr1_0)) & (hskp21 | hskp11 | ! [X11] : ((~c3_1(X11) | ~c0_1(X11) | c2_1(X11)) | ~ndr1_0)) & (hskp5 | hskp29 | ! [X12] : ((~c1_1(X12) | c3_1(X12) | c2_1(X12)) | ~ndr1_0)) & (hskp5 | hskp20 | ! [X13] : ((~c0_1(X13) | c3_1(X13) | c2_1(X13)) | ~ndr1_0)) & (hskp19 | hskp8 | ! [X14] : ((~c0_1(X14) | c3_1(X14) | c2_1(X14)) | ~ndr1_0)) & (hskp11 | ! [X15] : ((~c3_1(X15) | ~c2_1(X15) | ~c1_1(X15)) | ~ndr1_0) | ! [X16] : ((~c0_1(X16) | c3_1(X16) | c2_1(X16)) | ~ndr1_0)) & (! [X17] : ((~c2_1(X17) | ~c0_1(X17) | c3_1(X17)) | ~ndr1_0) | ! [X18] : ((~c0_1(X18) | c3_1(X18) | c2_1(X18)) | ~ndr1_0)) & (hskp19 | hskp17 | ! [X19] : ((~c3_1(X19) | ~c2_1(X19) | c1_1(X19)) | ~ndr1_0)) & (hskp7 | hskp17 | ! [X20] : ((~c3_1(X20) | ~c2_1(X20) | c1_1(X20)) | ~ndr1_0)) & (hskp9 | ! [X21] : ((~c1_1(X21) | ~c0_1(X21) | c3_1(X21)) | ~ndr1_0) | ! [X22] : ((~c3_1(X22) | ~c2_1(X22) | c1_1(X22)) | ~ndr1_0)) & (hskp4 | hskp18 | ! [X23] : ((~c3_1(X23) | ~c0_1(X23) | c1_1(X23)) | ~ndr1_0)) & (hskp17 | hskp28 | ! [X24] : ((~c3_1(X24) | ~c0_1(X24) | c1_1(X24)) | ~ndr1_0)) & (! [X25] : ((~c1_1(X25) | ~c0_1(X25) | c2_1(X25)) | ~ndr1_0) | ! [X26] : ((~c3_1(X26) | ~c2_1(X26) | c1_1(X26)) | ~ndr1_0) | ! [X27] : ((~c2_1(X27) | c3_1(X27) | c1_1(X27)) | ~ndr1_0)) & (hskp7 | ! [X28] : ((~c2_1(X28) | ~c1_1(X28) | ~c0_1(X28)) | ~ndr1_0) | ! [X29] : ((~c0_1(X29) | c3_1(X29) | c1_1(X29)) | ~ndr1_0)) & (! [X30] : ((~c2_1(X30) | ~c0_1(X30) | c3_1(X30)) | ~ndr1_0) | ! [X31] : ((~c2_1(X31) | ~c0_1(X31) | c1_1(X31)) | ~ndr1_0) | ! [X32] : ((~c0_1(X32) | c3_1(X32) | c1_1(X32)) | ~ndr1_0)) & (hskp16 | hskp28 | ! [X33] : ((~c3_1(X33) | c2_1(X33) | c1_1(X33)) | ~ndr1_0)) & (hskp12 | ! [X34] : ((~c0_1(X34) | c3_1(X34) | c1_1(X34)) | ~ndr1_0) | ! [X35] : ((~c0_1(X35) | c2_1(X35) | c1_1(X35)) | ~ndr1_0)) & (hskp4 | ! [X36] : ((~c3_1(X36) | c2_1(X36) | c1_1(X36)) | ~ndr1_0) | ! [X37] : ((c3_1(X37) | c2_1(X37) | c1_1(X37)) | ~ndr1_0)) & (hskp9 | hskp15 | ! [X38] : ((~c3_1(X38) | ~c2_1(X38) | c0_1(X38)) | ~ndr1_0)) & (hskp4 | hskp14 | ! [X39] : ((~c3_1(X39) | ~c2_1(X39) | c0_1(X39)) | ~ndr1_0)) & (hskp7 | ! [X40] : ((~c0_1(X40) | c3_1(X40) | c1_1(X40)) | ~ndr1_0) | ! [X41] : ((~c3_1(X41) | ~c2_1(X41) | c0_1(X41)) | ~ndr1_0)) & (! [X42] : ((~c1_1(X42) | ~c0_1(X42) | c2_1(X42)) | ~ndr1_0) | ! [X43] : ((~c0_1(X43) | c3_1(X43) | c1_1(X43)) | ~ndr1_0) | ! [X44] : ((~c3_1(X44) | ~c1_1(X44) | c0_1(X44)) | ~ndr1_0)) & (! [X45] : ((~c3_1(X45) | ~c2_1(X45) | ~c1_1(X45)) | ~ndr1_0) | ! [X46] : ((~c3_1(X46) | ~c2_1(X46) | c1_1(X46)) | ~ndr1_0) | ! [X47] : ((~c2_1(X47) | ~c1_1(X47) | c0_1(X47)) | ~ndr1_0)) & (! [X48] : ((~c2_1(X48) | ~c1_1(X48) | ~c0_1(X48)) | ~ndr1_0) | ! [X49] : ((~c3_1(X49) | ~c2_1(X49) | c1_1(X49)) | ~ndr1_0) | ! [X50] : ((~c2_1(X50) | ~c1_1(X50) | c0_1(X50)) | ~ndr1_0)) & (hskp3 | hskp6 | ! [X51] : ((~c2_1(X51) | c3_1(X51) | c0_1(X51)) | ~ndr1_0)) & (hskp13 | hskp12 | ! [X52] : ((~c1_1(X52) | c3_1(X52) | c0_1(X52)) | ~ndr1_0)) & (hskp6 | ! [X53] : ((~c3_1(X53) | ~c1_1(X53) | c2_1(X53)) | ~ndr1_0) | ! [X54] : ((~c1_1(X54) | c3_1(X54) | c0_1(X54)) | ~ndr1_0)) & (hskp27 | ! [X55] : ((~c3_1(X55) | ~c2_1(X55) | c1_1(X55)) | ~ndr1_0) | ! [X56] : ((~c1_1(X56) | c3_1(X56) | c0_1(X56)) | ~ndr1_0)) & (hskp11 | ! [X57] : ((~c3_1(X57) | ~c1_1(X57) | c0_1(X57)) | ~ndr1_0) | ! [X58] : ((~c1_1(X58) | c3_1(X58) | c0_1(X58)) | ~ndr1_0)) & (! [X59] : ((~c0_1(X59) | c2_1(X59) | c1_1(X59)) | ~ndr1_0) | ! [X60] : ((~c2_1(X60) | ~c1_1(X60) | c0_1(X60)) | ~ndr1_0) | ! [X61] : ((~c1_1(X61) | c3_1(X61) | c0_1(X61)) | ~ndr1_0)) & (hskp10 | ! [X62] : ((~c1_1(X62) | ~c0_1(X62) | c2_1(X62)) | ~ndr1_0) | ! [X63] : ((~c3_1(X63) | c2_1(X63) | c0_1(X63)) | ~ndr1_0)) & (hskp27 | ! [X64] : ((~c3_1(X64) | c2_1(X64) | c1_1(X64)) | ~ndr1_0) | ! [X65] : ((~c3_1(X65) | c2_1(X65) | c0_1(X65)) | ~ndr1_0)) & (hskp9 | ! [X66] : ((~c2_1(X66) | c3_1(X66) | c1_1(X66)) | ~ndr1_0) | ! [X67] : ((c3_1(X67) | c2_1(X67) | c0_1(X67)) | ~ndr1_0)) & (! [X68] : ((~c3_1(X68) | ~c1_1(X68) | ~c0_1(X68)) | ~ndr1_0) | ! [X69] : ((c3_1(X69) | c2_1(X69) | c1_1(X69)) | ~ndr1_0) | ! [X70] : ((c3_1(X70) | c2_1(X70) | c0_1(X70)) | ~ndr1_0)) & (hskp3 | ! [X71] : ((~c3_1(X71) | ~c2_1(X71) | ~c1_1(X71)) | ~ndr1_0) | ! [X72] : ((~c3_1(X72) | c1_1(X72) | c0_1(X72)) | ~ndr1_0)) & (hskp8 | ! [X73] : ((~c2_1(X73) | ~c1_1(X73) | ~c0_1(X73)) | ~ndr1_0) | ! [X74] : ((~c3_1(X74) | c1_1(X74) | c0_1(X74)) | ~ndr1_0)) & (hskp7 | ! [X75] : ((~c3_1(X75) | ~c0_1(X75) | c2_1(X75)) | ~ndr1_0) | ! [X76] : ((~c3_1(X76) | c1_1(X76) | c0_1(X76)) | ~ndr1_0)) & (hskp2 | ! [X77] : ((~c1_1(X77) | c3_1(X77) | c2_1(X77)) | ~ndr1_0) | ! [X78] : ((~c3_1(X78) | c1_1(X78) | c0_1(X78)) | ~ndr1_0)) & (hskp2 | hskp6 | ! [X79] : ((~c2_1(X79) | c1_1(X79) | c0_1(X79)) | ~ndr1_0)) & (hskp5 | ! [X80] : ((~c2_1(X80) | c3_1(X80) | c1_1(X80)) | ~ndr1_0) | ! [X81] : ((~c2_1(X81) | c1_1(X81) | c0_1(X81)) | ~ndr1_0)) & (hskp4 | hskp3 | ! [X82] : ((c3_1(X82) | c1_1(X82) | c0_1(X82)) | ~ndr1_0)) & (hskp0 | hskp2 | ! [X83] : ((c3_1(X83) | c1_1(X83) | c0_1(X83)) | ~ndr1_0)) & (hskp1 | ! [X84] : ((~c3_1(X84) | ~c2_1(X84) | c0_1(X84)) | ~ndr1_0) | ! [X85] : ((c3_1(X85) | c1_1(X85) | c0_1(X85)) | ~ndr1_0)) & (! [X86] : ((~c1_1(X86) | ~c0_1(X86) | c2_1(X86)) | ~ndr1_0) | ! [X87] : ((~c2_1(X87) | c1_1(X87) | c0_1(X87)) | ~ndr1_0) | ! [X88] : ((c3_1(X88) | c1_1(X88) | c0_1(X88)) | ~ndr1_0)) & (hskp0 | hskp26 | ! [X89] : ((c2_1(X89) | c1_1(X89) | c0_1(X89)) | ~ndr1_0)) & ((c3_1(a688) & c2_1(a688) & c1_1(a688) & ndr1_0) | ~hskp29) & ((c2_1(a671) & c1_1(a671) & c0_1(a671) & ndr1_0) | ~hskp28) & ((c3_1(a655) & c2_1(a655) & c0_1(a655) & ndr1_0) | ~hskp27) & ((c3_1(a640) & c1_1(a640) & c0_1(a640) & ndr1_0) | ~hskp26) & ((~c3_1(a710) & ~c2_1(a710) & ~c0_1(a710) & ndr1_0) | ~hskp25) & ((~c2_1(a698) & ~c0_1(a698) & c1_1(a698) & ndr1_0) | ~hskp24) & ((~c3_1(a695) & ~c0_1(a695) & c2_1(a695) & ndr1_0) | ~hskp23) & ((~c0_1(a693) & c3_1(a693) & c2_1(a693) & ndr1_0) | ~hskp22) & ((~c3_1(a691) & ~c1_1(a691) & ~c0_1(a691) & ndr1_0) | ~hskp21) & ((~c3_1(a686) & c2_1(a686) & c1_1(a686) & ndr1_0) | ~hskp20) & ((~c2_1(a682) & ~c1_1(a682) & c3_1(a682) & ndr1_0) | ~hskp19) & ((~c2_1(a676) & c1_1(a676) & c0_1(a676) & ndr1_0) | ~hskp18) & ((~c3_1(a675) & ~c1_1(a675) & c2_1(a675) & ndr1_0) | ~hskp17) & ((~c3_1(a672) & ~c2_1(a672) & c1_1(a672) & ndr1_0) | ~hskp16) & ((~c2_1(a667) & ~c0_1(a667) & c3_1(a667) & ndr1_0) | ~hskp15) & ((~c1_1(a665) & ~c0_1(a665) & c2_1(a665) & ndr1_0) | ~hskp14) & ((~c3_1(a661) & ~c1_1(a661) & c0_1(a661) & ndr1_0) | ~hskp13) & ((~c2_1(a660) & ~c1_1(a660) & c0_1(a660) & ndr1_0) | ~hskp12) & ((~c3_1(a657) & c2_1(a657) & c0_1(a657) & ndr1_0) | ~hskp11) & ((~c1_1(a656) & c2_1(a656) & c0_1(a656) & ndr1_0) | ~hskp10) & ((~c2_1(a654) & ~c1_1(a654) & ~c0_1(a654) & ndr1_0) | ~hskp9) & ((~c2_1(a652) & c3_1(a652) & c0_1(a652) & ndr1_0) | ~hskp8) & ((~c1_1(a651) & ~c0_1(a651) & c3_1(a651) & ndr1_0) | ~hskp7) & ((~c3_1(a648) & ~c2_1(a648) & c0_1(a648) & ndr1_0) | ~hskp6) & ((~c3_1(a647) & ~c0_1(a647) & c1_1(a647) & ndr1_0) | ~hskp5) & ((~c3_1(a646) & ~c2_1(a646) & ~c1_1(a646) & ndr1_0) | ~hskp4) & ((~c2_1(a645) & c3_1(a645) & c1_1(a645) & ndr1_0) | ~hskp3) & ((~c0_1(a643) & c2_1(a643) & c1_1(a643) & ndr1_0) | ~hskp2) & ((~c1_1(a642) & c3_1(a642) & c0_1(a642) & ndr1_0) | ~hskp1) & ((~c1_1(a641) & c3_1(a641) & c2_1(a641) & ndr1_0) | ~hskp0)),
+  inference(ennf_transformation,[],[f4])).
+fof(f4,plain,(
+  (hskp17 | hskp14 | hskp24) & (hskp0 | hskp24 | hskp20) & (hskp19 | hskp22 | hskp2) & (hskp17 | hskp14 | hskp1) & (hskp20 | hskp2 | hskp18) & (hskp7 | hskp1 | hskp18) & (hskp25 | hskp23 | ! [X0] : (ndr1_0 => (~c2_1(X0) | ~c1_1(X0) | ~c0_1(X0)))) & (hskp29 | hskp10 | ! [X1] : (ndr1_0 => (~c2_1(X1) | ~c1_1(X1) | c3_1(X1)))) & (hskp9 | hskp15 | ! [X2] : (ndr1_0 => (~c2_1(X2) | ~c0_1(X2) | c3_1(X2)))) & (hskp20 | hskp12 | ! [X3] : (ndr1_0 => (~c2_1(X3) | ~c0_1(X3) | c3_1(X3)))) & (hskp29 | hskp1 | ! [X4] : (ndr1_0 => (~c2_1(X4) | ~c0_1(X4) | c3_1(X4)))) & (hskp15 | hskp3 | ! [X5] : (ndr1_0 => (~c3_1(X5) | ~c1_1(X5) | c2_1(X5)))) & (hskp24 | hskp2 | ! [X6] : (ndr1_0 => (~c3_1(X6) | ~c1_1(X6) | c2_1(X6)))) & (hskp8 | ! [X7] : (ndr1_0 => (~c3_1(X7) | ~c2_1(X7) | ~c1_1(X7))) | ! [X8] : (ndr1_0 => (~c3_1(X8) | ~c1_1(X8) | c2_1(X8)))) & (hskp23 | hskp5 | ! [X9] : (ndr1_0 => (~c3_1(X9) | ~c0_1(X9) | c2_1(X9)))) & (hskp22 | hskp20 | ! [X10] : (ndr1_0 => (~c3_1(X10) | ~c0_1(X10) | c2_1(X10)))) & (hskp21 | hskp11 | ! [X11] : (ndr1_0 => (~c3_1(X11) | ~c0_1(X11) | c2_1(X11)))) & (hskp5 | hskp29 | ! [X12] : (ndr1_0 => (~c1_1(X12) | c3_1(X12) | c2_1(X12)))) & (hskp5 | hskp20 | ! [X13] : (ndr1_0 => (~c0_1(X13) | c3_1(X13) | c2_1(X13)))) & (hskp19 | hskp8 | ! [X14] : (ndr1_0 => (~c0_1(X14) | c3_1(X14) | c2_1(X14)))) & (hskp11 | ! [X15] : (ndr1_0 => (~c3_1(X15) | ~c2_1(X15) | ~c1_1(X15))) | ! [X16] : (ndr1_0 => (~c0_1(X16) | c3_1(X16) | c2_1(X16)))) & (! [X17] : (ndr1_0 => (~c2_1(X17) | ~c0_1(X17) | c3_1(X17))) | ! [X18] : (ndr1_0 => (~c0_1(X18) | c3_1(X18) | c2_1(X18)))) & (hskp19 | hskp17 | ! [X19] : (ndr1_0 => (~c3_1(X19) | ~c2_1(X19) | c1_1(X19)))) & (hskp7 | hskp17 | ! [X20] : (ndr1_0 => (~c3_1(X20) | ~c2_1(X20) | c1_1(X20)))) & (hskp9 | ! [X21] : (ndr1_0 => (~c1_1(X21) | ~c0_1(X21) | c3_1(X21))) | ! [X22] : (ndr1_0 => (~c3_1(X22) | ~c2_1(X22) | c1_1(X22)))) & (hskp4 | hskp18 | ! [X23] : (ndr1_0 => (~c3_1(X23) | ~c0_1(X23) | c1_1(X23)))) & (hskp17 | hskp28 | ! [X24] : (ndr1_0 => (~c3_1(X24) | ~c0_1(X24) | c1_1(X24)))) & (! [X25] : (ndr1_0 => (~c1_1(X25) | ~c0_1(X25) | c2_1(X25))) | ! [X26] : (ndr1_0 => (~c3_1(X26) | ~c2_1(X26) | c1_1(X26))) | ! [X27] : (ndr1_0 => (~c2_1(X27) | c3_1(X27) | c1_1(X27)))) & (hskp7 | ! [X28] : (ndr1_0 => (~c2_1(X28) | ~c1_1(X28) | ~c0_1(X28))) | ! [X29] : (ndr1_0 => (~c0_1(X29) | c3_1(X29) | c1_1(X29)))) & (! [X30] : (ndr1_0 => (~c2_1(X30) | ~c0_1(X30) | c3_1(X30))) | ! [X31] : (ndr1_0 => (~c2_1(X31) | ~c0_1(X31) | c1_1(X31))) | ! [X32] : (ndr1_0 => (~c0_1(X32) | c3_1(X32) | c1_1(X32)))) & (hskp16 | hskp28 | ! [X33] : (ndr1_0 => (~c3_1(X33) | c2_1(X33) | c1_1(X33)))) & (hskp12 | ! [X34] : (ndr1_0 => (~c0_1(X34) | c3_1(X34) | c1_1(X34))) | ! [X35] : (ndr1_0 => (~c0_1(X35) | c2_1(X35) | c1_1(X35)))) & (hskp4 | ! [X36] : (ndr1_0 => (~c3_1(X36) | c2_1(X36) | c1_1(X36))) | ! [X37] : (ndr1_0 => (c3_1(X37) | c2_1(X37) | c1_1(X37)))) & (hskp9 | hskp15 | ! [X38] : (ndr1_0 => (~c3_1(X38) | ~c2_1(X38) | c0_1(X38)))) & (hskp4 | hskp14 | ! [X39] : (ndr1_0 => (~c3_1(X39) | ~c2_1(X39) | c0_1(X39)))) & (hskp7 | ! [X40] : (ndr1_0 => (~c0_1(X40) | c3_1(X40) | c1_1(X40))) | ! [X41] : (ndr1_0 => (~c3_1(X41) | ~c2_1(X41) | c0_1(X41)))) & (! [X42] : (ndr1_0 => (~c1_1(X42) | ~c0_1(X42) | c2_1(X42))) | ! [X43] : (ndr1_0 => (~c0_1(X43) | c3_1(X43) | c1_1(X43))) | ! [X44] : (ndr1_0 => (~c3_1(X44) | ~c1_1(X44) | c0_1(X44)))) & (! [X45] : (ndr1_0 => (~c3_1(X45) | ~c2_1(X45) | ~c1_1(X45))) | ! [X46] : (ndr1_0 => (~c3_1(X46) | ~c2_1(X46) | c1_1(X46))) | ! [X47] : (ndr1_0 => (~c2_1(X47) | ~c1_1(X47) | c0_1(X47)))) & (! [X48] : (ndr1_0 => (~c2_1(X48) | ~c1_1(X48) | ~c0_1(X48))) | ! [X49] : (ndr1_0 => (~c3_1(X49) | ~c2_1(X49) | c1_1(X49))) | ! [X50] : (ndr1_0 => (~c2_1(X50) | ~c1_1(X50) | c0_1(X50)))) & (hskp3 | hskp6 | ! [X51] : (ndr1_0 => (~c2_1(X51) | c3_1(X51) | c0_1(X51)))) & (hskp13 | hskp12 | ! [X52] : (ndr1_0 => (~c1_1(X52) | c3_1(X52) | c0_1(X52)))) & (hskp6 | ! [X53] : (ndr1_0 => (~c3_1(X53) | ~c1_1(X53) | c2_1(X53))) | ! [X54] : (ndr1_0 => (~c1_1(X54) | c3_1(X54) | c0_1(X54)))) & (hskp27 | ! [X55] : (ndr1_0 => (~c3_1(X55) | ~c2_1(X55) | c1_1(X55))) | ! [X56] : (ndr1_0 => (~c1_1(X56) | c3_1(X56) | c0_1(X56)))) & (hskp11 | ! [X57] : (ndr1_0 => (~c3_1(X57) | ~c1_1(X57) | c0_1(X57))) | ! [X58] : (ndr1_0 => (~c1_1(X58) | c3_1(X58) | c0_1(X58)))) & (! [X59] : (ndr1_0 => (~c0_1(X59) | c2_1(X59) | c1_1(X59))) | ! [X60] : (ndr1_0 => (~c2_1(X60) | ~c1_1(X60) | c0_1(X60))) | ! [X61] : (ndr1_0 => (~c1_1(X61) | c3_1(X61) | c0_1(X61)))) & (hskp10 | ! [X62] : (ndr1_0 => (~c1_1(X62) | ~c0_1(X62) | c2_1(X62))) | ! [X63] : (ndr1_0 => (~c3_1(X63) | c2_1(X63) | c0_1(X63)))) & (hskp27 | ! [X64] : (ndr1_0 => (~c3_1(X64) | c2_1(X64) | c1_1(X64))) | ! [X65] : (ndr1_0 => (~c3_1(X65) | c2_1(X65) | c0_1(X65)))) & (hskp9 | ! [X66] : (ndr1_0 => (~c2_1(X66) | c3_1(X66) | c1_1(X66))) | ! [X67] : (ndr1_0 => (c3_1(X67) | c2_1(X67) | c0_1(X67)))) & (! [X68] : (ndr1_0 => (~c3_1(X68) | ~c1_1(X68) | ~c0_1(X68))) | ! [X69] : (ndr1_0 => (c3_1(X69) | c2_1(X69) | c1_1(X69))) | ! [X70] : (ndr1_0 => (c3_1(X70) | c2_1(X70) | c0_1(X70)))) & (hskp3 | ! [X71] : (ndr1_0 => (~c3_1(X71) | ~c2_1(X71) | ~c1_1(X71))) | ! [X72] : (ndr1_0 => (~c3_1(X72) | c1_1(X72) | c0_1(X72)))) & (hskp8 | ! [X73] : (ndr1_0 => (~c2_1(X73) | ~c1_1(X73) | ~c0_1(X73))) | ! [X74] : (ndr1_0 => (~c3_1(X74) | c1_1(X74) | c0_1(X74)))) & (hskp7 | ! [X75] : (ndr1_0 => (~c3_1(X75) | ~c0_1(X75) | c2_1(X75))) | ! [X76] : (ndr1_0 => (~c3_1(X76) | c1_1(X76) | c0_1(X76)))) & (hskp2 | ! [X77] : (ndr1_0 => (~c1_1(X77) | c3_1(X77) | c2_1(X77))) | ! [X78] : (ndr1_0 => (~c3_1(X78) | c1_1(X78) | c0_1(X78)))) & (hskp2 | hskp6 | ! [X79] : (ndr1_0 => (~c2_1(X79) | c1_1(X79) | c0_1(X79)))) & (hskp5 | ! [X80] : (ndr1_0 => (~c2_1(X80) | c3_1(X80) | c1_1(X80))) | ! [X81] : (ndr1_0 => (~c2_1(X81) | c1_1(X81) | c0_1(X81)))) & (hskp4 | hskp3 | ! [X82] : (ndr1_0 => (c3_1(X82) | c1_1(X82) | c0_1(X82)))) & (hskp0 | hskp2 | ! [X83] : (ndr1_0 => (c3_1(X83) | c1_1(X83) | c0_1(X83)))) & (hskp1 | ! [X84] : (ndr1_0 => (~c3_1(X84) | ~c2_1(X84) | c0_1(X84))) | ! [X85] : (ndr1_0 => (c3_1(X85) | c1_1(X85) | c0_1(X85)))) & (! [X86] : (ndr1_0 => (~c1_1(X86) | ~c0_1(X86) | c2_1(X86))) | ! [X87] : (ndr1_0 => (~c2_1(X87) | c1_1(X87) | c0_1(X87))) | ! [X88] : (ndr1_0 => (c3_1(X88) | c1_1(X88) | c0_1(X88)))) & (hskp0 | hskp26 | ! [X89] : (ndr1_0 => (c2_1(X89) | c1_1(X89) | c0_1(X89)))) & ((c3_1(a688) & c2_1(a688) & c1_1(a688) & ndr1_0) | ~hskp29) & ((c2_1(a671) & c1_1(a671) & c0_1(a671) & ndr1_0) | ~hskp28) & ((c3_1(a655) & c2_1(a655) & c0_1(a655) & ndr1_0) | ~hskp27) & ((c3_1(a640) & c1_1(a640) & c0_1(a640) & ndr1_0) | ~hskp26) & ((~c3_1(a710) & ~c2_1(a710) & ~c0_1(a710) & ndr1_0) | ~hskp25) & ((~c2_1(a698) & ~c0_1(a698) & c1_1(a698) & ndr1_0) | ~hskp24) & ((~c3_1(a695) & ~c0_1(a695) & c2_1(a695) & ndr1_0) | ~hskp23) & ((~c0_1(a693) & c3_1(a693) & c2_1(a693) & ndr1_0) | ~hskp22) & ((~c3_1(a691) & ~c1_1(a691) & ~c0_1(a691) & ndr1_0) | ~hskp21) & ((~c3_1(a686) & c2_1(a686) & c1_1(a686) & ndr1_0) | ~hskp20) & ((~c2_1(a682) & ~c1_1(a682) & c3_1(a682) & ndr1_0) | ~hskp19) & ((~c2_1(a676) & c1_1(a676) & c0_1(a676) & ndr1_0) | ~hskp18) & ((~c3_1(a675) & ~c1_1(a675) & c2_1(a675) & ndr1_0) | ~hskp17) & ((~c3_1(a672) & ~c2_1(a672) & c1_1(a672) & ndr1_0) | ~hskp16) & ((~c2_1(a667) & ~c0_1(a667) & c3_1(a667) & ndr1_0) | ~hskp15) & ((~c1_1(a665) & ~c0_1(a665) & c2_1(a665) & ndr1_0) | ~hskp14) & ((~c3_1(a661) & ~c1_1(a661) & c0_1(a661) & ndr1_0) | ~hskp13) & ((~c2_1(a660) & ~c1_1(a660) & c0_1(a660) & ndr1_0) | ~hskp12) & ((~c3_1(a657) & c2_1(a657) & c0_1(a657) & ndr1_0) | ~hskp11) & ((~c1_1(a656) & c2_1(a656) & c0_1(a656) & ndr1_0) | ~hskp10) & ((~c2_1(a654) & ~c1_1(a654) & ~c0_1(a654) & ndr1_0) | ~hskp9) & ((~c2_1(a652) & c3_1(a652) & c0_1(a652) & ndr1_0) | ~hskp8) & ((~c1_1(a651) & ~c0_1(a651) & c3_1(a651) & ndr1_0) | ~hskp7) & ((~c3_1(a648) & ~c2_1(a648) & c0_1(a648) & ndr1_0) | ~hskp6) & ((~c3_1(a647) & ~c0_1(a647) & c1_1(a647) & ndr1_0) | ~hskp5) & ((~c3_1(a646) & ~c2_1(a646) & ~c1_1(a646) & ndr1_0) | ~hskp4) & ((~c2_1(a645) & c3_1(a645) & c1_1(a645) & ndr1_0) | ~hskp3) & ((~c0_1(a643) & c2_1(a643) & c1_1(a643) & ndr1_0) | ~hskp2) & ((~c1_1(a642) & c3_1(a642) & c0_1(a642) & ndr1_0) | ~hskp1) & ((~c1_1(a641) & c3_1(a641) & c2_1(a641) & ndr1_0) | ~hskp0)),
+  inference(flattening,[],[f3])).
+fof(f3,plain,(
+  ~~((hskp17 | hskp14 | hskp24) & (hskp0 | hskp24 | hskp20) & (hskp19 | hskp22 | hskp2) & (hskp17 | hskp14 | hskp1) & (hskp20 | hskp2 | hskp18) & (hskp7 | hskp1 | hskp18) & (hskp25 | hskp23 | ! [X0] : (ndr1_0 => (~c2_1(X0) | ~c1_1(X0) | ~c0_1(X0)))) & (hskp29 | hskp10 | ! [X1] : (ndr1_0 => (~c2_1(X1) | ~c1_1(X1) | c3_1(X1)))) & (hskp9 | hskp15 | ! [X2] : (ndr1_0 => (~c2_1(X2) | ~c0_1(X2) | c3_1(X2)))) & (hskp20 | hskp12 | ! [X3] : (ndr1_0 => (~c2_1(X3) | ~c0_1(X3) | c3_1(X3)))) & (hskp29 | hskp1 | ! [X4] : (ndr1_0 => (~c2_1(X4) | ~c0_1(X4) | c3_1(X4)))) & (hskp15 | hskp3 | ! [X5] : (ndr1_0 => (~c3_1(X5) | ~c1_1(X5) | c2_1(X5)))) & (hskp24 | hskp2 | ! [X6] : (ndr1_0 => (~c3_1(X6) | ~c1_1(X6) | c2_1(X6)))) & (hskp8 | ! [X7] : (ndr1_0 => (~c3_1(X7) | ~c2_1(X7) | ~c1_1(X7))) | ! [X8] : (ndr1_0 => (~c3_1(X8) | ~c1_1(X8) | c2_1(X8)))) & (hskp23 | hskp5 | ! [X9] : (ndr1_0 => (~c3_1(X9) | ~c0_1(X9) | c2_1(X9)))) & (hskp22 | hskp20 | ! [X10] : (ndr1_0 => (~c3_1(X10) | ~c0_1(X10) | c2_1(X10)))) & (hskp21 | hskp11 | ! [X11] : (ndr1_0 => (~c3_1(X11) | ~c0_1(X11) | c2_1(X11)))) & (hskp5 | hskp29 | ! [X12] : (ndr1_0 => (~c1_1(X12) | c3_1(X12) | c2_1(X12)))) & (hskp5 | hskp20 | ! [X13] : (ndr1_0 => (~c0_1(X13) | c3_1(X13) | c2_1(X13)))) & (hskp19 | hskp8 | ! [X14] : (ndr1_0 => (~c0_1(X14) | c3_1(X14) | c2_1(X14)))) & (hskp11 | ! [X15] : (ndr1_0 => (~c3_1(X15) | ~c2_1(X15) | ~c1_1(X15))) | ! [X16] : (ndr1_0 => (~c0_1(X16) | c3_1(X16) | c2_1(X16)))) & (! [X17] : (ndr1_0 => (~c2_1(X17) | ~c0_1(X17) | c3_1(X17))) | ! [X18] : (ndr1_0 => (~c0_1(X18) | c3_1(X18) | c2_1(X18)))) & (hskp19 | hskp17 | ! [X19] : (ndr1_0 => (~c3_1(X19) | ~c2_1(X19) | c1_1(X19)))) & (hskp7 | hskp17 | ! [X20] : (ndr1_0 => (~c3_1(X20) | ~c2_1(X20) | c1_1(X20)))) & (hskp9 | ! [X21] : (ndr1_0 => (~c1_1(X21) | ~c0_1(X21) | c3_1(X21))) | ! [X22] : (ndr1_0 => (~c3_1(X22) | ~c2_1(X22) | c1_1(X22)))) & (hskp4 | hskp18 | ! [X23] : (ndr1_0 => (~c3_1(X23) | ~c0_1(X23) | c1_1(X23)))) & (hskp17 | hskp28 | ! [X24] : (ndr1_0 => (~c3_1(X24) | ~c0_1(X24) | c1_1(X24)))) & (! [X25] : (ndr1_0 => (~c1_1(X25) | ~c0_1(X25) | c2_1(X25))) | ! [X26] : (ndr1_0 => (~c3_1(X26) | ~c2_1(X26) | c1_1(X26))) | ! [X27] : (ndr1_0 => (~c2_1(X27) | c3_1(X27) | c1_1(X27)))) & (hskp7 | ! [X28] : (ndr1_0 => (~c2_1(X28) | ~c1_1(X28) | ~c0_1(X28))) | ! [X29] : (ndr1_0 => (~c0_1(X29) | c3_1(X29) | c1_1(X29)))) & (! [X30] : (ndr1_0 => (~c2_1(X30) | ~c0_1(X30) | c3_1(X30))) | ! [X31] : (ndr1_0 => (~c2_1(X31) | ~c0_1(X31) | c1_1(X31))) | ! [X32] : (ndr1_0 => (~c0_1(X32) | c3_1(X32) | c1_1(X32)))) & (hskp16 | hskp28 | ! [X33] : (ndr1_0 => (~c3_1(X33) | c2_1(X33) | c1_1(X33)))) & (hskp12 | ! [X34] : (ndr1_0 => (~c0_1(X34) | c3_1(X34) | c1_1(X34))) | ! [X35] : (ndr1_0 => (~c0_1(X35) | c2_1(X35) | c1_1(X35)))) & (hskp4 | ! [X36] : (ndr1_0 => (~c3_1(X36) | c2_1(X36) | c1_1(X36))) | ! [X37] : (ndr1_0 => (c3_1(X37) | c2_1(X37) | c1_1(X37)))) & (hskp9 | hskp15 | ! [X38] : (ndr1_0 => (~c3_1(X38) | ~c2_1(X38) | c0_1(X38)))) & (hskp4 | hskp14 | ! [X39] : (ndr1_0 => (~c3_1(X39) | ~c2_1(X39) | c0_1(X39)))) & (hskp7 | ! [X40] : (ndr1_0 => (~c0_1(X40) | c3_1(X40) | c1_1(X40))) | ! [X41] : (ndr1_0 => (~c3_1(X41) | ~c2_1(X41) | c0_1(X41)))) & (! [X42] : (ndr1_0 => (~c1_1(X42) | ~c0_1(X42) | c2_1(X42))) | ! [X43] : (ndr1_0 => (~c0_1(X43) | c3_1(X43) | c1_1(X43))) | ! [X44] : (ndr1_0 => (~c3_1(X44) | ~c1_1(X44) | c0_1(X44)))) & (! [X45] : (ndr1_0 => (~c3_1(X45) | ~c2_1(X45) | ~c1_1(X45))) | ! [X46] : (ndr1_0 => (~c3_1(X46) | ~c2_1(X46) | c1_1(X46))) | ! [X47] : (ndr1_0 => (~c2_1(X47) | ~c1_1(X47) | c0_1(X47)))) & (! [X48] : (ndr1_0 => (~c2_1(X48) | ~c1_1(X48) | ~c0_1(X48))) | ! [X49] : (ndr1_0 => (~c3_1(X49) | ~c2_1(X49) | c1_1(X49))) | ! [X50] : (ndr1_0 => (~c2_1(X50) | ~c1_1(X50) | c0_1(X50)))) & (hskp3 | hskp6 | ! [X51] : (ndr1_0 => (~c2_1(X51) | c3_1(X51) | c0_1(X51)))) & (hskp13 | hskp12 | ! [X52] : (ndr1_0 => (~c1_1(X52) | c3_1(X52) | c0_1(X52)))) & (hskp6 | ! [X53] : (ndr1_0 => (~c3_1(X53) | ~c1_1(X53) | c2_1(X53))) | ! [X54] : (ndr1_0 => (~c1_1(X54) | c3_1(X54) | c0_1(X54)))) & (hskp27 | ! [X55] : (ndr1_0 => (~c3_1(X55) | ~c2_1(X55) | c1_1(X55))) | ! [X56] : (ndr1_0 => (~c1_1(X56) | c3_1(X56) | c0_1(X56)))) & (hskp11 | ! [X57] : (ndr1_0 => (~c3_1(X57) | ~c1_1(X57) | c0_1(X57))) | ! [X58] : (ndr1_0 => (~c1_1(X58) | c3_1(X58) | c0_1(X58)))) & (! [X59] : (ndr1_0 => (~c0_1(X59) | c2_1(X59) | c1_1(X59))) | ! [X60] : (ndr1_0 => (~c2_1(X60) | ~c1_1(X60) | c0_1(X60))) | ! [X61] : (ndr1_0 => (~c1_1(X61) | c3_1(X61) | c0_1(X61)))) & (hskp10 | ! [X62] : (ndr1_0 => (~c1_1(X62) | ~c0_1(X62) | c2_1(X62))) | ! [X63] : (ndr1_0 => (~c3_1(X63) | c2_1(X63) | c0_1(X63)))) & (hskp27 | ! [X64] : (ndr1_0 => (~c3_1(X64) | c2_1(X64) | c1_1(X64))) | ! [X65] : (ndr1_0 => (~c3_1(X65) | c2_1(X65) | c0_1(X65)))) & (hskp9 | ! [X66] : (ndr1_0 => (~c2_1(X66) | c3_1(X66) | c1_1(X66))) | ! [X67] : (ndr1_0 => (c3_1(X67) | c2_1(X67) | c0_1(X67)))) & (! [X68] : (ndr1_0 => (~c3_1(X68) | ~c1_1(X68) | ~c0_1(X68))) | ! [X69] : (ndr1_0 => (c3_1(X69) | c2_1(X69) | c1_1(X69))) | ! [X70] : (ndr1_0 => (c3_1(X70) | c2_1(X70) | c0_1(X70)))) & (hskp3 | ! [X71] : (ndr1_0 => (~c3_1(X71) | ~c2_1(X71) | ~c1_1(X71))) | ! [X72] : (ndr1_0 => (~c3_1(X72) | c1_1(X72) | c0_1(X72)))) & (hskp8 | ! [X73] : (ndr1_0 => (~c2_1(X73) | ~c1_1(X73) | ~c0_1(X73))) | ! [X74] : (ndr1_0 => (~c3_1(X74) | c1_1(X74) | c0_1(X74)))) & (hskp7 | ! [X75] : (ndr1_0 => (~c3_1(X75) | ~c0_1(X75) | c2_1(X75))) | ! [X76] : (ndr1_0 => (~c3_1(X76) | c1_1(X76) | c0_1(X76)))) & (hskp2 | ! [X77] : (ndr1_0 => (~c1_1(X77) | c3_1(X77) | c2_1(X77))) | ! [X78] : (ndr1_0 => (~c3_1(X78) | c1_1(X78) | c0_1(X78)))) & (hskp2 | hskp6 | ! [X79] : (ndr1_0 => (~c2_1(X79) | c1_1(X79) | c0_1(X79)))) & (hskp5 | ! [X80] : (ndr1_0 => (~c2_1(X80) | c3_1(X80) | c1_1(X80))) | ! [X81] : (ndr1_0 => (~c2_1(X81) | c1_1(X81) | c0_1(X81)))) & (hskp4 | hskp3 | ! [X82] : (ndr1_0 => (c3_1(X82) | c1_1(X82) | c0_1(X82)))) & (hskp0 | hskp2 | ! [X83] : (ndr1_0 => (c3_1(X83) | c1_1(X83) | c0_1(X83)))) & (hskp1 | ! [X84] : (ndr1_0 => (~c3_1(X84) | ~c2_1(X84) | c0_1(X84))) | ! [X85] : (ndr1_0 => (c3_1(X85) | c1_1(X85) | c0_1(X85)))) & (! [X86] : (ndr1_0 => (~c1_1(X86) | ~c0_1(X86) | c2_1(X86))) | ! [X87] : (ndr1_0 => (~c2_1(X87) | c1_1(X87) | c0_1(X87))) | ! [X88] : (ndr1_0 => (c3_1(X88) | c1_1(X88) | c0_1(X88)))) & (hskp0 | hskp26 | ! [X89] : (ndr1_0 => (c2_1(X89) | c1_1(X89) | c0_1(X89)))) & ((c3_1(a688) & c2_1(a688) & c1_1(a688) & ndr1_0) | ~hskp29) & ((c2_1(a671) & c1_1(a671) & c0_1(a671) & ndr1_0) | ~hskp28) & ((c3_1(a655) & c2_1(a655) & c0_1(a655) & ndr1_0) | ~hskp27) & ((c3_1(a640) & c1_1(a640) & c0_1(a640) & ndr1_0) | ~hskp26) & ((~c3_1(a710) & ~c2_1(a710) & ~c0_1(a710) & ndr1_0) | ~hskp25) & ((~c2_1(a698) & ~c0_1(a698) & c1_1(a698) & ndr1_0) | ~hskp24) & ((~c3_1(a695) & ~c0_1(a695) & c2_1(a695) & ndr1_0) | ~hskp23) & ((~c0_1(a693) & c3_1(a693) & c2_1(a693) & ndr1_0) | ~hskp22) & ((~c3_1(a691) & ~c1_1(a691) & ~c0_1(a691) & ndr1_0) | ~hskp21) & ((~c3_1(a686) & c2_1(a686) & c1_1(a686) & ndr1_0) | ~hskp20) & ((~c2_1(a682) & ~c1_1(a682) & c3_1(a682) & ndr1_0) | ~hskp19) & ((~c2_1(a676) & c1_1(a676) & c0_1(a676) & ndr1_0) | ~hskp18) & ((~c3_1(a675) & ~c1_1(a675) & c2_1(a675) & ndr1_0) | ~hskp17) & ((~c3_1(a672) & ~c2_1(a672) & c1_1(a672) & ndr1_0) | ~hskp16) & ((~c2_1(a667) & ~c0_1(a667) & c3_1(a667) & ndr1_0) | ~hskp15) & ((~c1_1(a665) & ~c0_1(a665) & c2_1(a665) & ndr1_0) | ~hskp14) & ((~c3_1(a661) & ~c1_1(a661) & c0_1(a661) & ndr1_0) | ~hskp13) & ((~c2_1(a660) & ~c1_1(a660) & c0_1(a660) & ndr1_0) | ~hskp12) & ((~c3_1(a657) & c2_1(a657) & c0_1(a657) & ndr1_0) | ~hskp11) & ((~c1_1(a656) & c2_1(a656) & c0_1(a656) & ndr1_0) | ~hskp10) & ((~c2_1(a654) & ~c1_1(a654) & ~c0_1(a654) & ndr1_0) | ~hskp9) & ((~c2_1(a652) & c3_1(a652) & c0_1(a652) & ndr1_0) | ~hskp8) & ((~c1_1(a651) & ~c0_1(a651) & c3_1(a651) & ndr1_0) | ~hskp7) & ((~c3_1(a648) & ~c2_1(a648) & c0_1(a648) & ndr1_0) | ~hskp6) & ((~c3_1(a647) & ~c0_1(a647) & c1_1(a647) & ndr1_0) | ~hskp5) & ((~c3_1(a646) & ~c2_1(a646) & ~c1_1(a646) & ndr1_0) | ~hskp4) & ((~c2_1(a645) & c3_1(a645) & c1_1(a645) & ndr1_0) | ~hskp3) & ((~c0_1(a643) & c2_1(a643) & c1_1(a643) & ndr1_0) | ~hskp2) & ((~c1_1(a642) & c3_1(a642) & c0_1(a642) & ndr1_0) | ~hskp1) & ((~c1_1(a641) & c3_1(a641) & c2_1(a641) & ndr1_0) | ~hskp0))),
+  inference(rectify,[],[f2])).
+fof(f2,negated_conjecture,(
+  ~~((hskp17 | hskp14 | hskp24) & (hskp0 | hskp24 | hskp20) & (hskp19 | hskp22 | hskp2) & (hskp17 | hskp14 | hskp1) & (hskp20 | hskp2 | hskp18) & (hskp7 | hskp1 | hskp18) & (hskp25 | hskp23 | ! [X89] : (ndr1_0 => (~c2_1(X89) | ~c1_1(X89) | ~c0_1(X89)))) & (hskp29 | hskp10 | ! [X88] : (ndr1_0 => (~c2_1(X88) | ~c1_1(X88) | c3_1(X88)))) & (hskp9 | hskp15 | ! [X87] : (ndr1_0 => (~c2_1(X87) | ~c0_1(X87) | c3_1(X87)))) & (hskp20 | hskp12 | ! [X86] : (ndr1_0 => (~c2_1(X86) | ~c0_1(X86) | c3_1(X86)))) & (hskp29 | hskp1 | ! [X85] : (ndr1_0 => (~c2_1(X85) | ~c0_1(X85) | c3_1(X85)))) & (hskp15 | hskp3 | ! [X84] : (ndr1_0 => (~c3_1(X84) | ~c1_1(X84) | c2_1(X84)))) & (hskp24 | hskp2 | ! [X83] : (ndr1_0 => (~c3_1(X83) | ~c1_1(X83) | c2_1(X83)))) & (hskp8 | ! [X82] : (ndr1_0 => (~c3_1(X82) | ~c2_1(X82) | ~c1_1(X82))) | ! [X81] : (ndr1_0 => (~c3_1(X81) | ~c1_1(X81) | c2_1(X81)))) & (hskp23 | hskp5 | ! [X80] : (ndr1_0 => (~c3_1(X80) | ~c0_1(X80) | c2_1(X80)))) & (hskp22 | hskp20 | ! [X79] : (ndr1_0 => (~c3_1(X79) | ~c0_1(X79) | c2_1(X79)))) & (hskp21 | hskp11 | ! [X78] : (ndr1_0 => (~c3_1(X78) | ~c0_1(X78) | c2_1(X78)))) & (hskp5 | hskp29 | ! [X77] : (ndr1_0 => (~c1_1(X77) | c3_1(X77) | c2_1(X77)))) & (hskp5 | hskp20 | ! [X76] : (ndr1_0 => (~c0_1(X76) | c3_1(X76) | c2_1(X76)))) & (hskp19 | hskp8 | ! [X75] : (ndr1_0 => (~c0_1(X75) | c3_1(X75) | c2_1(X75)))) & (hskp11 | ! [X74] : (ndr1_0 => (~c3_1(X74) | ~c2_1(X74) | ~c1_1(X74))) | ! [X73] : (ndr1_0 => (~c0_1(X73) | c3_1(X73) | c2_1(X73)))) & (! [X72] : (ndr1_0 => (~c2_1(X72) | ~c0_1(X72) | c3_1(X72))) | ! [X71] : (ndr1_0 => (~c0_1(X71) | c3_1(X71) | c2_1(X71)))) & (hskp19 | hskp17 | ! [X70] : (ndr1_0 => (~c3_1(X70) | ~c2_1(X70) | c1_1(X70)))) & (hskp7 | hskp17 | ! [X69] : (ndr1_0 => (~c3_1(X69) | ~c2_1(X69) | c1_1(X69)))) & (hskp9 | ! [X68] : (ndr1_0 => (~c1_1(X68) | ~c0_1(X68) | c3_1(X68))) | ! [X67] : (ndr1_0 => (~c3_1(X67) | ~c2_1(X67) | c1_1(X67)))) & (hskp4 | hskp18 | ! [X66] : (ndr1_0 => (~c3_1(X66) | ~c0_1(X66) | c1_1(X66)))) & (hskp17 | hskp28 | ! [X65] : (ndr1_0 => (~c3_1(X65) | ~c0_1(X65) | c1_1(X65)))) & (! [X64] : (ndr1_0 => (~c1_1(X64) | ~c0_1(X64) | c2_1(X64))) | ! [X63] : (ndr1_0 => (~c3_1(X63) | ~c2_1(X63) | c1_1(X63))) | ! [X62] : (ndr1_0 => (~c2_1(X62) | c3_1(X62) | c1_1(X62)))) & (hskp7 | ! [X61] : (ndr1_0 => (~c2_1(X61) | ~c1_1(X61) | ~c0_1(X61))) | ! [X60] : (ndr1_0 => (~c0_1(X60) | c3_1(X60) | c1_1(X60)))) & (! [X59] : (ndr1_0 => (~c2_1(X59) | ~c0_1(X59) | c3_1(X59))) | ! [X58] : (ndr1_0 => (~c2_1(X58) | ~c0_1(X58) | c1_1(X58))) | ! [X57] : (ndr1_0 => (~c0_1(X57) | c3_1(X57) | c1_1(X57)))) & (hskp16 | hskp28 | ! [X56] : (ndr1_0 => (~c3_1(X56) | c2_1(X56) | c1_1(X56)))) & (hskp12 | ! [X55] : (ndr1_0 => (~c0_1(X55) | c3_1(X55) | c1_1(X55))) | ! [X54] : (ndr1_0 => (~c0_1(X54) | c2_1(X54) | c1_1(X54)))) & (hskp4 | ! [X53] : (ndr1_0 => (~c3_1(X53) | c2_1(X53) | c1_1(X53))) | ! [X52] : (ndr1_0 => (c3_1(X52) | c2_1(X52) | c1_1(X52)))) & (hskp9 | hskp15 | ! [X51] : (ndr1_0 => (~c3_1(X51) | ~c2_1(X51) | c0_1(X51)))) & (hskp4 | hskp14 | ! [X50] : (ndr1_0 => (~c3_1(X50) | ~c2_1(X50) | c0_1(X50)))) & (hskp7 | ! [X49] : (ndr1_0 => (~c0_1(X49) | c3_1(X49) | c1_1(X49))) | ! [X48] : (ndr1_0 => (~c3_1(X48) | ~c2_1(X48) | c0_1(X48)))) & (! [X47] : (ndr1_0 => (~c1_1(X47) | ~c0_1(X47) | c2_1(X47))) | ! [X46] : (ndr1_0 => (~c0_1(X46) | c3_1(X46) | c1_1(X46))) | ! [X45] : (ndr1_0 => (~c3_1(X45) | ~c1_1(X45) | c0_1(X45)))) & (! [X44] : (ndr1_0 => (~c3_1(X44) | ~c2_1(X44) | ~c1_1(X44))) | ! [X43] : (ndr1_0 => (~c3_1(X43) | ~c2_1(X43) | c1_1(X43))) | ! [X42] : (ndr1_0 => (~c2_1(X42) | ~c1_1(X42) | c0_1(X42)))) & (! [X41] : (ndr1_0 => (~c2_1(X41) | ~c1_1(X41) | ~c0_1(X41))) | ! [X40] : (ndr1_0 => (~c3_1(X40) | ~c2_1(X40) | c1_1(X40))) | ! [X39] : (ndr1_0 => (~c2_1(X39) | ~c1_1(X39) | c0_1(X39)))) & (hskp3 | hskp6 | ! [X38] : (ndr1_0 => (~c2_1(X38) | c3_1(X38) | c0_1(X38)))) & (hskp13 | hskp12 | ! [X37] : (ndr1_0 => (~c1_1(X37) | c3_1(X37) | c0_1(X37)))) & (hskp6 | ! [X36] : (ndr1_0 => (~c3_1(X36) | ~c1_1(X36) | c2_1(X36))) | ! [X35] : (ndr1_0 => (~c1_1(X35) | c3_1(X35) | c0_1(X35)))) & (hskp27 | ! [X34] : (ndr1_0 => (~c3_1(X34) | ~c2_1(X34) | c1_1(X34))) | ! [X33] : (ndr1_0 => (~c1_1(X33) | c3_1(X33) | c0_1(X33)))) & (hskp11 | ! [X32] : (ndr1_0 => (~c3_1(X32) | ~c1_1(X32) | c0_1(X32))) | ! [X31] : (ndr1_0 => (~c1_1(X31) | c3_1(X31) | c0_1(X31)))) & (! [X30] : (ndr1_0 => (~c0_1(X30) | c2_1(X30) | c1_1(X30))) | ! [X29] : (ndr1_0 => (~c2_1(X29) | ~c1_1(X29) | c0_1(X29))) | ! [X28] : (ndr1_0 => (~c1_1(X28) | c3_1(X28) | c0_1(X28)))) & (hskp10 | ! [X27] : (ndr1_0 => (~c1_1(X27) | ~c0_1(X27) | c2_1(X27))) | ! [X26] : (ndr1_0 => (~c3_1(X26) | c2_1(X26) | c0_1(X26)))) & (hskp27 | ! [X25] : (ndr1_0 => (~c3_1(X25) | c2_1(X25) | c1_1(X25))) | ! [X24] : (ndr1_0 => (~c3_1(X24) | c2_1(X24) | c0_1(X24)))) & (hskp9 | ! [X23] : (ndr1_0 => (~c2_1(X23) | c3_1(X23) | c1_1(X23))) | ! [X22] : (ndr1_0 => (c3_1(X22) | c2_1(X22) | c0_1(X22)))) & (! [X21] : (ndr1_0 => (~c3_1(X21) | ~c1_1(X21) | ~c0_1(X21))) | ! [X20] : (ndr1_0 => (c3_1(X20) | c2_1(X20) | c1_1(X20))) | ! [X19] : (ndr1_0 => (c3_1(X19) | c2_1(X19) | c0_1(X19)))) & (hskp3 | ! [X18] : (ndr1_0 => (~c3_1(X18) | ~c2_1(X18) | ~c1_1(X18))) | ! [X17] : (ndr1_0 => (~c3_1(X17) | c1_1(X17) | c0_1(X17)))) & (hskp8 | ! [X16] : (ndr1_0 => (~c2_1(X16) | ~c1_1(X16) | ~c0_1(X16))) | ! [X15] : (ndr1_0 => (~c3_1(X15) | c1_1(X15) | c0_1(X15)))) & (hskp7 | ! [X14] : (ndr1_0 => (~c3_1(X14) | ~c0_1(X14) | c2_1(X14))) | ! [X13] : (ndr1_0 => (~c3_1(X13) | c1_1(X13) | c0_1(X13)))) & (hskp2 | ! [X12] : (ndr1_0 => (~c1_1(X12) | c3_1(X12) | c2_1(X12))) | ! [X11] : (ndr1_0 => (~c3_1(X11) | c1_1(X11) | c0_1(X11)))) & (hskp2 | hskp6 | ! [X10] : (ndr1_0 => (~c2_1(X10) | c1_1(X10) | c0_1(X10)))) & (hskp5 | ! [X9] : (ndr1_0 => (~c2_1(X9) | c3_1(X9) | c1_1(X9))) | ! [X8] : (ndr1_0 => (~c2_1(X8) | c1_1(X8) | c0_1(X8)))) & (hskp4 | hskp3 | ! [X7] : (ndr1_0 => (c3_1(X7) | c1_1(X7) | c0_1(X7)))) & (hskp0 | hskp2 | ! [X6] : (ndr1_0 => (c3_1(X6) | c1_1(X6) | c0_1(X6)))) & (hskp1 | ! [X5] : (ndr1_0 => (~c3_1(X5) | ~c2_1(X5) | c0_1(X5))) | ! [X4] : (ndr1_0 => (c3_1(X4) | c1_1(X4) | c0_1(X4)))) & (! [X3] : (ndr1_0 => (~c1_1(X3) | ~c0_1(X3) | c2_1(X3))) | ! [X2] : (ndr1_0 => (~c2_1(X2) | c1_1(X2) | c0_1(X2))) | ! [X1] : (ndr1_0 => (c3_1(X1) | c1_1(X1) | c0_1(X1)))) & (hskp0 | hskp26 | ! [X0] : (ndr1_0 => (c2_1(X0) | c1_1(X0) | c0_1(X0)))) & ((c3_1(a688) & c2_1(a688) & c1_1(a688) & ndr1_0) | ~hskp29) & ((c2_1(a671) & c1_1(a671) & c0_1(a671) & ndr1_0) | ~hskp28) & ((c3_1(a655) & c2_1(a655) & c0_1(a655) & ndr1_0) | ~hskp27) & ((c3_1(a640) & c1_1(a640) & c0_1(a640) & ndr1_0) | ~hskp26) & ((~c3_1(a710) & ~c2_1(a710) & ~c0_1(a710) & ndr1_0) | ~hskp25) & ((~c2_1(a698) & ~c0_1(a698) & c1_1(a698) & ndr1_0) | ~hskp24) & ((~c3_1(a695) & ~c0_1(a695) & c2_1(a695) & ndr1_0) | ~hskp23) & ((~c0_1(a693) & c3_1(a693) & c2_1(a693) & ndr1_0) | ~hskp22) & ((~c3_1(a691) & ~c1_1(a691) & ~c0_1(a691) & ndr1_0) | ~hskp21) & ((~c3_1(a686) & c2_1(a686) & c1_1(a686) & ndr1_0) | ~hskp20) & ((~c2_1(a682) & ~c1_1(a682) & c3_1(a682) & ndr1_0) | ~hskp19) & ((~c2_1(a676) & c1_1(a676) & c0_1(a676) & ndr1_0) | ~hskp18) & ((~c3_1(a675) & ~c1_1(a675) & c2_1(a675) & ndr1_0) | ~hskp17) & ((~c3_1(a672) & ~c2_1(a672) & c1_1(a672) & ndr1_0) | ~hskp16) & ((~c2_1(a667) & ~c0_1(a667) & c3_1(a667) & ndr1_0) | ~hskp15) & ((~c1_1(a665) & ~c0_1(a665) & c2_1(a665) & ndr1_0) | ~hskp14) & ((~c3_1(a661) & ~c1_1(a661) & c0_1(a661) & ndr1_0) | ~hskp13) & ((~c2_1(a660) & ~c1_1(a660) & c0_1(a660) & ndr1_0) | ~hskp12) & ((~c3_1(a657) & c2_1(a657) & c0_1(a657) & ndr1_0) | ~hskp11) & ((~c1_1(a656) & c2_1(a656) & c0_1(a656) & ndr1_0) | ~hskp10) & ((~c2_1(a654) & ~c1_1(a654) & ~c0_1(a654) & ndr1_0) | ~hskp9) & ((~c2_1(a652) & c3_1(a652) & c0_1(a652) & ndr1_0) | ~hskp8) & ((~c1_1(a651) & ~c0_1(a651) & c3_1(a651) & ndr1_0) | ~hskp7) & ((~c3_1(a648) & ~c2_1(a648) & c0_1(a648) & ndr1_0) | ~hskp6) & ((~c3_1(a647) & ~c0_1(a647) & c1_1(a647) & ndr1_0) | ~hskp5) & ((~c3_1(a646) & ~c2_1(a646) & ~c1_1(a646) & ndr1_0) | ~hskp4) & ((~c2_1(a645) & c3_1(a645) & c1_1(a645) & ndr1_0) | ~hskp3) & ((~c0_1(a643) & c2_1(a643) & c1_1(a643) & ndr1_0) | ~hskp2) & ((~c1_1(a642) & c3_1(a642) & c0_1(a642) & ndr1_0) | ~hskp1) & ((~c1_1(a641) & c3_1(a641) & c2_1(a641) & ndr1_0) | ~hskp0))),
+  inference(negated_conjecture,[],[f1])).
+fof(f1,conjecture,(
+  ~((hskp17 | hskp14 | hskp24) & (hskp0 | hskp24 | hskp20) & (hskp19 | hskp22 | hskp2) & (hskp17 | hskp14 | hskp1) & (hskp20 | hskp2 | hskp18) & (hskp7 | hskp1 | hskp18) & (hskp25 | hskp23 | ! [X89] : (ndr1_0 => (~c2_1(X89) | ~c1_1(X89) | ~c0_1(X89)))) & (hskp29 | hskp10 | ! [X88] : (ndr1_0 => (~c2_1(X88) | ~c1_1(X88) | c3_1(X88)))) & (hskp9 | hskp15 | ! [X87] : (ndr1_0 => (~c2_1(X87) | ~c0_1(X87) | c3_1(X87)))) & (hskp20 | hskp12 | ! [X86] : (ndr1_0 => (~c2_1(X86) | ~c0_1(X86) | c3_1(X86)))) & (hskp29 | hskp1 | ! [X85] : (ndr1_0 => (~c2_1(X85) | ~c0_1(X85) | c3_1(X85)))) & (hskp15 | hskp3 | ! [X84] : (ndr1_0 => (~c3_1(X84) | ~c1_1(X84) | c2_1(X84)))) & (hskp24 | hskp2 | ! [X83] : (ndr1_0 => (~c3_1(X83) | ~c1_1(X83) | c2_1(X83)))) & (hskp8 | ! [X82] : (ndr1_0 => (~c3_1(X82) | ~c2_1(X82) | ~c1_1(X82))) | ! [X81] : (ndr1_0 => (~c3_1(X81) | ~c1_1(X81) | c2_1(X81)))) & (hskp23 | hskp5 | ! [X80] : (ndr1_0 => (~c3_1(X80) | ~c0_1(X80) | c2_1(X80)))) & (hskp22 | hskp20 | ! [X79] : (ndr1_0 => (~c3_1(X79) | ~c0_1(X79) | c2_1(X79)))) & (hskp21 | hskp11 | ! [X78] : (ndr1_0 => (~c3_1(X78) | ~c0_1(X78) | c2_1(X78)))) & (hskp5 | hskp29 | ! [X77] : (ndr1_0 => (~c1_1(X77) | c3_1(X77) | c2_1(X77)))) & (hskp5 | hskp20 | ! [X76] : (ndr1_0 => (~c0_1(X76) | c3_1(X76) | c2_1(X76)))) & (hskp19 | hskp8 | ! [X75] : (ndr1_0 => (~c0_1(X75) | c3_1(X75) | c2_1(X75)))) & (hskp11 | ! [X74] : (ndr1_0 => (~c3_1(X74) | ~c2_1(X74) | ~c1_1(X74))) | ! [X73] : (ndr1_0 => (~c0_1(X73) | c3_1(X73) | c2_1(X73)))) & (! [X72] : (ndr1_0 => (~c2_1(X72) | ~c0_1(X72) | c3_1(X72))) | ! [X71] : (ndr1_0 => (~c0_1(X71) | c3_1(X71) | c2_1(X71)))) & (hskp19 | hskp17 | ! [X70] : (ndr1_0 => (~c3_1(X70) | ~c2_1(X70) | c1_1(X70)))) & (hskp7 | hskp17 | ! [X69] : (ndr1_0 => (~c3_1(X69) | ~c2_1(X69) | c1_1(X69)))) & (hskp9 | ! [X68] : (ndr1_0 => (~c1_1(X68) | ~c0_1(X68) | c3_1(X68))) | ! [X67] : (ndr1_0 => (~c3_1(X67) | ~c2_1(X67) | c1_1(X67)))) & (hskp4 | hskp18 | ! [X66] : (ndr1_0 => (~c3_1(X66) | ~c0_1(X66) | c1_1(X66)))) & (hskp17 | hskp28 | ! [X65] : (ndr1_0 => (~c3_1(X65) | ~c0_1(X65) | c1_1(X65)))) & (! [X64] : (ndr1_0 => (~c1_1(X64) | ~c0_1(X64) | c2_1(X64))) | ! [X63] : (ndr1_0 => (~c3_1(X63) | ~c2_1(X63) | c1_1(X63))) | ! [X62] : (ndr1_0 => (~c2_1(X62) | c3_1(X62) | c1_1(X62)))) & (hskp7 | ! [X61] : (ndr1_0 => (~c2_1(X61) | ~c1_1(X61) | ~c0_1(X61))) | ! [X60] : (ndr1_0 => (~c0_1(X60) | c3_1(X60) | c1_1(X60)))) & (! [X59] : (ndr1_0 => (~c2_1(X59) | ~c0_1(X59) | c3_1(X59))) | ! [X58] : (ndr1_0 => (~c2_1(X58) | ~c0_1(X58) | c1_1(X58))) | ! [X57] : (ndr1_0 => (~c0_1(X57) | c3_1(X57) | c1_1(X57)))) & (hskp16 | hskp28 | ! [X56] : (ndr1_0 => (~c3_1(X56) | c2_1(X56) | c1_1(X56)))) & (hskp12 | ! [X55] : (ndr1_0 => (~c0_1(X55) | c3_1(X55) | c1_1(X55))) | ! [X54] : (ndr1_0 => (~c0_1(X54) | c2_1(X54) | c1_1(X54)))) & (hskp4 | ! [X53] : (ndr1_0 => (~c3_1(X53) | c2_1(X53) | c1_1(X53))) | ! [X52] : (ndr1_0 => (c3_1(X52) | c2_1(X52) | c1_1(X52)))) & (hskp9 | hskp15 | ! [X51] : (ndr1_0 => (~c3_1(X51) | ~c2_1(X51) | c0_1(X51)))) & (hskp4 | hskp14 | ! [X50] : (ndr1_0 => (~c3_1(X50) | ~c2_1(X50) | c0_1(X50)))) & (hskp7 | ! [X49] : (ndr1_0 => (~c0_1(X49) | c3_1(X49) | c1_1(X49))) | ! [X48] : (ndr1_0 => (~c3_1(X48) | ~c2_1(X48) | c0_1(X48)))) & (! [X47] : (ndr1_0 => (~c1_1(X47) | ~c0_1(X47) | c2_1(X47))) | ! [X46] : (ndr1_0 => (~c0_1(X46) | c3_1(X46) | c1_1(X46))) | ! [X45] : (ndr1_0 => (~c3_1(X45) | ~c1_1(X45) | c0_1(X45)))) & (! [X44] : (ndr1_0 => (~c3_1(X44) | ~c2_1(X44) | ~c1_1(X44))) | ! [X43] : (ndr1_0 => (~c3_1(X43) | ~c2_1(X43) | c1_1(X43))) | ! [X42] : (ndr1_0 => (~c2_1(X42) | ~c1_1(X42) | c0_1(X42)))) & (! [X41] : (ndr1_0 => (~c2_1(X41) | ~c1_1(X41) | ~c0_1(X41))) | ! [X40] : (ndr1_0 => (~c3_1(X40) | ~c2_1(X40) | c1_1(X40))) | ! [X39] : (ndr1_0 => (~c2_1(X39) | ~c1_1(X39) | c0_1(X39)))) & (hskp3 | hskp6 | ! [X38] : (ndr1_0 => (~c2_1(X38) | c3_1(X38) | c0_1(X38)))) & (hskp13 | hskp12 | ! [X37] : (ndr1_0 => (~c1_1(X37) | c3_1(X37) | c0_1(X37)))) & (hskp6 | ! [X36] : (ndr1_0 => (~c3_1(X36) | ~c1_1(X36) | c2_1(X36))) | ! [X35] : (ndr1_0 => (~c1_1(X35) | c3_1(X35) | c0_1(X35)))) & (hskp27 | ! [X34] : (ndr1_0 => (~c3_1(X34) | ~c2_1(X34) | c1_1(X34))) | ! [X33] : (ndr1_0 => (~c1_1(X33) | c3_1(X33) | c0_1(X33)))) & (hskp11 | ! [X32] : (ndr1_0 => (~c3_1(X32) | ~c1_1(X32) | c0_1(X32))) | ! [X31] : (ndr1_0 => (~c1_1(X31) | c3_1(X31) | c0_1(X31)))) & (! [X30] : (ndr1_0 => (~c0_1(X30) | c2_1(X30) | c1_1(X30))) | ! [X29] : (ndr1_0 => (~c2_1(X29) | ~c1_1(X29) | c0_1(X29))) | ! [X28] : (ndr1_0 => (~c1_1(X28) | c3_1(X28) | c0_1(X28)))) & (hskp10 | ! [X27] : (ndr1_0 => (~c1_1(X27) | ~c0_1(X27) | c2_1(X27))) | ! [X26] : (ndr1_0 => (~c3_1(X26) | c2_1(X26) | c0_1(X26)))) & (hskp27 | ! [X25] : (ndr1_0 => (~c3_1(X25) | c2_1(X25) | c1_1(X25))) | ! [X24] : (ndr1_0 => (~c3_1(X24) | c2_1(X24) | c0_1(X24)))) & (hskp9 | ! [X23] : (ndr1_0 => (~c2_1(X23) | c3_1(X23) | c1_1(X23))) | ! [X22] : (ndr1_0 => (c3_1(X22) | c2_1(X22) | c0_1(X22)))) & (! [X21] : (ndr1_0 => (~c3_1(X21) | ~c1_1(X21) | ~c0_1(X21))) | ! [X20] : (ndr1_0 => (c3_1(X20) | c2_1(X20) | c1_1(X20))) | ! [X19] : (ndr1_0 => (c3_1(X19) | c2_1(X19) | c0_1(X19)))) & (hskp3 | ! [X18] : (ndr1_0 => (~c3_1(X18) | ~c2_1(X18) | ~c1_1(X18))) | ! [X17] : (ndr1_0 => (~c3_1(X17) | c1_1(X17) | c0_1(X17)))) & (hskp8 | ! [X16] : (ndr1_0 => (~c2_1(X16) | ~c1_1(X16) | ~c0_1(X16))) | ! [X15] : (ndr1_0 => (~c3_1(X15) | c1_1(X15) | c0_1(X15)))) & (hskp7 | ! [X14] : (ndr1_0 => (~c3_1(X14) | ~c0_1(X14) | c2_1(X14))) | ! [X13] : (ndr1_0 => (~c3_1(X13) | c1_1(X13) | c0_1(X13)))) & (hskp2 | ! [X12] : (ndr1_0 => (~c1_1(X12) | c3_1(X12) | c2_1(X12))) | ! [X11] : (ndr1_0 => (~c3_1(X11) | c1_1(X11) | c0_1(X11)))) & (hskp2 | hskp6 | ! [X10] : (ndr1_0 => (~c2_1(X10) | c1_1(X10) | c0_1(X10)))) & (hskp5 | ! [X9] : (ndr1_0 => (~c2_1(X9) | c3_1(X9) | c1_1(X9))) | ! [X8] : (ndr1_0 => (~c2_1(X8) | c1_1(X8) | c0_1(X8)))) & (hskp4 | hskp3 | ! [X7] : (ndr1_0 => (c3_1(X7) | c1_1(X7) | c0_1(X7)))) & (hskp0 | hskp2 | ! [X6] : (ndr1_0 => (c3_1(X6) | c1_1(X6) | c0_1(X6)))) & (hskp1 | ! [X5] : (ndr1_0 => (~c3_1(X5) | ~c2_1(X5) | c0_1(X5))) | ! [X4] : (ndr1_0 => (c3_1(X4) | c1_1(X4) | c0_1(X4)))) & (! [X3] : (ndr1_0 => (~c1_1(X3) | ~c0_1(X3) | c2_1(X3))) | ! [X2] : (ndr1_0 => (~c2_1(X2) | c1_1(X2) | c0_1(X2))) | ! [X1] : (ndr1_0 => (c3_1(X1) | c1_1(X1) | c0_1(X1)))) & (hskp0 | hskp26 | ! [X0] : (ndr1_0 => (c2_1(X0) | c1_1(X0) | c0_1(X0)))) & ((c3_1(a688) & c2_1(a688) & c1_1(a688) & ndr1_0) | ~hskp29) & ((c2_1(a671) & c1_1(a671) & c0_1(a671) & ndr1_0) | ~hskp28) & ((c3_1(a655) & c2_1(a655) & c0_1(a655) & ndr1_0) | ~hskp27) & ((c3_1(a640) & c1_1(a640) & c0_1(a640) & ndr1_0) | ~hskp26) & ((~c3_1(a710) & ~c2_1(a710) & ~c0_1(a710) & ndr1_0) | ~hskp25) & ((~c2_1(a698) & ~c0_1(a698) & c1_1(a698) & ndr1_0) | ~hskp24) & ((~c3_1(a695) & ~c0_1(a695) & c2_1(a695) & ndr1_0) | ~hskp23) & ((~c0_1(a693) & c3_1(a693) & c2_1(a693) & ndr1_0) | ~hskp22) & ((~c3_1(a691) & ~c1_1(a691) & ~c0_1(a691) & ndr1_0) | ~hskp21) & ((~c3_1(a686) & c2_1(a686) & c1_1(a686) & ndr1_0) | ~hskp20) & ((~c2_1(a682) & ~c1_1(a682) & c3_1(a682) & ndr1_0) | ~hskp19) & ((~c2_1(a676) & c1_1(a676) & c0_1(a676) & ndr1_0) | ~hskp18) & ((~c3_1(a675) & ~c1_1(a675) & c2_1(a675) & ndr1_0) | ~hskp17) & ((~c3_1(a672) & ~c2_1(a672) & c1_1(a672) & ndr1_0) | ~hskp16) & ((~c2_1(a667) & ~c0_1(a667) & c3_1(a667) & ndr1_0) | ~hskp15) & ((~c1_1(a665) & ~c0_1(a665) & c2_1(a665) & ndr1_0) | ~hskp14) & ((~c3_1(a661) & ~c1_1(a661) & c0_1(a661) & ndr1_0) | ~hskp13) & ((~c2_1(a660) & ~c1_1(a660) & c0_1(a660) & ndr1_0) | ~hskp12) & ((~c3_1(a657) & c2_1(a657) & c0_1(a657) & ndr1_0) | ~hskp11) & ((~c1_1(a656) & c2_1(a656) & c0_1(a656) & ndr1_0) | ~hskp10) & ((~c2_1(a654) & ~c1_1(a654) & ~c0_1(a654) & ndr1_0) | ~hskp9) & ((~c2_1(a652) & c3_1(a652) & c0_1(a652) & ndr1_0) | ~hskp8) & ((~c1_1(a651) & ~c0_1(a651) & c3_1(a651) & ndr1_0) | ~hskp7) & ((~c3_1(a648) & ~c2_1(a648) & c0_1(a648) & ndr1_0) | ~hskp6) & ((~c3_1(a647) & ~c0_1(a647) & c1_1(a647) & ndr1_0) | ~hskp5) & ((~c3_1(a646) & ~c2_1(a646) & ~c1_1(a646) & ndr1_0) | ~hskp4) & ((~c2_1(a645) & c3_1(a645) & c1_1(a645) & ndr1_0) | ~hskp3) & ((~c0_1(a643) & c2_1(a643) & c1_1(a643) & ndr1_0) | ~hskp2) & ((~c1_1(a642) & c3_1(a642) & c0_1(a642) & ndr1_0) | ~hskp1) & ((~c1_1(a641) & c3_1(a641) & c2_1(a641) & ndr1_0) | ~hskp0))),
+  file('SYN450+1.tptp',unknown)).
+fof(f962,plain,(
+  ~spl0_5 | spl0_150),
+  inference(avatar_split_clause,[],[f9,f959,f233])).
+fof(f9,plain,(
+  c3_1(a641) | ~hskp0),
+  inference(cnf_transformation,[],[f6])).
+fof(f957,plain,(
+  ~spl0_5 | ~spl0_149),
+  inference(avatar_split_clause,[],[f10,f954,f233])).
+fof(f10,plain,(
+  ~c1_1(a641) | ~hskp0),
+  inference(cnf_transformation,[],[f6])).
+fof(f952,plain,(
+  ~spl0_9 | spl0_12),
+  inference(avatar_split_clause,[],[f11,f266,f251])).
+fof(f251,plain,(
+  spl0_9 <=> hskp1),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_9])])).
+fof(f266,plain,(
+  spl0_12 <=> ndr1_0),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_12])])).
+fof(f11,plain,(
+  ndr1_0 | ~hskp1),
+  inference(cnf_transformation,[],[f6])).
+fof(f951,plain,(
+  ~spl0_9 | spl0_148),
+  inference(avatar_split_clause,[],[f12,f948,f251])).
+fof(f12,plain,(
+  c0_1(a642) | ~hskp1),
+  inference(cnf_transformation,[],[f6])).
+fof(f946,plain,(
+  ~spl0_9 | spl0_147),
+  inference(avatar_split_clause,[],[f13,f943,f251])).
+fof(f13,plain,(
+  c3_1(a642) | ~hskp1),
+  inference(cnf_transformation,[],[f6])).
+fof(f941,plain,(
+  ~spl0_9 | ~spl0_146),
+  inference(avatar_split_clause,[],[f14,f938,f251])).
+fof(f14,plain,(
+  ~c1_1(a642) | ~hskp1),
+  inference(cnf_transformation,[],[f6])).
+fof(f935,plain,(
+  ~spl0_6 | spl0_145),
+  inference(avatar_split_clause,[],[f16,f932,f238])).
+fof(f238,plain,(
+  spl0_6 <=> hskp2),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_6])])).
+fof(f16,plain,(
+  c1_1(a643) | ~hskp2),
+  inference(cnf_transformation,[],[f6])).
+fof(f930,plain,(
+  ~spl0_6 | spl0_144),
+  inference(avatar_split_clause,[],[f17,f927,f238])).
+fof(f17,plain,(
+  c2_1(a643) | ~hskp2),
+  inference(cnf_transformation,[],[f6])).
+fof(f925,plain,(
+  ~spl0_6 | ~spl0_143),
+  inference(avatar_split_clause,[],[f18,f922,f238])).
+fof(f18,plain,(
+  ~c0_1(a643) | ~hskp2),
+  inference(cnf_transformation,[],[f6])).
+fof(f919,plain,(
+  ~spl0_24 | spl0_142),
+  inference(avatar_split_clause,[],[f20,f916,f315])).
+fof(f315,plain,(
+  spl0_24 <=> hskp3),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_24])])).
+fof(f20,plain,(
+  c1_1(a645) | ~hskp3),
+  inference(cnf_transformation,[],[f6])).
+fof(f914,plain,(
+  ~spl0_24 | spl0_141),
+  inference(avatar_split_clause,[],[f21,f911,f315])).
+fof(f21,plain,(
+  c3_1(a645) | ~hskp3),
+  inference(cnf_transformation,[],[f6])).
+fof(f909,plain,(
+  ~spl0_24 | ~spl0_140),
+  inference(avatar_split_clause,[],[f22,f906,f315])).
+fof(f22,plain,(
+  ~c2_1(a645) | ~hskp3),
+  inference(cnf_transformation,[],[f6])).
+fof(f903,plain,(
+  ~spl0_36 | ~spl0_139),
+  inference(avatar_split_clause,[],[f24,f900,f370])).
+fof(f370,plain,(
+  spl0_36 <=> hskp4),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_36])])).
+fof(f24,plain,(
+  ~c1_1(a646) | ~hskp4),
+  inference(cnf_transformation,[],[f6])).
+fof(f898,plain,(
+  ~spl0_36 | ~spl0_138),
+  inference(avatar_split_clause,[],[f25,f895,f370])).
+fof(f25,plain,(
+  ~c2_1(a646) | ~hskp4),
+  inference(cnf_transformation,[],[f6])).
+fof(f893,plain,(
+  ~spl0_36 | ~spl0_137),
+  inference(avatar_split_clause,[],[f26,f890,f370])).
+fof(f26,plain,(
+  ~c3_1(a646) | ~hskp4),
+  inference(cnf_transformation,[],[f6])).
+fof(f887,plain,(
+  ~spl0_28 | spl0_136),
+  inference(avatar_split_clause,[],[f28,f884,f332])).
+fof(f332,plain,(
+  spl0_28 <=> hskp5),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_28])])).
+fof(f28,plain,(
+  c1_1(a647) | ~hskp5),
+  inference(cnf_transformation,[],[f6])).
+fof(f882,plain,(
+  ~spl0_28 | ~spl0_135),
+  inference(avatar_split_clause,[],[f29,f879,f332])).
+fof(f29,plain,(
+  ~c0_1(a647) | ~hskp5),
+  inference(cnf_transformation,[],[f6])).
+fof(f877,plain,(
+  ~spl0_28 | ~spl0_134),
+  inference(avatar_split_clause,[],[f30,f874,f332])).
+fof(f30,plain,(
+  ~c3_1(a647) | ~hskp5),
+  inference(cnf_transformation,[],[f6])).
+fof(f871,plain,(
+  ~spl0_50 | spl0_133),
+  inference(avatar_split_clause,[],[f32,f868,f429])).
+fof(f429,plain,(
+  spl0_50 <=> hskp6),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_50])])).
+fof(f32,plain,(
+  c0_1(a648) | ~hskp6),
+  inference(cnf_transformation,[],[f6])).
+fof(f866,plain,(
+  ~spl0_50 | ~spl0_132),
+  inference(avatar_split_clause,[],[f33,f863,f429])).
+fof(f33,plain,(
+  ~c2_1(a648) | ~hskp6),
+  inference(cnf_transformation,[],[f6])).
+fof(f861,plain,(
+  ~spl0_50 | ~spl0_131),
+  inference(avatar_split_clause,[],[f34,f858,f429])).
+fof(f34,plain,(
+  ~c3_1(a648) | ~hskp6),
+  inference(cnf_transformation,[],[f6])).
+fof(f856,plain,(
+  ~spl0_11 | spl0_12),
+  inference(avatar_split_clause,[],[f35,f266,f261])).
+fof(f261,plain,(
+  spl0_11 <=> hskp7),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_11])])).
+fof(f35,plain,(
+  ndr1_0 | ~hskp7),
+  inference(cnf_transformation,[],[f6])).
+fof(f855,plain,(
+  ~spl0_11 | spl0_130),
+  inference(avatar_split_clause,[],[f36,f852,f261])).
+fof(f36,plain,(
+  c3_1(a651) | ~hskp7),
+  inference(cnf_transformation,[],[f6])).
+fof(f850,plain,(
+  ~spl0_11 | ~spl0_129),
+  inference(avatar_split_clause,[],[f37,f847,f261])).
+fof(f37,plain,(
+  ~c0_1(a651) | ~hskp7),
+  inference(cnf_transformation,[],[f6])).
+fof(f845,plain,(
+  ~spl0_11 | ~spl0_128),
+  inference(avatar_split_clause,[],[f38,f842,f261])).
+fof(f38,plain,(
+  ~c1_1(a651) | ~hskp7),
+  inference(cnf_transformation,[],[f6])).
+fof(f839,plain,(
+  ~spl0_26 | spl0_127),
+  inference(avatar_split_clause,[],[f40,f836,f324])).
+fof(f324,plain,(
+  spl0_26 <=> hskp8),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_26])])).
+fof(f40,plain,(
+  c0_1(a652) | ~hskp8),
+  inference(cnf_transformation,[],[f6])).
+fof(f829,plain,(
+  ~spl0_26 | ~spl0_125),
+  inference(avatar_split_clause,[],[f42,f826,f324])).
+fof(f42,plain,(
+  ~c2_1(a652) | ~hskp8),
+  inference(cnf_transformation,[],[f6])).
+fof(f807,plain,(
+  ~spl0_17 | spl0_121),
+  inference(avatar_split_clause,[],[f48,f804,f285])).
+fof(f285,plain,(
+  spl0_17 <=> hskp10),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_17])])).
+fof(f48,plain,(
+  c0_1(a656) | ~hskp10),
+  inference(cnf_transformation,[],[f6])).
+fof(f802,plain,(
+  ~spl0_17 | spl0_120),
+  inference(avatar_split_clause,[],[f49,f799,f285])).
+fof(f49,plain,(
+  c2_1(a656) | ~hskp10),
+  inference(cnf_transformation,[],[f6])).
+fof(f797,plain,(
+  ~spl0_17 | ~spl0_119),
+  inference(avatar_split_clause,[],[f50,f794,f285])).
+fof(f50,plain,(
+  ~c1_1(a656) | ~hskp10),
+  inference(cnf_transformation,[],[f6])).
+fof(f791,plain,(
+  ~spl0_29 | spl0_118),
+  inference(avatar_split_clause,[],[f52,f788,f338])).
+fof(f338,plain,(
+  spl0_29 <=> hskp11),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_29])])).
+fof(f52,plain,(
+  c0_1(a657) | ~hskp11),
+  inference(cnf_transformation,[],[f6])).
+fof(f786,plain,(
+  ~spl0_29 | spl0_117),
+  inference(avatar_split_clause,[],[f53,f783,f338])).
+fof(f53,plain,(
+  c2_1(a657) | ~hskp11),
+  inference(cnf_transformation,[],[f6])).
+fof(f781,plain,(
+  ~spl0_29 | ~spl0_116),
+  inference(avatar_split_clause,[],[f54,f778,f338])).
+fof(f54,plain,(
+  ~c3_1(a657) | ~hskp11),
+  inference(cnf_transformation,[],[f6])).
+fof(f775,plain,(
+  ~spl0_22 | spl0_115),
+  inference(avatar_split_clause,[],[f56,f772,f306])).
+fof(f306,plain,(
+  spl0_22 <=> hskp12),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_22])])).
+fof(f56,plain,(
+  c0_1(a660) | ~hskp12),
+  inference(cnf_transformation,[],[f6])).
+fof(f770,plain,(
+  ~spl0_22 | ~spl0_114),
+  inference(avatar_split_clause,[],[f57,f767,f306])).
+fof(f57,plain,(
+  ~c1_1(a660) | ~hskp12),
+  inference(cnf_transformation,[],[f6])).
+fof(f765,plain,(
+  ~spl0_22 | ~spl0_113),
+  inference(avatar_split_clause,[],[f58,f762,f306])).
+fof(f58,plain,(
+  ~c2_1(a660) | ~hskp12),
+  inference(cnf_transformation,[],[f6])).
+fof(f759,plain,(
+  ~spl0_52 | spl0_112),
+  inference(avatar_split_clause,[],[f60,f756,f437])).
+fof(f437,plain,(
+  spl0_52 <=> hskp13),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_52])])).
+fof(f60,plain,(
+  c0_1(a661) | ~hskp13),
+  inference(cnf_transformation,[],[f6])).
+fof(f754,plain,(
+  ~spl0_52 | ~spl0_111),
+  inference(avatar_split_clause,[],[f61,f751,f437])).
+fof(f61,plain,(
+  ~c1_1(a661) | ~hskp13),
+  inference(cnf_transformation,[],[f6])).
+fof(f749,plain,(
+  ~spl0_52 | ~spl0_110),
+  inference(avatar_split_clause,[],[f62,f746,f437])).
+fof(f62,plain,(
+  ~c3_1(a661) | ~hskp13),
+  inference(cnf_transformation,[],[f6])).
+fof(f743,plain,(
+  ~spl0_2 | spl0_109),
+  inference(avatar_split_clause,[],[f64,f740,f220])).
+fof(f220,plain,(
+  spl0_2 <=> hskp14),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_2])])).
+fof(f64,plain,(
+  c2_1(a665) | ~hskp14),
+  inference(cnf_transformation,[],[f6])).
+fof(f733,plain,(
+  ~spl0_2 | ~spl0_107),
+  inference(avatar_split_clause,[],[f66,f730,f220])).
+fof(f66,plain,(
+  ~c1_1(a665) | ~hskp14),
+  inference(cnf_transformation,[],[f6])).
+fof(f711,plain,(
+  ~spl0_43 | spl0_103),
+  inference(avatar_split_clause,[],[f72,f708,f398])).
+fof(f398,plain,(
+  spl0_43 <=> hskp16),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_43])])).
+fof(f72,plain,(
+  c1_1(a672) | ~hskp16),
+  inference(cnf_transformation,[],[f6])).
+fof(f706,plain,(
+  ~spl0_43 | ~spl0_102),
+  inference(avatar_split_clause,[],[f73,f703,f398])).
+fof(f73,plain,(
+  ~c2_1(a672) | ~hskp16),
+  inference(cnf_transformation,[],[f6])).
+fof(f701,plain,(
+  ~spl0_43 | ~spl0_101),
+  inference(avatar_split_clause,[],[f74,f698,f398])).
+fof(f74,plain,(
+  ~c3_1(a672) | ~hskp16),
+  inference(cnf_transformation,[],[f6])).
+fof(f695,plain,(
+  ~spl0_3 | spl0_100),
+  inference(avatar_split_clause,[],[f76,f692,f224])).
+fof(f224,plain,(
+  spl0_3 <=> hskp17),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_3])])).
+fof(f76,plain,(
+  c2_1(a675) | ~hskp17),
+  inference(cnf_transformation,[],[f6])).
+fof(f690,plain,(
+  ~spl0_3 | ~spl0_99),
+  inference(avatar_split_clause,[],[f77,f687,f224])).
+fof(f77,plain,(
+  ~c1_1(a675) | ~hskp17),
+  inference(cnf_transformation,[],[f6])).
+fof(f685,plain,(
+  ~spl0_3 | ~spl0_98),
+  inference(avatar_split_clause,[],[f78,f682,f224])).
+fof(f78,plain,(
+  ~c3_1(a675) | ~hskp17),
+  inference(cnf_transformation,[],[f6])).
+fof(f680,plain,(
+  ~spl0_10 | spl0_12),
+  inference(avatar_split_clause,[],[f79,f266,f256])).
+fof(f256,plain,(
+  spl0_10 <=> hskp18),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_10])])).
+fof(f79,plain,(
+  ndr1_0 | ~hskp18),
+  inference(cnf_transformation,[],[f6])).
+fof(f679,plain,(
+  ~spl0_10 | spl0_97),
+  inference(avatar_split_clause,[],[f80,f676,f256])).
+fof(f80,plain,(
+  c0_1(a676) | ~hskp18),
+  inference(cnf_transformation,[],[f6])).
+fof(f674,plain,(
+  ~spl0_10 | spl0_96),
+  inference(avatar_split_clause,[],[f81,f671,f256])).
+fof(f81,plain,(
+  c1_1(a676) | ~hskp18),
+  inference(cnf_transformation,[],[f6])).
+fof(f669,plain,(
+  ~spl0_10 | ~spl0_95),
+  inference(avatar_split_clause,[],[f82,f666,f256])).
+fof(f82,plain,(
+  ~c2_1(a676) | ~hskp18),
+  inference(cnf_transformation,[],[f6])).
+fof(f663,plain,(
+  ~spl0_8 | spl0_94),
+  inference(avatar_split_clause,[],[f84,f660,f246])).
+fof(f246,plain,(
+  spl0_8 <=> hskp19),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_8])])).
+fof(f84,plain,(
+  c3_1(a682) | ~hskp19),
+  inference(cnf_transformation,[],[f6])).
+fof(f658,plain,(
+  ~spl0_8 | ~spl0_93),
+  inference(avatar_split_clause,[],[f85,f655,f246])).
+fof(f85,plain,(
+  ~c1_1(a682) | ~hskp19),
+  inference(cnf_transformation,[],[f6])).
+fof(f653,plain,(
+  ~spl0_8 | ~spl0_92),
+  inference(avatar_split_clause,[],[f86,f650,f246])).
+fof(f86,plain,(
+  ~c2_1(a682) | ~hskp19),
+  inference(cnf_transformation,[],[f6])).
+fof(f648,plain,(
+  ~spl0_4 | spl0_12),
+  inference(avatar_split_clause,[],[f87,f266,f229])).
+fof(f229,plain,(
+  spl0_4 <=> hskp20),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_4])])).
+fof(f87,plain,(
+  ndr1_0 | ~hskp20),
+  inference(cnf_transformation,[],[f6])).
+fof(f647,plain,(
+  ~spl0_4 | spl0_91),
+  inference(avatar_split_clause,[],[f88,f644,f229])).
+fof(f88,plain,(
+  c1_1(a686) | ~hskp20),
+  inference(cnf_transformation,[],[f6])).
+fof(f642,plain,(
+  ~spl0_4 | spl0_90),
+  inference(avatar_split_clause,[],[f89,f639,f229])).
+fof(f89,plain,(
+  c2_1(a686) | ~hskp20),
+  inference(cnf_transformation,[],[f6])).
+fof(f637,plain,(
+  ~spl0_4 | ~spl0_89),
+  inference(avatar_split_clause,[],[f90,f634,f229])).
+fof(f90,plain,(
+  ~c3_1(a686) | ~hskp20),
+  inference(cnf_transformation,[],[f6])).
+fof(f631,plain,(
+  ~spl0_30 | ~spl0_88),
+  inference(avatar_split_clause,[],[f92,f628,f342])).
+fof(f342,plain,(
+  spl0_30 <=> hskp21),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_30])])).
+fof(f92,plain,(
+  ~c0_1(a691) | ~hskp21),
+  inference(cnf_transformation,[],[f6])).
+fof(f626,plain,(
+  ~spl0_30 | ~spl0_87),
+  inference(avatar_split_clause,[],[f93,f623,f342])).
+fof(f93,plain,(
+  ~c1_1(a691) | ~hskp21),
+  inference(cnf_transformation,[],[f6])).
+fof(f615,plain,(
+  ~spl0_7 | spl0_85),
+  inference(avatar_split_clause,[],[f96,f612,f242])).
+fof(f242,plain,(
+  spl0_7 <=> hskp22),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_7])])).
+fof(f96,plain,(
+  c2_1(a693) | ~hskp22),
+  inference(cnf_transformation,[],[f6])).
+fof(f599,plain,(
+  ~spl0_14 | spl0_82),
+  inference(avatar_split_clause,[],[f100,f596,f273])).
+fof(f273,plain,(
+  spl0_14 <=> hskp23),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_14])])).
+fof(f100,plain,(
+  c2_1(a695) | ~hskp23),
+  inference(cnf_transformation,[],[f6])).
+fof(f594,plain,(
+  ~spl0_14 | ~spl0_81),
+  inference(avatar_split_clause,[],[f101,f591,f273])).
+fof(f101,plain,(
+  ~c0_1(a695) | ~hskp23),
+  inference(cnf_transformation,[],[f6])).
+fof(f589,plain,(
+  ~spl0_14 | ~spl0_80),
+  inference(avatar_split_clause,[],[f102,f586,f273])).
+fof(f102,plain,(
+  ~c3_1(a695) | ~hskp23),
+  inference(cnf_transformation,[],[f6])).
+fof(f583,plain,(
+  ~spl0_1 | spl0_79),
+  inference(avatar_split_clause,[],[f104,f580,f216])).
+fof(f216,plain,(
+  spl0_1 <=> hskp24),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_1])])).
+fof(f104,plain,(
+  c1_1(a698) | ~hskp24),
+  inference(cnf_transformation,[],[f6])).
+fof(f578,plain,(
+  ~spl0_1 | ~spl0_78),
+  inference(avatar_split_clause,[],[f105,f575,f216])).
+fof(f105,plain,(
+  ~c0_1(a698) | ~hskp24),
+  inference(cnf_transformation,[],[f6])).
+fof(f573,plain,(
+  ~spl0_1 | ~spl0_77),
+  inference(avatar_split_clause,[],[f106,f570,f216])).
+fof(f106,plain,(
+  ~c2_1(a698) | ~hskp24),
+  inference(cnf_transformation,[],[f6])).
+fof(f535,plain,(
+  ~spl0_53 | spl0_70),
+  inference(avatar_split_clause,[],[f116,f532,f443])).
+fof(f443,plain,(
+  spl0_53 <=> hskp27),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_53])])).
+fof(f116,plain,(
+  c0_1(a655) | ~hskp27),
+  inference(cnf_transformation,[],[f6])).
+fof(f530,plain,(
+  ~spl0_53 | spl0_69),
+  inference(avatar_split_clause,[],[f117,f527,f443])).
+fof(f117,plain,(
+  c2_1(a655) | ~hskp27),
+  inference(cnf_transformation,[],[f6])).
+fof(f525,plain,(
+  ~spl0_53 | spl0_68),
+  inference(avatar_split_clause,[],[f118,f522,f443])).
+fof(f118,plain,(
+  c3_1(a655) | ~hskp27),
+  inference(cnf_transformation,[],[f6])).
+fof(f519,plain,(
+  ~spl0_37 | spl0_67),
+  inference(avatar_split_clause,[],[f120,f516,f375])).
+fof(f375,plain,(
+  spl0_37 <=> hskp28),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_37])])).
+fof(f120,plain,(
+  c0_1(a671) | ~hskp28),
+  inference(cnf_transformation,[],[f6])).
+fof(f514,plain,(
+  ~spl0_37 | spl0_66),
+  inference(avatar_split_clause,[],[f121,f511,f375])).
+fof(f121,plain,(
+  c1_1(a671) | ~hskp28),
+  inference(cnf_transformation,[],[f6])).
+fof(f509,plain,(
+  ~spl0_37 | spl0_65),
+  inference(avatar_split_clause,[],[f122,f506,f375])).
+fof(f122,plain,(
+  c2_1(a671) | ~hskp28),
+  inference(cnf_transformation,[],[f6])).
+fof(f503,plain,(
+  ~spl0_18 | spl0_64),
+  inference(avatar_split_clause,[],[f124,f500,f289])).
+fof(f289,plain,(
+  spl0_18 <=> hskp29),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_18])])).
+fof(f124,plain,(
+  c1_1(a688) | ~hskp29),
+  inference(cnf_transformation,[],[f6])).
+fof(f493,plain,(
+  ~spl0_18 | spl0_62),
+  inference(avatar_split_clause,[],[f126,f490,f289])).
+fof(f126,plain,(
+  c3_1(a688) | ~hskp29),
+  inference(cnf_transformation,[],[f6])).
+fof(f480,plain,(
+  spl0_59 | spl0_58 | ~spl0_12 | spl0_39),
+  inference(avatar_split_clause,[],[f187,f383,f266,f470,f475])).
+fof(f187,plain,(
+  ( ! [X88,X87,X86] : (~c1_1(X86) | ~c0_1(X86) | c2_1(X86) | ~ndr1_0 | ~c2_1(X87) | c1_1(X87) | c0_1(X87) | c3_1(X88) | c1_1(X88) | c0_1(X88)) )),
+  inference(duplicate_literal_removal,[],[f128])).
+fof(f128,plain,(
+  ( ! [X88,X87,X86] : (~c1_1(X86) | ~c0_1(X86) | c2_1(X86) | ~ndr1_0 | ~c2_1(X87) | c1_1(X87) | c0_1(X87) | ~ndr1_0 | c3_1(X88) | c1_1(X88) | c0_1(X88) | ~ndr1_0) )),
+  inference(cnf_transformation,[],[f6])).
+fof(f478,plain,(
+  ~spl0_12 | spl0_59 | spl0_6 | spl0_5),
+  inference(avatar_split_clause,[],[f130,f233,f238,f475,f266])).
+fof(f130,plain,(
+  ( ! [X83] : (hskp0 | hskp2 | c3_1(X83) | c1_1(X83) | c0_1(X83) | ~ndr1_0) )),
+  inference(cnf_transformation,[],[f6])).
+fof(f473,plain,(
+  spl0_58 | ~spl0_12 | spl0_38 | spl0_28),
+  inference(avatar_split_clause,[],[f189,f332,f380,f266,f470])).
+fof(f189,plain,(
+  ( ! [X80,X81] : (hskp5 | ~c2_1(X80) | c3_1(X80) | c1_1(X80) | ~ndr1_0 | ~c2_1(X81) | c1_1(X81) | c0_1(X81)) )),
+  inference(duplicate_literal_removal,[],[f132])).
+fof(f132,plain,(
+  ( ! [X80,X81] : (hskp5 | ~c2_1(X80) | c3_1(X80) | c1_1(X80) | ~ndr1_0 | ~c2_1(X81) | c1_1(X81) | c0_1(X81) | ~ndr1_0) )),
+  inference(cnf_transformation,[],[f6])).
+fof(f472,plain,(
+  ~spl0_12 | spl0_58 | spl0_50 | spl0_6),
+  inference(avatar_split_clause,[],[f133,f238,f429,f470,f266])).
+fof(f133,plain,(
+  ( ! [X79] : (hskp2 | hskp6 | ~c2_1(X79) | c1_1(X79) | c0_1(X79) | ~ndr1_0) )),
+  inference(cnf_transformation,[],[f6])).
+fof(f468,plain,(
+  spl0_57 | ~spl0_12 | spl0_31 | spl0_6),
+  inference(avatar_split_clause,[],[f190,f238,f347,f266,f463])).
+fof(f190,plain,(
+  ( ! [X78,X77] : (hskp2 | ~c1_1(X77) | c3_1(X77) | c2_1(X77) | ~ndr1_0 | ~c3_1(X78) | c1_1(X78) | c0_1(X78)) )),
+  inference(duplicate_literal_removal,[],[f134])).
+fof(f134,plain,(
+  ( ! [X78,X77] : (hskp2 | ~c1_1(X77) | c3_1(X77) | c2_1(X77) | ~ndr1_0 | ~c3_1(X78) | c1_1(X78) | c0_1(X78) | ~ndr1_0) )),
+  inference(cnf_transformation,[],[f6])).
+fof(f467,plain,(
+  spl0_57 | ~spl0_12 | spl0_27 | spl0_11),
+  inference(avatar_split_clause,[],[f191,f261,f329,f266,f463])).
+fof(f191,plain,(
+  ( ! [X76,X75] : (hskp7 | ~c3_1(X75) | ~c0_1(X75) | c2_1(X75) | ~ndr1_0 | ~c3_1(X76) | c1_1(X76) | c0_1(X76)) )),
+  inference(duplicate_literal_removal,[],[f135])).
+fof(f135,plain,(
+  ( ! [X76,X75] : (hskp7 | ~c3_1(X75) | ~c0_1(X75) | c2_1(X75) | ~ndr1_0 | ~c3_1(X76) | c1_1(X76) | c0_1(X76) | ~ndr1_0) )),
+  inference(cnf_transformation,[],[f6])).
+fof(f466,plain,(
+  spl0_57 | ~spl0_12 | spl0_13 | spl0_26),
+  inference(avatar_split_clause,[],[f192,f324,f270,f266,f463])).
+fof(f192,plain,(
+  ( ! [X74,X73] : (hskp8 | ~c2_1(X73) | ~c1_1(X73) | ~c0_1(X73) | ~ndr1_0 | ~c3_1(X74) | c1_1(X74) | c0_1(X74)) )),
+  inference(duplicate_literal_removal,[],[f136])).
+fof(f136,plain,(
+  ( ! [X74,X73] : (hskp8 | ~c2_1(X73) | ~c1_1(X73) | ~c0_1(X73) | ~ndr1_0 | ~c3_1(X74) | c1_1(X74) | c0_1(X74) | ~ndr1_0) )),
+  inference(cnf_transformation,[],[f6])).
+fof(f465,plain,(
+  spl0_57 | ~spl0_12 | spl0_25 | spl0_24),
+  inference(avatar_split_clause,[],[f193,f315,f321,f266,f463])).
+fof(f193,plain,(
+  ( ! [X72,X71] : (hskp3 | ~c3_1(X71) | ~c2_1(X71) | ~c1_1(X71) | ~ndr1_0 | ~c3_1(X72) | c1_1(X72) | c0_1(X72)) )),
+  inference(duplicate_literal_removal,[],[f137])).
+fof(f137,plain,(
+  ( ! [X72,X71] : (hskp3 | ~c3_1(X71) | ~c2_1(X71) | ~c1_1(X71) | ~ndr1_0 | ~c3_1(X72) | c1_1(X72) | c0_1(X72) | ~ndr1_0) )),
+  inference(cnf_transformation,[],[f6])).
+fof(f461,plain,(
+  spl0_55 | spl0_45 | ~spl0_12 | spl0_56),
+  inference(avatar_split_clause,[],[f194,f459,f266,f407,f455])).
+fof(f194,plain,(
+  ( ! [X70,X68,X69] : (~c3_1(X68) | ~c1_1(X68) | ~c0_1(X68) | ~ndr1_0 | c3_1(X69) | c2_1(X69) | c1_1(X69) | c3_1(X70) | c2_1(X70) | c0_1(X70)) )),
+  inference(duplicate_literal_removal,[],[f138])).
+fof(f138,plain,(
+  ( ! [X70,X68,X69] : (~c3_1(X68) | ~c1_1(X68) | ~c0_1(X68) | ~ndr1_0 | c3_1(X69) | c2_1(X69) | c1_1(X69) | ~ndr1_0 | c3_1(X70) | c2_1(X70) | c0_1(X70) | ~ndr1_0) )),
+  inference(cnf_transformation,[],[f6])).
+fof(f453,plain,(
+  spl0_54 | ~spl0_12 | spl0_42 | spl0_53),
+  inference(avatar_split_clause,[],[f196,f443,f395,f266,f450])).
+fof(f196,plain,(
+  ( ! [X64,X65] : (hskp27 | ~c3_1(X64) | c2_1(X64) | c1_1(X64) | ~ndr1_0 | ~c3_1(X65) | c2_1(X65) | c0_1(X65)) )),
+  inference(duplicate_literal_removal,[],[f140])).
+fof(f140,plain,(
+  ( ! [X64,X65] : (hskp27 | ~c3_1(X64) | c2_1(X64) | c1_1(X64) | ~ndr1_0 | ~c3_1(X65) | c2_1(X65) | c0_1(X65) | ~ndr1_0) )),
+  inference(cnf_transformation,[],[f6])).
+fof(f452,plain,(
+  spl0_54 | ~spl0_12 | spl0_39 | spl0_17),
+  inference(avatar_split_clause,[],[f197,f285,f383,f266,f450])).
+fof(f197,plain,(
+  ( ! [X62,X63] : (hskp10 | ~c1_1(X62) | ~c0_1(X62) | c2_1(X62) | ~ndr1_0 | ~c3_1(X63) | c2_1(X63) | c0_1(X63)) )),
+  inference(duplicate_literal_removal,[],[f141])).
+fof(f141,plain,(
+  ( ! [X62,X63] : (hskp10 | ~c1_1(X62) | ~c0_1(X62) | c2_1(X62) | ~ndr1_0 | ~c3_1(X63) | c2_1(X63) | c0_1(X63) | ~ndr1_0) )),
+  inference(cnf_transformation,[],[f6])).
+fof(f448,plain,(
+  spl0_51 | spl0_48 | ~spl0_12 | spl0_44),
+  inference(avatar_split_clause,[],[f198,f403,f266,f421,f434])).
+fof(f198,plain,(
+  ( ! [X61,X59,X60] : (~c0_1(X59) | c2_1(X59) | c1_1(X59) | ~ndr1_0 | ~c2_1(X60) | ~c1_1(X60) | c0_1(X60) | ~c1_1(X61) | c3_1(X61) | c0_1(X61)) )),
+  inference(duplicate_literal_removal,[],[f142])).
+fof(f142,plain,(
+  ( ! [X61,X59,X60] : (~c0_1(X59) | c2_1(X59) | c1_1(X59) | ~ndr1_0 | ~c2_1(X60) | ~c1_1(X60) | c0_1(X60) | ~ndr1_0 | ~c1_1(X61) | c3_1(X61) | c0_1(X61) | ~ndr1_0) )),
+  inference(cnf_transformation,[],[f6])).
+fof(f446,plain,(
+  spl0_51 | ~spl0_12 | spl0_33 | spl0_53),
+  inference(avatar_split_clause,[],[f200,f443,f358,f266,f434])).
+fof(f200,plain,(
+  ( ! [X56,X55] : (hskp27 | ~c3_1(X55) | ~c2_1(X55) | c1_1(X55) | ~ndr1_0 | ~c1_1(X56) | c3_1(X56) | c0_1(X56)) )),
+  inference(duplicate_literal_removal,[],[f144])).
+fof(f144,plain,(
+  ( ! [X56,X55] : (hskp27 | ~c3_1(X55) | ~c2_1(X55) | c1_1(X55) | ~ndr1_0 | ~c1_1(X56) | c3_1(X56) | c0_1(X56) | ~ndr1_0) )),
+  inference(cnf_transformation,[],[f6])).
+fof(f441,plain,(
+  spl0_51 | ~spl0_12 | spl0_23 | spl0_50),
+  inference(avatar_split_clause,[],[f201,f429,f312,f266,f434])).
+fof(f201,plain,(
+  ( ! [X54,X53] : (hskp6 | ~c3_1(X53) | ~c1_1(X53) | c2_1(X53) | ~ndr1_0 | ~c1_1(X54) | c3_1(X54) | c0_1(X54)) )),
+  inference(duplicate_literal_removal,[],[f145])).
+fof(f145,plain,(
+  ( ! [X54,X53] : (hskp6 | ~c3_1(X53) | ~c1_1(X53) | c2_1(X53) | ~ndr1_0 | ~c1_1(X54) | c3_1(X54) | c0_1(X54) | ~ndr1_0) )),
+  inference(cnf_transformation,[],[f6])).
+fof(f440,plain,(
+  ~spl0_12 | spl0_51 | spl0_22 | spl0_52),
+  inference(avatar_split_clause,[],[f146,f437,f306,f434,f266])).
+fof(f146,plain,(
+  ( ! [X52] : (hskp13 | hskp12 | ~c1_1(X52) | c3_1(X52) | c0_1(X52) | ~ndr1_0) )),
+  inference(cnf_transformation,[],[f6])).
+fof(f432,plain,(
+  ~spl0_12 | spl0_49 | spl0_50 | spl0_24),
+  inference(avatar_split_clause,[],[f147,f315,f429,f426,f266])).
+fof(f147,plain,(
+  ( ! [X51] : (hskp3 | hskp6 | ~c2_1(X51) | c3_1(X51) | c0_1(X51) | ~ndr1_0) )),
+  inference(cnf_transformation,[],[f6])).
+fof(f424,plain,(
+  spl0_48 | spl0_33 | ~spl0_12 | spl0_13),
+  inference(avatar_split_clause,[],[f202,f270,f266,f358,f421])).
+fof(f202,plain,(
+  ( ! [X50,X48,X49] : (~c2_1(X48) | ~c1_1(X48) | ~c0_1(X48) | ~ndr1_0 | ~c3_1(X49) | ~c2_1(X49) | c1_1(X49) | ~c2_1(X50) | ~c1_1(X50) | c0_1(X50)) )),
+  inference(duplicate_literal_removal,[],[f148])).
+fof(f148,plain,(
+  ( ! [X50,X48,X49] : (~c2_1(X48) | ~c1_1(X48) | ~c0_1(X48) | ~ndr1_0 | ~c3_1(X49) | ~c2_1(X49) | c1_1(X49) | ~ndr1_0 | ~c2_1(X50) | ~c1_1(X50) | c0_1(X50) | ~ndr1_0) )),
+  inference(cnf_transformation,[],[f6])).
+fof(f423,plain,(
+  spl0_48 | spl0_33 | ~spl0_12 | spl0_25),
+  inference(avatar_split_clause,[],[f203,f321,f266,f358,f421])).
+fof(f203,plain,(
+  ( ! [X47,X45,X46] : (~c3_1(X45) | ~c2_1(X45) | ~c1_1(X45) | ~ndr1_0 | ~c3_1(X46) | ~c2_1(X46) | c1_1(X46) | ~c2_1(X47) | ~c1_1(X47) | c0_1(X47)) )),
+  inference(duplicate_literal_removal,[],[f149])).
+fof(f149,plain,(
+  ( ! [X47,X45,X46] : (~c3_1(X45) | ~c2_1(X45) | ~c1_1(X45) | ~ndr1_0 | ~c3_1(X46) | ~c2_1(X46) | c1_1(X46) | ~ndr1_0 | ~c2_1(X47) | ~c1_1(X47) | c0_1(X47) | ~ndr1_0) )),
+  inference(cnf_transformation,[],[f6])).
+fof(f419,plain,(
+  spl0_47 | spl0_40 | ~spl0_12 | spl0_39),
+  inference(avatar_split_clause,[],[f204,f383,f266,f387,f417])).
+fof(f204,plain,(
+  ( ! [X43,X44,X42] : (~c1_1(X42) | ~c0_1(X42) | c2_1(X42) | ~ndr1_0 | ~c0_1(X43) | c3_1(X43) | c1_1(X43) | ~c3_1(X44) | ~c1_1(X44) | c0_1(X44)) )),
+  inference(duplicate_literal_removal,[],[f150])).
+fof(f150,plain,(
+  ( ! [X43,X44,X42] : (~c1_1(X42) | ~c0_1(X42) | c2_1(X42) | ~ndr1_0 | ~c0_1(X43) | c3_1(X43) | c1_1(X43) | ~ndr1_0 | ~c3_1(X44) | ~c1_1(X44) | c0_1(X44) | ~ndr1_0) )),
+  inference(cnf_transformation,[],[f6])).
+fof(f415,plain,(
+  spl0_46 | ~spl0_12 | spl0_40 | spl0_11),
+  inference(avatar_split_clause,[],[f205,f261,f387,f266,f411])).
+fof(f205,plain,(
+  ( ! [X41,X40] : (hskp7 | ~c0_1(X40) | c3_1(X40) | c1_1(X40) | ~ndr1_0 | ~c3_1(X41) | ~c2_1(X41) | c0_1(X41)) )),
+  inference(duplicate_literal_removal,[],[f151])).
+fof(f151,plain,(
+  ( ! [X41,X40] : (hskp7 | ~c0_1(X40) | c3_1(X40) | c1_1(X40) | ~ndr1_0 | ~c3_1(X41) | ~c2_1(X41) | c0_1(X41) | ~ndr1_0) )),
+  inference(cnf_transformation,[],[f6])).
+fof(f414,plain,(
+  ~spl0_12 | spl0_46 | spl0_2 | spl0_36),
+  inference(avatar_split_clause,[],[f152,f370,f220,f411,f266])).
+fof(f152,plain,(
+  ( ! [X39] : (hskp4 | hskp14 | ~c3_1(X39) | ~c2_1(X39) | c0_1(X39) | ~ndr1_0) )),
+  inference(cnf_transformation,[],[f6])).
+fof(f409,plain,(
+  spl0_45 | ~spl0_12 | spl0_42 | spl0_36),
+  inference(avatar_split_clause,[],[f206,f370,f395,f266,f407])).
+fof(f206,plain,(
+  ( ! [X37,X36] : (hskp4 | ~c3_1(X36) | c2_1(X36) | c1_1(X36) | ~ndr1_0 | c3_1(X37) | c2_1(X37) | c1_1(X37)) )),
+  inference(duplicate_literal_removal,[],[f154])).
+fof(f154,plain,(
+  ( ! [X37,X36] : (hskp4 | ~c3_1(X36) | c2_1(X36) | c1_1(X36) | ~ndr1_0 | c3_1(X37) | c2_1(X37) | c1_1(X37) | ~ndr1_0) )),
+  inference(cnf_transformation,[],[f6])).
+fof(f401,plain,(
+  ~spl0_12 | spl0_42 | spl0_37 | spl0_43),
+  inference(avatar_split_clause,[],[f156,f398,f375,f395,f266])).
+fof(f156,plain,(
+  ( ! [X33] : (hskp16 | hskp28 | ~c3_1(X33) | c2_1(X33) | c1_1(X33) | ~ndr1_0) )),
+  inference(cnf_transformation,[],[f6])).
+fof(f393,plain,(
+  spl0_40 | spl0_41 | ~spl0_12 | spl0_19),
+  inference(avatar_split_clause,[],[f208,f294,f266,f391,f387])).
+fof(f208,plain,(
+  ( ! [X30,X31,X32] : (~c2_1(X30) | ~c0_1(X30) | c3_1(X30) | ~ndr1_0 | ~c2_1(X31) | ~c0_1(X31) | c1_1(X31) | ~c0_1(X32) | c3_1(X32) | c1_1(X32)) )),
+  inference(duplicate_literal_removal,[],[f157])).
+fof(f157,plain,(
+  ( ! [X30,X31,X32] : (~c2_1(X30) | ~c0_1(X30) | c3_1(X30) | ~ndr1_0 | ~c2_1(X31) | ~c0_1(X31) | c1_1(X31) | ~ndr1_0 | ~c0_1(X32) | c3_1(X32) | c1_1(X32) | ~ndr1_0) )),
+  inference(cnf_transformation,[],[f6])).
+fof(f389,plain,(
+  spl0_40 | ~spl0_12 | spl0_13 | spl0_11),
+  inference(avatar_split_clause,[],[f209,f261,f270,f266,f387])).
+fof(f209,plain,(
+  ( ! [X28,X29] : (hskp7 | ~c2_1(X28) | ~c1_1(X28) | ~c0_1(X28) | ~ndr1_0 | ~c0_1(X29) | c3_1(X29) | c1_1(X29)) )),
+  inference(duplicate_literal_removal,[],[f158])).
+fof(f158,plain,(
+  ( ! [X28,X29] : (hskp7 | ~c2_1(X28) | ~c1_1(X28) | ~c0_1(X28) | ~ndr1_0 | ~c0_1(X29) | c3_1(X29) | c1_1(X29) | ~ndr1_0) )),
+  inference(cnf_transformation,[],[f6])).
+fof(f385,plain,(
+  spl0_38 | spl0_33 | ~spl0_12 | spl0_39),
+  inference(avatar_split_clause,[],[f210,f383,f266,f358,f380])).
+fof(f210,plain,(
+  ( ! [X26,X27,X25] : (~c1_1(X25) | ~c0_1(X25) | c2_1(X25) | ~ndr1_0 | ~c3_1(X26) | ~c2_1(X26) | c1_1(X26) | ~c2_1(X27) | c3_1(X27) | c1_1(X27)) )),
+  inference(duplicate_literal_removal,[],[f159])).
+fof(f159,plain,(
+  ( ! [X26,X27,X25] : (~c1_1(X25) | ~c0_1(X25) | c2_1(X25) | ~ndr1_0 | ~c3_1(X26) | ~c2_1(X26) | c1_1(X26) | ~ndr1_0 | ~c2_1(X27) | c3_1(X27) | c1_1(X27) | ~ndr1_0) )),
+  inference(cnf_transformation,[],[f6])).
+fof(f378,plain,(
+  ~spl0_12 | spl0_35 | spl0_37 | spl0_3),
+  inference(avatar_split_clause,[],[f160,f224,f375,f367,f266])).
+fof(f160,plain,(
+  ( ! [X24] : (hskp17 | hskp28 | ~c3_1(X24) | ~c0_1(X24) | c1_1(X24) | ~ndr1_0) )),
+  inference(cnf_transformation,[],[f6])).
+fof(f373,plain,(
+  ~spl0_12 | spl0_35 | spl0_10 | spl0_36),
+  inference(avatar_split_clause,[],[f161,f370,f256,f367,f266])).
+fof(f161,plain,(
+  ( ! [X23] : (hskp4 | hskp18 | ~c3_1(X23) | ~c0_1(X23) | c1_1(X23) | ~ndr1_0) )),
+  inference(cnf_transformation,[],[f6])).
+fof(f361,plain,(
+  ~spl0_12 | spl0_33 | spl0_3 | spl0_11),
+  inference(avatar_split_clause,[],[f163,f261,f224,f358,f266])).
+fof(f163,plain,(
+  ( ! [X20] : (hskp7 | hskp17 | ~c3_1(X20) | ~c2_1(X20) | c1_1(X20) | ~ndr1_0) )),
+  inference(cnf_transformation,[],[f6])).
+fof(f360,plain,(
+  ~spl0_12 | spl0_33 | spl0_3 | spl0_8),
+  inference(avatar_split_clause,[],[f164,f246,f224,f358,f266])).
+fof(f164,plain,(
+  ( ! [X19] : (hskp19 | hskp17 | ~c3_1(X19) | ~c2_1(X19) | c1_1(X19) | ~ndr1_0) )),
+  inference(cnf_transformation,[],[f6])).
+fof(f356,plain,(
+  spl0_32 | ~spl0_12 | spl0_19),
+  inference(avatar_split_clause,[],[f212,f294,f266,f351])).
+fof(f212,plain,(
+  ( ! [X17,X18] : (~c2_1(X17) | ~c0_1(X17) | c3_1(X17) | ~ndr1_0 | ~c0_1(X18) | c3_1(X18) | c2_1(X18)) )),
+  inference(duplicate_literal_removal,[],[f165])).
+fof(f165,plain,(
+  ( ! [X17,X18] : (~c2_1(X17) | ~c0_1(X17) | c3_1(X17) | ~ndr1_0 | ~c0_1(X18) | c3_1(X18) | c2_1(X18) | ~ndr1_0) )),
+  inference(cnf_transformation,[],[f6])).
+fof(f355,plain,(
+  spl0_32 | ~spl0_12 | spl0_25 | spl0_29),
+  inference(avatar_split_clause,[],[f213,f338,f321,f266,f351])).
+fof(f213,plain,(
+  ( ! [X15,X16] : (hskp11 | ~c3_1(X15) | ~c2_1(X15) | ~c1_1(X15) | ~ndr1_0 | ~c0_1(X16) | c3_1(X16) | c2_1(X16)) )),
+  inference(duplicate_literal_removal,[],[f166])).
+fof(f166,plain,(
+  ( ! [X15,X16] : (hskp11 | ~c3_1(X15) | ~c2_1(X15) | ~c1_1(X15) | ~ndr1_0 | ~c0_1(X16) | c3_1(X16) | c2_1(X16) | ~ndr1_0) )),
+  inference(cnf_transformation,[],[f6])).
+fof(f353,plain,(
+  ~spl0_12 | spl0_32 | spl0_4 | spl0_28),
+  inference(avatar_split_clause,[],[f168,f332,f229,f351,f266])).
+fof(f168,plain,(
+  ( ! [X13] : (hskp5 | hskp20 | ~c0_1(X13) | c3_1(X13) | c2_1(X13) | ~ndr1_0) )),
+  inference(cnf_transformation,[],[f6])).
+fof(f345,plain,(
+  ~spl0_12 | spl0_27 | spl0_29 | spl0_30),
+  inference(avatar_split_clause,[],[f170,f342,f338,f329,f266])).
+fof(f170,plain,(
+  ( ! [X11] : (hskp21 | hskp11 | ~c3_1(X11) | ~c0_1(X11) | c2_1(X11) | ~ndr1_0) )),
+  inference(cnf_transformation,[],[f6])).
+fof(f335,plain,(
+  ~spl0_12 | spl0_27 | spl0_28 | spl0_14),
+  inference(avatar_split_clause,[],[f172,f273,f332,f329,f266])).
+fof(f172,plain,(
+  ( ! [X9] : (hskp23 | hskp5 | ~c3_1(X9) | ~c0_1(X9) | c2_1(X9) | ~ndr1_0) )),
+  inference(cnf_transformation,[],[f6])).
+fof(f327,plain,(
+  spl0_23 | ~spl0_12 | spl0_25 | spl0_26),
+  inference(avatar_split_clause,[],[f214,f324,f321,f266,f312])).
+fof(f214,plain,(
+  ( ! [X8,X7] : (hskp8 | ~c3_1(X7) | ~c2_1(X7) | ~c1_1(X7) | ~ndr1_0 | ~c3_1(X8) | ~c1_1(X8) | c2_1(X8)) )),
+  inference(duplicate_literal_removal,[],[f173])).
+fof(f173,plain,(
+  ( ! [X8,X7] : (hskp8 | ~c3_1(X7) | ~c2_1(X7) | ~c1_1(X7) | ~ndr1_0 | ~c3_1(X8) | ~c1_1(X8) | c2_1(X8) | ~ndr1_0) )),
+  inference(cnf_transformation,[],[f6])).
+fof(f319,plain,(
+  ~spl0_12 | spl0_23 | spl0_6 | spl0_1),
+  inference(avatar_split_clause,[],[f174,f216,f238,f312,f266])).
+fof(f174,plain,(
+  ( ! [X6] : (hskp24 | hskp2 | ~c3_1(X6) | ~c1_1(X6) | c2_1(X6) | ~ndr1_0) )),
+  inference(cnf_transformation,[],[f6])).
+fof(f309,plain,(
+  ~spl0_12 | spl0_19 | spl0_22 | spl0_4),
+  inference(avatar_split_clause,[],[f177,f229,f306,f294,f266])).
+fof(f177,plain,(
+  ( ! [X3] : (hskp20 | hskp12 | ~c2_1(X3) | ~c0_1(X3) | c3_1(X3) | ~ndr1_0) )),
+  inference(cnf_transformation,[],[f6])).
+fof(f292,plain,(
+  ~spl0_12 | spl0_16 | spl0_17 | spl0_18),
+  inference(avatar_split_clause,[],[f179,f289,f285,f282,f266])).
+fof(f179,plain,(
+  ( ! [X1] : (hskp29 | hskp10 | ~c2_1(X1) | ~c1_1(X1) | c3_1(X1) | ~ndr1_0) )),
+  inference(cnf_transformation,[],[f6])).
+fof(f264,plain,(
+  spl0_10 | spl0_9 | spl0_11),
+  inference(avatar_split_clause,[],[f181,f261,f251,f256])).
+fof(f181,plain,(
+  hskp7 | hskp1 | hskp18),
+  inference(cnf_transformation,[],[f6])).
+fof(f259,plain,(
+  spl0_10 | spl0_6 | spl0_4),
+  inference(avatar_split_clause,[],[f182,f229,f238,f256])).
+fof(f182,plain,(
+  hskp20 | hskp2 | hskp18),
+  inference(cnf_transformation,[],[f6])).
+fof(f249,plain,(
+  spl0_6 | spl0_7 | spl0_8),
+  inference(avatar_split_clause,[],[f184,f246,f242,f238])).
+fof(f184,plain,(
+  hskp19 | hskp22 | hskp2),
+  inference(cnf_transformation,[],[f6])).
+% SZS output end Proof for SYN450+1
+% ------------------------------
+% Version: Vampire 4.4.0 (commit d98a3d53 on 2020-01-14 21:02:12 +0100)
+% Termination reason: Refutation
+
+% Memory used [KB]: 7547
+% Time elapsed: 0.035 s
+% ------------------------------
+% ------------------------------

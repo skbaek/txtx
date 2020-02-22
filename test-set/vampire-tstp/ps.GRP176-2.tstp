@@ -1,0 +1,30 @@
+% Refutation found. Thanks to Tanya!
+% SZS status Unsatisfiable for GRP176-2
+% SZS output start Proof for GRP176-2
+fof(f302,plain,(
+  $false),
+  inference(trivial_inequality_removal,[],[f301])).
+fof(f301,plain,(
+  multiply(c,multiply(least_upper_bound(a,b),d)) != multiply(c,multiply(least_upper_bound(a,b),d))),
+  inference(forward_demodulation,[],[f300,f14])).
+fof(f14,axiom,(
+  ( ! [X2,X0,X1] : (multiply(least_upper_bound(X1,X2),X0) = least_upper_bound(multiply(X1,X0),multiply(X2,X0))) )),
+  file('GRP176-2.tptp',unknown)).
+fof(f300,plain,(
+  multiply(c,multiply(least_upper_bound(a,b),d)) != multiply(c,least_upper_bound(multiply(a,d),multiply(b,d)))),
+  inference(superposition,[],[f17,f12])).
+fof(f12,axiom,(
+  ( ! [X2,X0,X1] : (multiply(X0,least_upper_bound(X1,X2)) = least_upper_bound(multiply(X0,X1),multiply(X0,X2))) )),
+  file('GRP176-2.tptp',unknown)).
+fof(f17,axiom,(
+  multiply(c,multiply(least_upper_bound(a,b),d)) != least_upper_bound(multiply(c,multiply(a,d)),multiply(c,multiply(b,d)))),
+  file('GRP176-2.tptp',unknown)).
+% SZS output end Proof for GRP176-2
+% ------------------------------
+% Version: Vampire 4.4.0 (commit d98a3d53 on 2020-01-14 21:02:12 +0100)
+% Termination reason: Refutation
+
+% Memory used [KB]: 5245
+% Time elapsed: 0.007 s
+% ------------------------------
+% ------------------------------

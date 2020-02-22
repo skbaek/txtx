@@ -1,0 +1,1 @@
+proof(f(!! (~c_in(#(1),c_emptyset^[],#(0))),d(0,d(0,c(@(1),3,c(@(0),0,x(0,2))))),f(!c_in(v_x^[#(0)],#(0),tc_IntDef_Oint^[]),x(3,0),f($false,f(c_in(v_x^[c_emptyset^[]],c_emptyset^[],tc_IntDef_Oint^[]),c(c_emptyset^[],2,x(0,1)),c(v_x^[c_emptyset^[]],3,c(tc_IntDef_Oint^[],0,n(0,x(3,0))))),h((- $false),neg_false,x(1,0)))))).

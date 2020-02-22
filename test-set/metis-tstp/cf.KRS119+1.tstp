@@ -1,0 +1,380 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% SZS status Unsatisfiable for KRS119+1.tptp
+
+% SZS output start CNFRefutation for KRS119+1.tptp
+fof(axiom_2, axiom,
+    (! [X] :
+       (cUnsatisfiable(X) <=> (? [Y] : (rr(X, Y) & ca_Vx3(Y)) & cp1(X))))).
+
+fof(axiom_3, axiom, (! [X] : (cp1(X) <=> ~ ? [Y] : ra_Px1(X, Y)))).
+
+fof(axiom_4, axiom, (! [X] : (cp1xcomp(X) <=> ? [Y0] : ra_Px1(X, Y0)))).
+
+fof(axiom_5, axiom,
+    (! [X] :
+       (ca_Ax2(X) <=> (cp1(X) & ! [Y] : (rinvR(X, Y) => cp1xcomp(Y)))))).
+
+fof(axiom_6, axiom,
+    (! [X] : (ca_Vx3(X) <=> ? [Y] : (rr(X, Y) & ca_Ax2(Y))))).
+
+fof(axiom_9, axiom, (! [X, Y] : (rinvR(X, Y) <=> rr(Y, X)))).
+
+fof(axiom_10, axiom, (! [X, Y, Z] : ((rr(X, Y) & rr(Y, Z)) => rr(X, Z)))).
+
+fof(axiom_11, axiom, (cUnsatisfiable(i2003_11_14_17_21_44786))).
+
+fof(normalize_0_0, plain, (! [X] : (~ cp1(X) <=> ? [Y] : ra_Px1(X, Y))),
+    inference(canonicalize, [], [axiom_3])).
+
+fof(normalize_0_1, plain, (! [X] : (~ cp1(X) <=> ? [Y] : ra_Px1(X, Y))),
+    inference(specialize, [], [normalize_0_0])).
+
+fof(normalize_0_2, plain,
+    (! [X, Y] :
+       ((~ cp1(X) | ~ ra_Px1(X, Y)) &
+        (cp1(X) | ra_Px1(X, skolemFOFtoCNF_Y_1(X))))),
+    inference(clausify, [], [normalize_0_1])).
+
+fof(normalize_0_3, plain, (! [X, Y] : (~ cp1(X) | ~ ra_Px1(X, Y))),
+    inference(conjunct, [], [normalize_0_2])).
+
+fof(normalize_0_4, plain,
+    (! [X] : (~ cp1xcomp(X) <=> ! [Y0] : ~ ra_Px1(X, Y0))),
+    inference(canonicalize, [], [axiom_4])).
+
+fof(normalize_0_5, plain,
+    (! [X] : (~ cp1xcomp(X) <=> ! [Y0] : ~ ra_Px1(X, Y0))),
+    inference(specialize, [], [normalize_0_4])).
+
+fof(normalize_0_6, plain,
+    (! [X, Y0] :
+       ((~ cp1xcomp(X) | ra_Px1(X, skolemFOFtoCNF_Y0(X))) &
+        (~ ra_Px1(X, Y0) | cp1xcomp(X)))),
+    inference(clausify, [], [normalize_0_5])).
+
+fof(normalize_0_7, plain,
+    (! [X] : (~ cp1xcomp(X) | ra_Px1(X, skolemFOFtoCNF_Y0(X)))),
+    inference(conjunct, [], [normalize_0_6])).
+
+fof(normalize_0_8, plain,
+    (! [X] :
+       (~ ca_Ax2(X) <=>
+        (~ cp1(X) | ? [Y] : (~ cp1xcomp(Y) & rinvR(X, Y))))),
+    inference(canonicalize, [], [axiom_5])).
+
+fof(normalize_0_9, plain,
+    (! [X] :
+       (~ ca_Ax2(X) <=>
+        (~ cp1(X) | ? [Y] : (~ cp1xcomp(Y) & rinvR(X, Y))))),
+    inference(specialize, [], [normalize_0_8])).
+
+fof(normalize_0_10, plain,
+    (! [X, Y] :
+       ((~ ca_Ax2(X) | cp1(X)) &
+        (~ ca_Ax2(X) | ~ rinvR(X, Y) | cp1xcomp(Y)) &
+        (~ cp1(X) | ~ cp1xcomp(skolemFOFtoCNF_Y_2(X)) | ca_Ax2(X)) &
+        (~ cp1(X) | ca_Ax2(X) | rinvR(X, skolemFOFtoCNF_Y_2(X))))),
+    inference(clausify, [], [normalize_0_9])).
+
+fof(normalize_0_11, plain,
+    (! [X, Y] : (~ ca_Ax2(X) | ~ rinvR(X, Y) | cp1xcomp(Y))),
+    inference(conjunct, [], [normalize_0_10])).
+
+fof(normalize_0_12, plain, (! [X, Y] : (~ rinvR(X, Y) <=> ~ rr(Y, X))),
+    inference(canonicalize, [], [axiom_9])).
+
+fof(normalize_0_13, plain, (! [X, Y] : (~ rinvR(X, Y) <=> ~ rr(Y, X))),
+    inference(specialize, [], [normalize_0_12])).
+
+fof(normalize_0_14, plain,
+    (! [X, Y] : ((~ rinvR(X, Y) | rr(Y, X)) & (~ rr(Y, X) | rinvR(X, Y)))),
+    inference(clausify, [], [normalize_0_13])).
+
+fof(normalize_0_15, plain, (! [X, Y] : (~ rr(Y, X) | rinvR(X, Y))),
+    inference(conjunct, [], [normalize_0_14])).
+
+fof(normalize_0_16, plain, (cUnsatisfiable(i2003_11_14_17_21_44786)),
+    inference(canonicalize, [], [axiom_11])).
+
+fof(normalize_0_17, plain,
+    (! [X] :
+       (~ cUnsatisfiable(X) <=>
+        (~ cp1(X) | ! [Y] : (~ ca_Vx3(Y) | ~ rr(X, Y))))),
+    inference(canonicalize, [], [axiom_2])).
+
+fof(normalize_0_18, plain,
+    (! [X] :
+       (~ cUnsatisfiable(X) <=>
+        (~ cp1(X) | ! [Y] : (~ ca_Vx3(Y) | ~ rr(X, Y))))),
+    inference(specialize, [], [normalize_0_17])).
+
+fof(normalize_0_19, plain,
+    (! [X, Y] :
+       ((~ cUnsatisfiable(X) | ca_Vx3(skolemFOFtoCNF_Y(X))) &
+        (~ cUnsatisfiable(X) | cp1(X)) &
+        (~ cUnsatisfiable(X) | rr(X, skolemFOFtoCNF_Y(X))) &
+        (~ ca_Vx3(Y) | ~ cp1(X) | ~ rr(X, Y) | cUnsatisfiable(X)))),
+    inference(clausify, [], [normalize_0_18])).
+
+fof(normalize_0_20, plain,
+    (! [X] : (~ cUnsatisfiable(X) | rr(X, skolemFOFtoCNF_Y(X)))),
+    inference(conjunct, [], [normalize_0_19])).
+
+fof(normalize_0_21, plain,
+    (! [X] : (~ cUnsatisfiable(X) | ca_Vx3(skolemFOFtoCNF_Y(X)))),
+    inference(conjunct, [], [normalize_0_19])).
+
+fof(normalize_0_22, plain,
+    (! [X] : (~ ca_Vx3(X) <=> ! [Y] : (~ ca_Ax2(Y) | ~ rr(X, Y)))),
+    inference(canonicalize, [], [axiom_6])).
+
+fof(normalize_0_23, plain,
+    (! [X] : (~ ca_Vx3(X) <=> ! [Y] : (~ ca_Ax2(Y) | ~ rr(X, Y)))),
+    inference(specialize, [], [normalize_0_22])).
+
+fof(normalize_0_24, plain,
+    (! [X, Y] :
+       ((~ ca_Vx3(X) | ca_Ax2(skolemFOFtoCNF_Y_3(X))) &
+        (~ ca_Vx3(X) | rr(X, skolemFOFtoCNF_Y_3(X))) &
+        (~ ca_Ax2(Y) | ~ rr(X, Y) | ca_Vx3(X)))),
+    inference(clausify, [], [normalize_0_23])).
+
+fof(normalize_0_25, plain,
+    (! [X] : (~ ca_Vx3(X) | rr(X, skolemFOFtoCNF_Y_3(X)))),
+    inference(conjunct, [], [normalize_0_24])).
+
+fof(normalize_0_26, plain,
+    (! [X, Y, Z] : (~ rr(X, Y) | ~ rr(Y, Z) | rr(X, Z))),
+    inference(canonicalize, [], [axiom_10])).
+
+fof(normalize_0_27, plain,
+    (! [X, Y, Z] : (~ rr(X, Y) | ~ rr(Y, Z) | rr(X, Z))),
+    inference(specialize, [], [normalize_0_26])).
+
+fof(normalize_0_28, plain,
+    (! [X] : (~ ca_Vx3(X) | ca_Ax2(skolemFOFtoCNF_Y_3(X)))),
+    inference(conjunct, [], [normalize_0_24])).
+
+fof(normalize_0_29, plain, (! [X] : (~ cUnsatisfiable(X) | cp1(X))),
+    inference(conjunct, [], [normalize_0_19])).
+
+cnf(refute_0_0, plain, (~ cp1(X) | ~ ra_Px1(X, Y)),
+    inference(canonicalize, [], [normalize_0_3])).
+
+cnf(refute_0_1, plain,
+    (~ cp1(i2003_11_14_17_21_44786) |
+     ~
+       ra_Px1(i2003_11_14_17_21_44786,
+         skolemFOFtoCNF_Y0(i2003_11_14_17_21_44786))),
+    inference(subst, [],
+              [refute_0_0 :
+               [bind(X, $fot(i2003_11_14_17_21_44786)),
+                bind(Y,
+                     $fot(skolemFOFtoCNF_Y0(i2003_11_14_17_21_44786)))]])).
+
+cnf(refute_0_2, plain, (~ cp1xcomp(X) | ra_Px1(X, skolemFOFtoCNF_Y0(X))),
+    inference(canonicalize, [], [normalize_0_7])).
+
+cnf(refute_0_3, plain,
+    (~ cp1xcomp(i2003_11_14_17_21_44786) |
+     ra_Px1(i2003_11_14_17_21_44786,
+       skolemFOFtoCNF_Y0(i2003_11_14_17_21_44786))),
+    inference(subst, [],
+              [refute_0_2 : [bind(X, $fot(i2003_11_14_17_21_44786))]])).
+
+cnf(refute_0_4, plain, (~ ca_Ax2(X) | ~ rinvR(X, Y) | cp1xcomp(Y)),
+    inference(canonicalize, [], [normalize_0_11])).
+
+cnf(refute_0_5, plain,
+    (~
+       ca_Ax2(skolemFOFtoCNF_Y_3(skolemFOFtoCNF_Y(i2003_11_14_17_21_44786))) |
+     ~
+       rinvR(skolemFOFtoCNF_Y_3(skolemFOFtoCNF_Y(i2003_11_14_17_21_44786)),
+         i2003_11_14_17_21_44786) | cp1xcomp(i2003_11_14_17_21_44786)),
+    inference(subst, [],
+              [refute_0_4 :
+               [bind(X,
+                     $fot(skolemFOFtoCNF_Y_3(skolemFOFtoCNF_Y(i2003_11_14_17_21_44786)))),
+                bind(Y, $fot(i2003_11_14_17_21_44786))]])).
+
+cnf(refute_0_6, plain, (~ rr(Y, X) | rinvR(X, Y)),
+    inference(canonicalize, [], [normalize_0_15])).
+
+cnf(refute_0_7, plain,
+    (~
+       rr(i2003_11_14_17_21_44786,
+         skolemFOFtoCNF_Y_3(skolemFOFtoCNF_Y(i2003_11_14_17_21_44786))) |
+     rinvR(skolemFOFtoCNF_Y_3(skolemFOFtoCNF_Y(i2003_11_14_17_21_44786)),
+       i2003_11_14_17_21_44786)),
+    inference(subst, [],
+              [refute_0_6 :
+               [bind(X,
+                     $fot(skolemFOFtoCNF_Y_3(skolemFOFtoCNF_Y(i2003_11_14_17_21_44786)))),
+                bind(Y, $fot(i2003_11_14_17_21_44786))]])).
+
+cnf(refute_0_8, plain, (cUnsatisfiable(i2003_11_14_17_21_44786)),
+    inference(canonicalize, [], [normalize_0_16])).
+
+cnf(refute_0_9, plain, (~ cUnsatisfiable(X) | rr(X, skolemFOFtoCNF_Y(X))),
+    inference(canonicalize, [], [normalize_0_20])).
+
+cnf(refute_0_10, plain,
+    (~ cUnsatisfiable(i2003_11_14_17_21_44786) |
+     rr(i2003_11_14_17_21_44786,
+       skolemFOFtoCNF_Y(i2003_11_14_17_21_44786))),
+    inference(subst, [],
+              [refute_0_9 : [bind(X, $fot(i2003_11_14_17_21_44786))]])).
+
+cnf(refute_0_11, plain,
+    (rr(i2003_11_14_17_21_44786,
+       skolemFOFtoCNF_Y(i2003_11_14_17_21_44786))),
+    inference(resolve, [$cnf(cUnsatisfiable(i2003_11_14_17_21_44786))],
+              [refute_0_8, refute_0_10])).
+
+cnf(refute_0_12, plain,
+    (~ cUnsatisfiable(X) | ca_Vx3(skolemFOFtoCNF_Y(X))),
+    inference(canonicalize, [], [normalize_0_21])).
+
+cnf(refute_0_13, plain,
+    (~ cUnsatisfiable(i2003_11_14_17_21_44786) |
+     ca_Vx3(skolemFOFtoCNF_Y(i2003_11_14_17_21_44786))),
+    inference(subst, [],
+              [refute_0_12 : [bind(X, $fot(i2003_11_14_17_21_44786))]])).
+
+cnf(refute_0_14, plain,
+    (ca_Vx3(skolemFOFtoCNF_Y(i2003_11_14_17_21_44786))),
+    inference(resolve, [$cnf(cUnsatisfiable(i2003_11_14_17_21_44786))],
+              [refute_0_8, refute_0_13])).
+
+cnf(refute_0_15, plain, (~ ca_Vx3(X) | rr(X, skolemFOFtoCNF_Y_3(X))),
+    inference(canonicalize, [], [normalize_0_25])).
+
+cnf(refute_0_16, plain,
+    (~ ca_Vx3(skolemFOFtoCNF_Y(i2003_11_14_17_21_44786)) |
+     rr(skolemFOFtoCNF_Y(i2003_11_14_17_21_44786),
+       skolemFOFtoCNF_Y_3(skolemFOFtoCNF_Y(i2003_11_14_17_21_44786)))),
+    inference(subst, [],
+              [refute_0_15 :
+               [bind(X,
+                     $fot(skolemFOFtoCNF_Y(i2003_11_14_17_21_44786)))]])).
+
+cnf(refute_0_17, plain,
+    (rr(skolemFOFtoCNF_Y(i2003_11_14_17_21_44786),
+       skolemFOFtoCNF_Y_3(skolemFOFtoCNF_Y(i2003_11_14_17_21_44786)))),
+    inference(resolve,
+              [$cnf(ca_Vx3(skolemFOFtoCNF_Y(i2003_11_14_17_21_44786)))],
+              [refute_0_14, refute_0_16])).
+
+cnf(refute_0_18, plain, (~ rr(X, Y) | ~ rr(Y, Z) | rr(X, Z)),
+    inference(canonicalize, [], [normalize_0_27])).
+
+cnf(refute_0_19, plain,
+    (~ rr(X_38, skolemFOFtoCNF_Y(i2003_11_14_17_21_44786)) |
+     ~
+       rr(skolemFOFtoCNF_Y(i2003_11_14_17_21_44786),
+         skolemFOFtoCNF_Y_3(skolemFOFtoCNF_Y(i2003_11_14_17_21_44786))) |
+     rr(X_38,
+       skolemFOFtoCNF_Y_3(skolemFOFtoCNF_Y(i2003_11_14_17_21_44786)))),
+    inference(subst, [],
+              [refute_0_18 :
+               [bind(X, $fot(X_38)),
+                bind(Y, $fot(skolemFOFtoCNF_Y(i2003_11_14_17_21_44786))),
+                bind(Z,
+                     $fot(skolemFOFtoCNF_Y_3(skolemFOFtoCNF_Y(i2003_11_14_17_21_44786))))]])).
+
+cnf(refute_0_20, plain,
+    (~ rr(X_38, skolemFOFtoCNF_Y(i2003_11_14_17_21_44786)) |
+     rr(X_38,
+       skolemFOFtoCNF_Y_3(skolemFOFtoCNF_Y(i2003_11_14_17_21_44786)))),
+    inference(resolve,
+              [$cnf(rr(skolemFOFtoCNF_Y(i2003_11_14_17_21_44786),
+                      skolemFOFtoCNF_Y_3(skolemFOFtoCNF_Y(i2003_11_14_17_21_44786))))],
+              [refute_0_17, refute_0_19])).
+
+cnf(refute_0_21, plain,
+    (~
+       rr(i2003_11_14_17_21_44786,
+         skolemFOFtoCNF_Y(i2003_11_14_17_21_44786)) |
+     rr(i2003_11_14_17_21_44786,
+       skolemFOFtoCNF_Y_3(skolemFOFtoCNF_Y(i2003_11_14_17_21_44786)))),
+    inference(subst, [],
+              [refute_0_20 :
+               [bind(X_38, $fot(i2003_11_14_17_21_44786))]])).
+
+cnf(refute_0_22, plain,
+    (rr(i2003_11_14_17_21_44786,
+       skolemFOFtoCNF_Y_3(skolemFOFtoCNF_Y(i2003_11_14_17_21_44786)))),
+    inference(resolve,
+              [$cnf(rr(i2003_11_14_17_21_44786,
+                      skolemFOFtoCNF_Y(i2003_11_14_17_21_44786)))],
+              [refute_0_11, refute_0_21])).
+
+cnf(refute_0_23, plain,
+    (rinvR(skolemFOFtoCNF_Y_3(skolemFOFtoCNF_Y(i2003_11_14_17_21_44786)),
+       i2003_11_14_17_21_44786)),
+    inference(resolve,
+              [$cnf(rr(i2003_11_14_17_21_44786,
+                      skolemFOFtoCNF_Y_3(skolemFOFtoCNF_Y(i2003_11_14_17_21_44786))))],
+              [refute_0_22, refute_0_7])).
+
+cnf(refute_0_24, plain,
+    (~
+       ca_Ax2(skolemFOFtoCNF_Y_3(skolemFOFtoCNF_Y(i2003_11_14_17_21_44786))) |
+     cp1xcomp(i2003_11_14_17_21_44786)),
+    inference(resolve,
+              [$cnf(rinvR(skolemFOFtoCNF_Y_3(skolemFOFtoCNF_Y(i2003_11_14_17_21_44786)),
+                      i2003_11_14_17_21_44786))],
+              [refute_0_23, refute_0_5])).
+
+cnf(refute_0_25, plain, (~ ca_Vx3(X) | ca_Ax2(skolemFOFtoCNF_Y_3(X))),
+    inference(canonicalize, [], [normalize_0_28])).
+
+cnf(refute_0_26, plain,
+    (~ ca_Vx3(skolemFOFtoCNF_Y(i2003_11_14_17_21_44786)) |
+     ca_Ax2(skolemFOFtoCNF_Y_3(skolemFOFtoCNF_Y(i2003_11_14_17_21_44786)))),
+    inference(subst, [],
+              [refute_0_25 :
+               [bind(X,
+                     $fot(skolemFOFtoCNF_Y(i2003_11_14_17_21_44786)))]])).
+
+cnf(refute_0_27, plain,
+    (ca_Ax2(skolemFOFtoCNF_Y_3(skolemFOFtoCNF_Y(i2003_11_14_17_21_44786)))),
+    inference(resolve,
+              [$cnf(ca_Vx3(skolemFOFtoCNF_Y(i2003_11_14_17_21_44786)))],
+              [refute_0_14, refute_0_26])).
+
+cnf(refute_0_28, plain, (cp1xcomp(i2003_11_14_17_21_44786)),
+    inference(resolve,
+              [$cnf(ca_Ax2(skolemFOFtoCNF_Y_3(skolemFOFtoCNF_Y(i2003_11_14_17_21_44786))))],
+              [refute_0_27, refute_0_24])).
+
+cnf(refute_0_29, plain,
+    (ra_Px1(i2003_11_14_17_21_44786,
+       skolemFOFtoCNF_Y0(i2003_11_14_17_21_44786))),
+    inference(resolve, [$cnf(cp1xcomp(i2003_11_14_17_21_44786))],
+              [refute_0_28, refute_0_3])).
+
+cnf(refute_0_30, plain, (~ cp1(i2003_11_14_17_21_44786)),
+    inference(resolve,
+              [$cnf(ra_Px1(i2003_11_14_17_21_44786,
+                      skolemFOFtoCNF_Y0(i2003_11_14_17_21_44786)))],
+              [refute_0_29, refute_0_1])).
+
+cnf(refute_0_31, plain, (~ cUnsatisfiable(X) | cp1(X)),
+    inference(canonicalize, [], [normalize_0_29])).
+
+cnf(refute_0_32, plain,
+    (~ cUnsatisfiable(i2003_11_14_17_21_44786) |
+     cp1(i2003_11_14_17_21_44786)),
+    inference(subst, [],
+              [refute_0_31 : [bind(X, $fot(i2003_11_14_17_21_44786))]])).
+
+cnf(refute_0_33, plain, (cp1(i2003_11_14_17_21_44786)),
+    inference(resolve, [$cnf(cUnsatisfiable(i2003_11_14_17_21_44786))],
+              [refute_0_8, refute_0_32])).
+
+cnf(refute_0_34, plain, ($false),
+    inference(resolve, [$cnf(cp1(i2003_11_14_17_21_44786))],
+              [refute_0_33, refute_0_30])).
+% SZS output end CNFRefutation for KRS119+1.tptp
+

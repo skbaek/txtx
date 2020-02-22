@@ -1,0 +1,173 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% SZS status Unsatisfiable for GRP457-1.tptp
+
+% SZS output start CNFRefutation for GRP457-1.tptp
+cnf(multiply, axiom, (multiply(A, B) = divide(A, divide(identity, B)))).
+
+cnf(inverse, axiom, (inverse(A) = divide(identity, A))).
+
+cnf(identity, axiom, (identity = divide(A, A))).
+
+cnf(prove_these_axioms_1, negated_conjecture,
+    (multiply(inverse(a1), a1) != identity)).
+
+cnf(refute_0_0, plain, (identity = divide(inverse(X_3), inverse(X_3))),
+    inference(subst, [], [identity : [bind(A, $fot(inverse(X_3)))]])).
+
+cnf(refute_0_1, plain, (X = X), introduced(tautology, [refl, [$fot(X)]])).
+
+cnf(refute_0_2, plain, (X != X | X != Y | Y = X),
+    introduced(tautology, [equality, [$cnf($equal(X, X)), [0], $fot(Y)]])).
+
+cnf(refute_0_3, plain, (X != Y | Y = X),
+    inference(resolve, [$cnf($equal(X, X))], [refute_0_1, refute_0_2])).
+
+cnf(refute_0_4, plain,
+    (inverse(A) != divide(identity, A) | divide(identity, A) = inverse(A)),
+    inference(subst, [],
+              [refute_0_3 :
+               [bind(X, $fot(inverse(A))),
+                bind(Y, $fot(divide(identity, A)))]])).
+
+cnf(refute_0_5, plain, (divide(identity, A) = inverse(A)),
+    inference(resolve, [$cnf($equal(inverse(A), divide(identity, A)))],
+              [inverse, refute_0_4])).
+
+cnf(refute_0_6, plain, (divide(identity, B) = inverse(B)),
+    inference(subst, [], [refute_0_5 : [bind(A, $fot(B))]])).
+
+cnf(refute_0_7, plain,
+    (divide(A, divide(identity, B)) = divide(A, divide(identity, B))),
+    introduced(tautology, [refl, [$fot(divide(A, divide(identity, B)))]])).
+
+cnf(refute_0_8, plain,
+    (divide(A, divide(identity, B)) != divide(A, divide(identity, B)) |
+     divide(identity, B) != inverse(B) |
+     divide(A, divide(identity, B)) = divide(A, inverse(B))),
+    introduced(tautology,
+               [equality,
+                [$cnf($equal(divide(A, divide(identity, B)),
+                        divide(A, divide(identity, B)))), [1, 1],
+                 $fot(inverse(B))]])).
+
+cnf(refute_0_9, plain,
+    (divide(identity, B) != inverse(B) |
+     divide(A, divide(identity, B)) = divide(A, inverse(B))),
+    inference(resolve,
+              [$cnf($equal(divide(A, divide(identity, B)),
+                      divide(A, divide(identity, B))))],
+              [refute_0_7, refute_0_8])).
+
+cnf(refute_0_10, plain,
+    (divide(A, divide(identity, B)) = divide(A, inverse(B))),
+    inference(resolve, [$cnf($equal(divide(identity, B), inverse(B)))],
+              [refute_0_6, refute_0_9])).
+
+cnf(refute_0_11, plain,
+    (multiply(A, B) != divide(A, divide(identity, B)) |
+     divide(A, divide(identity, B)) != divide(A, inverse(B)) |
+     multiply(A, B) = divide(A, inverse(B))),
+    introduced(tautology,
+               [equality,
+                [$cnf(~ $equal(multiply(A, B), divide(A, inverse(B)))),
+                 [0], $fot(divide(A, divide(identity, B)))]])).
+
+cnf(refute_0_12, plain,
+    (multiply(A, B) != divide(A, divide(identity, B)) |
+     multiply(A, B) = divide(A, inverse(B))),
+    inference(resolve,
+              [$cnf($equal(divide(A, divide(identity, B)),
+                      divide(A, inverse(B))))],
+              [refute_0_10, refute_0_11])).
+
+cnf(refute_0_13, plain, (multiply(A, B) = divide(A, inverse(B))),
+    inference(resolve,
+              [$cnf($equal(multiply(A, B),
+                      divide(A, divide(identity, B))))],
+              [multiply, refute_0_12])).
+
+cnf(refute_0_14, plain,
+    (multiply(inverse(X_3), X_3) = divide(inverse(X_3), inverse(X_3))),
+    inference(subst, [],
+              [refute_0_13 :
+               [bind(A, $fot(inverse(X_3))), bind(B, $fot(X_3))]])).
+
+cnf(refute_0_15, plain,
+    (multiply(inverse(X_3), X_3) != divide(inverse(X_3), inverse(X_3)) |
+     divide(inverse(X_3), inverse(X_3)) = multiply(inverse(X_3), X_3)),
+    inference(subst, [],
+              [refute_0_3 :
+               [bind(X, $fot(multiply(inverse(X_3), X_3))),
+                bind(Y, $fot(divide(inverse(X_3), inverse(X_3))))]])).
+
+cnf(refute_0_16, plain,
+    (divide(inverse(X_3), inverse(X_3)) = multiply(inverse(X_3), X_3)),
+    inference(resolve,
+              [$cnf($equal(multiply(inverse(X_3), X_3),
+                      divide(inverse(X_3), inverse(X_3))))],
+              [refute_0_14, refute_0_15])).
+
+cnf(refute_0_17, plain,
+    (divide(inverse(X_3), inverse(X_3)) != multiply(inverse(X_3), X_3) |
+     identity != divide(inverse(X_3), inverse(X_3)) |
+     identity = multiply(inverse(X_3), X_3)),
+    introduced(tautology,
+               [equality,
+                [$cnf($equal(identity,
+                        divide(inverse(X_3), inverse(X_3)))), [1],
+                 $fot(multiply(inverse(X_3), X_3))]])).
+
+cnf(refute_0_18, plain,
+    (identity != divide(inverse(X_3), inverse(X_3)) |
+     identity = multiply(inverse(X_3), X_3)),
+    inference(resolve,
+              [$cnf($equal(divide(inverse(X_3), inverse(X_3)),
+                      multiply(inverse(X_3), X_3)))],
+              [refute_0_16, refute_0_17])).
+
+cnf(refute_0_19, plain, (identity = multiply(inverse(X_3), X_3)),
+    inference(resolve,
+              [$cnf($equal(identity, divide(inverse(X_3), inverse(X_3))))],
+              [refute_0_0, refute_0_18])).
+
+cnf(refute_0_20, plain,
+    (identity != multiply(inverse(X_3), X_3) |
+     multiply(inverse(X_3), X_3) = identity),
+    inference(subst, [],
+              [refute_0_3 :
+               [bind(X, $fot(identity)),
+                bind(Y, $fot(multiply(inverse(X_3), X_3)))]])).
+
+cnf(refute_0_21, plain, (multiply(inverse(X_3), X_3) = identity),
+    inference(resolve,
+              [$cnf($equal(identity, multiply(inverse(X_3), X_3)))],
+              [refute_0_19, refute_0_20])).
+
+cnf(refute_0_22, plain, (multiply(inverse(a1), a1) = identity),
+    inference(subst, [], [refute_0_21 : [bind(X_3, $fot(a1))]])).
+
+cnf(refute_0_23, plain,
+    (multiply(inverse(a1), a1) != identity | identity != identity |
+     multiply(inverse(a1), a1) = identity),
+    introduced(tautology,
+               [equality,
+                [$cnf(~ $equal(multiply(inverse(a1), a1), identity)), [0],
+                 $fot(identity)]])).
+
+cnf(refute_0_24, plain,
+    (identity != identity | multiply(inverse(a1), a1) = identity),
+    inference(resolve, [$cnf($equal(multiply(inverse(a1), a1), identity))],
+              [refute_0_22, refute_0_23])).
+
+cnf(refute_0_25, plain, (identity != identity),
+    inference(resolve, [$cnf($equal(multiply(inverse(a1), a1), identity))],
+              [refute_0_24, prove_these_axioms_1])).
+
+cnf(refute_0_26, plain, (identity = identity),
+    introduced(tautology, [refl, [$fot(identity)]])).
+
+cnf(refute_0_27, plain, ($false),
+    inference(resolve, [$cnf($equal(identity, identity))],
+              [refute_0_26, refute_0_25])).
+% SZS output end CNFRefutation for GRP457-1.tptp
+

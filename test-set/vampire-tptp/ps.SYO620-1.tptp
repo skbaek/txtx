@@ -1,0 +1,51 @@
+%------------------------------------------------------------------------------
+% File     : SYO620-1 : TPTP v7.3.0. Released v7.1.0.
+% Domain   : Syntactic
+% Problem  : C(4,0)
+% Version  : Especial.
+% English  :
+
+% Refs     : [Cer15] Cerna (2015), Advances in Schematic Cut Elimination
+%          : [EH+16] Ebner et al. (2016), System Description: GAPT 2.0
+%          : [Cer17] Cerna (2017), Email to Geoff Sutcliffe
+% Source   : [Cer17]
+% Names    : C(4,0) [Cer17]
+
+% Status   : Unsatisfiable
+% Rating   : 0.50 v7.3.0, 0.67 v7.2.0, 0.83 v7.1.0
+% Syntax   : Number of clauses     :    8 (   1 non-Horn;   1 unit;   6 RR)
+%            Number of atoms       :   21 (   0 equality)
+%            Maximal clause size   :    4 (   3 average)
+%            Number of predicates  :    2 (   0 propositional; 2-2 arity)
+%            Number of functors    :    7 (   4 constant; 0-2 arity)
+%            Number of variables   :   16 (   2 singleton)
+%            Maximal term depth    :    2 (   1 average)
+% SPC      : CNF_UNS_RFO_NEQ_NHN
+
+% Comments :
+%          : tptp2X 
+%------------------------------------------------------------------------------
+cnf(sos_01,axiom,
+    ( le(A,A) )).
+
+cnf(sos_02,axiom,
+    ( ~ le(max(A,B),C) | le(A,C) )).
+
+cnf(sos_03,axiom,
+    ( ~ le(max(A,B),C) | le(B,C) )).
+
+cnf(sos_04,axiom,
+    ( eq(f(A),a0) | eq(f(A),a1) | eq(f(A),a2) | eq(f(A),a3) )).
+
+cnf(sos_05,axiom,
+    ( ~ eq(f(A0),a0) | ~ eq(f(A1),a0) | ~ le(s(A0),A1) )).
+
+cnf(sos_06,axiom,
+    ( ~ eq(f(A0),a1) | ~ eq(f(A1),a1) | ~ le(s(A0),A1) )).
+
+cnf(sos_07,axiom,
+    ( ~ eq(f(A0),a2) | ~ eq(f(A1),a2) | ~ le(s(A0),A1) )).
+
+cnf(sos_08,axiom,
+    ( ~ eq(f(A0),a3) | ~ eq(f(A1),a3) | ~ le(s(A0),A1) )).
+%------------------------------------------------------------------------------

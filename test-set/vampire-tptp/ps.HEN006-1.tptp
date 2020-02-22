@@ -1,0 +1,64 @@
+%------------------------------------------------------------------------------
+% File     : HEN006-1 : TPTP v7.3.0. Released v1.0.0.
+% Domain   : Henkin Models
+% Problem  : X/Y <= Z => X/Z <= Y
+% Version  : [MOW76] axioms.
+% English  :
+
+% Refs     : [MOW76] McCharen et al. (1976), Problems and Experiments for a
+% Source   : [TPTP]
+% Names    :
+
+% Status   : Unsatisfiable
+% Rating   : 0.22 v7.2.0, 0.25 v7.1.0, 0.29 v7.0.0, 0.14 v6.3.0, 0.00 v6.1.0, 0.20 v6.0.0, 0.22 v5.5.0, 0.50 v5.4.0, 0.40 v5.3.0, 0.33 v5.2.0, 0.25 v5.1.0, 0.14 v4.1.0, 0.11 v4.0.1, 0.00 v4.0.0, 0.17 v3.5.0, 0.00 v3.3.0, 0.14 v3.2.0, 0.00 v3.1.0, 0.22 v2.7.0, 0.00 v2.6.0, 0.29 v2.5.0, 0.00 v2.2.1, 0.44 v2.2.0, 0.43 v2.1.0, 0.80 v2.0.0
+% Syntax   : Number of clauses     :   13 (   0 non-Horn;   7 unit;  10 RR)
+%            Number of atoms       :   25 (   2 equality)
+%            Maximal clause size   :    6 (   2 average)
+%            Number of predicates  :    3 (   0 propositional; 2-3 arity)
+%            Number of functors    :    8 (   7 constant; 0-2 arity)
+%            Number of variables   :   25 (   3 singleton)
+%            Maximal term depth    :    2 (   1 average)
+% SPC      : CNF_UNS_RFO_SEQ_HRN
+
+% Comments :
+%          : tptp2X 
+%------------------------------------------------------------------------------
+cnf(quotient_less_equal,axiom,
+    ( ~ less_equal(X,Y) | quotient(X,Y,zero) )).
+
+cnf(less_equal_quotient,axiom,
+    ( ~ quotient(X,Y,zero) | less_equal(X,Y) )).
+
+cnf(divisor_existence,axiom,
+    ( ~ quotient(X,Y,Z) | less_equal(Z,X) )).
+
+cnf(quotient_property,axiom,
+    ( ~ quotient(X,Y,V1) | ~ quotient(Y,Z,V2) | ~ quotient(X,Z,V3) | ~ quotient(V3,V2,V4) | ~ quotient(V1,Z,V5) | less_equal(V4,V5) )).
+
+cnf(zero_is_smallest,axiom,
+    ( less_equal(zero,X) )).
+
+cnf(less_equal_and_equal,axiom,
+    ( ~ less_equal(X,Y) | ~ less_equal(Y,X) | X = Y )).
+
+cnf(identity_is_largest,axiom,
+    ( less_equal(X,identity) )).
+
+cnf(closure,axiom,
+    ( quotient(X,Y,divide(X,Y)) )).
+
+cnf(well_defined,axiom,
+    ( ~ quotient(X,Y,Z) | ~ quotient(X,Y,W) | Z = W )).
+
+cnf(xQy,hypothesis,
+    ( quotient(x,y,xQy) )).
+
+cnf(xQyLEz,hypothesis,
+    ( less_equal(xQy,z) )).
+
+cnf(xQz,hypothesis,
+    ( quotient(x,z,xQz) )).
+
+cnf(prove_xQzLEy,negated_conjecture,
+    ( ~ less_equal(xQz,y) )).
+%------------------------------------------------------------------------------

@@ -1,0 +1,111 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% SZS status Unsatisfiable for SWV364-2.tptp
+
+% SZS output start CNFRefutation for SWV364-2.tptp
+cnf(cls_conjecture_0, negated_conjecture,
+    (c_in(c_Event_Oevent_OGets(v_A,
+         c_Message_Omsg_OMPair(c_Message_Omsg_OCrypt(c_Public_OshrK(v_A),
+             v_Y), v_X)), c_List_Oset(v_evs, tc_Event_Oevent),
+       tc_Event_Oevent))).
+
+cnf(cls_conjecture_1, negated_conjecture,
+    (c_in(v_evs, c_Yahalom_Oyahalom, tc_List_Olist(tc_Event_Oevent)))).
+
+cnf(cls_conjecture_2, negated_conjecture,
+    (~
+       c_in(v_X,
+         c_Message_Oanalz(c_Event_Oknows(c_Message_Oagent_OSpy, v_evs)),
+         tc_Message_Omsg))).
+
+cnf(cls_Message_OMPair__analz_0, axiom,
+    (~
+       c_in(c_Message_Omsg_OMPair(V_X, V_Y), c_Message_Oanalz(V_H),
+         tc_Message_Omsg) |
+     c_in(V_Y, c_Message_Oanalz(V_H), tc_Message_Omsg))).
+
+cnf(cls_Yahalom_OGets__imp__analz__Spy__dest_0, axiom,
+    (~ c_in(V_evs, c_Yahalom_Oyahalom, tc_List_Olist(tc_Event_Oevent)) |
+     ~
+       c_in(c_Event_Oevent_OGets(V_B, V_X),
+         c_List_Oset(V_evs, tc_Event_Oevent), tc_Event_Oevent) |
+     c_in(V_X,
+       c_Message_Oanalz(c_Event_Oknows(c_Message_Oagent_OSpy, V_evs)),
+       tc_Message_Omsg))).
+
+cnf(refute_0_0, plain,
+    (~
+       c_in(c_Message_Omsg_OMPair(c_Message_Omsg_OCrypt(c_Public_OshrK(v_A),
+             v_Y), v_X),
+         c_Message_Oanalz(c_Event_Oknows(c_Message_Oagent_OSpy, v_evs)),
+         tc_Message_Omsg) |
+     c_in(v_X,
+       c_Message_Oanalz(c_Event_Oknows(c_Message_Oagent_OSpy, v_evs)),
+       tc_Message_Omsg)),
+    inference(subst, [],
+              [cls_Message_OMPair__analz_0 :
+               [bind(V_H,
+                     $fot(c_Event_Oknows(c_Message_Oagent_OSpy, v_evs))),
+                bind(V_X,
+                     $fot(c_Message_Omsg_OCrypt(c_Public_OshrK(v_A),
+                            v_Y))), bind(V_Y, $fot(v_X))]])).
+
+cnf(refute_0_1, plain,
+    (~
+       c_in(c_Event_Oevent_OGets(v_A,
+           c_Message_Omsg_OMPair(c_Message_Omsg_OCrypt(c_Public_OshrK(v_A),
+               v_Y), v_X)), c_List_Oset(v_evs, tc_Event_Oevent),
+         tc_Event_Oevent) |
+     ~ c_in(v_evs, c_Yahalom_Oyahalom, tc_List_Olist(tc_Event_Oevent)) |
+     c_in(c_Message_Omsg_OMPair(c_Message_Omsg_OCrypt(c_Public_OshrK(v_A),
+           v_Y), v_X),
+       c_Message_Oanalz(c_Event_Oknows(c_Message_Oagent_OSpy, v_evs)),
+       tc_Message_Omsg)),
+    inference(subst, [],
+              [cls_Yahalom_OGets__imp__analz__Spy__dest_0 :
+               [bind(V_B, $fot(v_A)),
+                bind(V_X,
+                     $fot(c_Message_Omsg_OMPair(c_Message_Omsg_OCrypt(c_Public_OshrK(v_A),
+                              v_Y), v_X))), bind(V_evs, $fot(v_evs))]])).
+
+cnf(refute_0_2, plain,
+    (~ c_in(v_evs, c_Yahalom_Oyahalom, tc_List_Olist(tc_Event_Oevent)) |
+     c_in(c_Message_Omsg_OMPair(c_Message_Omsg_OCrypt(c_Public_OshrK(v_A),
+           v_Y), v_X),
+       c_Message_Oanalz(c_Event_Oknows(c_Message_Oagent_OSpy, v_evs)),
+       tc_Message_Omsg)),
+    inference(resolve,
+              [$cnf(c_in(c_Event_Oevent_OGets(v_A,
+                        c_Message_Omsg_OMPair(c_Message_Omsg_OCrypt(c_Public_OshrK(v_A),
+                            v_Y), v_X)),
+                      c_List_Oset(v_evs, tc_Event_Oevent),
+                      tc_Event_Oevent))], [cls_conjecture_0, refute_0_1])).
+
+cnf(refute_0_3, plain,
+    (c_in(c_Message_Omsg_OMPair(c_Message_Omsg_OCrypt(c_Public_OshrK(v_A),
+           v_Y), v_X),
+       c_Message_Oanalz(c_Event_Oknows(c_Message_Oagent_OSpy, v_evs)),
+       tc_Message_Omsg)),
+    inference(resolve,
+              [$cnf(c_in(v_evs, c_Yahalom_Oyahalom,
+                      tc_List_Olist(tc_Event_Oevent)))],
+              [cls_conjecture_1, refute_0_2])).
+
+cnf(refute_0_4, plain,
+    (c_in(v_X,
+       c_Message_Oanalz(c_Event_Oknows(c_Message_Oagent_OSpy, v_evs)),
+       tc_Message_Omsg)),
+    inference(resolve,
+              [$cnf(c_in(c_Message_Omsg_OMPair(c_Message_Omsg_OCrypt(c_Public_OshrK(v_A),
+                          v_Y), v_X),
+                      c_Message_Oanalz(c_Event_Oknows(c_Message_Oagent_OSpy,
+                          v_evs)), tc_Message_Omsg))],
+              [refute_0_3, refute_0_0])).
+
+cnf(refute_0_5, plain, ($false),
+    inference(resolve,
+              [$cnf(c_in(v_X,
+                      c_Message_Oanalz(c_Event_Oknows(c_Message_Oagent_OSpy,
+                          v_evs)), tc_Message_Omsg))],
+              [refute_0_4, cls_conjecture_2])).
+% SZS output end CNFRefutation for SWV364-2.tptp
+

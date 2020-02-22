@@ -1,0 +1,369 @@
+% Refutation found. Thanks to Tanya!
+% SZS status Theorem for KLE079+1
+% SZS output start Proof for KLE079+1
+fof(f65947,plain,(
+  $false),
+  inference(trivial_inequality_removal,[],[f65873])).
+fof(f65873,plain,(
+  zero != zero),
+  inference(superposition,[],[f47,f61741])).
+fof(f61741,plain,(
+  ( ! [X38] : (zero = multiplication(antidomain(X38),domain(X38))) )),
+  inference(backward_demodulation,[],[f61592,f61581])).
+fof(f61581,plain,(
+  ( ! [X38] : (zero = multiplication(domain(antidomain(X38)),domain(X38))) )),
+  inference(backward_demodulation,[],[f61579,f61244])).
+fof(f61244,plain,(
+  ( ! [X38] : (multiplication(domain(antidomain(X38)),domain(X38)) = domain(multiplication(domain(antidomain(X38)),X38))) )),
+  inference(backward_demodulation,[],[f60980,f25865])).
+fof(f25865,plain,(
+  ( ! [X38] : (multiplication(domain(antidomain(X38)),domain(X38)) = multiplication(domain(multiplication(domain(antidomain(X38)),X38)),domain(antidomain(X38)))) )),
+  inference(forward_demodulation,[],[f25864,f51])).
+fof(f51,plain,(
+  ( ! [X0] : (addition(zero,X0) = X0) )),
+  inference(superposition,[],[f29,f31])).
+fof(f31,plain,(
+  ( ! [X0] : (addition(X0,zero) = X0) )),
+  inference(cnf_transformation,[],[f3])).
+fof(f3,axiom,(
+  ! [X0] : addition(X0,zero) = X0),
+  file('KLE079+1.tptp',unknown)).
+fof(f29,plain,(
+  ( ! [X0,X1] : (addition(X0,X1) = addition(X1,X0)) )),
+  inference(cnf_transformation,[],[f1])).
+fof(f1,axiom,(
+  ! [X0,X1] : addition(X0,X1) = addition(X1,X0)),
+  file('KLE079+1.tptp',unknown)).
+fof(f25864,plain,(
+  ( ! [X38] : (multiplication(domain(multiplication(domain(antidomain(X38)),X38)),domain(antidomain(X38))) = addition(zero,multiplication(domain(antidomain(X38)),domain(X38)))) )),
+  inference(forward_demodulation,[],[f25863,f29])).
+fof(f25863,plain,(
+  ( ! [X38] : (multiplication(domain(multiplication(domain(antidomain(X38)),X38)),domain(antidomain(X38))) = addition(multiplication(domain(antidomain(X38)),domain(X38)),zero)) )),
+  inference(forward_demodulation,[],[f25862,f19958])).
+fof(f19958,plain,(
+  ( ! [X45,X44] : (zero = multiplication(domain(multiplication(domain(X45),X44)),antidomain(X44))) )),
+  inference(superposition,[],[f18162,f980])).
+fof(f980,plain,(
+  ( ! [X0,X1] : (addition(X1,multiplication(domain(X0),X1)) = X1) )),
+  inference(forward_demodulation,[],[f934,f35])).
+fof(f35,plain,(
+  ( ! [X0] : (multiplication(one,X0) = X0) )),
+  inference(cnf_transformation,[],[f7])).
+fof(f7,axiom,(
+  ! [X0] : multiplication(one,X0) = X0),
+  file('KLE079+1.tptp',unknown)).
+fof(f934,plain,(
+  ( ! [X0,X1] : (multiplication(one,X1) = addition(X1,multiplication(domain(X0),X1))) )),
+  inference(superposition,[],[f211,f52])).
+fof(f52,plain,(
+  ( ! [X6] : (one = addition(one,domain(X6))) )),
+  inference(superposition,[],[f29,f42])).
+fof(f42,plain,(
+  ( ! [X0] : (one = addition(domain(X0),one)) )),
+  inference(cnf_transformation,[],[f23])).
+fof(f23,plain,(
+  ! [X0] : one = addition(domain(X0),one)),
+  inference(rectify,[],[f15])).
+fof(f15,axiom,(
+  ! [X3] : one = addition(domain(X3),one)),
+  file('KLE079+1.tptp',unknown)).
+fof(f211,plain,(
+  ( ! [X10,X11] : (multiplication(addition(one,X11),X10) = addition(X10,multiplication(X11,X10))) )),
+  inference(superposition,[],[f37,f35])).
+fof(f37,plain,(
+  ( ! [X2,X0,X1] : (multiplication(addition(X0,X1),X2) = addition(multiplication(X0,X2),multiplication(X1,X2))) )),
+  inference(cnf_transformation,[],[f9])).
+fof(f9,axiom,(
+  ! [X0,X1,X2] : multiplication(addition(X0,X1),X2) = addition(multiplication(X0,X2),multiplication(X1,X2))),
+  file('KLE079+1.tptp',unknown)).
+fof(f18162,plain,(
+  ( ! [X17,X16] : (zero = multiplication(domain(X16),antidomain(addition(X17,X16)))) )),
+  inference(superposition,[],[f18098,f2985])).
+fof(f2985,plain,(
+  ( ! [X61,X60] : (domain(X60) = multiplication(domain(X60),domain(addition(X61,X60)))) )),
+  inference(forward_demodulation,[],[f2984,f776])).
+fof(f776,plain,(
+  ( ! [X0,X1] : (addition(X1,multiplication(X1,domain(X0))) = X1) )),
+  inference(forward_demodulation,[],[f738,f34])).
+fof(f34,plain,(
+  ( ! [X0] : (multiplication(X0,one) = X0) )),
+  inference(cnf_transformation,[],[f6])).
+fof(f6,axiom,(
+  ! [X0] : multiplication(X0,one) = X0),
+  file('KLE079+1.tptp',unknown)).
+fof(f738,plain,(
+  ( ! [X0,X1] : (multiplication(X1,one) = addition(X1,multiplication(X1,domain(X0)))) )),
+  inference(superposition,[],[f170,f52])).
+fof(f170,plain,(
+  ( ! [X0,X1] : (multiplication(X0,addition(one,X1)) = addition(X0,multiplication(X0,X1))) )),
+  inference(superposition,[],[f36,f34])).
+fof(f36,plain,(
+  ( ! [X2,X0,X1] : (multiplication(X0,addition(X1,X2)) = addition(multiplication(X0,X1),multiplication(X0,X2))) )),
+  inference(cnf_transformation,[],[f8])).
+fof(f8,axiom,(
+  ! [X0,X1,X2] : multiplication(X0,addition(X1,X2)) = addition(multiplication(X0,X1),multiplication(X0,X2))),
+  file('KLE079+1.tptp',unknown)).
+fof(f2984,plain,(
+  ( ! [X61,X60] : (addition(domain(X60),multiplication(domain(X60),domain(X61))) = multiplication(domain(X60),domain(addition(X61,X60)))) )),
+  inference(forward_demodulation,[],[f2912,f73])).
+fof(f73,plain,(
+  ( ! [X1] : (domain(X1) = domain(domain(X1))) )),
+  inference(forward_demodulation,[],[f68,f35])).
+fof(f68,plain,(
+  ( ! [X1] : (domain(multiplication(one,X1)) = domain(domain(X1))) )),
+  inference(superposition,[],[f41,f35])).
+fof(f41,plain,(
+  ( ! [X0,X1] : (domain(multiplication(X0,X1)) = domain(multiplication(X0,domain(X1)))) )),
+  inference(cnf_transformation,[],[f22])).
+fof(f22,plain,(
+  ! [X0,X1] : domain(multiplication(X0,X1)) = domain(multiplication(X0,domain(X1)))),
+  inference(rectify,[],[f14])).
+fof(f14,axiom,(
+  ! [X3,X4] : domain(multiplication(X3,X4)) = domain(multiplication(X3,domain(X4)))),
+  file('KLE079+1.tptp',unknown)).
+fof(f2912,plain,(
+  ( ! [X61,X60] : (addition(domain(X60),multiplication(domain(domain(X60)),domain(X61))) = multiplication(domain(domain(X60)),domain(addition(X61,X60)))) )),
+  inference(superposition,[],[f1032,f82])).
+fof(f82,plain,(
+  ( ! [X4,X3] : (domain(addition(X3,X4)) = addition(domain(X4),domain(X3))) )),
+  inference(superposition,[],[f44,f29])).
+fof(f44,plain,(
+  ( ! [X0,X1] : (domain(addition(X0,X1)) = addition(domain(X0),domain(X1))) )),
+  inference(cnf_transformation,[],[f24])).
+fof(f24,plain,(
+  ! [X0,X1] : domain(addition(X0,X1)) = addition(domain(X0),domain(X1))),
+  inference(rectify,[],[f17])).
+fof(f17,axiom,(
+  ! [X3,X4] : domain(addition(X3,X4)) = addition(domain(X3),domain(X4))),
+  file('KLE079+1.tptp',unknown)).
+fof(f1032,plain,(
+  ( ! [X2,X3] : (multiplication(domain(X2),addition(X2,X3)) = addition(X2,multiplication(domain(X2),X3))) )),
+  inference(superposition,[],[f36,f981])).
+fof(f981,plain,(
+  ( ! [X0] : (multiplication(domain(X0),X0) = X0) )),
+  inference(backward_demodulation,[],[f980,f40])).
+fof(f40,plain,(
+  ( ! [X0] : (multiplication(domain(X0),X0) = addition(X0,multiplication(domain(X0),X0))) )),
+  inference(cnf_transformation,[],[f21])).
+fof(f21,plain,(
+  ! [X0] : multiplication(domain(X0),X0) = addition(X0,multiplication(domain(X0),X0))),
+  inference(rectify,[],[f13])).
+fof(f13,axiom,(
+  ! [X3] : multiplication(domain(X3),X3) = addition(X3,multiplication(domain(X3),X3))),
+  file('KLE079+1.tptp',unknown)).
+fof(f18098,plain,(
+  ( ! [X156,X155] : (zero = multiplication(multiplication(X156,domain(X155)),antidomain(X155))) )),
+  inference(forward_demodulation,[],[f17880,f1951])).
+fof(f1951,plain,(
+  ( ! [X14,X15] : (zero = multiplication(multiplication(addition(X14,one),domain(X15)),antidomain(X15))) )),
+  inference(forward_demodulation,[],[f1950,f38])).
+fof(f38,plain,(
+  ( ! [X0] : (zero = multiplication(X0,zero)) )),
+  inference(cnf_transformation,[],[f10])).
+fof(f10,axiom,(
+  ! [X0] : zero = multiplication(X0,zero)),
+  file('KLE079+1.tptp',unknown)).
+fof(f1950,plain,(
+  ( ! [X14,X15] : (multiplication(X14,zero) = multiplication(multiplication(addition(X14,one),domain(X15)),antidomain(X15))) )),
+  inference(forward_demodulation,[],[f1949,f46])).
+fof(f46,plain,(
+  ( ! [X1] : (zero = multiplication(domain(X1),antidomain(X1))) )),
+  inference(cnf_transformation,[],[f28])).
+fof(f28,plain,(
+  zero != multiplication(antidomain(sK0),domain(sK0)) & ! [X1] : (zero = multiplication(domain(X1),antidomain(X1)) & one = addition(domain(X1),antidomain(X1)))),
+  inference(skolemisation,[status(esa),new_symbols(skolem,[sK0])],[f26,f27])).
+fof(f27,plain,(
+  ? [X0] : (zero != multiplication(antidomain(X0),domain(X0)) & ! [X1] : (zero = multiplication(domain(X1),antidomain(X1)) & one = addition(domain(X1),antidomain(X1)))) => (zero != multiplication(antidomain(sK0),domain(sK0)) & ! [X1] : (zero = multiplication(domain(X1),antidomain(X1)) & one = addition(domain(X1),antidomain(X1))))),
+  introduced(choice_axiom,[])).
+fof(f26,plain,(
+  ? [X0] : (zero != multiplication(antidomain(X0),domain(X0)) & ! [X1] : (zero = multiplication(domain(X1),antidomain(X1)) & one = addition(domain(X1),antidomain(X1))))),
+  inference(ennf_transformation,[],[f25])).
+fof(f25,plain,(
+  ~! [X0] : (! [X1] : (zero = multiplication(domain(X1),antidomain(X1)) & one = addition(domain(X1),antidomain(X1))) => zero = multiplication(antidomain(X0),domain(X0)))),
+  inference(rectify,[],[f19])).
+fof(f19,negated_conjecture,(
+  ~! [X3] : (! [X4] : (zero = multiplication(domain(X4),antidomain(X4)) & one = addition(domain(X4),antidomain(X4))) => zero = multiplication(antidomain(X3),domain(X3)))),
+  inference(negated_conjecture,[],[f18])).
+fof(f18,conjecture,(
+  ! [X3] : (! [X4] : (zero = multiplication(domain(X4),antidomain(X4)) & one = addition(domain(X4),antidomain(X4))) => zero = multiplication(antidomain(X3),domain(X3)))),
+  file('KLE079+1.tptp',unknown)).
+fof(f1949,plain,(
+  ( ! [X14,X15] : (multiplication(multiplication(addition(X14,one),domain(X15)),antidomain(X15)) = multiplication(X14,multiplication(domain(X15),antidomain(X15)))) )),
+  inference(forward_demodulation,[],[f1916,f33])).
+fof(f33,plain,(
+  ( ! [X2,X0,X1] : (multiplication(X0,multiplication(X1,X2)) = multiplication(multiplication(X0,X1),X2)) )),
+  inference(cnf_transformation,[],[f5])).
+fof(f5,axiom,(
+  ! [X0,X1,X2] : multiplication(X0,multiplication(X1,X2)) = multiplication(multiplication(X0,X1),X2)),
+  file('KLE079+1.tptp',unknown)).
+fof(f1916,plain,(
+  ( ! [X14,X15] : (multiplication(multiplication(X14,domain(X15)),antidomain(X15)) = multiplication(multiplication(addition(X14,one),domain(X15)),antidomain(X15))) )),
+  inference(superposition,[],[f240,f217])).
+fof(f217,plain,(
+  ( ! [X10,X11] : (multiplication(addition(X11,one),X10) = addition(multiplication(X11,X10),X10)) )),
+  inference(superposition,[],[f37,f35])).
+fof(f240,plain,(
+  ( ! [X12,X13] : (multiplication(X13,antidomain(X12)) = multiplication(addition(X13,domain(X12)),antidomain(X12))) )),
+  inference(forward_demodulation,[],[f239,f51])).
+fof(f239,plain,(
+  ( ! [X12,X13] : (addition(zero,multiplication(X13,antidomain(X12))) = multiplication(addition(X13,domain(X12)),antidomain(X12))) )),
+  inference(forward_demodulation,[],[f218,f29])).
+fof(f218,plain,(
+  ( ! [X12,X13] : (multiplication(addition(X13,domain(X12)),antidomain(X12)) = addition(multiplication(X13,antidomain(X12)),zero)) )),
+  inference(superposition,[],[f37,f46])).
+fof(f17880,plain,(
+  ( ! [X156,X155] : (multiplication(multiplication(X156,domain(X155)),antidomain(X155)) = multiplication(multiplication(addition(X156,one),domain(X155)),antidomain(X155))) )),
+  inference(superposition,[],[f232,f937])).
+fof(f937,plain,(
+  ( ! [X6,X5] : (addition(X6,multiplication(X5,X6)) = multiplication(addition(X5,one),X6)) )),
+  inference(superposition,[],[f211,f29])).
+fof(f232,plain,(
+  ( ! [X12,X13] : (multiplication(addition(domain(X12),X13),antidomain(X12)) = multiplication(X13,antidomain(X12))) )),
+  inference(forward_demodulation,[],[f212,f51])).
+fof(f212,plain,(
+  ( ! [X12,X13] : (multiplication(addition(domain(X12),X13),antidomain(X12)) = addition(zero,multiplication(X13,antidomain(X12)))) )),
+  inference(superposition,[],[f37,f46])).
+fof(f25862,plain,(
+  ( ! [X38] : (addition(multiplication(domain(antidomain(X38)),domain(X38)),multiplication(domain(multiplication(domain(antidomain(X38)),X38)),antidomain(X38))) = multiplication(domain(multiplication(domain(antidomain(X38)),X38)),domain(antidomain(X38)))) )),
+  inference(forward_demodulation,[],[f25788,f41])).
+fof(f25788,plain,(
+  ( ! [X38] : (addition(multiplication(domain(antidomain(X38)),domain(X38)),multiplication(domain(multiplication(domain(antidomain(X38)),domain(X38))),antidomain(X38))) = multiplication(domain(multiplication(domain(antidomain(X38)),domain(X38))),domain(antidomain(X38)))) )),
+  inference(superposition,[],[f1041,f3172])).
+fof(f3172,plain,(
+  ( ! [X64] : (domain(antidomain(X64)) = addition(antidomain(X64),multiplication(domain(antidomain(X64)),domain(X64)))) )),
+  inference(forward_demodulation,[],[f3102,f34])).
+fof(f3102,plain,(
+  ( ! [X64] : (addition(antidomain(X64),multiplication(domain(antidomain(X64)),domain(X64))) = multiplication(domain(antidomain(X64)),one)) )),
+  inference(superposition,[],[f1041,f45])).
+fof(f45,plain,(
+  ( ! [X1] : (one = addition(domain(X1),antidomain(X1))) )),
+  inference(cnf_transformation,[],[f28])).
+fof(f1041,plain,(
+  ( ! [X4,X5] : (multiplication(domain(X4),addition(X5,X4)) = addition(X4,multiplication(domain(X4),X5))) )),
+  inference(forward_demodulation,[],[f1033,f29])).
+fof(f1033,plain,(
+  ( ! [X4,X5] : (multiplication(domain(X4),addition(X5,X4)) = addition(multiplication(domain(X4),X5),X4)) )),
+  inference(superposition,[],[f36,f981])).
+fof(f60980,plain,(
+  ( ! [X30,X31] : (domain(multiplication(domain(X30),X31)) = multiplication(domain(multiplication(domain(X30),X31)),domain(X30))) )),
+  inference(superposition,[],[f2985,f7967])).
+fof(f7967,plain,(
+  ( ! [X39,X38] : (domain(X38) = domain(addition(X38,multiplication(domain(X38),X39)))) )),
+  inference(forward_demodulation,[],[f7966,f73])).
+fof(f7966,plain,(
+  ( ! [X39,X38] : (domain(addition(X38,multiplication(domain(X38),X39))) = domain(domain(X38))) )),
+  inference(forward_demodulation,[],[f7855,f344])).
+fof(f344,plain,(
+  ( ! [X2,X1] : (domain(X2) = domain(multiplication(X2,addition(one,X1)))) )),
+  inference(forward_demodulation,[],[f330,f34])).
+fof(f330,plain,(
+  ( ! [X2,X1] : (domain(multiplication(X2,addition(one,X1))) = domain(multiplication(X2,one))) )),
+  inference(superposition,[],[f41,f168])).
+fof(f168,plain,(
+  ( ! [X1] : (one = domain(addition(one,X1))) )),
+  inference(forward_demodulation,[],[f160,f52])).
+fof(f160,plain,(
+  ( ! [X1] : (addition(one,domain(X1)) = domain(addition(one,X1))) )),
+  inference(superposition,[],[f44,f157])).
+fof(f157,plain,(
+  one = domain(one)),
+  inference(forward_demodulation,[],[f152,f52])).
+fof(f152,plain,(
+  domain(one) = addition(one,domain(one))),
+  inference(superposition,[],[f40,f34])).
+fof(f7855,plain,(
+  ( ! [X39,X38] : (domain(addition(X38,multiplication(domain(X38),X39))) = domain(multiplication(domain(X38),addition(one,X39)))) )),
+  inference(superposition,[],[f123,f170])).
+fof(f123,plain,(
+  ( ! [X4,X3] : (domain(addition(X3,X4)) = domain(addition(domain(X3),X4))) )),
+  inference(forward_demodulation,[],[f118,f44])).
+fof(f118,plain,(
+  ( ! [X4,X3] : (addition(domain(X3),domain(X4)) = domain(addition(domain(X3),X4))) )),
+  inference(superposition,[],[f44,f73])).
+fof(f61579,plain,(
+  ( ! [X1] : (zero = domain(multiplication(domain(antidomain(X1)),X1))) )),
+  inference(forward_demodulation,[],[f61578,f4166])).
+fof(f4166,plain,(
+  ( ! [X37] : (zero = multiplication(domain(X37),domain(antidomain(X37)))) )),
+  inference(forward_demodulation,[],[f4165,f39])).
+fof(f39,plain,(
+  ( ! [X0] : (zero = multiplication(zero,X0)) )),
+  inference(cnf_transformation,[],[f11])).
+fof(f11,axiom,(
+  ! [X0] : zero = multiplication(zero,X0)),
+  file('KLE079+1.tptp',unknown)).
+fof(f4165,plain,(
+  ( ! [X37] : (multiplication(domain(X37),domain(antidomain(X37))) = multiplication(zero,multiplication(domain(X37),domain(antidomain(X37))))) )),
+  inference(forward_demodulation,[],[f4104,f43])).
+fof(f43,plain,(
+  zero = domain(zero)),
+  inference(cnf_transformation,[],[f16])).
+fof(f16,axiom,(
+  zero = domain(zero)),
+  file('KLE079+1.tptp',unknown)).
+fof(f4104,plain,(
+  ( ! [X37] : (multiplication(domain(X37),domain(antidomain(X37))) = multiplication(domain(zero),multiplication(domain(X37),domain(antidomain(X37))))) )),
+  inference(superposition,[],[f982,f46])).
+fof(f982,plain,(
+  ( ! [X0,X1] : (multiplication(X0,domain(X1)) = multiplication(domain(multiplication(X0,X1)),multiplication(X0,domain(X1)))) )),
+  inference(backward_demodulation,[],[f980,f150])).
+fof(f150,plain,(
+  ( ! [X0,X1] : (multiplication(domain(multiplication(X0,X1)),multiplication(X0,domain(X1))) = addition(multiplication(X0,domain(X1)),multiplication(domain(multiplication(X0,X1)),multiplication(X0,domain(X1))))) )),
+  inference(superposition,[],[f40,f41])).
+fof(f61578,plain,(
+  ( ! [X1] : (multiplication(domain(X1),domain(antidomain(X1))) = domain(multiplication(domain(antidomain(X1)),X1))) )),
+  inference(forward_demodulation,[],[f61421,f53688])).
+fof(f53688,plain,(
+  ( ! [X165,X166] : (domain(multiplication(domain(X165),X166)) = multiplication(domain(X166),domain(multiplication(domain(X165),X166)))) )),
+  inference(superposition,[],[f2203,f1193])).
+fof(f1193,plain,(
+  ( ! [X17,X18] : (addition(multiplication(domain(X17),X18),X18) = X18) )),
+  inference(forward_demodulation,[],[f1143,f35])).
+fof(f1143,plain,(
+  ( ! [X17,X18] : (multiplication(one,X18) = addition(multiplication(domain(X17),X18),X18)) )),
+  inference(superposition,[],[f217,f42])).
+fof(f2203,plain,(
+  ( ! [X54,X55] : (domain(X55) = multiplication(domain(addition(X55,X54)),domain(X55))) )),
+  inference(forward_demodulation,[],[f2167,f73])).
+fof(f2167,plain,(
+  ( ! [X54,X55] : (domain(X55) = multiplication(domain(domain(addition(X55,X54))),domain(X55))) )),
+  inference(superposition,[],[f2082,f82])).
+fof(f2082,plain,(
+  ( ! [X6,X5] : (multiplication(domain(addition(X6,X5)),X5) = X5) )),
+  inference(forward_demodulation,[],[f2033,f980])).
+fof(f2033,plain,(
+  ( ! [X6,X5] : (addition(X5,multiplication(domain(X6),X5)) = multiplication(domain(addition(X6,X5)),X5)) )),
+  inference(superposition,[],[f1035,f82])).
+fof(f1035,plain,(
+  ( ! [X8,X9] : (multiplication(addition(domain(X8),X9),X8) = addition(X8,multiplication(X9,X8))) )),
+  inference(superposition,[],[f37,f981])).
+fof(f61421,plain,(
+  ( ! [X1] : (multiplication(domain(X1),domain(antidomain(X1))) = multiplication(domain(X1),domain(multiplication(domain(antidomain(X1)),X1)))) )),
+  inference(superposition,[],[f195,f61245])).
+fof(f61245,plain,(
+  ( ! [X64] : (domain(antidomain(X64)) = addition(antidomain(X64),domain(multiplication(domain(antidomain(X64)),X64)))) )),
+  inference(backward_demodulation,[],[f61244,f3172])).
+fof(f195,plain,(
+  ( ! [X12,X13] : (multiplication(domain(X12),addition(antidomain(X12),X13)) = multiplication(domain(X12),X13)) )),
+  inference(forward_demodulation,[],[f175,f51])).
+fof(f175,plain,(
+  ( ! [X12,X13] : (multiplication(domain(X12),addition(antidomain(X12),X13)) = addition(zero,multiplication(domain(X12),X13))) )),
+  inference(superposition,[],[f36,f46])).
+fof(f61592,plain,(
+  ( ! [X64] : (antidomain(X64) = domain(antidomain(X64))) )),
+  inference(forward_demodulation,[],[f61582,f31])).
+fof(f61582,plain,(
+  ( ! [X64] : (domain(antidomain(X64)) = addition(antidomain(X64),zero)) )),
+  inference(backward_demodulation,[],[f61579,f61245])).
+fof(f47,plain,(
+  zero != multiplication(antidomain(sK0),domain(sK0))),
+  inference(cnf_transformation,[],[f28])).
+% SZS output end Proof for KLE079+1
+% ------------------------------
+% Version: Vampire 4.4.0 (commit d98a3d53 on 2020-01-14 21:02:12 +0100)
+% Termination reason: Refutation
+
+% Memory used [KB]: 75478
+% Time elapsed: 1.192 s
+% ------------------------------
+% ------------------------------

@@ -1,0 +1,27 @@
+% Refutation found. Thanks to Tanya!
+% SZS status Unsatisfiable for LCL792-1
+% SZS output start Proof for LCL792-1
+fof(f1245,plain,(
+  $false),
+  inference(subsumption_resolution,[],[f1244,f1192])).
+fof(f1192,axiom,(
+  c_InductTermi_OIT(v_u____)),
+  file('LCL792-1.tptp',unknown)).
+fof(f1244,plain,(
+  ~c_InductTermi_OIT(v_u____)),
+  inference(resolution,[],[f1191,f1193])).
+fof(f1193,axiom,(
+  ~c_InductTermi_OIT(c_Lambda_Olift(v_u____,c_HOL_Ozero__class_Ozero(tc_nat)))),
+  file('LCL792-1.tptp',unknown)).
+fof(f1191,axiom,(
+  ( ! [X10,X19] : (c_InductTermi_OIT(c_Lambda_Olift(X19,X10)) | ~c_InductTermi_OIT(X19)) )),
+  file('LCL792-1.tptp',unknown)).
+% SZS output end Proof for LCL792-1
+% ------------------------------
+% Version: Vampire 4.4.0 (commit d98a3d53 on 2020-01-14 21:02:12 +0100)
+% Termination reason: Refutation
+
+% Memory used [KB]: 6140
+% Time elapsed: 0.024 s
+% ------------------------------
+% ------------------------------

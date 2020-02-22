@@ -1,0 +1,93 @@
+% Refutation found. Thanks to Tanya!
+% SZS status Theorem for SWV385+1
+% SZS output start Proof for SWV385+1
+fof(f255,plain,(
+  $false),
+  inference(avatar_sat_refutation,[],[f167,f204,f254])).
+fof(f254,plain,(
+  spl3_1),
+  inference(avatar_contradiction_clause,[],[f253])).
+fof(f253,plain,(
+  $false | spl3_1),
+  inference(subsumption_resolution,[],[f252,f162])).
+fof(f162,plain,(
+  ~check_cpq(triple(sK0,sK1,sK2)) | spl3_1),
+  inference(avatar_component_clause,[],[f160])).
+fof(f160,plain,(
+  spl3_1 <=> check_cpq(triple(sK0,sK1,sK2))),
+  introduced(avatar_definition,[new_symbols(naming,[spl3_1])])).
+fof(f252,plain,(
+  check_cpq(triple(sK0,sK1,sK2))),
+  inference(subsumption_resolution,[],[f251,f148])).
+fof(f148,plain,(
+  check_cpq(im_succ_cpq(triple(sK0,sK1,sK2)))),
+  inference(cnf_transformation,[],[f96])).
+fof(f96,plain,(
+  ok(im_succ_cpq(triple(sK0,sK1,sK2))) & check_cpq(im_succ_cpq(triple(sK0,sK1,sK2))) & (~ok(triple(sK0,sK1,sK2)) | ~check_cpq(triple(sK0,sK1,sK2)))),
+  inference(skolemisation,[status(esa),new_symbols(skolem,[sK0,sK1,sK2])],[f88,f95])).
+fof(f95,plain,(
+  ? [X0,X1,X2] : (ok(im_succ_cpq(triple(X0,X1,X2))) & check_cpq(im_succ_cpq(triple(X0,X1,X2))) & (~ok(triple(X0,X1,X2)) | ~check_cpq(triple(X0,X1,X2)))) => (ok(im_succ_cpq(triple(sK0,sK1,sK2))) & check_cpq(im_succ_cpq(triple(sK0,sK1,sK2))) & (~ok(triple(sK0,sK1,sK2)) | ~check_cpq(triple(sK0,sK1,sK2))))),
+  introduced(choice_axiom,[])).
+fof(f88,plain,(
+  ? [X0,X1,X2] : (ok(im_succ_cpq(triple(X0,X1,X2))) & check_cpq(im_succ_cpq(triple(X0,X1,X2))) & (~ok(triple(X0,X1,X2)) | ~check_cpq(triple(X0,X1,X2))))),
+  inference(flattening,[],[f87])).
+fof(f87,plain,(
+  ? [X0,X1,X2] : ((ok(im_succ_cpq(triple(X0,X1,X2))) & check_cpq(im_succ_cpq(triple(X0,X1,X2)))) & (~ok(triple(X0,X1,X2)) | ~check_cpq(triple(X0,X1,X2))))),
+  inference(ennf_transformation,[],[f45])).
+fof(f45,negated_conjecture,(
+  ~! [X0,X1,X2] : ((~ok(triple(X0,X1,X2)) | ~check_cpq(triple(X0,X1,X2))) => (~ok(im_succ_cpq(triple(X0,X1,X2))) | ~check_cpq(im_succ_cpq(triple(X0,X1,X2)))))),
+  inference(negated_conjecture,[],[f44])).
+fof(f44,conjecture,(
+  ! [X0,X1,X2] : ((~ok(triple(X0,X1,X2)) | ~check_cpq(triple(X0,X1,X2))) => (~ok(im_succ_cpq(triple(X0,X1,X2))) | ~check_cpq(im_succ_cpq(triple(X0,X1,X2)))))),
+  file('SWV385+1.tptp',unknown)).
+fof(f251,plain,(
+  ~check_cpq(im_succ_cpq(triple(sK0,sK1,sK2))) | check_cpq(triple(sK0,sK1,sK2))),
+  inference(resolution,[],[f146,f149])).
+fof(f149,plain,(
+  ok(im_succ_cpq(triple(sK0,sK1,sK2)))),
+  inference(cnf_transformation,[],[f96])).
+fof(f146,plain,(
+  ( ! [X2,X0,X1] : (~ok(im_succ_cpq(triple(X0,X1,X2))) | ~check_cpq(im_succ_cpq(triple(X0,X1,X2))) | check_cpq(triple(X0,X1,X2))) )),
+  inference(cnf_transformation,[],[f86])).
+fof(f86,plain,(
+  ! [X0,X1,X2] : (~ok(im_succ_cpq(triple(X0,X1,X2))) | ~check_cpq(im_succ_cpq(triple(X0,X1,X2))) | check_cpq(triple(X0,X1,X2)))),
+  inference(flattening,[],[f85])).
+fof(f85,plain,(
+  ! [X0,X1,X2] : ((~ok(im_succ_cpq(triple(X0,X1,X2))) | ~check_cpq(im_succ_cpq(triple(X0,X1,X2)))) | check_cpq(triple(X0,X1,X2)))),
+  inference(ennf_transformation,[],[f43])).
+fof(f43,axiom,(
+  ! [X0,X1,X2] : (~check_cpq(triple(X0,X1,X2)) => (~ok(im_succ_cpq(triple(X0,X1,X2))) | ~check_cpq(im_succ_cpq(triple(X0,X1,X2)))))),
+  file('SWV385+1.tptp',unknown)).
+fof(f204,plain,(
+  spl3_2),
+  inference(avatar_split_clause,[],[f203,f164])).
+fof(f164,plain,(
+  spl3_2 <=> ok(triple(sK0,sK1,sK2))),
+  introduced(avatar_definition,[new_symbols(naming,[spl3_2])])).
+fof(f203,plain,(
+  ok(triple(sK0,sK1,sK2))),
+  inference(resolution,[],[f145,f149])).
+fof(f145,plain,(
+  ( ! [X2,X0,X1] : (~ok(im_succ_cpq(triple(X0,X1,X2))) | ok(triple(X0,X1,X2))) )),
+  inference(cnf_transformation,[],[f84])).
+fof(f84,plain,(
+  ! [X0,X1,X2] : (~ok(im_succ_cpq(triple(X0,X1,X2))) | ok(triple(X0,X1,X2)))),
+  inference(ennf_transformation,[],[f42])).
+fof(f42,axiom,(
+  ! [X0,X1,X2] : (~ok(triple(X0,X1,X2)) => ~ok(im_succ_cpq(triple(X0,X1,X2))))),
+  file('SWV385+1.tptp',unknown)).
+fof(f167,plain,(
+  ~spl3_1 | ~spl3_2),
+  inference(avatar_split_clause,[],[f147,f164,f160])).
+fof(f147,plain,(
+  ~ok(triple(sK0,sK1,sK2)) | ~check_cpq(triple(sK0,sK1,sK2))),
+  inference(cnf_transformation,[],[f96])).
+% SZS output end Proof for SWV385+1
+% ------------------------------
+% Version: Vampire 4.4.0 (commit d98a3d53 on 2020-01-14 21:02:12 +0100)
+% Termination reason: Refutation
+
+% Memory used [KB]: 4989
+% Time elapsed: 0.009 s
+% ------------------------------
+% ------------------------------

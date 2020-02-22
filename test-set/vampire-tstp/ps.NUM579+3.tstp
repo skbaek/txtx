@@ -1,0 +1,660 @@
+% Refutation found. Thanks to Tanya!
+% SZS status Theorem for NUM579+3
+% SZS output start Proof for NUM579+3
+fof(f519886,plain,(
+  $false),
+  inference(avatar_sat_refutation,[],[f2173,f2178,f2491,f7104,f12940,f14394,f400612,f455577,f455582,f455587,f455591,f519841,f519876])).
+fof(f519876,plain,(
+  ~spl44_855 | ~spl44_1108 | spl44_5794),
+  inference(avatar_contradiction_clause,[],[f519875])).
+fof(f519875,plain,(
+  $false | (~spl44_855 | ~spl44_1108 | spl44_5794)),
+  inference(subsumption_resolution,[],[f519857,f400586])).
+fof(f400586,plain,(
+  ~aElementOf0(sK30(sdtpldt0(sK42,szmzizndt0(sdtlpdtrp0(xN,sK41)))),xS) | spl44_5794),
+  inference(avatar_component_clause,[],[f400585])).
+fof(f400585,plain,(
+  spl44_5794 <=> aElementOf0(sK30(sdtpldt0(sK42,szmzizndt0(sdtlpdtrp0(xN,sK41)))),xS)),
+  introduced(avatar_definition,[new_symbols(naming,[spl44_5794])])).
+fof(f519857,plain,(
+  aElementOf0(sK30(sdtpldt0(sK42,szmzizndt0(sdtlpdtrp0(xN,sK41)))),xS) | (~spl44_855 | ~spl44_1108)),
+  inference(resolution,[],[f28214,f18943])).
+fof(f18943,plain,(
+  aElementOf0(sK30(sdtpldt0(sK42,szmzizndt0(sdtlpdtrp0(xN,sK41)))),sK42) | ~spl44_855),
+  inference(avatar_component_clause,[],[f18941])).
+fof(f18941,plain,(
+  spl44_855 <=> aElementOf0(sK30(sdtpldt0(sK42,szmzizndt0(sdtlpdtrp0(xN,sK41)))),sK42)),
+  introduced(avatar_definition,[new_symbols(naming,[spl44_855])])).
+fof(f28214,plain,(
+  ( ! [X89] : (~aElementOf0(X89,sK42) | aElementOf0(X89,xS)) ) | ~spl44_1108),
+  inference(avatar_component_clause,[],[f28213])).
+fof(f28213,plain,(
+  spl44_1108 <=> ! [X89] : (aElementOf0(X89,xS) | ~aElementOf0(X89,sK42))),
+  introduced(avatar_definition,[new_symbols(naming,[spl44_1108])])).
+fof(f519841,plain,(
+  spl44_1108),
+  inference(avatar_split_clause,[],[f519840,f28213])).
+fof(f519840,plain,(
+  ( ! [X0] : (aElementOf0(X0,xS) | ~aElementOf0(X0,sK42)) )),
+  inference(subsumption_resolution,[],[f519817,f573])).
+fof(f573,plain,(
+  aElementOf0(sK41,szNzAzT0)),
+  inference(cnf_transformation,[],[f343])).
+fof(f343,plain,(
+  (~aElementOf0(sdtpldt0(sK42,szmzizndt0(sdtlpdtrp0(xN,sK41))),slbdtsldtrb0(xS,xK)) & (xK != sbrdtbr0(sdtpldt0(sK42,szmzizndt0(sdtlpdtrp0(xN,sK41)))) | (~aSubsetOf0(sdtpldt0(sK42,szmzizndt0(sdtlpdtrp0(xN,sK41))),xS) & (~aElementOf0(sK43,xS) & aElementOf0(sK43,sdtpldt0(sK42,szmzizndt0(sdtlpdtrp0(xN,sK41))))))) & ! [X3] : ((aElementOf0(X3,sdtpldt0(sK42,szmzizndt0(sdtlpdtrp0(xN,sK41)))) | (szmzizndt0(sdtlpdtrp0(xN,sK41)) != X3 & ~aElementOf0(X3,sK42)) | ~aElement0(X3)) & (((szmzizndt0(sdtlpdtrp0(xN,sK41)) = X3 | aElementOf0(X3,sK42)) & aElement0(X3)) | ~aElementOf0(X3,sdtpldt0(sK42,szmzizndt0(sdtlpdtrp0(xN,sK41)))))) & aSet0(sdtpldt0(sK42,szmzizndt0(sdtlpdtrp0(xN,sK41)))) & ! [X4] : (sdtlseqdt0(szmzizndt0(sdtlpdtrp0(xN,sK41)),X4) | ~aElementOf0(X4,sdtlpdtrp0(xN,sK41))) & aElementOf0(szmzizndt0(sdtlpdtrp0(xN,sK41)),sdtlpdtrp0(xN,sK41)) & aElementOf0(sK42,slbdtsldtrb0(sdtmndt0(sdtlpdtrp0(xN,sK41),szmzizndt0(sdtlpdtrp0(xN,sK41))),xk)) & xk = sbrdtbr0(sK42) & aSubsetOf0(sK42,sdtmndt0(sdtlpdtrp0(xN,sK41),szmzizndt0(sdtlpdtrp0(xN,sK41)))) & ! [X5] : (aElementOf0(X5,sdtmndt0(sdtlpdtrp0(xN,sK41),szmzizndt0(sdtlpdtrp0(xN,sK41)))) | ~aElementOf0(X5,sK42)) & ! [X6] : ((aElementOf0(X6,sdtmndt0(sdtlpdtrp0(xN,sK41),szmzizndt0(sdtlpdtrp0(xN,sK41)))) | szmzizndt0(sdtlpdtrp0(xN,sK41)) = X6 | ~aElementOf0(X6,sdtlpdtrp0(xN,sK41)) | ~aElement0(X6)) & ((szmzizndt0(sdtlpdtrp0(xN,sK41)) != X6 & aElementOf0(X6,sdtlpdtrp0(xN,sK41)) & aElement0(X6)) | ~aElementOf0(X6,sdtmndt0(sdtlpdtrp0(xN,sK41),szmzizndt0(sdtlpdtrp0(xN,sK41)))))) & aSet0(sdtmndt0(sdtlpdtrp0(xN,sK41),szmzizndt0(sdtlpdtrp0(xN,sK41)))) & ! [X7] : (sdtlseqdt0(szmzizndt0(sdtlpdtrp0(xN,sK41)),X7) | ~aElementOf0(X7,sdtlpdtrp0(xN,sK41))) & aElementOf0(szmzizndt0(sdtlpdtrp0(xN,sK41)),sdtlpdtrp0(xN,sK41)) & aSet0(sK42)) & aElementOf0(sK41,szNzAzT0)),
+  inference(skolemisation,[status(esa),new_symbols(skolem,[sK41,sK42,sK43])],[f339,f342,f341,f340])).
+fof(f340,plain,(
+  ? [X0] : (? [X1] : (~aElementOf0(sdtpldt0(X1,szmzizndt0(sdtlpdtrp0(xN,X0))),slbdtsldtrb0(xS,xK)) & (xK != sbrdtbr0(sdtpldt0(X1,szmzizndt0(sdtlpdtrp0(xN,X0)))) | (~aSubsetOf0(sdtpldt0(X1,szmzizndt0(sdtlpdtrp0(xN,X0))),xS) & ? [X2] : (~aElementOf0(X2,xS) & aElementOf0(X2,sdtpldt0(X1,szmzizndt0(sdtlpdtrp0(xN,X0))))))) & ! [X3] : ((aElementOf0(X3,sdtpldt0(X1,szmzizndt0(sdtlpdtrp0(xN,X0)))) | (szmzizndt0(sdtlpdtrp0(xN,X0)) != X3 & ~aElementOf0(X3,X1)) | ~aElement0(X3)) & (((szmzizndt0(sdtlpdtrp0(xN,X0)) = X3 | aElementOf0(X3,X1)) & aElement0(X3)) | ~aElementOf0(X3,sdtpldt0(X1,szmzizndt0(sdtlpdtrp0(xN,X0)))))) & aSet0(sdtpldt0(X1,szmzizndt0(sdtlpdtrp0(xN,X0)))) & ! [X4] : (sdtlseqdt0(szmzizndt0(sdtlpdtrp0(xN,X0)),X4) | ~aElementOf0(X4,sdtlpdtrp0(xN,X0))) & aElementOf0(szmzizndt0(sdtlpdtrp0(xN,X0)),sdtlpdtrp0(xN,X0)) & aElementOf0(X1,slbdtsldtrb0(sdtmndt0(sdtlpdtrp0(xN,X0),szmzizndt0(sdtlpdtrp0(xN,X0))),xk)) & sbrdtbr0(X1) = xk & aSubsetOf0(X1,sdtmndt0(sdtlpdtrp0(xN,X0),szmzizndt0(sdtlpdtrp0(xN,X0)))) & ! [X5] : (aElementOf0(X5,sdtmndt0(sdtlpdtrp0(xN,X0),szmzizndt0(sdtlpdtrp0(xN,X0)))) | ~aElementOf0(X5,X1)) & ! [X6] : ((aElementOf0(X6,sdtmndt0(sdtlpdtrp0(xN,X0),szmzizndt0(sdtlpdtrp0(xN,X0)))) | szmzizndt0(sdtlpdtrp0(xN,X0)) = X6 | ~aElementOf0(X6,sdtlpdtrp0(xN,X0)) | ~aElement0(X6)) & ((szmzizndt0(sdtlpdtrp0(xN,X0)) != X6 & aElementOf0(X6,sdtlpdtrp0(xN,X0)) & aElement0(X6)) | ~aElementOf0(X6,sdtmndt0(sdtlpdtrp0(xN,X0),szmzizndt0(sdtlpdtrp0(xN,X0)))))) & aSet0(sdtmndt0(sdtlpdtrp0(xN,X0),szmzizndt0(sdtlpdtrp0(xN,X0)))) & ! [X7] : (sdtlseqdt0(szmzizndt0(sdtlpdtrp0(xN,X0)),X7) | ~aElementOf0(X7,sdtlpdtrp0(xN,X0))) & aElementOf0(szmzizndt0(sdtlpdtrp0(xN,X0)),sdtlpdtrp0(xN,X0)) & aSet0(X1)) & aElementOf0(X0,szNzAzT0)) => (? [X1] : (~aElementOf0(sdtpldt0(X1,szmzizndt0(sdtlpdtrp0(xN,sK41))),slbdtsldtrb0(xS,xK)) & (xK != sbrdtbr0(sdtpldt0(X1,szmzizndt0(sdtlpdtrp0(xN,sK41)))) | (~aSubsetOf0(sdtpldt0(X1,szmzizndt0(sdtlpdtrp0(xN,sK41))),xS) & ? [X2] : (~aElementOf0(X2,xS) & aElementOf0(X2,sdtpldt0(X1,szmzizndt0(sdtlpdtrp0(xN,sK41))))))) & ! [X3] : ((aElementOf0(X3,sdtpldt0(X1,szmzizndt0(sdtlpdtrp0(xN,sK41)))) | (szmzizndt0(sdtlpdtrp0(xN,sK41)) != X3 & ~aElementOf0(X3,X1)) | ~aElement0(X3)) & (((szmzizndt0(sdtlpdtrp0(xN,sK41)) = X3 | aElementOf0(X3,X1)) & aElement0(X3)) | ~aElementOf0(X3,sdtpldt0(X1,szmzizndt0(sdtlpdtrp0(xN,sK41)))))) & aSet0(sdtpldt0(X1,szmzizndt0(sdtlpdtrp0(xN,sK41)))) & ! [X4] : (sdtlseqdt0(szmzizndt0(sdtlpdtrp0(xN,sK41)),X4) | ~aElementOf0(X4,sdtlpdtrp0(xN,sK41))) & aElementOf0(szmzizndt0(sdtlpdtrp0(xN,sK41)),sdtlpdtrp0(xN,sK41)) & aElementOf0(X1,slbdtsldtrb0(sdtmndt0(sdtlpdtrp0(xN,sK41),szmzizndt0(sdtlpdtrp0(xN,sK41))),xk)) & sbrdtbr0(X1) = xk & aSubsetOf0(X1,sdtmndt0(sdtlpdtrp0(xN,sK41),szmzizndt0(sdtlpdtrp0(xN,sK41)))) & ! [X5] : (aElementOf0(X5,sdtmndt0(sdtlpdtrp0(xN,sK41),szmzizndt0(sdtlpdtrp0(xN,sK41)))) | ~aElementOf0(X5,X1)) & ! [X6] : ((aElementOf0(X6,sdtmndt0(sdtlpdtrp0(xN,sK41),szmzizndt0(sdtlpdtrp0(xN,sK41)))) | szmzizndt0(sdtlpdtrp0(xN,sK41)) = X6 | ~aElementOf0(X6,sdtlpdtrp0(xN,sK41)) | ~aElement0(X6)) & ((szmzizndt0(sdtlpdtrp0(xN,sK41)) != X6 & aElementOf0(X6,sdtlpdtrp0(xN,sK41)) & aElement0(X6)) | ~aElementOf0(X6,sdtmndt0(sdtlpdtrp0(xN,sK41),szmzizndt0(sdtlpdtrp0(xN,sK41)))))) & aSet0(sdtmndt0(sdtlpdtrp0(xN,sK41),szmzizndt0(sdtlpdtrp0(xN,sK41)))) & ! [X7] : (sdtlseqdt0(szmzizndt0(sdtlpdtrp0(xN,sK41)),X7) | ~aElementOf0(X7,sdtlpdtrp0(xN,sK41))) & aElementOf0(szmzizndt0(sdtlpdtrp0(xN,sK41)),sdtlpdtrp0(xN,sK41)) & aSet0(X1)) & aElementOf0(sK41,szNzAzT0))),
+  introduced(choice_axiom,[])).
+fof(f341,plain,(
+  ? [X1] : (~aElementOf0(sdtpldt0(X1,szmzizndt0(sdtlpdtrp0(xN,sK41))),slbdtsldtrb0(xS,xK)) & (xK != sbrdtbr0(sdtpldt0(X1,szmzizndt0(sdtlpdtrp0(xN,sK41)))) | (~aSubsetOf0(sdtpldt0(X1,szmzizndt0(sdtlpdtrp0(xN,sK41))),xS) & ? [X2] : (~aElementOf0(X2,xS) & aElementOf0(X2,sdtpldt0(X1,szmzizndt0(sdtlpdtrp0(xN,sK41))))))) & ! [X3] : ((aElementOf0(X3,sdtpldt0(X1,szmzizndt0(sdtlpdtrp0(xN,sK41)))) | (szmzizndt0(sdtlpdtrp0(xN,sK41)) != X3 & ~aElementOf0(X3,X1)) | ~aElement0(X3)) & (((szmzizndt0(sdtlpdtrp0(xN,sK41)) = X3 | aElementOf0(X3,X1)) & aElement0(X3)) | ~aElementOf0(X3,sdtpldt0(X1,szmzizndt0(sdtlpdtrp0(xN,sK41)))))) & aSet0(sdtpldt0(X1,szmzizndt0(sdtlpdtrp0(xN,sK41)))) & ! [X4] : (sdtlseqdt0(szmzizndt0(sdtlpdtrp0(xN,sK41)),X4) | ~aElementOf0(X4,sdtlpdtrp0(xN,sK41))) & aElementOf0(szmzizndt0(sdtlpdtrp0(xN,sK41)),sdtlpdtrp0(xN,sK41)) & aElementOf0(X1,slbdtsldtrb0(sdtmndt0(sdtlpdtrp0(xN,sK41),szmzizndt0(sdtlpdtrp0(xN,sK41))),xk)) & sbrdtbr0(X1) = xk & aSubsetOf0(X1,sdtmndt0(sdtlpdtrp0(xN,sK41),szmzizndt0(sdtlpdtrp0(xN,sK41)))) & ! [X5] : (aElementOf0(X5,sdtmndt0(sdtlpdtrp0(xN,sK41),szmzizndt0(sdtlpdtrp0(xN,sK41)))) | ~aElementOf0(X5,X1)) & ! [X6] : ((aElementOf0(X6,sdtmndt0(sdtlpdtrp0(xN,sK41),szmzizndt0(sdtlpdtrp0(xN,sK41)))) | szmzizndt0(sdtlpdtrp0(xN,sK41)) = X6 | ~aElementOf0(X6,sdtlpdtrp0(xN,sK41)) | ~aElement0(X6)) & ((szmzizndt0(sdtlpdtrp0(xN,sK41)) != X6 & aElementOf0(X6,sdtlpdtrp0(xN,sK41)) & aElement0(X6)) | ~aElementOf0(X6,sdtmndt0(sdtlpdtrp0(xN,sK41),szmzizndt0(sdtlpdtrp0(xN,sK41)))))) & aSet0(sdtmndt0(sdtlpdtrp0(xN,sK41),szmzizndt0(sdtlpdtrp0(xN,sK41)))) & ! [X7] : (sdtlseqdt0(szmzizndt0(sdtlpdtrp0(xN,sK41)),X7) | ~aElementOf0(X7,sdtlpdtrp0(xN,sK41))) & aElementOf0(szmzizndt0(sdtlpdtrp0(xN,sK41)),sdtlpdtrp0(xN,sK41)) & aSet0(X1)) => (~aElementOf0(sdtpldt0(sK42,szmzizndt0(sdtlpdtrp0(xN,sK41))),slbdtsldtrb0(xS,xK)) & (xK != sbrdtbr0(sdtpldt0(sK42,szmzizndt0(sdtlpdtrp0(xN,sK41)))) | (~aSubsetOf0(sdtpldt0(sK42,szmzizndt0(sdtlpdtrp0(xN,sK41))),xS) & ? [X2] : (~aElementOf0(X2,xS) & aElementOf0(X2,sdtpldt0(sK42,szmzizndt0(sdtlpdtrp0(xN,sK41))))))) & ! [X3] : ((aElementOf0(X3,sdtpldt0(sK42,szmzizndt0(sdtlpdtrp0(xN,sK41)))) | (szmzizndt0(sdtlpdtrp0(xN,sK41)) != X3 & ~aElementOf0(X3,sK42)) | ~aElement0(X3)) & (((szmzizndt0(sdtlpdtrp0(xN,sK41)) = X3 | aElementOf0(X3,sK42)) & aElement0(X3)) | ~aElementOf0(X3,sdtpldt0(sK42,szmzizndt0(sdtlpdtrp0(xN,sK41)))))) & aSet0(sdtpldt0(sK42,szmzizndt0(sdtlpdtrp0(xN,sK41)))) & ! [X4] : (sdtlseqdt0(szmzizndt0(sdtlpdtrp0(xN,sK41)),X4) | ~aElementOf0(X4,sdtlpdtrp0(xN,sK41))) & aElementOf0(szmzizndt0(sdtlpdtrp0(xN,sK41)),sdtlpdtrp0(xN,sK41)) & aElementOf0(sK42,slbdtsldtrb0(sdtmndt0(sdtlpdtrp0(xN,sK41),szmzizndt0(sdtlpdtrp0(xN,sK41))),xk)) & xk = sbrdtbr0(sK42) & aSubsetOf0(sK42,sdtmndt0(sdtlpdtrp0(xN,sK41),szmzizndt0(sdtlpdtrp0(xN,sK41)))) & ! [X5] : (aElementOf0(X5,sdtmndt0(sdtlpdtrp0(xN,sK41),szmzizndt0(sdtlpdtrp0(xN,sK41)))) | ~aElementOf0(X5,sK42)) & ! [X6] : ((aElementOf0(X6,sdtmndt0(sdtlpdtrp0(xN,sK41),szmzizndt0(sdtlpdtrp0(xN,sK41)))) | szmzizndt0(sdtlpdtrp0(xN,sK41)) = X6 | ~aElementOf0(X6,sdtlpdtrp0(xN,sK41)) | ~aElement0(X6)) & ((szmzizndt0(sdtlpdtrp0(xN,sK41)) != X6 & aElementOf0(X6,sdtlpdtrp0(xN,sK41)) & aElement0(X6)) | ~aElementOf0(X6,sdtmndt0(sdtlpdtrp0(xN,sK41),szmzizndt0(sdtlpdtrp0(xN,sK41)))))) & aSet0(sdtmndt0(sdtlpdtrp0(xN,sK41),szmzizndt0(sdtlpdtrp0(xN,sK41)))) & ! [X7] : (sdtlseqdt0(szmzizndt0(sdtlpdtrp0(xN,sK41)),X7) | ~aElementOf0(X7,sdtlpdtrp0(xN,sK41))) & aElementOf0(szmzizndt0(sdtlpdtrp0(xN,sK41)),sdtlpdtrp0(xN,sK41)) & aSet0(sK42))),
+  introduced(choice_axiom,[])).
+fof(f342,plain,(
+  ? [X2] : (~aElementOf0(X2,xS) & aElementOf0(X2,sdtpldt0(sK42,szmzizndt0(sdtlpdtrp0(xN,sK41))))) => (~aElementOf0(sK43,xS) & aElementOf0(sK43,sdtpldt0(sK42,szmzizndt0(sdtlpdtrp0(xN,sK41)))))),
+  introduced(choice_axiom,[])).
+fof(f339,plain,(
+  ? [X0] : (? [X1] : (~aElementOf0(sdtpldt0(X1,szmzizndt0(sdtlpdtrp0(xN,X0))),slbdtsldtrb0(xS,xK)) & (xK != sbrdtbr0(sdtpldt0(X1,szmzizndt0(sdtlpdtrp0(xN,X0)))) | (~aSubsetOf0(sdtpldt0(X1,szmzizndt0(sdtlpdtrp0(xN,X0))),xS) & ? [X2] : (~aElementOf0(X2,xS) & aElementOf0(X2,sdtpldt0(X1,szmzizndt0(sdtlpdtrp0(xN,X0))))))) & ! [X3] : ((aElementOf0(X3,sdtpldt0(X1,szmzizndt0(sdtlpdtrp0(xN,X0)))) | (szmzizndt0(sdtlpdtrp0(xN,X0)) != X3 & ~aElementOf0(X3,X1)) | ~aElement0(X3)) & (((szmzizndt0(sdtlpdtrp0(xN,X0)) = X3 | aElementOf0(X3,X1)) & aElement0(X3)) | ~aElementOf0(X3,sdtpldt0(X1,szmzizndt0(sdtlpdtrp0(xN,X0)))))) & aSet0(sdtpldt0(X1,szmzizndt0(sdtlpdtrp0(xN,X0)))) & ! [X4] : (sdtlseqdt0(szmzizndt0(sdtlpdtrp0(xN,X0)),X4) | ~aElementOf0(X4,sdtlpdtrp0(xN,X0))) & aElementOf0(szmzizndt0(sdtlpdtrp0(xN,X0)),sdtlpdtrp0(xN,X0)) & aElementOf0(X1,slbdtsldtrb0(sdtmndt0(sdtlpdtrp0(xN,X0),szmzizndt0(sdtlpdtrp0(xN,X0))),xk)) & sbrdtbr0(X1) = xk & aSubsetOf0(X1,sdtmndt0(sdtlpdtrp0(xN,X0),szmzizndt0(sdtlpdtrp0(xN,X0)))) & ! [X5] : (aElementOf0(X5,sdtmndt0(sdtlpdtrp0(xN,X0),szmzizndt0(sdtlpdtrp0(xN,X0)))) | ~aElementOf0(X5,X1)) & ! [X6] : ((aElementOf0(X6,sdtmndt0(sdtlpdtrp0(xN,X0),szmzizndt0(sdtlpdtrp0(xN,X0)))) | szmzizndt0(sdtlpdtrp0(xN,X0)) = X6 | ~aElementOf0(X6,sdtlpdtrp0(xN,X0)) | ~aElement0(X6)) & ((szmzizndt0(sdtlpdtrp0(xN,X0)) != X6 & aElementOf0(X6,sdtlpdtrp0(xN,X0)) & aElement0(X6)) | ~aElementOf0(X6,sdtmndt0(sdtlpdtrp0(xN,X0),szmzizndt0(sdtlpdtrp0(xN,X0)))))) & aSet0(sdtmndt0(sdtlpdtrp0(xN,X0),szmzizndt0(sdtlpdtrp0(xN,X0)))) & ! [X7] : (sdtlseqdt0(szmzizndt0(sdtlpdtrp0(xN,X0)),X7) | ~aElementOf0(X7,sdtlpdtrp0(xN,X0))) & aElementOf0(szmzizndt0(sdtlpdtrp0(xN,X0)),sdtlpdtrp0(xN,X0)) & aSet0(X1)) & aElementOf0(X0,szNzAzT0))),
+  inference(rectify,[],[f338])).
+fof(f338,plain,(
+  ? [X0] : (? [X1] : (~aElementOf0(sdtpldt0(X1,szmzizndt0(sdtlpdtrp0(xN,X0))),slbdtsldtrb0(xS,xK)) & (xK != sbrdtbr0(sdtpldt0(X1,szmzizndt0(sdtlpdtrp0(xN,X0)))) | (~aSubsetOf0(sdtpldt0(X1,szmzizndt0(sdtlpdtrp0(xN,X0))),xS) & ? [X7] : (~aElementOf0(X7,xS) & aElementOf0(X7,sdtpldt0(X1,szmzizndt0(sdtlpdtrp0(xN,X0))))))) & ! [X6] : ((aElementOf0(X6,sdtpldt0(X1,szmzizndt0(sdtlpdtrp0(xN,X0)))) | (szmzizndt0(sdtlpdtrp0(xN,X0)) != X6 & ~aElementOf0(X6,X1)) | ~aElement0(X6)) & (((szmzizndt0(sdtlpdtrp0(xN,X0)) = X6 | aElementOf0(X6,X1)) & aElement0(X6)) | ~aElementOf0(X6,sdtpldt0(X1,szmzizndt0(sdtlpdtrp0(xN,X0)))))) & aSet0(sdtpldt0(X1,szmzizndt0(sdtlpdtrp0(xN,X0)))) & ! [X5] : (sdtlseqdt0(szmzizndt0(sdtlpdtrp0(xN,X0)),X5) | ~aElementOf0(X5,sdtlpdtrp0(xN,X0))) & aElementOf0(szmzizndt0(sdtlpdtrp0(xN,X0)),sdtlpdtrp0(xN,X0)) & aElementOf0(X1,slbdtsldtrb0(sdtmndt0(sdtlpdtrp0(xN,X0),szmzizndt0(sdtlpdtrp0(xN,X0))),xk)) & sbrdtbr0(X1) = xk & aSubsetOf0(X1,sdtmndt0(sdtlpdtrp0(xN,X0),szmzizndt0(sdtlpdtrp0(xN,X0)))) & ! [X2] : (aElementOf0(X2,sdtmndt0(sdtlpdtrp0(xN,X0),szmzizndt0(sdtlpdtrp0(xN,X0)))) | ~aElementOf0(X2,X1)) & ! [X3] : ((aElementOf0(X3,sdtmndt0(sdtlpdtrp0(xN,X0),szmzizndt0(sdtlpdtrp0(xN,X0)))) | szmzizndt0(sdtlpdtrp0(xN,X0)) = X3 | ~aElementOf0(X3,sdtlpdtrp0(xN,X0)) | ~aElement0(X3)) & ((szmzizndt0(sdtlpdtrp0(xN,X0)) != X3 & aElementOf0(X3,sdtlpdtrp0(xN,X0)) & aElement0(X3)) | ~aElementOf0(X3,sdtmndt0(sdtlpdtrp0(xN,X0),szmzizndt0(sdtlpdtrp0(xN,X0)))))) & aSet0(sdtmndt0(sdtlpdtrp0(xN,X0),szmzizndt0(sdtlpdtrp0(xN,X0)))) & ! [X4] : (sdtlseqdt0(szmzizndt0(sdtlpdtrp0(xN,X0)),X4) | ~aElementOf0(X4,sdtlpdtrp0(xN,X0))) & aElementOf0(szmzizndt0(sdtlpdtrp0(xN,X0)),sdtlpdtrp0(xN,X0)) & aSet0(X1)) & aElementOf0(X0,szNzAzT0))),
+  inference(flattening,[],[f337])).
+fof(f337,plain,(
+  ? [X0] : (? [X1] : (~aElementOf0(sdtpldt0(X1,szmzizndt0(sdtlpdtrp0(xN,X0))),slbdtsldtrb0(xS,xK)) & (xK != sbrdtbr0(sdtpldt0(X1,szmzizndt0(sdtlpdtrp0(xN,X0)))) | (~aSubsetOf0(sdtpldt0(X1,szmzizndt0(sdtlpdtrp0(xN,X0))),xS) & ? [X7] : (~aElementOf0(X7,xS) & aElementOf0(X7,sdtpldt0(X1,szmzizndt0(sdtlpdtrp0(xN,X0))))))) & ! [X6] : ((aElementOf0(X6,sdtpldt0(X1,szmzizndt0(sdtlpdtrp0(xN,X0)))) | ((szmzizndt0(sdtlpdtrp0(xN,X0)) != X6 & ~aElementOf0(X6,X1)) | ~aElement0(X6))) & (((szmzizndt0(sdtlpdtrp0(xN,X0)) = X6 | aElementOf0(X6,X1)) & aElement0(X6)) | ~aElementOf0(X6,sdtpldt0(X1,szmzizndt0(sdtlpdtrp0(xN,X0)))))) & aSet0(sdtpldt0(X1,szmzizndt0(sdtlpdtrp0(xN,X0)))) & ! [X5] : (sdtlseqdt0(szmzizndt0(sdtlpdtrp0(xN,X0)),X5) | ~aElementOf0(X5,sdtlpdtrp0(xN,X0))) & aElementOf0(szmzizndt0(sdtlpdtrp0(xN,X0)),sdtlpdtrp0(xN,X0)) & aElementOf0(X1,slbdtsldtrb0(sdtmndt0(sdtlpdtrp0(xN,X0),szmzizndt0(sdtlpdtrp0(xN,X0))),xk)) & sbrdtbr0(X1) = xk & aSubsetOf0(X1,sdtmndt0(sdtlpdtrp0(xN,X0),szmzizndt0(sdtlpdtrp0(xN,X0)))) & ! [X2] : (aElementOf0(X2,sdtmndt0(sdtlpdtrp0(xN,X0),szmzizndt0(sdtlpdtrp0(xN,X0)))) | ~aElementOf0(X2,X1)) & ! [X3] : ((aElementOf0(X3,sdtmndt0(sdtlpdtrp0(xN,X0),szmzizndt0(sdtlpdtrp0(xN,X0)))) | (szmzizndt0(sdtlpdtrp0(xN,X0)) = X3 | ~aElementOf0(X3,sdtlpdtrp0(xN,X0)) | ~aElement0(X3))) & ((szmzizndt0(sdtlpdtrp0(xN,X0)) != X3 & aElementOf0(X3,sdtlpdtrp0(xN,X0)) & aElement0(X3)) | ~aElementOf0(X3,sdtmndt0(sdtlpdtrp0(xN,X0),szmzizndt0(sdtlpdtrp0(xN,X0)))))) & aSet0(sdtmndt0(sdtlpdtrp0(xN,X0),szmzizndt0(sdtlpdtrp0(xN,X0)))) & ! [X4] : (sdtlseqdt0(szmzizndt0(sdtlpdtrp0(xN,X0)),X4) | ~aElementOf0(X4,sdtlpdtrp0(xN,X0))) & aElementOf0(szmzizndt0(sdtlpdtrp0(xN,X0)),sdtlpdtrp0(xN,X0)) & aSet0(X1)) & aElementOf0(X0,szNzAzT0))),
+  inference(nnf_transformation,[],[f211])).
+fof(f211,plain,(
+  ? [X0] : (? [X1] : (~aElementOf0(sdtpldt0(X1,szmzizndt0(sdtlpdtrp0(xN,X0))),slbdtsldtrb0(xS,xK)) & (xK != sbrdtbr0(sdtpldt0(X1,szmzizndt0(sdtlpdtrp0(xN,X0)))) | (~aSubsetOf0(sdtpldt0(X1,szmzizndt0(sdtlpdtrp0(xN,X0))),xS) & ? [X7] : (~aElementOf0(X7,xS) & aElementOf0(X7,sdtpldt0(X1,szmzizndt0(sdtlpdtrp0(xN,X0))))))) & ! [X6] : (aElementOf0(X6,sdtpldt0(X1,szmzizndt0(sdtlpdtrp0(xN,X0)))) <=> ((szmzizndt0(sdtlpdtrp0(xN,X0)) = X6 | aElementOf0(X6,X1)) & aElement0(X6))) & aSet0(sdtpldt0(X1,szmzizndt0(sdtlpdtrp0(xN,X0)))) & ! [X5] : (sdtlseqdt0(szmzizndt0(sdtlpdtrp0(xN,X0)),X5) | ~aElementOf0(X5,sdtlpdtrp0(xN,X0))) & aElementOf0(szmzizndt0(sdtlpdtrp0(xN,X0)),sdtlpdtrp0(xN,X0)) & aElementOf0(X1,slbdtsldtrb0(sdtmndt0(sdtlpdtrp0(xN,X0),szmzizndt0(sdtlpdtrp0(xN,X0))),xk)) & sbrdtbr0(X1) = xk & aSubsetOf0(X1,sdtmndt0(sdtlpdtrp0(xN,X0),szmzizndt0(sdtlpdtrp0(xN,X0)))) & ! [X2] : (aElementOf0(X2,sdtmndt0(sdtlpdtrp0(xN,X0),szmzizndt0(sdtlpdtrp0(xN,X0)))) | ~aElementOf0(X2,X1)) & ! [X3] : (aElementOf0(X3,sdtmndt0(sdtlpdtrp0(xN,X0),szmzizndt0(sdtlpdtrp0(xN,X0)))) <=> (szmzizndt0(sdtlpdtrp0(xN,X0)) != X3 & aElementOf0(X3,sdtlpdtrp0(xN,X0)) & aElement0(X3))) & aSet0(sdtmndt0(sdtlpdtrp0(xN,X0),szmzizndt0(sdtlpdtrp0(xN,X0)))) & ! [X4] : (sdtlseqdt0(szmzizndt0(sdtlpdtrp0(xN,X0)),X4) | ~aElementOf0(X4,sdtlpdtrp0(xN,X0))) & aElementOf0(szmzizndt0(sdtlpdtrp0(xN,X0)),sdtlpdtrp0(xN,X0)) & aSet0(X1)) & aElementOf0(X0,szNzAzT0))),
+  inference(flattening,[],[f210])).
+fof(f210,plain,(
+  ? [X0] : (? [X1] : ((((~aElementOf0(sdtpldt0(X1,szmzizndt0(sdtlpdtrp0(xN,X0))),slbdtsldtrb0(xS,xK)) & (xK != sbrdtbr0(sdtpldt0(X1,szmzizndt0(sdtlpdtrp0(xN,X0)))) | (~aSubsetOf0(sdtpldt0(X1,szmzizndt0(sdtlpdtrp0(xN,X0))),xS) & ? [X7] : (~aElementOf0(X7,xS) & aElementOf0(X7,sdtpldt0(X1,szmzizndt0(sdtlpdtrp0(xN,X0)))))))) & (! [X6] : (aElementOf0(X6,sdtpldt0(X1,szmzizndt0(sdtlpdtrp0(xN,X0)))) <=> ((szmzizndt0(sdtlpdtrp0(xN,X0)) = X6 | aElementOf0(X6,X1)) & aElement0(X6))) & aSet0(sdtpldt0(X1,szmzizndt0(sdtlpdtrp0(xN,X0)))))) & (! [X5] : (sdtlseqdt0(szmzizndt0(sdtlpdtrp0(xN,X0)),X5) | ~aElementOf0(X5,sdtlpdtrp0(xN,X0))) & aElementOf0(szmzizndt0(sdtlpdtrp0(xN,X0)),sdtlpdtrp0(xN,X0)))) & (aElementOf0(X1,slbdtsldtrb0(sdtmndt0(sdtlpdtrp0(xN,X0),szmzizndt0(sdtlpdtrp0(xN,X0))),xk)) & sbrdtbr0(X1) = xk & aSubsetOf0(X1,sdtmndt0(sdtlpdtrp0(xN,X0),szmzizndt0(sdtlpdtrp0(xN,X0)))) & ! [X2] : (aElementOf0(X2,sdtmndt0(sdtlpdtrp0(xN,X0),szmzizndt0(sdtlpdtrp0(xN,X0)))) | ~aElementOf0(X2,X1)) & ! [X3] : (aElementOf0(X3,sdtmndt0(sdtlpdtrp0(xN,X0),szmzizndt0(sdtlpdtrp0(xN,X0)))) <=> (szmzizndt0(sdtlpdtrp0(xN,X0)) != X3 & aElementOf0(X3,sdtlpdtrp0(xN,X0)) & aElement0(X3))) & aSet0(sdtmndt0(sdtlpdtrp0(xN,X0),szmzizndt0(sdtlpdtrp0(xN,X0)))) & ! [X4] : (sdtlseqdt0(szmzizndt0(sdtlpdtrp0(xN,X0)),X4) | ~aElementOf0(X4,sdtlpdtrp0(xN,X0))) & aElementOf0(szmzizndt0(sdtlpdtrp0(xN,X0)),sdtlpdtrp0(xN,X0)) & aSet0(X1))) & aElementOf0(X0,szNzAzT0))),
+  inference(ennf_transformation,[],[f98])).
+fof(f98,plain,(
+  ~! [X0] : (aElementOf0(X0,szNzAzT0) => ! [X1] : ((aElementOf0(X1,slbdtsldtrb0(sdtmndt0(sdtlpdtrp0(xN,X0),szmzizndt0(sdtlpdtrp0(xN,X0))),xk)) & sbrdtbr0(X1) = xk & aSubsetOf0(X1,sdtmndt0(sdtlpdtrp0(xN,X0),szmzizndt0(sdtlpdtrp0(xN,X0)))) & ! [X2] : (aElementOf0(X2,X1) => aElementOf0(X2,sdtmndt0(sdtlpdtrp0(xN,X0),szmzizndt0(sdtlpdtrp0(xN,X0))))) & ! [X3] : (aElementOf0(X3,sdtmndt0(sdtlpdtrp0(xN,X0),szmzizndt0(sdtlpdtrp0(xN,X0)))) <=> (szmzizndt0(sdtlpdtrp0(xN,X0)) != X3 & aElementOf0(X3,sdtlpdtrp0(xN,X0)) & aElement0(X3))) & aSet0(sdtmndt0(sdtlpdtrp0(xN,X0),szmzizndt0(sdtlpdtrp0(xN,X0)))) & ! [X4] : (aElementOf0(X4,sdtlpdtrp0(xN,X0)) => sdtlseqdt0(szmzizndt0(sdtlpdtrp0(xN,X0)),X4)) & aElementOf0(szmzizndt0(sdtlpdtrp0(xN,X0)),sdtlpdtrp0(xN,X0)) & aSet0(X1)) => ((! [X5] : (aElementOf0(X5,sdtlpdtrp0(xN,X0)) => sdtlseqdt0(szmzizndt0(sdtlpdtrp0(xN,X0)),X5)) & aElementOf0(szmzizndt0(sdtlpdtrp0(xN,X0)),sdtlpdtrp0(xN,X0))) => ((! [X6] : (aElementOf0(X6,sdtpldt0(X1,szmzizndt0(sdtlpdtrp0(xN,X0)))) <=> ((szmzizndt0(sdtlpdtrp0(xN,X0)) = X6 | aElementOf0(X6,X1)) & aElement0(X6))) & aSet0(sdtpldt0(X1,szmzizndt0(sdtlpdtrp0(xN,X0))))) => (aElementOf0(sdtpldt0(X1,szmzizndt0(sdtlpdtrp0(xN,X0))),slbdtsldtrb0(xS,xK)) | (xK = sbrdtbr0(sdtpldt0(X1,szmzizndt0(sdtlpdtrp0(xN,X0)))) & (aSubsetOf0(sdtpldt0(X1,szmzizndt0(sdtlpdtrp0(xN,X0))),xS) | ! [X7] : (aElementOf0(X7,sdtpldt0(X1,szmzizndt0(sdtlpdtrp0(xN,X0)))) => aElementOf0(X7,xS)))))))))),
+  inference(rectify,[],[f86])).
+fof(f86,negated_conjecture,(
+  ~! [X0] : (aElementOf0(X0,szNzAzT0) => ! [X1] : ((aElementOf0(X1,slbdtsldtrb0(sdtmndt0(sdtlpdtrp0(xN,X0),szmzizndt0(sdtlpdtrp0(xN,X0))),xk)) & sbrdtbr0(X1) = xk & aSubsetOf0(X1,sdtmndt0(sdtlpdtrp0(xN,X0),szmzizndt0(sdtlpdtrp0(xN,X0)))) & ! [X2] : (aElementOf0(X2,X1) => aElementOf0(X2,sdtmndt0(sdtlpdtrp0(xN,X0),szmzizndt0(sdtlpdtrp0(xN,X0))))) & ! [X2] : (aElementOf0(X2,sdtmndt0(sdtlpdtrp0(xN,X0),szmzizndt0(sdtlpdtrp0(xN,X0)))) <=> (szmzizndt0(sdtlpdtrp0(xN,X0)) != X2 & aElementOf0(X2,sdtlpdtrp0(xN,X0)) & aElement0(X2))) & aSet0(sdtmndt0(sdtlpdtrp0(xN,X0),szmzizndt0(sdtlpdtrp0(xN,X0)))) & ! [X2] : (aElementOf0(X2,sdtlpdtrp0(xN,X0)) => sdtlseqdt0(szmzizndt0(sdtlpdtrp0(xN,X0)),X2)) & aElementOf0(szmzizndt0(sdtlpdtrp0(xN,X0)),sdtlpdtrp0(xN,X0)) & aSet0(X1)) => ((! [X2] : (aElementOf0(X2,sdtlpdtrp0(xN,X0)) => sdtlseqdt0(szmzizndt0(sdtlpdtrp0(xN,X0)),X2)) & aElementOf0(szmzizndt0(sdtlpdtrp0(xN,X0)),sdtlpdtrp0(xN,X0))) => ((! [X2] : (aElementOf0(X2,sdtpldt0(X1,szmzizndt0(sdtlpdtrp0(xN,X0)))) <=> ((szmzizndt0(sdtlpdtrp0(xN,X0)) = X2 | aElementOf0(X2,X1)) & aElement0(X2))) & aSet0(sdtpldt0(X1,szmzizndt0(sdtlpdtrp0(xN,X0))))) => (aElementOf0(sdtpldt0(X1,szmzizndt0(sdtlpdtrp0(xN,X0))),slbdtsldtrb0(xS,xK)) | (xK = sbrdtbr0(sdtpldt0(X1,szmzizndt0(sdtlpdtrp0(xN,X0)))) & (aSubsetOf0(sdtpldt0(X1,szmzizndt0(sdtlpdtrp0(xN,X0))),xS) | ! [X2] : (aElementOf0(X2,sdtpldt0(X1,szmzizndt0(sdtlpdtrp0(xN,X0)))) => aElementOf0(X2,xS)))))))))),
+  inference(negated_conjecture,[],[f85])).
+fof(f85,conjecture,(
+  ! [X0] : (aElementOf0(X0,szNzAzT0) => ! [X1] : ((aElementOf0(X1,slbdtsldtrb0(sdtmndt0(sdtlpdtrp0(xN,X0),szmzizndt0(sdtlpdtrp0(xN,X0))),xk)) & sbrdtbr0(X1) = xk & aSubsetOf0(X1,sdtmndt0(sdtlpdtrp0(xN,X0),szmzizndt0(sdtlpdtrp0(xN,X0)))) & ! [X2] : (aElementOf0(X2,X1) => aElementOf0(X2,sdtmndt0(sdtlpdtrp0(xN,X0),szmzizndt0(sdtlpdtrp0(xN,X0))))) & ! [X2] : (aElementOf0(X2,sdtmndt0(sdtlpdtrp0(xN,X0),szmzizndt0(sdtlpdtrp0(xN,X0)))) <=> (szmzizndt0(sdtlpdtrp0(xN,X0)) != X2 & aElementOf0(X2,sdtlpdtrp0(xN,X0)) & aElement0(X2))) & aSet0(sdtmndt0(sdtlpdtrp0(xN,X0),szmzizndt0(sdtlpdtrp0(xN,X0)))) & ! [X2] : (aElementOf0(X2,sdtlpdtrp0(xN,X0)) => sdtlseqdt0(szmzizndt0(sdtlpdtrp0(xN,X0)),X2)) & aElementOf0(szmzizndt0(sdtlpdtrp0(xN,X0)),sdtlpdtrp0(xN,X0)) & aSet0(X1)) => ((! [X2] : (aElementOf0(X2,sdtlpdtrp0(xN,X0)) => sdtlseqdt0(szmzizndt0(sdtlpdtrp0(xN,X0)),X2)) & aElementOf0(szmzizndt0(sdtlpdtrp0(xN,X0)),sdtlpdtrp0(xN,X0))) => ((! [X2] : (aElementOf0(X2,sdtpldt0(X1,szmzizndt0(sdtlpdtrp0(xN,X0)))) <=> ((szmzizndt0(sdtlpdtrp0(xN,X0)) = X2 | aElementOf0(X2,X1)) & aElement0(X2))) & aSet0(sdtpldt0(X1,szmzizndt0(sdtlpdtrp0(xN,X0))))) => (aElementOf0(sdtpldt0(X1,szmzizndt0(sdtlpdtrp0(xN,X0))),slbdtsldtrb0(xS,xK)) | (xK = sbrdtbr0(sdtpldt0(X1,szmzizndt0(sdtlpdtrp0(xN,X0)))) & (aSubsetOf0(sdtpldt0(X1,szmzizndt0(sdtlpdtrp0(xN,X0))),xS) | ! [X2] : (aElementOf0(X2,sdtpldt0(X1,szmzizndt0(sdtlpdtrp0(xN,X0)))) => aElementOf0(X2,xS)))))))))),
+  file('NUM579+3.tptp',unknown)).
+fof(f519817,plain,(
+  ( ! [X0] : (~aElementOf0(sK41,szNzAzT0) | aElementOf0(X0,xS) | ~aElementOf0(X0,sK42)) )),
+  inference(resolution,[],[f10907,f7665])).
+fof(f7665,plain,(
+  ( ! [X1] : (aElementOf0(X1,sdtlpdtrp0(xN,sK41)) | ~aElementOf0(X1,sK42)) )),
+  inference(subsumption_resolution,[],[f7655,f1109])).
+fof(f1109,plain,(
+  sP8(sK41)),
+  inference(resolution,[],[f1092,f547])).
+fof(f547,plain,(
+  ( ! [X0] : (~sP9(X0) | sP8(X0)) )),
+  inference(cnf_transformation,[],[f328])).
+fof(f328,plain,(
+  ! [X0] : ((isCountable0(sdtlpdtrp0(xN,szszuzczcdt0(X0))) & aSubsetOf0(sdtlpdtrp0(xN,szszuzczcdt0(X0)),sdtmndt0(sdtlpdtrp0(xN,X0),szmzizndt0(sdtlpdtrp0(xN,X0)))) & ! [X1] : (aElementOf0(X1,sdtmndt0(sdtlpdtrp0(xN,X0),szmzizndt0(sdtlpdtrp0(xN,X0)))) | ~aElementOf0(X1,sdtlpdtrp0(xN,szszuzczcdt0(X0)))) & aSet0(sdtlpdtrp0(xN,szszuzczcdt0(X0))) & sP8(X0) & aSet0(sdtmndt0(sdtlpdtrp0(xN,X0),szmzizndt0(sdtlpdtrp0(xN,X0)))) & ! [X2] : (sdtlseqdt0(szmzizndt0(sdtlpdtrp0(xN,X0)),X2) | ~aElementOf0(X2,sdtlpdtrp0(xN,X0))) & aElementOf0(szmzizndt0(sdtlpdtrp0(xN,X0)),sdtlpdtrp0(xN,X0))) | ~sP9(X0))),
+  inference(rectify,[],[f327])).
+fof(f327,plain,(
+  ! [X0] : ((isCountable0(sdtlpdtrp0(xN,szszuzczcdt0(X0))) & aSubsetOf0(sdtlpdtrp0(xN,szszuzczcdt0(X0)),sdtmndt0(sdtlpdtrp0(xN,X0),szmzizndt0(sdtlpdtrp0(xN,X0)))) & ! [X2] : (aElementOf0(X2,sdtmndt0(sdtlpdtrp0(xN,X0),szmzizndt0(sdtlpdtrp0(xN,X0)))) | ~aElementOf0(X2,sdtlpdtrp0(xN,szszuzczcdt0(X0)))) & aSet0(sdtlpdtrp0(xN,szszuzczcdt0(X0))) & sP8(X0) & aSet0(sdtmndt0(sdtlpdtrp0(xN,X0),szmzizndt0(sdtlpdtrp0(xN,X0)))) & ! [X4] : (sdtlseqdt0(szmzizndt0(sdtlpdtrp0(xN,X0)),X4) | ~aElementOf0(X4,sdtlpdtrp0(xN,X0))) & aElementOf0(szmzizndt0(sdtlpdtrp0(xN,X0)),sdtlpdtrp0(xN,X0))) | ~sP9(X0))),
+  inference(nnf_transformation,[],[f224])).
+fof(f224,plain,(
+  ! [X0] : ((isCountable0(sdtlpdtrp0(xN,szszuzczcdt0(X0))) & aSubsetOf0(sdtlpdtrp0(xN,szszuzczcdt0(X0)),sdtmndt0(sdtlpdtrp0(xN,X0),szmzizndt0(sdtlpdtrp0(xN,X0)))) & ! [X2] : (aElementOf0(X2,sdtmndt0(sdtlpdtrp0(xN,X0),szmzizndt0(sdtlpdtrp0(xN,X0)))) | ~aElementOf0(X2,sdtlpdtrp0(xN,szszuzczcdt0(X0)))) & aSet0(sdtlpdtrp0(xN,szszuzczcdt0(X0))) & sP8(X0) & aSet0(sdtmndt0(sdtlpdtrp0(xN,X0),szmzizndt0(sdtlpdtrp0(xN,X0)))) & ! [X4] : (sdtlseqdt0(szmzizndt0(sdtlpdtrp0(xN,X0)),X4) | ~aElementOf0(X4,sdtlpdtrp0(xN,X0))) & aElementOf0(szmzizndt0(sdtlpdtrp0(xN,X0)),sdtlpdtrp0(xN,X0))) | ~sP9(X0))),
+  introduced(predicate_definition_introduction,[new_symbols(naming,[sP9])])).
+fof(f1092,plain,(
+  sP9(sK41)),
+  inference(resolution,[],[f1051,f573])).
+fof(f1051,plain,(
+  ( ! [X0] : (~aElementOf0(X0,szNzAzT0) | sP9(X0)) )),
+  inference(subsumption_resolution,[],[f1050,f564])).
+fof(f564,plain,(
+  ( ! [X0] : (aSubsetOf0(sdtlpdtrp0(xN,X0),szNzAzT0) | ~aElementOf0(X0,szNzAzT0)) )),
+  inference(cnf_transformation,[],[f205])).
+fof(f205,plain,(
+  ! [X0] : ((isCountable0(sdtlpdtrp0(xN,X0)) & aSubsetOf0(sdtlpdtrp0(xN,X0),szNzAzT0) & ! [X1] : (aElementOf0(X1,szNzAzT0) | ~aElementOf0(X1,sdtlpdtrp0(xN,X0))) & aSet0(sdtlpdtrp0(xN,X0))) | ~aElementOf0(X0,szNzAzT0))),
+  inference(ennf_transformation,[],[f82])).
+fof(f82,axiom,(
+  ! [X0] : (aElementOf0(X0,szNzAzT0) => (isCountable0(sdtlpdtrp0(xN,X0)) & aSubsetOf0(sdtlpdtrp0(xN,X0),szNzAzT0) & ! [X1] : (aElementOf0(X1,sdtlpdtrp0(xN,X0)) => aElementOf0(X1,szNzAzT0)) & aSet0(sdtlpdtrp0(xN,X0))))),
+  file('NUM579+3.tptp',unknown)).
+fof(f1050,plain,(
+  ( ! [X0] : (sP9(X0) | ~aSubsetOf0(sdtlpdtrp0(xN,X0),szNzAzT0) | ~aElementOf0(X0,szNzAzT0)) )),
+  inference(subsumption_resolution,[],[f561,f565])).
+fof(f565,plain,(
+  ( ! [X0] : (isCountable0(sdtlpdtrp0(xN,X0)) | ~aElementOf0(X0,szNzAzT0)) )),
+  inference(cnf_transformation,[],[f205])).
+fof(f561,plain,(
+  ( ! [X0] : (sP9(X0) | ~isCountable0(sdtlpdtrp0(xN,X0)) | ~aSubsetOf0(sdtlpdtrp0(xN,X0),szNzAzT0) | ~aElementOf0(X0,szNzAzT0)) )),
+  inference(cnf_transformation,[],[f333])).
+fof(f333,plain,(
+  ! [X0] : (sP9(X0) | ~isCountable0(sdtlpdtrp0(xN,X0)) | (~aSubsetOf0(sdtlpdtrp0(xN,X0),szNzAzT0) & ((~aElementOf0(sK39(X0),szNzAzT0) & aElementOf0(sK39(X0),sdtlpdtrp0(xN,X0))) | ~aSet0(sdtlpdtrp0(xN,X0)))) | ~aElementOf0(X0,szNzAzT0)) & xS = sdtlpdtrp0(xN,sz00) & szNzAzT0 = szDzozmdt0(xN) & aFunction0(xN)),
+  inference(skolemisation,[status(esa),new_symbols(skolem,[sK39])],[f225,f332])).
+fof(f332,plain,(
+  ! [X0] : (? [X1] : (~aElementOf0(X1,szNzAzT0) & aElementOf0(X1,sdtlpdtrp0(xN,X0))) => (~aElementOf0(sK39(X0),szNzAzT0) & aElementOf0(sK39(X0),sdtlpdtrp0(xN,X0))))),
+  introduced(choice_axiom,[])).
+fof(f225,plain,(
+  ! [X0] : (sP9(X0) | ~isCountable0(sdtlpdtrp0(xN,X0)) | (~aSubsetOf0(sdtlpdtrp0(xN,X0),szNzAzT0) & (? [X1] : (~aElementOf0(X1,szNzAzT0) & aElementOf0(X1,sdtlpdtrp0(xN,X0))) | ~aSet0(sdtlpdtrp0(xN,X0)))) | ~aElementOf0(X0,szNzAzT0)) & xS = sdtlpdtrp0(xN,sz00) & szNzAzT0 = szDzozmdt0(xN) & aFunction0(xN)),
+  inference(definition_folding,[],[f204,f224,f223])).
+fof(f223,plain,(
+  ! [X0] : (! [X3] : (aElementOf0(X3,sdtmndt0(sdtlpdtrp0(xN,X0),szmzizndt0(sdtlpdtrp0(xN,X0)))) <=> (szmzizndt0(sdtlpdtrp0(xN,X0)) != X3 & aElementOf0(X3,sdtlpdtrp0(xN,X0)) & aElement0(X3))) | ~sP8(X0))),
+  introduced(predicate_definition_introduction,[new_symbols(naming,[sP8])])).
+fof(f204,plain,(
+  ! [X0] : ((isCountable0(sdtlpdtrp0(xN,szszuzczcdt0(X0))) & aSubsetOf0(sdtlpdtrp0(xN,szszuzczcdt0(X0)),sdtmndt0(sdtlpdtrp0(xN,X0),szmzizndt0(sdtlpdtrp0(xN,X0)))) & ! [X2] : (aElementOf0(X2,sdtmndt0(sdtlpdtrp0(xN,X0),szmzizndt0(sdtlpdtrp0(xN,X0)))) | ~aElementOf0(X2,sdtlpdtrp0(xN,szszuzczcdt0(X0)))) & aSet0(sdtlpdtrp0(xN,szszuzczcdt0(X0))) & ! [X3] : (aElementOf0(X3,sdtmndt0(sdtlpdtrp0(xN,X0),szmzizndt0(sdtlpdtrp0(xN,X0)))) <=> (szmzizndt0(sdtlpdtrp0(xN,X0)) != X3 & aElementOf0(X3,sdtlpdtrp0(xN,X0)) & aElement0(X3))) & aSet0(sdtmndt0(sdtlpdtrp0(xN,X0),szmzizndt0(sdtlpdtrp0(xN,X0)))) & ! [X4] : (sdtlseqdt0(szmzizndt0(sdtlpdtrp0(xN,X0)),X4) | ~aElementOf0(X4,sdtlpdtrp0(xN,X0))) & aElementOf0(szmzizndt0(sdtlpdtrp0(xN,X0)),sdtlpdtrp0(xN,X0))) | ~isCountable0(sdtlpdtrp0(xN,X0)) | (~aSubsetOf0(sdtlpdtrp0(xN,X0),szNzAzT0) & (? [X1] : (~aElementOf0(X1,szNzAzT0) & aElementOf0(X1,sdtlpdtrp0(xN,X0))) | ~aSet0(sdtlpdtrp0(xN,X0)))) | ~aElementOf0(X0,szNzAzT0)) & xS = sdtlpdtrp0(xN,sz00) & szNzAzT0 = szDzozmdt0(xN) & aFunction0(xN)),
+  inference(flattening,[],[f203])).
+fof(f203,plain,(
+  ! [X0] : (((isCountable0(sdtlpdtrp0(xN,szszuzczcdt0(X0))) & aSubsetOf0(sdtlpdtrp0(xN,szszuzczcdt0(X0)),sdtmndt0(sdtlpdtrp0(xN,X0),szmzizndt0(sdtlpdtrp0(xN,X0)))) & ! [X2] : (aElementOf0(X2,sdtmndt0(sdtlpdtrp0(xN,X0),szmzizndt0(sdtlpdtrp0(xN,X0)))) | ~aElementOf0(X2,sdtlpdtrp0(xN,szszuzczcdt0(X0)))) & aSet0(sdtlpdtrp0(xN,szszuzczcdt0(X0))) & ! [X3] : (aElementOf0(X3,sdtmndt0(sdtlpdtrp0(xN,X0),szmzizndt0(sdtlpdtrp0(xN,X0)))) <=> (szmzizndt0(sdtlpdtrp0(xN,X0)) != X3 & aElementOf0(X3,sdtlpdtrp0(xN,X0)) & aElement0(X3))) & aSet0(sdtmndt0(sdtlpdtrp0(xN,X0),szmzizndt0(sdtlpdtrp0(xN,X0)))) & ! [X4] : (sdtlseqdt0(szmzizndt0(sdtlpdtrp0(xN,X0)),X4) | ~aElementOf0(X4,sdtlpdtrp0(xN,X0))) & aElementOf0(szmzizndt0(sdtlpdtrp0(xN,X0)),sdtlpdtrp0(xN,X0))) | (~isCountable0(sdtlpdtrp0(xN,X0)) | (~aSubsetOf0(sdtlpdtrp0(xN,X0),szNzAzT0) & (? [X1] : (~aElementOf0(X1,szNzAzT0) & aElementOf0(X1,sdtlpdtrp0(xN,X0))) | ~aSet0(sdtlpdtrp0(xN,X0)))))) | ~aElementOf0(X0,szNzAzT0)) & xS = sdtlpdtrp0(xN,sz00) & szNzAzT0 = szDzozmdt0(xN) & aFunction0(xN)),
+  inference(ennf_transformation,[],[f96])).
+fof(f96,plain,(
+  ! [X0] : (aElementOf0(X0,szNzAzT0) => ((isCountable0(sdtlpdtrp0(xN,X0)) & (aSubsetOf0(sdtlpdtrp0(xN,X0),szNzAzT0) | (! [X1] : (aElementOf0(X1,sdtlpdtrp0(xN,X0)) => aElementOf0(X1,szNzAzT0)) & aSet0(sdtlpdtrp0(xN,X0))))) => (isCountable0(sdtlpdtrp0(xN,szszuzczcdt0(X0))) & aSubsetOf0(sdtlpdtrp0(xN,szszuzczcdt0(X0)),sdtmndt0(sdtlpdtrp0(xN,X0),szmzizndt0(sdtlpdtrp0(xN,X0)))) & ! [X2] : (aElementOf0(X2,sdtlpdtrp0(xN,szszuzczcdt0(X0))) => aElementOf0(X2,sdtmndt0(sdtlpdtrp0(xN,X0),szmzizndt0(sdtlpdtrp0(xN,X0))))) & aSet0(sdtlpdtrp0(xN,szszuzczcdt0(X0))) & ! [X3] : (aElementOf0(X3,sdtmndt0(sdtlpdtrp0(xN,X0),szmzizndt0(sdtlpdtrp0(xN,X0)))) <=> (szmzizndt0(sdtlpdtrp0(xN,X0)) != X3 & aElementOf0(X3,sdtlpdtrp0(xN,X0)) & aElement0(X3))) & aSet0(sdtmndt0(sdtlpdtrp0(xN,X0),szmzizndt0(sdtlpdtrp0(xN,X0)))) & ! [X4] : (aElementOf0(X4,sdtlpdtrp0(xN,X0)) => sdtlseqdt0(szmzizndt0(sdtlpdtrp0(xN,X0)),X4)) & aElementOf0(szmzizndt0(sdtlpdtrp0(xN,X0)),sdtlpdtrp0(xN,X0))))) & xS = sdtlpdtrp0(xN,sz00) & szNzAzT0 = szDzozmdt0(xN) & aFunction0(xN)),
+  inference(rectify,[],[f81])).
+fof(f81,axiom,(
+  ! [X0] : (aElementOf0(X0,szNzAzT0) => ((isCountable0(sdtlpdtrp0(xN,X0)) & (aSubsetOf0(sdtlpdtrp0(xN,X0),szNzAzT0) | (! [X1] : (aElementOf0(X1,sdtlpdtrp0(xN,X0)) => aElementOf0(X1,szNzAzT0)) & aSet0(sdtlpdtrp0(xN,X0))))) => (isCountable0(sdtlpdtrp0(xN,szszuzczcdt0(X0))) & aSubsetOf0(sdtlpdtrp0(xN,szszuzczcdt0(X0)),sdtmndt0(sdtlpdtrp0(xN,X0),szmzizndt0(sdtlpdtrp0(xN,X0)))) & ! [X1] : (aElementOf0(X1,sdtlpdtrp0(xN,szszuzczcdt0(X0))) => aElementOf0(X1,sdtmndt0(sdtlpdtrp0(xN,X0),szmzizndt0(sdtlpdtrp0(xN,X0))))) & aSet0(sdtlpdtrp0(xN,szszuzczcdt0(X0))) & ! [X1] : (aElementOf0(X1,sdtmndt0(sdtlpdtrp0(xN,X0),szmzizndt0(sdtlpdtrp0(xN,X0)))) <=> (szmzizndt0(sdtlpdtrp0(xN,X0)) != X1 & aElementOf0(X1,sdtlpdtrp0(xN,X0)) & aElement0(X1))) & aSet0(sdtmndt0(sdtlpdtrp0(xN,X0),szmzizndt0(sdtlpdtrp0(xN,X0)))) & ! [X1] : (aElementOf0(X1,sdtlpdtrp0(xN,X0)) => sdtlseqdt0(szmzizndt0(sdtlpdtrp0(xN,X0)),X1)) & aElementOf0(szmzizndt0(sdtlpdtrp0(xN,X0)),sdtlpdtrp0(xN,X0))))) & xS = sdtlpdtrp0(xN,sz00) & szNzAzT0 = szDzozmdt0(xN) & aFunction0(xN)),
+  file('NUM579+3.tptp',unknown)).
+fof(f7655,plain,(
+  ( ! [X1] : (~aElementOf0(X1,sK42) | aElementOf0(X1,sdtlpdtrp0(xN,sK41)) | ~sP8(sK41)) )),
+  inference(resolution,[],[f582,f553])).
+fof(f553,plain,(
+  ( ! [X0,X1] : (~aElementOf0(X1,sdtmndt0(sdtlpdtrp0(xN,X0),szmzizndt0(sdtlpdtrp0(xN,X0)))) | aElementOf0(X1,sdtlpdtrp0(xN,X0)) | ~sP8(X0)) )),
+  inference(cnf_transformation,[],[f331])).
+fof(f331,plain,(
+  ! [X0] : (! [X1] : ((aElementOf0(X1,sdtmndt0(sdtlpdtrp0(xN,X0),szmzizndt0(sdtlpdtrp0(xN,X0)))) | szmzizndt0(sdtlpdtrp0(xN,X0)) = X1 | ~aElementOf0(X1,sdtlpdtrp0(xN,X0)) | ~aElement0(X1)) & ((szmzizndt0(sdtlpdtrp0(xN,X0)) != X1 & aElementOf0(X1,sdtlpdtrp0(xN,X0)) & aElement0(X1)) | ~aElementOf0(X1,sdtmndt0(sdtlpdtrp0(xN,X0),szmzizndt0(sdtlpdtrp0(xN,X0)))))) | ~sP8(X0))),
+  inference(rectify,[],[f330])).
+fof(f330,plain,(
+  ! [X0] : (! [X3] : ((aElementOf0(X3,sdtmndt0(sdtlpdtrp0(xN,X0),szmzizndt0(sdtlpdtrp0(xN,X0)))) | szmzizndt0(sdtlpdtrp0(xN,X0)) = X3 | ~aElementOf0(X3,sdtlpdtrp0(xN,X0)) | ~aElement0(X3)) & ((szmzizndt0(sdtlpdtrp0(xN,X0)) != X3 & aElementOf0(X3,sdtlpdtrp0(xN,X0)) & aElement0(X3)) | ~aElementOf0(X3,sdtmndt0(sdtlpdtrp0(xN,X0),szmzizndt0(sdtlpdtrp0(xN,X0)))))) | ~sP8(X0))),
+  inference(flattening,[],[f329])).
+fof(f329,plain,(
+  ! [X0] : (! [X3] : ((aElementOf0(X3,sdtmndt0(sdtlpdtrp0(xN,X0),szmzizndt0(sdtlpdtrp0(xN,X0)))) | (szmzizndt0(sdtlpdtrp0(xN,X0)) = X3 | ~aElementOf0(X3,sdtlpdtrp0(xN,X0)) | ~aElement0(X3))) & ((szmzizndt0(sdtlpdtrp0(xN,X0)) != X3 & aElementOf0(X3,sdtlpdtrp0(xN,X0)) & aElement0(X3)) | ~aElementOf0(X3,sdtmndt0(sdtlpdtrp0(xN,X0),szmzizndt0(sdtlpdtrp0(xN,X0)))))) | ~sP8(X0))),
+  inference(nnf_transformation,[],[f223])).
+fof(f582,plain,(
+  ( ! [X5] : (aElementOf0(X5,sdtmndt0(sdtlpdtrp0(xN,sK41),szmzizndt0(sdtlpdtrp0(xN,sK41)))) | ~aElementOf0(X5,sK42)) )),
+  inference(cnf_transformation,[],[f343])).
+fof(f10907,plain,(
+  ( ! [X4,X5] : (~aElementOf0(X5,sdtlpdtrp0(xN,X4)) | ~aElementOf0(X4,szNzAzT0) | aElementOf0(X5,xS)) )),
+  inference(subsumption_resolution,[],[f10901,f490])).
+fof(f490,plain,(
+  aSet0(xS)),
+  inference(cnf_transformation,[],[f198])).
+fof(f198,plain,(
+  isCountable0(xS) & aSubsetOf0(xS,szNzAzT0) & ! [X0] : (aElementOf0(X0,szNzAzT0) | ~aElementOf0(X0,xS)) & aSet0(xS)),
+  inference(ennf_transformation,[],[f75])).
+fof(f75,axiom,(
+  isCountable0(xS) & aSubsetOf0(xS,szNzAzT0) & ! [X0] : (aElementOf0(X0,xS) => aElementOf0(X0,szNzAzT0)) & aSet0(xS)),
+  file('NUM579+3.tptp',unknown)).
+fof(f10901,plain,(
+  ( ! [X4,X5] : (~aElementOf0(X4,szNzAzT0) | ~aElementOf0(X5,sdtlpdtrp0(xN,X4)) | aElementOf0(X5,xS) | ~aSet0(xS)) )),
+  inference(resolution,[],[f3628,f352])).
+fof(f352,plain,(
+  ( ! [X0,X3,X1] : (~aSubsetOf0(X1,X0) | ~aElementOf0(X3,X1) | aElementOf0(X3,X0) | ~aSet0(X0)) )),
+  inference(cnf_transformation,[],[f235])).
+fof(f235,plain,(
+  ! [X0] : (! [X1] : ((aSubsetOf0(X1,X0) | (~aElementOf0(sK11(X0,X1),X0) & aElementOf0(sK11(X0,X1),X1)) | ~aSet0(X1)) & ((! [X3] : (aElementOf0(X3,X0) | ~aElementOf0(X3,X1)) & aSet0(X1)) | ~aSubsetOf0(X1,X0))) | ~aSet0(X0))),
+  inference(skolemisation,[status(esa),new_symbols(skolem,[sK11])],[f233,f234])).
+fof(f234,plain,(
+  ! [X1,X0] : (? [X2] : (~aElementOf0(X2,X0) & aElementOf0(X2,X1)) => (~aElementOf0(sK11(X0,X1),X0) & aElementOf0(sK11(X0,X1),X1)))),
+  introduced(choice_axiom,[])).
+fof(f233,plain,(
+  ! [X0] : (! [X1] : ((aSubsetOf0(X1,X0) | ? [X2] : (~aElementOf0(X2,X0) & aElementOf0(X2,X1)) | ~aSet0(X1)) & ((! [X3] : (aElementOf0(X3,X0) | ~aElementOf0(X3,X1)) & aSet0(X1)) | ~aSubsetOf0(X1,X0))) | ~aSet0(X0))),
+  inference(rectify,[],[f232])).
+fof(f232,plain,(
+  ! [X0] : (! [X1] : ((aSubsetOf0(X1,X0) | ? [X2] : (~aElementOf0(X2,X0) & aElementOf0(X2,X1)) | ~aSet0(X1)) & ((! [X2] : (aElementOf0(X2,X0) | ~aElementOf0(X2,X1)) & aSet0(X1)) | ~aSubsetOf0(X1,X0))) | ~aSet0(X0))),
+  inference(flattening,[],[f231])).
+fof(f231,plain,(
+  ! [X0] : (! [X1] : ((aSubsetOf0(X1,X0) | (? [X2] : (~aElementOf0(X2,X0) & aElementOf0(X2,X1)) | ~aSet0(X1))) & ((! [X2] : (aElementOf0(X2,X0) | ~aElementOf0(X2,X1)) & aSet0(X1)) | ~aSubsetOf0(X1,X0))) | ~aSet0(X0))),
+  inference(nnf_transformation,[],[f105])).
+fof(f105,plain,(
+  ! [X0] : (! [X1] : (aSubsetOf0(X1,X0) <=> (! [X2] : (aElementOf0(X2,X0) | ~aElementOf0(X2,X1)) & aSet0(X1))) | ~aSet0(X0))),
+  inference(ennf_transformation,[],[f10])).
+fof(f10,axiom,(
+  ! [X0] : (aSet0(X0) => ! [X1] : (aSubsetOf0(X1,X0) <=> (! [X2] : (aElementOf0(X2,X1) => aElementOf0(X2,X0)) & aSet0(X1))))),
+  file('NUM579+3.tptp',unknown)).
+fof(f3628,plain,(
+  ( ! [X0] : (aSubsetOf0(sdtlpdtrp0(xN,X0),xS) | ~aElementOf0(X0,szNzAzT0)) )),
+  inference(subsumption_resolution,[],[f3627,f398])).
+fof(f398,plain,(
+  ( ! [X0] : (~aElementOf0(X0,szNzAzT0) | sdtlseqdt0(sz00,X0)) )),
+  inference(cnf_transformation,[],[f134])).
+fof(f134,plain,(
+  ! [X0] : (sdtlseqdt0(sz00,X0) | ~aElementOf0(X0,szNzAzT0))),
+  inference(ennf_transformation,[],[f30])).
+fof(f30,axiom,(
+  ! [X0] : (aElementOf0(X0,szNzAzT0) => sdtlseqdt0(sz00,X0))),
+  file('NUM579+3.tptp',unknown)).
+fof(f3627,plain,(
+  ( ! [X0] : (aSubsetOf0(sdtlpdtrp0(xN,X0),xS) | ~sdtlseqdt0(sz00,X0) | ~aElementOf0(X0,szNzAzT0)) )),
+  inference(subsumption_resolution,[],[f3623,f391])).
+fof(f391,plain,(
+  aElementOf0(sz00,szNzAzT0)),
+  inference(cnf_transformation,[],[f24])).
+fof(f24,axiom,(
+  aElementOf0(sz00,szNzAzT0)),
+  file('NUM579+3.tptp',unknown)).
+fof(f3623,plain,(
+  ( ! [X0] : (aSubsetOf0(sdtlpdtrp0(xN,X0),xS) | ~sdtlseqdt0(sz00,X0) | ~aElementOf0(sz00,szNzAzT0) | ~aElementOf0(X0,szNzAzT0)) )),
+  inference(superposition,[],[f567,f558])).
+fof(f558,plain,(
+  xS = sdtlpdtrp0(xN,sz00)),
+  inference(cnf_transformation,[],[f333])).
+fof(f567,plain,(
+  ( ! [X0,X1] : (aSubsetOf0(sdtlpdtrp0(xN,X0),sdtlpdtrp0(xN,X1)) | ~sdtlseqdt0(X1,X0) | ~aElementOf0(X1,szNzAzT0) | ~aElementOf0(X0,szNzAzT0)) )),
+  inference(cnf_transformation,[],[f207])).
+fof(f207,plain,(
+  ! [X0,X1] : ((aSubsetOf0(sdtlpdtrp0(xN,X0),sdtlpdtrp0(xN,X1)) & ! [X2] : (aElementOf0(X2,sdtlpdtrp0(xN,X1)) | ~aElementOf0(X2,sdtlpdtrp0(xN,X0)))) | ~sdtlseqdt0(X1,X0) | ~aElementOf0(X1,szNzAzT0) | ~aElementOf0(X0,szNzAzT0))),
+  inference(flattening,[],[f206])).
+fof(f206,plain,(
+  ! [X0,X1] : (((aSubsetOf0(sdtlpdtrp0(xN,X0),sdtlpdtrp0(xN,X1)) & ! [X2] : (aElementOf0(X2,sdtlpdtrp0(xN,X1)) | ~aElementOf0(X2,sdtlpdtrp0(xN,X0)))) | ~sdtlseqdt0(X1,X0)) | (~aElementOf0(X1,szNzAzT0) | ~aElementOf0(X0,szNzAzT0)))),
+  inference(ennf_transformation,[],[f83])).
+fof(f83,axiom,(
+  ! [X0,X1] : ((aElementOf0(X1,szNzAzT0) & aElementOf0(X0,szNzAzT0)) => (sdtlseqdt0(X1,X0) => (aSubsetOf0(sdtlpdtrp0(xN,X0),sdtlpdtrp0(xN,X1)) & ! [X2] : (aElementOf0(X2,sdtlpdtrp0(xN,X0)) => aElementOf0(X2,sdtlpdtrp0(xN,X1))))))),
+  file('NUM579+3.tptp',unknown)).
+fof(f455591,plain,(
+  spl44_854 | spl44_855 | ~spl44_2 | ~spl44_501),
+  inference(avatar_split_clause,[],[f24316,f12825,f660,f18941,f18937])).
+fof(f18937,plain,(
+  spl44_854 <=> szmzizndt0(sdtlpdtrp0(xN,sK41)) = sK30(sdtpldt0(sK42,szmzizndt0(sdtlpdtrp0(xN,sK41))))),
+  introduced(avatar_definition,[new_symbols(naming,[spl44_854])])).
+fof(f660,plain,(
+  spl44_2 <=> xK = sbrdtbr0(sdtpldt0(sK42,szmzizndt0(sdtlpdtrp0(xN,sK41))))),
+  introduced(avatar_definition,[new_symbols(naming,[spl44_2])])).
+fof(f12825,plain,(
+  spl44_501 <=> aSet0(sdtpldt0(sK42,szmzizndt0(sdtlpdtrp0(xN,sK41))))),
+  introduced(avatar_definition,[new_symbols(naming,[spl44_501])])).
+fof(f24316,plain,(
+  aElementOf0(sK30(sdtpldt0(sK42,szmzizndt0(sdtlpdtrp0(xN,sK41)))),sK42) | szmzizndt0(sdtlpdtrp0(xN,sK41)) = sK30(sdtpldt0(sK42,szmzizndt0(sdtlpdtrp0(xN,sK41)))) | (~spl44_2 | ~spl44_501)),
+  inference(resolution,[],[f14461,f590])).
+fof(f590,plain,(
+  ( ! [X3] : (~aElementOf0(X3,sdtpldt0(sK42,szmzizndt0(sdtlpdtrp0(xN,sK41)))) | aElementOf0(X3,sK42) | szmzizndt0(sdtlpdtrp0(xN,sK41)) = X3) )),
+  inference(cnf_transformation,[],[f343])).
+fof(f14461,plain,(
+  aElementOf0(sK30(sdtpldt0(sK42,szmzizndt0(sdtlpdtrp0(xN,sK41)))),sdtpldt0(sK42,szmzizndt0(sdtlpdtrp0(xN,sK41)))) | (~spl44_2 | ~spl44_501)),
+  inference(subsumption_resolution,[],[f14460,f12826])).
+fof(f12826,plain,(
+  aSet0(sdtpldt0(sK42,szmzizndt0(sdtlpdtrp0(xN,sK41)))) | ~spl44_501),
+  inference(avatar_component_clause,[],[f12825])).
+fof(f14460,plain,(
+  aElementOf0(sK30(sdtpldt0(sK42,szmzizndt0(sdtlpdtrp0(xN,sK41)))),sdtpldt0(sK42,szmzizndt0(sdtlpdtrp0(xN,sK41)))) | ~aSet0(sdtpldt0(sK42,szmzizndt0(sdtlpdtrp0(xN,sK41)))) | ~spl44_2),
+  inference(subsumption_resolution,[],[f14459,f654])).
+fof(f654,plain,(
+  ~aElementOf0(sdtpldt0(sK42,szmzizndt0(sdtlpdtrp0(xN,sK41))),szDzozmdt0(xc))),
+  inference(forward_demodulation,[],[f596,f502])).
+fof(f502,plain,(
+  szDzozmdt0(xc) = slbdtsldtrb0(xS,xK)),
+  inference(cnf_transformation,[],[f305])).
+fof(f305,plain,(
+  aSubsetOf0(sdtlcdtrc0(xc,szDzozmdt0(xc)),xT) & ! [X0] : (aElementOf0(X0,xT) | ~aElementOf0(X0,sdtlcdtrc0(xc,szDzozmdt0(xc)))) & ! [X1] : ((aElementOf0(X1,sdtlcdtrc0(xc,szDzozmdt0(xc))) | ! [X2] : (sdtlpdtrp0(xc,X2) != X1 | ~aElementOf0(X2,szDzozmdt0(xc)))) & ((sdtlpdtrp0(xc,sK29(X1)) = X1 & aElementOf0(sK29(X1),szDzozmdt0(xc))) | ~aElementOf0(X1,sdtlcdtrc0(xc,szDzozmdt0(xc))))) & aSet0(sdtlcdtrc0(xc,szDzozmdt0(xc))) & szDzozmdt0(xc) = slbdtsldtrb0(xS,xK) & ! [X4] : ((aElementOf0(X4,szDzozmdt0(xc)) | xK != sbrdtbr0(X4) | (~aSubsetOf0(X4,xS) & ((~aElementOf0(sK30(X4),xS) & aElementOf0(sK30(X4),X4)) | ~aSet0(X4)))) & ((xK = sbrdtbr0(X4) & aSubsetOf0(X4,xS) & ! [X6] : (aElementOf0(X6,xS) | ~aElementOf0(X6,X4)) & aSet0(X4)) | ~aElementOf0(X4,szDzozmdt0(xc)))) & aFunction0(xc)),
+  inference(skolemisation,[status(esa),new_symbols(skolem,[sK29,sK30])],[f302,f304,f303])).
+fof(f303,plain,(
+  ! [X1] : (? [X3] : (sdtlpdtrp0(xc,X3) = X1 & aElementOf0(X3,szDzozmdt0(xc))) => (sdtlpdtrp0(xc,sK29(X1)) = X1 & aElementOf0(sK29(X1),szDzozmdt0(xc))))),
+  introduced(choice_axiom,[])).
+fof(f304,plain,(
+  ! [X4] : (? [X5] : (~aElementOf0(X5,xS) & aElementOf0(X5,X4)) => (~aElementOf0(sK30(X4),xS) & aElementOf0(sK30(X4),X4)))),
+  introduced(choice_axiom,[])).
+fof(f302,plain,(
+  aSubsetOf0(sdtlcdtrc0(xc,szDzozmdt0(xc)),xT) & ! [X0] : (aElementOf0(X0,xT) | ~aElementOf0(X0,sdtlcdtrc0(xc,szDzozmdt0(xc)))) & ! [X1] : ((aElementOf0(X1,sdtlcdtrc0(xc,szDzozmdt0(xc))) | ! [X2] : (sdtlpdtrp0(xc,X2) != X1 | ~aElementOf0(X2,szDzozmdt0(xc)))) & (? [X3] : (sdtlpdtrp0(xc,X3) = X1 & aElementOf0(X3,szDzozmdt0(xc))) | ~aElementOf0(X1,sdtlcdtrc0(xc,szDzozmdt0(xc))))) & aSet0(sdtlcdtrc0(xc,szDzozmdt0(xc))) & szDzozmdt0(xc) = slbdtsldtrb0(xS,xK) & ! [X4] : ((aElementOf0(X4,szDzozmdt0(xc)) | xK != sbrdtbr0(X4) | (~aSubsetOf0(X4,xS) & (? [X5] : (~aElementOf0(X5,xS) & aElementOf0(X5,X4)) | ~aSet0(X4)))) & ((xK = sbrdtbr0(X4) & aSubsetOf0(X4,xS) & ! [X6] : (aElementOf0(X6,xS) | ~aElementOf0(X6,X4)) & aSet0(X4)) | ~aElementOf0(X4,szDzozmdt0(xc)))) & aFunction0(xc)),
+  inference(rectify,[],[f301])).
+fof(f301,plain,(
+  aSubsetOf0(sdtlcdtrc0(xc,szDzozmdt0(xc)),xT) & ! [X0] : (aElementOf0(X0,xT) | ~aElementOf0(X0,sdtlcdtrc0(xc,szDzozmdt0(xc)))) & ! [X1] : ((aElementOf0(X1,sdtlcdtrc0(xc,szDzozmdt0(xc))) | ! [X2] : (sdtlpdtrp0(xc,X2) != X1 | ~aElementOf0(X2,szDzozmdt0(xc)))) & (? [X2] : (sdtlpdtrp0(xc,X2) = X1 & aElementOf0(X2,szDzozmdt0(xc))) | ~aElementOf0(X1,sdtlcdtrc0(xc,szDzozmdt0(xc))))) & aSet0(sdtlcdtrc0(xc,szDzozmdt0(xc))) & szDzozmdt0(xc) = slbdtsldtrb0(xS,xK) & ! [X3] : ((aElementOf0(X3,szDzozmdt0(xc)) | sbrdtbr0(X3) != xK | (~aSubsetOf0(X3,xS) & (? [X4] : (~aElementOf0(X4,xS) & aElementOf0(X4,X3)) | ~aSet0(X3)))) & ((sbrdtbr0(X3) = xK & aSubsetOf0(X3,xS) & ! [X5] : (aElementOf0(X5,xS) | ~aElementOf0(X5,X3)) & aSet0(X3)) | ~aElementOf0(X3,szDzozmdt0(xc)))) & aFunction0(xc)),
+  inference(nnf_transformation,[],[f200])).
+fof(f200,plain,(
+  aSubsetOf0(sdtlcdtrc0(xc,szDzozmdt0(xc)),xT) & ! [X0] : (aElementOf0(X0,xT) | ~aElementOf0(X0,sdtlcdtrc0(xc,szDzozmdt0(xc)))) & ! [X1] : (aElementOf0(X1,sdtlcdtrc0(xc,szDzozmdt0(xc))) <=> ? [X2] : (sdtlpdtrp0(xc,X2) = X1 & aElementOf0(X2,szDzozmdt0(xc)))) & aSet0(sdtlcdtrc0(xc,szDzozmdt0(xc))) & szDzozmdt0(xc) = slbdtsldtrb0(xS,xK) & ! [X3] : ((aElementOf0(X3,szDzozmdt0(xc)) | sbrdtbr0(X3) != xK | (~aSubsetOf0(X3,xS) & (? [X4] : (~aElementOf0(X4,xS) & aElementOf0(X4,X3)) | ~aSet0(X3)))) & ((sbrdtbr0(X3) = xK & aSubsetOf0(X3,xS) & ! [X5] : (aElementOf0(X5,xS) | ~aElementOf0(X5,X3)) & aSet0(X3)) | ~aElementOf0(X3,szDzozmdt0(xc)))) & aFunction0(xc)),
+  inference(flattening,[],[f199])).
+fof(f199,plain,(
+  aSubsetOf0(sdtlcdtrc0(xc,szDzozmdt0(xc)),xT) & ! [X0] : (aElementOf0(X0,xT) | ~aElementOf0(X0,sdtlcdtrc0(xc,szDzozmdt0(xc)))) & ! [X1] : (aElementOf0(X1,sdtlcdtrc0(xc,szDzozmdt0(xc))) <=> ? [X2] : (sdtlpdtrp0(xc,X2) = X1 & aElementOf0(X2,szDzozmdt0(xc)))) & aSet0(sdtlcdtrc0(xc,szDzozmdt0(xc))) & szDzozmdt0(xc) = slbdtsldtrb0(xS,xK) & ! [X3] : ((aElementOf0(X3,szDzozmdt0(xc)) | (sbrdtbr0(X3) != xK | (~aSubsetOf0(X3,xS) & (? [X4] : (~aElementOf0(X4,xS) & aElementOf0(X4,X3)) | ~aSet0(X3))))) & ((sbrdtbr0(X3) = xK & aSubsetOf0(X3,xS) & ! [X5] : (aElementOf0(X5,xS) | ~aElementOf0(X5,X3)) & aSet0(X3)) | ~aElementOf0(X3,szDzozmdt0(xc)))) & aFunction0(xc)),
+  inference(ennf_transformation,[],[f94])).
+fof(f94,plain,(
+  aSubsetOf0(sdtlcdtrc0(xc,szDzozmdt0(xc)),xT) & ! [X0] : (aElementOf0(X0,sdtlcdtrc0(xc,szDzozmdt0(xc))) => aElementOf0(X0,xT)) & ! [X1] : (aElementOf0(X1,sdtlcdtrc0(xc,szDzozmdt0(xc))) <=> ? [X2] : (sdtlpdtrp0(xc,X2) = X1 & aElementOf0(X2,szDzozmdt0(xc)))) & aSet0(sdtlcdtrc0(xc,szDzozmdt0(xc))) & szDzozmdt0(xc) = slbdtsldtrb0(xS,xK) & ! [X3] : (((sbrdtbr0(X3) = xK & (aSubsetOf0(X3,xS) | (! [X4] : (aElementOf0(X4,X3) => aElementOf0(X4,xS)) & aSet0(X3)))) => aElementOf0(X3,szDzozmdt0(xc))) & (aElementOf0(X3,szDzozmdt0(xc)) => (sbrdtbr0(X3) = xK & aSubsetOf0(X3,xS) & ! [X5] : (aElementOf0(X5,X3) => aElementOf0(X5,xS)) & aSet0(X3)))) & aFunction0(xc)),
+  inference(rectify,[],[f76])).
+fof(f76,axiom,(
+  aSubsetOf0(sdtlcdtrc0(xc,szDzozmdt0(xc)),xT) & ! [X0] : (aElementOf0(X0,sdtlcdtrc0(xc,szDzozmdt0(xc))) => aElementOf0(X0,xT)) & ! [X0] : (aElementOf0(X0,sdtlcdtrc0(xc,szDzozmdt0(xc))) <=> ? [X1] : (sdtlpdtrp0(xc,X1) = X0 & aElementOf0(X1,szDzozmdt0(xc)))) & aSet0(sdtlcdtrc0(xc,szDzozmdt0(xc))) & szDzozmdt0(xc) = slbdtsldtrb0(xS,xK) & ! [X0] : (((sbrdtbr0(X0) = xK & (aSubsetOf0(X0,xS) | (! [X1] : (aElementOf0(X1,X0) => aElementOf0(X1,xS)) & aSet0(X0)))) => aElementOf0(X0,szDzozmdt0(xc))) & (aElementOf0(X0,szDzozmdt0(xc)) => (sbrdtbr0(X0) = xK & aSubsetOf0(X0,xS) & ! [X1] : (aElementOf0(X1,X0) => aElementOf0(X1,xS)) & aSet0(X0)))) & aFunction0(xc)),
+  file('NUM579+3.tptp',unknown)).
+fof(f596,plain,(
+  ~aElementOf0(sdtpldt0(sK42,szmzizndt0(sdtlpdtrp0(xN,sK41))),slbdtsldtrb0(xS,xK))),
+  inference(cnf_transformation,[],[f343])).
+fof(f14459,plain,(
+  aElementOf0(sdtpldt0(sK42,szmzizndt0(sdtlpdtrp0(xN,sK41))),szDzozmdt0(xc)) | aElementOf0(sK30(sdtpldt0(sK42,szmzizndt0(sdtlpdtrp0(xN,sK41)))),sdtpldt0(sK42,szmzizndt0(sdtlpdtrp0(xN,sK41)))) | ~aSet0(sdtpldt0(sK42,szmzizndt0(sdtlpdtrp0(xN,sK41)))) | ~spl44_2),
+  inference(trivial_inequality_removal,[],[f14442])).
+fof(f14442,plain,(
+  xK != xK | aElementOf0(sdtpldt0(sK42,szmzizndt0(sdtlpdtrp0(xN,sK41))),szDzozmdt0(xc)) | aElementOf0(sK30(sdtpldt0(sK42,szmzizndt0(sdtlpdtrp0(xN,sK41)))),sdtpldt0(sK42,szmzizndt0(sdtlpdtrp0(xN,sK41)))) | ~aSet0(sdtpldt0(sK42,szmzizndt0(sdtlpdtrp0(xN,sK41)))) | ~spl44_2),
+  inference(superposition,[],[f499,f661])).
+fof(f661,plain,(
+  xK = sbrdtbr0(sdtpldt0(sK42,szmzizndt0(sdtlpdtrp0(xN,sK41)))) | ~spl44_2),
+  inference(avatar_component_clause,[],[f660])).
+fof(f499,plain,(
+  ( ! [X4] : (xK != sbrdtbr0(X4) | aElementOf0(X4,szDzozmdt0(xc)) | aElementOf0(sK30(X4),X4) | ~aSet0(X4)) )),
+  inference(cnf_transformation,[],[f305])).
+fof(f455587,plain,(
+  ~spl44_5794 | ~spl44_2 | ~spl44_501),
+  inference(avatar_split_clause,[],[f14463,f12825,f660,f400585])).
+fof(f14463,plain,(
+  ~aElementOf0(sK30(sdtpldt0(sK42,szmzizndt0(sdtlpdtrp0(xN,sK41)))),xS) | (~spl44_2 | ~spl44_501)),
+  inference(subsumption_resolution,[],[f14462,f12826])).
+fof(f14462,plain,(
+  ~aElementOf0(sK30(sdtpldt0(sK42,szmzizndt0(sdtlpdtrp0(xN,sK41)))),xS) | ~aSet0(sdtpldt0(sK42,szmzizndt0(sdtlpdtrp0(xN,sK41)))) | ~spl44_2),
+  inference(subsumption_resolution,[],[f14458,f654])).
+fof(f14458,plain,(
+  aElementOf0(sdtpldt0(sK42,szmzizndt0(sdtlpdtrp0(xN,sK41))),szDzozmdt0(xc)) | ~aElementOf0(sK30(sdtpldt0(sK42,szmzizndt0(sdtlpdtrp0(xN,sK41)))),xS) | ~aSet0(sdtpldt0(sK42,szmzizndt0(sdtlpdtrp0(xN,sK41)))) | ~spl44_2),
+  inference(trivial_inequality_removal,[],[f14443])).
+fof(f14443,plain,(
+  xK != xK | aElementOf0(sdtpldt0(sK42,szmzizndt0(sdtlpdtrp0(xN,sK41))),szDzozmdt0(xc)) | ~aElementOf0(sK30(sdtpldt0(sK42,szmzizndt0(sdtlpdtrp0(xN,sK41)))),xS) | ~aSet0(sdtpldt0(sK42,szmzizndt0(sdtlpdtrp0(xN,sK41)))) | ~spl44_2),
+  inference(superposition,[],[f500,f661])).
+fof(f500,plain,(
+  ( ! [X4] : (xK != sbrdtbr0(X4) | aElementOf0(X4,szDzozmdt0(xc)) | ~aElementOf0(sK30(X4),xS) | ~aSet0(X4)) )),
+  inference(cnf_transformation,[],[f305])).
+fof(f455582,plain,(
+  ~spl44_1095 | ~spl44_2 | ~spl44_501 | ~spl44_854),
+  inference(avatar_split_clause,[],[f400675,f18937,f12825,f660,f27935])).
+fof(f27935,plain,(
+  spl44_1095 <=> aElementOf0(szmzizndt0(sdtlpdtrp0(xN,sK41)),xS)),
+  introduced(avatar_definition,[new_symbols(naming,[spl44_1095])])).
+fof(f400675,plain,(
+  ~aElementOf0(szmzizndt0(sdtlpdtrp0(xN,sK41)),xS) | (~spl44_2 | ~spl44_501 | ~spl44_854)),
+  inference(forward_demodulation,[],[f14463,f18939])).
+fof(f18939,plain,(
+  szmzizndt0(sdtlpdtrp0(xN,sK41)) = sK30(sdtpldt0(sK42,szmzizndt0(sdtlpdtrp0(xN,sK41)))) | ~spl44_854),
+  inference(avatar_component_clause,[],[f18937])).
+fof(f455577,plain,(
+  spl44_1095),
+  inference(avatar_contradiction_clause,[],[f455576])).
+fof(f455576,plain,(
+  $false | spl44_1095),
+  inference(subsumption_resolution,[],[f455573,f573])).
+fof(f455573,plain,(
+  ~aElementOf0(sK41,szNzAzT0) | spl44_1095),
+  inference(resolution,[],[f27937,f28537])).
+fof(f28537,plain,(
+  ( ! [X0] : (aElementOf0(szmzizndt0(sdtlpdtrp0(xN,X0)),xS) | ~aElementOf0(X0,szNzAzT0)) )),
+  inference(subsumption_resolution,[],[f28536,f398])).
+fof(f28536,plain,(
+  ( ! [X0] : (aElementOf0(szmzizndt0(sdtlpdtrp0(xN,X0)),xS) | ~sdtlseqdt0(sz00,X0) | ~aElementOf0(X0,szNzAzT0)) )),
+  inference(subsumption_resolution,[],[f28525,f391])).
+fof(f28525,plain,(
+  ( ! [X0] : (aElementOf0(szmzizndt0(sdtlpdtrp0(xN,X0)),xS) | ~sdtlseqdt0(sz00,X0) | ~aElementOf0(sz00,szNzAzT0) | ~aElementOf0(X0,szNzAzT0)) )),
+  inference(superposition,[],[f4825,f558])).
+fof(f4825,plain,(
+  ( ! [X0,X1] : (aElementOf0(szmzizndt0(sdtlpdtrp0(xN,X0)),sdtlpdtrp0(xN,X1)) | ~sdtlseqdt0(X1,X0) | ~aElementOf0(X1,szNzAzT0) | ~aElementOf0(X0,szNzAzT0)) )),
+  inference(subsumption_resolution,[],[f4813,f1051])).
+fof(f4813,plain,(
+  ( ! [X0,X1] : (aElementOf0(szmzizndt0(sdtlpdtrp0(xN,X0)),sdtlpdtrp0(xN,X1)) | ~sdtlseqdt0(X1,X0) | ~aElementOf0(X1,szNzAzT0) | ~aElementOf0(X0,szNzAzT0) | ~sP9(X0)) )),
+  inference(resolution,[],[f566,f544])).
+fof(f544,plain,(
+  ( ! [X0] : (aElementOf0(szmzizndt0(sdtlpdtrp0(xN,X0)),sdtlpdtrp0(xN,X0)) | ~sP9(X0)) )),
+  inference(cnf_transformation,[],[f328])).
+fof(f566,plain,(
+  ( ! [X2,X0,X1] : (~aElementOf0(X2,sdtlpdtrp0(xN,X0)) | aElementOf0(X2,sdtlpdtrp0(xN,X1)) | ~sdtlseqdt0(X1,X0) | ~aElementOf0(X1,szNzAzT0) | ~aElementOf0(X0,szNzAzT0)) )),
+  inference(cnf_transformation,[],[f207])).
+fof(f27937,plain,(
+  ~aElementOf0(szmzizndt0(sdtlpdtrp0(xN,sK41)),xS) | spl44_1095),
+  inference(avatar_component_clause,[],[f27935])).
+fof(f400612,plain,(
+  spl44_5 | ~spl44_96 | ~spl44_100),
+  inference(avatar_split_clause,[],[f266476,f2175,f2141,f675])).
+fof(f675,plain,(
+  spl44_5 <=> aElement0(szmzizndt0(sdtlpdtrp0(xN,sK41)))),
+  introduced(avatar_definition,[new_symbols(naming,[spl44_5])])).
+fof(f2141,plain,(
+  spl44_96 <=> sP9(sK14(sK41))),
+  introduced(avatar_definition,[new_symbols(naming,[spl44_96])])).
+fof(f2175,plain,(
+  spl44_100 <=> sK41 = szszuzczcdt0(sK14(sK41))),
+  introduced(avatar_definition,[new_symbols(naming,[spl44_100])])).
+fof(f266476,plain,(
+  aElement0(szmzizndt0(sdtlpdtrp0(xN,sK41))) | (~spl44_96 | ~spl44_100)),
+  inference(subsumption_resolution,[],[f266225,f1092])).
+fof(f266225,plain,(
+  aElement0(szmzizndt0(sdtlpdtrp0(xN,sK41))) | ~sP9(sK41) | (~spl44_96 | ~spl44_100)),
+  inference(resolution,[],[f12443,f544])).
+fof(f12443,plain,(
+  ( ! [X4] : (~aElementOf0(X4,sdtlpdtrp0(xN,sK41)) | aElement0(X4)) ) | (~spl44_96 | ~spl44_100)),
+  inference(subsumption_resolution,[],[f12440,f2142])).
+fof(f2142,plain,(
+  sP9(sK14(sK41)) | ~spl44_96),
+  inference(avatar_component_clause,[],[f2141])).
+fof(f12440,plain,(
+  ( ! [X4] : (~aElementOf0(X4,sdtlpdtrp0(xN,sK41)) | ~sP9(sK14(sK41)) | aElement0(X4)) ) | ~spl44_100),
+  inference(superposition,[],[f4768,f2177])).
+fof(f2177,plain,(
+  sK41 = szszuzczcdt0(sK14(sK41)) | ~spl44_100),
+  inference(avatar_component_clause,[],[f2175])).
+fof(f4768,plain,(
+  ( ! [X2,X3] : (~aElementOf0(X2,sdtlpdtrp0(xN,szszuzczcdt0(X3))) | ~sP9(X3) | aElement0(X2)) )),
+  inference(subsumption_resolution,[],[f4760,f547])).
+fof(f4760,plain,(
+  ( ! [X2,X3] : (~aElementOf0(X2,sdtlpdtrp0(xN,szszuzczcdt0(X3))) | ~sP9(X3) | aElement0(X2) | ~sP8(X3)) )),
+  inference(resolution,[],[f549,f552])).
+fof(f552,plain,(
+  ( ! [X0,X1] : (~aElementOf0(X1,sdtmndt0(sdtlpdtrp0(xN,X0),szmzizndt0(sdtlpdtrp0(xN,X0)))) | aElement0(X1) | ~sP8(X0)) )),
+  inference(cnf_transformation,[],[f331])).
+fof(f549,plain,(
+  ( ! [X0,X1] : (aElementOf0(X1,sdtmndt0(sdtlpdtrp0(xN,X0),szmzizndt0(sdtlpdtrp0(xN,X0)))) | ~aElementOf0(X1,sdtlpdtrp0(xN,szszuzczcdt0(X0))) | ~sP9(X0)) )),
+  inference(cnf_transformation,[],[f328])).
+fof(f14394,plain,(
+  spl44_2 | ~spl44_5),
+  inference(avatar_split_clause,[],[f14389,f675,f660])).
+fof(f14389,plain,(
+  xK = sbrdtbr0(sdtpldt0(sK42,szmzizndt0(sdtlpdtrp0(xN,sK41)))) | ~spl44_5),
+  inference(forward_demodulation,[],[f14388,f543])).
+fof(f543,plain,(
+  xK = szszuzczcdt0(xk)),
+  inference(cnf_transformation,[],[f80])).
+fof(f80,axiom,(
+  xK = szszuzczcdt0(xk) & aElementOf0(xk,szNzAzT0)),
+  file('NUM579+3.tptp',unknown)).
+fof(f14388,plain,(
+  szszuzczcdt0(xk) = sbrdtbr0(sdtpldt0(sK42,szmzizndt0(sdtlpdtrp0(xN,sK41)))) | ~spl44_5),
+  inference(forward_demodulation,[],[f14387,f584])).
+fof(f584,plain,(
+  xk = sbrdtbr0(sK42)),
+  inference(cnf_transformation,[],[f343])).
+fof(f14387,plain,(
+  sbrdtbr0(sdtpldt0(sK42,szmzizndt0(sdtlpdtrp0(xN,sK41)))) = szszuzczcdt0(sbrdtbr0(sK42)) | ~spl44_5),
+  inference(subsumption_resolution,[],[f14386,f574])).
+fof(f574,plain,(
+  aSet0(sK42)),
+  inference(cnf_transformation,[],[f343])).
+fof(f14386,plain,(
+  sbrdtbr0(sdtpldt0(sK42,szmzizndt0(sdtlpdtrp0(xN,sK41)))) = szszuzczcdt0(sbrdtbr0(sK42)) | ~aSet0(sK42) | ~spl44_5),
+  inference(subsumption_resolution,[],[f14385,f785])).
+fof(f785,plain,(
+  isFinite0(sK42)),
+  inference(subsumption_resolution,[],[f784,f574])).
+fof(f784,plain,(
+  isFinite0(sK42) | ~aSet0(sK42)),
+  inference(subsumption_resolution,[],[f782,f542])).
+fof(f542,plain,(
+  aElementOf0(xk,szNzAzT0)),
+  inference(cnf_transformation,[],[f80])).
+fof(f782,plain,(
+  ~aElementOf0(xk,szNzAzT0) | isFinite0(sK42) | ~aSet0(sK42)),
+  inference(superposition,[],[f409,f584])).
+fof(f409,plain,(
+  ( ! [X0] : (~aElementOf0(sbrdtbr0(X0),szNzAzT0) | isFinite0(X0) | ~aSet0(X0)) )),
+  inference(cnf_transformation,[],[f251])).
+fof(f251,plain,(
+  ! [X0] : (((aElementOf0(sbrdtbr0(X0),szNzAzT0) | ~isFinite0(X0)) & (isFinite0(X0) | ~aElementOf0(sbrdtbr0(X0),szNzAzT0))) | ~aSet0(X0))),
+  inference(nnf_transformation,[],[f148])).
+fof(f148,plain,(
+  ! [X0] : ((aElementOf0(sbrdtbr0(X0),szNzAzT0) <=> isFinite0(X0)) | ~aSet0(X0))),
+  inference(ennf_transformation,[],[f41])).
+fof(f41,axiom,(
+  ! [X0] : (aSet0(X0) => (aElementOf0(sbrdtbr0(X0),szNzAzT0) <=> isFinite0(X0)))),
+  file('NUM579+3.tptp',unknown)).
+fof(f14385,plain,(
+  sbrdtbr0(sdtpldt0(sK42,szmzizndt0(sdtlpdtrp0(xN,sK41)))) = szszuzczcdt0(sbrdtbr0(sK42)) | ~isFinite0(sK42) | ~aSet0(sK42) | ~spl44_5),
+  inference(subsumption_resolution,[],[f14383,f676])).
+fof(f676,plain,(
+  aElement0(szmzizndt0(sdtlpdtrp0(xN,sK41))) | ~spl44_5),
+  inference(avatar_component_clause,[],[f675])).
+fof(f14383,plain,(
+  sbrdtbr0(sdtpldt0(sK42,szmzizndt0(sdtlpdtrp0(xN,sK41)))) = szszuzczcdt0(sbrdtbr0(sK42)) | ~aElement0(szmzizndt0(sdtlpdtrp0(xN,sK41))) | ~isFinite0(sK42) | ~aSet0(sK42)),
+  inference(resolution,[],[f7676,f413])).
+fof(f413,plain,(
+  ( ! [X0,X1] : (aElementOf0(X1,X0) | sbrdtbr0(sdtpldt0(X0,X1)) = szszuzczcdt0(sbrdtbr0(X0)) | ~aElement0(X1) | ~isFinite0(X0) | ~aSet0(X0)) )),
+  inference(cnf_transformation,[],[f151])).
+fof(f151,plain,(
+  ! [X0] : (! [X1] : (sbrdtbr0(sdtpldt0(X0,X1)) = szszuzczcdt0(sbrdtbr0(X0)) | aElementOf0(X1,X0) | ~aElement0(X1)) | ~isFinite0(X0) | ~aSet0(X0))),
+  inference(flattening,[],[f150])).
+fof(f150,plain,(
+  ! [X0] : (! [X1] : ((sbrdtbr0(sdtpldt0(X0,X1)) = szszuzczcdt0(sbrdtbr0(X0)) | aElementOf0(X1,X0)) | ~aElement0(X1)) | (~isFinite0(X0) | ~aSet0(X0)))),
+  inference(ennf_transformation,[],[f43])).
+fof(f43,axiom,(
+  ! [X0] : ((isFinite0(X0) & aSet0(X0)) => ! [X1] : (aElement0(X1) => (~aElementOf0(X1,X0) => sbrdtbr0(sdtpldt0(X0,X1)) = szszuzczcdt0(sbrdtbr0(X0)))))),
+  file('NUM579+3.tptp',unknown)).
+fof(f7676,plain,(
+  ~aElementOf0(szmzizndt0(sdtlpdtrp0(xN,sK41)),sK42)),
+  inference(subsumption_resolution,[],[f7660,f1109])).
+fof(f7660,plain,(
+  ~aElementOf0(szmzizndt0(sdtlpdtrp0(xN,sK41)),sK42) | ~sP8(sK41)),
+  inference(resolution,[],[f582,f639])).
+fof(f639,plain,(
+  ( ! [X0] : (~aElementOf0(szmzizndt0(sdtlpdtrp0(xN,X0)),sdtmndt0(sdtlpdtrp0(xN,X0),szmzizndt0(sdtlpdtrp0(xN,X0)))) | ~sP8(X0)) )),
+  inference(equality_resolution,[],[f554])).
+fof(f554,plain,(
+  ( ! [X0,X1] : (szmzizndt0(sdtlpdtrp0(xN,X0)) != X1 | ~aElementOf0(X1,sdtmndt0(sdtlpdtrp0(xN,X0),szmzizndt0(sdtlpdtrp0(xN,X0)))) | ~sP8(X0)) )),
+  inference(cnf_transformation,[],[f331])).
+fof(f12940,plain,(
+  spl44_501),
+  inference(avatar_split_clause,[],[f588,f12825])).
+fof(f588,plain,(
+  aSet0(sdtpldt0(sK42,szmzizndt0(sdtlpdtrp0(xN,sK41))))),
+  inference(cnf_transformation,[],[f343])).
+fof(f7104,plain,(
+  spl44_2 | ~spl44_35),
+  inference(avatar_contradiction_clause,[],[f7103])).
+fof(f7103,plain,(
+  $false | (spl44_2 | ~spl44_35)),
+  inference(subsumption_resolution,[],[f7102,f4119])).
+fof(f4119,plain,(
+  xK != sbrdtbr0(sdtpldt0(sK42,szmzizndt0(xS))) | (spl44_2 | ~spl44_35)),
+  inference(forward_demodulation,[],[f4118,f558])).
+fof(f4118,plain,(
+  xK != sbrdtbr0(sdtpldt0(sK42,szmzizndt0(sdtlpdtrp0(xN,sz00)))) | (spl44_2 | ~spl44_35)),
+  inference(forward_demodulation,[],[f662,f1244])).
+fof(f1244,plain,(
+  sz00 = sK41 | ~spl44_35),
+  inference(avatar_component_clause,[],[f1243])).
+fof(f1243,plain,(
+  spl44_35 <=> sz00 = sK41),
+  introduced(avatar_definition,[new_symbols(naming,[spl44_35])])).
+fof(f662,plain,(
+  xK != sbrdtbr0(sdtpldt0(sK42,szmzizndt0(sdtlpdtrp0(xN,sK41)))) | spl44_2),
+  inference(avatar_component_clause,[],[f660])).
+fof(f7102,plain,(
+  xK = sbrdtbr0(sdtpldt0(sK42,szmzizndt0(xS))) | ~spl44_35),
+  inference(forward_demodulation,[],[f7101,f543])).
+fof(f7101,plain,(
+  szszuzczcdt0(xk) = sbrdtbr0(sdtpldt0(sK42,szmzizndt0(xS))) | ~spl44_35),
+  inference(forward_demodulation,[],[f7100,f584])).
+fof(f7100,plain,(
+  sbrdtbr0(sdtpldt0(sK42,szmzizndt0(xS))) = szszuzczcdt0(sbrdtbr0(sK42)) | ~spl44_35),
+  inference(subsumption_resolution,[],[f7099,f574])).
+fof(f7099,plain,(
+  sbrdtbr0(sdtpldt0(sK42,szmzizndt0(xS))) = szszuzczcdt0(sbrdtbr0(sK42)) | ~aSet0(sK42) | ~spl44_35),
+  inference(subsumption_resolution,[],[f7098,f785])).
+fof(f7098,plain,(
+  sbrdtbr0(sdtpldt0(sK42,szmzizndt0(xS))) = szszuzczcdt0(sbrdtbr0(sK42)) | ~isFinite0(sK42) | ~aSet0(sK42) | ~spl44_35),
+  inference(subsumption_resolution,[],[f7096,f1365])).
+fof(f1365,plain,(
+  aElement0(szmzizndt0(xS))),
+  inference(subsumption_resolution,[],[f1364,f490])).
+fof(f1364,plain,(
+  aElement0(szmzizndt0(xS)) | ~aSet0(xS)),
+  inference(resolution,[],[f1362,f344])).
+fof(f344,plain,(
+  ( ! [X0,X1] : (~aElementOf0(X1,X0) | aElement0(X1) | ~aSet0(X0)) )),
+  inference(cnf_transformation,[],[f99])).
+fof(f99,plain,(
+  ! [X0] : (! [X1] : (aElement0(X1) | ~aElementOf0(X1,X0)) | ~aSet0(X0))),
+  inference(ennf_transformation,[],[f3])).
+fof(f3,axiom,(
+  ! [X0] : (aSet0(X0) => ! [X1] : (aElementOf0(X1,X0) => aElement0(X1)))),
+  file('NUM579+3.tptp',unknown)).
+fof(f1362,plain,(
+  aElementOf0(szmzizndt0(xS),xS)),
+  inference(subsumption_resolution,[],[f1361,f1089])).
+fof(f1089,plain,(
+  sP9(sz00)),
+  inference(resolution,[],[f1051,f391])).
+fof(f1361,plain,(
+  aElementOf0(szmzizndt0(xS),xS) | ~sP9(sz00)),
+  inference(superposition,[],[f544,f558])).
+fof(f7096,plain,(
+  sbrdtbr0(sdtpldt0(sK42,szmzizndt0(xS))) = szszuzczcdt0(sbrdtbr0(sK42)) | ~aElement0(szmzizndt0(xS)) | ~isFinite0(sK42) | ~aSet0(sK42) | ~spl44_35),
+  inference(resolution,[],[f7075,f413])).
+fof(f7075,plain,(
+  ~aElementOf0(szmzizndt0(xS),sK42) | ~spl44_35),
+  inference(resolution,[],[f3611,f2751])).
+fof(f2751,plain,(
+  ( ! [X5] : (aElementOf0(X5,sdtmndt0(xS,szmzizndt0(xS))) | ~aElementOf0(X5,sK42)) ) | ~spl44_35),
+  inference(forward_demodulation,[],[f2750,f558])).
+fof(f2750,plain,(
+  ( ! [X5] : (aElementOf0(X5,sdtmndt0(sdtlpdtrp0(xN,sz00),szmzizndt0(sdtlpdtrp0(xN,sz00)))) | ~aElementOf0(X5,sK42)) ) | ~spl44_35),
+  inference(forward_demodulation,[],[f582,f1244])).
+fof(f3611,plain,(
+  ~aElementOf0(szmzizndt0(xS),sdtmndt0(xS,szmzizndt0(xS)))),
+  inference(subsumption_resolution,[],[f3610,f1112])).
+fof(f1112,plain,(
+  sP8(sz00)),
+  inference(resolution,[],[f1089,f547])).
+fof(f3610,plain,(
+  ~aElementOf0(szmzizndt0(xS),sdtmndt0(xS,szmzizndt0(xS))) | ~sP8(sz00)),
+  inference(superposition,[],[f639,f558])).
+fof(f2491,plain,(
+  ~spl44_91 | spl44_96),
+  inference(avatar_contradiction_clause,[],[f2490])).
+fof(f2490,plain,(
+  $false | (~spl44_91 | spl44_96)),
+  inference(subsumption_resolution,[],[f2476,f2143])).
+fof(f2143,plain,(
+  ~sP9(sK14(sK41)) | spl44_96),
+  inference(avatar_component_clause,[],[f2141])).
+fof(f2476,plain,(
+  sP9(sK14(sK41)) | ~spl44_91),
+  inference(resolution,[],[f2118,f1051])).
+fof(f2118,plain,(
+  aElementOf0(sK14(sK41),szNzAzT0) | ~spl44_91),
+  inference(avatar_component_clause,[],[f2117])).
+fof(f2117,plain,(
+  spl44_91 <=> aElementOf0(sK14(sK41),szNzAzT0)),
+  introduced(avatar_definition,[new_symbols(naming,[spl44_91])])).
+fof(f2178,plain,(
+  spl44_100 | spl44_35),
+  inference(avatar_split_clause,[],[f1507,f1243,f2175])).
+fof(f1507,plain,(
+  sz00 = sK41 | sK41 = szszuzczcdt0(sK14(sK41))),
+  inference(resolution,[],[f396,f573])).
+fof(f396,plain,(
+  ( ! [X0] : (~aElementOf0(X0,szNzAzT0) | sz00 = X0 | szszuzczcdt0(sK14(X0)) = X0) )),
+  inference(cnf_transformation,[],[f249])).
+fof(f249,plain,(
+  ! [X0] : ((szszuzczcdt0(sK14(X0)) = X0 & aElementOf0(sK14(X0),szNzAzT0)) | sz00 = X0 | ~aElementOf0(X0,szNzAzT0))),
+  inference(skolemisation,[status(esa),new_symbols(skolem,[sK14])],[f132,f248])).
+fof(f248,plain,(
+  ! [X0] : (? [X1] : (szszuzczcdt0(X1) = X0 & aElementOf0(X1,szNzAzT0)) => (szszuzczcdt0(sK14(X0)) = X0 & aElementOf0(sK14(X0),szNzAzT0)))),
+  introduced(choice_axiom,[])).
+fof(f132,plain,(
+  ! [X0] : (? [X1] : (szszuzczcdt0(X1) = X0 & aElementOf0(X1,szNzAzT0)) | sz00 = X0 | ~aElementOf0(X0,szNzAzT0))),
+  inference(flattening,[],[f131])).
+fof(f131,plain,(
+  ! [X0] : ((? [X1] : (szszuzczcdt0(X1) = X0 & aElementOf0(X1,szNzAzT0)) | sz00 = X0) | ~aElementOf0(X0,szNzAzT0))),
+  inference(ennf_transformation,[],[f27])).
+fof(f27,axiom,(
+  ! [X0] : (aElementOf0(X0,szNzAzT0) => (? [X1] : (szszuzczcdt0(X1) = X0 & aElementOf0(X1,szNzAzT0)) | sz00 = X0))),
+  file('NUM579+3.tptp',unknown)).
+fof(f2173,plain,(
+  spl44_35 | spl44_91),
+  inference(avatar_split_clause,[],[f2172,f2117,f1243])).
+fof(f2172,plain,(
+  sz00 = sK41 | spl44_91),
+  inference(subsumption_resolution,[],[f2168,f573])).
+fof(f2168,plain,(
+  sz00 = sK41 | ~aElementOf0(sK41,szNzAzT0) | spl44_91),
+  inference(resolution,[],[f2119,f395])).
+fof(f395,plain,(
+  ( ! [X0] : (aElementOf0(sK14(X0),szNzAzT0) | sz00 = X0 | ~aElementOf0(X0,szNzAzT0)) )),
+  inference(cnf_transformation,[],[f249])).
+fof(f2119,plain,(
+  ~aElementOf0(sK14(sK41),szNzAzT0) | spl44_91),
+  inference(avatar_component_clause,[],[f2117])).
+% SZS output end Proof for NUM579+3
+% ------------------------------
+% Version: Vampire 4.4.0 (commit d98a3d53 on 2020-01-14 21:02:12 +0100)
+% Termination reason: Refutation
+
+% Memory used [KB]: 347329
+% Time elapsed: 39.637 s
+% ------------------------------
+% ------------------------------

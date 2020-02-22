@@ -1,0 +1,78 @@
+% Refutation found. Thanks to Tanya!
+% SZS status Theorem for SET643+3
+% SZS output start Proof for SET643+3
+fof(f1304,plain,(
+  $false),
+  inference(resolution,[],[f712,f126])).
+fof(f126,plain,(
+  ~ilf_type(cross_product(sK11,sK12),relation_type(sK11,sK12))),
+  inference(cnf_transformation,[],[f82])).
+fof(f82,plain,(
+  (~ilf_type(cross_product(sK11,sK12),relation_type(sK11,sK12)) & ilf_type(sK12,set_type)) & ilf_type(sK11,set_type)),
+  inference(skolemisation,[status(esa),new_symbols(skolem,[sK11,sK12])],[f48,f81,f80])).
+fof(f80,plain,(
+  ? [X0] : (? [X1] : (~ilf_type(cross_product(X0,X1),relation_type(X0,X1)) & ilf_type(X1,set_type)) & ilf_type(X0,set_type)) => (? [X1] : (~ilf_type(cross_product(sK11,X1),relation_type(sK11,X1)) & ilf_type(X1,set_type)) & ilf_type(sK11,set_type))),
+  introduced(choice_axiom,[])).
+fof(f81,plain,(
+  ? [X1] : (~ilf_type(cross_product(sK11,X1),relation_type(sK11,X1)) & ilf_type(X1,set_type)) => (~ilf_type(cross_product(sK11,sK12),relation_type(sK11,sK12)) & ilf_type(sK12,set_type))),
+  introduced(choice_axiom,[])).
+fof(f48,plain,(
+  ? [X0] : (? [X1] : (~ilf_type(cross_product(X0,X1),relation_type(X0,X1)) & ilf_type(X1,set_type)) & ilf_type(X0,set_type))),
+  inference(ennf_transformation,[],[f21])).
+fof(f21,negated_conjecture,(
+  ~! [X0] : (ilf_type(X0,set_type) => ! [X1] : (ilf_type(X1,set_type) => ilf_type(cross_product(X0,X1),relation_type(X0,X1))))),
+  inference(negated_conjecture,[],[f20])).
+fof(f20,conjecture,(
+  ! [X0] : (ilf_type(X0,set_type) => ! [X1] : (ilf_type(X1,set_type) => ilf_type(cross_product(X0,X1),relation_type(X0,X1))))),
+  file('SET643+3.tptp',unknown)).
+fof(f712,plain,(
+  ( ! [X0,X1] : (ilf_type(cross_product(X0,X1),relation_type(X0,X1))) )),
+  inference(subsumption_resolution,[],[f711,f123])).
+fof(f123,plain,(
+  ( ! [X0] : (ilf_type(X0,set_type)) )),
+  inference(cnf_transformation,[],[f19])).
+fof(f19,axiom,(
+  ! [X0] : ilf_type(X0,set_type)),
+  file('SET643+3.tptp',unknown)).
+fof(f711,plain,(
+  ( ! [X0,X1] : (ilf_type(cross_product(X0,X1),relation_type(X0,X1)) | ~ilf_type(cross_product(X0,X1),set_type)) )),
+  inference(subsumption_resolution,[],[f710,f123])).
+fof(f710,plain,(
+  ( ! [X0,X1] : (ilf_type(cross_product(X0,X1),relation_type(X0,X1)) | ~ilf_type(X0,set_type) | ~ilf_type(cross_product(X0,X1),set_type)) )),
+  inference(subsumption_resolution,[],[f349,f123])).
+fof(f349,plain,(
+  ( ! [X0,X1] : (ilf_type(cross_product(X0,X1),relation_type(X0,X1)) | ~ilf_type(X1,set_type) | ~ilf_type(X0,set_type) | ~ilf_type(cross_product(X0,X1),set_type)) )),
+  inference(resolution,[],[f83,f128])).
+fof(f128,plain,(
+  ( ! [X0] : (subset(X0,X0)) )),
+  inference(resolution,[],[f102,f123])).
+fof(f102,plain,(
+  ( ! [X0] : (~ilf_type(X0,set_type) | subset(X0,X0)) )),
+  inference(cnf_transformation,[],[f34])).
+fof(f34,plain,(
+  ! [X0] : (subset(X0,X0) | ~ilf_type(X0,set_type))),
+  inference(ennf_transformation,[],[f10])).
+fof(f10,axiom,(
+  ! [X0] : (ilf_type(X0,set_type) => subset(X0,X0))),
+  file('SET643+3.tptp',unknown)).
+fof(f83,plain,(
+  ( ! [X2,X0,X1] : (~subset(X0,cross_product(X1,X2)) | ilf_type(X0,relation_type(X1,X2)) | ~ilf_type(X2,set_type) | ~ilf_type(X1,set_type) | ~ilf_type(X0,set_type)) )),
+  inference(cnf_transformation,[],[f24])).
+fof(f24,plain,(
+  ! [X0] : (! [X1] : (! [X2] : (ilf_type(X0,relation_type(X1,X2)) | ~subset(X0,cross_product(X1,X2)) | ~ilf_type(X2,set_type)) | ~ilf_type(X1,set_type)) | ~ilf_type(X0,set_type))),
+  inference(flattening,[],[f23])).
+fof(f23,plain,(
+  ! [X0] : (! [X1] : (! [X2] : ((ilf_type(X0,relation_type(X1,X2)) | ~subset(X0,cross_product(X1,X2))) | ~ilf_type(X2,set_type)) | ~ilf_type(X1,set_type)) | ~ilf_type(X0,set_type))),
+  inference(ennf_transformation,[],[f1])).
+fof(f1,axiom,(
+  ! [X0] : (ilf_type(X0,set_type) => ! [X1] : (ilf_type(X1,set_type) => ! [X2] : (ilf_type(X2,set_type) => (subset(X0,cross_product(X1,X2)) => ilf_type(X0,relation_type(X1,X2))))))),
+  file('SET643+3.tptp',unknown)).
+% SZS output end Proof for SET643+3
+% ------------------------------
+% Version: Vampire 4.4.0 (commit d98a3d53 on 2020-01-14 21:02:12 +0100)
+% Termination reason: Refutation
+
+% Memory used [KB]: 5628
+% Time elapsed: 0.017 s
+% ------------------------------
+% ------------------------------

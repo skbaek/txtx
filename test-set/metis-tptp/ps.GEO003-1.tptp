@@ -1,0 +1,92 @@
+%------------------------------------------------------------------------------
+% File     : GEO003-1 : TPTP v7.3.0. Bugfixed v2.5.0.
+% Domain   : Geometry
+% Problem  : For all points x and y, y is between x and y
+% Version  : [MOW76] axioms.
+% English  :
+
+% Refs     : [MOW76] McCharen et al. (1976), Problems and Experiments for a
+%          : [SST83] Schwabbauser et al. (1983), Metamathematische Methoden
+% Source   : [ANL]
+% Names    : T3 [MOW76]
+%          : t3.ver1.in [ANL]
+
+% Status   : Unsatisfiable
+% Rating   : 0.24 v7.3.0, 0.25 v7.1.0, 0.17 v7.0.0, 0.20 v6.3.0, 0.09 v6.2.0, 0.10 v6.1.0, 0.14 v6.0.0, 0.10 v5.3.0, 0.17 v5.2.0, 0.12 v5.0.0, 0.07 v4.1.0, 0.08 v4.0.1, 0.18 v3.7.0, 0.10 v3.5.0, 0.09 v3.4.0, 0.08 v3.3.0, 0.14 v3.2.0, 0.08 v3.1.0, 0.09 v2.7.0, 0.08 v2.6.0, 0.00 v2.5.0
+% Syntax   : Number of clauses     :   21 (   6 non-Horn;   7 unit;  18 RR)
+%            Number of atoms       :   65 (   8 equality)
+%            Maximal clause size   :    8 (   3 average)
+%            Number of predicates  :    3 (   0 propositional; 2-4 arity)
+%            Number of functors    :   10 (   5 constant; 0-6 arity)
+%            Number of variables   :   79 (   3 singleton)
+%            Maximal term depth    :    2 (   1 average)
+% SPC      : CNF_UNS_RFO_SEQ_NHN
+
+% Comments :
+%          : tptp2X 
+% Bugfixes : v1.0.1 - Bug in GEO001-0.eq fixed.
+%          : v2.5.0 - Bug in GEO001-0.ax fixed.
+%------------------------------------------------------------------------------
+cnf(identity_for_betweeness,axiom,
+    ( ~ between(X,Y,X) | X = Y )).
+
+cnf(transitivity_for_betweeness,axiom,
+    ( ~ between(X,Y,V) | ~ between(Y,Z,V) | between(X,Y,Z) )).
+
+cnf(connectivity_for_betweeness,axiom,
+    ( ~ between(X,Y,Z) | ~ between(X,Y,V) | X = Y | between(X,Z,V) | between(X,V,Z) )).
+
+cnf(reflexivity_for_equidistance,axiom,
+    ( equidistant(X,Y,Y,X) )).
+
+cnf(identity_for_equidistance,axiom,
+    ( ~ equidistant(X,Y,Z,Z) | X = Y )).
+
+cnf(transitivity_for_equidistance,axiom,
+    ( ~ equidistant(X,Y,Z,V) | ~ equidistant(X,Y,V2,W) | equidistant(Z,V,V2,W) )).
+
+cnf(outer_pasch1,axiom,
+    ( ~ between(X,W,V) | ~ between(Y,V,Z) | between(X,outer_pasch(W,X,Y,Z,V),Y) )).
+
+cnf(outer_pasch2,axiom,
+    ( ~ between(X,W,V) | ~ between(Y,V,Z) | between(Z,W,outer_pasch(W,X,Y,Z,V)) )).
+
+cnf(euclid1,axiom,
+    ( ~ between(X,V,W) | ~ between(Y,V,Z) | X = V | between(X,Z,euclid1(W,X,Y,Z,V)) )).
+
+cnf(euclid2,axiom,
+    ( ~ between(X,V,W) | ~ between(Y,V,Z) | X = V | between(X,Y,euclid2(W,X,Y,Z,V)) )).
+
+cnf(euclid3,axiom,
+    ( ~ between(X,V,W) | ~ between(Y,V,Z) | X = V | between(euclid1(W,X,Y,Z,V),W,euclid2(W,X,Y,Z,V)) )).
+
+cnf(outer_five_segment,axiom,
+    ( ~ equidistant(X,Y,X1,Y1) | ~ equidistant(Y,Z,Y1,Z1) | ~ equidistant(X,V,X1,V1) | ~ equidistant(Y,V,Y1,V1) | ~ between(X,Y,Z) | ~ between(X1,Y1,Z1) | X = Y | equidistant(Z,V,Z1,V1) )).
+
+cnf(segment_construction1,axiom,
+    ( between(X,Y,extension(X,Y,W,V)) )).
+
+cnf(segment_construction2,axiom,
+    ( equidistant(Y,extension(X,Y,W,V),W,V) )).
+
+cnf(lower_dimension1,axiom,
+    ( ~ between(lower_dimension_point_1,lower_dimension_point_2,lower_dimension_point_3) )).
+
+cnf(lower_dimension2,axiom,
+    ( ~ between(lower_dimension_point_2,lower_dimension_point_3,lower_dimension_point_1) )).
+
+cnf(lower_dimension3,axiom,
+    ( ~ between(lower_dimension_point_3,lower_dimension_point_1,lower_dimension_point_2) )).
+
+cnf(upper_dimension,axiom,
+    ( ~ equidistant(X,W,X,V) | ~ equidistant(Y,W,Y,V) | ~ equidistant(Z,W,Z,V) | between(X,Y,Z) | between(Y,Z,X) | between(Z,X,Y) | W = V )).
+
+cnf(continuity1,axiom,
+    ( ~ equidistant(V,X,V,X1) | ~ equidistant(V,Z,V,Z1) | ~ between(V,X,Z) | ~ between(X,Y,Z) | equidistant(V,Y,V,continuous(X,Y,Z,X1,Z1,V)) )).
+
+cnf(continuity2,axiom,
+    ( ~ equidistant(V,X,V,X1) | ~ equidistant(V,Z,V,Z1) | ~ between(V,X,Z) | ~ between(X,Y,Z) | between(X1,continuous(X,Y,Z,X1,Z1,V),Z1) )).
+
+cnf(prove_b_between_a_and_b,negated_conjecture,
+    ( ~ between(a,b,b) )).
+%------------------------------------------------------------------------------

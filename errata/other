@@ -1,0 +1,50 @@
+% Prover : Vampire 
+% Problem : ALG059+1
+% Notes : Definition is neither iff nor imp  
+
+fof(f10,plain,(
+  (e0 != unit & e0 = op(e0,e0)) | e0 != op(e0,e0) | ~sP0),
+  introduced(predicate_definition_introduction,[new_symbols(naming,[sP0])])).
+
+
+
+% Prover : Vampire 
+% Problem : KRS072+1 
+% Notes : spurious quantifier commuting
+
+fof(f73,plain,(
+  ! [X0] : ((cUnsatisfiable(X0) | ~cp2(X0) | ! [X1] : (! [X2] : (~cp1(X2) | ~rr(X1,X2)) | (sK0(X1) != sK1(X1) & rr(X1,sK1(X1)) & rr(X1,sK0(X1))) | ~rinvR(X0,X1))) & ((cp2(X0) & ((cp1(sK3(X0)) & rr(sK2(X0),sK3(X0))) & ! [X7,X8] : (X7 = X8 | ~rr(sK2(X0),X8) | ~rr(sK2(X0),X7)) & rinvR(X0,sK2(X0)))) | ~cUnsatisfiable(X0)))),
+  inference(skolemisation,[status(esa),new_symbols(skolem,[sK0,sK1,sK2,sK3])],[f69,f72,f71,f70])).
+fof(f70,plain,(
+  ! [X1] : (? [X3,X4] : (X3 != X4 & rr(X1,X4) & rr(X1,X3)) => (sK0(X1) != sK1(X1) & rr(X1,sK1(X1)) & rr(X1,sK0(X1))))),
+  introduced(choice_axiom,[])).
+fof(f71,plain,(                                                                                                                                              % (** SWAPPED **)
+  ! [X0] : (? [X5] : (? [X6] : (cp1(X6) & rr(X5,X6)) & ! [X7,X8] : (X7 = X8 | ~rr(X5,X8) | ~rr(X5,X7)) & rinvR(X0,X5)) => (? [X6] : (cp1(X6) & rr(sK2(X0),X6)) & ! [X8,X7] : (X7 = X8 | ~rr(sK2(X0),X8) | ~rr(sK2(X0),X7)) & rinvR(X0,sK2(X0))))),
+  introduced(choice_axiom,[])).
+fof(f72,plain,(
+  ! [X0] : (? [X6] : (cp1(X6) & rr(sK2(X0),X6)) => (cp1(sK3(X0)) & rr(sK2(X0),sK3(X0))))),
+  introduced(choice_axiom,[])).
+fof(f69,plain,(
+  ! [X0] : ((cUnsatisfiable(X0) | ~cp2(X0) | ! [X1] : (! [X2] : (~cp1(X2) | ~rr(X1,X2)) | ? [X3,X4] : (X3 != X4 & rr(X1,X4) & rr(X1,X3)) | ~rinvR(X0,X1))) & ((cp2(X0) & ? [X5] : (? [X6] : (cp1(X6) & rr(X5,X6)) & ! [X7,X8] : (X7 = X8 | ~rr(X5,X8) | ~rr(X5,X7)) & rinvR(X0,X5))) | ~cUnsatisfiable(X0)))),
+  inference(rectify,[],[f68])).
+
+
+
+% Prover : Vampire 
+% Problem : GRP550-1
+
+fof(f11,plain,(
+  a2 != divide(divide(divide(identity,b2),divide(identity,b2)),divide(identity,a2))),
+  inference(definition_unfolding,[],[f10,f7,f7,f8])).
+fof(f8,plain,(
+  ( ! [X0] : (divide(identity,X0) = inverse(X0)) )), % This equation is used backwards
+  inference(cnf_transformation,[],[f3])).
+fof(f7,plain,(
+  ( ! [X0,X1] : (multiply(X0,X1) = divide(X0,divide(identity,X1))) )),
+  inference(cnf_transformation,[],[f2])).
+fof(f2,axiom,(
+  ! [X0,X1] : multiply(X0,X1) = divide(X0,divide(identity,X1))),
+  file('tptp/GRP550-1.tptp',unknown)).
+fof(f10,plain,(
+  a2 != multiply(multiply(inverse(b2),b2),a2)),
+  inference(cnf_transformation,[],[f5])).

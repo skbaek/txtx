@@ -1,0 +1,883 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% SZS status Unsatisfiable for LCL287-3.tptp
+
+% SZS output start CNFRefutation for LCL287-3.tptp
+cnf(axiom_1_2, axiom, (axiom(implies(or(A, A), A)))).
+
+cnf(axiom_1_3, axiom, (axiom(implies(A, or(B, A))))).
+
+cnf(axiom_1_4, axiom, (axiom(implies(or(A, B), or(B, A))))).
+
+cnf(axiom_1_5, axiom, (axiom(implies(or(A, or(B, C)), or(B, or(A, C)))))).
+
+cnf(implies_definition, axiom, (implies(X, Y) = or(not(X), Y))).
+
+cnf(rule_1, axiom, (theorem(X) | ~ axiom(X))).
+
+cnf(rule_2, axiom, (theorem(X) | ~ theorem(implies(Y, X)) | ~ theorem(Y))).
+
+cnf(and_defn, axiom, (and(P, Q) = not(or(not(P), not(Q))))).
+
+cnf(equivalent_defn, axiom,
+    (equivalent(P, Q) = and(implies(P, Q), implies(Q, P)))).
+
+cnf(prove_this, negated_conjecture,
+    (~ theorem(equivalent(and(p, q), not(or(not(p), not(q))))))).
+
+cnf(refute_0_0, plain, (X0 = X0),
+    introduced(tautology, [refl, [$fot(X0)]])).
+
+cnf(refute_0_1, plain, (X0 != X0 | X0 != Y0 | Y0 = X0),
+    introduced(tautology,
+               [equality, [$cnf($equal(X0, X0)), [0], $fot(Y0)]])).
+
+cnf(refute_0_2, plain, (X0 != Y0 | Y0 = X0),
+    inference(resolve, [$cnf($equal(X0, X0))], [refute_0_0, refute_0_1])).
+
+cnf(refute_0_3, plain,
+    (implies(X, Y) != or(not(X), Y) | or(not(X), Y) = implies(X, Y)),
+    inference(subst, [],
+              [refute_0_2 :
+               [bind(X0, $fot(implies(X, Y))),
+                bind(Y0, $fot(or(not(X), Y)))]])).
+
+cnf(refute_0_4, plain, (or(not(X), Y) = implies(X, Y)),
+    inference(resolve, [$cnf($equal(implies(X, Y), or(not(X), Y)))],
+              [implies_definition, refute_0_3])).
+
+cnf(refute_0_5, plain, (or(not(P), not(Q)) = implies(P, not(Q))),
+    inference(subst, [],
+              [refute_0_4 : [bind(X, $fot(P)), bind(Y, $fot(not(Q)))]])).
+
+cnf(refute_0_6, plain, (not(or(not(P), not(Q))) = not(or(not(P), not(Q)))),
+    introduced(tautology, [refl, [$fot(not(or(not(P), not(Q))))]])).
+
+cnf(refute_0_7, plain,
+    (not(or(not(P), not(Q))) != not(or(not(P), not(Q))) |
+     or(not(P), not(Q)) != implies(P, not(Q)) |
+     not(or(not(P), not(Q))) = not(implies(P, not(Q)))),
+    introduced(tautology,
+               [equality,
+                [$cnf($equal(not(or(not(P), not(Q))),
+                        not(or(not(P), not(Q))))), [1, 0],
+                 $fot(implies(P, not(Q)))]])).
+
+cnf(refute_0_8, plain,
+    (or(not(P), not(Q)) != implies(P, not(Q)) |
+     not(or(not(P), not(Q))) = not(implies(P, not(Q)))),
+    inference(resolve,
+              [$cnf($equal(not(or(not(P), not(Q))),
+                      not(or(not(P), not(Q)))))],
+              [refute_0_6, refute_0_7])).
+
+cnf(refute_0_9, plain, (not(or(not(P), not(Q))) = not(implies(P, not(Q)))),
+    inference(resolve,
+              [$cnf($equal(or(not(P), not(Q)), implies(P, not(Q))))],
+              [refute_0_5, refute_0_8])).
+
+cnf(refute_0_10, plain,
+    (and(P, Q) != not(or(not(P), not(Q))) |
+     not(or(not(P), not(Q))) != not(implies(P, not(Q))) |
+     and(P, Q) = not(implies(P, not(Q)))),
+    introduced(tautology,
+               [equality,
+                [$cnf(~ $equal(and(P, Q), not(implies(P, not(Q))))), [0],
+                 $fot(not(or(not(P), not(Q))))]])).
+
+cnf(refute_0_11, plain,
+    (and(P, Q) != not(or(not(P), not(Q))) |
+     and(P, Q) = not(implies(P, not(Q)))),
+    inference(resolve,
+              [$cnf($equal(not(or(not(P), not(Q))),
+                      not(implies(P, not(Q)))))],
+              [refute_0_9, refute_0_10])).
+
+cnf(refute_0_12, plain, (and(P, Q) = not(implies(P, not(Q)))),
+    inference(resolve, [$cnf($equal(and(P, Q), not(or(not(P), not(Q)))))],
+              [and_defn, refute_0_11])).
+
+cnf(refute_0_13, plain,
+    (and(P, Q) != not(implies(P, not(Q))) |
+     not(implies(P, not(Q))) = and(P, Q)),
+    inference(subst, [],
+              [refute_0_2 :
+               [bind(X0, $fot(and(P, Q))),
+                bind(Y0, $fot(not(implies(P, not(Q)))))]])).
+
+cnf(refute_0_14, plain, (not(implies(P, not(Q))) = and(P, Q)),
+    inference(resolve, [$cnf($equal(and(P, Q), not(implies(P, not(Q)))))],
+              [refute_0_12, refute_0_13])).
+
+cnf(refute_0_15, plain, (not(implies(p, not(q))) = and(p, q)),
+    inference(subst, [],
+              [refute_0_14 : [bind(P, $fot(p)), bind(Q, $fot(q))]])).
+
+cnf(refute_0_16, plain, (or(not(p), not(q)) = implies(p, not(q))),
+    inference(subst, [],
+              [refute_0_4 : [bind(X, $fot(p)), bind(Y, $fot(not(q)))]])).
+
+cnf(refute_0_17, plain,
+    (not(or(not(p), not(q))) = not(or(not(p), not(q)))),
+    introduced(tautology, [refl, [$fot(not(or(not(p), not(q))))]])).
+
+cnf(refute_0_18, plain,
+    (not(or(not(p), not(q))) != not(or(not(p), not(q))) |
+     or(not(p), not(q)) != implies(p, not(q)) |
+     not(or(not(p), not(q))) = not(implies(p, not(q)))),
+    introduced(tautology,
+               [equality,
+                [$cnf($equal(not(or(not(p), not(q))),
+                        not(or(not(p), not(q))))), [1, 0],
+                 $fot(implies(p, not(q)))]])).
+
+cnf(refute_0_19, plain,
+    (or(not(p), not(q)) != implies(p, not(q)) |
+     not(or(not(p), not(q))) = not(implies(p, not(q)))),
+    inference(resolve,
+              [$cnf($equal(not(or(not(p), not(q))),
+                      not(or(not(p), not(q)))))],
+              [refute_0_17, refute_0_18])).
+
+cnf(refute_0_20, plain,
+    (not(or(not(p), not(q))) = not(implies(p, not(q)))),
+    inference(resolve,
+              [$cnf($equal(or(not(p), not(q)), implies(p, not(q))))],
+              [refute_0_16, refute_0_19])).
+
+cnf(refute_0_21, plain, (Y0 != X0 | Y0 != Z | X0 = Z),
+    introduced(tautology,
+               [equality, [$cnf($equal(Y0, Z)), [0], $fot(X0)]])).
+
+cnf(refute_0_22, plain, (X0 != Y0 | Y0 != Z | X0 = Z),
+    inference(resolve, [$cnf($equal(Y0, X0))], [refute_0_2, refute_0_21])).
+
+cnf(refute_0_23, plain,
+    (not(implies(p, not(q))) != and(p, q) |
+     not(or(not(p), not(q))) != not(implies(p, not(q))) |
+     not(or(not(p), not(q))) = and(p, q)),
+    inference(subst, [],
+              [refute_0_22 :
+               [bind(X0, $fot(not(or(not(p), not(q))))),
+                bind(Y0, $fot(not(implies(p, not(q))))),
+                bind(Z, $fot(and(p, q)))]])).
+
+cnf(refute_0_24, plain,
+    (not(implies(p, not(q))) != and(p, q) |
+     not(or(not(p), not(q))) = and(p, q)),
+    inference(resolve,
+              [$cnf($equal(not(or(not(p), not(q))),
+                      not(implies(p, not(q)))))],
+              [refute_0_20, refute_0_23])).
+
+cnf(refute_0_25, plain, (not(or(not(p), not(q))) = and(p, q)),
+    inference(resolve, [$cnf($equal(not(implies(p, not(q))), and(p, q)))],
+              [refute_0_15, refute_0_24])).
+
+cnf(refute_0_26, plain,
+    (equivalent(and(p, q), not(or(not(p), not(q)))) =
+     equivalent(and(p, q), not(or(not(p), not(q))))),
+    introduced(tautology,
+               [refl,
+                [$fot(equivalent(and(p, q), not(or(not(p), not(q)))))]])).
+
+cnf(refute_0_27, plain,
+    (equivalent(and(p, q), not(or(not(p), not(q)))) !=
+     equivalent(and(p, q), not(or(not(p), not(q)))) |
+     not(or(not(p), not(q))) != and(p, q) |
+     equivalent(and(p, q), not(or(not(p), not(q)))) =
+     equivalent(and(p, q), and(p, q))),
+    introduced(tautology,
+               [equality,
+                [$cnf($equal(equivalent(and(p, q),
+                          not(or(not(p), not(q)))),
+                        equivalent(and(p, q), not(or(not(p), not(q)))))),
+                 [1, 1], $fot(and(p, q))]])).
+
+cnf(refute_0_28, plain,
+    (not(or(not(p), not(q))) != and(p, q) |
+     equivalent(and(p, q), not(or(not(p), not(q)))) =
+     equivalent(and(p, q), and(p, q))),
+    inference(resolve,
+              [$cnf($equal(equivalent(and(p, q), not(or(not(p), not(q)))),
+                      equivalent(and(p, q), not(or(not(p), not(q))))))],
+              [refute_0_26, refute_0_27])).
+
+cnf(refute_0_29, plain,
+    (equivalent(and(p, q), not(or(not(p), not(q)))) =
+     equivalent(and(p, q), and(p, q))),
+    inference(resolve, [$cnf($equal(not(or(not(p), not(q))), and(p, q)))],
+              [refute_0_25, refute_0_28])).
+
+cnf(refute_0_30, plain,
+    (equivalent(and(p, q), not(or(not(p), not(q)))) !=
+     equivalent(and(p, q), and(p, q)) |
+     ~ theorem(equivalent(and(p, q), and(p, q))) |
+     theorem(equivalent(and(p, q), not(or(not(p), not(q)))))),
+    introduced(tautology,
+               [equality,
+                [$cnf(~ theorem(equivalent(and(p, q),
+                          not(or(not(p), not(q)))))), [0],
+                 $fot(equivalent(and(p, q), and(p, q)))]])).
+
+cnf(refute_0_31, plain,
+    (~ theorem(equivalent(and(p, q), and(p, q))) |
+     theorem(equivalent(and(p, q), not(or(not(p), not(q)))))),
+    inference(resolve,
+              [$cnf($equal(equivalent(and(p, q), not(or(not(p), not(q)))),
+                      equivalent(and(p, q), and(p, q))))],
+              [refute_0_29, refute_0_30])).
+
+cnf(refute_0_32, plain, (~ theorem(equivalent(and(p, q), and(p, q)))),
+    inference(resolve,
+              [$cnf(theorem(equivalent(and(p, q),
+                        not(or(not(p), not(q))))))],
+              [refute_0_31, prove_this])).
+
+cnf(refute_0_33, plain,
+    (~ theorem(X_215) | ~ theorem(implies(X_215, and(X_215, X_215))) |
+     theorem(and(X_215, X_215))),
+    inference(subst, [],
+              [rule_2 :
+               [bind(X, $fot(and(X_215, X_215))), bind(Y, $fot(X_215))]])).
+
+cnf(refute_0_34, plain,
+    (~ axiom(implies(or(A, A), A)) | theorem(implies(or(A, A), A))),
+    inference(subst, [],
+              [rule_1 : [bind(X, $fot(implies(or(A, A), A)))]])).
+
+cnf(refute_0_35, plain, (theorem(implies(or(A, A), A))),
+    inference(resolve, [$cnf(axiom(implies(or(A, A), A)))],
+              [axiom_1_2, refute_0_34])).
+
+cnf(refute_0_36, plain,
+    (theorem(implies(or(not(X_7), not(X_7)), not(X_7)))),
+    inference(subst, [], [refute_0_35 : [bind(A, $fot(not(X_7)))]])).
+
+cnf(refute_0_37, plain, (implies(X_7, not(X_7)) = or(not(X_7), not(X_7))),
+    inference(subst, [],
+              [implies_definition :
+               [bind(X, $fot(X_7)), bind(Y, $fot(not(X_7)))]])).
+
+cnf(refute_0_38, plain,
+    (implies(X_7, not(X_7)) != or(not(X_7), not(X_7)) |
+     or(not(X_7), not(X_7)) = implies(X_7, not(X_7))),
+    inference(subst, [],
+              [refute_0_2 :
+               [bind(X0, $fot(implies(X_7, not(X_7)))),
+                bind(Y0, $fot(or(not(X_7), not(X_7))))]])).
+
+cnf(refute_0_39, plain, (or(not(X_7), not(X_7)) = implies(X_7, not(X_7))),
+    inference(resolve,
+              [$cnf($equal(implies(X_7, not(X_7)),
+                      or(not(X_7), not(X_7))))],
+              [refute_0_37, refute_0_38])).
+
+cnf(refute_0_40, plain,
+    (or(not(X_7), not(X_7)) != implies(X_7, not(X_7)) |
+     ~ theorem(implies(or(not(X_7), not(X_7)), not(X_7))) |
+     theorem(implies(implies(X_7, not(X_7)), not(X_7)))),
+    introduced(tautology,
+               [equality,
+                [$cnf(theorem(implies(or(not(X_7), not(X_7)), not(X_7)))),
+                 [0, 0], $fot(implies(X_7, not(X_7)))]])).
+
+cnf(refute_0_41, plain,
+    (~ theorem(implies(or(not(X_7), not(X_7)), not(X_7))) |
+     theorem(implies(implies(X_7, not(X_7)), not(X_7)))),
+    inference(resolve,
+              [$cnf($equal(or(not(X_7), not(X_7)),
+                      implies(X_7, not(X_7))))],
+              [refute_0_39, refute_0_40])).
+
+cnf(refute_0_42, plain,
+    (theorem(implies(implies(X_7, not(X_7)), not(X_7)))),
+    inference(resolve,
+              [$cnf(theorem(implies(or(not(X_7), not(X_7)), not(X_7))))],
+              [refute_0_36, refute_0_41])).
+
+cnf(refute_0_43, plain,
+    (implies(implies(X_23, not(X_24)), Y) =
+     or(not(implies(X_23, not(X_24))), Y)),
+    inference(subst, [],
+              [implies_definition :
+               [bind(X, $fot(implies(X_23, not(X_24))))]])).
+
+cnf(refute_0_44, plain, (and(X_23, X_24) = not(implies(X_23, not(X_24)))),
+    inference(subst, [],
+              [refute_0_12 : [bind(P, $fot(X_23)), bind(Q, $fot(X_24))]])).
+
+cnf(refute_0_45, plain,
+    (and(X_23, X_24) != not(implies(X_23, not(X_24))) |
+     not(implies(X_23, not(X_24))) = and(X_23, X_24)),
+    inference(subst, [],
+              [refute_0_2 :
+               [bind(X0, $fot(and(X_23, X_24))),
+                bind(Y0, $fot(not(implies(X_23, not(X_24)))))]])).
+
+cnf(refute_0_46, plain, (not(implies(X_23, not(X_24))) = and(X_23, X_24)),
+    inference(resolve,
+              [$cnf($equal(and(X_23, X_24),
+                      not(implies(X_23, not(X_24)))))],
+              [refute_0_44, refute_0_45])).
+
+cnf(refute_0_47, plain,
+    (implies(implies(X_23, not(X_24)), Y) !=
+     or(not(implies(X_23, not(X_24))), Y) |
+     not(implies(X_23, not(X_24))) != and(X_23, X_24) |
+     implies(implies(X_23, not(X_24)), Y) = or(and(X_23, X_24), Y)),
+    introduced(tautology,
+               [equality,
+                [$cnf($equal(implies(implies(X_23, not(X_24)), Y),
+                        or(not(implies(X_23, not(X_24))), Y))), [1, 0],
+                 $fot(and(X_23, X_24))]])).
+
+cnf(refute_0_48, plain,
+    (implies(implies(X_23, not(X_24)), Y) !=
+     or(not(implies(X_23, not(X_24))), Y) |
+     implies(implies(X_23, not(X_24)), Y) = or(and(X_23, X_24), Y)),
+    inference(resolve,
+              [$cnf($equal(not(implies(X_23, not(X_24))),
+                      and(X_23, X_24)))], [refute_0_46, refute_0_47])).
+
+cnf(refute_0_49, plain,
+    (implies(implies(X_23, not(X_24)), Y) = or(and(X_23, X_24), Y)),
+    inference(resolve,
+              [$cnf($equal(implies(implies(X_23, not(X_24)), Y),
+                      or(not(implies(X_23, not(X_24))), Y)))],
+              [refute_0_43, refute_0_48])).
+
+cnf(refute_0_50, plain,
+    (implies(implies(X_7, not(X_7)), not(X_7)) =
+     or(and(X_7, X_7), not(X_7))),
+    inference(subst, [],
+              [refute_0_49 :
+               [bind(Y, $fot(not(X_7))), bind(X_23, $fot(X_7)),
+                bind(X_24, $fot(X_7))]])).
+
+cnf(refute_0_51, plain,
+    (implies(implies(X_7, not(X_7)), not(X_7)) !=
+     or(and(X_7, X_7), not(X_7)) |
+     ~ theorem(implies(implies(X_7, not(X_7)), not(X_7))) |
+     theorem(or(and(X_7, X_7), not(X_7)))),
+    introduced(tautology,
+               [equality,
+                [$cnf(theorem(implies(implies(X_7, not(X_7)), not(X_7)))),
+                 [0], $fot(or(and(X_7, X_7), not(X_7)))]])).
+
+cnf(refute_0_52, plain,
+    (~ theorem(implies(implies(X_7, not(X_7)), not(X_7))) |
+     theorem(or(and(X_7, X_7), not(X_7)))),
+    inference(resolve,
+              [$cnf($equal(implies(implies(X_7, not(X_7)), not(X_7)),
+                      or(and(X_7, X_7), not(X_7))))],
+              [refute_0_50, refute_0_51])).
+
+cnf(refute_0_53, plain, (theorem(or(and(X_7, X_7), not(X_7)))),
+    inference(resolve,
+              [$cnf(theorem(implies(implies(X_7, not(X_7)), not(X_7))))],
+              [refute_0_42, refute_0_52])).
+
+cnf(refute_0_54, plain,
+    (~ axiom(implies(or(X_5, X_6), or(X_6, X_5))) |
+     theorem(implies(or(X_5, X_6), or(X_6, X_5)))),
+    inference(subst, [],
+              [rule_1 :
+               [bind(X, $fot(implies(or(X_5, X_6), or(X_6, X_5))))]])).
+
+cnf(refute_0_55, plain, (axiom(implies(or(X_5, X_6), or(X_6, X_5)))),
+    inference(subst, [],
+              [axiom_1_4 : [bind(A, $fot(X_5)), bind(B, $fot(X_6))]])).
+
+cnf(refute_0_56, plain, (theorem(implies(or(X_5, X_6), or(X_6, X_5)))),
+    inference(resolve, [$cnf(axiom(implies(or(X_5, X_6), or(X_6, X_5))))],
+              [refute_0_55, refute_0_54])).
+
+cnf(refute_0_57, plain,
+    (~ theorem(implies(or(X_5, X_6), or(X_6, X_5))) |
+     ~ theorem(or(X_5, X_6)) | theorem(or(X_6, X_5))),
+    inference(subst, [],
+              [rule_2 :
+               [bind(X, $fot(or(X_6, X_5))),
+                bind(Y, $fot(or(X_5, X_6)))]])).
+
+cnf(refute_0_58, plain, (~ theorem(or(X_5, X_6)) | theorem(or(X_6, X_5))),
+    inference(resolve,
+              [$cnf(theorem(implies(or(X_5, X_6), or(X_6, X_5))))],
+              [refute_0_56, refute_0_57])).
+
+cnf(refute_0_59, plain,
+    (~ theorem(or(and(X_7, X_7), not(X_7))) |
+     theorem(or(not(X_7), and(X_7, X_7)))),
+    inference(subst, [],
+              [refute_0_58 :
+               [bind(X_5, $fot(and(X_7, X_7))),
+                bind(X_6, $fot(not(X_7)))]])).
+
+cnf(refute_0_60, plain, (theorem(or(not(X_7), and(X_7, X_7)))),
+    inference(resolve, [$cnf(theorem(or(and(X_7, X_7), not(X_7))))],
+              [refute_0_53, refute_0_59])).
+
+cnf(refute_0_61, plain,
+    (or(not(X_7), and(X_7, X_7)) = implies(X_7, and(X_7, X_7))),
+    inference(subst, [],
+              [refute_0_4 :
+               [bind(X, $fot(X_7)), bind(Y, $fot(and(X_7, X_7)))]])).
+
+cnf(refute_0_62, plain,
+    (or(not(X_7), and(X_7, X_7)) != implies(X_7, and(X_7, X_7)) |
+     ~ theorem(or(not(X_7), and(X_7, X_7))) |
+     theorem(implies(X_7, and(X_7, X_7)))),
+    introduced(tautology,
+               [equality,
+                [$cnf(theorem(or(not(X_7), and(X_7, X_7)))), [0],
+                 $fot(implies(X_7, and(X_7, X_7)))]])).
+
+cnf(refute_0_63, plain,
+    (~ theorem(or(not(X_7), and(X_7, X_7))) |
+     theorem(implies(X_7, and(X_7, X_7)))),
+    inference(resolve,
+              [$cnf($equal(or(not(X_7), and(X_7, X_7)),
+                      implies(X_7, and(X_7, X_7))))],
+              [refute_0_61, refute_0_62])).
+
+cnf(refute_0_64, plain, (theorem(implies(X_7, and(X_7, X_7)))),
+    inference(resolve, [$cnf(theorem(or(not(X_7), and(X_7, X_7))))],
+              [refute_0_60, refute_0_63])).
+
+cnf(refute_0_65, plain, (theorem(implies(X_215, and(X_215, X_215)))),
+    inference(subst, [], [refute_0_64 : [bind(X_7, $fot(X_215))]])).
+
+cnf(refute_0_66, plain, (~ theorem(X_215) | theorem(and(X_215, X_215))),
+    inference(resolve, [$cnf(theorem(implies(X_215, and(X_215, X_215))))],
+              [refute_0_65, refute_0_33])).
+
+cnf(refute_0_67, plain,
+    (~ theorem(implies(X_2372, X_2372)) |
+     theorem(and(implies(X_2372, X_2372), implies(X_2372, X_2372)))),
+    inference(subst, [],
+              [refute_0_66 :
+               [bind(X_215, $fot(implies(X_2372, X_2372)))]])).
+
+cnf(refute_0_68, plain,
+    (~ theorem(or(X_2371, not(X_2371))) |
+     theorem(or(not(X_2371), X_2371))),
+    inference(subst, [],
+              [refute_0_58 :
+               [bind(X_5, $fot(X_2371)), bind(X_6, $fot(not(X_2371)))]])).
+
+cnf(refute_0_69, plain, (theorem(implies(or(X_100, X_100), X_100))),
+    inference(subst, [], [refute_0_35 : [bind(A, $fot(X_100))]])).
+
+cnf(refute_0_70, plain,
+    (~ theorem(implies(or(X_100, X_100), X_100)) |
+     ~ theorem(or(X_100, X_100)) | theorem(X_100)),
+    inference(subst, [],
+              [rule_2 :
+               [bind(X, $fot(X_100)), bind(Y, $fot(or(X_100, X_100)))]])).
+
+cnf(refute_0_71, plain, (~ theorem(or(X_100, X_100)) | theorem(X_100)),
+    inference(resolve, [$cnf(theorem(implies(or(X_100, X_100), X_100)))],
+              [refute_0_69, refute_0_70])).
+
+cnf(refute_0_72, plain,
+    (~ theorem(or(or(X_2370, not(X_2370)), or(X_2370, not(X_2370)))) |
+     theorem(or(X_2370, not(X_2370)))),
+    inference(subst, [],
+              [refute_0_71 :
+               [bind(X_100, $fot(or(X_2370, not(X_2370))))]])).
+
+cnf(refute_0_73, plain,
+    (~ axiom(implies(or(X_29, or(X_30, X_31)), or(X_30, or(X_29, X_31)))) |
+     theorem(implies(or(X_29, or(X_30, X_31)), or(X_30, or(X_29, X_31))))),
+    inference(subst, [],
+              [rule_1 :
+               [bind(X,
+                     $fot(implies(or(X_29, or(X_30, X_31)),
+                            or(X_30, or(X_29, X_31)))))]])).
+
+cnf(refute_0_74, plain,
+    (axiom(implies(or(X_29, or(X_30, X_31)), or(X_30, or(X_29, X_31))))),
+    inference(subst, [],
+              [axiom_1_5 :
+               [bind(A, $fot(X_29)), bind(B, $fot(X_30)),
+                bind(C, $fot(X_31))]])).
+
+cnf(refute_0_75, plain,
+    (theorem(implies(or(X_29, or(X_30, X_31)), or(X_30, or(X_29, X_31))))),
+    inference(resolve,
+              [$cnf(axiom(implies(or(X_29, or(X_30, X_31)),
+                        or(X_30, or(X_29, X_31)))))],
+              [refute_0_74, refute_0_73])).
+
+cnf(refute_0_76, plain,
+    (~
+       theorem(implies(or(X_29, or(X_30, X_31)),
+           or(X_30, or(X_29, X_31)))) |
+     ~ theorem(or(X_29, or(X_30, X_31))) |
+     theorem(or(X_30, or(X_29, X_31)))),
+    inference(subst, [],
+              [rule_2 :
+               [bind(X, $fot(or(X_30, or(X_29, X_31)))),
+                bind(Y, $fot(or(X_29, or(X_30, X_31))))]])).
+
+cnf(refute_0_77, plain,
+    (~ theorem(or(X_29, or(X_30, X_31))) |
+     theorem(or(X_30, or(X_29, X_31)))),
+    inference(resolve,
+              [$cnf(theorem(implies(or(X_29, or(X_30, X_31)),
+                        or(X_30, or(X_29, X_31)))))],
+              [refute_0_75, refute_0_76])).
+
+cnf(refute_0_78, plain,
+    (~ theorem(or(X_2362, or(X_2361, not(X_2362)))) |
+     theorem(or(X_2361, or(X_2362, not(X_2362))))),
+    inference(subst, [],
+              [refute_0_77 :
+               [bind(X_29, $fot(X_2362)), bind(X_30, $fot(X_2361)),
+                bind(X_31, $fot(not(X_2362)))]])).
+
+cnf(refute_0_79, plain,
+    (~ theorem(or(or(X_2359, not(X_2360)), X_2360)) |
+     theorem(or(X_2360, or(X_2359, not(X_2360))))),
+    inference(subst, [],
+              [refute_0_58 :
+               [bind(X_5, $fot(or(X_2359, not(X_2360)))),
+                bind(X_6, $fot(X_2360))]])).
+
+cnf(refute_0_80, plain,
+    (~
+       theorem(or(or(or(X_2356, not(X_2357)), X_2357),
+           or(or(X_2356, not(X_2357)), X_2357))) |
+     theorem(or(or(X_2356, not(X_2357)), X_2357))),
+    inference(subst, [],
+              [refute_0_71 :
+               [bind(X_100, $fot(or(or(X_2356, not(X_2357)), X_2357)))]])).
+
+cnf(refute_0_81, plain,
+    (~ theorem(or(or(X_2175, not(X_2176)), or(X_2177, X_2176))) |
+     theorem(or(X_2177, or(or(X_2175, not(X_2176)), X_2176)))),
+    inference(subst, [],
+              [refute_0_77 :
+               [bind(X_29, $fot(or(X_2175, not(X_2176)))),
+                bind(X_30, $fot(X_2177)), bind(X_31, $fot(X_2176))]])).
+
+cnf(refute_0_82, plain,
+    (~ theorem(or(or(X_2114, X_2113), or(X_2112, not(X_2113)))) |
+     theorem(or(or(X_2112, not(X_2113)), or(X_2114, X_2113)))),
+    inference(subst, [],
+              [refute_0_58 :
+               [bind(X_5, $fot(or(X_2114, X_2113))),
+                bind(X_6, $fot(or(X_2112, not(X_2113))))]])).
+
+cnf(refute_0_83, plain,
+    (~ axiom(implies(X_3, or(X_4, X_3))) |
+     theorem(implies(X_3, or(X_4, X_3)))),
+    inference(subst, [],
+              [rule_1 : [bind(X, $fot(implies(X_3, or(X_4, X_3))))]])).
+
+cnf(refute_0_84, plain, (axiom(implies(X_3, or(X_4, X_3)))),
+    inference(subst, [],
+              [axiom_1_3 : [bind(A, $fot(X_3)), bind(B, $fot(X_4))]])).
+
+cnf(refute_0_85, plain, (theorem(implies(X_3, or(X_4, X_3)))),
+    inference(resolve, [$cnf(axiom(implies(X_3, or(X_4, X_3))))],
+              [refute_0_84, refute_0_83])).
+
+cnf(refute_0_86, plain, (theorem(implies(X_101, or(X_4, X_101)))),
+    inference(subst, [], [refute_0_85 : [bind(X_3, $fot(X_101))]])).
+
+cnf(refute_0_87, plain,
+    (~ theorem(X_101) | ~ theorem(implies(X_101, or(X_4, X_101))) |
+     theorem(or(X_4, X_101))),
+    inference(subst, [],
+              [rule_2 :
+               [bind(X, $fot(or(X_4, X_101))), bind(Y, $fot(X_101))]])).
+
+cnf(refute_0_88, plain, (~ theorem(X_101) | theorem(or(X_4, X_101))),
+    inference(resolve, [$cnf(theorem(implies(X_101, or(X_4, X_101))))],
+              [refute_0_86, refute_0_87])).
+
+cnf(refute_0_89, plain,
+    (~ theorem(or(or(X_350, X_349), not(X_349))) |
+     theorem(or(X_4, or(or(X_350, X_349), not(X_349))))),
+    inference(subst, [],
+              [refute_0_88 :
+               [bind(X_101, $fot(or(or(X_350, X_349), not(X_349))))]])).
+
+cnf(refute_0_90, plain, (theorem(implies(X_340, or(X_4, X_340)))),
+    inference(subst, [], [refute_0_85 : [bind(X_3, $fot(X_340))]])).
+
+cnf(refute_0_91, plain,
+    (theorem(implies(or(not(X), X_18), or(X_18, not(X))))),
+    inference(subst, [],
+              [refute_0_56 :
+               [bind(X_5, $fot(not(X))), bind(X_6, $fot(X_18))]])).
+
+cnf(refute_0_92, plain, (implies(X, X_18) = or(not(X), X_18)),
+    inference(subst, [], [implies_definition : [bind(Y, $fot(X_18))]])).
+
+cnf(refute_0_93, plain,
+    (implies(X, X_18) != or(not(X), X_18) |
+     or(not(X), X_18) = implies(X, X_18)),
+    inference(subst, [],
+              [refute_0_2 :
+               [bind(X0, $fot(implies(X, X_18))),
+                bind(Y0, $fot(or(not(X), X_18)))]])).
+
+cnf(refute_0_94, plain, (or(not(X), X_18) = implies(X, X_18)),
+    inference(resolve, [$cnf($equal(implies(X, X_18), or(not(X), X_18)))],
+              [refute_0_92, refute_0_93])).
+
+cnf(refute_0_95, plain,
+    (or(not(X), X_18) != implies(X, X_18) |
+     ~ theorem(implies(or(not(X), X_18), or(X_18, not(X)))) |
+     theorem(implies(implies(X, X_18), or(X_18, not(X))))),
+    introduced(tautology,
+               [equality,
+                [$cnf(theorem(implies(or(not(X), X_18),
+                          or(X_18, not(X))))), [0, 0],
+                 $fot(implies(X, X_18))]])).
+
+cnf(refute_0_96, plain,
+    (~ theorem(implies(or(not(X), X_18), or(X_18, not(X)))) |
+     theorem(implies(implies(X, X_18), or(X_18, not(X))))),
+    inference(resolve, [$cnf($equal(or(not(X), X_18), implies(X, X_18)))],
+              [refute_0_94, refute_0_95])).
+
+cnf(refute_0_97, plain,
+    (theorem(implies(implies(X, X_18), or(X_18, not(X))))),
+    inference(resolve,
+              [$cnf(theorem(implies(or(not(X), X_18), or(X_18, not(X)))))],
+              [refute_0_91, refute_0_96])).
+
+cnf(refute_0_98, plain,
+    (~ theorem(implies(X, X_18)) |
+     ~ theorem(implies(implies(X, X_18), or(X_18, not(X)))) |
+     theorem(or(X_18, not(X)))),
+    inference(subst, [],
+              [rule_2 :
+               [bind(X, $fot(or(X_18, not(X)))),
+                bind(Y, $fot(implies(X, X_18)))]])).
+
+cnf(refute_0_99, plain,
+    (~ theorem(implies(X, X_18)) | theorem(or(X_18, not(X)))),
+    inference(resolve,
+              [$cnf(theorem(implies(implies(X, X_18), or(X_18, not(X)))))],
+              [refute_0_97, refute_0_98])).
+
+cnf(refute_0_100, plain,
+    (~ theorem(implies(X_340, or(X_4, X_340))) |
+     theorem(or(or(X_4, X_340), not(X_340)))),
+    inference(subst, [],
+              [refute_0_99 :
+               [bind(X, $fot(X_340)), bind(X_18, $fot(or(X_4, X_340)))]])).
+
+cnf(refute_0_101, plain, (theorem(or(or(X_4, X_340), not(X_340)))),
+    inference(resolve, [$cnf(theorem(implies(X_340, or(X_4, X_340))))],
+              [refute_0_90, refute_0_100])).
+
+cnf(refute_0_102, plain, (theorem(or(or(X_350, X_349), not(X_349)))),
+    inference(subst, [],
+              [refute_0_101 :
+               [bind(X_340, $fot(X_349)), bind(X_4, $fot(X_350))]])).
+
+cnf(refute_0_103, plain,
+    (theorem(or(X_4, or(or(X_350, X_349), not(X_349))))),
+    inference(resolve, [$cnf(theorem(or(or(X_350, X_349), not(X_349))))],
+              [refute_0_102, refute_0_89])).
+
+cnf(refute_0_104, plain,
+    (theorem(or(X_2107, or(or(X_350, X_349), not(X_349))))),
+    inference(subst, [], [refute_0_103 : [bind(X_4, $fot(X_2107))]])).
+
+cnf(refute_0_105, plain,
+    (~ theorem(or(X_2107, or(or(X_350, X_349), not(X_349)))) |
+     theorem(or(or(X_350, X_349), or(X_2107, not(X_349))))),
+    inference(subst, [],
+              [refute_0_77 :
+               [bind(X_29, $fot(X_2107)),
+                bind(X_30, $fot(or(X_350, X_349))),
+                bind(X_31, $fot(not(X_349)))]])).
+
+cnf(refute_0_106, plain,
+    (theorem(or(or(X_350, X_349), or(X_2107, not(X_349))))),
+    inference(resolve,
+              [$cnf(theorem(or(X_2107,
+                        or(or(X_350, X_349), not(X_349)))))],
+              [refute_0_104, refute_0_105])).
+
+cnf(refute_0_107, plain,
+    (theorem(or(or(X_2114, X_2113), or(X_2112, not(X_2113))))),
+    inference(subst, [],
+              [refute_0_106 :
+               [bind(X_2107, $fot(X_2112)), bind(X_349, $fot(X_2113)),
+                bind(X_350, $fot(X_2114))]])).
+
+cnf(refute_0_108, plain,
+    (theorem(or(or(X_2112, not(X_2113)), or(X_2114, X_2113)))),
+    inference(resolve,
+              [$cnf(theorem(or(or(X_2114, X_2113),
+                        or(X_2112, not(X_2113)))))],
+              [refute_0_107, refute_0_82])).
+
+cnf(refute_0_109, plain,
+    (theorem(or(or(X_2175, not(X_2176)), or(X_2177, X_2176)))),
+    inference(subst, [],
+              [refute_0_108 :
+               [bind(X_2112, $fot(X_2175)), bind(X_2113, $fot(X_2176)),
+                bind(X_2114, $fot(X_2177))]])).
+
+cnf(refute_0_110, plain,
+    (theorem(or(X_2177, or(or(X_2175, not(X_2176)), X_2176)))),
+    inference(resolve,
+              [$cnf(theorem(or(or(X_2175, not(X_2176)),
+                        or(X_2177, X_2176))))],
+              [refute_0_109, refute_0_81])).
+
+cnf(refute_0_111, plain,
+    (theorem(or(or(or(X_2356, not(X_2357)), X_2357),
+         or(or(X_2356, not(X_2357)), X_2357)))),
+    inference(subst, [],
+              [refute_0_110 :
+               [bind(X_2175, $fot(X_2356)), bind(X_2176, $fot(X_2357)),
+                bind(X_2177,
+                     $fot(or(or(X_2356, not(X_2357)), X_2357)))]])).
+
+cnf(refute_0_112, plain, (theorem(or(or(X_2356, not(X_2357)), X_2357))),
+    inference(resolve,
+              [$cnf(theorem(or(or(or(X_2356, not(X_2357)), X_2357),
+                        or(or(X_2356, not(X_2357)), X_2357))))],
+              [refute_0_111, refute_0_80])).
+
+cnf(refute_0_113, plain, (theorem(or(or(X_2359, not(X_2360)), X_2360))),
+    inference(subst, [],
+              [refute_0_112 :
+               [bind(X_2356, $fot(X_2359)), bind(X_2357, $fot(X_2360))]])).
+
+cnf(refute_0_114, plain, (theorem(or(X_2360, or(X_2359, not(X_2360))))),
+    inference(resolve,
+              [$cnf(theorem(or(or(X_2359, not(X_2360)), X_2360)))],
+              [refute_0_113, refute_0_79])).
+
+cnf(refute_0_115, plain, (theorem(or(X_2362, or(X_2361, not(X_2362))))),
+    inference(subst, [],
+              [refute_0_114 :
+               [bind(X_2359, $fot(X_2361)), bind(X_2360, $fot(X_2362))]])).
+
+cnf(refute_0_116, plain, (theorem(or(X_2361, or(X_2362, not(X_2362))))),
+    inference(resolve,
+              [$cnf(theorem(or(X_2362, or(X_2361, not(X_2362)))))],
+              [refute_0_115, refute_0_78])).
+
+cnf(refute_0_117, plain,
+    (theorem(or(or(X_2370, not(X_2370)), or(X_2370, not(X_2370))))),
+    inference(subst, [],
+              [refute_0_116 :
+               [bind(X_2361, $fot(or(X_2370, not(X_2370)))),
+                bind(X_2362, $fot(X_2370))]])).
+
+cnf(refute_0_118, plain, (theorem(or(X_2370, not(X_2370)))),
+    inference(resolve,
+              [$cnf(theorem(or(or(X_2370, not(X_2370)),
+                        or(X_2370, not(X_2370)))))],
+              [refute_0_117, refute_0_72])).
+
+cnf(refute_0_119, plain, (theorem(or(X_2371, not(X_2371)))),
+    inference(subst, [], [refute_0_118 : [bind(X_2370, $fot(X_2371))]])).
+
+cnf(refute_0_120, plain, (theorem(or(not(X_2371), X_2371))),
+    inference(resolve, [$cnf(theorem(or(X_2371, not(X_2371))))],
+              [refute_0_119, refute_0_68])).
+
+cnf(refute_0_121, plain,
+    (or(not(X_2371), X_2371) = implies(X_2371, X_2371)),
+    inference(subst, [],
+              [refute_0_4 :
+               [bind(X, $fot(X_2371)), bind(Y, $fot(X_2371))]])).
+
+cnf(refute_0_122, plain,
+    (or(not(X_2371), X_2371) != implies(X_2371, X_2371) |
+     ~ theorem(or(not(X_2371), X_2371)) |
+     theorem(implies(X_2371, X_2371))),
+    introduced(tautology,
+               [equality,
+                [$cnf(theorem(or(not(X_2371), X_2371))), [0],
+                 $fot(implies(X_2371, X_2371))]])).
+
+cnf(refute_0_123, plain,
+    (~ theorem(or(not(X_2371), X_2371)) |
+     theorem(implies(X_2371, X_2371))),
+    inference(resolve,
+              [$cnf($equal(or(not(X_2371), X_2371),
+                      implies(X_2371, X_2371)))],
+              [refute_0_121, refute_0_122])).
+
+cnf(refute_0_124, plain, (theorem(implies(X_2371, X_2371))),
+    inference(resolve, [$cnf(theorem(or(not(X_2371), X_2371)))],
+              [refute_0_120, refute_0_123])).
+
+cnf(refute_0_125, plain, (theorem(implies(X_2372, X_2372))),
+    inference(subst, [], [refute_0_124 : [bind(X_2371, $fot(X_2372))]])).
+
+cnf(refute_0_126, plain,
+    (theorem(and(implies(X_2372, X_2372), implies(X_2372, X_2372)))),
+    inference(resolve, [$cnf(theorem(implies(X_2372, X_2372)))],
+              [refute_0_125, refute_0_67])).
+
+cnf(refute_0_127, plain,
+    (equivalent(P, Q) != and(implies(P, Q), implies(Q, P)) |
+     and(implies(P, Q), implies(Q, P)) = equivalent(P, Q)),
+    inference(subst, [],
+              [refute_0_2 :
+               [bind(X0, $fot(equivalent(P, Q))),
+                bind(Y0, $fot(and(implies(P, Q), implies(Q, P))))]])).
+
+cnf(refute_0_128, plain,
+    (and(implies(P, Q), implies(Q, P)) = equivalent(P, Q)),
+    inference(resolve,
+              [$cnf($equal(equivalent(P, Q),
+                      and(implies(P, Q), implies(Q, P))))],
+              [equivalent_defn, refute_0_127])).
+
+cnf(refute_0_129, plain,
+    (and(implies(X_2372, X_2372), implies(X_2372, X_2372)) =
+     equivalent(X_2372, X_2372)),
+    inference(subst, [],
+              [refute_0_128 :
+               [bind(P, $fot(X_2372)), bind(Q, $fot(X_2372))]])).
+
+cnf(refute_0_130, plain,
+    (and(implies(X_2372, X_2372), implies(X_2372, X_2372)) !=
+     equivalent(X_2372, X_2372) |
+     ~ theorem(and(implies(X_2372, X_2372), implies(X_2372, X_2372))) |
+     theorem(equivalent(X_2372, X_2372))),
+    introduced(tautology,
+               [equality,
+                [$cnf(theorem(and(implies(X_2372, X_2372),
+                          implies(X_2372, X_2372)))), [0],
+                 $fot(equivalent(X_2372, X_2372))]])).
+
+cnf(refute_0_131, plain,
+    (~ theorem(and(implies(X_2372, X_2372), implies(X_2372, X_2372))) |
+     theorem(equivalent(X_2372, X_2372))),
+    inference(resolve,
+              [$cnf($equal(and(implies(X_2372, X_2372),
+                        implies(X_2372, X_2372)),
+                      equivalent(X_2372, X_2372)))],
+              [refute_0_129, refute_0_130])).
+
+cnf(refute_0_132, plain, (theorem(equivalent(X_2372, X_2372))),
+    inference(resolve,
+              [$cnf(theorem(and(implies(X_2372, X_2372),
+                        implies(X_2372, X_2372))))],
+              [refute_0_126, refute_0_131])).
+
+cnf(refute_0_133, plain, (theorem(equivalent(and(p, q), and(p, q)))),
+    inference(subst, [],
+              [refute_0_132 : [bind(X_2372, $fot(and(p, q)))]])).
+
+cnf(refute_0_134, plain, ($false),
+    inference(resolve, [$cnf(theorem(equivalent(and(p, q), and(p, q))))],
+              [refute_0_133, refute_0_32])).
+% SZS output end CNFRefutation for LCL287-3.tptp
+

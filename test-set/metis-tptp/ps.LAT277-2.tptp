@@ -1,0 +1,50 @@
+%------------------------------------------------------------------------------
+% File     : LAT277-2 : TPTP v7.3.0. Released v3.2.0.
+% Domain   : Analysis
+% Problem  : Problem about Tarski's fixed point theorem
+% Version  : [Pau06] axioms : Reduced > Especial.
+% English  :
+
+% Refs     : [Pau06] Paulson (2006), Email to G. Sutcliffe
+% Source   : [Pau06]
+% Names    :
+
+% Status   : Unsatisfiable
+% Rating   : 0.00 v4.1.0, 0.11 v4.0.1, 0.17 v3.3.0, 0.29 v3.2.0
+% Syntax   : Number of clauses     :    7 (   0 non-Horn;   5 unit;   7 RR)
+%            Number of atoms       :   10 (   2 equality)
+%            Maximal clause size   :    3 (   1 average)
+%            Number of predicates  :    3 (   0 propositional; 2-3 arity)
+%            Number of functors    :   12 (   7 constant; 0-4 arity)
+%            Number of variables   :    6 (   0 singleton)
+%            Maximal term depth    :    2 (   1 average)
+% SPC      : CNF_UNS_RFO_SEQ_HRN
+
+% Comments : The problems in the [Pau06] collection each have very many axioms,
+%            of which only a small selection are required for the refutation.
+%            The mission is to find those few axioms, after which a refutation
+%            can be quite easily found. This version has only the necessary
+%            axioms.
+%          : tptp2X 
+%------------------------------------------------------------------------------
+cnf(cls_conjecture_0,negated_conjecture,
+    ( c_in(v_x,v_A,t_a) )).
+
+cnf(cls_conjecture_1,negated_conjecture,
+    ( ~ c_in(c_Pair(v_x,v_x,t_a,t_a),v_r,tc_prod(t_a,t_a)) )).
+
+cnf(cls_Relation_OreflD_0,axiom,
+    ( ~ c_Relation_Orefl(V_A,V_r,T_a) | ~ c_in(V_a,V_A,T_a) | c_in(c_Pair(V_a,V_a,T_a,T_a),V_r,tc_prod(T_a,T_a)) )).
+
+cnf(cls_Tarski_OA_A_61_61_Apset_Acl_0,axiom,
+    ( v_A = c_Tarski_Opotype_Opset(v_cl,t_a,tc_Product__Type_Ounit) )).
+
+cnf(cls_Tarski_OPartialOrder__iff_0,axiom,
+    ( ~ c_in(V_P,c_Tarski_OPartialOrder,tc_Tarski_Opotype_Opotype__ext__type(T_a,tc_Product__Type_Ounit)) | c_Relation_Orefl(c_Tarski_Opotype_Opset(V_P,T_a,tc_Product__Type_Ounit),c_Tarski_Opotype_Oorder(V_P,T_a,tc_Product__Type_Ounit),T_a) )).
+
+cnf(cls_Tarski_Ocl_A_58_APartialOrder_0,axiom,
+    ( c_in(v_cl,c_Tarski_OPartialOrder,tc_Tarski_Opotype_Opotype__ext__type(t_a,tc_Product__Type_Ounit)) )).
+
+cnf(cls_Tarski_Or_A_61_61_Aorder_Acl_0,axiom,
+    ( v_r = c_Tarski_Opotype_Oorder(v_cl,t_a,tc_Product__Type_Ounit) )).
+%------------------------------------------------------------------------------

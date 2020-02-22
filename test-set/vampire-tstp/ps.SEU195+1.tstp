@@ -1,0 +1,216 @@
+% Refutation found. Thanks to Tanya!
+% SZS status Theorem for SEU195+1
+% SZS output start Proof for SEU195+1
+fof(f409234,plain,(
+  $false),
+  inference(trivial_inequality_removal,[],[f409215])).
+fof(f409215,plain,(
+  relation_dom_restriction(sK10,sK9) != relation_dom_restriction(sK10,sK9)),
+  inference(superposition,[],[f120,f408764])).
+fof(f408764,plain,(
+  ( ! [X16] : (relation_dom_restriction(sK10,X16) = relation_composition(identity_relation(X16),sK10)) )),
+  inference(resolution,[],[f408756,f119])).
+fof(f119,plain,(
+  relation(sK10)),
+  inference(cnf_transformation,[],[f76])).
+fof(f76,plain,(
+  relation_dom_restriction(sK10,sK9) != relation_composition(identity_relation(sK9),sK10) & relation(sK10)),
+  inference(skolemisation,[status(esa),new_symbols(skolem,[sK9,sK10])],[f53,f75])).
+fof(f75,plain,(
+  ? [X0,X1] : (relation_dom_restriction(X1,X0) != relation_composition(identity_relation(X0),X1) & relation(X1)) => (relation_dom_restriction(sK10,sK9) != relation_composition(identity_relation(sK9),sK10) & relation(sK10))),
+  introduced(choice_axiom,[])).
+fof(f53,plain,(
+  ? [X0,X1] : (relation_dom_restriction(X1,X0) != relation_composition(identity_relation(X0),X1) & relation(X1))),
+  inference(ennf_transformation,[],[f34])).
+fof(f34,negated_conjecture,(
+  ~! [X0,X1] : (relation(X1) => relation_dom_restriction(X1,X0) = relation_composition(identity_relation(X0),X1))),
+  inference(negated_conjecture,[],[f33])).
+fof(f33,conjecture,(
+  ! [X0,X1] : (relation(X1) => relation_dom_restriction(X1,X0) = relation_composition(identity_relation(X0),X1))),
+  file('SEU195+1.tptp',unknown)).
+fof(f408756,plain,(
+  ( ! [X4,X5] : (~relation(X4) | relation_dom_restriction(X4,X5) = relation_composition(identity_relation(X5),X4)) )),
+  inference(subsumption_resolution,[],[f408754,f92])).
+fof(f92,plain,(
+  ( ! [X0] : (relation(identity_relation(X0))) )),
+  inference(cnf_transformation,[],[f12])).
+fof(f12,axiom,(
+  ! [X0] : relation(identity_relation(X0))),
+  file('SEU195+1.tptp',unknown)).
+fof(f408754,plain,(
+  ( ! [X4,X5] : (relation_dom_restriction(X4,X5) = relation_composition(identity_relation(X5),X4) | ~relation(X4) | ~relation(identity_relation(X5))) )),
+  inference(duplicate_literal_removal,[],[f408745])).
+fof(f408745,plain,(
+  ( ! [X4,X5] : (relation_dom_restriction(X4,X5) = relation_composition(identity_relation(X5),X4) | ~relation(X4) | ~relation(X4) | ~relation(identity_relation(X5))) )),
+  inference(resolution,[],[f67557,f91])).
+fof(f91,plain,(
+  ( ! [X0,X1] : (relation(relation_composition(X0,X1)) | ~relation(X1) | ~relation(X0)) )),
+  inference(cnf_transformation,[],[f40])).
+fof(f40,plain,(
+  ! [X0,X1] : (relation(relation_composition(X0,X1)) | ~relation(X1) | ~relation(X0))),
+  inference(flattening,[],[f39])).
+fof(f39,plain,(
+  ! [X0,X1] : (relation(relation_composition(X0,X1)) | (~relation(X1) | ~relation(X0)))),
+  inference(ennf_transformation,[],[f11])).
+fof(f11,axiom,(
+  ! [X0,X1] : ((relation(X1) & relation(X0)) => relation(relation_composition(X0,X1)))),
+  file('SEU195+1.tptp',unknown)).
+fof(f67557,plain,(
+  ( ! [X33,X34] : (~relation(relation_composition(identity_relation(X34),X33)) | relation_dom_restriction(X33,X34) = relation_composition(identity_relation(X34),X33) | ~relation(X33)) )),
+  inference(subsumption_resolution,[],[f67544,f670])).
+fof(f670,plain,(
+  ( ! [X2,X0,X1] : (in(sK0(X0,X1,relation_composition(identity_relation(X1),X2)),X1) | ~relation(relation_composition(identity_relation(X1),X2)) | ~relation(X0) | relation_dom_restriction(X0,X1) = relation_composition(identity_relation(X1),X2) | ~relation(X2)) )),
+  inference(factoring,[],[f245])).
+fof(f245,plain,(
+  ( ! [X6,X4,X7,X5] : (in(sK0(X4,X5,relation_composition(identity_relation(X6),X7)),X6) | in(sK0(X4,X5,relation_composition(identity_relation(X6),X7)),X5) | ~relation(relation_composition(identity_relation(X6),X7)) | ~relation(X4) | relation_composition(identity_relation(X6),X7) = relation_dom_restriction(X4,X5) | ~relation(X7)) )),
+  inference(resolution,[],[f146,f161])).
+fof(f161,plain,(
+  ( ! [X2,X0,X3,X1] : (~in(unordered_pair(singleton(X0),unordered_pair(X0,X1)),relation_composition(identity_relation(X2),X3)) | in(X0,X2) | ~relation(X3)) )),
+  inference(forward_demodulation,[],[f134,f79])).
+fof(f79,plain,(
+  ( ! [X0,X1] : (unordered_pair(X0,X1) = unordered_pair(X1,X0)) )),
+  inference(cnf_transformation,[],[f3])).
+fof(f3,axiom,(
+  ! [X0,X1] : unordered_pair(X0,X1) = unordered_pair(X1,X0)),
+  file('SEU195+1.tptp',unknown)).
+fof(f134,plain,(
+  ( ! [X2,X0,X3,X1] : (in(X0,X2) | ~in(unordered_pair(unordered_pair(X0,X1),singleton(X0)),relation_composition(identity_relation(X2),X3)) | ~relation(X3)) )),
+  inference(definition_unfolding,[],[f114,f90])).
+fof(f90,plain,(
+  ( ! [X0,X1] : (ordered_pair(X0,X1) = unordered_pair(unordered_pair(X0,X1),singleton(X0))) )),
+  inference(cnf_transformation,[],[f6])).
+fof(f6,axiom,(
+  ! [X0,X1] : ordered_pair(X0,X1) = unordered_pair(unordered_pair(X0,X1),singleton(X0))),
+  file('SEU195+1.tptp',unknown)).
+fof(f114,plain,(
+  ( ! [X2,X0,X3,X1] : (in(X0,X2) | ~in(ordered_pair(X0,X1),relation_composition(identity_relation(X2),X3)) | ~relation(X3)) )),
+  inference(cnf_transformation,[],[f74])).
+fof(f74,plain,(
+  ! [X0,X1,X2,X3] : (((in(ordered_pair(X0,X1),relation_composition(identity_relation(X2),X3)) | ~in(ordered_pair(X0,X1),X3) | ~in(X0,X2)) & ((in(ordered_pair(X0,X1),X3) & in(X0,X2)) | ~in(ordered_pair(X0,X1),relation_composition(identity_relation(X2),X3)))) | ~relation(X3))),
+  inference(flattening,[],[f73])).
+fof(f73,plain,(
+  ! [X0,X1,X2,X3] : (((in(ordered_pair(X0,X1),relation_composition(identity_relation(X2),X3)) | (~in(ordered_pair(X0,X1),X3) | ~in(X0,X2))) & ((in(ordered_pair(X0,X1),X3) & in(X0,X2)) | ~in(ordered_pair(X0,X1),relation_composition(identity_relation(X2),X3)))) | ~relation(X3))),
+  inference(nnf_transformation,[],[f50])).
+fof(f50,plain,(
+  ! [X0,X1,X2,X3] : ((in(ordered_pair(X0,X1),relation_composition(identity_relation(X2),X3)) <=> (in(ordered_pair(X0,X1),X3) & in(X0,X2))) | ~relation(X3))),
+  inference(ennf_transformation,[],[f30])).
+fof(f30,axiom,(
+  ! [X0,X1,X2,X3] : (relation(X3) => (in(ordered_pair(X0,X1),relation_composition(identity_relation(X2),X3)) <=> (in(ordered_pair(X0,X1),X3) & in(X0,X2))))),
+  file('SEU195+1.tptp',unknown)).
+fof(f146,plain,(
+  ( ! [X2,X0,X1] : (in(unordered_pair(singleton(sK0(X0,X1,X2)),unordered_pair(sK0(X0,X1,X2),sK1(X0,X1,X2))),X2) | relation_dom_restriction(X0,X1) = X2 | in(sK0(X0,X1,X2),X1) | ~relation(X2) | ~relation(X0)) )),
+  inference(forward_demodulation,[],[f123,f79])).
+fof(f123,plain,(
+  ( ! [X2,X0,X1] : (relation_dom_restriction(X0,X1) = X2 | in(sK0(X0,X1,X2),X1) | in(unordered_pair(unordered_pair(sK0(X0,X1,X2),sK1(X0,X1,X2)),singleton(sK0(X0,X1,X2))),X2) | ~relation(X2) | ~relation(X0)) )),
+  inference(definition_unfolding,[],[f83,f90])).
+fof(f83,plain,(
+  ( ! [X2,X0,X1] : (relation_dom_restriction(X0,X1) = X2 | in(sK0(X0,X1,X2),X1) | in(ordered_pair(sK0(X0,X1,X2),sK1(X0,X1,X2)),X2) | ~relation(X2) | ~relation(X0)) )),
+  inference(cnf_transformation,[],[f58])).
+fof(f58,plain,(
+  ! [X0] : (! [X1,X2] : (((relation_dom_restriction(X0,X1) = X2 | ((~in(ordered_pair(sK0(X0,X1,X2),sK1(X0,X1,X2)),X0) | ~in(sK0(X0,X1,X2),X1) | ~in(ordered_pair(sK0(X0,X1,X2),sK1(X0,X1,X2)),X2)) & ((in(ordered_pair(sK0(X0,X1,X2),sK1(X0,X1,X2)),X0) & in(sK0(X0,X1,X2),X1)) | in(ordered_pair(sK0(X0,X1,X2),sK1(X0,X1,X2)),X2)))) & (! [X5,X6] : ((in(ordered_pair(X5,X6),X2) | ~in(ordered_pair(X5,X6),X0) | ~in(X5,X1)) & ((in(ordered_pair(X5,X6),X0) & in(X5,X1)) | ~in(ordered_pair(X5,X6),X2))) | relation_dom_restriction(X0,X1) != X2)) | ~relation(X2)) | ~relation(X0))),
+  inference(skolemisation,[status(esa),new_symbols(skolem,[sK0,sK1])],[f56,f57])).
+fof(f57,plain,(
+  ! [X2,X1,X0] : (? [X3,X4] : ((~in(ordered_pair(X3,X4),X0) | ~in(X3,X1) | ~in(ordered_pair(X3,X4),X2)) & ((in(ordered_pair(X3,X4),X0) & in(X3,X1)) | in(ordered_pair(X3,X4),X2))) => ((~in(ordered_pair(sK0(X0,X1,X2),sK1(X0,X1,X2)),X0) | ~in(sK0(X0,X1,X2),X1) | ~in(ordered_pair(sK0(X0,X1,X2),sK1(X0,X1,X2)),X2)) & ((in(ordered_pair(sK0(X0,X1,X2),sK1(X0,X1,X2)),X0) & in(sK0(X0,X1,X2),X1)) | in(ordered_pair(sK0(X0,X1,X2),sK1(X0,X1,X2)),X2))))),
+  introduced(choice_axiom,[])).
+fof(f56,plain,(
+  ! [X0] : (! [X1,X2] : (((relation_dom_restriction(X0,X1) = X2 | ? [X3,X4] : ((~in(ordered_pair(X3,X4),X0) | ~in(X3,X1) | ~in(ordered_pair(X3,X4),X2)) & ((in(ordered_pair(X3,X4),X0) & in(X3,X1)) | in(ordered_pair(X3,X4),X2)))) & (! [X5,X6] : ((in(ordered_pair(X5,X6),X2) | ~in(ordered_pair(X5,X6),X0) | ~in(X5,X1)) & ((in(ordered_pair(X5,X6),X0) & in(X5,X1)) | ~in(ordered_pair(X5,X6),X2))) | relation_dom_restriction(X0,X1) != X2)) | ~relation(X2)) | ~relation(X0))),
+  inference(rectify,[],[f55])).
+fof(f55,plain,(
+  ! [X0] : (! [X1,X2] : (((relation_dom_restriction(X0,X1) = X2 | ? [X3,X4] : ((~in(ordered_pair(X3,X4),X0) | ~in(X3,X1) | ~in(ordered_pair(X3,X4),X2)) & ((in(ordered_pair(X3,X4),X0) & in(X3,X1)) | in(ordered_pair(X3,X4),X2)))) & (! [X3,X4] : ((in(ordered_pair(X3,X4),X2) | ~in(ordered_pair(X3,X4),X0) | ~in(X3,X1)) & ((in(ordered_pair(X3,X4),X0) & in(X3,X1)) | ~in(ordered_pair(X3,X4),X2))) | relation_dom_restriction(X0,X1) != X2)) | ~relation(X2)) | ~relation(X0))),
+  inference(flattening,[],[f54])).
+fof(f54,plain,(
+  ! [X0] : (! [X1,X2] : (((relation_dom_restriction(X0,X1) = X2 | ? [X3,X4] : (((~in(ordered_pair(X3,X4),X0) | ~in(X3,X1)) | ~in(ordered_pair(X3,X4),X2)) & ((in(ordered_pair(X3,X4),X0) & in(X3,X1)) | in(ordered_pair(X3,X4),X2)))) & (! [X3,X4] : ((in(ordered_pair(X3,X4),X2) | (~in(ordered_pair(X3,X4),X0) | ~in(X3,X1))) & ((in(ordered_pair(X3,X4),X0) & in(X3,X1)) | ~in(ordered_pair(X3,X4),X2))) | relation_dom_restriction(X0,X1) != X2)) | ~relation(X2)) | ~relation(X0))),
+  inference(nnf_transformation,[],[f37])).
+fof(f37,plain,(
+  ! [X0] : (! [X1,X2] : ((relation_dom_restriction(X0,X1) = X2 <=> ! [X3,X4] : (in(ordered_pair(X3,X4),X2) <=> (in(ordered_pair(X3,X4),X0) & in(X3,X1)))) | ~relation(X2)) | ~relation(X0))),
+  inference(ennf_transformation,[],[f4])).
+fof(f4,axiom,(
+  ! [X0] : (relation(X0) => ! [X1,X2] : (relation(X2) => (relation_dom_restriction(X0,X1) = X2 <=> ! [X3,X4] : (in(ordered_pair(X3,X4),X2) <=> (in(ordered_pair(X3,X4),X0) & in(X3,X1))))))),
+  file('SEU195+1.tptp',unknown)).
+fof(f67544,plain,(
+  ( ! [X33,X34] : (~relation(X33) | relation_dom_restriction(X33,X34) = relation_composition(identity_relation(X34),X33) | ~relation(relation_composition(identity_relation(X34),X33)) | ~in(sK0(X33,X34,relation_composition(identity_relation(X34),X33)),X34)) )),
+  inference(duplicate_literal_removal,[],[f67491])).
+fof(f67491,plain,(
+  ( ! [X33,X34] : (~relation(X33) | relation_dom_restriction(X33,X34) = relation_composition(identity_relation(X34),X33) | ~relation(relation_composition(identity_relation(X34),X33)) | ~in(sK0(X33,X34,relation_composition(identity_relation(X34),X33)),X34) | ~relation(relation_composition(identity_relation(X34),X33)) | ~relation(X33) | relation_dom_restriction(X33,X34) = relation_composition(identity_relation(X34),X33) | ~relation(X33)) )),
+  inference(resolution,[],[f8591,f670])).
+fof(f8591,plain,(
+  ( ! [X2,X0,X1] : (~in(sK0(X1,X2,relation_composition(identity_relation(X0),X1)),X2) | ~relation(X1) | relation_composition(identity_relation(X0),X1) = relation_dom_restriction(X1,X2) | ~relation(relation_composition(identity_relation(X0),X1)) | ~in(sK0(X1,X2,relation_composition(identity_relation(X0),X1)),X0)) )),
+  inference(subsumption_resolution,[],[f8590,f1691])).
+fof(f1691,plain,(
+  ( ! [X2,X0,X1] : (in(unordered_pair(singleton(sK0(X0,X1,relation_composition(identity_relation(X2),X0))),unordered_pair(sK0(X0,X1,relation_composition(identity_relation(X2),X0)),sK1(X0,X1,relation_composition(identity_relation(X2),X0)))),X0) | ~relation(relation_composition(identity_relation(X2),X0)) | ~relation(X0) | relation_dom_restriction(X0,X1) = relation_composition(identity_relation(X2),X0)) )),
+  inference(duplicate_literal_removal,[],[f1688])).
+fof(f1688,plain,(
+  ( ! [X2,X0,X1] : (in(unordered_pair(singleton(sK0(X0,X1,relation_composition(identity_relation(X2),X0))),unordered_pair(sK0(X0,X1,relation_composition(identity_relation(X2),X0)),sK1(X0,X1,relation_composition(identity_relation(X2),X0)))),X0) | ~relation(relation_composition(identity_relation(X2),X0)) | ~relation(X0) | relation_dom_restriction(X0,X1) = relation_composition(identity_relation(X2),X0) | ~relation(X0)) )),
+  inference(factoring,[],[f301])).
+fof(f301,plain,(
+  ( ! [X2,X0,X3,X1] : (in(unordered_pair(singleton(sK0(X0,X1,relation_composition(identity_relation(X2),X3))),unordered_pair(sK0(X0,X1,relation_composition(identity_relation(X2),X3)),sK1(X0,X1,relation_composition(identity_relation(X2),X3)))),X3) | in(unordered_pair(singleton(sK0(X0,X1,relation_composition(identity_relation(X2),X3))),unordered_pair(sK0(X0,X1,relation_composition(identity_relation(X2),X3)),sK1(X0,X1,relation_composition(identity_relation(X2),X3)))),X0) | ~relation(relation_composition(identity_relation(X2),X3)) | ~relation(X0) | relation_dom_restriction(X0,X1) = relation_composition(identity_relation(X2),X3) | ~relation(X3)) )),
+  inference(resolution,[],[f145,f160])).
+fof(f160,plain,(
+  ( ! [X2,X0,X3,X1] : (~in(unordered_pair(singleton(X0),unordered_pair(X0,X1)),relation_composition(identity_relation(X2),X3)) | in(unordered_pair(singleton(X0),unordered_pair(X0,X1)),X3) | ~relation(X3)) )),
+  inference(forward_demodulation,[],[f159,f79])).
+fof(f159,plain,(
+  ( ! [X2,X0,X3,X1] : (in(unordered_pair(singleton(X0),unordered_pair(X0,X1)),X3) | ~in(unordered_pair(unordered_pair(X0,X1),singleton(X0)),relation_composition(identity_relation(X2),X3)) | ~relation(X3)) )),
+  inference(forward_demodulation,[],[f133,f79])).
+fof(f133,plain,(
+  ( ! [X2,X0,X3,X1] : (in(unordered_pair(unordered_pair(X0,X1),singleton(X0)),X3) | ~in(unordered_pair(unordered_pair(X0,X1),singleton(X0)),relation_composition(identity_relation(X2),X3)) | ~relation(X3)) )),
+  inference(definition_unfolding,[],[f115,f90,f90])).
+fof(f115,plain,(
+  ( ! [X2,X0,X3,X1] : (in(ordered_pair(X0,X1),X3) | ~in(ordered_pair(X0,X1),relation_composition(identity_relation(X2),X3)) | ~relation(X3)) )),
+  inference(cnf_transformation,[],[f74])).
+fof(f145,plain,(
+  ( ! [X2,X0,X1] : (in(unordered_pair(singleton(sK0(X0,X1,X2)),unordered_pair(sK0(X0,X1,X2),sK1(X0,X1,X2))),X2) | in(unordered_pair(singleton(sK0(X0,X1,X2)),unordered_pair(sK0(X0,X1,X2),sK1(X0,X1,X2))),X0) | relation_dom_restriction(X0,X1) = X2 | ~relation(X2) | ~relation(X0)) )),
+  inference(forward_demodulation,[],[f144,f79])).
+fof(f144,plain,(
+  ( ! [X2,X0,X1] : (in(unordered_pair(singleton(sK0(X0,X1,X2)),unordered_pair(sK0(X0,X1,X2),sK1(X0,X1,X2))),X0) | relation_dom_restriction(X0,X1) = X2 | in(unordered_pair(unordered_pair(sK0(X0,X1,X2),sK1(X0,X1,X2)),singleton(sK0(X0,X1,X2))),X2) | ~relation(X2) | ~relation(X0)) )),
+  inference(forward_demodulation,[],[f122,f79])).
+fof(f122,plain,(
+  ( ! [X2,X0,X1] : (relation_dom_restriction(X0,X1) = X2 | in(unordered_pair(unordered_pair(sK0(X0,X1,X2),sK1(X0,X1,X2)),singleton(sK0(X0,X1,X2))),X0) | in(unordered_pair(unordered_pair(sK0(X0,X1,X2),sK1(X0,X1,X2)),singleton(sK0(X0,X1,X2))),X2) | ~relation(X2) | ~relation(X0)) )),
+  inference(definition_unfolding,[],[f84,f90,f90])).
+fof(f84,plain,(
+  ( ! [X2,X0,X1] : (relation_dom_restriction(X0,X1) = X2 | in(ordered_pair(sK0(X0,X1,X2),sK1(X0,X1,X2)),X0) | in(ordered_pair(sK0(X0,X1,X2),sK1(X0,X1,X2)),X2) | ~relation(X2) | ~relation(X0)) )),
+  inference(cnf_transformation,[],[f58])).
+fof(f8590,plain,(
+  ( ! [X2,X0,X1] : (~relation(relation_composition(identity_relation(X0),X1)) | ~relation(X1) | relation_composition(identity_relation(X0),X1) = relation_dom_restriction(X1,X2) | ~in(sK0(X1,X2,relation_composition(identity_relation(X0),X1)),X2) | ~in(unordered_pair(singleton(sK0(X1,X2,relation_composition(identity_relation(X0),X1))),unordered_pair(sK0(X1,X2,relation_composition(identity_relation(X0),X1)),sK1(X1,X2,relation_composition(identity_relation(X0),X1)))),X1) | ~in(sK0(X1,X2,relation_composition(identity_relation(X0),X1)),X0)) )),
+  inference(duplicate_literal_removal,[],[f8566])).
+fof(f8566,plain,(
+  ( ! [X2,X0,X1] : (~relation(relation_composition(identity_relation(X0),X1)) | ~relation(X1) | relation_composition(identity_relation(X0),X1) = relation_dom_restriction(X1,X2) | relation_composition(identity_relation(X0),X1) = relation_dom_restriction(X1,X2) | ~in(sK0(X1,X2,relation_composition(identity_relation(X0),X1)),X2) | ~relation(relation_composition(identity_relation(X0),X1)) | ~relation(X1) | ~in(unordered_pair(singleton(sK0(X1,X2,relation_composition(identity_relation(X0),X1))),unordered_pair(sK0(X1,X2,relation_composition(identity_relation(X0),X1)),sK1(X1,X2,relation_composition(identity_relation(X0),X1)))),X1) | ~in(sK0(X1,X2,relation_composition(identity_relation(X0),X1)),X0) | ~relation(X1)) )),
+  inference(resolution,[],[f1691,f339])).
+fof(f339,plain,(
+  ( ! [X10,X8,X11,X9] : (~in(unordered_pair(singleton(sK0(X8,X9,relation_composition(identity_relation(X10),X11))),unordered_pair(sK0(X8,X9,relation_composition(identity_relation(X10),X11)),sK1(X8,X9,relation_composition(identity_relation(X10),X11)))),X11) | relation_dom_restriction(X8,X9) = relation_composition(identity_relation(X10),X11) | ~in(sK0(X8,X9,relation_composition(identity_relation(X10),X11)),X9) | ~relation(relation_composition(identity_relation(X10),X11)) | ~relation(X8) | ~in(unordered_pair(singleton(sK0(X8,X9,relation_composition(identity_relation(X10),X11))),unordered_pair(sK0(X8,X9,relation_composition(identity_relation(X10),X11)),sK1(X8,X9,relation_composition(identity_relation(X10),X11)))),X8) | ~in(sK0(X8,X9,relation_composition(identity_relation(X10),X11)),X10) | ~relation(X11)) )),
+  inference(resolution,[],[f143,f158])).
+fof(f158,plain,(
+  ( ! [X2,X0,X3,X1] : (in(unordered_pair(singleton(X0),unordered_pair(X0,X1)),relation_composition(identity_relation(X2),X3)) | ~in(unordered_pair(singleton(X0),unordered_pair(X0,X1)),X3) | ~in(X0,X2) | ~relation(X3)) )),
+  inference(forward_demodulation,[],[f157,f79])).
+fof(f157,plain,(
+  ( ! [X2,X0,X3,X1] : (in(unordered_pair(singleton(X0),unordered_pair(X0,X1)),relation_composition(identity_relation(X2),X3)) | ~in(unordered_pair(unordered_pair(X0,X1),singleton(X0)),X3) | ~in(X0,X2) | ~relation(X3)) )),
+  inference(forward_demodulation,[],[f132,f79])).
+fof(f132,plain,(
+  ( ! [X2,X0,X3,X1] : (in(unordered_pair(unordered_pair(X0,X1),singleton(X0)),relation_composition(identity_relation(X2),X3)) | ~in(unordered_pair(unordered_pair(X0,X1),singleton(X0)),X3) | ~in(X0,X2) | ~relation(X3)) )),
+  inference(definition_unfolding,[],[f116,f90,f90])).
+fof(f116,plain,(
+  ( ! [X2,X0,X3,X1] : (in(ordered_pair(X0,X1),relation_composition(identity_relation(X2),X3)) | ~in(ordered_pair(X0,X1),X3) | ~in(X0,X2) | ~relation(X3)) )),
+  inference(cnf_transformation,[],[f74])).
+fof(f143,plain,(
+  ( ! [X2,X0,X1] : (~in(unordered_pair(singleton(sK0(X0,X1,X2)),unordered_pair(sK0(X0,X1,X2),sK1(X0,X1,X2))),X2) | ~in(unordered_pair(singleton(sK0(X0,X1,X2)),unordered_pair(sK0(X0,X1,X2),sK1(X0,X1,X2))),X0) | relation_dom_restriction(X0,X1) = X2 | ~in(sK0(X0,X1,X2),X1) | ~relation(X2) | ~relation(X0)) )),
+  inference(forward_demodulation,[],[f142,f79])).
+fof(f142,plain,(
+  ( ! [X2,X0,X1] : (~in(unordered_pair(singleton(sK0(X0,X1,X2)),unordered_pair(sK0(X0,X1,X2),sK1(X0,X1,X2))),X0) | relation_dom_restriction(X0,X1) = X2 | ~in(sK0(X0,X1,X2),X1) | ~in(unordered_pair(unordered_pair(sK0(X0,X1,X2),sK1(X0,X1,X2)),singleton(sK0(X0,X1,X2))),X2) | ~relation(X2) | ~relation(X0)) )),
+  inference(forward_demodulation,[],[f121,f79])).
+fof(f121,plain,(
+  ( ! [X2,X0,X1] : (relation_dom_restriction(X0,X1) = X2 | ~in(unordered_pair(unordered_pair(sK0(X0,X1,X2),sK1(X0,X1,X2)),singleton(sK0(X0,X1,X2))),X0) | ~in(sK0(X0,X1,X2),X1) | ~in(unordered_pair(unordered_pair(sK0(X0,X1,X2),sK1(X0,X1,X2)),singleton(sK0(X0,X1,X2))),X2) | ~relation(X2) | ~relation(X0)) )),
+  inference(definition_unfolding,[],[f85,f90,f90])).
+fof(f85,plain,(
+  ( ! [X2,X0,X1] : (relation_dom_restriction(X0,X1) = X2 | ~in(ordered_pair(sK0(X0,X1,X2),sK1(X0,X1,X2)),X0) | ~in(sK0(X0,X1,X2),X1) | ~in(ordered_pair(sK0(X0,X1,X2),sK1(X0,X1,X2)),X2) | ~relation(X2) | ~relation(X0)) )),
+  inference(cnf_transformation,[],[f58])).
+fof(f120,plain,(
+  relation_dom_restriction(sK10,sK9) != relation_composition(identity_relation(sK9),sK10)),
+  inference(cnf_transformation,[],[f76])).
+% SZS output end Proof for SEU195+1
+% ------------------------------
+% Version: Vampire 4.4.0 (commit d98a3d53 on 2020-01-14 21:02:12 +0100)
+% Termination reason: Refutation
+
+% Memory used [KB]: 217992
+% Time elapsed: 39.379 s
+% ------------------------------
+% ------------------------------

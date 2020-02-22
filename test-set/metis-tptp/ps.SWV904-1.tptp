@@ -1,0 +1,115 @@
+%------------------------------------------------------------------------------
+% File     : SWV904-1 : TPTP v7.3.0. Released v4.1.0.
+% Domain   : Software Verification
+% Problem  : Hoare logic with procedures 450_1
+% Version  : Especial.
+% English  : Completeness is taken relative to completeness of the underlying
+%            logic. Two versions of completeness proof: nested single recursion
+%            and simultaneous recursion in call rule.
+
+% Refs     : [Nip10] Nipkow (2010), Email to Geoff Sutcliffe
+%          : [BN10]  Boehme & Nipkow (2010), Sledgehammer: Judgement Day
+% Source   : [Nip10]
+% Names    : Hoare-450_1 [Nip10]
+
+% Status   : Unsatisfiable
+% Rating   : 0.00 v5.5.0, 0.05 v5.4.0, 0.10 v5.3.0, 0.06 v5.2.0, 0.00 v5.1.0, 0.06 v5.0.0, 0.07 v4.1.0
+% Syntax   : Number of clauses     :   29 (   2 non-Horn;  15 unit;  27 RR)
+%            Number of atoms       :   45 (  25 equality)
+%            Maximal clause size   :    3 (   2 average)
+%            Number of predicates  :    4 (   2 propositional; 0-2 arity)
+%            Number of functors    :   14 (   7 constant; 0-2 arity)
+%            Number of variables   :   46 (  25 singleton)
+%            Maximal term depth    :    3 (   2 average)
+% SPC      : CNF_UNS_RFO_SEQ_NHN
+
+% Comments :
+%          : tptp2X 
+%------------------------------------------------------------------------------
+cnf(cls_option_Osimps_I2_J_0,axiom,
+    ( c_Option_Ooption_ONone(T_a) != c_Option_Ooption_OSome(V_a_H,T_a) )).
+
+cnf(cls_not__Some__eq_1,axiom,
+    ( c_Option_Ooption_ONone(T_a) != c_Option_Ooption_OSome(V_y,T_a) )).
+
+cnf(cls_option_Osimps_I3_J_0,axiom,
+    ( c_Option_Ooption_OSome(V_a_H,T_a) != c_Option_Ooption_ONone(T_a) )).
+
+cnf(cls_not__None__eq_1,axiom,
+    ( c_Option_Ooption_OSome(V_xa,T_a) != c_Option_Ooption_ONone(T_a) )).
+
+cnf(cls_WT_OBody_0,axiom,
+    ( c_Com_OWT(c_Com_Ocom_OBODY(V_pn)) | c_Com_Obody(V_pn) = c_Option_Ooption_ONone(tc_Com_Ocom) )).
+
+cnf(cls_com_Osimps_I19_J_0,axiom,
+    ( c_Com_Ocom_OBODY(V_pname_H) != c_Com_Ocom_OSKIP )).
+
+cnf(cls_com_Osimps_I49_J_0,axiom,
+    ( c_Com_Ocom_OBODY(V_pname_H) != c_Com_Ocom_OSemi(V_com1,V_com2) )).
+
+cnf(cls_com_Osimps_I48_J_0,axiom,
+    ( c_Com_Ocom_OSemi(V_com1,V_com2) != c_Com_Ocom_OBODY(V_pname_H) )).
+
+cnf(cls_com_Osimps_I6_J_0,axiom,
+    ( c_Com_Ocom_OBODY(V_pname) != c_Com_Ocom_OBODY(V_pname_H) | V_pname = V_pname_H )).
+
+cnf(cls_com_Osimps_I18_J_0,axiom,
+    ( c_Com_Ocom_OSKIP != c_Com_Ocom_OBODY(V_pname_H) )).
+
+cnf(cls_WTs__elim__cases_I7_J_0,axiom,
+    ( c_Com_Obody(V_P) = c_Option_Ooption_OSome(c_Com_Osko__Com__XWTs__elim__cases__7__1(V_P),tc_Com_Ocom) | ~ c_Com_OWT(c_Com_Ocom_OBODY(V_P)) )).
+
+cnf(cls_com_Osimps_I3_J_1,axiom,
+    ( c_Com_Ocom_OSemi(V_com1,V_com2) != c_Com_Ocom_OSemi(V_com1_H,V_com2_H) | V_com2 = V_com2_H )).
+
+cnf(cls_com_Osimps_I3_J_0,axiom,
+    ( c_Com_Ocom_OSemi(V_com1,V_com2) != c_Com_Ocom_OSemi(V_com1_H,V_com2_H) | V_com1 = V_com1_H )).
+
+cnf(cls_option_Oinject_0,axiom,
+    ( c_Option_Ooption_OSome(V_a,T_a) != c_Option_Ooption_OSome(V_a_H,T_a) | V_a = V_a_H )).
+
+cnf(cls_com_Osimps_I13_J_0,axiom,
+    ( c_Com_Ocom_OSemi(V_com1_H,V_com2_H) != c_Com_Ocom_OSKIP )).
+
+cnf(cls_com_Osimps_I12_J_0,axiom,
+    ( c_Com_Ocom_OSKIP != c_Com_Ocom_OSemi(V_com1_H,V_com2_H) )).
+
+cnf(cls_WT__bodiesD_0,axiom,
+    ( c_Com_Obody(V_pn) != c_Option_Ooption_OSome(V_b,tc_Com_Ocom) | ~ c_Com_OWT__bodies | c_Com_OWT(V_b) )).
+
+cnf(cls_WT_OSemi_0,axiom,
+    ( c_Com_OWT(c_Com_Ocom_OSemi(V_c0,V_c1)) | ~ c_Com_OWT(V_c1) | ~ c_Com_OWT(V_c0) )).
+
+cnf(cls_WTs__elim__cases_I4_J_0,axiom,
+    ( c_Com_OWT(V_c1) | ~ c_Com_OWT(c_Com_Ocom_OSemi(V_c1,V_c2)) )).
+
+cnf(cls_WTs__elim__cases_I4_J_1,axiom,
+    ( c_Com_OWT(V_c2) | ~ c_Com_OWT(c_Com_Ocom_OSemi(V_c1,V_c2)) )).
+
+cnf(cls_state__not__singleton__def__raw_0,axiom,
+    ( v_sko__Hoare__Mirabelle__Xstate__not__singleton__def__raw__1 != v_sko__Hoare__Mirabelle__Xstate__not__singleton__def__raw__2 | ~ c_Hoare__Mirabelle_Ostate__not__singleton )).
+
+cnf(cls_state__not__singleton__def_1,axiom,
+    ( c_Hoare__Mirabelle_Ostate__not__singleton | V_x = V_xa )).
+
+cnf(cls_single__stateE_0,axiom,
+    ( v_sko__Hoare__Mirabelle__Xsingle__stateE__1(V_t) != V_t | ~ c_Hoare__Mirabelle_Ostate__not__singleton )).
+
+cnf(cls_WT_OSkip_0,axiom,
+    ( c_Com_OWT(c_Com_Ocom_OSKIP) )).
+
+cnf(cls_state__not__singleton__def_0,axiom,
+    ( v_sko__Hoare__Mirabelle__Xstate__not__singleton__def__1 != v_sko__Hoare__Mirabelle__Xstate__not__singleton__def__2 | ~ c_Hoare__Mirabelle_Ostate__not__singleton )).
+
+cnf(cls_conjecture_0,negated_conjecture,
+    ( c_Hoare__Mirabelle_Ostate__not__singleton )).
+
+cnf(cls_conjecture_1,negated_conjecture,
+    ( c_Com_OWT__bodies )).
+
+cnf(cls_conjecture_2,negated_conjecture,
+    ( c_Com_OWT(v_c) )).
+
+cnf(cls_conjecture_3,negated_conjecture,
+    ( ~ c_Hoare__Mirabelle_Ostate__not__singleton )).
+%------------------------------------------------------------------------------

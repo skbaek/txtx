@@ -1,0 +1,285 @@
+% Refutation found. Thanks to Tanya!
+% SZS status Theorem for GEO187+2
+% SZS output start Proof for GEO187+2
+fof(f5656,plain,(
+  $false),
+  inference(avatar_sat_refutation,[],[f65,f350,f387,f408,f4524,f4537,f4606,f5389,f5654])).
+fof(f5654,plain,(
+  ~spl4_1 | spl4_4 | spl4_6 | spl4_18),
+  inference(avatar_contradiction_clause,[],[f5653])).
+fof(f5653,plain,(
+  $false | (~spl4_1 | spl4_4 | spl4_6 | spl4_18)),
+  inference(subsumption_resolution,[],[f5652,f54])).
+fof(f54,plain,(
+  ~apart_point_and_line(sK0,line_connecting(sK2,sK3))),
+  inference(cnf_transformation,[],[f37])).
+fof(f37,plain,(
+  (apart_point_and_line(sK3,line_connecting(sK0,sK1)) | apart_point_and_line(sK2,line_connecting(sK0,sK1))) & ~apart_point_and_line(sK1,line_connecting(sK2,sK3)) & ~apart_point_and_line(sK0,line_connecting(sK2,sK3)) & distinct_points(sK2,sK3) & distinct_points(sK0,sK1)),
+  inference(skolemisation,[status(esa),new_symbols(skolem,[sK0,sK1,sK2,sK3])],[f35,f36])).
+fof(f36,plain,(
+  ? [X0,X1,X2,X3] : ((apart_point_and_line(X3,line_connecting(X0,X1)) | apart_point_and_line(X2,line_connecting(X0,X1))) & ~apart_point_and_line(X1,line_connecting(X2,X3)) & ~apart_point_and_line(X0,line_connecting(X2,X3)) & distinct_points(X2,X3) & distinct_points(X0,X1)) => ((apart_point_and_line(sK3,line_connecting(sK0,sK1)) | apart_point_and_line(sK2,line_connecting(sK0,sK1))) & ~apart_point_and_line(sK1,line_connecting(sK2,sK3)) & ~apart_point_and_line(sK0,line_connecting(sK2,sK3)) & distinct_points(sK2,sK3) & distinct_points(sK0,sK1))),
+  introduced(choice_axiom,[])).
+fof(f35,plain,(
+  ? [X0,X1,X2,X3] : ((apart_point_and_line(X3,line_connecting(X0,X1)) | apart_point_and_line(X2,line_connecting(X0,X1))) & ~apart_point_and_line(X1,line_connecting(X2,X3)) & ~apart_point_and_line(X0,line_connecting(X2,X3)) & distinct_points(X2,X3) & distinct_points(X0,X1))),
+  inference(flattening,[],[f34])).
+fof(f34,plain,(
+  ? [X0,X1,X2,X3] : ((apart_point_and_line(X3,line_connecting(X0,X1)) | apart_point_and_line(X2,line_connecting(X0,X1))) & (~apart_point_and_line(X1,line_connecting(X2,X3)) & ~apart_point_and_line(X0,line_connecting(X2,X3)) & distinct_points(X2,X3) & distinct_points(X0,X1)))),
+  inference(ennf_transformation,[],[f16])).
+fof(f16,plain,(
+  ~! [X0,X1,X2,X3] : ((~apart_point_and_line(X1,line_connecting(X2,X3)) & ~apart_point_and_line(X0,line_connecting(X2,X3)) & distinct_points(X2,X3) & distinct_points(X0,X1)) => (~apart_point_and_line(X3,line_connecting(X0,X1)) & ~apart_point_and_line(X2,line_connecting(X0,X1))))),
+  inference(rectify,[],[f14])).
+fof(f14,negated_conjecture,(
+  ~! [X0,X1,X3,X4] : ((~apart_point_and_line(X1,line_connecting(X3,X4)) & ~apart_point_and_line(X0,line_connecting(X3,X4)) & distinct_points(X3,X4) & distinct_points(X0,X1)) => (~apart_point_and_line(X4,line_connecting(X0,X1)) & ~apart_point_and_line(X3,line_connecting(X0,X1))))),
+  inference(negated_conjecture,[],[f13])).
+fof(f13,conjecture,(
+  ! [X0,X1,X3,X4] : ((~apart_point_and_line(X1,line_connecting(X3,X4)) & ~apart_point_and_line(X0,line_connecting(X3,X4)) & distinct_points(X3,X4) & distinct_points(X0,X1)) => (~apart_point_and_line(X4,line_connecting(X0,X1)) & ~apart_point_and_line(X3,line_connecting(X0,X1))))),
+  file('GEO187+2.tptp',unknown)).
+fof(f5652,plain,(
+  apart_point_and_line(sK0,line_connecting(sK2,sK3)) | (~spl4_1 | spl4_4 | spl4_6 | spl4_18)),
+  inference(subsumption_resolution,[],[f5640,f55])).
+fof(f55,plain,(
+  ~apart_point_and_line(sK1,line_connecting(sK2,sK3))),
+  inference(cnf_transformation,[],[f37])).
+fof(f5640,plain,(
+  apart_point_and_line(sK1,line_connecting(sK2,sK3)) | apart_point_and_line(sK0,line_connecting(sK2,sK3)) | (~spl4_1 | spl4_4 | spl4_6 | spl4_18)),
+  inference(resolution,[],[f1218,f2430])).
+fof(f2430,plain,(
+  ( ! [X283] : (apart_point_and_line(sK2,X283) | apart_point_and_line(sK1,X283) | apart_point_and_line(sK0,X283)) ) | (~spl4_1 | spl4_4 | spl4_6)),
+  inference(subsumption_resolution,[],[f2429,f319])).
+fof(f319,plain,(
+  ~apart_point_and_line(sK0,line_connecting(sK0,sK1)) | spl4_4),
+  inference(avatar_component_clause,[],[f318])).
+fof(f318,plain,(
+  spl4_4 <=> apart_point_and_line(sK0,line_connecting(sK0,sK1))),
+  introduced(avatar_definition,[new_symbols(naming,[spl4_4])])).
+fof(f2429,plain,(
+  ( ! [X283] : (apart_point_and_line(sK0,X283) | apart_point_and_line(sK0,line_connecting(sK0,sK1)) | apart_point_and_line(sK1,X283) | apart_point_and_line(sK2,X283)) ) | (~spl4_1 | spl4_6)),
+  inference(subsumption_resolution,[],[f2304,f327])).
+fof(f327,plain,(
+  ~apart_point_and_line(sK1,line_connecting(sK0,sK1)) | spl4_6),
+  inference(avatar_component_clause,[],[f326])).
+fof(f326,plain,(
+  spl4_6 <=> apart_point_and_line(sK1,line_connecting(sK0,sK1))),
+  introduced(avatar_definition,[new_symbols(naming,[spl4_6])])).
+fof(f2304,plain,(
+  ( ! [X283] : (apart_point_and_line(sK1,line_connecting(sK0,sK1)) | apart_point_and_line(sK0,X283) | apart_point_and_line(sK0,line_connecting(sK0,sK1)) | apart_point_and_line(sK1,X283) | apart_point_and_line(sK2,X283)) ) | ~spl4_1),
+  inference(resolution,[],[f2038,f52])).
+fof(f52,plain,(
+  distinct_points(sK0,sK1)),
+  inference(cnf_transformation,[],[f37])).
+fof(f2038,plain,(
+  ( ! [X2,X0,X1] : (~distinct_points(X2,X1) | apart_point_and_line(X1,line_connecting(sK0,sK1)) | apart_point_and_line(X2,X0) | apart_point_and_line(X2,line_connecting(sK0,sK1)) | apart_point_and_line(X1,X0) | apart_point_and_line(sK2,X0)) ) | ~spl4_1),
+  inference(resolution,[],[f2026,f48])).
+fof(f48,plain,(
+  ( ! [X2,X0,X3,X1] : (~distinct_lines(X2,X3) | apart_point_and_line(X1,X2) | apart_point_and_line(X0,X3) | apart_point_and_line(X0,X2) | apart_point_and_line(X1,X3) | ~distinct_points(X0,X1)) )),
+  inference(cnf_transformation,[],[f28])).
+fof(f28,plain,(
+  ! [X0,X1,X2,X3] : (apart_point_and_line(X1,X3) | apart_point_and_line(X1,X2) | apart_point_and_line(X0,X3) | apart_point_and_line(X0,X2) | ~distinct_lines(X2,X3) | ~distinct_points(X0,X1))),
+  inference(flattening,[],[f27])).
+fof(f27,plain,(
+  ! [X0,X1,X2,X3] : ((apart_point_and_line(X1,X3) | apart_point_and_line(X1,X2) | apart_point_and_line(X0,X3) | apart_point_and_line(X0,X2)) | (~distinct_lines(X2,X3) | ~distinct_points(X0,X1)))),
+  inference(ennf_transformation,[],[f15])).
+fof(f15,plain,(
+  ! [X0,X1,X2,X3] : ((distinct_lines(X2,X3) & distinct_points(X0,X1)) => (apart_point_and_line(X1,X3) | apart_point_and_line(X1,X2) | apart_point_and_line(X0,X3) | apart_point_and_line(X0,X2)))),
+  inference(rectify,[],[f9])).
+fof(f9,axiom,(
+  ! [X0,X1,X3,X4] : ((distinct_lines(X3,X4) & distinct_points(X0,X1)) => (apart_point_and_line(X1,X4) | apart_point_and_line(X1,X3) | apart_point_and_line(X0,X4) | apart_point_and_line(X0,X3)))),
+  file('GEO187+2.tptp',unknown)).
+fof(f2026,plain,(
+  ( ! [X4] : (distinct_lines(line_connecting(sK0,sK1),X4) | apart_point_and_line(sK2,X4)) ) | ~spl4_1),
+  inference(resolution,[],[f60,f50])).
+fof(f50,plain,(
+  ( ! [X2,X0,X1] : (~apart_point_and_line(X0,X1) | distinct_lines(X1,X2) | apart_point_and_line(X0,X2)) )),
+  inference(cnf_transformation,[],[f32])).
+fof(f32,plain,(
+  ! [X0,X1,X2] : (apart_point_and_line(X0,X2) | distinct_lines(X1,X2) | ~apart_point_and_line(X0,X1))),
+  inference(flattening,[],[f31])).
+fof(f31,plain,(
+  ! [X0,X1,X2] : ((apart_point_and_line(X0,X2) | distinct_lines(X1,X2)) | ~apart_point_and_line(X0,X1))),
+  inference(ennf_transformation,[],[f11])).
+fof(f11,axiom,(
+  ! [X0,X1,X2] : (apart_point_and_line(X0,X1) => (apart_point_and_line(X0,X2) | distinct_lines(X1,X2)))),
+  file('GEO187+2.tptp',unknown)).
+fof(f60,plain,(
+  apart_point_and_line(sK2,line_connecting(sK0,sK1)) | ~spl4_1),
+  inference(avatar_component_clause,[],[f58])).
+fof(f58,plain,(
+  spl4_1 <=> apart_point_and_line(sK2,line_connecting(sK0,sK1))),
+  introduced(avatar_definition,[new_symbols(naming,[spl4_1])])).
+fof(f1218,plain,(
+  ~apart_point_and_line(sK2,line_connecting(sK2,sK3)) | spl4_18),
+  inference(avatar_component_clause,[],[f1217])).
+fof(f1217,plain,(
+  spl4_18 <=> apart_point_and_line(sK2,line_connecting(sK2,sK3))),
+  introduced(avatar_definition,[new_symbols(naming,[spl4_18])])).
+fof(f5389,plain,(
+  ~spl4_18),
+  inference(avatar_contradiction_clause,[],[f5388])).
+fof(f5388,plain,(
+  $false | ~spl4_18),
+  inference(subsumption_resolution,[],[f5387,f53])).
+fof(f53,plain,(
+  distinct_points(sK2,sK3)),
+  inference(cnf_transformation,[],[f37])).
+fof(f5387,plain,(
+  ~distinct_points(sK2,sK3) | ~spl4_18),
+  inference(subsumption_resolution,[],[f5382,f38])).
+fof(f38,plain,(
+  ( ! [X0] : (~distinct_points(X0,X0)) )),
+  inference(cnf_transformation,[],[f1])).
+fof(f1,axiom,(
+  ! [X0] : ~distinct_points(X0,X0)),
+  file('GEO187+2.tptp',unknown)).
+fof(f5382,plain,(
+  distinct_points(sK2,sK2) | ~distinct_points(sK2,sK3) | ~spl4_18),
+  inference(resolution,[],[f1219,f44])).
+fof(f44,plain,(
+  ( ! [X2,X0,X1] : (~apart_point_and_line(X2,line_connecting(X0,X1)) | distinct_points(X2,X0) | ~distinct_points(X0,X1)) )),
+  inference(cnf_transformation,[],[f24])).
+fof(f24,plain,(
+  ! [X0,X1,X2] : ((distinct_points(X2,X1) & distinct_points(X2,X0)) | ~apart_point_and_line(X2,line_connecting(X0,X1)) | ~distinct_points(X0,X1))),
+  inference(flattening,[],[f23])).
+fof(f23,plain,(
+  ! [X0,X1,X2] : (((distinct_points(X2,X1) & distinct_points(X2,X0)) | ~apart_point_and_line(X2,line_connecting(X0,X1))) | ~distinct_points(X0,X1))),
+  inference(ennf_transformation,[],[f7])).
+fof(f7,axiom,(
+  ! [X0,X1,X2] : (distinct_points(X0,X1) => (apart_point_and_line(X2,line_connecting(X0,X1)) => (distinct_points(X2,X1) & distinct_points(X2,X0))))),
+  file('GEO187+2.tptp',unknown)).
+fof(f1219,plain,(
+  apart_point_and_line(sK2,line_connecting(sK2,sK3)) | ~spl4_18),
+  inference(avatar_component_clause,[],[f1217])).
+fof(f4606,plain,(
+  ~spl4_117),
+  inference(avatar_contradiction_clause,[],[f4605])).
+fof(f4605,plain,(
+  $false | ~spl4_117),
+  inference(subsumption_resolution,[],[f4604,f53])).
+fof(f4604,plain,(
+  ~distinct_points(sK2,sK3) | ~spl4_117),
+  inference(subsumption_resolution,[],[f4598,f38])).
+fof(f4598,plain,(
+  distinct_points(sK3,sK3) | ~distinct_points(sK2,sK3) | ~spl4_117),
+  inference(resolution,[],[f4523,f45])).
+fof(f45,plain,(
+  ( ! [X2,X0,X1] : (~apart_point_and_line(X2,line_connecting(X0,X1)) | distinct_points(X2,X1) | ~distinct_points(X0,X1)) )),
+  inference(cnf_transformation,[],[f24])).
+fof(f4523,plain,(
+  apart_point_and_line(sK3,line_connecting(sK2,sK3)) | ~spl4_117),
+  inference(avatar_component_clause,[],[f4521])).
+fof(f4521,plain,(
+  spl4_117 <=> apart_point_and_line(sK3,line_connecting(sK2,sK3))),
+  introduced(avatar_definition,[new_symbols(naming,[spl4_117])])).
+fof(f4537,plain,(
+  ~spl4_116),
+  inference(avatar_contradiction_clause,[],[f4529])).
+fof(f4529,plain,(
+  $false | ~spl4_116),
+  inference(resolution,[],[f4519,f38])).
+fof(f4519,plain,(
+  ( ! [X1] : (distinct_points(sK1,X1)) ) | ~spl4_116),
+  inference(avatar_component_clause,[],[f4518])).
+fof(f4518,plain,(
+  spl4_116 <=> ! [X1] : distinct_points(sK1,X1)),
+  introduced(avatar_definition,[new_symbols(naming,[spl4_116])])).
+fof(f4524,plain,(
+  spl4_116 | spl4_117 | spl4_6 | ~spl4_11),
+  inference(avatar_split_clause,[],[f4516,f348,f326,f4521,f4518])).
+fof(f348,plain,(
+  spl4_11 <=> ! [X71,X72,X70] : (apart_point_and_line(X70,line_connecting(sK0,sK1)) | distinct_points(X70,X72) | distinct_points(sK1,X72) | apart_point_and_line(sK3,X71) | apart_point_and_line(X70,X71) | apart_point_and_line(sK0,X71))),
+  introduced(avatar_definition,[new_symbols(naming,[spl4_11])])).
+fof(f4516,plain,(
+  ( ! [X1] : (apart_point_and_line(sK3,line_connecting(sK2,sK3)) | distinct_points(sK1,X1)) ) | (spl4_6 | ~spl4_11)),
+  inference(subsumption_resolution,[],[f4515,f54])).
+fof(f4515,plain,(
+  ( ! [X1] : (apart_point_and_line(sK3,line_connecting(sK2,sK3)) | distinct_points(sK1,X1) | apart_point_and_line(sK0,line_connecting(sK2,sK3))) ) | (spl4_6 | ~spl4_11)),
+  inference(subsumption_resolution,[],[f4511,f327])).
+fof(f4511,plain,(
+  ( ! [X1] : (apart_point_and_line(sK1,line_connecting(sK0,sK1)) | apart_point_and_line(sK3,line_connecting(sK2,sK3)) | distinct_points(sK1,X1) | apart_point_and_line(sK0,line_connecting(sK2,sK3))) ) | ~spl4_11),
+  inference(duplicate_literal_removal,[],[f4472])).
+fof(f4472,plain,(
+  ( ! [X1] : (apart_point_and_line(sK1,line_connecting(sK0,sK1)) | apart_point_and_line(sK3,line_connecting(sK2,sK3)) | distinct_points(sK1,X1) | distinct_points(sK1,X1) | apart_point_and_line(sK0,line_connecting(sK2,sK3))) ) | ~spl4_11),
+  inference(resolution,[],[f349,f55])).
+fof(f349,plain,(
+  ( ! [X70,X72,X71] : (apart_point_and_line(X70,line_connecting(sK0,sK1)) | apart_point_and_line(sK3,X71) | apart_point_and_line(X70,X71) | distinct_points(sK1,X72) | distinct_points(X70,X72) | apart_point_and_line(sK0,X71)) ) | ~spl4_11),
+  inference(avatar_component_clause,[],[f348])).
+fof(f408,plain,(
+  ~spl4_6),
+  inference(avatar_contradiction_clause,[],[f407])).
+fof(f407,plain,(
+  $false | ~spl4_6),
+  inference(subsumption_resolution,[],[f406,f52])).
+fof(f406,plain,(
+  ~distinct_points(sK0,sK1) | ~spl4_6),
+  inference(subsumption_resolution,[],[f400,f38])).
+fof(f400,plain,(
+  distinct_points(sK1,sK1) | ~distinct_points(sK0,sK1) | ~spl4_6),
+  inference(resolution,[],[f328,f45])).
+fof(f328,plain,(
+  apart_point_and_line(sK1,line_connecting(sK0,sK1)) | ~spl4_6),
+  inference(avatar_component_clause,[],[f326])).
+fof(f387,plain,(
+  ~spl4_4),
+  inference(avatar_contradiction_clause,[],[f386])).
+fof(f386,plain,(
+  $false | ~spl4_4),
+  inference(subsumption_resolution,[],[f385,f52])).
+fof(f385,plain,(
+  ~distinct_points(sK0,sK1) | ~spl4_4),
+  inference(subsumption_resolution,[],[f380,f38])).
+fof(f380,plain,(
+  distinct_points(sK0,sK0) | ~distinct_points(sK0,sK1) | ~spl4_4),
+  inference(resolution,[],[f320,f44])).
+fof(f320,plain,(
+  apart_point_and_line(sK0,line_connecting(sK0,sK1)) | ~spl4_4),
+  inference(avatar_component_clause,[],[f318])).
+fof(f350,plain,(
+  spl4_4 | spl4_11 | ~spl4_2),
+  inference(avatar_split_clause,[],[f266,f62,f348,f318])).
+fof(f62,plain,(
+  spl4_2 <=> apart_point_and_line(sK3,line_connecting(sK0,sK1))),
+  introduced(avatar_definition,[new_symbols(naming,[spl4_2])])).
+fof(f266,plain,(
+  ( ! [X70,X72,X71] : (apart_point_and_line(X70,line_connecting(sK0,sK1)) | apart_point_and_line(sK0,X71) | apart_point_and_line(sK0,line_connecting(sK0,sK1)) | apart_point_and_line(X70,X71) | apart_point_and_line(sK3,X71) | distinct_points(sK1,X72) | distinct_points(X70,X72)) ) | ~spl4_2),
+  inference(resolution,[],[f98,f69])).
+fof(f69,plain,(
+  ( ! [X0,X1] : (distinct_points(sK0,X0) | distinct_points(sK1,X1) | distinct_points(X0,X1)) )),
+  inference(resolution,[],[f66,f41])).
+fof(f41,plain,(
+  ( ! [X2,X0,X1] : (~distinct_points(X0,X1) | distinct_points(X0,X2) | distinct_points(X1,X2)) )),
+  inference(cnf_transformation,[],[f18])).
+fof(f18,plain,(
+  ! [X0,X1,X2] : (distinct_points(X1,X2) | distinct_points(X0,X2) | ~distinct_points(X0,X1))),
+  inference(flattening,[],[f17])).
+fof(f17,plain,(
+  ! [X0,X1,X2] : ((distinct_points(X1,X2) | distinct_points(X0,X2)) | ~distinct_points(X0,X1))),
+  inference(ennf_transformation,[],[f4])).
+fof(f4,axiom,(
+  ! [X0,X1,X2] : (distinct_points(X0,X1) => (distinct_points(X1,X2) | distinct_points(X0,X2)))),
+  file('GEO187+2.tptp',unknown)).
+fof(f66,plain,(
+  ( ! [X0] : (distinct_points(sK1,X0) | distinct_points(sK0,X0)) )),
+  inference(resolution,[],[f41,f52])).
+fof(f98,plain,(
+  ( ! [X2,X0,X1] : (~distinct_points(X2,X1) | apart_point_and_line(X1,line_connecting(sK0,sK1)) | apart_point_and_line(X2,X0) | apart_point_and_line(X2,line_connecting(sK0,sK1)) | apart_point_and_line(X1,X0) | apart_point_and_line(sK3,X0)) ) | ~spl4_2),
+  inference(resolution,[],[f73,f48])).
+fof(f73,plain,(
+  ( ! [X0] : (distinct_lines(line_connecting(sK0,sK1),X0) | apart_point_and_line(sK3,X0)) ) | ~spl4_2),
+  inference(resolution,[],[f50,f64])).
+fof(f64,plain,(
+  apart_point_and_line(sK3,line_connecting(sK0,sK1)) | ~spl4_2),
+  inference(avatar_component_clause,[],[f62])).
+fof(f65,plain,(
+  spl4_1 | spl4_2),
+  inference(avatar_split_clause,[],[f56,f62,f58])).
+fof(f56,plain,(
+  apart_point_and_line(sK3,line_connecting(sK0,sK1)) | apart_point_and_line(sK2,line_connecting(sK0,sK1))),
+  inference(cnf_transformation,[],[f37])).
+% SZS output end Proof for GEO187+2
+% ------------------------------
+% Version: Vampire 4.4.0 (commit d98a3d53 on 2020-01-14 21:02:12 +0100)
+% Termination reason: Refutation
+
+% Memory used [KB]: 8059
+% Time elapsed: 0.216 s
+% ------------------------------
+% ------------------------------

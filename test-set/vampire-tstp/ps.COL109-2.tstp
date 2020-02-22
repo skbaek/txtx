@@ -1,0 +1,78 @@
+% Refutation found. Thanks to Tanya!
+% SZS status Unsatisfiable for COL109-2
+% SZS output start Proof for COL109-2
+fof(f35,plain,(
+  $false),
+  inference(avatar_sat_refutation,[],[f18,f30,f34])).
+fof(f34,plain,(
+  spl0_2),
+  inference(avatar_contradiction_clause,[],[f33])).
+fof(f33,plain,(
+  $false | spl0_2),
+  inference(subsumption_resolution,[],[f32,f1])).
+fof(f1,axiom,(
+  c_in(c_Pair(v_z,v_w,tc_Comb_Ocomb,tc_Comb_Ocomb),c_Comb_Oparcontract,tc_prod(tc_Comb_Ocomb,tc_Comb_Ocomb))),
+  file('COL109-2.tptp',unknown)).
+fof(f32,plain,(
+  ~c_in(c_Pair(v_z,v_w,tc_Comb_Ocomb,tc_Comb_Ocomb),c_Comb_Oparcontract,tc_prod(tc_Comb_Ocomb,tc_Comb_Ocomb)) | spl0_2),
+  inference(subsumption_resolution,[],[f31,f2])).
+fof(f2,axiom,(
+  c_in(c_Pair(v_xb,v_x_H,tc_Comb_Ocomb,tc_Comb_Ocomb),c_Comb_Oparcontract,tc_prod(tc_Comb_Ocomb,tc_Comb_Ocomb))),
+  file('COL109-2.tptp',unknown)).
+fof(f31,plain,(
+  ~c_in(c_Pair(v_xb,v_x_H,tc_Comb_Ocomb,tc_Comb_Ocomb),c_Comb_Oparcontract,tc_prod(tc_Comb_Ocomb,tc_Comb_Ocomb)) | ~c_in(c_Pair(v_z,v_w,tc_Comb_Ocomb,tc_Comb_Ocomb),c_Comb_Oparcontract,tc_prod(tc_Comb_Ocomb,tc_Comb_Ocomb)) | spl0_2),
+  inference(resolution,[],[f17,f6])).
+fof(f6,axiom,(
+  ( ! [X4,X2,X3,X1] : (c_in(c_Pair(c_Comb_Ocomb_Oop_A_D_D(X1,X3),c_Comb_Ocomb_Oop_A_D_D(X2,X4),tc_Comb_Ocomb,tc_Comb_Ocomb),c_Comb_Oparcontract,tc_prod(tc_Comb_Ocomb,tc_Comb_Ocomb)) | ~c_in(c_Pair(X1,X2,tc_Comb_Ocomb,tc_Comb_Ocomb),c_Comb_Oparcontract,tc_prod(tc_Comb_Ocomb,tc_Comb_Ocomb)) | ~c_in(c_Pair(X3,X4,tc_Comb_Ocomb,tc_Comb_Ocomb),c_Comb_Oparcontract,tc_prod(tc_Comb_Ocomb,tc_Comb_Ocomb))) )),
+  file('COL109-2.tptp',unknown)).
+fof(f17,plain,(
+  ~c_in(c_Pair(c_Comb_Ocomb_Oop_A_D_D(v_xb,v_z),c_Comb_Ocomb_Oop_A_D_D(v_x_H,v_w),tc_Comb_Ocomb,tc_Comb_Ocomb),c_Comb_Oparcontract,tc_prod(tc_Comb_Ocomb,tc_Comb_Ocomb)) | spl0_2),
+  inference(avatar_component_clause,[],[f15])).
+fof(f15,plain,(
+  spl0_2 <=> c_in(c_Pair(c_Comb_Ocomb_Oop_A_D_D(v_xb,v_z),c_Comb_Ocomb_Oop_A_D_D(v_x_H,v_w),tc_Comb_Ocomb,tc_Comb_Ocomb),c_Comb_Oparcontract,tc_prod(tc_Comb_Ocomb,tc_Comb_Ocomb))),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_2])])).
+fof(f30,plain,(
+  spl0_1),
+  inference(avatar_contradiction_clause,[],[f29])).
+fof(f29,plain,(
+  $false | spl0_1),
+  inference(subsumption_resolution,[],[f28,f1])).
+fof(f28,plain,(
+  ~c_in(c_Pair(v_z,v_w,tc_Comb_Ocomb,tc_Comb_Ocomb),c_Comb_Oparcontract,tc_prod(tc_Comb_Ocomb,tc_Comb_Ocomb)) | spl0_1),
+  inference(subsumption_resolution,[],[f27,f3])).
+fof(f3,axiom,(
+  c_in(c_Pair(v_yb,v_y_Ha,tc_Comb_Ocomb,tc_Comb_Ocomb),c_Comb_Oparcontract,tc_prod(tc_Comb_Ocomb,tc_Comb_Ocomb))),
+  file('COL109-2.tptp',unknown)).
+fof(f27,plain,(
+  ~c_in(c_Pair(v_yb,v_y_Ha,tc_Comb_Ocomb,tc_Comb_Ocomb),c_Comb_Oparcontract,tc_prod(tc_Comb_Ocomb,tc_Comb_Ocomb)) | ~c_in(c_Pair(v_z,v_w,tc_Comb_Ocomb,tc_Comb_Ocomb),c_Comb_Oparcontract,tc_prod(tc_Comb_Ocomb,tc_Comb_Ocomb)) | spl0_1),
+  inference(resolution,[],[f13,f6])).
+fof(f13,plain,(
+  ~c_in(c_Pair(c_Comb_Ocomb_Oop_A_D_D(v_yb,v_z),c_Comb_Ocomb_Oop_A_D_D(v_y_Ha,v_w),tc_Comb_Ocomb,tc_Comb_Ocomb),c_Comb_Oparcontract,tc_prod(tc_Comb_Ocomb,tc_Comb_Ocomb)) | spl0_1),
+  inference(avatar_component_clause,[],[f11])).
+fof(f11,plain,(
+  spl0_1 <=> c_in(c_Pair(c_Comb_Ocomb_Oop_A_D_D(v_yb,v_z),c_Comb_Ocomb_Oop_A_D_D(v_y_Ha,v_w),tc_Comb_Ocomb,tc_Comb_Ocomb),c_Comb_Oparcontract,tc_prod(tc_Comb_Ocomb,tc_Comb_Ocomb))),
+  introduced(avatar_definition,[new_symbols(naming,[spl0_1])])).
+fof(f18,plain,(
+  ~spl0_1 | ~spl0_2),
+  inference(avatar_split_clause,[],[f9,f15,f11])).
+fof(f9,plain,(
+  ~c_in(c_Pair(c_Comb_Ocomb_Oop_A_D_D(v_xb,v_z),c_Comb_Ocomb_Oop_A_D_D(v_x_H,v_w),tc_Comb_Ocomb,tc_Comb_Ocomb),c_Comb_Oparcontract,tc_prod(tc_Comb_Ocomb,tc_Comb_Ocomb)) | ~c_in(c_Pair(c_Comb_Ocomb_Oop_A_D_D(v_yb,v_z),c_Comb_Ocomb_Oop_A_D_D(v_y_Ha,v_w),tc_Comb_Ocomb,tc_Comb_Ocomb),c_Comb_Oparcontract,tc_prod(tc_Comb_Ocomb,tc_Comb_Ocomb))),
+  inference(resolution,[],[f7,f6])).
+fof(f7,plain,(
+  ~c_in(c_Pair(c_Comb_Ocomb_Oop_A_D_D(c_Comb_Ocomb_Oop_A_D_D(v_xb,v_z),c_Comb_Ocomb_Oop_A_D_D(v_yb,v_z)),c_Comb_Ocomb_Oop_A_D_D(c_Comb_Ocomb_Oop_A_D_D(v_x_H,v_w),c_Comb_Ocomb_Oop_A_D_D(v_y_Ha,v_w)),tc_Comb_Ocomb,tc_Comb_Ocomb),c_Comb_Oparcontract,tc_prod(tc_Comb_Ocomb,tc_Comb_Ocomb))),
+  inference(resolution,[],[f4,f5])).
+fof(f5,axiom,(
+  ( ! [X2,X3,X1] : (c_in(c_Pair(c_Comb_Ocomb_Oop_A_D_D(c_Comb_Ocomb_Oop_A_D_D(c_Comb_Ocomb_Oop_A_D_D(c_Comb_Ocomb_OS,X1),X2),X3),c_Comb_Ocomb_Oop_A_D_D(c_Comb_Ocomb_Oop_A_D_D(X1,X3),c_Comb_Ocomb_Oop_A_D_D(X2,X3)),tc_Comb_Ocomb,tc_Comb_Ocomb),c_Comb_Oparcontract,tc_prod(tc_Comb_Ocomb,tc_Comb_Ocomb))) )),
+  file('COL109-2.tptp',unknown)).
+fof(f4,axiom,(
+  ( ! [X0] : (~c_in(c_Pair(c_Comb_Ocomb_Oop_A_D_D(c_Comb_Ocomb_Oop_A_D_D(c_Comb_Ocomb_Oop_A_D_D(c_Comb_Ocomb_OS,v_x_H),v_y_Ha),v_w),X0,tc_Comb_Ocomb,tc_Comb_Ocomb),c_Comb_Oparcontract,tc_prod(tc_Comb_Ocomb,tc_Comb_Ocomb)) | ~c_in(c_Pair(c_Comb_Ocomb_Oop_A_D_D(c_Comb_Ocomb_Oop_A_D_D(v_xb,v_z),c_Comb_Ocomb_Oop_A_D_D(v_yb,v_z)),X0,tc_Comb_Ocomb,tc_Comb_Ocomb),c_Comb_Oparcontract,tc_prod(tc_Comb_Ocomb,tc_Comb_Ocomb))) )),
+  file('COL109-2.tptp',unknown)).
+% SZS output end Proof for COL109-2
+% ------------------------------
+% Version: Vampire 4.4.0 (commit d98a3d53 on 2020-01-14 21:02:12 +0100)
+% Termination reason: Refutation
+
+% Memory used [KB]: 4861
+% Time elapsed: 0.001 s
+% ------------------------------
+% ------------------------------

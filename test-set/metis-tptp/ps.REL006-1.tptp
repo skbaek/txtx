@@ -1,0 +1,71 @@
+%------------------------------------------------------------------------------
+% File     : REL006-1 : TPTP v7.3.0. Released v4.0.0.
+% Domain   : Relation Algebra
+% Problem  : For empty meet the converse slides over meet
+% Version  : [Mad95] (equational) axioms.
+% English  :
+
+% Refs     : [Mad95] Maddux (1995), Relation-Algebraic Semantics
+%          : [Hoe08] Hoefner (2008), Email to G. Sutcliffe
+% Source   : [Hoe08]
+% Names    :
+
+% Status   : Unsatisfiable
+% Rating   : 0.30 v7.3.0, 0.16 v7.1.0, 0.06 v7.0.0, 0.16 v6.3.0, 0.18 v6.2.0, 0.14 v6.1.0, 0.25 v6.0.0, 0.38 v5.5.0, 0.47 v5.4.0, 0.33 v5.3.0, 0.25 v5.2.0, 0.29 v5.1.0, 0.27 v5.0.0, 0.29 v4.1.0, 0.27 v4.0.1, 0.29 v4.0.0
+% Syntax   : Number of clauses     :   15 (   0 non-Horn;  15 unit;   2 RR)
+%            Number of atoms       :   15 (  15 equality)
+%            Maximal clause size   :    1 (   1 average)
+%            Number of predicates  :    1 (   0 propositional; 2-2 arity)
+%            Number of functors    :   10 (   5 constant; 0-2 arity)
+%            Number of variables   :   25 (   0 singleton)
+%            Maximal term depth    :    5 (   3 average)
+% SPC      : CNF_UNS_RFO_PEQ_UEQ
+
+% Comments : tptp2X -f tptp:short -t cnf:otter REL006+1.p
+%          : tptp2X 
+%------------------------------------------------------------------------------
+cnf(maddux1_join_commutativity_1,axiom,
+    ( join(A,B) = join(B,A) )).
+
+cnf(maddux2_join_associativity_2,axiom,
+    ( join(A,join(B,C)) = join(join(A,B),C) )).
+
+cnf(maddux3_a_kind_of_de_Morgan_3,axiom,
+    ( A = join(complement(join(complement(A),complement(B))),complement(join(complement(A),B))) )).
+
+cnf(maddux4_definiton_of_meet_4,axiom,
+    ( meet(A,B) = complement(join(complement(A),complement(B))) )).
+
+cnf(composition_associativity_5,axiom,
+    ( composition(A,composition(B,C)) = composition(composition(A,B),C) )).
+
+cnf(composition_identity_6,axiom,
+    ( composition(A,one) = A )).
+
+cnf(composition_distributivity_7,axiom,
+    ( composition(join(A,B),C) = join(composition(A,C),composition(B,C)) )).
+
+cnf(converse_idempotence_8,axiom,
+    ( converse(converse(A)) = A )).
+
+cnf(converse_additivity_9,axiom,
+    ( converse(join(A,B)) = join(converse(A),converse(B)) )).
+
+cnf(converse_multiplicativity_10,axiom,
+    ( converse(composition(A,B)) = composition(converse(B),converse(A)) )).
+
+cnf(converse_cancellativity_11,axiom,
+    ( join(composition(converse(A),complement(composition(A,B))),complement(B)) = complement(B) )).
+
+cnf(def_top_12,axiom,
+    ( top = join(A,complement(A)) )).
+
+cnf(def_zero_13,axiom,
+    ( zero = meet(A,complement(A)) )).
+
+cnf(goals_14,negated_conjecture,
+    ( meet(converse(sk1),sk2) = zero )).
+
+cnf(goals_15,negated_conjecture,
+    ( meet(sk1,converse(sk2)) != zero )).
+%------------------------------------------------------------------------------

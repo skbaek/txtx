@@ -1,0 +1,21 @@
+% Refutation found. Thanks to Tanya!
+% SZS status Unsatisfiable for SYN041-1
+% SZS output start Proof for SYN041-1
+fof(f5,plain,(
+  $false),
+  inference(subsumption_resolution,[],[f3,f2])).
+fof(f2,axiom,(
+  ~q),
+  file('SYN041-1.tptp',unknown)).
+fof(f3,axiom,(
+  q),
+  file('SYN041-1.tptp',unknown)).
+% SZS output end Proof for SYN041-1
+% ------------------------------
+% Version: Vampire 4.4.0 (commit d98a3d53 on 2020-01-14 21:02:12 +0100)
+% Termination reason: Refutation
+
+% Memory used [KB]: 4861
+% Time elapsed: 0.0000 s
+% ------------------------------
+% ------------------------------

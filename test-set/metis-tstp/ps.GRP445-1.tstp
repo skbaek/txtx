@@ -1,0 +1,2000 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% SZS status Unsatisfiable for GRP445-1.tptp
+
+% SZS output start CNFRefutation for GRP445-1.tptp
+cnf(single_axiom, axiom,
+    (divide(A,
+       divide(divide(divide(divide(A, A), B), C),
+         divide(divide(divide(A, A), A), C))) = B)).
+
+cnf(multiply, axiom,
+    (multiply(A, B) = divide(A, divide(divide(C, C), B)))).
+
+cnf(inverse, axiom, (inverse(A) = divide(divide(B, B), A))).
+
+cnf(prove_these_axioms_1, negated_conjecture,
+    (multiply(inverse(a1), a1) != multiply(inverse(b1), b1))).
+
+cnf(refute_0_0, plain,
+    (inverse(A) = divide(divide(inverse(X_7), inverse(X_7)), A)),
+    inference(subst, [], [inverse : [bind(B, $fot(inverse(X_7)))]])).
+
+cnf(refute_0_1, plain, (X = X), introduced(tautology, [refl, [$fot(X)]])).
+
+cnf(refute_0_2, plain, (X != X | X != Y | Y = X),
+    introduced(tautology, [equality, [$cnf($equal(X, X)), [0], $fot(Y)]])).
+
+cnf(refute_0_3, plain, (X != Y | Y = X),
+    inference(resolve, [$cnf($equal(X, X))], [refute_0_1, refute_0_2])).
+
+cnf(refute_0_4, plain,
+    (inverse(A) != divide(divide(B, B), A) |
+     divide(divide(B, B), A) = inverse(A)),
+    inference(subst, [],
+              [refute_0_3 :
+               [bind(X, $fot(inverse(A))),
+                bind(Y, $fot(divide(divide(B, B), A)))]])).
+
+cnf(refute_0_5, plain, (divide(divide(B, B), A) = inverse(A)),
+    inference(resolve, [$cnf($equal(inverse(A), divide(divide(B, B), A)))],
+              [inverse, refute_0_4])).
+
+cnf(refute_0_6, plain, (divide(divide(C, C), B) = inverse(B)),
+    inference(subst, [],
+              [refute_0_5 : [bind(A, $fot(B)), bind(B, $fot(C))]])).
+
+cnf(refute_0_7, plain,
+    (divide(A, divide(divide(C, C), B)) =
+     divide(A, divide(divide(C, C), B))),
+    introduced(tautology,
+               [refl, [$fot(divide(A, divide(divide(C, C), B)))]])).
+
+cnf(refute_0_8, plain,
+    (divide(A, divide(divide(C, C), B)) !=
+     divide(A, divide(divide(C, C), B)) |
+     divide(divide(C, C), B) != inverse(B) |
+     divide(A, divide(divide(C, C), B)) = divide(A, inverse(B))),
+    introduced(tautology,
+               [equality,
+                [$cnf($equal(divide(A, divide(divide(C, C), B)),
+                        divide(A, divide(divide(C, C), B)))), [1, 1],
+                 $fot(inverse(B))]])).
+
+cnf(refute_0_9, plain,
+    (divide(divide(C, C), B) != inverse(B) |
+     divide(A, divide(divide(C, C), B)) = divide(A, inverse(B))),
+    inference(resolve,
+              [$cnf($equal(divide(A, divide(divide(C, C), B)),
+                      divide(A, divide(divide(C, C), B))))],
+              [refute_0_7, refute_0_8])).
+
+cnf(refute_0_10, plain,
+    (divide(A, divide(divide(C, C), B)) = divide(A, inverse(B))),
+    inference(resolve, [$cnf($equal(divide(divide(C, C), B), inverse(B)))],
+              [refute_0_6, refute_0_9])).
+
+cnf(refute_0_11, plain,
+    (multiply(A, B) != divide(A, divide(divide(C, C), B)) |
+     divide(A, divide(divide(C, C), B)) != divide(A, inverse(B)) |
+     multiply(A, B) = divide(A, inverse(B))),
+    introduced(tautology,
+               [equality,
+                [$cnf(~ $equal(multiply(A, B), divide(A, inverse(B)))),
+                 [0], $fot(divide(A, divide(divide(C, C), B)))]])).
+
+cnf(refute_0_12, plain,
+    (multiply(A, B) != divide(A, divide(divide(C, C), B)) |
+     multiply(A, B) = divide(A, inverse(B))),
+    inference(resolve,
+              [$cnf($equal(divide(A, divide(divide(C, C), B)),
+                      divide(A, inverse(B))))],
+              [refute_0_10, refute_0_11])).
+
+cnf(refute_0_13, plain, (multiply(A, B) = divide(A, inverse(B))),
+    inference(resolve,
+              [$cnf($equal(multiply(A, B),
+                      divide(A, divide(divide(C, C), B))))],
+              [multiply, refute_0_12])).
+
+cnf(refute_0_14, plain,
+    (multiply(inverse(X_7), X_7) = divide(inverse(X_7), inverse(X_7))),
+    inference(subst, [],
+              [refute_0_13 :
+               [bind(A, $fot(inverse(X_7))), bind(B, $fot(X_7))]])).
+
+cnf(refute_0_15, plain,
+    (multiply(inverse(X_7), X_7) != divide(inverse(X_7), inverse(X_7)) |
+     divide(inverse(X_7), inverse(X_7)) = multiply(inverse(X_7), X_7)),
+    inference(subst, [],
+              [refute_0_3 :
+               [bind(X, $fot(multiply(inverse(X_7), X_7))),
+                bind(Y, $fot(divide(inverse(X_7), inverse(X_7))))]])).
+
+cnf(refute_0_16, plain,
+    (divide(inverse(X_7), inverse(X_7)) = multiply(inverse(X_7), X_7)),
+    inference(resolve,
+              [$cnf($equal(multiply(inverse(X_7), X_7),
+                      divide(inverse(X_7), inverse(X_7))))],
+              [refute_0_14, refute_0_15])).
+
+cnf(refute_0_17, plain,
+    (divide(inverse(X_7), inverse(X_7)) != multiply(inverse(X_7), X_7) |
+     inverse(A) != divide(divide(inverse(X_7), inverse(X_7)), A) |
+     inverse(A) = divide(multiply(inverse(X_7), X_7), A)),
+    introduced(tautology,
+               [equality,
+                [$cnf($equal(inverse(A),
+                        divide(divide(inverse(X_7), inverse(X_7)), A))),
+                 [1, 0], $fot(multiply(inverse(X_7), X_7))]])).
+
+cnf(refute_0_18, plain,
+    (inverse(A) != divide(divide(inverse(X_7), inverse(X_7)), A) |
+     inverse(A) = divide(multiply(inverse(X_7), X_7), A)),
+    inference(resolve,
+              [$cnf($equal(divide(inverse(X_7), inverse(X_7)),
+                      multiply(inverse(X_7), X_7)))],
+              [refute_0_16, refute_0_17])).
+
+cnf(refute_0_19, plain,
+    (inverse(A) = divide(multiply(inverse(X_7), X_7), A)),
+    inference(resolve,
+              [$cnf($equal(inverse(A),
+                      divide(divide(inverse(X_7), inverse(X_7)), A)))],
+              [refute_0_0, refute_0_18])).
+
+cnf(refute_0_20, plain,
+    (inverse(divide(divide(inverse(X_19), X_20),
+         divide(inverse(multiply(inverse(X_7), X_7)), X_20))) =
+     divide(multiply(inverse(X_7), X_7),
+       divide(divide(inverse(X_19), X_20),
+         divide(inverse(multiply(inverse(X_7), X_7)), X_20)))),
+    inference(subst, [],
+              [refute_0_19 :
+               [bind(A,
+                     $fot(divide(divide(inverse(X_19), X_20),
+                            divide(inverse(multiply(inverse(X_7), X_7)),
+                              X_20))))]])).
+
+cnf(refute_0_21, plain, (divide(divide(A, A), A) = inverse(A)),
+    inference(subst, [], [refute_0_5 : [bind(B, $fot(A))]])).
+
+cnf(refute_0_22, plain,
+    (divide(divide(divide(A, A), A), C) =
+     divide(divide(divide(A, A), A), C)),
+    introduced(tautology,
+               [refl, [$fot(divide(divide(divide(A, A), A), C))]])).
+
+cnf(refute_0_23, plain,
+    (divide(divide(A, A), A) != inverse(A) |
+     divide(divide(divide(A, A), A), C) !=
+     divide(divide(divide(A, A), A), C) |
+     divide(divide(divide(A, A), A), C) = divide(inverse(A), C)),
+    introduced(tautology,
+               [equality,
+                [$cnf($equal(divide(divide(divide(A, A), A), C),
+                        divide(divide(divide(A, A), A), C))), [1, 0],
+                 $fot(inverse(A))]])).
+
+cnf(refute_0_24, plain,
+    (divide(divide(A, A), A) != inverse(A) |
+     divide(divide(divide(A, A), A), C) = divide(inverse(A), C)),
+    inference(resolve,
+              [$cnf($equal(divide(divide(divide(A, A), A), C),
+                      divide(divide(divide(A, A), A), C)))],
+              [refute_0_22, refute_0_23])).
+
+cnf(refute_0_25, plain,
+    (divide(divide(divide(A, A), A), C) = divide(inverse(A), C)),
+    inference(resolve, [$cnf($equal(divide(divide(A, A), A), inverse(A)))],
+              [refute_0_21, refute_0_24])).
+
+cnf(refute_0_26, plain,
+    (divide(divide(inverse(B), C), divide(divide(divide(A, A), A), C)) =
+     divide(divide(inverse(B), C), divide(divide(divide(A, A), A), C))),
+    introduced(tautology,
+               [refl,
+                [$fot(divide(divide(inverse(B), C),
+                        divide(divide(divide(A, A), A), C)))]])).
+
+cnf(refute_0_27, plain,
+    (divide(divide(divide(A, A), A), C) != divide(inverse(A), C) |
+     divide(divide(inverse(B), C), divide(divide(divide(A, A), A), C)) !=
+     divide(divide(inverse(B), C), divide(divide(divide(A, A), A), C)) |
+     divide(divide(inverse(B), C), divide(divide(divide(A, A), A), C)) =
+     divide(divide(inverse(B), C), divide(inverse(A), C))),
+    introduced(tautology,
+               [equality,
+                [$cnf($equal(divide(divide(inverse(B), C),
+                          divide(divide(divide(A, A), A), C)),
+                        divide(divide(inverse(B), C),
+                          divide(divide(divide(A, A), A), C)))), [1, 1],
+                 $fot(divide(inverse(A), C))]])).
+
+cnf(refute_0_28, plain,
+    (divide(divide(divide(A, A), A), C) != divide(inverse(A), C) |
+     divide(divide(inverse(B), C), divide(divide(divide(A, A), A), C)) =
+     divide(divide(inverse(B), C), divide(inverse(A), C))),
+    inference(resolve,
+              [$cnf($equal(divide(divide(inverse(B), C),
+                        divide(divide(divide(A, A), A), C)),
+                      divide(divide(inverse(B), C),
+                        divide(divide(divide(A, A), A), C))))],
+              [refute_0_26, refute_0_27])).
+
+cnf(refute_0_29, plain,
+    (divide(divide(inverse(B), C), divide(divide(divide(A, A), A), C)) =
+     divide(divide(inverse(B), C), divide(inverse(A), C))),
+    inference(resolve,
+              [$cnf($equal(divide(divide(divide(A, A), A), C),
+                      divide(inverse(A), C)))],
+              [refute_0_25, refute_0_28])).
+
+cnf(refute_0_30, plain, (divide(divide(A, A), B) = inverse(B)),
+    inference(subst, [],
+              [refute_0_5 : [bind(A, $fot(B)), bind(B, $fot(A))]])).
+
+cnf(refute_0_31, plain,
+    (divide(divide(divide(A, A), B), C) =
+     divide(divide(divide(A, A), B), C)),
+    introduced(tautology,
+               [refl, [$fot(divide(divide(divide(A, A), B), C))]])).
+
+cnf(refute_0_32, plain,
+    (divide(divide(A, A), B) != inverse(B) |
+     divide(divide(divide(A, A), B), C) !=
+     divide(divide(divide(A, A), B), C) |
+     divide(divide(divide(A, A), B), C) = divide(inverse(B), C)),
+    introduced(tautology,
+               [equality,
+                [$cnf($equal(divide(divide(divide(A, A), B), C),
+                        divide(divide(divide(A, A), B), C))), [1, 0],
+                 $fot(inverse(B))]])).
+
+cnf(refute_0_33, plain,
+    (divide(divide(A, A), B) != inverse(B) |
+     divide(divide(divide(A, A), B), C) = divide(inverse(B), C)),
+    inference(resolve,
+              [$cnf($equal(divide(divide(divide(A, A), B), C),
+                      divide(divide(divide(A, A), B), C)))],
+              [refute_0_31, refute_0_32])).
+
+cnf(refute_0_34, plain,
+    (divide(divide(divide(A, A), B), C) = divide(inverse(B), C)),
+    inference(resolve, [$cnf($equal(divide(divide(A, A), B), inverse(B)))],
+              [refute_0_30, refute_0_33])).
+
+cnf(refute_0_35, plain,
+    (divide(divide(divide(divide(A, A), B), C),
+       divide(divide(divide(A, A), A), C)) =
+     divide(divide(divide(divide(A, A), B), C),
+       divide(divide(divide(A, A), A), C))),
+    introduced(tautology,
+               [refl,
+                [$fot(divide(divide(divide(divide(A, A), B), C),
+                        divide(divide(divide(A, A), A), C)))]])).
+
+cnf(refute_0_36, plain,
+    (divide(divide(divide(A, A), B), C) != divide(inverse(B), C) |
+     divide(divide(divide(divide(A, A), B), C),
+       divide(divide(divide(A, A), A), C)) !=
+     divide(divide(divide(divide(A, A), B), C),
+       divide(divide(divide(A, A), A), C)) |
+     divide(divide(divide(divide(A, A), B), C),
+       divide(divide(divide(A, A), A), C)) =
+     divide(divide(inverse(B), C), divide(divide(divide(A, A), A), C))),
+    introduced(tautology,
+               [equality,
+                [$cnf($equal(divide(divide(divide(divide(A, A), B), C),
+                          divide(divide(divide(A, A), A), C)),
+                        divide(divide(divide(divide(A, A), B), C),
+                          divide(divide(divide(A, A), A), C)))), [1, 0],
+                 $fot(divide(inverse(B), C))]])).
+
+cnf(refute_0_37, plain,
+    (divide(divide(divide(A, A), B), C) != divide(inverse(B), C) |
+     divide(divide(divide(divide(A, A), B), C),
+       divide(divide(divide(A, A), A), C)) =
+     divide(divide(inverse(B), C), divide(divide(divide(A, A), A), C))),
+    inference(resolve,
+              [$cnf($equal(divide(divide(divide(divide(A, A), B), C),
+                        divide(divide(divide(A, A), A), C)),
+                      divide(divide(divide(divide(A, A), B), C),
+                        divide(divide(divide(A, A), A), C))))],
+              [refute_0_35, refute_0_36])).
+
+cnf(refute_0_38, plain,
+    (divide(divide(divide(divide(A, A), B), C),
+       divide(divide(divide(A, A), A), C)) =
+     divide(divide(inverse(B), C), divide(divide(divide(A, A), A), C))),
+    inference(resolve,
+              [$cnf($equal(divide(divide(divide(A, A), B), C),
+                      divide(inverse(B), C)))],
+              [refute_0_34, refute_0_37])).
+
+cnf(refute_0_39, plain, (Y != X | Y != Z | X = Z),
+    introduced(tautology, [equality, [$cnf($equal(Y, Z)), [0], $fot(X)]])).
+
+cnf(refute_0_40, plain, (X != Y | Y != Z | X = Z),
+    inference(resolve, [$cnf($equal(Y, X))], [refute_0_3, refute_0_39])).
+
+cnf(refute_0_41, plain,
+    (divide(divide(divide(divide(A, A), B), C),
+       divide(divide(divide(A, A), A), C)) !=
+     divide(divide(inverse(B), C), divide(divide(divide(A, A), A), C)) |
+     divide(divide(inverse(B), C), divide(divide(divide(A, A), A), C)) !=
+     divide(divide(inverse(B), C), divide(inverse(A), C)) |
+     divide(divide(divide(divide(A, A), B), C),
+       divide(divide(divide(A, A), A), C)) =
+     divide(divide(inverse(B), C), divide(inverse(A), C))),
+    inference(subst, [],
+              [refute_0_40 :
+               [bind(X,
+                     $fot(divide(divide(divide(divide(A, A), B), C),
+                            divide(divide(divide(A, A), A), C)))),
+                bind(Y,
+                     $fot(divide(divide(inverse(B), C),
+                            divide(divide(divide(A, A), A), C)))),
+                bind(Z,
+                     $fot(divide(divide(inverse(B), C),
+                            divide(inverse(A), C))))]])).
+
+cnf(refute_0_42, plain,
+    (divide(divide(inverse(B), C), divide(divide(divide(A, A), A), C)) !=
+     divide(divide(inverse(B), C), divide(inverse(A), C)) |
+     divide(divide(divide(divide(A, A), B), C),
+       divide(divide(divide(A, A), A), C)) =
+     divide(divide(inverse(B), C), divide(inverse(A), C))),
+    inference(resolve,
+              [$cnf($equal(divide(divide(divide(divide(A, A), B), C),
+                        divide(divide(divide(A, A), A), C)),
+                      divide(divide(inverse(B), C),
+                        divide(divide(divide(A, A), A), C))))],
+              [refute_0_38, refute_0_41])).
+
+cnf(refute_0_43, plain,
+    (divide(divide(divide(divide(A, A), B), C),
+       divide(divide(divide(A, A), A), C)) =
+     divide(divide(inverse(B), C), divide(inverse(A), C))),
+    inference(resolve,
+              [$cnf($equal(divide(divide(inverse(B), C),
+                        divide(divide(divide(A, A), A), C)),
+                      divide(divide(inverse(B), C),
+                        divide(inverse(A), C))))],
+              [refute_0_29, refute_0_42])).
+
+cnf(refute_0_44, plain,
+    (divide(A,
+       divide(divide(divide(divide(A, A), B), C),
+         divide(divide(divide(A, A), A), C))) =
+     divide(A,
+       divide(divide(divide(divide(A, A), B), C),
+         divide(divide(divide(A, A), A), C)))),
+    introduced(tautology,
+               [refl,
+                [$fot(divide(A,
+                        divide(divide(divide(divide(A, A), B), C),
+                          divide(divide(divide(A, A), A), C))))]])).
+
+cnf(refute_0_45, plain,
+    (divide(A,
+       divide(divide(divide(divide(A, A), B), C),
+         divide(divide(divide(A, A), A), C))) !=
+     divide(A,
+       divide(divide(divide(divide(A, A), B), C),
+         divide(divide(divide(A, A), A), C))) |
+     divide(divide(divide(divide(A, A), B), C),
+       divide(divide(divide(A, A), A), C)) !=
+     divide(divide(inverse(B), C), divide(inverse(A), C)) |
+     divide(A,
+       divide(divide(divide(divide(A, A), B), C),
+         divide(divide(divide(A, A), A), C))) =
+     divide(A, divide(divide(inverse(B), C), divide(inverse(A), C)))),
+    introduced(tautology,
+               [equality,
+                [$cnf($equal(divide(A,
+                          divide(divide(divide(divide(A, A), B), C),
+                            divide(divide(divide(A, A), A), C))),
+                        divide(A,
+                          divide(divide(divide(divide(A, A), B), C),
+                            divide(divide(divide(A, A), A), C))))), [1, 1],
+                 $fot(divide(divide(inverse(B), C),
+                        divide(inverse(A), C)))]])).
+
+cnf(refute_0_46, plain,
+    (divide(divide(divide(divide(A, A), B), C),
+       divide(divide(divide(A, A), A), C)) !=
+     divide(divide(inverse(B), C), divide(inverse(A), C)) |
+     divide(A,
+       divide(divide(divide(divide(A, A), B), C),
+         divide(divide(divide(A, A), A), C))) =
+     divide(A, divide(divide(inverse(B), C), divide(inverse(A), C)))),
+    inference(resolve,
+              [$cnf($equal(divide(A,
+                        divide(divide(divide(divide(A, A), B), C),
+                          divide(divide(divide(A, A), A), C))),
+                      divide(A,
+                        divide(divide(divide(divide(A, A), B), C),
+                          divide(divide(divide(A, A), A), C)))))],
+              [refute_0_44, refute_0_45])).
+
+cnf(refute_0_47, plain,
+    (divide(A,
+       divide(divide(divide(divide(A, A), B), C),
+         divide(divide(divide(A, A), A), C))) =
+     divide(A, divide(divide(inverse(B), C), divide(inverse(A), C)))),
+    inference(resolve,
+              [$cnf($equal(divide(divide(divide(divide(A, A), B), C),
+                        divide(divide(divide(A, A), A), C)),
+                      divide(divide(inverse(B), C),
+                        divide(inverse(A), C))))],
+              [refute_0_43, refute_0_46])).
+
+cnf(refute_0_48, plain,
+    (divide(A,
+       divide(divide(divide(divide(A, A), B), C),
+         divide(divide(divide(A, A), A), C))) != B |
+     divide(A,
+       divide(divide(divide(divide(A, A), B), C),
+         divide(divide(divide(A, A), A), C))) !=
+     divide(A, divide(divide(inverse(B), C), divide(inverse(A), C))) |
+     divide(A, divide(divide(inverse(B), C), divide(inverse(A), C))) = B),
+    introduced(tautology,
+               [equality,
+                [$cnf($equal(divide(A,
+                          divide(divide(divide(divide(A, A), B), C),
+                            divide(divide(divide(A, A), A), C))), B)), [0],
+                 $fot(divide(A,
+                        divide(divide(inverse(B), C),
+                          divide(inverse(A), C))))]])).
+
+cnf(refute_0_49, plain,
+    (divide(A,
+       divide(divide(divide(divide(A, A), B), C),
+         divide(divide(divide(A, A), A), C))) != B |
+     divide(A, divide(divide(inverse(B), C), divide(inverse(A), C))) = B),
+    inference(resolve,
+              [$cnf($equal(divide(A,
+                        divide(divide(divide(divide(A, A), B), C),
+                          divide(divide(divide(A, A), A), C))),
+                      divide(A,
+                        divide(divide(inverse(B), C),
+                          divide(inverse(A), C)))))],
+              [refute_0_47, refute_0_48])).
+
+cnf(refute_0_50, plain,
+    (divide(A, divide(divide(inverse(B), C), divide(inverse(A), C))) = B),
+    inference(resolve,
+              [$cnf($equal(divide(A,
+                        divide(divide(divide(divide(A, A), B), C),
+                          divide(divide(divide(A, A), A), C))), B))],
+              [single_axiom, refute_0_49])).
+
+cnf(refute_0_51, plain,
+    (divide(multiply(inverse(X_7), X_7),
+       divide(divide(inverse(X_19), X_20),
+         divide(inverse(multiply(inverse(X_7), X_7)), X_20))) = X_19),
+    inference(subst, [],
+              [refute_0_50 :
+               [bind(A, $fot(multiply(inverse(X_7), X_7))),
+                bind(B, $fot(X_19)), bind(C, $fot(X_20))]])).
+
+cnf(refute_0_52, plain,
+    (divide(multiply(inverse(X_7), X_7),
+       divide(divide(inverse(X_19), X_20),
+         divide(inverse(multiply(inverse(X_7), X_7)), X_20))) != X_19 |
+     inverse(divide(divide(inverse(X_19), X_20),
+         divide(inverse(multiply(inverse(X_7), X_7)), X_20))) !=
+     divide(multiply(inverse(X_7), X_7),
+       divide(divide(inverse(X_19), X_20),
+         divide(inverse(multiply(inverse(X_7), X_7)), X_20))) |
+     inverse(divide(divide(inverse(X_19), X_20),
+         divide(inverse(multiply(inverse(X_7), X_7)), X_20))) = X_19),
+    introduced(tautology,
+               [equality,
+                [$cnf($equal(inverse(divide(divide(inverse(X_19), X_20),
+                            divide(inverse(multiply(inverse(X_7), X_7)),
+                              X_20))),
+                        divide(multiply(inverse(X_7), X_7),
+                          divide(divide(inverse(X_19), X_20),
+                            divide(inverse(multiply(inverse(X_7), X_7)),
+                              X_20))))), [1], $fot(X_19)]])).
+
+cnf(refute_0_53, plain,
+    (inverse(divide(divide(inverse(X_19), X_20),
+         divide(inverse(multiply(inverse(X_7), X_7)), X_20))) !=
+     divide(multiply(inverse(X_7), X_7),
+       divide(divide(inverse(X_19), X_20),
+         divide(inverse(multiply(inverse(X_7), X_7)), X_20))) |
+     inverse(divide(divide(inverse(X_19), X_20),
+         divide(inverse(multiply(inverse(X_7), X_7)), X_20))) = X_19),
+    inference(resolve,
+              [$cnf($equal(divide(multiply(inverse(X_7), X_7),
+                        divide(divide(inverse(X_19), X_20),
+                          divide(inverse(multiply(inverse(X_7), X_7)),
+                            X_20))), X_19))], [refute_0_51, refute_0_52])).
+
+cnf(refute_0_54, plain,
+    (inverse(divide(divide(inverse(X_19), X_20),
+         divide(inverse(multiply(inverse(X_7), X_7)), X_20))) = X_19),
+    inference(resolve,
+              [$cnf($equal(inverse(divide(divide(inverse(X_19), X_20),
+                          divide(inverse(multiply(inverse(X_7), X_7)),
+                            X_20))),
+                      divide(multiply(inverse(X_7), X_7),
+                        divide(divide(inverse(X_19), X_20),
+                          divide(inverse(multiply(inverse(X_7), X_7)),
+                            X_20)))))], [refute_0_20, refute_0_53])).
+
+cnf(refute_0_55, plain,
+    (multiply(A, B) != divide(A, inverse(B)) |
+     divide(A, inverse(B)) = multiply(A, B)),
+    inference(subst, [],
+              [refute_0_3 :
+               [bind(X, $fot(multiply(A, B))),
+                bind(Y, $fot(divide(A, inverse(B))))]])).
+
+cnf(refute_0_56, plain, (divide(A, inverse(B)) = multiply(A, B)),
+    inference(resolve,
+              [$cnf($equal(multiply(A, B), divide(A, inverse(B))))],
+              [refute_0_13, refute_0_55])).
+
+cnf(refute_0_57, plain,
+    (divide(divide(inverse(X_19), X_20), inverse(X_20)) =
+     multiply(divide(inverse(X_19), X_20), X_20)),
+    inference(subst, [],
+              [refute_0_56 :
+               [bind(A, $fot(divide(inverse(X_19), X_20))),
+                bind(B, $fot(X_20))]])).
+
+cnf(refute_0_58, plain,
+    (inverse(A) = divide(divide(divide(X_1, X_1), divide(X_1, X_1)), A)),
+    inference(subst, [], [inverse : [bind(B, $fot(divide(X_1, X_1)))]])).
+
+cnf(refute_0_59, plain,
+    (inverse(divide(X_1, X_1)) =
+     divide(divide(X_1, X_1), divide(X_1, X_1))),
+    inference(subst, [],
+              [inverse :
+               [bind(A, $fot(divide(X_1, X_1))), bind(B, $fot(X_1))]])).
+
+cnf(refute_0_60, plain,
+    (inverse(divide(X_1, X_1)) !=
+     divide(divide(X_1, X_1), divide(X_1, X_1)) |
+     divide(divide(X_1, X_1), divide(X_1, X_1)) =
+     inverse(divide(X_1, X_1))),
+    inference(subst, [],
+              [refute_0_3 :
+               [bind(X, $fot(inverse(divide(X_1, X_1)))),
+                bind(Y,
+                     $fot(divide(divide(X_1, X_1), divide(X_1, X_1))))]])).
+
+cnf(refute_0_61, plain,
+    (divide(divide(X_1, X_1), divide(X_1, X_1)) =
+     inverse(divide(X_1, X_1))),
+    inference(resolve,
+              [$cnf($equal(inverse(divide(X_1, X_1)),
+                      divide(divide(X_1, X_1), divide(X_1, X_1))))],
+              [refute_0_59, refute_0_60])).
+
+cnf(refute_0_62, plain,
+    (divide(divide(X_1, X_1), divide(X_1, X_1)) !=
+     inverse(divide(X_1, X_1)) |
+     inverse(A) != divide(divide(divide(X_1, X_1), divide(X_1, X_1)), A) |
+     inverse(A) = divide(inverse(divide(X_1, X_1)), A)),
+    introduced(tautology,
+               [equality,
+                [$cnf($equal(inverse(A),
+                        divide(divide(divide(X_1, X_1), divide(X_1, X_1)),
+                          A))), [1, 0],
+                 $fot(inverse(divide(X_1, X_1)))]])).
+
+cnf(refute_0_63, plain,
+    (inverse(A) != divide(divide(divide(X_1, X_1), divide(X_1, X_1)), A) |
+     inverse(A) = divide(inverse(divide(X_1, X_1)), A)),
+    inference(resolve,
+              [$cnf($equal(divide(divide(X_1, X_1), divide(X_1, X_1)),
+                      inverse(divide(X_1, X_1))))],
+              [refute_0_61, refute_0_62])).
+
+cnf(refute_0_64, plain,
+    (inverse(A) = divide(inverse(divide(X_1, X_1)), A)),
+    inference(resolve,
+              [$cnf($equal(inverse(A),
+                      divide(divide(divide(X_1, X_1), divide(X_1, X_1)),
+                        A)))], [refute_0_58, refute_0_63])).
+
+cnf(refute_0_65, plain,
+    (inverse(A) = divide(inverse(divide(inverse(X_7), inverse(X_7))), A)),
+    inference(subst, [], [refute_0_64 : [bind(X_1, $fot(inverse(X_7)))]])).
+
+cnf(refute_0_66, plain,
+    (divide(inverse(X_7), inverse(X_7)) != multiply(inverse(X_7), X_7) |
+     inverse(A) != divide(inverse(divide(inverse(X_7), inverse(X_7))), A) |
+     inverse(A) = divide(inverse(multiply(inverse(X_7), X_7)), A)),
+    introduced(tautology,
+               [equality,
+                [$cnf($equal(inverse(A),
+                        divide(inverse(divide(inverse(X_7), inverse(X_7))),
+                          A))), [1, 0, 0],
+                 $fot(multiply(inverse(X_7), X_7))]])).
+
+cnf(refute_0_67, plain,
+    (inverse(A) != divide(inverse(divide(inverse(X_7), inverse(X_7))), A) |
+     inverse(A) = divide(inverse(multiply(inverse(X_7), X_7)), A)),
+    inference(resolve,
+              [$cnf($equal(divide(inverse(X_7), inverse(X_7)),
+                      multiply(inverse(X_7), X_7)))],
+              [refute_0_16, refute_0_66])).
+
+cnf(refute_0_68, plain,
+    (inverse(A) = divide(inverse(multiply(inverse(X_7), X_7)), A)),
+    inference(resolve,
+              [$cnf($equal(inverse(A),
+                      divide(inverse(divide(inverse(X_7), inverse(X_7))),
+                        A)))], [refute_0_65, refute_0_67])).
+
+cnf(refute_0_69, plain,
+    (inverse(A) != divide(inverse(multiply(inverse(X_7), X_7)), A) |
+     divide(inverse(multiply(inverse(X_7), X_7)), A) = inverse(A)),
+    inference(subst, [],
+              [refute_0_3 :
+               [bind(X, $fot(inverse(A))),
+                bind(Y,
+                     $fot(divide(inverse(multiply(inverse(X_7), X_7)),
+                            A)))]])).
+
+cnf(refute_0_70, plain,
+    (divide(inverse(multiply(inverse(X_7), X_7)), A) = inverse(A)),
+    inference(resolve,
+              [$cnf($equal(inverse(A),
+                      divide(inverse(multiply(inverse(X_7), X_7)), A)))],
+              [refute_0_68, refute_0_69])).
+
+cnf(refute_0_71, plain,
+    (divide(inverse(multiply(inverse(X_7), X_7)), X_20) = inverse(X_20)),
+    inference(subst, [], [refute_0_70 : [bind(A, $fot(X_20))]])).
+
+cnf(refute_0_72, plain,
+    (divide(divide(inverse(X_19), X_20),
+       divide(inverse(multiply(inverse(X_7), X_7)), X_20)) =
+     divide(divide(inverse(X_19), X_20),
+       divide(inverse(multiply(inverse(X_7), X_7)), X_20))),
+    introduced(tautology,
+               [refl,
+                [$fot(divide(divide(inverse(X_19), X_20),
+                        divide(inverse(multiply(inverse(X_7), X_7)),
+                          X_20)))]])).
+
+cnf(refute_0_73, plain,
+    (divide(divide(inverse(X_19), X_20),
+       divide(inverse(multiply(inverse(X_7), X_7)), X_20)) !=
+     divide(divide(inverse(X_19), X_20),
+       divide(inverse(multiply(inverse(X_7), X_7)), X_20)) |
+     divide(inverse(multiply(inverse(X_7), X_7)), X_20) != inverse(X_20) |
+     divide(divide(inverse(X_19), X_20),
+       divide(inverse(multiply(inverse(X_7), X_7)), X_20)) =
+     divide(divide(inverse(X_19), X_20), inverse(X_20))),
+    introduced(tautology,
+               [equality,
+                [$cnf($equal(divide(divide(inverse(X_19), X_20),
+                          divide(inverse(multiply(inverse(X_7), X_7)),
+                            X_20)),
+                        divide(divide(inverse(X_19), X_20),
+                          divide(inverse(multiply(inverse(X_7), X_7)),
+                            X_20)))), [1, 1], $fot(inverse(X_20))]])).
+
+cnf(refute_0_74, plain,
+    (divide(inverse(multiply(inverse(X_7), X_7)), X_20) != inverse(X_20) |
+     divide(divide(inverse(X_19), X_20),
+       divide(inverse(multiply(inverse(X_7), X_7)), X_20)) =
+     divide(divide(inverse(X_19), X_20), inverse(X_20))),
+    inference(resolve,
+              [$cnf($equal(divide(divide(inverse(X_19), X_20),
+                        divide(inverse(multiply(inverse(X_7), X_7)),
+                          X_20)),
+                      divide(divide(inverse(X_19), X_20),
+                        divide(inverse(multiply(inverse(X_7), X_7)),
+                          X_20))))], [refute_0_72, refute_0_73])).
+
+cnf(refute_0_75, plain,
+    (divide(divide(inverse(X_19), X_20),
+       divide(inverse(multiply(inverse(X_7), X_7)), X_20)) =
+     divide(divide(inverse(X_19), X_20), inverse(X_20))),
+    inference(resolve,
+              [$cnf($equal(divide(inverse(multiply(inverse(X_7), X_7)),
+                        X_20), inverse(X_20)))],
+              [refute_0_71, refute_0_74])).
+
+cnf(refute_0_76, plain,
+    (divide(divide(inverse(X_19), X_20),
+       divide(inverse(multiply(inverse(X_7), X_7)), X_20)) !=
+     divide(divide(inverse(X_19), X_20), inverse(X_20)) |
+     divide(divide(inverse(X_19), X_20), inverse(X_20)) !=
+     multiply(divide(inverse(X_19), X_20), X_20) |
+     divide(divide(inverse(X_19), X_20),
+       divide(inverse(multiply(inverse(X_7), X_7)), X_20)) =
+     multiply(divide(inverse(X_19), X_20), X_20)),
+    inference(subst, [],
+              [refute_0_40 :
+               [bind(X,
+                     $fot(divide(divide(inverse(X_19), X_20),
+                            divide(inverse(multiply(inverse(X_7), X_7)),
+                              X_20)))),
+                bind(Y,
+                     $fot(divide(divide(inverse(X_19), X_20),
+                            inverse(X_20)))),
+                bind(Z,
+                     $fot(multiply(divide(inverse(X_19), X_20),
+                            X_20)))]])).
+
+cnf(refute_0_77, plain,
+    (divide(divide(inverse(X_19), X_20), inverse(X_20)) !=
+     multiply(divide(inverse(X_19), X_20), X_20) |
+     divide(divide(inverse(X_19), X_20),
+       divide(inverse(multiply(inverse(X_7), X_7)), X_20)) =
+     multiply(divide(inverse(X_19), X_20), X_20)),
+    inference(resolve,
+              [$cnf($equal(divide(divide(inverse(X_19), X_20),
+                        divide(inverse(multiply(inverse(X_7), X_7)),
+                          X_20)),
+                      divide(divide(inverse(X_19), X_20),
+                        inverse(X_20))))], [refute_0_75, refute_0_76])).
+
+cnf(refute_0_78, plain,
+    (divide(divide(inverse(X_19), X_20),
+       divide(inverse(multiply(inverse(X_7), X_7)), X_20)) =
+     multiply(divide(inverse(X_19), X_20), X_20)),
+    inference(resolve,
+              [$cnf($equal(divide(divide(inverse(X_19), X_20),
+                        inverse(X_20)),
+                      multiply(divide(inverse(X_19), X_20), X_20)))],
+              [refute_0_57, refute_0_77])).
+
+cnf(refute_0_79, plain,
+    (inverse(divide(divide(inverse(X_19), X_20),
+         divide(inverse(multiply(inverse(X_7), X_7)), X_20))) =
+     inverse(divide(divide(inverse(X_19), X_20),
+         divide(inverse(multiply(inverse(X_7), X_7)), X_20)))),
+    introduced(tautology,
+               [refl,
+                [$fot(inverse(divide(divide(inverse(X_19), X_20),
+                          divide(inverse(multiply(inverse(X_7), X_7)),
+                            X_20))))]])).
+
+cnf(refute_0_80, plain,
+    (divide(divide(inverse(X_19), X_20),
+       divide(inverse(multiply(inverse(X_7), X_7)), X_20)) !=
+     multiply(divide(inverse(X_19), X_20), X_20) |
+     inverse(divide(divide(inverse(X_19), X_20),
+         divide(inverse(multiply(inverse(X_7), X_7)), X_20))) !=
+     inverse(divide(divide(inverse(X_19), X_20),
+         divide(inverse(multiply(inverse(X_7), X_7)), X_20))) |
+     inverse(divide(divide(inverse(X_19), X_20),
+         divide(inverse(multiply(inverse(X_7), X_7)), X_20))) =
+     inverse(multiply(divide(inverse(X_19), X_20), X_20))),
+    introduced(tautology,
+               [equality,
+                [$cnf($equal(inverse(divide(divide(inverse(X_19), X_20),
+                            divide(inverse(multiply(inverse(X_7), X_7)),
+                              X_20))),
+                        inverse(divide(divide(inverse(X_19), X_20),
+                            divide(inverse(multiply(inverse(X_7), X_7)),
+                              X_20))))), [1, 0],
+                 $fot(multiply(divide(inverse(X_19), X_20), X_20))]])).
+
+cnf(refute_0_81, plain,
+    (divide(divide(inverse(X_19), X_20),
+       divide(inverse(multiply(inverse(X_7), X_7)), X_20)) !=
+     multiply(divide(inverse(X_19), X_20), X_20) |
+     inverse(divide(divide(inverse(X_19), X_20),
+         divide(inverse(multiply(inverse(X_7), X_7)), X_20))) =
+     inverse(multiply(divide(inverse(X_19), X_20), X_20))),
+    inference(resolve,
+              [$cnf($equal(inverse(divide(divide(inverse(X_19), X_20),
+                          divide(inverse(multiply(inverse(X_7), X_7)),
+                            X_20))),
+                      inverse(divide(divide(inverse(X_19), X_20),
+                          divide(inverse(multiply(inverse(X_7), X_7)),
+                            X_20)))))], [refute_0_79, refute_0_80])).
+
+cnf(refute_0_82, plain,
+    (inverse(divide(divide(inverse(X_19), X_20),
+         divide(inverse(multiply(inverse(X_7), X_7)), X_20))) =
+     inverse(multiply(divide(inverse(X_19), X_20), X_20))),
+    inference(resolve,
+              [$cnf($equal(divide(divide(inverse(X_19), X_20),
+                        divide(inverse(multiply(inverse(X_7), X_7)),
+                          X_20)),
+                      multiply(divide(inverse(X_19), X_20), X_20)))],
+              [refute_0_78, refute_0_81])).
+
+cnf(refute_0_83, plain,
+    (inverse(divide(divide(inverse(X_19), X_20),
+         divide(inverse(multiply(inverse(X_7), X_7)), X_20))) != X_19 |
+     inverse(divide(divide(inverse(X_19), X_20),
+         divide(inverse(multiply(inverse(X_7), X_7)), X_20))) !=
+     inverse(multiply(divide(inverse(X_19), X_20), X_20)) |
+     inverse(multiply(divide(inverse(X_19), X_20), X_20)) = X_19),
+    introduced(tautology,
+               [equality,
+                [$cnf($equal(inverse(divide(divide(inverse(X_19), X_20),
+                            divide(inverse(multiply(inverse(X_7), X_7)),
+                              X_20))), X_19)), [0],
+                 $fot(inverse(multiply(divide(inverse(X_19), X_20),
+                          X_20)))]])).
+
+cnf(refute_0_84, plain,
+    (inverse(divide(divide(inverse(X_19), X_20),
+         divide(inverse(multiply(inverse(X_7), X_7)), X_20))) != X_19 |
+     inverse(multiply(divide(inverse(X_19), X_20), X_20)) = X_19),
+    inference(resolve,
+              [$cnf($equal(inverse(divide(divide(inverse(X_19), X_20),
+                          divide(inverse(multiply(inverse(X_7), X_7)),
+                            X_20))),
+                      inverse(multiply(divide(inverse(X_19), X_20),
+                          X_20))))], [refute_0_82, refute_0_83])).
+
+cnf(refute_0_85, plain,
+    (inverse(multiply(divide(inverse(X_19), X_20), X_20)) = X_19),
+    inference(resolve,
+              [$cnf($equal(inverse(divide(divide(inverse(X_19), X_20),
+                          divide(inverse(multiply(inverse(X_7), X_7)),
+                            X_20))), X_19))], [refute_0_54, refute_0_84])).
+
+cnf(refute_0_86, plain,
+    (inverse(multiply(divide(inverse(X_24), inverse(B)), inverse(B))) =
+     X_24),
+    inference(subst, [],
+              [refute_0_85 :
+               [bind(X_19, $fot(X_24)), bind(X_20, $fot(inverse(B)))]])).
+
+cnf(refute_0_87, plain,
+    (multiply(inverse(X_24), B) = divide(inverse(X_24), inverse(B))),
+    inference(subst, [], [refute_0_13 : [bind(A, $fot(inverse(X_24)))]])).
+
+cnf(refute_0_88, plain,
+    (multiply(inverse(X_24), B) != divide(inverse(X_24), inverse(B)) |
+     divide(inverse(X_24), inverse(B)) = multiply(inverse(X_24), B)),
+    inference(subst, [],
+              [refute_0_3 :
+               [bind(X, $fot(multiply(inverse(X_24), B))),
+                bind(Y, $fot(divide(inverse(X_24), inverse(B))))]])).
+
+cnf(refute_0_89, plain,
+    (divide(inverse(X_24), inverse(B)) = multiply(inverse(X_24), B)),
+    inference(resolve,
+              [$cnf($equal(multiply(inverse(X_24), B),
+                      divide(inverse(X_24), inverse(B))))],
+              [refute_0_87, refute_0_88])).
+
+cnf(refute_0_90, plain,
+    (divide(inverse(X_24), inverse(B)) != multiply(inverse(X_24), B) |
+     inverse(multiply(divide(inverse(X_24), inverse(B)), inverse(B))) !=
+     X_24 |
+     inverse(multiply(multiply(inverse(X_24), B), inverse(B))) = X_24),
+    introduced(tautology,
+               [equality,
+                [$cnf($equal(inverse(multiply(divide(inverse(X_24),
+                              inverse(B)), inverse(B))), X_24)), [0, 0, 0],
+                 $fot(multiply(inverse(X_24), B))]])).
+
+cnf(refute_0_91, plain,
+    (inverse(multiply(divide(inverse(X_24), inverse(B)), inverse(B))) !=
+     X_24 |
+     inverse(multiply(multiply(inverse(X_24), B), inverse(B))) = X_24),
+    inference(resolve,
+              [$cnf($equal(divide(inverse(X_24), inverse(B)),
+                      multiply(inverse(X_24), B)))],
+              [refute_0_89, refute_0_90])).
+
+cnf(refute_0_92, plain,
+    (inverse(multiply(multiply(inverse(X_24), B), inverse(B))) = X_24),
+    inference(resolve,
+              [$cnf($equal(inverse(multiply(divide(inverse(X_24),
+                            inverse(B)), inverse(B))), X_24))],
+              [refute_0_86, refute_0_91])).
+
+cnf(refute_0_93, plain,
+    (inverse(multiply(multiply(inverse(inverse(X_18)), X_38),
+         inverse(X_38))) = inverse(X_18)),
+    inference(subst, [],
+              [refute_0_92 :
+               [bind(B, $fot(X_38)), bind(X_24, $fot(inverse(X_18)))]])).
+
+cnf(refute_0_94, plain,
+    (divide(X_18,
+       divide(divide(inverse(X_19), inverse(X_19)),
+         divide(inverse(X_18), inverse(X_19)))) = X_19),
+    inference(subst, [],
+              [refute_0_50 :
+               [bind(A, $fot(X_18)), bind(B, $fot(X_19)),
+                bind(C, $fot(inverse(X_19)))]])).
+
+cnf(refute_0_95, plain,
+    (inverse(divide(inverse(X_18), inverse(X_19))) =
+     divide(divide(inverse(X_19), inverse(X_19)),
+       divide(inverse(X_18), inverse(X_19)))),
+    inference(subst, [],
+              [inverse :
+               [bind(A, $fot(divide(inverse(X_18), inverse(X_19)))),
+                bind(B, $fot(inverse(X_19)))]])).
+
+cnf(refute_0_96, plain,
+    (inverse(divide(inverse(X_18), inverse(X_19))) !=
+     divide(divide(inverse(X_19), inverse(X_19)),
+       divide(inverse(X_18), inverse(X_19))) |
+     divide(divide(inverse(X_19), inverse(X_19)),
+       divide(inverse(X_18), inverse(X_19))) =
+     inverse(divide(inverse(X_18), inverse(X_19)))),
+    inference(subst, [],
+              [refute_0_3 :
+               [bind(X,
+                     $fot(inverse(divide(inverse(X_18), inverse(X_19))))),
+                bind(Y,
+                     $fot(divide(divide(inverse(X_19), inverse(X_19)),
+                            divide(inverse(X_18), inverse(X_19)))))]])).
+
+cnf(refute_0_97, plain,
+    (divide(divide(inverse(X_19), inverse(X_19)),
+       divide(inverse(X_18), inverse(X_19))) =
+     inverse(divide(inverse(X_18), inverse(X_19)))),
+    inference(resolve,
+              [$cnf($equal(inverse(divide(inverse(X_18), inverse(X_19))),
+                      divide(divide(inverse(X_19), inverse(X_19)),
+                        divide(inverse(X_18), inverse(X_19)))))],
+              [refute_0_95, refute_0_96])).
+
+cnf(refute_0_98, plain,
+    (divide(X_18,
+       divide(divide(inverse(X_19), inverse(X_19)),
+         divide(inverse(X_18), inverse(X_19)))) != X_19 |
+     divide(divide(inverse(X_19), inverse(X_19)),
+       divide(inverse(X_18), inverse(X_19))) !=
+     inverse(divide(inverse(X_18), inverse(X_19))) |
+     divide(X_18, inverse(divide(inverse(X_18), inverse(X_19)))) = X_19),
+    introduced(tautology,
+               [equality,
+                [$cnf($equal(divide(X_18,
+                          divide(divide(inverse(X_19), inverse(X_19)),
+                            divide(inverse(X_18), inverse(X_19)))), X_19)),
+                 [0, 1],
+                 $fot(inverse(divide(inverse(X_18), inverse(X_19))))]])).
+
+cnf(refute_0_99, plain,
+    (divide(X_18,
+       divide(divide(inverse(X_19), inverse(X_19)),
+         divide(inverse(X_18), inverse(X_19)))) != X_19 |
+     divide(X_18, inverse(divide(inverse(X_18), inverse(X_19)))) = X_19),
+    inference(resolve,
+              [$cnf($equal(divide(divide(inverse(X_19), inverse(X_19)),
+                        divide(inverse(X_18), inverse(X_19))),
+                      inverse(divide(inverse(X_18), inverse(X_19)))))],
+              [refute_0_97, refute_0_98])).
+
+cnf(refute_0_100, plain,
+    (divide(X_18, inverse(divide(inverse(X_18), inverse(X_19)))) = X_19),
+    inference(resolve,
+              [$cnf($equal(divide(X_18,
+                        divide(divide(inverse(X_19), inverse(X_19)),
+                          divide(inverse(X_18), inverse(X_19)))), X_19))],
+              [refute_0_94, refute_0_99])).
+
+cnf(refute_0_101, plain,
+    (divide(inverse(X_18), inverse(X_19)) = multiply(inverse(X_18), X_19)),
+    inference(subst, [],
+              [refute_0_56 :
+               [bind(A, $fot(inverse(X_18))), bind(B, $fot(X_19))]])).
+
+cnf(refute_0_102, plain,
+    (multiply(X_18, divide(inverse(X_18), inverse(X_19))) =
+     multiply(X_18, divide(inverse(X_18), inverse(X_19)))),
+    introduced(tautology,
+               [refl,
+                [$fot(multiply(X_18,
+                        divide(inverse(X_18), inverse(X_19))))]])).
+
+cnf(refute_0_103, plain,
+    (multiply(X_18, divide(inverse(X_18), inverse(X_19))) !=
+     multiply(X_18, divide(inverse(X_18), inverse(X_19))) |
+     divide(inverse(X_18), inverse(X_19)) !=
+     multiply(inverse(X_18), X_19) |
+     multiply(X_18, divide(inverse(X_18), inverse(X_19))) =
+     multiply(X_18, multiply(inverse(X_18), X_19))),
+    introduced(tautology,
+               [equality,
+                [$cnf($equal(multiply(X_18,
+                          divide(inverse(X_18), inverse(X_19))),
+                        multiply(X_18,
+                          divide(inverse(X_18), inverse(X_19))))), [1, 1],
+                 $fot(multiply(inverse(X_18), X_19))]])).
+
+cnf(refute_0_104, plain,
+    (divide(inverse(X_18), inverse(X_19)) !=
+     multiply(inverse(X_18), X_19) |
+     multiply(X_18, divide(inverse(X_18), inverse(X_19))) =
+     multiply(X_18, multiply(inverse(X_18), X_19))),
+    inference(resolve,
+              [$cnf($equal(multiply(X_18,
+                        divide(inverse(X_18), inverse(X_19))),
+                      multiply(X_18,
+                        divide(inverse(X_18), inverse(X_19)))))],
+              [refute_0_102, refute_0_103])).
+
+cnf(refute_0_105, plain,
+    (multiply(X_18, divide(inverse(X_18), inverse(X_19))) =
+     multiply(X_18, multiply(inverse(X_18), X_19))),
+    inference(resolve,
+              [$cnf($equal(divide(inverse(X_18), inverse(X_19)),
+                      multiply(inverse(X_18), X_19)))],
+              [refute_0_101, refute_0_104])).
+
+cnf(refute_0_106, plain,
+    (divide(X_18, inverse(divide(inverse(X_18), inverse(X_19)))) =
+     multiply(X_18, divide(inverse(X_18), inverse(X_19)))),
+    inference(subst, [],
+              [refute_0_56 :
+               [bind(A, $fot(X_18)),
+                bind(B, $fot(divide(inverse(X_18), inverse(X_19))))]])).
+
+cnf(refute_0_107, plain,
+    (multiply(X_18, divide(inverse(X_18), inverse(X_19))) !=
+     multiply(X_18, multiply(inverse(X_18), X_19)) |
+     divide(X_18, inverse(divide(inverse(X_18), inverse(X_19)))) !=
+     multiply(X_18, divide(inverse(X_18), inverse(X_19))) |
+     divide(X_18, inverse(divide(inverse(X_18), inverse(X_19)))) =
+     multiply(X_18, multiply(inverse(X_18), X_19))),
+    inference(subst, [],
+              [refute_0_40 :
+               [bind(X,
+                     $fot(divide(X_18,
+                            inverse(divide(inverse(X_18),
+                                inverse(X_19)))))),
+                bind(Y,
+                     $fot(multiply(X_18,
+                            divide(inverse(X_18), inverse(X_19))))),
+                bind(Z,
+                     $fot(multiply(X_18,
+                            multiply(inverse(X_18), X_19))))]])).
+
+cnf(refute_0_108, plain,
+    (multiply(X_18, divide(inverse(X_18), inverse(X_19))) !=
+     multiply(X_18, multiply(inverse(X_18), X_19)) |
+     divide(X_18, inverse(divide(inverse(X_18), inverse(X_19)))) =
+     multiply(X_18, multiply(inverse(X_18), X_19))),
+    inference(resolve,
+              [$cnf($equal(divide(X_18,
+                        inverse(divide(inverse(X_18), inverse(X_19)))),
+                      multiply(X_18,
+                        divide(inverse(X_18), inverse(X_19)))))],
+              [refute_0_106, refute_0_107])).
+
+cnf(refute_0_109, plain,
+    (divide(X_18, inverse(divide(inverse(X_18), inverse(X_19)))) =
+     multiply(X_18, multiply(inverse(X_18), X_19))),
+    inference(resolve,
+              [$cnf($equal(multiply(X_18,
+                        divide(inverse(X_18), inverse(X_19))),
+                      multiply(X_18, multiply(inverse(X_18), X_19))))],
+              [refute_0_105, refute_0_108])).
+
+cnf(refute_0_110, plain,
+    (divide(X_18, inverse(divide(inverse(X_18), inverse(X_19)))) != X_19 |
+     divide(X_18, inverse(divide(inverse(X_18), inverse(X_19)))) !=
+     multiply(X_18, multiply(inverse(X_18), X_19)) |
+     multiply(X_18, multiply(inverse(X_18), X_19)) = X_19),
+    introduced(tautology,
+               [equality,
+                [$cnf($equal(divide(X_18,
+                          inverse(divide(inverse(X_18), inverse(X_19)))),
+                        X_19)), [0],
+                 $fot(multiply(X_18, multiply(inverse(X_18), X_19)))]])).
+
+cnf(refute_0_111, plain,
+    (divide(X_18, inverse(divide(inverse(X_18), inverse(X_19)))) != X_19 |
+     multiply(X_18, multiply(inverse(X_18), X_19)) = X_19),
+    inference(resolve,
+              [$cnf($equal(divide(X_18,
+                        inverse(divide(inverse(X_18), inverse(X_19)))),
+                      multiply(X_18, multiply(inverse(X_18), X_19))))],
+              [refute_0_109, refute_0_110])).
+
+cnf(refute_0_112, plain,
+    (multiply(X_18, multiply(inverse(X_18), X_19)) = X_19),
+    inference(resolve,
+              [$cnf($equal(divide(X_18,
+                        inverse(divide(inverse(X_18), inverse(X_19)))),
+                      X_19))], [refute_0_100, refute_0_111])).
+
+cnf(refute_0_113, plain,
+    (multiply(X_18,
+       multiply(inverse(X_18), multiply(inverse(inverse(X_18)), X_22))) =
+     multiply(inverse(inverse(X_18)), X_22)),
+    inference(subst, [],
+              [refute_0_112 :
+               [bind(X_19,
+                     $fot(multiply(inverse(inverse(X_18)), X_22)))]])).
+
+cnf(refute_0_114, plain,
+    (multiply(inverse(X_18), multiply(inverse(inverse(X_18)), X_22)) =
+     X_22),
+    inference(subst, [],
+              [refute_0_112 :
+               [bind(X_18, $fot(inverse(X_18))),
+                bind(X_19, $fot(X_22))]])).
+
+cnf(refute_0_115, plain,
+    (multiply(X_18,
+       multiply(inverse(X_18), multiply(inverse(inverse(X_18)), X_22))) !=
+     multiply(inverse(inverse(X_18)), X_22) |
+     multiply(inverse(X_18), multiply(inverse(inverse(X_18)), X_22)) !=
+     X_22 | multiply(X_18, X_22) = multiply(inverse(inverse(X_18)), X_22)),
+    introduced(tautology,
+               [equality,
+                [$cnf($equal(multiply(X_18,
+                          multiply(inverse(X_18),
+                            multiply(inverse(inverse(X_18)), X_22))),
+                        multiply(inverse(inverse(X_18)), X_22))), [0, 1],
+                 $fot(X_22)]])).
+
+cnf(refute_0_116, plain,
+    (multiply(X_18,
+       multiply(inverse(X_18), multiply(inverse(inverse(X_18)), X_22))) !=
+     multiply(inverse(inverse(X_18)), X_22) |
+     multiply(X_18, X_22) = multiply(inverse(inverse(X_18)), X_22)),
+    inference(resolve,
+              [$cnf($equal(multiply(inverse(X_18),
+                        multiply(inverse(inverse(X_18)), X_22)), X_22))],
+              [refute_0_114, refute_0_115])).
+
+cnf(refute_0_117, plain,
+    (multiply(X_18, X_22) = multiply(inverse(inverse(X_18)), X_22)),
+    inference(resolve,
+              [$cnf($equal(multiply(X_18,
+                        multiply(inverse(X_18),
+                          multiply(inverse(inverse(X_18)), X_22))),
+                      multiply(inverse(inverse(X_18)), X_22)))],
+              [refute_0_113, refute_0_116])).
+
+cnf(refute_0_118, plain,
+    (multiply(X_18, X_38) = multiply(inverse(inverse(X_18)), X_38)),
+    inference(subst, [], [refute_0_117 : [bind(X_22, $fot(X_38))]])).
+
+cnf(refute_0_119, plain,
+    (multiply(X_18, X_38) != multiply(inverse(inverse(X_18)), X_38) |
+     multiply(inverse(inverse(X_18)), X_38) = multiply(X_18, X_38)),
+    inference(subst, [],
+              [refute_0_3 :
+               [bind(X, $fot(multiply(X_18, X_38))),
+                bind(Y, $fot(multiply(inverse(inverse(X_18)), X_38)))]])).
+
+cnf(refute_0_120, plain,
+    (multiply(inverse(inverse(X_18)), X_38) = multiply(X_18, X_38)),
+    inference(resolve,
+              [$cnf($equal(multiply(X_18, X_38),
+                      multiply(inverse(inverse(X_18)), X_38)))],
+              [refute_0_118, refute_0_119])).
+
+cnf(refute_0_121, plain,
+    (multiply(inverse(inverse(X_18)), X_38) != multiply(X_18, X_38) |
+     inverse(multiply(multiply(inverse(inverse(X_18)), X_38),
+         inverse(X_38))) != inverse(X_18) |
+     inverse(multiply(multiply(X_18, X_38), inverse(X_38))) =
+     inverse(X_18)),
+    introduced(tautology,
+               [equality,
+                [$cnf($equal(inverse(multiply(multiply(inverse(inverse(X_18)),
+                              X_38), inverse(X_38))), inverse(X_18))),
+                 [0, 0, 0], $fot(multiply(X_18, X_38))]])).
+
+cnf(refute_0_122, plain,
+    (inverse(multiply(multiply(inverse(inverse(X_18)), X_38),
+         inverse(X_38))) != inverse(X_18) |
+     inverse(multiply(multiply(X_18, X_38), inverse(X_38))) =
+     inverse(X_18)),
+    inference(resolve,
+              [$cnf($equal(multiply(inverse(inverse(X_18)), X_38),
+                      multiply(X_18, X_38)))],
+              [refute_0_120, refute_0_121])).
+
+cnf(refute_0_123, plain,
+    (inverse(multiply(multiply(X_18, X_38), inverse(X_38))) =
+     inverse(X_18)),
+    inference(resolve,
+              [$cnf($equal(inverse(multiply(multiply(inverse(inverse(X_18)),
+                            X_38), inverse(X_38))), inverse(X_18)))],
+              [refute_0_93, refute_0_122])).
+
+cnf(refute_0_124, plain,
+    (inverse(multiply(multiply(inverse(multiply(multiply(inverse(X_24), B),
+               inverse(B))), X_38), inverse(X_38))) =
+     multiply(multiply(inverse(X_24), B), inverse(B))),
+    inference(subst, [],
+              [refute_0_92 :
+               [bind(B, $fot(X_38)),
+                bind(X_24,
+                     $fot(multiply(multiply(inverse(X_24), B),
+                            inverse(B))))]])).
+
+cnf(refute_0_125, plain,
+    (inverse(multiply(multiply(inverse(X_24), B), inverse(B))) != X_24 |
+     inverse(multiply(multiply(inverse(multiply(multiply(inverse(X_24), B),
+               inverse(B))), X_38), inverse(X_38))) !=
+     multiply(multiply(inverse(X_24), B), inverse(B)) |
+     inverse(multiply(multiply(X_24, X_38), inverse(X_38))) =
+     multiply(multiply(inverse(X_24), B), inverse(B))),
+    introduced(tautology,
+               [equality,
+                [$cnf($equal(inverse(multiply(multiply(inverse(multiply(multiply(inverse(X_24),
+                                    B), inverse(B))), X_38),
+                            inverse(X_38))),
+                        multiply(multiply(inverse(X_24), B), inverse(B)))),
+                 [0, 0, 0, 0], $fot(X_24)]])).
+
+cnf(refute_0_126, plain,
+    (inverse(multiply(multiply(inverse(multiply(multiply(inverse(X_24), B),
+               inverse(B))), X_38), inverse(X_38))) !=
+     multiply(multiply(inverse(X_24), B), inverse(B)) |
+     inverse(multiply(multiply(X_24, X_38), inverse(X_38))) =
+     multiply(multiply(inverse(X_24), B), inverse(B))),
+    inference(resolve,
+              [$cnf($equal(inverse(multiply(multiply(inverse(X_24), B),
+                          inverse(B))), X_24))],
+              [refute_0_92, refute_0_125])).
+
+cnf(refute_0_127, plain,
+    (inverse(multiply(multiply(X_24, X_38), inverse(X_38))) =
+     multiply(multiply(inverse(X_24), B), inverse(B))),
+    inference(resolve,
+              [$cnf($equal(inverse(multiply(multiply(inverse(multiply(multiply(inverse(X_24),
+                                  B), inverse(B))), X_38), inverse(X_38))),
+                      multiply(multiply(inverse(X_24), B), inverse(B))))],
+              [refute_0_124, refute_0_126])).
+
+cnf(refute_0_128, plain,
+    (inverse(inverse(X_7)) = divide(divide(B, B), inverse(X_7))),
+    inference(subst, [], [inverse : [bind(A, $fot(inverse(X_7)))]])).
+
+cnf(refute_0_129, plain,
+    (multiply(divide(B, B), X_7) = divide(divide(B, B), inverse(X_7))),
+    inference(subst, [],
+              [refute_0_13 :
+               [bind(A, $fot(divide(B, B))), bind(B, $fot(X_7))]])).
+
+cnf(refute_0_130, plain,
+    (multiply(divide(B, B), X_7) != divide(divide(B, B), inverse(X_7)) |
+     divide(divide(B, B), inverse(X_7)) = multiply(divide(B, B), X_7)),
+    inference(subst, [],
+              [refute_0_3 :
+               [bind(X, $fot(multiply(divide(B, B), X_7))),
+                bind(Y, $fot(divide(divide(B, B), inverse(X_7))))]])).
+
+cnf(refute_0_131, plain,
+    (divide(divide(B, B), inverse(X_7)) = multiply(divide(B, B), X_7)),
+    inference(resolve,
+              [$cnf($equal(multiply(divide(B, B), X_7),
+                      divide(divide(B, B), inverse(X_7))))],
+              [refute_0_129, refute_0_130])).
+
+cnf(refute_0_132, plain,
+    (divide(divide(B, B), inverse(X_7)) != multiply(divide(B, B), X_7) |
+     inverse(inverse(X_7)) != divide(divide(B, B), inverse(X_7)) |
+     inverse(inverse(X_7)) = multiply(divide(B, B), X_7)),
+    introduced(tautology,
+               [equality,
+                [$cnf($equal(inverse(inverse(X_7)),
+                        divide(divide(B, B), inverse(X_7)))), [1],
+                 $fot(multiply(divide(B, B), X_7))]])).
+
+cnf(refute_0_133, plain,
+    (inverse(inverse(X_7)) != divide(divide(B, B), inverse(X_7)) |
+     inverse(inverse(X_7)) = multiply(divide(B, B), X_7)),
+    inference(resolve,
+              [$cnf($equal(divide(divide(B, B), inverse(X_7)),
+                      multiply(divide(B, B), X_7)))],
+              [refute_0_131, refute_0_132])).
+
+cnf(refute_0_134, plain,
+    (inverse(inverse(X_7)) = multiply(divide(B, B), X_7)),
+    inference(resolve,
+              [$cnf($equal(inverse(inverse(X_7)),
+                      divide(divide(B, B), inverse(X_7))))],
+              [refute_0_128, refute_0_133])).
+
+cnf(refute_0_135, plain,
+    (inverse(inverse(multiply(inverse(divide(B, B)), X_22))) =
+     multiply(divide(B, B), multiply(inverse(divide(B, B)), X_22))),
+    inference(subst, [],
+              [refute_0_134 :
+               [bind(X_7, $fot(multiply(inverse(divide(B, B)), X_22)))]])).
+
+cnf(refute_0_136, plain,
+    (multiply(divide(B, B), multiply(inverse(divide(B, B)), X_22)) = X_22),
+    inference(subst, [],
+              [refute_0_112 :
+               [bind(X_18, $fot(divide(B, B))), bind(X_19, $fot(X_22))]])).
+
+cnf(refute_0_137, plain,
+    (multiply(divide(B, B), multiply(inverse(divide(B, B)), X_22)) !=
+     X_22 |
+     inverse(inverse(multiply(inverse(divide(B, B)), X_22))) !=
+     multiply(divide(B, B), multiply(inverse(divide(B, B)), X_22)) |
+     inverse(inverse(multiply(inverse(divide(B, B)), X_22))) = X_22),
+    introduced(tautology,
+               [equality,
+                [$cnf($equal(inverse(inverse(multiply(inverse(divide(B,
+                                  B)), X_22))),
+                        multiply(divide(B, B),
+                          multiply(inverse(divide(B, B)), X_22)))), [1],
+                 $fot(X_22)]])).
+
+cnf(refute_0_138, plain,
+    (inverse(inverse(multiply(inverse(divide(B, B)), X_22))) !=
+     multiply(divide(B, B), multiply(inverse(divide(B, B)), X_22)) |
+     inverse(inverse(multiply(inverse(divide(B, B)), X_22))) = X_22),
+    inference(resolve,
+              [$cnf($equal(multiply(divide(B, B),
+                        multiply(inverse(divide(B, B)), X_22)), X_22))],
+              [refute_0_136, refute_0_137])).
+
+cnf(refute_0_139, plain,
+    (inverse(inverse(multiply(inverse(divide(B, B)), X_22))) = X_22),
+    inference(resolve,
+              [$cnf($equal(inverse(inverse(multiply(inverse(divide(B, B)),
+                            X_22))),
+                      multiply(divide(B, B),
+                        multiply(inverse(divide(B, B)), X_22))))],
+              [refute_0_135, refute_0_138])).
+
+cnf(refute_0_140, plain,
+    (inverse(inverse(X_7)) =
+     divide(inverse(divide(X_1, X_1)), inverse(X_7))),
+    inference(subst, [], [refute_0_64 : [bind(A, $fot(inverse(X_7)))]])).
+
+cnf(refute_0_141, plain,
+    (multiply(inverse(divide(X_1, X_1)), X_7) =
+     divide(inverse(divide(X_1, X_1)), inverse(X_7))),
+    inference(subst, [],
+              [refute_0_13 :
+               [bind(A, $fot(inverse(divide(X_1, X_1)))),
+                bind(B, $fot(X_7))]])).
+
+cnf(refute_0_142, plain,
+    (multiply(inverse(divide(X_1, X_1)), X_7) !=
+     divide(inverse(divide(X_1, X_1)), inverse(X_7)) |
+     divide(inverse(divide(X_1, X_1)), inverse(X_7)) =
+     multiply(inverse(divide(X_1, X_1)), X_7)),
+    inference(subst, [],
+              [refute_0_3 :
+               [bind(X, $fot(multiply(inverse(divide(X_1, X_1)), X_7))),
+                bind(Y,
+                     $fot(divide(inverse(divide(X_1, X_1)),
+                            inverse(X_7))))]])).
+
+cnf(refute_0_143, plain,
+    (divide(inverse(divide(X_1, X_1)), inverse(X_7)) =
+     multiply(inverse(divide(X_1, X_1)), X_7)),
+    inference(resolve,
+              [$cnf($equal(multiply(inverse(divide(X_1, X_1)), X_7),
+                      divide(inverse(divide(X_1, X_1)), inverse(X_7))))],
+              [refute_0_141, refute_0_142])).
+
+cnf(refute_0_144, plain,
+    (divide(inverse(divide(X_1, X_1)), inverse(X_7)) !=
+     multiply(inverse(divide(X_1, X_1)), X_7) |
+     inverse(inverse(X_7)) !=
+     divide(inverse(divide(X_1, X_1)), inverse(X_7)) |
+     inverse(inverse(X_7)) = multiply(inverse(divide(X_1, X_1)), X_7)),
+    introduced(tautology,
+               [equality,
+                [$cnf($equal(inverse(inverse(X_7)),
+                        divide(inverse(divide(X_1, X_1)), inverse(X_7)))),
+                 [1], $fot(multiply(inverse(divide(X_1, X_1)), X_7))]])).
+
+cnf(refute_0_145, plain,
+    (inverse(inverse(X_7)) !=
+     divide(inverse(divide(X_1, X_1)), inverse(X_7)) |
+     inverse(inverse(X_7)) = multiply(inverse(divide(X_1, X_1)), X_7)),
+    inference(resolve,
+              [$cnf($equal(divide(inverse(divide(X_1, X_1)), inverse(X_7)),
+                      multiply(inverse(divide(X_1, X_1)), X_7)))],
+              [refute_0_143, refute_0_144])).
+
+cnf(refute_0_146, plain,
+    (inverse(inverse(X_7)) = multiply(inverse(divide(X_1, X_1)), X_7)),
+    inference(resolve,
+              [$cnf($equal(inverse(inverse(X_7)),
+                      divide(inverse(divide(X_1, X_1)), inverse(X_7))))],
+              [refute_0_140, refute_0_145])).
+
+cnf(refute_0_147, plain,
+    (inverse(inverse(X_7)) != multiply(inverse(divide(X_1, X_1)), X_7) |
+     multiply(inverse(divide(X_1, X_1)), X_7) = inverse(inverse(X_7))),
+    inference(subst, [],
+              [refute_0_3 :
+               [bind(X, $fot(inverse(inverse(X_7)))),
+                bind(Y,
+                     $fot(multiply(inverse(divide(X_1, X_1)), X_7)))]])).
+
+cnf(refute_0_148, plain,
+    (multiply(inverse(divide(X_1, X_1)), X_7) = inverse(inverse(X_7))),
+    inference(resolve,
+              [$cnf($equal(inverse(inverse(X_7)),
+                      multiply(inverse(divide(X_1, X_1)), X_7)))],
+              [refute_0_146, refute_0_147])).
+
+cnf(refute_0_149, plain,
+    (multiply(inverse(divide(B, B)), X_22) = inverse(inverse(X_22))),
+    inference(subst, [],
+              [refute_0_148 :
+               [bind(X_1, $fot(B)), bind(X_7, $fot(X_22))]])).
+
+cnf(refute_0_150, plain,
+    (inverse(multiply(inverse(divide(B, B)), X_22)) =
+     inverse(multiply(inverse(divide(B, B)), X_22))),
+    introduced(tautology,
+               [refl,
+                [$fot(inverse(multiply(inverse(divide(B, B)), X_22)))]])).
+
+cnf(refute_0_151, plain,
+    (multiply(inverse(divide(B, B)), X_22) != inverse(inverse(X_22)) |
+     inverse(multiply(inverse(divide(B, B)), X_22)) !=
+     inverse(multiply(inverse(divide(B, B)), X_22)) |
+     inverse(multiply(inverse(divide(B, B)), X_22)) =
+     inverse(inverse(inverse(X_22)))),
+    introduced(tautology,
+               [equality,
+                [$cnf($equal(inverse(multiply(inverse(divide(B, B)),
+                            X_22)),
+                        inverse(multiply(inverse(divide(B, B)), X_22)))),
+                 [1, 0], $fot(inverse(inverse(X_22)))]])).
+
+cnf(refute_0_152, plain,
+    (multiply(inverse(divide(B, B)), X_22) != inverse(inverse(X_22)) |
+     inverse(multiply(inverse(divide(B, B)), X_22)) =
+     inverse(inverse(inverse(X_22)))),
+    inference(resolve,
+              [$cnf($equal(inverse(multiply(inverse(divide(B, B)), X_22)),
+                      inverse(multiply(inverse(divide(B, B)), X_22))))],
+              [refute_0_150, refute_0_151])).
+
+cnf(refute_0_153, plain,
+    (inverse(multiply(inverse(divide(B, B)), X_22)) =
+     inverse(inverse(inverse(X_22)))),
+    inference(resolve,
+              [$cnf($equal(multiply(inverse(divide(B, B)), X_22),
+                      inverse(inverse(X_22))))],
+              [refute_0_149, refute_0_152])).
+
+cnf(refute_0_154, plain,
+    (inverse(inverse(multiply(inverse(divide(B, B)), X_22))) =
+     inverse(inverse(multiply(inverse(divide(B, B)), X_22)))),
+    introduced(tautology,
+               [refl,
+                [$fot(inverse(inverse(multiply(inverse(divide(B, B)),
+                            X_22))))]])).
+
+cnf(refute_0_155, plain,
+    (inverse(multiply(inverse(divide(B, B)), X_22)) !=
+     inverse(inverse(inverse(X_22))) |
+     inverse(inverse(multiply(inverse(divide(B, B)), X_22))) !=
+     inverse(inverse(multiply(inverse(divide(B, B)), X_22))) |
+     inverse(inverse(multiply(inverse(divide(B, B)), X_22))) =
+     inverse(inverse(inverse(inverse(X_22))))),
+    introduced(tautology,
+               [equality,
+                [$cnf($equal(inverse(inverse(multiply(inverse(divide(B,
+                                  B)), X_22))),
+                        inverse(inverse(multiply(inverse(divide(B, B)),
+                              X_22))))), [1, 0],
+                 $fot(inverse(inverse(inverse(X_22))))]])).
+
+cnf(refute_0_156, plain,
+    (inverse(multiply(inverse(divide(B, B)), X_22)) !=
+     inverse(inverse(inverse(X_22))) |
+     inverse(inverse(multiply(inverse(divide(B, B)), X_22))) =
+     inverse(inverse(inverse(inverse(X_22))))),
+    inference(resolve,
+              [$cnf($equal(inverse(inverse(multiply(inverse(divide(B, B)),
+                            X_22))),
+                      inverse(inverse(multiply(inverse(divide(B, B)),
+                            X_22)))))], [refute_0_154, refute_0_155])).
+
+cnf(refute_0_157, plain,
+    (inverse(inverse(multiply(inverse(divide(B, B)), X_22))) =
+     inverse(inverse(inverse(inverse(X_22))))),
+    inference(resolve,
+              [$cnf($equal(inverse(multiply(inverse(divide(B, B)), X_22)),
+                      inverse(inverse(inverse(X_22)))))],
+              [refute_0_153, refute_0_156])).
+
+cnf(refute_0_158, plain,
+    (inverse(inverse(multiply(inverse(divide(B, B)), X_22))) != X_22 |
+     inverse(inverse(multiply(inverse(divide(B, B)), X_22))) !=
+     inverse(inverse(inverse(inverse(X_22)))) |
+     inverse(inverse(inverse(inverse(X_22)))) = X_22),
+    introduced(tautology,
+               [equality,
+                [$cnf($equal(inverse(inverse(multiply(inverse(divide(B,
+                                  B)), X_22))), X_22)), [0],
+                 $fot(inverse(inverse(inverse(inverse(X_22)))))]])).
+
+cnf(refute_0_159, plain,
+    (inverse(inverse(multiply(inverse(divide(B, B)), X_22))) != X_22 |
+     inverse(inverse(inverse(inverse(X_22)))) = X_22),
+    inference(resolve,
+              [$cnf($equal(inverse(inverse(multiply(inverse(divide(B, B)),
+                            X_22))),
+                      inverse(inverse(inverse(inverse(X_22))))))],
+              [refute_0_157, refute_0_158])).
+
+cnf(refute_0_160, plain, (inverse(inverse(inverse(inverse(X_22)))) = X_22),
+    inference(resolve,
+              [$cnf($equal(inverse(inverse(multiply(inverse(divide(B, B)),
+                            X_22))), X_22))],
+              [refute_0_139, refute_0_159])).
+
+cnf(refute_0_161, plain,
+    (inverse(inverse(inverse(inverse(multiply(multiply(inverse(X_39),
+                 X_38), inverse(X_38)))))) =
+     multiply(multiply(inverse(X_39), X_38), inverse(X_38))),
+    inference(subst, [],
+              [refute_0_160 :
+               [bind(X_22,
+                     $fot(multiply(multiply(inverse(X_39), X_38),
+                            inverse(X_38))))]])).
+
+cnf(refute_0_162, plain,
+    (inverse(multiply(multiply(inverse(X_39), X_38), inverse(X_38))) =
+     X_39),
+    inference(subst, [],
+              [refute_0_92 :
+               [bind(B, $fot(X_38)), bind(X_24, $fot(X_39))]])).
+
+cnf(refute_0_163, plain,
+    (inverse(multiply(multiply(inverse(X_39), X_38), inverse(X_38))) !=
+     X_39 |
+     inverse(inverse(inverse(inverse(multiply(multiply(inverse(X_39),
+                 X_38), inverse(X_38)))))) !=
+     multiply(multiply(inverse(X_39), X_38), inverse(X_38)) |
+     inverse(inverse(inverse(X_39))) =
+     multiply(multiply(inverse(X_39), X_38), inverse(X_38))),
+    introduced(tautology,
+               [equality,
+                [$cnf($equal(inverse(inverse(inverse(inverse(multiply(multiply(inverse(X_39),
+                                    X_38), inverse(X_38)))))),
+                        multiply(multiply(inverse(X_39), X_38),
+                          inverse(X_38)))), [0, 0, 0, 0], $fot(X_39)]])).
+
+cnf(refute_0_164, plain,
+    (inverse(inverse(inverse(inverse(multiply(multiply(inverse(X_39),
+                 X_38), inverse(X_38)))))) !=
+     multiply(multiply(inverse(X_39), X_38), inverse(X_38)) |
+     inverse(inverse(inverse(X_39))) =
+     multiply(multiply(inverse(X_39), X_38), inverse(X_38))),
+    inference(resolve,
+              [$cnf($equal(inverse(multiply(multiply(inverse(X_39), X_38),
+                          inverse(X_38))), X_39))],
+              [refute_0_162, refute_0_163])).
+
+cnf(refute_0_165, plain,
+    (inverse(inverse(inverse(X_39))) =
+     multiply(multiply(inverse(X_39), X_38), inverse(X_38))),
+    inference(resolve,
+              [$cnf($equal(inverse(inverse(inverse(inverse(multiply(multiply(inverse(X_39),
+                                  X_38), inverse(X_38)))))),
+                      multiply(multiply(inverse(X_39), X_38),
+                        inverse(X_38))))], [refute_0_161, refute_0_164])).
+
+cnf(refute_0_166, plain,
+    (inverse(inverse(inverse(X_39))) !=
+     multiply(multiply(inverse(X_39), X_38), inverse(X_38)) |
+     multiply(multiply(inverse(X_39), X_38), inverse(X_38)) =
+     inverse(inverse(inverse(X_39)))),
+    inference(subst, [],
+              [refute_0_3 :
+               [bind(X, $fot(inverse(inverse(inverse(X_39))))),
+                bind(Y,
+                     $fot(multiply(multiply(inverse(X_39), X_38),
+                            inverse(X_38))))]])).
+
+cnf(refute_0_167, plain,
+    (multiply(multiply(inverse(X_39), X_38), inverse(X_38)) =
+     inverse(inverse(inverse(X_39)))),
+    inference(resolve,
+              [$cnf($equal(inverse(inverse(inverse(X_39))),
+                      multiply(multiply(inverse(X_39), X_38),
+                        inverse(X_38))))], [refute_0_165, refute_0_166])).
+
+cnf(refute_0_168, plain,
+    (multiply(multiply(inverse(X_24), B), inverse(B)) =
+     inverse(inverse(inverse(X_24)))),
+    inference(subst, [],
+              [refute_0_167 :
+               [bind(X_38, $fot(B)), bind(X_39, $fot(X_24))]])).
+
+cnf(refute_0_169, plain,
+    (multiply(multiply(inverse(X_24), B), inverse(B)) !=
+     inverse(inverse(inverse(X_24))) |
+     inverse(multiply(multiply(X_24, X_38), inverse(X_38))) !=
+     multiply(multiply(inverse(X_24), B), inverse(B)) |
+     inverse(multiply(multiply(X_24, X_38), inverse(X_38))) =
+     inverse(inverse(inverse(X_24)))),
+    introduced(tautology,
+               [equality,
+                [$cnf($equal(inverse(multiply(multiply(X_24, X_38),
+                            inverse(X_38))),
+                        multiply(multiply(inverse(X_24), B), inverse(B)))),
+                 [1], $fot(inverse(inverse(inverse(X_24))))]])).
+
+cnf(refute_0_170, plain,
+    (inverse(multiply(multiply(X_24, X_38), inverse(X_38))) !=
+     multiply(multiply(inverse(X_24), B), inverse(B)) |
+     inverse(multiply(multiply(X_24, X_38), inverse(X_38))) =
+     inverse(inverse(inverse(X_24)))),
+    inference(resolve,
+              [$cnf($equal(multiply(multiply(inverse(X_24), B),
+                        inverse(B)), inverse(inverse(inverse(X_24)))))],
+              [refute_0_168, refute_0_169])).
+
+cnf(refute_0_171, plain,
+    (inverse(multiply(multiply(X_24, X_38), inverse(X_38))) =
+     inverse(inverse(inverse(X_24)))),
+    inference(resolve,
+              [$cnf($equal(inverse(multiply(multiply(X_24, X_38),
+                          inverse(X_38))),
+                      multiply(multiply(inverse(X_24), B), inverse(B))))],
+              [refute_0_127, refute_0_170])).
+
+cnf(refute_0_172, plain,
+    (inverse(multiply(multiply(X_18, X_38), inverse(X_38))) =
+     inverse(inverse(inverse(X_18)))),
+    inference(subst, [], [refute_0_171 : [bind(X_24, $fot(X_18))]])).
+
+cnf(refute_0_173, plain,
+    (inverse(multiply(multiply(X_18, X_38), inverse(X_38))) !=
+     inverse(X_18) |
+     inverse(multiply(multiply(X_18, X_38), inverse(X_38))) !=
+     inverse(inverse(inverse(X_18))) |
+     inverse(inverse(inverse(X_18))) = inverse(X_18)),
+    introduced(tautology,
+               [equality,
+                [$cnf($equal(inverse(multiply(multiply(X_18, X_38),
+                            inverse(X_38))), inverse(X_18))), [0],
+                 $fot(inverse(inverse(inverse(X_18))))]])).
+
+cnf(refute_0_174, plain,
+    (inverse(multiply(multiply(X_18, X_38), inverse(X_38))) !=
+     inverse(X_18) | inverse(inverse(inverse(X_18))) = inverse(X_18)),
+    inference(resolve,
+              [$cnf($equal(inverse(multiply(multiply(X_18, X_38),
+                          inverse(X_38))),
+                      inverse(inverse(inverse(X_18)))))],
+              [refute_0_172, refute_0_173])).
+
+cnf(refute_0_175, plain, (inverse(inverse(inverse(X_18))) = inverse(X_18)),
+    inference(resolve,
+              [$cnf($equal(inverse(multiply(multiply(X_18, X_38),
+                          inverse(X_38))), inverse(X_18)))],
+              [refute_0_123, refute_0_174])).
+
+cnf(refute_0_176, plain,
+    (inverse(inverse(inverse(inverse(X_24)))) = inverse(inverse(X_24))),
+    inference(subst, [],
+              [refute_0_175 : [bind(X_18, $fot(inverse(X_24)))]])).
+
+cnf(refute_0_177, plain,
+    (inverse(multiply(multiply(inverse(X_24), B), inverse(B))) =
+     inverse(inverse(inverse(inverse(X_24))))),
+    inference(subst, [],
+              [refute_0_171 :
+               [bind(X_24, $fot(inverse(X_24))), bind(X_38, $fot(B))]])).
+
+cnf(refute_0_178, plain,
+    (inverse(multiply(multiply(inverse(X_24), B), inverse(B))) !=
+     inverse(inverse(inverse(inverse(X_24)))) |
+     inverse(inverse(inverse(inverse(X_24)))) != inverse(inverse(X_24)) |
+     inverse(multiply(multiply(inverse(X_24), B), inverse(B))) =
+     inverse(inverse(X_24))),
+    inference(subst, [],
+              [refute_0_40 :
+               [bind(X,
+                     $fot(inverse(multiply(multiply(inverse(X_24), B),
+                              inverse(B))))),
+                bind(Y, $fot(inverse(inverse(inverse(inverse(X_24)))))),
+                bind(Z, $fot(inverse(inverse(X_24))))]])).
+
+cnf(refute_0_179, plain,
+    (inverse(inverse(inverse(inverse(X_24)))) != inverse(inverse(X_24)) |
+     inverse(multiply(multiply(inverse(X_24), B), inverse(B))) =
+     inverse(inverse(X_24))),
+    inference(resolve,
+              [$cnf($equal(inverse(multiply(multiply(inverse(X_24), B),
+                          inverse(B))),
+                      inverse(inverse(inverse(inverse(X_24))))))],
+              [refute_0_177, refute_0_178])).
+
+cnf(refute_0_180, plain,
+    (inverse(multiply(multiply(inverse(X_24), B), inverse(B))) =
+     inverse(inverse(X_24))),
+    inference(resolve,
+              [$cnf($equal(inverse(inverse(inverse(inverse(X_24)))),
+                      inverse(inverse(X_24))))],
+              [refute_0_176, refute_0_179])).
+
+cnf(refute_0_181, plain,
+    (inverse(multiply(multiply(inverse(X_24), B), inverse(B))) != X_24 |
+     inverse(multiply(multiply(inverse(X_24), B), inverse(B))) !=
+     inverse(inverse(X_24)) | inverse(inverse(X_24)) = X_24),
+    introduced(tautology,
+               [equality,
+                [$cnf($equal(inverse(multiply(multiply(inverse(X_24), B),
+                            inverse(B))), X_24)), [0],
+                 $fot(inverse(inverse(X_24)))]])).
+
+cnf(refute_0_182, plain,
+    (inverse(multiply(multiply(inverse(X_24), B), inverse(B))) != X_24 |
+     inverse(inverse(X_24)) = X_24),
+    inference(resolve,
+              [$cnf($equal(inverse(multiply(multiply(inverse(X_24), B),
+                          inverse(B))), inverse(inverse(X_24))))],
+              [refute_0_180, refute_0_181])).
+
+cnf(refute_0_183, plain, (inverse(inverse(X_24)) = X_24),
+    inference(resolve,
+              [$cnf($equal(inverse(multiply(multiply(inverse(X_24), B),
+                          inverse(B))), X_24))],
+              [refute_0_92, refute_0_182])).
+
+cnf(refute_0_184, plain,
+    (inverse(inverse(multiply(inverse(X_41), X_41))) =
+     multiply(inverse(X_41), X_41)),
+    inference(subst, [],
+              [refute_0_183 :
+               [bind(X_24, $fot(multiply(inverse(X_41), X_41)))]])).
+
+cnf(refute_0_185, plain,
+    (inverse(multiply(divide(inverse(inverse(divide(X_3, X_3))), X_25),
+         X_25)) = inverse(divide(X_3, X_3))),
+    inference(subst, [],
+              [refute_0_85 :
+               [bind(X_19, $fot(inverse(divide(X_3, X_3)))),
+                bind(X_20, $fot(X_25))]])).
+
+cnf(refute_0_186, plain,
+    (inverse(A) =
+     divide(divide(inverse(divide(X_3, X_3)), inverse(divide(X_3, X_3))),
+       A)),
+    inference(subst, [],
+              [inverse : [bind(B, $fot(inverse(divide(X_3, X_3))))]])).
+
+cnf(refute_0_187, plain,
+    (inverse(inverse(divide(X_3, X_3))) =
+     divide(inverse(divide(X_3, X_3)), inverse(divide(X_3, X_3)))),
+    inference(subst, [],
+              [refute_0_64 :
+               [bind(A, $fot(inverse(divide(X_3, X_3)))),
+                bind(X_1, $fot(X_3))]])).
+
+cnf(refute_0_188, plain,
+    (inverse(inverse(divide(X_3, X_3))) !=
+     divide(inverse(divide(X_3, X_3)), inverse(divide(X_3, X_3))) |
+     divide(inverse(divide(X_3, X_3)), inverse(divide(X_3, X_3))) =
+     inverse(inverse(divide(X_3, X_3)))),
+    inference(subst, [],
+              [refute_0_3 :
+               [bind(X, $fot(inverse(inverse(divide(X_3, X_3))))),
+                bind(Y,
+                     $fot(divide(inverse(divide(X_3, X_3)),
+                            inverse(divide(X_3, X_3)))))]])).
+
+cnf(refute_0_189, plain,
+    (divide(inverse(divide(X_3, X_3)), inverse(divide(X_3, X_3))) =
+     inverse(inverse(divide(X_3, X_3)))),
+    inference(resolve,
+              [$cnf($equal(inverse(inverse(divide(X_3, X_3))),
+                      divide(inverse(divide(X_3, X_3)),
+                        inverse(divide(X_3, X_3)))))],
+              [refute_0_187, refute_0_188])).
+
+cnf(refute_0_190, plain,
+    (divide(inverse(divide(X_3, X_3)), inverse(divide(X_3, X_3))) !=
+     inverse(inverse(divide(X_3, X_3))) |
+     inverse(A) !=
+     divide(divide(inverse(divide(X_3, X_3)), inverse(divide(X_3, X_3))),
+       A) | inverse(A) = divide(inverse(inverse(divide(X_3, X_3))), A)),
+    introduced(tautology,
+               [equality,
+                [$cnf($equal(inverse(A),
+                        divide(divide(inverse(divide(X_3, X_3)),
+                            inverse(divide(X_3, X_3))), A))), [1, 0],
+                 $fot(inverse(inverse(divide(X_3, X_3))))]])).
+
+cnf(refute_0_191, plain,
+    (inverse(A) !=
+     divide(divide(inverse(divide(X_3, X_3)), inverse(divide(X_3, X_3))),
+       A) | inverse(A) = divide(inverse(inverse(divide(X_3, X_3))), A)),
+    inference(resolve,
+              [$cnf($equal(divide(inverse(divide(X_3, X_3)),
+                        inverse(divide(X_3, X_3))),
+                      inverse(inverse(divide(X_3, X_3)))))],
+              [refute_0_189, refute_0_190])).
+
+cnf(refute_0_192, plain,
+    (inverse(A) = divide(inverse(inverse(divide(X_3, X_3))), A)),
+    inference(resolve,
+              [$cnf($equal(inverse(A),
+                      divide(divide(inverse(divide(X_3, X_3)),
+                          inverse(divide(X_3, X_3))), A)))],
+              [refute_0_186, refute_0_191])).
+
+cnf(refute_0_193, plain,
+    (inverse(X_25) = divide(inverse(inverse(divide(X_3, X_3))), X_25)),
+    inference(subst, [], [refute_0_192 : [bind(A, $fot(X_25))]])).
+
+cnf(refute_0_194, plain,
+    (inverse(X_25) != divide(inverse(inverse(divide(X_3, X_3))), X_25) |
+     divide(inverse(inverse(divide(X_3, X_3))), X_25) = inverse(X_25)),
+    inference(subst, [],
+              [refute_0_3 :
+               [bind(X, $fot(inverse(X_25))),
+                bind(Y,
+                     $fot(divide(inverse(inverse(divide(X_3, X_3))),
+                            X_25)))]])).
+
+cnf(refute_0_195, plain,
+    (divide(inverse(inverse(divide(X_3, X_3))), X_25) = inverse(X_25)),
+    inference(resolve,
+              [$cnf($equal(inverse(X_25),
+                      divide(inverse(inverse(divide(X_3, X_3))), X_25)))],
+              [refute_0_193, refute_0_194])).
+
+cnf(refute_0_196, plain,
+    (divide(inverse(inverse(divide(X_3, X_3))), X_25) != inverse(X_25) |
+     inverse(multiply(divide(inverse(inverse(divide(X_3, X_3))), X_25),
+         X_25)) != inverse(divide(X_3, X_3)) |
+     inverse(multiply(inverse(X_25), X_25)) = inverse(divide(X_3, X_3))),
+    introduced(tautology,
+               [equality,
+                [$cnf($equal(inverse(multiply(divide(inverse(inverse(divide(X_3,
+                                    X_3))), X_25), X_25)),
+                        inverse(divide(X_3, X_3)))), [0, 0, 0],
+                 $fot(inverse(X_25))]])).
+
+cnf(refute_0_197, plain,
+    (inverse(multiply(divide(inverse(inverse(divide(X_3, X_3))), X_25),
+         X_25)) != inverse(divide(X_3, X_3)) |
+     inverse(multiply(inverse(X_25), X_25)) = inverse(divide(X_3, X_3))),
+    inference(resolve,
+              [$cnf($equal(divide(inverse(inverse(divide(X_3, X_3))),
+                        X_25), inverse(X_25)))],
+              [refute_0_195, refute_0_196])).
+
+cnf(refute_0_198, plain,
+    (inverse(multiply(inverse(X_25), X_25)) = inverse(divide(X_3, X_3))),
+    inference(resolve,
+              [$cnf($equal(inverse(multiply(divide(inverse(inverse(divide(X_3,
+                                  X_3))), X_25), X_25)),
+                      inverse(divide(X_3, X_3))))],
+              [refute_0_185, refute_0_197])).
+
+cnf(refute_0_199, plain,
+    (inverse(multiply(inverse(X_41), X_41)) = inverse(divide(X_42, X_42))),
+    inference(subst, [],
+              [refute_0_198 :
+               [bind(X_25, $fot(X_41)), bind(X_3, $fot(X_42))]])).
+
+cnf(refute_0_200, plain,
+    (inverse(multiply(inverse(X_41), X_41)) !=
+     inverse(divide(X_42, X_42)) |
+     inverse(inverse(multiply(inverse(X_41), X_41))) !=
+     multiply(inverse(X_41), X_41) |
+     inverse(inverse(divide(X_42, X_42))) = multiply(inverse(X_41), X_41)),
+    introduced(tautology,
+               [equality,
+                [$cnf($equal(inverse(inverse(multiply(inverse(X_41),
+                              X_41))), multiply(inverse(X_41), X_41))),
+                 [0, 0], $fot(inverse(divide(X_42, X_42)))]])).
+
+cnf(refute_0_201, plain,
+    (inverse(inverse(multiply(inverse(X_41), X_41))) !=
+     multiply(inverse(X_41), X_41) |
+     inverse(inverse(divide(X_42, X_42))) = multiply(inverse(X_41), X_41)),
+    inference(resolve,
+              [$cnf($equal(inverse(multiply(inverse(X_41), X_41)),
+                      inverse(divide(X_42, X_42))))],
+              [refute_0_199, refute_0_200])).
+
+cnf(refute_0_202, plain,
+    (inverse(inverse(divide(X_42, X_42))) = multiply(inverse(X_41), X_41)),
+    inference(resolve,
+              [$cnf($equal(inverse(inverse(multiply(inverse(X_41), X_41))),
+                      multiply(inverse(X_41), X_41)))],
+              [refute_0_184, refute_0_201])).
+
+cnf(refute_0_203, plain,
+    (inverse(inverse(divide(X_42, X_42))) = divide(X_42, X_42)),
+    inference(subst, [],
+              [refute_0_183 : [bind(X_24, $fot(divide(X_42, X_42)))]])).
+
+cnf(refute_0_204, plain,
+    (inverse(inverse(divide(X_42, X_42))) !=
+     multiply(inverse(X_41), X_41) |
+     inverse(inverse(divide(X_42, X_42))) != divide(X_42, X_42) |
+     divide(X_42, X_42) = multiply(inverse(X_41), X_41)),
+    introduced(tautology,
+               [equality,
+                [$cnf($equal(inverse(inverse(divide(X_42, X_42))),
+                        multiply(inverse(X_41), X_41))), [0],
+                 $fot(divide(X_42, X_42))]])).
+
+cnf(refute_0_205, plain,
+    (inverse(inverse(divide(X_42, X_42))) !=
+     multiply(inverse(X_41), X_41) |
+     divide(X_42, X_42) = multiply(inverse(X_41), X_41)),
+    inference(resolve,
+              [$cnf($equal(inverse(inverse(divide(X_42, X_42))),
+                      divide(X_42, X_42)))],
+              [refute_0_203, refute_0_204])).
+
+cnf(refute_0_206, plain,
+    (divide(X_42, X_42) = multiply(inverse(X_41), X_41)),
+    inference(resolve,
+              [$cnf($equal(inverse(inverse(divide(X_42, X_42))),
+                      multiply(inverse(X_41), X_41)))],
+              [refute_0_202, refute_0_205])).
+
+cnf(refute_0_207, plain, (divide(X_44, X_44) = multiply(inverse(a1), a1)),
+    inference(subst, [],
+              [refute_0_206 :
+               [bind(X_41, $fot(a1)), bind(X_42, $fot(X_44))]])).
+
+cnf(refute_0_208, plain,
+    (divide(X_44, X_44) != multiply(inverse(a1), a1) |
+     multiply(inverse(a1), a1) = divide(X_44, X_44)),
+    inference(subst, [],
+              [refute_0_3 :
+               [bind(X, $fot(divide(X_44, X_44))),
+                bind(Y, $fot(multiply(inverse(a1), a1)))]])).
+
+cnf(refute_0_209, plain, (multiply(inverse(a1), a1) = divide(X_44, X_44)),
+    inference(resolve,
+              [$cnf($equal(divide(X_44, X_44),
+                      multiply(inverse(a1), a1)))],
+              [refute_0_207, refute_0_208])).
+
+cnf(refute_0_210, plain,
+    (multiply(inverse(a1), a1) != divide(X_44, X_44) |
+     divide(X_44, X_44) != multiply(inverse(b1), b1) |
+     multiply(inverse(a1), a1) = multiply(inverse(b1), b1)),
+    introduced(tautology,
+               [equality,
+                [$cnf(~ $equal(multiply(inverse(a1), a1),
+                        multiply(inverse(b1), b1))), [0],
+                 $fot(divide(X_44, X_44))]])).
+
+cnf(refute_0_211, plain,
+    (divide(X_44, X_44) != multiply(inverse(b1), b1) |
+     multiply(inverse(a1), a1) = multiply(inverse(b1), b1)),
+    inference(resolve,
+              [$cnf($equal(multiply(inverse(a1), a1),
+                      divide(X_44, X_44)))],
+              [refute_0_209, refute_0_210])).
+
+cnf(refute_0_212, plain, (divide(X_44, X_44) != multiply(inverse(b1), b1)),
+    inference(resolve,
+              [$cnf($equal(multiply(inverse(a1), a1),
+                      multiply(inverse(b1), b1)))],
+              [refute_0_211, prove_these_axioms_1])).
+
+cnf(refute_0_213, plain, (divide(X_44, X_44) = multiply(inverse(b1), b1)),
+    inference(subst, [],
+              [refute_0_206 :
+               [bind(X_41, $fot(b1)), bind(X_42, $fot(X_44))]])).
+
+cnf(refute_0_214, plain, ($false),
+    inference(resolve,
+              [$cnf($equal(divide(X_44, X_44),
+                      multiply(inverse(b1), b1)))],
+              [refute_0_213, refute_0_212])).
+% SZS output end CNFRefutation for GRP445-1.tptp
+

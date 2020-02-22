@@ -1,0 +1,93 @@
+% Refutation found. Thanks to Tanya!
+% SZS status Theorem for NUM531+2
+% SZS output start Proof for NUM531+2
+fof(f44,plain,(
+  $false),
+  inference(subsumption_resolution,[],[f43,f38])).
+fof(f38,plain,(
+  aSet0(slcrc0)),
+  inference(equality_resolution,[],[f28])).
+fof(f28,plain,(
+  ( ! [X0] : (aSet0(X0) | slcrc0 != X0) )),
+  inference(cnf_transformation,[],[f25])).
+fof(f25,plain,(
+  ! [X0] : ((slcrc0 = X0 | aElementOf0(sK0(X0),X0) | ~aSet0(X0)) & ((! [X2] : ~aElementOf0(X2,X0) & aSet0(X0)) | slcrc0 != X0))),
+  inference(skolemisation,[status(esa),new_symbols(skolem,[sK0])],[f23,f24])).
+fof(f24,plain,(
+  ! [X0] : (? [X1] : aElementOf0(X1,X0) => aElementOf0(sK0(X0),X0))),
+  introduced(choice_axiom,[])).
+fof(f23,plain,(
+  ! [X0] : ((slcrc0 = X0 | ? [X1] : aElementOf0(X1,X0) | ~aSet0(X0)) & ((! [X2] : ~aElementOf0(X2,X0) & aSet0(X0)) | slcrc0 != X0))),
+  inference(rectify,[],[f22])).
+fof(f22,plain,(
+  ! [X0] : ((slcrc0 = X0 | ? [X1] : aElementOf0(X1,X0) | ~aSet0(X0)) & ((! [X1] : ~aElementOf0(X1,X0) & aSet0(X0)) | slcrc0 != X0))),
+  inference(flattening,[],[f21])).
+fof(f21,plain,(
+  ! [X0] : ((slcrc0 = X0 | (? [X1] : aElementOf0(X1,X0) | ~aSet0(X0))) & ((! [X1] : ~aElementOf0(X1,X0) & aSet0(X0)) | slcrc0 != X0))),
+  inference(nnf_transformation,[],[f16])).
+fof(f16,plain,(
+  ! [X0] : (slcrc0 = X0 <=> (! [X1] : ~aElementOf0(X1,X0) & aSet0(X0)))),
+  inference(ennf_transformation,[],[f5])).
+fof(f5,axiom,(
+  ! [X0] : (slcrc0 = X0 <=> (~? [X1] : aElementOf0(X1,X0) & aSet0(X0)))),
+  file('NUM531+2.tptp',unknown)).
+fof(f43,plain,(
+  ~aSet0(slcrc0)),
+  inference(subsumption_resolution,[],[f42,f31])).
+fof(f31,plain,(
+  isFinite0(slcrc0)),
+  inference(cnf_transformation,[],[f6])).
+fof(f6,axiom,(
+  isFinite0(slcrc0)),
+  file('NUM531+2.tptp',unknown)).
+fof(f42,plain,(
+  ~isFinite0(slcrc0) | ~aSet0(slcrc0)),
+  inference(resolution,[],[f32,f40])).
+fof(f40,plain,(
+  isCountable0(slcrc0)),
+  inference(forward_demodulation,[],[f34,f36])).
+fof(f36,plain,(
+  slcrc0 = sK1),
+  inference(cnf_transformation,[],[f27])).
+fof(f27,plain,(
+  slcrc0 = sK1 & ! [X1] : ~aElementOf0(X1,sK1) & isCountable0(sK1) & aSet0(sK1)),
+  inference(skolemisation,[status(esa),new_symbols(skolem,[sK1])],[f20,f26])).
+fof(f26,plain,(
+  ? [X0] : (slcrc0 = X0 & ! [X1] : ~aElementOf0(X1,X0) & isCountable0(X0) & aSet0(X0)) => (slcrc0 = sK1 & ! [X1] : ~aElementOf0(X1,sK1) & isCountable0(sK1) & aSet0(sK1))),
+  introduced(choice_axiom,[])).
+fof(f20,plain,(
+  ? [X0] : (slcrc0 = X0 & ! [X1] : ~aElementOf0(X1,X0) & isCountable0(X0) & aSet0(X0))),
+  inference(flattening,[],[f19])).
+fof(f19,plain,(
+  ? [X0] : ((slcrc0 = X0 & ! [X1] : ~aElementOf0(X1,X0)) & (isCountable0(X0) & aSet0(X0)))),
+  inference(ennf_transformation,[],[f10])).
+fof(f10,negated_conjecture,(
+  ~! [X0] : ((isCountable0(X0) & aSet0(X0)) => ~(slcrc0 = X0 & ~? [X1] : aElementOf0(X1,X0)))),
+  inference(negated_conjecture,[],[f9])).
+fof(f9,conjecture,(
+  ! [X0] : ((isCountable0(X0) & aSet0(X0)) => ~(slcrc0 = X0 & ~? [X1] : aElementOf0(X1,X0)))),
+  file('NUM531+2.tptp',unknown)).
+fof(f34,plain,(
+  isCountable0(sK1)),
+  inference(cnf_transformation,[],[f27])).
+fof(f32,plain,(
+  ( ! [X0] : (~isCountable0(X0) | ~isFinite0(X0) | ~aSet0(X0)) )),
+  inference(cnf_transformation,[],[f18])).
+fof(f18,plain,(
+  ! [X0] : (~isFinite0(X0) | ~isCountable0(X0) | ~aSet0(X0))),
+  inference(flattening,[],[f17])).
+fof(f17,plain,(
+  ! [X0] : (~isFinite0(X0) | (~isCountable0(X0) | ~aSet0(X0)))),
+  inference(ennf_transformation,[],[f8])).
+fof(f8,axiom,(
+  ! [X0] : ((isCountable0(X0) & aSet0(X0)) => ~isFinite0(X0))),
+  file('NUM531+2.tptp',unknown)).
+% SZS output end Proof for NUM531+2
+% ------------------------------
+% Version: Vampire 4.4.0 (commit d98a3d53 on 2020-01-14 21:02:12 +0100)
+% Termination reason: Refutation
+
+% Memory used [KB]: 4861
+% Time elapsed: 0.002 s
+% ------------------------------
+% ------------------------------

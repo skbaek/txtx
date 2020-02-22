@@ -1,0 +1,106 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% SZS status Unsatisfiable for SWV310-2.tptp
+
+% SZS output start CNFRefutation for SWV310-2.tptp
+cnf(cls_conjecture_4, negated_conjecture,
+    (c_in(c_Event_Oevent_OSays(c_Message_Oagent_OServer, v_B,
+         c_Message_Omsg_OMPair(v_NA,
+           c_Message_Omsg_OMPair(c_Message_Omsg_OCrypt(c_Public_OshrK(v_A),
+               c_Message_Omsg_OMPair(v_NA, c_Message_Omsg_OKey(v_K))),
+             c_Message_Omsg_OCrypt(c_Public_OshrK(v_B),
+               c_Message_Omsg_OMPair(v_NB, c_Message_Omsg_OKey(v_K)))))),
+       c_List_Oset(v_evs2, tc_Event_Oevent), tc_Event_Oevent))).
+
+cnf(cls_conjecture_5, negated_conjecture,
+    (~
+       c_in(c_Event_Oevent_OSays(v_B, c_Message_Oagent_OServer,
+           c_Message_Omsg_OMPair(v_NA,
+             c_Message_Omsg_OMPair(c_Message_Omsg_OAgent(v_A),
+               c_Message_Omsg_OMPair(c_Message_Omsg_OAgent(v_B),
+                 c_Message_Omsg_OMPair(V_U,
+                   c_Message_Omsg_OCrypt(c_Public_OshrK(v_B),
+                     c_Message_Omsg_OMPair(v_NA,
+                       c_Message_Omsg_OMPair(v_NB,
+                         c_Message_Omsg_OMPair(c_Message_Omsg_OAgent(v_A),
+                           c_Message_Omsg_OAgent(v_B)))))))))),
+         c_List_Oset(v_evs2, tc_Event_Oevent), tc_Event_Oevent))).
+
+cnf(cls_conjecture_6, negated_conjecture,
+    (c_in(c_Event_Oevent_OSays(v_B, c_Message_Oagent_OServer,
+         c_Message_Omsg_OMPair(v_NA,
+           c_Message_Omsg_OMPair(c_Message_Omsg_OAgent(v_A),
+             c_Message_Omsg_OMPair(c_Message_Omsg_OAgent(v_B),
+               c_Message_Omsg_OMPair(v_x,
+                 c_Message_Omsg_OCrypt(c_Public_OshrK(v_B),
+                   c_Message_Omsg_OMPair(v_NA,
+                     c_Message_Omsg_OMPair(v_NB,
+                       c_Message_Omsg_OMPair(c_Message_Omsg_OAgent(v_A),
+                         c_Message_Omsg_OAgent(v_B)))))))))),
+       c_List_Oset(v_evs2, tc_Event_Oevent), tc_Event_Oevent) |
+     ~
+       c_in(c_Event_Oevent_OSays(c_Message_Oagent_OServer, v_B,
+           c_Message_Omsg_OMPair(v_NA,
+             c_Message_Omsg_OMPair(c_Message_Omsg_OCrypt(c_Public_OshrK(v_A),
+                 c_Message_Omsg_OMPair(v_NA, c_Message_Omsg_OKey(v_K))),
+               c_Message_Omsg_OCrypt(c_Public_OshrK(v_B),
+                 c_Message_Omsg_OMPair(v_NB, c_Message_Omsg_OKey(v_K)))))),
+         c_List_Oset(v_evs2, tc_Event_Oevent), tc_Event_Oevent))).
+
+cnf(refute_0_0, plain,
+    (c_in(c_Event_Oevent_OSays(v_B, c_Message_Oagent_OServer,
+         c_Message_Omsg_OMPair(v_NA,
+           c_Message_Omsg_OMPair(c_Message_Omsg_OAgent(v_A),
+             c_Message_Omsg_OMPair(c_Message_Omsg_OAgent(v_B),
+               c_Message_Omsg_OMPair(v_x,
+                 c_Message_Omsg_OCrypt(c_Public_OshrK(v_B),
+                   c_Message_Omsg_OMPair(v_NA,
+                     c_Message_Omsg_OMPair(v_NB,
+                       c_Message_Omsg_OMPair(c_Message_Omsg_OAgent(v_A),
+                         c_Message_Omsg_OAgent(v_B)))))))))),
+       c_List_Oset(v_evs2, tc_Event_Oevent), tc_Event_Oevent)),
+    inference(resolve,
+              [$cnf(c_in(c_Event_Oevent_OSays(c_Message_Oagent_OServer,
+                        v_B,
+                        c_Message_Omsg_OMPair(v_NA,
+                          c_Message_Omsg_OMPair(c_Message_Omsg_OCrypt(c_Public_OshrK(v_A),
+                              c_Message_Omsg_OMPair(v_NA,
+                                c_Message_Omsg_OKey(v_K))),
+                            c_Message_Omsg_OCrypt(c_Public_OshrK(v_B),
+                              c_Message_Omsg_OMPair(v_NB,
+                                c_Message_Omsg_OKey(v_K)))))),
+                      c_List_Oset(v_evs2, tc_Event_Oevent),
+                      tc_Event_Oevent))],
+              [cls_conjecture_4, cls_conjecture_6])).
+
+cnf(refute_0_1, plain,
+    (~
+       c_in(c_Event_Oevent_OSays(v_B, c_Message_Oagent_OServer,
+           c_Message_Omsg_OMPair(v_NA,
+             c_Message_Omsg_OMPair(c_Message_Omsg_OAgent(v_A),
+               c_Message_Omsg_OMPair(c_Message_Omsg_OAgent(v_B),
+                 c_Message_Omsg_OMPair(v_x,
+                   c_Message_Omsg_OCrypt(c_Public_OshrK(v_B),
+                     c_Message_Omsg_OMPair(v_NA,
+                       c_Message_Omsg_OMPair(v_NB,
+                         c_Message_Omsg_OMPair(c_Message_Omsg_OAgent(v_A),
+                           c_Message_Omsg_OAgent(v_B)))))))))),
+         c_List_Oset(v_evs2, tc_Event_Oevent), tc_Event_Oevent)),
+    inference(subst, [], [cls_conjecture_5 : [bind(V_U, $fot(v_x))]])).
+
+cnf(refute_0_2, plain, ($false),
+    inference(resolve,
+              [$cnf(c_in(c_Event_Oevent_OSays(v_B,
+                        c_Message_Oagent_OServer,
+                        c_Message_Omsg_OMPair(v_NA,
+                          c_Message_Omsg_OMPair(c_Message_Omsg_OAgent(v_A),
+                            c_Message_Omsg_OMPair(c_Message_Omsg_OAgent(v_B),
+                              c_Message_Omsg_OMPair(v_x,
+                                c_Message_Omsg_OCrypt(c_Public_OshrK(v_B),
+                                  c_Message_Omsg_OMPair(v_NA,
+                                    c_Message_Omsg_OMPair(v_NB,
+                                      c_Message_Omsg_OMPair(c_Message_Omsg_OAgent(v_A),
+                                        c_Message_Omsg_OAgent(v_B)))))))))),
+                      c_List_Oset(v_evs2, tc_Event_Oevent),
+                      tc_Event_Oevent))], [refute_0_0, refute_0_1])).
+% SZS output end CNFRefutation for SWV310-2.tptp
+

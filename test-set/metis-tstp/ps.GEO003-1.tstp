@@ -1,0 +1,88 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% SZS status Unsatisfiable for GEO003-1.tptp
+
+% SZS output start CNFRefutation for GEO003-1.tptp
+cnf(identity_for_equidistance, axiom, (~ equidistant(X, Y, Z, Z) | X = Y)).
+
+cnf(segment_construction1, axiom, (between(X, Y, extension(X, Y, W, V)))).
+
+cnf(segment_construction2, axiom,
+    (equidistant(Y, extension(X, Y, W, V), W, V))).
+
+cnf(prove_b_between_a_and_b, negated_conjecture, (~ between(a, b, b))).
+
+cnf(refute_0_0, plain, (between(X, Y, extension(X, Y, V, V))),
+    inference(subst, [], [segment_construction1 : [bind(W, $fot(V))]])).
+
+cnf(refute_0_1, plain,
+    (equidistant(X_12, extension(X, X_12, X_14, X_14), X_14, X_14)),
+    inference(subst, [],
+              [segment_construction2 :
+               [bind(V, $fot(X_14)), bind(W, $fot(X_14)),
+                bind(Y, $fot(X_12))]])).
+
+cnf(refute_0_2, plain,
+    (~ equidistant(X_12, extension(X, X_12, X_14, X_14), X_14, X_14) |
+     X_12 = extension(X, X_12, X_14, X_14)),
+    inference(subst, [],
+              [identity_for_equidistance :
+               [bind(X, $fot(X_12)),
+                bind(Y, $fot(extension(X, X_12, X_14, X_14))),
+                bind(Z, $fot(X_14))]])).
+
+cnf(refute_0_3, plain, (X_12 = extension(X, X_12, X_14, X_14)),
+    inference(resolve,
+              [$cnf(equidistant(X_12, extension(X, X_12, X_14, X_14), X_14,
+                      X_14))], [refute_0_1, refute_0_2])).
+
+cnf(refute_0_4, plain, (Y = extension(X, Y, V, V)),
+    inference(subst, [],
+              [refute_0_3 : [bind(X_12, $fot(Y)), bind(X_14, $fot(V))]])).
+
+cnf(refute_0_5, plain, (X0 = X0),
+    introduced(tautology, [refl, [$fot(X0)]])).
+
+cnf(refute_0_6, plain, (X0 != X0 | X0 != Y0 | Y0 = X0),
+    introduced(tautology,
+               [equality, [$cnf($equal(X0, X0)), [0], $fot(Y0)]])).
+
+cnf(refute_0_7, plain, (X0 != Y0 | Y0 = X0),
+    inference(resolve, [$cnf($equal(X0, X0))], [refute_0_5, refute_0_6])).
+
+cnf(refute_0_8, plain,
+    (Y != extension(X, Y, V, V) | extension(X, Y, V, V) = Y),
+    inference(subst, [],
+              [refute_0_7 :
+               [bind(X0, $fot(Y)),
+                bind(Y0, $fot(extension(X, Y, V, V)))]])).
+
+cnf(refute_0_9, plain, (extension(X, Y, V, V) = Y),
+    inference(resolve, [$cnf($equal(Y, extension(X, Y, V, V)))],
+              [refute_0_4, refute_0_8])).
+
+cnf(refute_0_10, plain,
+    (extension(X, Y, V, V) != Y | ~ between(X, Y, extension(X, Y, V, V)) |
+     between(X, Y, Y)),
+    introduced(tautology,
+               [equality,
+                [$cnf(between(X, Y, extension(X, Y, V, V))), [2],
+                 $fot(Y)]])).
+
+cnf(refute_0_11, plain,
+    (~ between(X, Y, extension(X, Y, V, V)) | between(X, Y, Y)),
+    inference(resolve, [$cnf($equal(extension(X, Y, V, V), Y))],
+              [refute_0_9, refute_0_10])).
+
+cnf(refute_0_12, plain, (between(X, Y, Y)),
+    inference(resolve, [$cnf(between(X, Y, extension(X, Y, V, V)))],
+              [refute_0_0, refute_0_11])).
+
+cnf(refute_0_13, plain, (between(a, b, b)),
+    inference(subst, [],
+              [refute_0_12 : [bind(X, $fot(a)), bind(Y, $fot(b))]])).
+
+cnf(refute_0_14, plain, ($false),
+    inference(resolve, [$cnf(between(a, b, b))],
+              [refute_0_13, prove_b_between_a_and_b])).
+% SZS output end CNFRefutation for GEO003-1.tptp
+

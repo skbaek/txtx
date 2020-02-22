@@ -1,0 +1,87 @@
+% Refutation found. Thanks to Tanya!
+% SZS status Unsatisfiable for SYN699-1
+% SZS output start Proof for SYN699-1
+fof(f3873,plain,(
+  $false),
+  inference(subsumption_resolution,[],[f3867,f12])).
+fof(f12,axiom,(
+  ( ! [X5] : (p2(X5,X5)) )),
+  file('SYN699-1.tptp',unknown)).
+fof(f3867,plain,(
+  ~p2(c44,c44)),
+  inference(resolution,[],[f3855,f1751])).
+fof(f1751,plain,(
+  ( ! [X20] : (p3(f4(c46),f4(X20)) | ~p2(X20,c44)) )),
+  inference(resolution,[],[f1644,f93])).
+fof(f93,plain,(
+  ( ! [X0,X1] : (~p3(X0,X1) | p3(X1,X0)) )),
+  inference(resolution,[],[f40,f10])).
+fof(f10,axiom,(
+  ( ! [X3] : (p3(X3,X3)) )),
+  file('SYN699-1.tptp',unknown)).
+fof(f40,axiom,(
+  ( ! [X41,X3,X40] : (~p3(X3,X41) | ~p3(X3,X40) | p3(X40,X41)) )),
+  file('SYN699-1.tptp',unknown)).
+fof(f1644,plain,(
+  ( ! [X4] : (p3(f4(X4),f4(c46)) | ~p2(X4,c44)) )),
+  inference(resolution,[],[f298,f18])).
+fof(f18,axiom,(
+  p2(c44,c46)),
+  file('SYN699-1.tptp',unknown)).
+fof(f298,plain,(
+  ( ! [X2,X0,X1] : (~p2(X2,X1) | p3(f4(X0),f4(X1)) | ~p2(X0,X2)) )),
+  inference(resolution,[],[f94,f118])).
+fof(f118,plain,(
+  ( ! [X2,X1] : (p3(f4(X1),f4(X2)) | ~p2(X2,X1)) )),
+  inference(resolution,[],[f93,f31])).
+fof(f31,axiom,(
+  ( ! [X23,X22] : (p3(f4(X22),f4(X23)) | ~p2(X22,X23)) )),
+  file('SYN699-1.tptp',unknown)).
+fof(f94,plain,(
+  ( ! [X4,X2,X3] : (~p3(f4(X2),X3) | p3(X3,f4(X4)) | ~p2(X2,X4)) )),
+  inference(resolution,[],[f40,f31])).
+fof(f3855,plain,(
+  ~p3(f4(c46),f4(c44))),
+  inference(subsumption_resolution,[],[f3853,f7])).
+fof(f7,axiom,(
+  ( ! [X0] : (p10(X0,X0)) )),
+  file('SYN699-1.tptp',unknown)).
+fof(f3853,plain,(
+  ~p3(f4(c46),f4(c44)) | ~p10(c43,c43)),
+  inference(resolution,[],[f3559,f196])).
+fof(f196,plain,(
+  ( ! [X2,X0,X3,X1] : (p2(f11(X3,X1),f11(X2,X0)) | ~p3(X2,X3) | ~p10(X0,X1)) )),
+  inference(resolution,[],[f62,f101])).
+fof(f101,plain,(
+  ( ! [X0,X1] : (~p2(X0,X1) | p2(X1,X0)) )),
+  inference(resolution,[],[f42,f12])).
+fof(f42,axiom,(
+  ( ! [X45,X5,X44] : (~p2(X5,X45) | ~p2(X5,X44) | p2(X44,X45)) )),
+  file('SYN699-1.tptp',unknown)).
+fof(f62,axiom,(
+  ( ! [X85,X83,X84,X82] : (p2(f11(X82,X83),f11(X84,X85)) | ~p10(X83,X85) | ~p3(X82,X84)) )),
+  file('SYN699-1.tptp',unknown)).
+fof(f3559,plain,(
+  ~p2(f11(f4(c44),c43),f11(f4(c46),c43))),
+  inference(resolution,[],[f776,f56])).
+fof(f56,axiom,(
+  ~p2(f11(f4(c46),c43),f11(f4(f23(c44,f9(f20(c37)))),c43))),
+  file('SYN699-1.tptp',unknown)).
+fof(f776,plain,(
+  ( ! [X2] : (p2(X2,f11(f4(f23(c44,f9(f20(c37)))),c43)) | ~p2(f11(f4(c44),c43),X2)) )),
+  inference(resolution,[],[f166,f42])).
+fof(f166,plain,(
+  p2(f11(f4(c44),c43),f11(f4(f23(c44,f9(f20(c37)))),c43))),
+  inference(resolution,[],[f55,f101])).
+fof(f55,axiom,(
+  p2(f11(f4(f23(c44,f9(f20(c37)))),c43),f11(f4(c44),c43))),
+  file('SYN699-1.tptp',unknown)).
+% SZS output end Proof for SYN699-1
+% ------------------------------
+% Version: Vampire 4.4.0 (commit d98a3d53 on 2020-01-14 21:02:12 +0100)
+% Termination reason: Refutation
+
+% Memory used [KB]: 7036
+% Time elapsed: 0.071 s
+% ------------------------------
+% ------------------------------

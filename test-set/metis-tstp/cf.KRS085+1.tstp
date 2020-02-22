@@ -1,0 +1,241 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% SZS status Unsatisfiable for KRS085+1.tptp
+
+% SZS output start CNFRefutation for KRS085+1.tptp
+fof(axiom_2, axiom,
+    (! [X] :
+       (cUnsatisfiable(X) <=>
+        (? [Y] :
+           (rr(X, Y) &
+            ? [Z] :
+              (rr(Y, Z) & cp1(Z) & ! [W] : (rinvR(Z, W) => ~ cp1(W)))) &
+         cp1(X))))).
+
+fof(axiom_5, axiom, (! [X, Y] : (rinvR(X, Y) <=> rr(Y, X)))).
+
+fof(axiom_6, axiom, (! [X, Y, Z] : ((rr(X, Y) & rr(Y, Z)) => rr(X, Z)))).
+
+fof(axiom_7, axiom, (cUnsatisfiable(i2003_11_14_17_19_39537))).
+
+fof(normalize_0_0, plain,
+    (! [X] :
+       (~ cUnsatisfiable(X) <=>
+        (~ cp1(X) |
+         ! [Y] :
+           (~ rr(X, Y) |
+            ! [Z] :
+              (~ cp1(Z) | ~ rr(Y, Z) | ? [W] : (cp1(W) & rinvR(Z, W))))))),
+    inference(canonicalize, [], [axiom_2])).
+
+fof(normalize_0_1, plain,
+    (! [X] :
+       (~ cUnsatisfiable(X) <=>
+        (~ cp1(X) |
+         ! [Y] :
+           (~ rr(X, Y) |
+            ! [Z] :
+              (~ cp1(Z) | ~ rr(Y, Z) | ? [W] : (cp1(W) & rinvR(Z, W))))))),
+    inference(specialize, [], [normalize_0_0])).
+
+fof(normalize_0_2, plain,
+    (! [W, X, Y, Z] :
+       ((~ cUnsatisfiable(X) | cp1(X)) &
+        (~ cUnsatisfiable(X) | cp1(skolemFOFtoCNF_Z(X))) &
+        (~ cUnsatisfiable(X) | rr(X, skolemFOFtoCNF_Y(X))) &
+        (~ cUnsatisfiable(X) |
+         rr(skolemFOFtoCNF_Y(X), skolemFOFtoCNF_Z(X))) &
+        (~ cUnsatisfiable(X) | ~ cp1(W) |
+         ~ rinvR(skolemFOFtoCNF_Z(X), W)) &
+        (~ cp1(X) | ~ cp1(Z) | ~ rr(X, Y) | ~ rr(Y, Z) |
+         cUnsatisfiable(X) | cp1(skolemFOFtoCNF_W(Z))) &
+        (~ cp1(X) | ~ cp1(Z) | ~ rr(X, Y) | ~ rr(Y, Z) |
+         cUnsatisfiable(X) | rinvR(Z, skolemFOFtoCNF_W(Z))))),
+    inference(clausify, [], [normalize_0_1])).
+
+fof(normalize_0_3, plain,
+    (! [W, X] :
+       (~ cUnsatisfiable(X) | ~ cp1(W) | ~ rinvR(skolemFOFtoCNF_Z(X), W))),
+    inference(conjunct, [], [normalize_0_2])).
+
+fof(normalize_0_4, plain, (! [X, Y] : (~ rinvR(X, Y) <=> ~ rr(Y, X))),
+    inference(canonicalize, [], [axiom_5])).
+
+fof(normalize_0_5, plain, (! [X, Y] : (~ rinvR(X, Y) <=> ~ rr(Y, X))),
+    inference(specialize, [], [normalize_0_4])).
+
+fof(normalize_0_6, plain,
+    (! [X, Y] : ((~ rinvR(X, Y) | rr(Y, X)) & (~ rr(Y, X) | rinvR(X, Y)))),
+    inference(clausify, [], [normalize_0_5])).
+
+fof(normalize_0_7, plain, (! [X, Y] : (~ rr(Y, X) | rinvR(X, Y))),
+    inference(conjunct, [], [normalize_0_6])).
+
+fof(normalize_0_8, plain, (cUnsatisfiable(i2003_11_14_17_19_39537)),
+    inference(canonicalize, [], [axiom_7])).
+
+fof(normalize_0_9, plain,
+    (! [X] : (~ cUnsatisfiable(X) | rr(X, skolemFOFtoCNF_Y(X)))),
+    inference(conjunct, [], [normalize_0_2])).
+
+fof(normalize_0_10, plain,
+    (! [X] :
+       (~ cUnsatisfiable(X) |
+        rr(skolemFOFtoCNF_Y(X), skolemFOFtoCNF_Z(X)))),
+    inference(conjunct, [], [normalize_0_2])).
+
+fof(normalize_0_11, plain,
+    (! [X, Y, Z] : (~ rr(X, Y) | ~ rr(Y, Z) | rr(X, Z))),
+    inference(canonicalize, [], [axiom_6])).
+
+fof(normalize_0_12, plain,
+    (! [X, Y, Z] : (~ rr(X, Y) | ~ rr(Y, Z) | rr(X, Z))),
+    inference(specialize, [], [normalize_0_11])).
+
+fof(normalize_0_13, plain, (! [X] : (~ cUnsatisfiable(X) | cp1(X))),
+    inference(conjunct, [], [normalize_0_2])).
+
+cnf(refute_0_0, plain,
+    (~ cUnsatisfiable(X) | ~ cp1(W) | ~ rinvR(skolemFOFtoCNF_Z(X), W)),
+    inference(canonicalize, [], [normalize_0_3])).
+
+cnf(refute_0_1, plain,
+    (~ cUnsatisfiable(i2003_11_14_17_19_39537) |
+     ~ cp1(i2003_11_14_17_19_39537) |
+     ~
+       rinvR(skolemFOFtoCNF_Z(i2003_11_14_17_19_39537),
+         i2003_11_14_17_19_39537)),
+    inference(subst, [],
+              [refute_0_0 :
+               [bind(W, $fot(i2003_11_14_17_19_39537)),
+                bind(X, $fot(i2003_11_14_17_19_39537))]])).
+
+cnf(refute_0_2, plain, (~ rr(Y, X) | rinvR(X, Y)),
+    inference(canonicalize, [], [normalize_0_7])).
+
+cnf(refute_0_3, plain,
+    (~
+       rr(i2003_11_14_17_19_39537,
+         skolemFOFtoCNF_Z(i2003_11_14_17_19_39537)) |
+     rinvR(skolemFOFtoCNF_Z(i2003_11_14_17_19_39537),
+       i2003_11_14_17_19_39537)),
+    inference(subst, [],
+              [refute_0_2 :
+               [bind(X, $fot(skolemFOFtoCNF_Z(i2003_11_14_17_19_39537))),
+                bind(Y, $fot(i2003_11_14_17_19_39537))]])).
+
+cnf(refute_0_4, plain, (cUnsatisfiable(i2003_11_14_17_19_39537)),
+    inference(canonicalize, [], [normalize_0_8])).
+
+cnf(refute_0_5, plain, (~ cUnsatisfiable(X) | rr(X, skolemFOFtoCNF_Y(X))),
+    inference(canonicalize, [], [normalize_0_9])).
+
+cnf(refute_0_6, plain,
+    (~ cUnsatisfiable(i2003_11_14_17_19_39537) |
+     rr(i2003_11_14_17_19_39537,
+       skolemFOFtoCNF_Y(i2003_11_14_17_19_39537))),
+    inference(subst, [],
+              [refute_0_5 : [bind(X, $fot(i2003_11_14_17_19_39537))]])).
+
+cnf(refute_0_7, plain,
+    (rr(i2003_11_14_17_19_39537,
+       skolemFOFtoCNF_Y(i2003_11_14_17_19_39537))),
+    inference(resolve, [$cnf(cUnsatisfiable(i2003_11_14_17_19_39537))],
+              [refute_0_4, refute_0_6])).
+
+cnf(refute_0_8, plain,
+    (~ cUnsatisfiable(X) | rr(skolemFOFtoCNF_Y(X), skolemFOFtoCNF_Z(X))),
+    inference(canonicalize, [], [normalize_0_10])).
+
+cnf(refute_0_9, plain,
+    (~ cUnsatisfiable(i2003_11_14_17_19_39537) |
+     rr(skolemFOFtoCNF_Y(i2003_11_14_17_19_39537),
+       skolemFOFtoCNF_Z(i2003_11_14_17_19_39537))),
+    inference(subst, [],
+              [refute_0_8 : [bind(X, $fot(i2003_11_14_17_19_39537))]])).
+
+cnf(refute_0_10, plain,
+    (rr(skolemFOFtoCNF_Y(i2003_11_14_17_19_39537),
+       skolemFOFtoCNF_Z(i2003_11_14_17_19_39537))),
+    inference(resolve, [$cnf(cUnsatisfiable(i2003_11_14_17_19_39537))],
+              [refute_0_4, refute_0_9])).
+
+cnf(refute_0_11, plain, (~ rr(X, Y) | ~ rr(Y, Z) | rr(X, Z)),
+    inference(canonicalize, [], [normalize_0_12])).
+
+cnf(refute_0_12, plain,
+    (~ rr(X_20, skolemFOFtoCNF_Y(i2003_11_14_17_19_39537)) |
+     ~
+       rr(skolemFOFtoCNF_Y(i2003_11_14_17_19_39537),
+         skolemFOFtoCNF_Z(i2003_11_14_17_19_39537)) |
+     rr(X_20, skolemFOFtoCNF_Z(i2003_11_14_17_19_39537))),
+    inference(subst, [],
+              [refute_0_11 :
+               [bind(X, $fot(X_20)),
+                bind(Y, $fot(skolemFOFtoCNF_Y(i2003_11_14_17_19_39537))),
+                bind(Z,
+                     $fot(skolemFOFtoCNF_Z(i2003_11_14_17_19_39537)))]])).
+
+cnf(refute_0_13, plain,
+    (~ rr(X_20, skolemFOFtoCNF_Y(i2003_11_14_17_19_39537)) |
+     rr(X_20, skolemFOFtoCNF_Z(i2003_11_14_17_19_39537))),
+    inference(resolve,
+              [$cnf(rr(skolemFOFtoCNF_Y(i2003_11_14_17_19_39537),
+                      skolemFOFtoCNF_Z(i2003_11_14_17_19_39537)))],
+              [refute_0_10, refute_0_12])).
+
+cnf(refute_0_14, plain,
+    (~
+       rr(i2003_11_14_17_19_39537,
+         skolemFOFtoCNF_Y(i2003_11_14_17_19_39537)) |
+     rr(i2003_11_14_17_19_39537,
+       skolemFOFtoCNF_Z(i2003_11_14_17_19_39537))),
+    inference(subst, [],
+              [refute_0_13 :
+               [bind(X_20, $fot(i2003_11_14_17_19_39537))]])).
+
+cnf(refute_0_15, plain,
+    (rr(i2003_11_14_17_19_39537,
+       skolemFOFtoCNF_Z(i2003_11_14_17_19_39537))),
+    inference(resolve,
+              [$cnf(rr(i2003_11_14_17_19_39537,
+                      skolemFOFtoCNF_Y(i2003_11_14_17_19_39537)))],
+              [refute_0_7, refute_0_14])).
+
+cnf(refute_0_16, plain,
+    (rinvR(skolemFOFtoCNF_Z(i2003_11_14_17_19_39537),
+       i2003_11_14_17_19_39537)),
+    inference(resolve,
+              [$cnf(rr(i2003_11_14_17_19_39537,
+                      skolemFOFtoCNF_Z(i2003_11_14_17_19_39537)))],
+              [refute_0_15, refute_0_3])).
+
+cnf(refute_0_17, plain,
+    (~ cUnsatisfiable(i2003_11_14_17_19_39537) |
+     ~ cp1(i2003_11_14_17_19_39537)),
+    inference(resolve,
+              [$cnf(rinvR(skolemFOFtoCNF_Z(i2003_11_14_17_19_39537),
+                      i2003_11_14_17_19_39537))],
+              [refute_0_16, refute_0_1])).
+
+cnf(refute_0_18, plain, (~ cp1(i2003_11_14_17_19_39537)),
+    inference(resolve, [$cnf(cUnsatisfiable(i2003_11_14_17_19_39537))],
+              [refute_0_4, refute_0_17])).
+
+cnf(refute_0_19, plain, (~ cUnsatisfiable(X) | cp1(X)),
+    inference(canonicalize, [], [normalize_0_13])).
+
+cnf(refute_0_20, plain,
+    (~ cUnsatisfiable(i2003_11_14_17_19_39537) |
+     cp1(i2003_11_14_17_19_39537)),
+    inference(subst, [],
+              [refute_0_19 : [bind(X, $fot(i2003_11_14_17_19_39537))]])).
+
+cnf(refute_0_21, plain, (cp1(i2003_11_14_17_19_39537)),
+    inference(resolve, [$cnf(cUnsatisfiable(i2003_11_14_17_19_39537))],
+              [refute_0_4, refute_0_20])).
+
+cnf(refute_0_22, plain, ($false),
+    inference(resolve, [$cnf(cp1(i2003_11_14_17_19_39537))],
+              [refute_0_21, refute_0_18])).
+% SZS output end CNFRefutation for KRS085+1.tptp
+

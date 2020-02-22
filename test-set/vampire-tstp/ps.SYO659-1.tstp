@@ -1,0 +1,639 @@
+% Refutation found. Thanks to Tanya!
+% SZS status Unsatisfiable for SYO659-1
+% SZS output start Proof for SYO659-1
+fof(f23065,plain,(
+  $false),
+  inference(resolution,[],[f23052,f21])).
+fof(f21,axiom,(
+  ~'LE'(f(z),'0')),
+  file('SYO659-1.tptp',unknown)).
+fof(f23052,plain,(
+  ( ! [X1] : ('LE'(f(X1),'0')) )),
+  inference(duplicate_literal_removal,[],[f22939])).
+fof(f22939,plain,(
+  ( ! [X1] : ('LE'(f(X1),'0') | 'LE'(f(X1),'0') | 'LE'(f(X1),'0')) )),
+  inference(resolution,[],[f22916,f6553])).
+fof(f6553,plain,(
+  ( ! [X5] : (iLEQ(suc(X5),suc(X5)) | 'LE'(f(X5),'0')) )),
+  inference(subsumption_resolution,[],[f6552,f6224])).
+fof(f6224,plain,(
+  ( ! [X1] : ('E'('0',f(suc(X1))) | 'LE'(f(X1),'0')) )),
+  inference(resolution,[],[f6174,f19])).
+fof(f19,axiom,(
+  ( ! [X2] : (~'LE'(f(suc(X2)),s('0')) | 'E'('0',f(suc(X2))) | 'LE'(f(X2),'0')) )),
+  file('SYO659-1.tptp',unknown)).
+fof(f6174,plain,(
+  ( ! [X1] : ('LE'(f(X1),s('0'))) )),
+  inference(duplicate_literal_removal,[],[f6103])).
+fof(f6103,plain,(
+  ( ! [X1] : ('LE'(f(X1),s('0')) | 'LE'(f(X1),s('0')) | 'LE'(f(X1),s('0'))) )),
+  inference(resolution,[],[f6089,f159])).
+fof(f159,plain,(
+  ( ! [X1] : (iLEQ(suc(X1),suc(X1)) | 'LE'(f(X1),s('0'))) )),
+  inference(subsumption_resolution,[],[f158,f102])).
+fof(f102,plain,(
+  ( ! [X0] : ('E'(s('0'),f(suc(suc(X0)))) | 'LE'(f(X0),s('0'))) )),
+  inference(resolution,[],[f4,f24])).
+fof(f24,axiom,(
+  ( ! [X6] : ('LE'(f(X6),s(s('0')))) )),
+  file('SYO659-1.tptp',unknown)).
+fof(f4,axiom,(
+  ( ! [X3] : (~'LE'(f(suc(suc(X3))),s(s('0'))) | 'E'(s('0'),f(suc(suc(X3)))) | 'LE'(f(X3),s('0'))) )),
+  file('SYO659-1.tptp',unknown)).
+fof(f158,plain,(
+  ( ! [X1] : (iLEQ(suc(X1),suc(X1)) | ~'E'(s('0'),f(suc(suc(X1)))) | 'LE'(f(X1),s('0'))) )),
+  inference(subsumption_resolution,[],[f157,f83])).
+fof(f83,plain,(
+  ( ! [X3] : ('E'(s('0'),f(suc(X3))) | 'LE'(f(X3),s('0'))) )),
+  inference(subsumption_resolution,[],[f42,f24])).
+fof(f42,axiom,(
+  ( ! [X3] : ('LE'(f(X3),s('0')) | 'E'(s('0'),f(suc(X3))) | ~'LE'(f(suc(X3)),s(s('0')))) )),
+  file('SYO659-1.tptp',unknown)).
+fof(f157,plain,(
+  ( ! [X1] : (iLEQ(suc(X1),suc(X1)) | ~'E'(s('0'),f(suc(X1))) | ~'E'(s('0'),f(suc(suc(X1)))) | 'LE'(f(X1),s('0'))) )),
+  inference(subsumption_resolution,[],[f156,f78])).
+fof(f78,plain,(
+  ( ! [X3] : ('E'(s('0'),f(suc(suc(suc(X3))))) | 'LE'(f(X3),s('0'))) )),
+  inference(subsumption_resolution,[],[f38,f24])).
+fof(f38,axiom,(
+  ( ! [X3] : ('LE'(f(X3),s('0')) | 'E'(s('0'),f(suc(suc(suc(X3))))) | ~'LE'(f(suc(suc(suc(X3)))),s(s('0')))) )),
+  file('SYO659-1.tptp',unknown)).
+fof(f156,plain,(
+  ( ! [X1] : (~'E'(s('0'),f(suc(suc(suc(X1))))) | iLEQ(suc(X1),suc(X1)) | ~'E'(s('0'),f(suc(X1))) | ~'E'(s('0'),f(suc(suc(X1)))) | 'LE'(f(X1),s('0'))) )),
+  inference(subsumption_resolution,[],[f148,f97])).
+fof(f97,plain,(
+  ( ! [X0] : ('LE'(f(X0),s('0')) | 'E'(s('0'),f(X0))) )),
+  inference(resolution,[],[f10,f24])).
+fof(f10,axiom,(
+  ( ! [X3] : (~'LE'(f(X3),s(s('0'))) | 'E'(s('0'),f(X3)) | 'LE'(f(X3),s('0'))) )),
+  file('SYO659-1.tptp',unknown)).
+fof(f148,plain,(
+  ( ! [X1] : (~'E'(s('0'),f(suc(suc(suc(X1))))) | iLEQ(suc(X1),suc(X1)) | ~'E'(s('0'),f(suc(X1))) | ~'E'(s('0'),f(X1)) | ~'E'(s('0'),f(suc(suc(X1)))) | 'LE'(f(X1),s('0'))) )),
+  inference(resolution,[],[f64,f113])).
+fof(f113,plain,(
+  ( ! [X0] : ('E'(s('0'),f(suc(suc(suc(suc(X0)))))) | 'LE'(f(X0),s('0'))) )),
+  inference(resolution,[],[f12,f24])).
+fof(f12,axiom,(
+  ( ! [X3] : (~'LE'(f(suc(suc(suc(suc(X3))))),s(s('0'))) | 'E'(s('0'),f(suc(suc(suc(suc(X3)))))) | 'LE'(f(X3),s('0'))) )),
+  file('SYO659-1.tptp',unknown)).
+fof(f64,plain,(
+  ( ! [X0] : (~'E'(s('0'),f(suc(suc(suc(suc(X0)))))) | ~'E'(s('0'),f(suc(suc(suc(X0))))) | iLEQ(suc(X0),suc(X0)) | ~'E'(s('0'),f(suc(X0))) | ~'E'(s('0'),f(X0)) | ~'E'(s('0'),f(suc(suc(X0))))) )),
+  inference(subsumption_resolution,[],[f63,f60])).
+fof(f60,plain,(
+  ( ! [X0] : (~'E'(s('0'),f(suc(suc(X0)))) | 'E'(f(X0),f(suc(suc(X0)))) | ~'E'(s('0'),f(X0)) | ~'E'(s('0'),f(suc(X0))) | iLEQ(suc(X0),suc(X0))) )),
+  inference(subsumption_resolution,[],[f23,f2])).
+fof(f2,axiom,(
+  ( ! [X0] : (~'E'(s('0'),f(suc(X0))) | 'E'(f(X0),f(suc(X0))) | iLEQ(suc(X0),suc(X0)) | ~'E'(s('0'),f(X0))) )),
+  file('SYO659-1.tptp',unknown)).
+fof(f23,axiom,(
+  ( ! [X0] : (iLEQ(suc(X0),suc(X0)) | 'E'(f(X0),f(suc(suc(X0)))) | ~'E'(s('0'),f(X0)) | ~'E'(f(X0),f(suc(X0))) | ~'E'(s('0'),f(suc(X0))) | ~'E'(s('0'),f(suc(suc(X0))))) )),
+  file('SYO659-1.tptp',unknown)).
+fof(f63,plain,(
+  ( ! [X0] : (iLEQ(suc(X0),suc(X0)) | ~'E'(s('0'),f(suc(suc(suc(X0))))) | ~'E'(f(X0),f(suc(suc(X0)))) | ~'E'(s('0'),f(suc(suc(suc(suc(X0)))))) | ~'E'(s('0'),f(suc(X0))) | ~'E'(s('0'),f(X0)) | ~'E'(s('0'),f(suc(suc(X0))))) )),
+  inference(subsumption_resolution,[],[f62,f2])).
+fof(f62,plain,(
+  ( ! [X0] : (iLEQ(suc(X0),suc(X0)) | ~'E'(s('0'),f(suc(suc(suc(X0))))) | ~'E'(f(X0),f(suc(X0))) | ~'E'(f(X0),f(suc(suc(X0)))) | ~'E'(s('0'),f(suc(suc(suc(suc(X0)))))) | ~'E'(s('0'),f(suc(X0))) | ~'E'(s('0'),f(X0)) | ~'E'(s('0'),f(suc(suc(X0))))) )),
+  inference(subsumption_resolution,[],[f26,f53])).
+fof(f53,plain,(
+  ( ! [X0] : (~'E'(s('0'),f(suc(suc(suc(X0))))) | 'E'(f(X0),f(suc(suc(suc(X0))))) | iLEQ(suc(X0),suc(X0)) | ~'E'(f(X0),f(suc(suc(X0)))) | ~'E'(s('0'),f(suc(X0))) | ~'E'(s('0'),f(X0)) | ~'E'(s('0'),f(suc(suc(X0))))) )),
+  inference(subsumption_resolution,[],[f8,f2])).
+fof(f8,axiom,(
+  ( ! [X0] : (iLEQ(suc(X0),suc(X0)) | 'E'(f(X0),f(suc(suc(suc(X0))))) | ~'E'(s('0'),f(suc(suc(suc(X0))))) | ~'E'(f(X0),f(suc(X0))) | ~'E'(f(X0),f(suc(suc(X0)))) | ~'E'(s('0'),f(suc(X0))) | ~'E'(s('0'),f(X0)) | ~'E'(s('0'),f(suc(suc(X0))))) )),
+  file('SYO659-1.tptp',unknown)).
+fof(f26,axiom,(
+  ( ! [X0] : (iLEQ(suc(X0),suc(X0)) | ~'E'(s('0'),f(suc(suc(suc(X0))))) | ~'E'(f(X0),f(suc(X0))) | ~'E'(f(X0),f(suc(suc(X0)))) | ~'E'(s('0'),f(suc(suc(suc(suc(X0)))))) | ~'E'(s('0'),f(suc(X0))) | ~'E'(f(X0),f(suc(suc(suc(X0))))) | ~'E'(s('0'),f(X0)) | ~'E'(s('0'),f(suc(suc(X0))))) )),
+  file('SYO659-1.tptp',unknown)).
+fof(f6089,plain,(
+  ( ! [X2,X3] : (~iLEQ(suc(X2),suc(X3)) | 'LE'(f(X3),s('0')) | 'LE'(f(X2),s('0'))) )),
+  inference(subsumption_resolution,[],[f6088,f102])).
+fof(f6088,plain,(
+  ( ! [X2,X3] : (~'E'(s('0'),f(suc(suc(X2)))) | ~iLEQ(suc(X2),suc(X3)) | 'LE'(f(X3),s('0')) | 'LE'(f(X2),s('0'))) )),
+  inference(subsumption_resolution,[],[f6087,f78])).
+fof(f6087,plain,(
+  ( ! [X2,X3] : (~'E'(s('0'),f(suc(suc(suc(X2))))) | ~'E'(s('0'),f(suc(suc(X2)))) | ~iLEQ(suc(X2),suc(X3)) | 'LE'(f(X3),s('0')) | 'LE'(f(X2),s('0'))) )),
+  inference(subsumption_resolution,[],[f6086,f102])).
+fof(f6086,plain,(
+  ( ! [X2,X3] : (~'E'(s('0'),f(suc(suc(X3)))) | ~'E'(s('0'),f(suc(suc(suc(X2))))) | ~'E'(s('0'),f(suc(suc(X2)))) | ~iLEQ(suc(X2),suc(X3)) | 'LE'(f(X3),s('0')) | 'LE'(f(X2),s('0'))) )),
+  inference(subsumption_resolution,[],[f6085,f2294])).
+fof(f2294,plain,(
+  ( ! [X1] : ('E'(f(X1),f(suc(suc(suc(X1))))) | 'LE'(f(X1),s('0'))) )),
+  inference(duplicate_literal_removal,[],[f2223])).
+fof(f2223,plain,(
+  ( ! [X1] : ('E'(f(X1),f(suc(suc(suc(X1))))) | 'E'(f(X1),f(suc(suc(suc(X1))))) | 'LE'(f(X1),s('0')) | 'LE'(f(X1),s('0')) | 'LE'(f(X1),s('0'))) )),
+  inference(resolution,[],[f1504,f159])).
+fof(f1504,plain,(
+  ( ! [X2,X3] : (~iLEQ(suc(X2),suc(X3)) | 'E'(f(X3),f(suc(suc(suc(X3))))) | 'E'(f(X2),f(suc(suc(suc(X2))))) | 'LE'(f(X3),s('0')) | 'LE'(f(X2),s('0'))) )),
+  inference(subsumption_resolution,[],[f1503,f102])).
+fof(f1503,plain,(
+  ( ! [X2,X3] : ('E'(f(X2),f(suc(suc(suc(X2))))) | 'E'(f(X3),f(suc(suc(suc(X3))))) | ~'E'(s('0'),f(suc(suc(X2)))) | ~iLEQ(suc(X2),suc(X3)) | 'LE'(f(X3),s('0')) | 'LE'(f(X2),s('0'))) )),
+  inference(subsumption_resolution,[],[f1502,f102])).
+fof(f1502,plain,(
+  ( ! [X2,X3] : ('E'(f(X2),f(suc(suc(suc(X2))))) | 'E'(f(X3),f(suc(suc(suc(X3))))) | ~'E'(s('0'),f(suc(suc(X3)))) | ~'E'(s('0'),f(suc(suc(X2)))) | ~iLEQ(suc(X2),suc(X3)) | 'LE'(f(X3),s('0')) | 'LE'(f(X2),s('0'))) )),
+  inference(subsumption_resolution,[],[f1501,f83])).
+fof(f1501,plain,(
+  ( ! [X2,X3] : ('E'(f(X2),f(suc(suc(suc(X2))))) | 'E'(f(X3),f(suc(suc(suc(X3))))) | ~'E'(s('0'),f(suc(X2))) | ~'E'(s('0'),f(suc(suc(X3)))) | ~'E'(s('0'),f(suc(suc(X2)))) | ~iLEQ(suc(X2),suc(X3)) | 'LE'(f(X3),s('0')) | 'LE'(f(X2),s('0'))) )),
+  inference(subsumption_resolution,[],[f1500,f83])).
+fof(f1500,plain,(
+  ( ! [X2,X3] : ('E'(f(X2),f(suc(suc(suc(X2))))) | ~'E'(s('0'),f(suc(X3))) | 'E'(f(X3),f(suc(suc(suc(X3))))) | ~'E'(s('0'),f(suc(X2))) | ~'E'(s('0'),f(suc(suc(X3)))) | ~'E'(s('0'),f(suc(suc(X2)))) | ~iLEQ(suc(X2),suc(X3)) | 'LE'(f(X3),s('0')) | 'LE'(f(X2),s('0'))) )),
+  inference(subsumption_resolution,[],[f1499,f907])).
+fof(f907,plain,(
+  ( ! [X2,X3] : (~iLEQ(suc(X3),suc(X2)) | 'E'(f(X3),f(suc(suc(suc(X3))))) | 'E'(f(X2),f(suc(X2))) | 'LE'(f(X3),s('0')) | 'LE'(f(X2),s('0'))) )),
+  inference(subsumption_resolution,[],[f906,f83])).
+fof(f906,plain,(
+  ( ! [X2,X3] : ('E'(f(X2),f(suc(X2))) | 'E'(f(X3),f(suc(suc(suc(X3))))) | ~'E'(s('0'),f(suc(X3))) | ~iLEQ(suc(X3),suc(X2)) | 'LE'(f(X3),s('0')) | 'LE'(f(X2),s('0'))) )),
+  inference(subsumption_resolution,[],[f897,f97])).
+fof(f897,plain,(
+  ( ! [X2,X3] : ('E'(f(X2),f(suc(X2))) | ~'E'(s('0'),f(X2)) | 'E'(f(X3),f(suc(suc(suc(X3))))) | ~'E'(s('0'),f(suc(X3))) | ~iLEQ(suc(X3),suc(X2)) | 'LE'(f(X3),s('0')) | 'LE'(f(X2),s('0'))) )),
+  inference(resolution,[],[f257,f83])).
+fof(f257,plain,(
+  ( ! [X2,X3] : (~'E'(s('0'),f(suc(X3))) | 'E'(f(X3),f(suc(X3))) | ~'E'(s('0'),f(X3)) | 'E'(f(X2),f(suc(suc(suc(X2))))) | ~'E'(s('0'),f(suc(X2))) | ~iLEQ(suc(X2),suc(X3)) | 'LE'(f(X2),s('0'))) )),
+  inference(subsumption_resolution,[],[f256,f102])).
+fof(f256,plain,(
+  ( ! [X2,X3] : ('E'(f(X2),f(suc(suc(suc(X2))))) | 'E'(f(X3),f(suc(X3))) | ~'E'(s('0'),f(X3)) | ~'E'(s('0'),f(suc(X3))) | ~'E'(s('0'),f(suc(X2))) | ~'E'(s('0'),f(suc(suc(X2)))) | ~iLEQ(suc(X2),suc(X3)) | 'LE'(f(X2),s('0'))) )),
+  inference(subsumption_resolution,[],[f248,f97])).
+fof(f248,plain,(
+  ( ! [X2,X3] : ('E'(f(X2),f(suc(suc(suc(X2))))) | 'E'(f(X3),f(suc(X3))) | ~'E'(s('0'),f(X3)) | ~'E'(s('0'),f(suc(X3))) | ~'E'(s('0'),f(suc(X2))) | ~'E'(s('0'),f(X2)) | ~'E'(s('0'),f(suc(suc(X2)))) | ~iLEQ(suc(X2),suc(X3)) | 'LE'(f(X2),s('0'))) )),
+  inference(resolution,[],[f70,f78])).
+fof(f70,plain,(
+  ( ! [X0,X1] : (~'E'(s('0'),f(suc(suc(suc(X0))))) | 'E'(f(X0),f(suc(suc(suc(X0))))) | 'E'(f(X1),f(suc(X1))) | ~'E'(s('0'),f(X1)) | ~'E'(s('0'),f(suc(X1))) | ~'E'(s('0'),f(suc(X0))) | ~'E'(s('0'),f(X0)) | ~'E'(s('0'),f(suc(suc(X0)))) | ~iLEQ(suc(X0),suc(X1))) )),
+  inference(subsumption_resolution,[],[f69,f68])).
+fof(f68,plain,(
+  ( ! [X0,X1] : (~'E'(s('0'),f(suc(suc(X0)))) | 'E'(f(X0),f(suc(suc(X0)))) | ~'E'(s('0'),f(X1)) | ~'E'(s('0'),f(suc(X1))) | ~'E'(s('0'),f(suc(X0))) | ~'E'(s('0'),f(X0)) | 'E'(f(X1),f(suc(X1))) | ~iLEQ(suc(X0),suc(X1))) )),
+  inference(subsumption_resolution,[],[f30,f13])).
+fof(f13,axiom,(
+  ( ! [X0,X1] : (~'E'(s('0'),f(suc(X1))) | 'E'(f(X0),f(suc(X0))) | ~'E'(s('0'),f(X1)) | 'E'(f(X1),f(suc(X1))) | ~'E'(s('0'),f(suc(X0))) | ~'E'(s('0'),f(X0)) | ~iLEQ(suc(X0),suc(X1))) )),
+  file('SYO659-1.tptp',unknown)).
+fof(f30,axiom,(
+  ( ! [X0,X1] : ('E'(f(X1),f(suc(X1))) | 'E'(f(X0),f(suc(suc(X0)))) | ~'E'(f(X0),f(suc(X0))) | ~'E'(s('0'),f(X1)) | ~'E'(s('0'),f(suc(X1))) | ~'E'(s('0'),f(suc(X0))) | ~'E'(s('0'),f(X0)) | ~'E'(s('0'),f(suc(suc(X0)))) | ~iLEQ(suc(X0),suc(X1))) )),
+  file('SYO659-1.tptp',unknown)).
+fof(f69,plain,(
+  ( ! [X0,X1] : ('E'(f(X1),f(suc(X1))) | 'E'(f(X0),f(suc(suc(suc(X0))))) | ~'E'(s('0'),f(suc(suc(suc(X0))))) | ~'E'(f(X0),f(suc(suc(X0)))) | ~'E'(s('0'),f(X1)) | ~'E'(s('0'),f(suc(X1))) | ~'E'(s('0'),f(suc(X0))) | ~'E'(s('0'),f(X0)) | ~'E'(s('0'),f(suc(suc(X0)))) | ~iLEQ(suc(X0),suc(X1))) )),
+  inference(subsumption_resolution,[],[f31,f13])).
+fof(f31,axiom,(
+  ( ! [X0,X1] : ('E'(f(X1),f(suc(X1))) | 'E'(f(X0),f(suc(suc(suc(X0))))) | ~'E'(s('0'),f(suc(suc(suc(X0))))) | ~'E'(f(X0),f(suc(X0))) | ~'E'(f(X0),f(suc(suc(X0)))) | ~'E'(s('0'),f(X1)) | ~'E'(s('0'),f(suc(X1))) | ~'E'(s('0'),f(suc(X0))) | ~'E'(s('0'),f(X0)) | ~'E'(s('0'),f(suc(suc(X0)))) | ~iLEQ(suc(X0),suc(X1))) )),
+  file('SYO659-1.tptp',unknown)).
+fof(f1499,plain,(
+  ( ! [X2,X3] : ('E'(f(X2),f(suc(suc(suc(X2))))) | ~'E'(f(X3),f(suc(X3))) | ~'E'(s('0'),f(suc(X3))) | 'E'(f(X3),f(suc(suc(suc(X3))))) | ~'E'(s('0'),f(suc(X2))) | ~'E'(s('0'),f(suc(suc(X3)))) | ~'E'(s('0'),f(suc(suc(X2)))) | ~iLEQ(suc(X2),suc(X3)) | 'LE'(f(X3),s('0')) | 'LE'(f(X2),s('0'))) )),
+  inference(subsumption_resolution,[],[f1488,f97])).
+fof(f1488,plain,(
+  ( ! [X2,X3] : ('E'(f(X2),f(suc(suc(suc(X2))))) | ~'E'(f(X3),f(suc(X3))) | ~'E'(s('0'),f(suc(X3))) | 'E'(f(X3),f(suc(suc(suc(X3))))) | ~'E'(s('0'),f(suc(X2))) | ~'E'(s('0'),f(suc(suc(X3)))) | ~'E'(s('0'),f(X2)) | ~'E'(s('0'),f(suc(suc(X2)))) | ~iLEQ(suc(X2),suc(X3)) | 'LE'(f(X3),s('0')) | 'LE'(f(X2),s('0'))) )),
+  inference(resolution,[],[f583,f78])).
+fof(f583,plain,(
+  ( ! [X2,X3] : (~'E'(s('0'),f(suc(suc(suc(X2))))) | 'E'(f(X2),f(suc(suc(suc(X2))))) | ~'E'(f(X3),f(suc(X3))) | ~'E'(s('0'),f(suc(X3))) | 'E'(f(X3),f(suc(suc(suc(X3))))) | ~'E'(s('0'),f(suc(X2))) | ~'E'(s('0'),f(suc(suc(X3)))) | ~'E'(s('0'),f(X2)) | ~'E'(s('0'),f(suc(suc(X2)))) | ~iLEQ(suc(X2),suc(X3)) | 'LE'(f(X3),s('0'))) )),
+  inference(subsumption_resolution,[],[f582,f273])).
+fof(f273,plain,(
+  ( ! [X2,X3] : (~'E'(s('0'),f(suc(X2))) | 'E'(f(X3),f(suc(suc(suc(X3))))) | 'E'(f(X2),f(suc(X2))) | ~'E'(s('0'),f(X2)) | ~iLEQ(suc(X2),suc(X3)) | 'LE'(f(X3),s('0'))) )),
+  inference(subsumption_resolution,[],[f272,f102])).
+fof(f272,plain,(
+  ( ! [X2,X3] : ('E'(f(X2),f(suc(X2))) | 'E'(f(X3),f(suc(suc(suc(X3))))) | ~'E'(s('0'),f(suc(X2))) | ~'E'(s('0'),f(suc(suc(X3)))) | ~'E'(s('0'),f(X2)) | ~iLEQ(suc(X2),suc(X3)) | 'LE'(f(X3),s('0'))) )),
+  inference(subsumption_resolution,[],[f271,f83])).
+fof(f271,plain,(
+  ( ! [X2,X3] : ('E'(f(X2),f(suc(X2))) | ~'E'(s('0'),f(suc(X3))) | 'E'(f(X3),f(suc(suc(suc(X3))))) | ~'E'(s('0'),f(suc(X2))) | ~'E'(s('0'),f(suc(suc(X3)))) | ~'E'(s('0'),f(X2)) | ~iLEQ(suc(X2),suc(X3)) | 'LE'(f(X3),s('0'))) )),
+  inference(subsumption_resolution,[],[f263,f97])).
+fof(f263,plain,(
+  ( ! [X2,X3] : ('E'(f(X2),f(suc(X2))) | ~'E'(s('0'),f(X3)) | ~'E'(s('0'),f(suc(X3))) | 'E'(f(X3),f(suc(suc(suc(X3))))) | ~'E'(s('0'),f(suc(X2))) | ~'E'(s('0'),f(suc(suc(X3)))) | ~'E'(s('0'),f(X2)) | ~iLEQ(suc(X2),suc(X3)) | 'LE'(f(X3),s('0'))) )),
+  inference(resolution,[],[f96,f78])).
+fof(f96,plain,(
+  ( ! [X0,X1] : (~'E'(s('0'),f(suc(suc(suc(X1))))) | 'E'(f(X0),f(suc(X0))) | ~'E'(s('0'),f(X1)) | ~'E'(s('0'),f(suc(X1))) | 'E'(f(X1),f(suc(suc(suc(X1))))) | ~'E'(s('0'),f(suc(X0))) | ~'E'(s('0'),f(suc(suc(X1)))) | ~'E'(s('0'),f(X0)) | ~iLEQ(suc(X0),suc(X1))) )),
+  inference(subsumption_resolution,[],[f95,f88])).
+fof(f88,plain,(
+  ( ! [X0,X1] : (~'E'(s('0'),f(suc(suc(X1)))) | 'E'(f(X0),f(suc(X0))) | ~'E'(s('0'),f(X1)) | ~'E'(s('0'),f(suc(X1))) | ~'E'(s('0'),f(suc(X0))) | 'E'(f(X1),f(suc(suc(X1)))) | ~'E'(s('0'),f(X0)) | ~iLEQ(suc(X0),suc(X1))) )),
+  inference(subsumption_resolution,[],[f46,f13])).
+fof(f46,axiom,(
+  ( ! [X0,X1] : ('E'(f(X1),f(suc(suc(X1)))) | 'E'(f(X0),f(suc(X0))) | ~'E'(f(X1),f(suc(X1))) | ~'E'(s('0'),f(X1)) | ~'E'(s('0'),f(suc(X1))) | ~'E'(s('0'),f(suc(X0))) | ~'E'(s('0'),f(suc(suc(X1)))) | ~'E'(s('0'),f(X0)) | ~iLEQ(suc(X0),suc(X1))) )),
+  file('SYO659-1.tptp',unknown)).
+fof(f95,plain,(
+  ( ! [X0,X1] : ('E'(f(X1),f(suc(suc(suc(X1))))) | 'E'(f(X0),f(suc(X0))) | ~'E'(f(X1),f(suc(suc(X1)))) | ~'E'(s('0'),f(X1)) | ~'E'(s('0'),f(suc(X1))) | ~'E'(s('0'),f(suc(suc(suc(X1))))) | ~'E'(s('0'),f(suc(X0))) | ~'E'(s('0'),f(suc(suc(X1)))) | ~'E'(s('0'),f(X0)) | ~iLEQ(suc(X0),suc(X1))) )),
+  inference(subsumption_resolution,[],[f52,f13])).
+fof(f52,axiom,(
+  ( ! [X0,X1] : ('E'(f(X1),f(suc(suc(suc(X1))))) | 'E'(f(X0),f(suc(X0))) | ~'E'(f(X1),f(suc(suc(X1)))) | ~'E'(f(X1),f(suc(X1))) | ~'E'(s('0'),f(X1)) | ~'E'(s('0'),f(suc(X1))) | ~'E'(s('0'),f(suc(suc(suc(X1))))) | ~'E'(s('0'),f(suc(X0))) | ~'E'(s('0'),f(suc(suc(X1)))) | ~'E'(s('0'),f(X0)) | ~iLEQ(suc(X0),suc(X1))) )),
+  file('SYO659-1.tptp',unknown)).
+fof(f582,plain,(
+  ( ! [X2,X3] : ('E'(f(X2),f(suc(suc(suc(X2))))) | ~'E'(s('0'),f(suc(suc(suc(X2))))) | ~'E'(f(X2),f(suc(X2))) | ~'E'(f(X3),f(suc(X3))) | ~'E'(s('0'),f(suc(X3))) | 'E'(f(X3),f(suc(suc(suc(X3))))) | ~'E'(s('0'),f(suc(X2))) | ~'E'(s('0'),f(suc(suc(X3)))) | ~'E'(s('0'),f(X2)) | ~'E'(s('0'),f(suc(suc(X2)))) | ~iLEQ(suc(X2),suc(X3)) | 'LE'(f(X3),s('0'))) )),
+  inference(subsumption_resolution,[],[f581,f483])).
+fof(f483,plain,(
+  ( ! [X2,X3] : (~'E'(s('0'),f(suc(suc(X3)))) | ~'E'(s('0'),f(X3)) | 'E'(f(X3),f(suc(suc(X3)))) | ~'E'(s('0'),f(suc(X3))) | ~iLEQ(suc(X3),suc(X2)) | 'LE'(f(X2),s('0'))) )),
+  inference(subsumption_resolution,[],[f482,f102])).
+fof(f482,plain,(
+  ( ! [X2,X3] : (~'E'(s('0'),f(suc(X3))) | ~'E'(s('0'),f(suc(suc(X2)))) | ~'E'(s('0'),f(X3)) | 'E'(f(X3),f(suc(suc(X3)))) | ~'E'(s('0'),f(suc(suc(X3)))) | ~iLEQ(suc(X3),suc(X2)) | 'LE'(f(X2),s('0'))) )),
+  inference(subsumption_resolution,[],[f481,f78])).
+fof(f481,plain,(
+  ( ! [X2,X3] : (~'E'(s('0'),f(suc(suc(suc(X2))))) | ~'E'(s('0'),f(suc(X3))) | ~'E'(s('0'),f(suc(suc(X2)))) | ~'E'(s('0'),f(X3)) | 'E'(f(X3),f(suc(suc(X3)))) | ~'E'(s('0'),f(suc(suc(X3)))) | ~iLEQ(suc(X3),suc(X2)) | 'LE'(f(X2),s('0'))) )),
+  inference(subsumption_resolution,[],[f480,f83])).
+fof(f480,plain,(
+  ( ! [X2,X3] : (~'E'(s('0'),f(suc(X2))) | ~'E'(s('0'),f(suc(suc(suc(X2))))) | ~'E'(s('0'),f(suc(X3))) | ~'E'(s('0'),f(suc(suc(X2)))) | ~'E'(s('0'),f(X3)) | 'E'(f(X3),f(suc(suc(X3)))) | ~'E'(s('0'),f(suc(suc(X3)))) | ~iLEQ(suc(X3),suc(X2)) | 'LE'(f(X2),s('0'))) )),
+  inference(subsumption_resolution,[],[f479,f394])).
+fof(f394,plain,(
+  ( ! [X2,X3] : (~'E'(s('0'),f(suc(suc(X2)))) | 'E'(f(X3),f(suc(suc(suc(X3))))) | ~'E'(s('0'),f(suc(X2))) | ~'E'(s('0'),f(X2)) | 'E'(f(X2),f(suc(suc(X2)))) | ~iLEQ(suc(X2),suc(X3)) | 'LE'(f(X3),s('0'))) )),
+  inference(subsumption_resolution,[],[f393,f102])).
+fof(f393,plain,(
+  ( ! [X2,X3] : ('E'(f(X2),f(suc(suc(X2)))) | 'E'(f(X3),f(suc(suc(suc(X3))))) | ~'E'(s('0'),f(suc(X2))) | ~'E'(s('0'),f(suc(suc(X3)))) | ~'E'(s('0'),f(X2)) | ~'E'(s('0'),f(suc(suc(X2)))) | ~iLEQ(suc(X2),suc(X3)) | 'LE'(f(X3),s('0'))) )),
+  inference(subsumption_resolution,[],[f392,f83])).
+fof(f392,plain,(
+  ( ! [X2,X3] : ('E'(f(X2),f(suc(suc(X2)))) | ~'E'(s('0'),f(suc(X3))) | 'E'(f(X3),f(suc(suc(suc(X3))))) | ~'E'(s('0'),f(suc(X2))) | ~'E'(s('0'),f(suc(suc(X3)))) | ~'E'(s('0'),f(X2)) | ~'E'(s('0'),f(suc(suc(X2)))) | ~iLEQ(suc(X2),suc(X3)) | 'LE'(f(X3),s('0'))) )),
+  inference(subsumption_resolution,[],[f391,f273])).
+fof(f391,plain,(
+  ( ! [X2,X3] : ('E'(f(X2),f(suc(suc(X2)))) | ~'E'(f(X2),f(suc(X2))) | ~'E'(s('0'),f(suc(X3))) | 'E'(f(X3),f(suc(suc(suc(X3))))) | ~'E'(s('0'),f(suc(X2))) | ~'E'(s('0'),f(suc(suc(X3)))) | ~'E'(s('0'),f(X2)) | ~'E'(s('0'),f(suc(suc(X2)))) | ~iLEQ(suc(X2),suc(X3)) | 'LE'(f(X3),s('0'))) )),
+  inference(subsumption_resolution,[],[f390,f299])).
+fof(f299,plain,(
+  ( ! [X10,X11] : (~'E'(s('0'),f(suc(suc(X10)))) | ~'E'(s('0'),f(suc(X10))) | 'E'(f(X11),f(suc(suc(X11)))) | ~'E'(s('0'),f(X10)) | 'E'(f(X10),f(suc(suc(X10)))) | ~iLEQ(suc(X10),suc(X11)) | 'LE'(f(X11),s('0'))) )),
+  inference(subsumption_resolution,[],[f298,f83])).
+fof(f298,plain,(
+  ( ! [X10,X11] : ('E'(f(X10),f(suc(suc(X10)))) | ~'E'(s('0'),f(suc(X11))) | ~'E'(s('0'),f(suc(X10))) | 'E'(f(X11),f(suc(suc(X11)))) | ~'E'(s('0'),f(X10)) | ~'E'(s('0'),f(suc(suc(X10)))) | ~iLEQ(suc(X10),suc(X11)) | 'LE'(f(X11),s('0'))) )),
+  inference(subsumption_resolution,[],[f297,f226])).
+fof(f226,plain,(
+  ( ! [X10,X11] : (~'E'(s('0'),f(suc(X10))) | 'E'(f(X10),f(suc(X10))) | 'E'(f(X11),f(suc(suc(X11)))) | ~'E'(s('0'),f(X10)) | ~iLEQ(suc(X10),suc(X11)) | 'LE'(f(X11),s('0'))) )),
+  inference(subsumption_resolution,[],[f225,f83])).
+fof(f225,plain,(
+  ( ! [X10,X11] : ('E'(f(X10),f(suc(X10))) | ~'E'(s('0'),f(suc(X11))) | ~'E'(s('0'),f(suc(X10))) | 'E'(f(X11),f(suc(suc(X11)))) | ~'E'(s('0'),f(X10)) | ~iLEQ(suc(X10),suc(X11)) | 'LE'(f(X11),s('0'))) )),
+  inference(subsumption_resolution,[],[f217,f97])).
+fof(f217,plain,(
+  ( ! [X10,X11] : ('E'(f(X10),f(suc(X10))) | ~'E'(s('0'),f(X11)) | ~'E'(s('0'),f(suc(X11))) | ~'E'(s('0'),f(suc(X10))) | 'E'(f(X11),f(suc(suc(X11)))) | ~'E'(s('0'),f(X10)) | ~iLEQ(suc(X10),suc(X11)) | 'LE'(f(X11),s('0'))) )),
+  inference(resolution,[],[f88,f102])).
+fof(f297,plain,(
+  ( ! [X10,X11] : ('E'(f(X10),f(suc(suc(X10)))) | ~'E'(f(X10),f(suc(X10))) | ~'E'(s('0'),f(suc(X11))) | ~'E'(s('0'),f(suc(X10))) | 'E'(f(X11),f(suc(suc(X11)))) | ~'E'(s('0'),f(X10)) | ~'E'(s('0'),f(suc(suc(X10)))) | ~iLEQ(suc(X10),suc(X11)) | 'LE'(f(X11),s('0'))) )),
+  inference(subsumption_resolution,[],[f284,f97])).
+fof(f284,plain,(
+  ( ! [X10,X11] : ('E'(f(X10),f(suc(suc(X10)))) | ~'E'(f(X10),f(suc(X10))) | ~'E'(s('0'),f(X11)) | ~'E'(s('0'),f(suc(X11))) | ~'E'(s('0'),f(suc(X10))) | 'E'(f(X11),f(suc(suc(X11)))) | ~'E'(s('0'),f(X10)) | ~'E'(s('0'),f(suc(suc(X10)))) | ~iLEQ(suc(X10),suc(X11)) | 'LE'(f(X11),s('0'))) )),
+  inference(resolution,[],[f72,f102])).
+fof(f72,plain,(
+  ( ! [X0,X1] : (~'E'(s('0'),f(suc(suc(X1)))) | 'E'(f(X0),f(suc(suc(X0)))) | ~'E'(f(X0),f(suc(X0))) | ~'E'(s('0'),f(X1)) | ~'E'(s('0'),f(suc(X1))) | ~'E'(s('0'),f(suc(X0))) | 'E'(f(X1),f(suc(suc(X1)))) | ~'E'(s('0'),f(X0)) | ~'E'(s('0'),f(suc(suc(X0)))) | ~iLEQ(suc(X0),suc(X1))) )),
+  inference(subsumption_resolution,[],[f34,f68])).
+fof(f34,axiom,(
+  ( ! [X0,X1] : ('E'(f(X1),f(suc(suc(X1)))) | 'E'(f(X0),f(suc(suc(X0)))) | ~'E'(f(X0),f(suc(X0))) | ~'E'(f(X1),f(suc(X1))) | ~'E'(s('0'),f(X1)) | ~'E'(s('0'),f(suc(X1))) | ~'E'(s('0'),f(suc(X0))) | ~'E'(s('0'),f(suc(suc(X1)))) | ~'E'(s('0'),f(X0)) | ~'E'(s('0'),f(suc(suc(X0)))) | ~iLEQ(suc(X0),suc(X1))) )),
+  file('SYO659-1.tptp',unknown)).
+fof(f390,plain,(
+  ( ! [X2,X3] : ('E'(f(X2),f(suc(suc(X2)))) | ~'E'(f(X3),f(suc(suc(X3)))) | ~'E'(f(X2),f(suc(X2))) | ~'E'(s('0'),f(suc(X3))) | 'E'(f(X3),f(suc(suc(suc(X3))))) | ~'E'(s('0'),f(suc(X2))) | ~'E'(s('0'),f(suc(suc(X3)))) | ~'E'(s('0'),f(X2)) | ~'E'(s('0'),f(suc(suc(X2)))) | ~iLEQ(suc(X2),suc(X3)) | 'LE'(f(X3),s('0'))) )),
+  inference(subsumption_resolution,[],[f381,f97])).
+fof(f381,plain,(
+  ( ! [X2,X3] : ('E'(f(X2),f(suc(suc(X2)))) | ~'E'(f(X3),f(suc(suc(X3)))) | ~'E'(f(X2),f(suc(X2))) | ~'E'(s('0'),f(X3)) | ~'E'(s('0'),f(suc(X3))) | 'E'(f(X3),f(suc(suc(suc(X3))))) | ~'E'(s('0'),f(suc(X2))) | ~'E'(s('0'),f(suc(suc(X3)))) | ~'E'(s('0'),f(X2)) | ~'E'(s('0'),f(suc(suc(X2)))) | ~iLEQ(suc(X2),suc(X3)) | 'LE'(f(X3),s('0'))) )),
+  inference(resolution,[],[f71,f78])).
+fof(f71,plain,(
+  ( ! [X0,X1] : (~'E'(s('0'),f(suc(suc(suc(X1))))) | 'E'(f(X0),f(suc(suc(X0)))) | ~'E'(f(X1),f(suc(suc(X1)))) | ~'E'(f(X0),f(suc(X0))) | ~'E'(s('0'),f(X1)) | ~'E'(s('0'),f(suc(X1))) | 'E'(f(X1),f(suc(suc(suc(X1))))) | ~'E'(s('0'),f(suc(X0))) | ~'E'(s('0'),f(suc(suc(X1)))) | ~'E'(s('0'),f(X0)) | ~'E'(s('0'),f(suc(suc(X0)))) | ~iLEQ(suc(X0),suc(X1))) )),
+  inference(subsumption_resolution,[],[f32,f68])).
+fof(f32,axiom,(
+  ( ! [X0,X1] : ('E'(f(X1),f(suc(suc(suc(X1))))) | 'E'(f(X0),f(suc(suc(X0)))) | ~'E'(f(X1),f(suc(suc(X1)))) | ~'E'(f(X0),f(suc(X0))) | ~'E'(f(X1),f(suc(X1))) | ~'E'(s('0'),f(X1)) | ~'E'(s('0'),f(suc(X1))) | ~'E'(s('0'),f(suc(suc(suc(X1))))) | ~'E'(s('0'),f(suc(X0))) | ~'E'(s('0'),f(suc(suc(X1)))) | ~'E'(s('0'),f(X0)) | ~'E'(s('0'),f(suc(suc(X0)))) | ~iLEQ(suc(X0),suc(X1))) )),
+  file('SYO659-1.tptp',unknown)).
+fof(f479,plain,(
+  ( ! [X2,X3] : (~'E'(f(X2),f(suc(suc(suc(X2))))) | ~'E'(s('0'),f(suc(X2))) | ~'E'(s('0'),f(suc(suc(suc(X2))))) | ~'E'(s('0'),f(suc(X3))) | ~'E'(s('0'),f(suc(suc(X2)))) | ~'E'(s('0'),f(X3)) | 'E'(f(X3),f(suc(suc(X3)))) | ~'E'(s('0'),f(suc(suc(X3)))) | ~iLEQ(suc(X3),suc(X2)) | 'LE'(f(X2),s('0'))) )),
+  inference(subsumption_resolution,[],[f478,f299])).
+fof(f478,plain,(
+  ( ! [X2,X3] : (~'E'(f(X2),f(suc(suc(X2)))) | ~'E'(f(X2),f(suc(suc(suc(X2))))) | ~'E'(s('0'),f(suc(X2))) | ~'E'(s('0'),f(suc(suc(suc(X2))))) | ~'E'(s('0'),f(suc(X3))) | ~'E'(s('0'),f(suc(suc(X2)))) | ~'E'(s('0'),f(X3)) | 'E'(f(X3),f(suc(suc(X3)))) | ~'E'(s('0'),f(suc(suc(X3)))) | ~iLEQ(suc(X3),suc(X2)) | 'LE'(f(X2),s('0'))) )),
+  inference(subsumption_resolution,[],[f470,f97])).
+fof(f470,plain,(
+  ( ! [X2,X3] : (~'E'(f(X2),f(suc(suc(X2)))) | ~'E'(f(X2),f(suc(suc(suc(X2))))) | ~'E'(s('0'),f(X2)) | ~'E'(s('0'),f(suc(X2))) | ~'E'(s('0'),f(suc(suc(suc(X2))))) | ~'E'(s('0'),f(suc(X3))) | ~'E'(s('0'),f(suc(suc(X2)))) | ~'E'(s('0'),f(X3)) | 'E'(f(X3),f(suc(suc(X3)))) | ~'E'(s('0'),f(suc(suc(X3)))) | ~iLEQ(suc(X3),suc(X2)) | 'LE'(f(X2),s('0'))) )),
+  inference(resolution,[],[f87,f113])).
+fof(f87,plain,(
+  ( ! [X0,X1] : (~'E'(s('0'),f(suc(suc(suc(suc(X1)))))) | ~'E'(f(X1),f(suc(suc(X1)))) | ~'E'(f(X1),f(suc(suc(suc(X1))))) | ~'E'(s('0'),f(X1)) | ~'E'(s('0'),f(suc(X1))) | ~'E'(s('0'),f(suc(suc(suc(X1))))) | ~'E'(s('0'),f(suc(X0))) | ~'E'(s('0'),f(suc(suc(X1)))) | ~'E'(s('0'),f(X0)) | 'E'(f(X0),f(suc(suc(X0)))) | ~'E'(s('0'),f(suc(suc(X0)))) | ~iLEQ(suc(X0),suc(X1))) )),
+  inference(subsumption_resolution,[],[f86,f68])).
+fof(f86,plain,(
+  ( ! [X0,X1] : ('E'(f(X0),f(suc(suc(X0)))) | ~'E'(f(X1),f(suc(suc(X1)))) | ~'E'(f(X1),f(suc(suc(suc(X1))))) | ~'E'(f(X1),f(suc(X1))) | ~'E'(s('0'),f(X1)) | ~'E'(s('0'),f(suc(X1))) | ~'E'(s('0'),f(suc(suc(suc(X1))))) | ~'E'(s('0'),f(suc(X0))) | ~'E'(s('0'),f(suc(suc(X1)))) | ~'E'(s('0'),f(X0)) | ~'E'(s('0'),f(suc(suc(suc(suc(X1)))))) | ~'E'(s('0'),f(suc(suc(X0)))) | ~iLEQ(suc(X0),suc(X1))) )),
+  inference(subsumption_resolution,[],[f45,f9])).
+fof(f9,axiom,(
+  ( ! [X0,X1] : (~'E'(s('0'),f(suc(suc(suc(suc(X1)))))) | ~'E'(f(X1),f(suc(suc(X1)))) | ~'E'(f(X1),f(suc(suc(suc(X1))))) | ~'E'(f(X1),f(suc(X1))) | ~'E'(s('0'),f(X1)) | ~'E'(s('0'),f(suc(X1))) | ~'E'(s('0'),f(suc(suc(suc(X1))))) | ~'E'(s('0'),f(suc(X0))) | ~'E'(s('0'),f(suc(suc(X1)))) | ~'E'(s('0'),f(X0)) | 'E'(f(X0),f(suc(X0))) | ~iLEQ(suc(X0),suc(X1))) )),
+  file('SYO659-1.tptp',unknown)).
+fof(f45,axiom,(
+  ( ! [X0,X1] : ('E'(f(X0),f(suc(suc(X0)))) | ~'E'(f(X1),f(suc(suc(X1)))) | ~'E'(f(X1),f(suc(suc(suc(X1))))) | ~'E'(f(X0),f(suc(X0))) | ~'E'(f(X1),f(suc(X1))) | ~'E'(s('0'),f(X1)) | ~'E'(s('0'),f(suc(X1))) | ~'E'(s('0'),f(suc(suc(suc(X1))))) | ~'E'(s('0'),f(suc(X0))) | ~'E'(s('0'),f(suc(suc(X1)))) | ~'E'(s('0'),f(X0)) | ~'E'(s('0'),f(suc(suc(suc(suc(X1)))))) | ~'E'(s('0'),f(suc(suc(X0)))) | ~iLEQ(suc(X0),suc(X1))) )),
+  file('SYO659-1.tptp',unknown)).
+fof(f581,plain,(
+  ( ! [X2,X3] : ('E'(f(X2),f(suc(suc(suc(X2))))) | ~'E'(s('0'),f(suc(suc(suc(X2))))) | ~'E'(f(X2),f(suc(X2))) | ~'E'(f(X3),f(suc(X3))) | ~'E'(f(X2),f(suc(suc(X2)))) | ~'E'(s('0'),f(suc(X3))) | 'E'(f(X3),f(suc(suc(suc(X3))))) | ~'E'(s('0'),f(suc(X2))) | ~'E'(s('0'),f(suc(suc(X3)))) | ~'E'(s('0'),f(X2)) | ~'E'(s('0'),f(suc(suc(X2)))) | ~iLEQ(suc(X2),suc(X3)) | 'LE'(f(X3),s('0'))) )),
+  inference(subsumption_resolution,[],[f571,f97])).
+fof(f571,plain,(
+  ( ! [X2,X3] : ('E'(f(X2),f(suc(suc(suc(X2))))) | ~'E'(s('0'),f(suc(suc(suc(X2))))) | ~'E'(f(X2),f(suc(X2))) | ~'E'(f(X3),f(suc(X3))) | ~'E'(f(X2),f(suc(suc(X2)))) | ~'E'(s('0'),f(X3)) | ~'E'(s('0'),f(suc(X3))) | 'E'(f(X3),f(suc(suc(suc(X3))))) | ~'E'(s('0'),f(suc(X2))) | ~'E'(s('0'),f(suc(suc(X3)))) | ~'E'(s('0'),f(X2)) | ~'E'(s('0'),f(suc(suc(X2)))) | ~iLEQ(suc(X2),suc(X3)) | 'LE'(f(X3),s('0'))) )),
+  inference(resolution,[],[f55,f78])).
+fof(f55,plain,(
+  ( ! [X0,X1] : (~'E'(s('0'),f(suc(suc(suc(X1))))) | 'E'(f(X0),f(suc(suc(suc(X0))))) | ~'E'(s('0'),f(suc(suc(suc(X0))))) | ~'E'(f(X0),f(suc(X0))) | ~'E'(f(X1),f(suc(X1))) | ~'E'(f(X0),f(suc(suc(X0)))) | ~'E'(s('0'),f(X1)) | ~'E'(s('0'),f(suc(X1))) | 'E'(f(X1),f(suc(suc(suc(X1))))) | ~'E'(s('0'),f(suc(X0))) | ~'E'(s('0'),f(suc(suc(X1)))) | ~'E'(s('0'),f(X0)) | ~'E'(s('0'),f(suc(suc(X0)))) | ~iLEQ(suc(X0),suc(X1))) )),
+  inference(subsumption_resolution,[],[f15,f14])).
+fof(f14,axiom,(
+  ( ! [X0,X1] : (~'E'(s('0'),f(suc(suc(suc(X0))))) | 'E'(f(X0),f(suc(suc(suc(X0))))) | 'E'(f(X1),f(suc(suc(X1)))) | ~'E'(f(X0),f(suc(X0))) | ~'E'(f(X1),f(suc(X1))) | ~'E'(f(X0),f(suc(suc(X0)))) | ~'E'(s('0'),f(X1)) | ~'E'(s('0'),f(suc(X1))) | ~'E'(s('0'),f(suc(X0))) | ~'E'(s('0'),f(suc(suc(X1)))) | ~'E'(s('0'),f(X0)) | ~'E'(s('0'),f(suc(suc(X0)))) | ~iLEQ(suc(X0),suc(X1))) )),
+  file('SYO659-1.tptp',unknown)).
+fof(f15,axiom,(
+  ( ! [X0,X1] : ('E'(f(X1),f(suc(suc(suc(X1))))) | 'E'(f(X0),f(suc(suc(suc(X0))))) | ~'E'(f(X1),f(suc(suc(X1)))) | ~'E'(s('0'),f(suc(suc(suc(X0))))) | ~'E'(f(X0),f(suc(X0))) | ~'E'(f(X1),f(suc(X1))) | ~'E'(f(X0),f(suc(suc(X0)))) | ~'E'(s('0'),f(X1)) | ~'E'(s('0'),f(suc(X1))) | ~'E'(s('0'),f(suc(suc(suc(X1))))) | ~'E'(s('0'),f(suc(X0))) | ~'E'(s('0'),f(suc(suc(X1)))) | ~'E'(s('0'),f(X0)) | ~'E'(s('0'),f(suc(suc(X0)))) | ~iLEQ(suc(X0),suc(X1))) )),
+  file('SYO659-1.tptp',unknown)).
+fof(f6085,plain,(
+  ( ! [X2,X3] : (~'E'(f(X2),f(suc(suc(suc(X2))))) | ~'E'(s('0'),f(suc(suc(X3)))) | ~'E'(s('0'),f(suc(suc(suc(X2))))) | ~'E'(s('0'),f(suc(suc(X2)))) | ~iLEQ(suc(X2),suc(X3)) | 'LE'(f(X3),s('0')) | 'LE'(f(X2),s('0'))) )),
+  inference(subsumption_resolution,[],[f6084,f83])).
+fof(f6084,plain,(
+  ( ! [X2,X3] : (~'E'(s('0'),f(suc(X2))) | ~'E'(f(X2),f(suc(suc(suc(X2))))) | ~'E'(s('0'),f(suc(suc(X3)))) | ~'E'(s('0'),f(suc(suc(suc(X2))))) | ~'E'(s('0'),f(suc(suc(X2)))) | ~iLEQ(suc(X2),suc(X3)) | 'LE'(f(X3),s('0')) | 'LE'(f(X2),s('0'))) )),
+  inference(subsumption_resolution,[],[f6075,f97])).
+fof(f6075,plain,(
+  ( ! [X2,X3] : (~'E'(s('0'),f(suc(X2))) | ~'E'(f(X2),f(suc(suc(suc(X2))))) | ~'E'(s('0'),f(suc(suc(X3)))) | ~'E'(s('0'),f(X2)) | ~'E'(s('0'),f(suc(suc(suc(X2))))) | ~'E'(s('0'),f(suc(suc(X2)))) | ~iLEQ(suc(X2),suc(X3)) | 'LE'(f(X3),s('0')) | 'LE'(f(X2),s('0'))) )),
+  inference(resolution,[],[f633,f113])).
+fof(f633,plain,(
+  ( ! [X2,X3] : (~'E'(s('0'),f(suc(suc(suc(suc(X2)))))) | ~'E'(s('0'),f(suc(X2))) | ~'E'(f(X2),f(suc(suc(suc(X2))))) | ~'E'(s('0'),f(suc(suc(X3)))) | ~'E'(s('0'),f(X2)) | ~'E'(s('0'),f(suc(suc(suc(X2))))) | ~'E'(s('0'),f(suc(suc(X2)))) | ~iLEQ(suc(X2),suc(X3)) | 'LE'(f(X3),s('0'))) )),
+  inference(subsumption_resolution,[],[f632,f78])).
+fof(f632,plain,(
+  ( ! [X2,X3] : (~'E'(s('0'),f(suc(suc(suc(X3))))) | ~'E'(s('0'),f(suc(suc(suc(suc(X2)))))) | ~'E'(s('0'),f(suc(X2))) | ~'E'(f(X2),f(suc(suc(suc(X2))))) | ~'E'(s('0'),f(suc(suc(X3)))) | ~'E'(s('0'),f(X2)) | ~'E'(s('0'),f(suc(suc(suc(X2))))) | ~'E'(s('0'),f(suc(suc(X2)))) | ~iLEQ(suc(X2),suc(X3)) | 'LE'(f(X3),s('0'))) )),
+  inference(subsumption_resolution,[],[f631,f83])).
+fof(f631,plain,(
+  ( ! [X2,X3] : (~'E'(s('0'),f(suc(X3))) | ~'E'(s('0'),f(suc(suc(suc(X3))))) | ~'E'(s('0'),f(suc(suc(suc(suc(X2)))))) | ~'E'(s('0'),f(suc(X2))) | ~'E'(f(X2),f(suc(suc(suc(X2))))) | ~'E'(s('0'),f(suc(suc(X3)))) | ~'E'(s('0'),f(X2)) | ~'E'(s('0'),f(suc(suc(suc(X2))))) | ~'E'(s('0'),f(suc(suc(X2)))) | ~iLEQ(suc(X2),suc(X3)) | 'LE'(f(X3),s('0'))) )),
+  inference(subsumption_resolution,[],[f630,f429])).
+fof(f429,plain,(
+  ( ! [X2,X3] : (~'E'(s('0'),f(suc(X3))) | ~'E'(s('0'),f(X3)) | 'E'(f(X3),f(suc(X3))) | ~iLEQ(suc(X3),suc(X2)) | 'LE'(f(X2),s('0'))) )),
+  inference(subsumption_resolution,[],[f428,f102])).
+fof(f428,plain,(
+  ( ! [X2,X3] : (~'E'(s('0'),f(suc(X3))) | ~'E'(s('0'),f(suc(suc(X2)))) | ~'E'(s('0'),f(X3)) | 'E'(f(X3),f(suc(X3))) | ~iLEQ(suc(X3),suc(X2)) | 'LE'(f(X2),s('0'))) )),
+  inference(subsumption_resolution,[],[f427,f78])).
+fof(f427,plain,(
+  ( ! [X2,X3] : (~'E'(s('0'),f(suc(suc(suc(X2))))) | ~'E'(s('0'),f(suc(X3))) | ~'E'(s('0'),f(suc(suc(X2)))) | ~'E'(s('0'),f(X3)) | 'E'(f(X3),f(suc(X3))) | ~iLEQ(suc(X3),suc(X2)) | 'LE'(f(X2),s('0'))) )),
+  inference(subsumption_resolution,[],[f426,f83])).
+fof(f426,plain,(
+  ( ! [X2,X3] : (~'E'(s('0'),f(suc(X2))) | ~'E'(s('0'),f(suc(suc(suc(X2))))) | ~'E'(s('0'),f(suc(X3))) | ~'E'(s('0'),f(suc(suc(X2)))) | ~'E'(s('0'),f(X3)) | 'E'(f(X3),f(suc(X3))) | ~iLEQ(suc(X3),suc(X2)) | 'LE'(f(X2),s('0'))) )),
+  inference(subsumption_resolution,[],[f425,f273])).
+fof(f425,plain,(
+  ( ! [X2,X3] : (~'E'(f(X2),f(suc(suc(suc(X2))))) | ~'E'(s('0'),f(suc(X2))) | ~'E'(s('0'),f(suc(suc(suc(X2))))) | ~'E'(s('0'),f(suc(X3))) | ~'E'(s('0'),f(suc(suc(X2)))) | ~'E'(s('0'),f(X3)) | 'E'(f(X3),f(suc(X3))) | ~iLEQ(suc(X3),suc(X2)) | 'LE'(f(X2),s('0'))) )),
+  inference(subsumption_resolution,[],[f424,f226])).
+fof(f424,plain,(
+  ( ! [X2,X3] : (~'E'(f(X2),f(suc(suc(X2)))) | ~'E'(f(X2),f(suc(suc(suc(X2))))) | ~'E'(s('0'),f(suc(X2))) | ~'E'(s('0'),f(suc(suc(suc(X2))))) | ~'E'(s('0'),f(suc(X3))) | ~'E'(s('0'),f(suc(suc(X2)))) | ~'E'(s('0'),f(X3)) | 'E'(f(X3),f(suc(X3))) | ~iLEQ(suc(X3),suc(X2)) | 'LE'(f(X2),s('0'))) )),
+  inference(subsumption_resolution,[],[f423,f140])).
+fof(f140,plain,(
+  ( ! [X2,X3] : (~'E'(s('0'),f(suc(X2))) | 'E'(f(X3),f(suc(X3))) | 'E'(f(X2),f(suc(X2))) | ~'E'(s('0'),f(X2)) | ~iLEQ(suc(X2),suc(X3)) | 'LE'(f(X3),s('0'))) )),
+  inference(subsumption_resolution,[],[f133,f97])).
+fof(f133,plain,(
+  ( ! [X2,X3] : ('E'(f(X2),f(suc(X2))) | ~'E'(s('0'),f(X3)) | 'E'(f(X3),f(suc(X3))) | ~'E'(s('0'),f(suc(X2))) | ~'E'(s('0'),f(X2)) | ~iLEQ(suc(X2),suc(X3)) | 'LE'(f(X3),s('0'))) )),
+  inference(resolution,[],[f13,f83])).
+fof(f423,plain,(
+  ( ! [X2,X3] : (~'E'(f(X2),f(suc(suc(X2)))) | ~'E'(f(X2),f(suc(suc(suc(X2))))) | ~'E'(f(X2),f(suc(X2))) | ~'E'(s('0'),f(suc(X2))) | ~'E'(s('0'),f(suc(suc(suc(X2))))) | ~'E'(s('0'),f(suc(X3))) | ~'E'(s('0'),f(suc(suc(X2)))) | ~'E'(s('0'),f(X3)) | 'E'(f(X3),f(suc(X3))) | ~iLEQ(suc(X3),suc(X2)) | 'LE'(f(X2),s('0'))) )),
+  inference(subsumption_resolution,[],[f412,f97])).
+fof(f412,plain,(
+  ( ! [X2,X3] : (~'E'(f(X2),f(suc(suc(X2)))) | ~'E'(f(X2),f(suc(suc(suc(X2))))) | ~'E'(f(X2),f(suc(X2))) | ~'E'(s('0'),f(X2)) | ~'E'(s('0'),f(suc(X2))) | ~'E'(s('0'),f(suc(suc(suc(X2))))) | ~'E'(s('0'),f(suc(X3))) | ~'E'(s('0'),f(suc(suc(X2)))) | ~'E'(s('0'),f(X3)) | 'E'(f(X3),f(suc(X3))) | ~iLEQ(suc(X3),suc(X2)) | 'LE'(f(X2),s('0'))) )),
+  inference(resolution,[],[f9,f113])).
+fof(f630,plain,(
+  ( ! [X2,X3] : (~'E'(f(X2),f(suc(X2))) | ~'E'(s('0'),f(suc(X3))) | ~'E'(s('0'),f(suc(suc(suc(X3))))) | ~'E'(s('0'),f(suc(suc(suc(suc(X2)))))) | ~'E'(s('0'),f(suc(X2))) | ~'E'(f(X2),f(suc(suc(suc(X2))))) | ~'E'(s('0'),f(suc(suc(X3)))) | ~'E'(s('0'),f(X2)) | ~'E'(s('0'),f(suc(suc(suc(X2))))) | ~'E'(s('0'),f(suc(suc(X2)))) | ~iLEQ(suc(X2),suc(X3)) | 'LE'(f(X3),s('0'))) )),
+  inference(subsumption_resolution,[],[f629,f483])).
+fof(f629,plain,(
+  ( ! [X2,X3] : (~'E'(f(X2),f(suc(X2))) | ~'E'(f(X2),f(suc(suc(X2)))) | ~'E'(s('0'),f(suc(X3))) | ~'E'(s('0'),f(suc(suc(suc(X3))))) | ~'E'(s('0'),f(suc(suc(suc(suc(X2)))))) | ~'E'(s('0'),f(suc(X2))) | ~'E'(f(X2),f(suc(suc(suc(X2))))) | ~'E'(s('0'),f(suc(suc(X3)))) | ~'E'(s('0'),f(X2)) | ~'E'(s('0'),f(suc(suc(suc(X2))))) | ~'E'(s('0'),f(suc(suc(X2)))) | ~iLEQ(suc(X2),suc(X3)) | 'LE'(f(X3),s('0'))) )),
+  inference(subsumption_resolution,[],[f620,f97])).
+fof(f620,plain,(
+  ( ! [X2,X3] : (~'E'(f(X2),f(suc(X2))) | ~'E'(f(X2),f(suc(suc(X2)))) | ~'E'(s('0'),f(X3)) | ~'E'(s('0'),f(suc(X3))) | ~'E'(s('0'),f(suc(suc(suc(X3))))) | ~'E'(s('0'),f(suc(suc(suc(suc(X2)))))) | ~'E'(s('0'),f(suc(X2))) | ~'E'(f(X2),f(suc(suc(suc(X2))))) | ~'E'(s('0'),f(suc(suc(X3)))) | ~'E'(s('0'),f(X2)) | ~'E'(s('0'),f(suc(suc(suc(X2))))) | ~'E'(s('0'),f(suc(suc(X2)))) | ~iLEQ(suc(X2),suc(X3)) | 'LE'(f(X3),s('0'))) )),
+  inference(resolution,[],[f81,f113])).
+fof(f81,plain,(
+  ( ! [X0,X1] : (~'E'(s('0'),f(suc(suc(suc(suc(X1)))))) | ~'E'(f(X0),f(suc(X0))) | ~'E'(f(X0),f(suc(suc(X0)))) | ~'E'(s('0'),f(X1)) | ~'E'(s('0'),f(suc(X1))) | ~'E'(s('0'),f(suc(suc(suc(X1))))) | ~'E'(s('0'),f(suc(suc(suc(suc(X0)))))) | ~'E'(s('0'),f(suc(X0))) | ~'E'(f(X0),f(suc(suc(suc(X0))))) | ~'E'(s('0'),f(suc(suc(X1)))) | ~'E'(s('0'),f(X0)) | ~'E'(s('0'),f(suc(suc(suc(X0))))) | ~'E'(s('0'),f(suc(suc(X0)))) | ~iLEQ(suc(X0),suc(X1))) )),
+  inference(subsumption_resolution,[],[f80,f66])).
+fof(f66,plain,(
+  ( ! [X0,X1] : (~'E'(s('0'),f(suc(suc(suc(suc(X0)))))) | ~'E'(s('0'),f(suc(suc(suc(X0))))) | ~'E'(f(X0),f(suc(X0))) | ~'E'(f(X0),f(suc(suc(X0)))) | ~'E'(s('0'),f(X1)) | ~'E'(s('0'),f(suc(X1))) | 'E'(f(X1),f(suc(suc(X1)))) | ~'E'(s('0'),f(suc(X0))) | ~'E'(f(X0),f(suc(suc(suc(X0))))) | ~'E'(s('0'),f(suc(suc(X1)))) | ~'E'(s('0'),f(X0)) | ~'E'(s('0'),f(suc(suc(X0)))) | ~iLEQ(suc(X0),suc(X1))) )),
+  inference(subsumption_resolution,[],[f28,f61])).
+fof(f61,plain,(
+  ( ! [X0,X1] : (~'E'(s('0'),f(suc(suc(suc(suc(X0)))))) | ~'E'(s('0'),f(suc(suc(suc(X0))))) | ~'E'(f(X0),f(suc(suc(X0)))) | ~'E'(s('0'),f(X1)) | ~'E'(s('0'),f(suc(X1))) | 'E'(f(X1),f(suc(X1))) | ~'E'(s('0'),f(suc(X0))) | ~'E'(f(X0),f(suc(suc(suc(X0))))) | ~'E'(s('0'),f(X0)) | ~'E'(s('0'),f(suc(suc(X0)))) | ~iLEQ(suc(X0),suc(X1))) )),
+  inference(subsumption_resolution,[],[f25,f13])).
+fof(f25,axiom,(
+  ( ! [X0,X1] : ('E'(f(X1),f(suc(X1))) | ~'E'(s('0'),f(suc(suc(suc(X0))))) | ~'E'(f(X0),f(suc(X0))) | ~'E'(f(X0),f(suc(suc(X0)))) | ~'E'(s('0'),f(X1)) | ~'E'(s('0'),f(suc(X1))) | ~'E'(s('0'),f(suc(suc(suc(suc(X0)))))) | ~'E'(s('0'),f(suc(X0))) | ~'E'(f(X0),f(suc(suc(suc(X0))))) | ~'E'(s('0'),f(X0)) | ~'E'(s('0'),f(suc(suc(X0)))) | ~iLEQ(suc(X0),suc(X1))) )),
+  file('SYO659-1.tptp',unknown)).
+fof(f28,axiom,(
+  ( ! [X0,X1] : ('E'(f(X1),f(suc(suc(X1)))) | ~'E'(s('0'),f(suc(suc(suc(X0))))) | ~'E'(f(X0),f(suc(X0))) | ~'E'(f(X1),f(suc(X1))) | ~'E'(f(X0),f(suc(suc(X0)))) | ~'E'(s('0'),f(X1)) | ~'E'(s('0'),f(suc(X1))) | ~'E'(s('0'),f(suc(suc(suc(suc(X0)))))) | ~'E'(s('0'),f(suc(X0))) | ~'E'(f(X0),f(suc(suc(suc(X0))))) | ~'E'(s('0'),f(suc(suc(X1)))) | ~'E'(s('0'),f(X0)) | ~'E'(s('0'),f(suc(suc(X0)))) | ~iLEQ(suc(X0),suc(X1))) )),
+  file('SYO659-1.tptp',unknown)).
+fof(f80,plain,(
+  ( ! [X0,X1] : (~'E'(f(X1),f(suc(suc(X1)))) | ~'E'(s('0'),f(suc(suc(suc(X0))))) | ~'E'(f(X0),f(suc(X0))) | ~'E'(f(X0),f(suc(suc(X0)))) | ~'E'(s('0'),f(X1)) | ~'E'(s('0'),f(suc(X1))) | ~'E'(s('0'),f(suc(suc(suc(X1))))) | ~'E'(s('0'),f(suc(suc(suc(suc(X0)))))) | ~'E'(s('0'),f(suc(X0))) | ~'E'(f(X0),f(suc(suc(suc(X0))))) | ~'E'(s('0'),f(suc(suc(X1)))) | ~'E'(s('0'),f(X0)) | ~'E'(s('0'),f(suc(suc(suc(suc(X1)))))) | ~'E'(s('0'),f(suc(suc(X0)))) | ~iLEQ(suc(X0),suc(X1))) )),
+  inference(subsumption_resolution,[],[f79,f61])).
+fof(f79,plain,(
+  ( ! [X0,X1] : (~'E'(f(X1),f(suc(suc(X1)))) | ~'E'(s('0'),f(suc(suc(suc(X0))))) | ~'E'(f(X0),f(suc(X0))) | ~'E'(f(X1),f(suc(X1))) | ~'E'(f(X0),f(suc(suc(X0)))) | ~'E'(s('0'),f(X1)) | ~'E'(s('0'),f(suc(X1))) | ~'E'(s('0'),f(suc(suc(suc(X1))))) | ~'E'(s('0'),f(suc(suc(suc(suc(X0)))))) | ~'E'(s('0'),f(suc(X0))) | ~'E'(f(X0),f(suc(suc(suc(X0))))) | ~'E'(s('0'),f(suc(suc(X1)))) | ~'E'(s('0'),f(X0)) | ~'E'(s('0'),f(suc(suc(suc(suc(X1)))))) | ~'E'(s('0'),f(suc(suc(X0)))) | ~iLEQ(suc(X0),suc(X1))) )),
+  inference(subsumption_resolution,[],[f40,f1])).
+fof(f1,axiom,(
+  ( ! [X0,X1] : (~'E'(s('0'),f(suc(suc(suc(suc(X0)))))) | ~'E'(f(X1),f(suc(suc(X1)))) | ~'E'(s('0'),f(suc(suc(suc(X0))))) | ~'E'(f(X0),f(suc(X0))) | ~'E'(f(X1),f(suc(X1))) | ~'E'(f(X0),f(suc(suc(X0)))) | ~'E'(s('0'),f(X1)) | ~'E'(s('0'),f(suc(X1))) | ~'E'(s('0'),f(suc(suc(suc(X1))))) | 'E'(f(X1),f(suc(suc(suc(X1))))) | ~'E'(s('0'),f(suc(X0))) | ~'E'(f(X0),f(suc(suc(suc(X0))))) | ~'E'(s('0'),f(suc(suc(X1)))) | ~'E'(s('0'),f(X0)) | ~'E'(s('0'),f(suc(suc(X0)))) | ~iLEQ(suc(X0),suc(X1))) )),
+  file('SYO659-1.tptp',unknown)).
+fof(f40,axiom,(
+  ( ! [X0,X1] : (~'E'(f(X1),f(suc(suc(X1)))) | ~'E'(s('0'),f(suc(suc(suc(X0))))) | ~'E'(f(X1),f(suc(suc(suc(X1))))) | ~'E'(f(X0),f(suc(X0))) | ~'E'(f(X1),f(suc(X1))) | ~'E'(f(X0),f(suc(suc(X0)))) | ~'E'(s('0'),f(X1)) | ~'E'(s('0'),f(suc(X1))) | ~'E'(s('0'),f(suc(suc(suc(X1))))) | ~'E'(s('0'),f(suc(suc(suc(suc(X0)))))) | ~'E'(s('0'),f(suc(X0))) | ~'E'(f(X0),f(suc(suc(suc(X0))))) | ~'E'(s('0'),f(suc(suc(X1)))) | ~'E'(s('0'),f(X0)) | ~'E'(s('0'),f(suc(suc(suc(suc(X1)))))) | ~'E'(s('0'),f(suc(suc(X0)))) | ~iLEQ(suc(X0),suc(X1))) )),
+  file('SYO659-1.tptp',unknown)).
+fof(f6552,plain,(
+  ( ! [X5] : ('LE'(f(X5),'0') | iLEQ(suc(X5),suc(X5)) | ~'E'('0',f(suc(X5)))) )),
+  inference(subsumption_resolution,[],[f6521,f166])).
+fof(f166,plain,(
+  ( ! [X0] : (iLEQ(suc(X0),suc(X0)) | 'E'('0',f(X0)) | 'LE'(f(X0),'0')) )),
+  inference(resolution,[],[f159,f20])).
+fof(f20,axiom,(
+  ( ! [X2] : (~'LE'(f(X2),s('0')) | 'E'('0',f(X2)) | 'LE'(f(X2),'0')) )),
+  file('SYO659-1.tptp',unknown)).
+fof(f6521,plain,(
+  ( ! [X5] : ('LE'(f(X5),'0') | iLEQ(suc(X5),suc(X5)) | ~'E'('0',f(suc(X5))) | ~'E'('0',f(X5))) )),
+  inference(resolution,[],[f6506,f82])).
+fof(f82,plain,(
+  ( ! [X4] : ('E'(f(X4),f(suc(X4))) | ~'E'('0',f(suc(X4))) | ~'E'('0',f(X4))) )),
+  inference(subsumption_resolution,[],[f41,f33])).
+fof(f33,axiom,(
+  ( ! [X4,X5] : (~'E'('0',f(suc(X5))) | 'E'(f(X4),f(suc(X4))) | 'E'(f(X5),f(suc(X5))) | ~'E'('0',f(X5)) | ~iLEQ(suc(X4),suc(X5)) | ~'E'('0',f(X4)) | ~'E'('0',f(suc(X4)))) )),
+  file('SYO659-1.tptp',unknown)).
+fof(f41,axiom,(
+  ( ! [X4] : (iLEQ(suc(X4),suc(X4)) | 'E'(f(X4),f(suc(X4))) | ~'E'('0',f(suc(X4))) | ~'E'('0',f(X4))) )),
+  file('SYO659-1.tptp',unknown)).
+fof(f6506,plain,(
+  ( ! [X3] : (~'E'(f(X3),f(suc(X3))) | 'LE'(f(X3),'0') | iLEQ(suc(X3),suc(X3))) )),
+  inference(subsumption_resolution,[],[f6505,f6225])).
+fof(f6225,plain,(
+  ( ! [X2] : ('E'('0',f(suc(suc(X2)))) | 'LE'(f(X2),'0')) )),
+  inference(resolution,[],[f6174,f51])).
+fof(f51,axiom,(
+  ( ! [X2] : (~'LE'(f(suc(suc(X2))),s('0')) | 'E'('0',f(suc(suc(X2)))) | 'LE'(f(X2),'0')) )),
+  file('SYO659-1.tptp',unknown)).
+fof(f6505,plain,(
+  ( ! [X3] : (iLEQ(suc(X3),suc(X3)) | 'LE'(f(X3),'0') | ~'E'(f(X3),f(suc(X3))) | ~'E'('0',f(suc(suc(X3))))) )),
+  inference(subsumption_resolution,[],[f6504,f6224])).
+fof(f6504,plain,(
+  ( ! [X3] : (iLEQ(suc(X3),suc(X3)) | 'LE'(f(X3),'0') | ~'E'(f(X3),f(suc(X3))) | ~'E'('0',f(suc(X3))) | ~'E'('0',f(suc(suc(X3))))) )),
+  inference(subsumption_resolution,[],[f6501,f6176])).
+fof(f6176,plain,(
+  ( ! [X0] : ('LE'(f(X0),'0') | 'E'('0',f(X0))) )),
+  inference(subsumption_resolution,[],[f6175,f20])).
+fof(f6175,plain,(
+  ( ! [X0] : ('LE'(f(X0),s('0')) | 'E'('0',f(X0)) | 'LE'(f(X0),'0')) )),
+  inference(duplicate_literal_removal,[],[f6102])).
+fof(f6102,plain,(
+  ( ! [X0] : ('LE'(f(X0),s('0')) | 'LE'(f(X0),s('0')) | 'E'('0',f(X0)) | 'LE'(f(X0),'0')) )),
+  inference(resolution,[],[f6089,f166])).
+fof(f6501,plain,(
+  ( ! [X3] : (iLEQ(suc(X3),suc(X3)) | 'LE'(f(X3),'0') | ~'E'('0',f(X3)) | ~'E'(f(X3),f(suc(X3))) | ~'E'('0',f(suc(X3))) | ~'E'('0',f(suc(suc(X3))))) )),
+  inference(duplicate_literal_removal,[],[f6472])).
+fof(f6472,plain,(
+  ( ! [X3] : (iLEQ(suc(X3),suc(X3)) | 'LE'(f(X3),'0') | iLEQ(suc(X3),suc(X3)) | ~'E'('0',f(X3)) | ~'E'(f(X3),f(suc(X3))) | ~'E'('0',f(suc(X3))) | ~'E'('0',f(suc(suc(X3))))) )),
+  inference(resolution,[],[f6433,f7])).
+fof(f7,axiom,(
+  ( ! [X4] : ('E'(f(X4),f(suc(suc(X4)))) | iLEQ(suc(X4),suc(X4)) | ~'E'('0',f(X4)) | ~'E'(f(X4),f(suc(X4))) | ~'E'('0',f(suc(X4))) | ~'E'('0',f(suc(suc(X4))))) )),
+  file('SYO659-1.tptp',unknown)).
+fof(f6433,plain,(
+  ( ! [X6] : (~'E'(f(X6),f(suc(suc(X6)))) | iLEQ(suc(X6),suc(X6)) | 'LE'(f(X6),'0')) )),
+  inference(subsumption_resolution,[],[f6432,f6224])).
+fof(f6432,plain,(
+  ( ! [X6] : ('LE'(f(X6),'0') | iLEQ(suc(X6),suc(X6)) | ~'E'('0',f(suc(X6))) | ~'E'(f(X6),f(suc(suc(X6))))) )),
+  inference(subsumption_resolution,[],[f6431,f6225])).
+fof(f6431,plain,(
+  ( ! [X6] : ('LE'(f(X6),'0') | iLEQ(suc(X6),suc(X6)) | ~'E'('0',f(suc(suc(X6)))) | ~'E'('0',f(suc(X6))) | ~'E'(f(X6),f(suc(suc(X6))))) )),
+  inference(subsumption_resolution,[],[f6430,f6226])).
+fof(f6226,plain,(
+  ( ! [X3] : ('E'('0',f(suc(suc(suc(X3))))) | 'LE'(f(X3),'0')) )),
+  inference(resolution,[],[f6174,f3])).
+fof(f3,axiom,(
+  ( ! [X2] : (~'LE'(f(suc(suc(suc(X2)))),s('0')) | 'E'('0',f(suc(suc(suc(X2))))) | 'LE'(f(X2),'0')) )),
+  file('SYO659-1.tptp',unknown)).
+fof(f6430,plain,(
+  ( ! [X6] : ('LE'(f(X6),'0') | iLEQ(suc(X6),suc(X6)) | ~'E'('0',f(suc(suc(suc(X6))))) | ~'E'('0',f(suc(suc(X6)))) | ~'E'('0',f(suc(X6))) | ~'E'(f(X6),f(suc(suc(X6))))) )),
+  inference(subsumption_resolution,[],[f6417,f166])).
+fof(f6417,plain,(
+  ( ! [X6] : ('LE'(f(X6),'0') | iLEQ(suc(X6),suc(X6)) | ~'E'('0',f(suc(suc(suc(X6))))) | ~'E'('0',f(X6)) | ~'E'('0',f(suc(suc(X6)))) | ~'E'('0',f(suc(X6))) | ~'E'(f(X6),f(suc(suc(X6))))) )),
+  inference(resolution,[],[f6227,f239])).
+fof(f239,plain,(
+  ( ! [X0] : (~'E'('0',f(suc(suc(suc(suc(X0)))))) | iLEQ(suc(X0),suc(X0)) | ~'E'('0',f(suc(suc(suc(X0))))) | ~'E'('0',f(X0)) | ~'E'('0',f(suc(suc(X0)))) | ~'E'('0',f(suc(X0))) | ~'E'(f(X0),f(suc(suc(X0))))) )),
+  inference(subsumption_resolution,[],[f238,f82])).
+fof(f238,plain,(
+  ( ! [X0] : (~'E'(f(X0),f(suc(X0))) | ~'E'('0',f(suc(suc(suc(X0))))) | iLEQ(suc(X0),suc(X0)) | ~'E'('0',f(suc(suc(suc(suc(X0)))))) | ~'E'('0',f(X0)) | ~'E'('0',f(suc(suc(X0)))) | ~'E'('0',f(suc(X0))) | ~'E'(f(X0),f(suc(suc(X0))))) )),
+  inference(duplicate_literal_removal,[],[f237])).
+fof(f237,plain,(
+  ( ! [X0] : (~'E'(f(X0),f(suc(X0))) | ~'E'('0',f(suc(suc(suc(X0))))) | iLEQ(suc(X0),suc(X0)) | ~'E'('0',f(suc(suc(suc(suc(X0)))))) | ~'E'('0',f(X0)) | ~'E'('0',f(suc(suc(X0)))) | ~'E'('0',f(suc(X0))) | ~'E'('0',f(suc(suc(suc(X0))))) | ~'E'('0',f(X0)) | ~'E'(f(X0),f(suc(suc(X0)))) | ~'E'('0',f(suc(suc(X0)))) | ~'E'('0',f(suc(X0)))) )),
+  inference(resolution,[],[f59,f85])).
+fof(f85,plain,(
+  ( ! [X4] : ('E'(f(X4),f(suc(suc(suc(X4))))) | ~'E'('0',f(suc(suc(suc(X4))))) | ~'E'('0',f(X4)) | ~'E'(f(X4),f(suc(suc(X4)))) | ~'E'('0',f(suc(suc(X4)))) | ~'E'('0',f(suc(X4)))) )),
+  inference(subsumption_resolution,[],[f84,f82])).
+fof(f84,plain,(
+  ( ! [X4] : ('E'(f(X4),f(suc(suc(suc(X4))))) | ~'E'(f(X4),f(suc(X4))) | ~'E'('0',f(suc(suc(suc(X4))))) | ~'E'('0',f(X4)) | ~'E'(f(X4),f(suc(suc(X4)))) | ~'E'('0',f(suc(suc(X4)))) | ~'E'('0',f(suc(X4)))) )),
+  inference(subsumption_resolution,[],[f43,f77])).
+fof(f77,plain,(
+  ( ! [X4,X5] : (~'E'(f(X5),f(suc(suc(X5)))) | 'E'(f(X4),f(suc(suc(suc(X4))))) | ~'E'('0',f(suc(X5))) | ~'E'(f(X4),f(suc(X4))) | 'E'(f(X5),f(suc(suc(suc(X5))))) | ~'E'('0',f(X5)) | ~'E'('0',f(suc(suc(suc(X4))))) | ~'E'('0',f(suc(suc(suc(X5))))) | ~iLEQ(suc(X4),suc(X5)) | ~'E'('0',f(X4)) | ~'E'('0',f(suc(suc(X4)))) | ~'E'('0',f(suc(suc(X5)))) | ~'E'('0',f(suc(X4)))) )),
+  inference(subsumption_resolution,[],[f76,f67])).
+fof(f67,plain,(
+  ( ! [X4,X5] : (~'E'(f(X5),f(suc(suc(X5)))) | 'E'(f(X4),f(suc(suc(X4)))) | ~'E'('0',f(suc(X5))) | ~'E'(f(X4),f(suc(X4))) | 'E'(f(X5),f(suc(suc(suc(X5))))) | ~'E'('0',f(X5)) | ~'E'('0',f(suc(suc(suc(X5))))) | ~iLEQ(suc(X4),suc(X5)) | ~'E'('0',f(X4)) | ~'E'('0',f(suc(suc(X4)))) | ~'E'('0',f(suc(suc(X5)))) | ~'E'('0',f(suc(X4)))) )),
+  inference(subsumption_resolution,[],[f29,f5])).
+fof(f5,axiom,(
+  ( ! [X4,X5] : (~'E'(f(X4),f(suc(X4))) | 'E'(f(X4),f(suc(suc(X4)))) | ~'E'('0',f(suc(X5))) | 'E'(f(X5),f(suc(X5))) | ~'E'('0',f(X5)) | ~iLEQ(suc(X4),suc(X5)) | ~'E'('0',f(X4)) | ~'E'('0',f(suc(suc(X4)))) | ~'E'('0',f(suc(X4)))) )),
+  file('SYO659-1.tptp',unknown)).
+fof(f29,axiom,(
+  ( ! [X4,X5] : ('E'(f(X5),f(suc(suc(suc(X5))))) | 'E'(f(X4),f(suc(suc(X4)))) | ~'E'('0',f(suc(X5))) | ~'E'(f(X5),f(suc(X5))) | ~'E'(f(X4),f(suc(X4))) | ~'E'(f(X5),f(suc(suc(X5)))) | ~'E'('0',f(X5)) | ~'E'('0',f(suc(suc(suc(X5))))) | ~iLEQ(suc(X4),suc(X5)) | ~'E'('0',f(X4)) | ~'E'('0',f(suc(suc(X4)))) | ~'E'('0',f(suc(suc(X5)))) | ~'E'('0',f(suc(X4)))) )),
+  file('SYO659-1.tptp',unknown)).
+fof(f76,plain,(
+  ( ! [X4,X5] : ('E'(f(X5),f(suc(suc(suc(X5))))) | 'E'(f(X4),f(suc(suc(suc(X4))))) | ~'E'('0',f(suc(X5))) | ~'E'(f(X4),f(suc(X4))) | ~'E'(f(X5),f(suc(suc(X5)))) | ~'E'('0',f(X5)) | ~'E'('0',f(suc(suc(suc(X4))))) | ~'E'('0',f(suc(suc(suc(X5))))) | ~iLEQ(suc(X4),suc(X5)) | ~'E'('0',f(X4)) | ~'E'(f(X4),f(suc(suc(X4)))) | ~'E'('0',f(suc(suc(X4)))) | ~'E'('0',f(suc(suc(X5)))) | ~'E'('0',f(suc(X4)))) )),
+  inference(subsumption_resolution,[],[f37,f54])).
+fof(f54,plain,(
+  ( ! [X4,X5] : (~'E'('0',f(suc(suc(suc(X4))))) | 'E'(f(X4),f(suc(suc(suc(X4))))) | ~'E'('0',f(suc(X5))) | ~'E'(f(X4),f(suc(X4))) | ~'E'('0',f(X5)) | 'E'(f(X5),f(suc(X5))) | ~iLEQ(suc(X4),suc(X5)) | ~'E'('0',f(X4)) | ~'E'('0',f(suc(suc(X4)))) | ~'E'('0',f(suc(X4)))) )),
+  inference(subsumption_resolution,[],[f11,f5])).
+fof(f11,axiom,(
+  ( ! [X4,X5] : ('E'(f(X5),f(suc(X5))) | 'E'(f(X4),f(suc(suc(suc(X4))))) | ~'E'('0',f(suc(X5))) | ~'E'(f(X4),f(suc(X4))) | ~'E'('0',f(X5)) | ~'E'('0',f(suc(suc(suc(X4))))) | ~iLEQ(suc(X4),suc(X5)) | ~'E'('0',f(X4)) | ~'E'(f(X4),f(suc(suc(X4)))) | ~'E'('0',f(suc(suc(X4)))) | ~'E'('0',f(suc(X4)))) )),
+  file('SYO659-1.tptp',unknown)).
+fof(f37,axiom,(
+  ( ! [X4,X5] : ('E'(f(X5),f(suc(suc(suc(X5))))) | 'E'(f(X4),f(suc(suc(suc(X4))))) | ~'E'('0',f(suc(X5))) | ~'E'(f(X5),f(suc(X5))) | ~'E'(f(X4),f(suc(X4))) | ~'E'(f(X5),f(suc(suc(X5)))) | ~'E'('0',f(X5)) | ~'E'('0',f(suc(suc(suc(X4))))) | ~'E'('0',f(suc(suc(suc(X5))))) | ~iLEQ(suc(X4),suc(X5)) | ~'E'('0',f(X4)) | ~'E'(f(X4),f(suc(suc(X4)))) | ~'E'('0',f(suc(suc(X4)))) | ~'E'('0',f(suc(suc(X5)))) | ~'E'('0',f(suc(X4)))) )),
+  file('SYO659-1.tptp',unknown)).
+fof(f43,axiom,(
+  ( ! [X4] : (iLEQ(suc(X4),suc(X4)) | 'E'(f(X4),f(suc(suc(suc(X4))))) | ~'E'(f(X4),f(suc(X4))) | ~'E'('0',f(suc(suc(suc(X4))))) | ~'E'('0',f(X4)) | ~'E'(f(X4),f(suc(suc(X4)))) | ~'E'('0',f(suc(suc(X4)))) | ~'E'('0',f(suc(X4)))) )),
+  file('SYO659-1.tptp',unknown)).
+fof(f59,plain,(
+  ( ! [X4] : (~'E'(f(X4),f(suc(suc(suc(X4))))) | ~'E'(f(X4),f(suc(X4))) | ~'E'('0',f(suc(suc(suc(X4))))) | iLEQ(suc(X4),suc(X4)) | ~'E'('0',f(suc(suc(suc(suc(X4)))))) | ~'E'('0',f(X4)) | ~'E'('0',f(suc(suc(X4)))) | ~'E'('0',f(suc(X4)))) )),
+  inference(subsumption_resolution,[],[f18,f7])).
+fof(f18,axiom,(
+  ( ! [X4] : (iLEQ(suc(X4),suc(X4)) | ~'E'(f(X4),f(suc(X4))) | ~'E'('0',f(suc(suc(suc(X4))))) | ~'E'(f(X4),f(suc(suc(suc(X4))))) | ~'E'('0',f(suc(suc(suc(suc(X4)))))) | ~'E'('0',f(X4)) | ~'E'(f(X4),f(suc(suc(X4)))) | ~'E'('0',f(suc(suc(X4)))) | ~'E'('0',f(suc(X4)))) )),
+  file('SYO659-1.tptp',unknown)).
+fof(f6227,plain,(
+  ( ! [X4] : ('E'('0',f(suc(suc(suc(suc(X4)))))) | 'LE'(f(X4),'0')) )),
+  inference(resolution,[],[f6174,f39])).
+fof(f39,axiom,(
+  ( ! [X2] : (~'LE'(f(suc(suc(suc(suc(X2))))),s('0')) | 'E'('0',f(suc(suc(suc(suc(X2)))))) | 'LE'(f(X2),'0')) )),
+  file('SYO659-1.tptp',unknown)).
+fof(f22916,plain,(
+  ( ! [X21,X20] : (~iLEQ(suc(X21),suc(X20)) | 'LE'(f(X20),'0') | 'LE'(f(X21),'0')) )),
+  inference(subsumption_resolution,[],[f22915,f6224])).
+fof(f22915,plain,(
+  ( ! [X21,X20] : (~iLEQ(suc(X21),suc(X20)) | ~'E'('0',f(suc(X21))) | 'LE'(f(X20),'0') | 'LE'(f(X21),'0')) )),
+  inference(subsumption_resolution,[],[f22914,f6225])).
+fof(f22914,plain,(
+  ( ! [X21,X20] : (~iLEQ(suc(X21),suc(X20)) | ~'E'('0',f(suc(suc(X20)))) | ~'E'('0',f(suc(X21))) | 'LE'(f(X20),'0') | 'LE'(f(X21),'0')) )),
+  inference(subsumption_resolution,[],[f22913,f6225])).
+fof(f22913,plain,(
+  ( ! [X21,X20] : (~iLEQ(suc(X21),suc(X20)) | ~'E'('0',f(suc(suc(X21)))) | ~'E'('0',f(suc(suc(X20)))) | ~'E'('0',f(suc(X21))) | 'LE'(f(X20),'0') | 'LE'(f(X21),'0')) )),
+  inference(subsumption_resolution,[],[f22912,f6226])).
+fof(f22912,plain,(
+  ( ! [X21,X20] : (~'E'('0',f(suc(suc(suc(X21))))) | ~iLEQ(suc(X21),suc(X20)) | ~'E'('0',f(suc(suc(X21)))) | ~'E'('0',f(suc(suc(X20)))) | ~'E'('0',f(suc(X21))) | 'LE'(f(X20),'0') | 'LE'(f(X21),'0')) )),
+  inference(subsumption_resolution,[],[f22911,f6226])).
+fof(f22911,plain,(
+  ( ! [X21,X20] : (~'E'('0',f(suc(suc(suc(X20))))) | ~'E'('0',f(suc(suc(suc(X21))))) | ~iLEQ(suc(X21),suc(X20)) | ~'E'('0',f(suc(suc(X21)))) | ~'E'('0',f(suc(suc(X20)))) | ~'E'('0',f(suc(X21))) | 'LE'(f(X20),'0') | 'LE'(f(X21),'0')) )),
+  inference(subsumption_resolution,[],[f22888,f6176])).
+fof(f22888,plain,(
+  ( ! [X21,X20] : (~'E'('0',f(suc(suc(suc(X20))))) | ~'E'('0',f(suc(suc(suc(X21))))) | ~iLEQ(suc(X21),suc(X20)) | ~'E'('0',f(X21)) | ~'E'('0',f(suc(suc(X21)))) | ~'E'('0',f(suc(suc(X20)))) | ~'E'('0',f(suc(X21))) | 'LE'(f(X20),'0') | 'LE'(f(X21),'0')) )),
+  inference(resolution,[],[f6579,f6227])).
+fof(f6579,plain,(
+  ( ! [X17,X16] : (~'E'('0',f(suc(suc(suc(suc(X17)))))) | ~'E'('0',f(suc(suc(suc(X16))))) | ~'E'('0',f(suc(suc(suc(X17))))) | ~iLEQ(suc(X17),suc(X16)) | ~'E'('0',f(X17)) | ~'E'('0',f(suc(suc(X17)))) | ~'E'('0',f(suc(suc(X16)))) | ~'E'('0',f(suc(X17))) | 'LE'(f(X16),'0')) )),
+  inference(subsumption_resolution,[],[f6578,f6224])).
+fof(f6578,plain,(
+  ( ! [X17,X16] : (~'E'('0',f(suc(X16))) | ~'E'('0',f(suc(suc(suc(X17))))) | ~'E'('0',f(suc(suc(suc(X16))))) | ~'E'('0',f(suc(suc(suc(suc(X17)))))) | ~iLEQ(suc(X17),suc(X16)) | ~'E'('0',f(X17)) | ~'E'('0',f(suc(suc(X17)))) | ~'E'('0',f(suc(suc(X16)))) | ~'E'('0',f(suc(X17))) | 'LE'(f(X16),'0')) )),
+  inference(subsumption_resolution,[],[f6562,f6176])).
+fof(f6562,plain,(
+  ( ! [X17,X16] : (~'E'('0',f(suc(X16))) | ~'E'('0',f(suc(suc(suc(X17))))) | ~'E'('0',f(X16)) | ~'E'('0',f(suc(suc(suc(X16))))) | ~'E'('0',f(suc(suc(suc(suc(X17)))))) | ~iLEQ(suc(X17),suc(X16)) | ~'E'('0',f(X17)) | ~'E'('0',f(suc(suc(X17)))) | ~'E'('0',f(suc(suc(X16)))) | ~'E'('0',f(suc(X17))) | 'LE'(f(X16),'0')) )),
+  inference(resolution,[],[f1742,f6227])).
+fof(f1742,plain,(
+  ( ! [X0,X1] : (~'E'('0',f(suc(suc(suc(suc(X1)))))) | ~'E'('0',f(suc(X1))) | ~'E'('0',f(suc(suc(suc(X0))))) | ~'E'('0',f(X1)) | ~'E'('0',f(suc(suc(suc(X1))))) | ~'E'('0',f(suc(suc(suc(suc(X0)))))) | ~iLEQ(suc(X0),suc(X1)) | ~'E'('0',f(X0)) | ~'E'('0',f(suc(suc(X0)))) | ~'E'('0',f(suc(suc(X1)))) | ~'E'('0',f(suc(X0)))) )),
+  inference(subsumption_resolution,[],[f1741,f456])).
+fof(f456,plain,(
+  ( ! [X0,X1] : (~'E'('0',f(suc(suc(suc(suc(X0)))))) | ~'E'('0',f(X0)) | 'E'(f(X1),f(suc(suc(X1)))) | ~'E'('0',f(suc(X0))) | ~'E'('0',f(suc(suc(suc(X0))))) | ~iLEQ(suc(X1),suc(X0)) | ~'E'('0',f(X1)) | ~'E'('0',f(suc(suc(X1)))) | ~'E'('0',f(suc(suc(X0)))) | ~'E'('0',f(suc(X1)))) )),
+  inference(subsumption_resolution,[],[f455,f82])).
+fof(f455,plain,(
+  ( ! [X0,X1] : (~'E'('0',f(suc(X0))) | ~'E'(f(X0),f(suc(X0))) | ~'E'('0',f(X0)) | 'E'(f(X1),f(suc(suc(X1)))) | ~'E'('0',f(suc(suc(suc(suc(X0)))))) | ~'E'('0',f(suc(suc(suc(X0))))) | ~iLEQ(suc(X1),suc(X0)) | ~'E'('0',f(X1)) | ~'E'('0',f(suc(suc(X1)))) | ~'E'('0',f(suc(suc(X0)))) | ~'E'('0',f(suc(X1)))) )),
+  inference(subsumption_resolution,[],[f454,f243])).
+fof(f243,plain,(
+  ( ! [X2,X3] : (~'E'('0',f(suc(suc(X3)))) | ~'E'('0',f(suc(X3))) | 'E'(f(X3),f(suc(suc(X3)))) | ~'E'('0',f(X3)) | ~iLEQ(suc(X2),suc(X3)) | ~'E'('0',f(X2)) | ~'E'('0',f(suc(suc(X2)))) | 'E'(f(X2),f(suc(suc(X2)))) | ~'E'('0',f(suc(X2)))) )),
+  inference(duplicate_literal_removal,[],[f241])).
+fof(f241,plain,(
+  ( ! [X2,X3] : ('E'(f(X2),f(suc(suc(X2)))) | ~'E'('0',f(suc(X3))) | 'E'(f(X3),f(suc(suc(X3)))) | ~'E'('0',f(X3)) | ~iLEQ(suc(X2),suc(X3)) | ~'E'('0',f(X2)) | ~'E'('0',f(suc(suc(X2)))) | ~'E'('0',f(suc(suc(X3)))) | ~'E'('0',f(suc(X2))) | ~'E'('0',f(suc(X2))) | ~'E'('0',f(X2))) )),
+  inference(resolution,[],[f75,f82])).
+fof(f75,plain,(
+  ( ! [X4,X5] : (~'E'(f(X4),f(suc(X4))) | 'E'(f(X4),f(suc(suc(X4)))) | ~'E'('0',f(suc(X5))) | 'E'(f(X5),f(suc(suc(X5)))) | ~'E'('0',f(X5)) | ~iLEQ(suc(X4),suc(X5)) | ~'E'('0',f(X4)) | ~'E'('0',f(suc(suc(X4)))) | ~'E'('0',f(suc(suc(X5)))) | ~'E'('0',f(suc(X4)))) )),
+  inference(subsumption_resolution,[],[f36,f5])).
+fof(f36,axiom,(
+  ( ! [X4,X5] : ('E'(f(X5),f(suc(suc(X5)))) | 'E'(f(X4),f(suc(suc(X4)))) | ~'E'('0',f(suc(X5))) | ~'E'(f(X5),f(suc(X5))) | ~'E'(f(X4),f(suc(X4))) | ~'E'('0',f(X5)) | ~iLEQ(suc(X4),suc(X5)) | ~'E'('0',f(X4)) | ~'E'('0',f(suc(suc(X4)))) | ~'E'('0',f(suc(suc(X5)))) | ~'E'('0',f(suc(X4)))) )),
+  file('SYO659-1.tptp',unknown)).
+fof(f454,plain,(
+  ( ! [X0,X1] : (~'E'('0',f(suc(X0))) | ~'E'(f(X0),f(suc(X0))) | ~'E'(f(X0),f(suc(suc(X0)))) | ~'E'('0',f(X0)) | 'E'(f(X1),f(suc(suc(X1)))) | ~'E'('0',f(suc(suc(suc(suc(X0)))))) | ~'E'('0',f(suc(suc(suc(X0))))) | ~iLEQ(suc(X1),suc(X0)) | ~'E'('0',f(X1)) | ~'E'('0',f(suc(suc(X1)))) | ~'E'('0',f(suc(suc(X0)))) | ~'E'('0',f(suc(X1)))) )),
+  inference(duplicate_literal_removal,[],[f452])).
+fof(f452,plain,(
+  ( ! [X0,X1] : (~'E'('0',f(suc(X0))) | ~'E'(f(X0),f(suc(X0))) | ~'E'(f(X0),f(suc(suc(X0)))) | ~'E'('0',f(X0)) | 'E'(f(X1),f(suc(suc(X1)))) | ~'E'('0',f(suc(suc(suc(suc(X0)))))) | ~'E'('0',f(suc(suc(suc(X0))))) | ~iLEQ(suc(X1),suc(X0)) | ~'E'('0',f(X1)) | ~'E'('0',f(suc(suc(X1)))) | ~'E'('0',f(suc(suc(X0)))) | ~'E'('0',f(suc(X1))) | ~'E'('0',f(suc(suc(suc(X0))))) | ~'E'('0',f(X0)) | ~'E'(f(X0),f(suc(suc(X0)))) | ~'E'('0',f(suc(suc(X0)))) | ~'E'('0',f(suc(X0)))) )),
+  inference(resolution,[],[f56,f85])).
+fof(f56,plain,(
+  ( ! [X4,X5] : (~'E'(f(X5),f(suc(suc(suc(X5))))) | ~'E'('0',f(suc(X5))) | ~'E'(f(X5),f(suc(X5))) | ~'E'(f(X5),f(suc(suc(X5)))) | ~'E'('0',f(X5)) | 'E'(f(X4),f(suc(suc(X4)))) | ~'E'('0',f(suc(suc(suc(suc(X5)))))) | ~'E'('0',f(suc(suc(suc(X5))))) | ~iLEQ(suc(X4),suc(X5)) | ~'E'('0',f(X4)) | ~'E'('0',f(suc(suc(X4)))) | ~'E'('0',f(suc(suc(X5)))) | ~'E'('0',f(suc(X4)))) )),
+  inference(subsumption_resolution,[],[f16,f6])).
+fof(f6,axiom,(
+  ( ! [X4,X5] : (~'E'(f(X5),f(suc(suc(suc(X5))))) | ~'E'('0',f(suc(X5))) | ~'E'(f(X5),f(suc(X5))) | ~'E'(f(X5),f(suc(suc(X5)))) | ~'E'('0',f(X5)) | 'E'(f(X4),f(suc(X4))) | ~'E'('0',f(suc(suc(suc(suc(X5)))))) | ~'E'('0',f(suc(suc(suc(X5))))) | ~iLEQ(suc(X4),suc(X5)) | ~'E'('0',f(X4)) | ~'E'('0',f(suc(suc(X5)))) | ~'E'('0',f(suc(X4)))) )),
+  file('SYO659-1.tptp',unknown)).
+fof(f16,axiom,(
+  ( ! [X4,X5] : ('E'(f(X4),f(suc(suc(X4)))) | ~'E'('0',f(suc(X5))) | ~'E'(f(X5),f(suc(X5))) | ~'E'(f(X4),f(suc(X4))) | ~'E'(f(X5),f(suc(suc(X5)))) | ~'E'('0',f(X5)) | ~'E'(f(X5),f(suc(suc(suc(X5))))) | ~'E'('0',f(suc(suc(suc(suc(X5)))))) | ~'E'('0',f(suc(suc(suc(X5))))) | ~iLEQ(suc(X4),suc(X5)) | ~'E'('0',f(X4)) | ~'E'('0',f(suc(suc(X4)))) | ~'E'('0',f(suc(suc(X5)))) | ~'E'('0',f(suc(X4)))) )),
+  file('SYO659-1.tptp',unknown)).
+fof(f1741,plain,(
+  ( ! [X0,X1] : (~'E'('0',f(suc(suc(suc(X0))))) | ~'E'('0',f(suc(X1))) | ~'E'('0',f(suc(suc(suc(suc(X1)))))) | ~'E'('0',f(X1)) | ~'E'('0',f(suc(suc(suc(X1))))) | ~'E'('0',f(suc(suc(suc(suc(X0)))))) | ~iLEQ(suc(X0),suc(X1)) | ~'E'('0',f(X0)) | ~'E'('0',f(suc(suc(X0)))) | ~'E'('0',f(suc(suc(X1)))) | ~'E'('0',f(suc(X0))) | ~'E'(f(X0),f(suc(suc(X0))))) )),
+  inference(duplicate_literal_removal,[],[f1739])).
+fof(f1739,plain,(
+  ( ! [X0,X1] : (~'E'('0',f(suc(suc(suc(X0))))) | ~'E'('0',f(suc(X1))) | ~'E'('0',f(suc(suc(suc(suc(X1)))))) | ~'E'('0',f(X1)) | ~'E'('0',f(suc(suc(suc(X1))))) | ~'E'('0',f(suc(suc(suc(suc(X0)))))) | ~iLEQ(suc(X0),suc(X1)) | ~'E'('0',f(X0)) | ~'E'('0',f(suc(suc(X0)))) | ~'E'('0',f(suc(suc(X1)))) | ~'E'('0',f(suc(X0))) | ~'E'('0',f(suc(suc(suc(X0))))) | ~'E'('0',f(X0)) | ~'E'(f(X0),f(suc(suc(X0)))) | ~'E'('0',f(suc(suc(X0)))) | ~'E'('0',f(suc(X0)))) )),
+  inference(resolution,[],[f618,f85])).
+fof(f618,plain,(
+  ( ! [X0,X1] : (~'E'(f(X1),f(suc(suc(suc(X1))))) | ~'E'('0',f(suc(suc(suc(X1))))) | ~'E'('0',f(suc(X0))) | ~'E'('0',f(suc(suc(suc(suc(X0)))))) | ~'E'('0',f(X0)) | ~'E'('0',f(suc(suc(suc(X0))))) | ~'E'('0',f(suc(suc(suc(suc(X1)))))) | ~iLEQ(suc(X1),suc(X0)) | ~'E'('0',f(X1)) | ~'E'('0',f(suc(suc(X1)))) | ~'E'('0',f(suc(suc(X0)))) | ~'E'('0',f(suc(X1)))) )),
+  inference(subsumption_resolution,[],[f617,f82])).
+fof(f617,plain,(
+  ( ! [X0,X1] : (~'E'(f(X0),f(suc(X0))) | ~'E'('0',f(X0)) | ~'E'('0',f(suc(suc(suc(X1))))) | ~'E'('0',f(suc(X0))) | ~'E'('0',f(suc(suc(suc(suc(X0)))))) | ~'E'(f(X1),f(suc(suc(suc(X1))))) | ~'E'('0',f(suc(suc(suc(X0))))) | ~'E'('0',f(suc(suc(suc(suc(X1)))))) | ~iLEQ(suc(X1),suc(X0)) | ~'E'('0',f(X1)) | ~'E'('0',f(suc(suc(X1)))) | ~'E'('0',f(suc(suc(X0)))) | ~'E'('0',f(suc(X1)))) )),
+  inference(subsumption_resolution,[],[f616,f94])).
+fof(f94,plain,(
+  ( ! [X4,X5] : (~'E'(f(X4),f(suc(suc(suc(X4))))) | ~'E'('0',f(suc(X5))) | ~'E'('0',f(X5)) | ~'E'('0',f(suc(suc(suc(X4))))) | 'E'(f(X5),f(suc(suc(X5)))) | ~'E'('0',f(suc(suc(suc(suc(X4)))))) | ~iLEQ(suc(X4),suc(X5)) | ~'E'('0',f(X4)) | ~'E'('0',f(suc(suc(X4)))) | ~'E'('0',f(suc(suc(X5)))) | ~'E'('0',f(suc(X4)))) )),
+  inference(subsumption_resolution,[],[f93,f82])).
+fof(f93,plain,(
+  ( ! [X4,X5] : ('E'(f(X5),f(suc(suc(X5)))) | ~'E'('0',f(suc(X5))) | ~'E'(f(X4),f(suc(X4))) | ~'E'('0',f(X5)) | ~'E'('0',f(suc(suc(suc(X4))))) | ~'E'(f(X4),f(suc(suc(suc(X4))))) | ~'E'('0',f(suc(suc(suc(suc(X4)))))) | ~iLEQ(suc(X4),suc(X5)) | ~'E'('0',f(X4)) | ~'E'('0',f(suc(suc(X4)))) | ~'E'('0',f(suc(suc(X5)))) | ~'E'('0',f(suc(X4)))) )),
+  inference(subsumption_resolution,[],[f92,f82])).
+fof(f92,plain,(
+  ( ! [X4,X5] : ('E'(f(X5),f(suc(suc(X5)))) | ~'E'('0',f(suc(X5))) | ~'E'(f(X5),f(suc(X5))) | ~'E'(f(X4),f(suc(X4))) | ~'E'('0',f(X5)) | ~'E'('0',f(suc(suc(suc(X4))))) | ~'E'(f(X4),f(suc(suc(suc(X4))))) | ~'E'('0',f(suc(suc(suc(suc(X4)))))) | ~iLEQ(suc(X4),suc(X5)) | ~'E'('0',f(X4)) | ~'E'('0',f(suc(suc(X4)))) | ~'E'('0',f(suc(suc(X5)))) | ~'E'('0',f(suc(X4)))) )),
+  inference(subsumption_resolution,[],[f50,f75])).
+fof(f50,axiom,(
+  ( ! [X4,X5] : ('E'(f(X5),f(suc(suc(X5)))) | ~'E'('0',f(suc(X5))) | ~'E'(f(X5),f(suc(X5))) | ~'E'(f(X4),f(suc(X4))) | ~'E'('0',f(X5)) | ~'E'('0',f(suc(suc(suc(X4))))) | ~'E'(f(X4),f(suc(suc(suc(X4))))) | ~'E'('0',f(suc(suc(suc(suc(X4)))))) | ~iLEQ(suc(X4),suc(X5)) | ~'E'('0',f(X4)) | ~'E'(f(X4),f(suc(suc(X4)))) | ~'E'('0',f(suc(suc(X4)))) | ~'E'('0',f(suc(suc(X5)))) | ~'E'('0',f(suc(X4)))) )),
+  file('SYO659-1.tptp',unknown)).
+fof(f616,plain,(
+  ( ! [X0,X1] : (~'E'(f(X0),f(suc(X0))) | ~'E'(f(X0),f(suc(suc(X0)))) | ~'E'('0',f(X0)) | ~'E'('0',f(suc(suc(suc(X1))))) | ~'E'('0',f(suc(X0))) | ~'E'('0',f(suc(suc(suc(suc(X0)))))) | ~'E'(f(X1),f(suc(suc(suc(X1))))) | ~'E'('0',f(suc(suc(suc(X0))))) | ~'E'('0',f(suc(suc(suc(suc(X1)))))) | ~iLEQ(suc(X1),suc(X0)) | ~'E'('0',f(X1)) | ~'E'('0',f(suc(suc(X1)))) | ~'E'('0',f(suc(suc(X0)))) | ~'E'('0',f(suc(X1)))) )),
+  inference(duplicate_literal_removal,[],[f614])).
+fof(f614,plain,(
+  ( ! [X0,X1] : (~'E'(f(X0),f(suc(X0))) | ~'E'(f(X0),f(suc(suc(X0)))) | ~'E'('0',f(X0)) | ~'E'('0',f(suc(suc(suc(X1))))) | ~'E'('0',f(suc(X0))) | ~'E'('0',f(suc(suc(suc(suc(X0)))))) | ~'E'(f(X1),f(suc(suc(suc(X1))))) | ~'E'('0',f(suc(suc(suc(X0))))) | ~'E'('0',f(suc(suc(suc(suc(X1)))))) | ~iLEQ(suc(X1),suc(X0)) | ~'E'('0',f(X1)) | ~'E'('0',f(suc(suc(X1)))) | ~'E'('0',f(suc(suc(X0)))) | ~'E'('0',f(suc(X1))) | ~'E'('0',f(suc(suc(suc(X0))))) | ~'E'('0',f(X0)) | ~'E'(f(X0),f(suc(suc(X0)))) | ~'E'('0',f(suc(suc(X0)))) | ~'E'('0',f(suc(X0)))) )),
+  inference(resolution,[],[f74,f85])).
+fof(f74,plain,(
+  ( ! [X4,X5] : (~'E'(f(X5),f(suc(suc(suc(X5))))) | ~'E'(f(X5),f(suc(X5))) | ~'E'(f(X5),f(suc(suc(X5)))) | ~'E'('0',f(X5)) | ~'E'('0',f(suc(suc(suc(X4))))) | ~'E'('0',f(suc(X5))) | ~'E'('0',f(suc(suc(suc(suc(X5)))))) | ~'E'(f(X4),f(suc(suc(suc(X4))))) | ~'E'('0',f(suc(suc(suc(X5))))) | ~'E'('0',f(suc(suc(suc(suc(X4)))))) | ~iLEQ(suc(X4),suc(X5)) | ~'E'('0',f(X4)) | ~'E'('0',f(suc(suc(X4)))) | ~'E'('0',f(suc(suc(X5)))) | ~'E'('0',f(suc(X4)))) )),
+  inference(subsumption_resolution,[],[f73,f56])).
+fof(f73,plain,(
+  ( ! [X4,X5] : (~'E'('0',f(suc(X5))) | ~'E'(f(X5),f(suc(X5))) | ~'E'(f(X5),f(suc(suc(X5)))) | ~'E'('0',f(X5)) | ~'E'('0',f(suc(suc(suc(X4))))) | ~'E'(f(X5),f(suc(suc(suc(X5))))) | ~'E'('0',f(suc(suc(suc(suc(X5)))))) | ~'E'(f(X4),f(suc(suc(suc(X4))))) | ~'E'('0',f(suc(suc(suc(X5))))) | ~'E'('0',f(suc(suc(suc(suc(X4)))))) | ~iLEQ(suc(X4),suc(X5)) | ~'E'('0',f(X4)) | ~'E'(f(X4),f(suc(suc(X4)))) | ~'E'('0',f(suc(suc(X4)))) | ~'E'('0',f(suc(suc(X5)))) | ~'E'('0',f(suc(X4)))) )),
+  inference(subsumption_resolution,[],[f35,f6])).
+fof(f35,axiom,(
+  ( ! [X4,X5] : (~'E'('0',f(suc(X5))) | ~'E'(f(X5),f(suc(X5))) | ~'E'(f(X4),f(suc(X4))) | ~'E'(f(X5),f(suc(suc(X5)))) | ~'E'('0',f(X5)) | ~'E'('0',f(suc(suc(suc(X4))))) | ~'E'(f(X5),f(suc(suc(suc(X5))))) | ~'E'('0',f(suc(suc(suc(suc(X5)))))) | ~'E'(f(X4),f(suc(suc(suc(X4))))) | ~'E'('0',f(suc(suc(suc(X5))))) | ~'E'('0',f(suc(suc(suc(suc(X4)))))) | ~iLEQ(suc(X4),suc(X5)) | ~'E'('0',f(X4)) | ~'E'(f(X4),f(suc(suc(X4)))) | ~'E'('0',f(suc(suc(X4)))) | ~'E'('0',f(suc(suc(X5)))) | ~'E'('0',f(suc(X4)))) )),
+  file('SYO659-1.tptp',unknown)).
+% SZS output end Proof for SYO659-1
+% ------------------------------
+% Version: Vampire 4.4.0 (commit d98a3d53 on 2020-01-14 21:02:12 +0100)
+% Termination reason: Refutation
+
+% Memory used [KB]: 7419
+% Time elapsed: 0.501 s
+% ------------------------------
+% ------------------------------

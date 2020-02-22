@@ -1,0 +1,13 @@
+% Prover : Metis 
+% Problem : KRS126+1 
+% Notes : Invalid clausification, countersatisfiable
+
+fof(normalize_0_4, plain,
+    (! [X] : (~ cd1(X) <=> ! [Y0] : ~ ra_Px2(X, Y0))),
+    inference(specialize, [], [normalize_0_3])).
+
+fof(normalize_0_5, plain,
+    (! [X, Y0] :
+       ((~ cd1(X) | ra_Px2(X, skolemFOFtoCNF_Y0_1(X))) &
+        (~ ra_Px2(X, Y0) | cd1(X)))),
+    inference(clausify, [], [normalize_0_4])).

@@ -1,0 +1,33 @@
+% Refutation found. Thanks to Tanya!
+% SZS status Unsatisfiable for LAT271-1
+% SZS output start Proof for LAT271-1
+fof(f239654,plain,(
+  $false),
+  inference(subsumption_resolution,[],[f239643,f2758])).
+fof(f2758,axiom,(
+  c_in(v_x,v_S,t_a)),
+  file('LAT271-1.tptp',unknown)).
+fof(f239643,plain,(
+  ~c_in(v_x,v_S,t_a)),
+  inference(resolution,[],[f204873,f2759])).
+fof(f2759,axiom,(
+  ~c_in(c_Pair(v_a,v_x,t_a,t_a),v_r,tc_prod(t_a,t_a))),
+  file('LAT271-1.tptp',unknown)).
+fof(f204873,plain,(
+  ( ! [X68] : (c_in(c_Pair(v_a,X68,t_a,t_a),v_r,tc_prod(t_a,t_a)) | ~c_in(X68,v_S,t_a)) )),
+  inference(resolution,[],[f5,f2754])).
+fof(f2754,axiom,(
+  c_lessequals(v_S,c_Tarski_Ointerval(v_r,v_a,v_b,t_a),tc_set(t_a))),
+  file('LAT271-1.tptp',unknown)).
+fof(f5,axiom,(
+  ( ! [X6,X4,X2,X0,X7,X5] : (~c_lessequals(X0,c_Tarski_Ointerval(X6,X2,X7,X5),tc_set(X5)) | c_in(c_Pair(X2,X4,X5,X5),X6,tc_prod(X5,X5)) | ~c_in(X4,X0,X5)) )),
+  file('LAT271-1.tptp',unknown)).
+% SZS output end Proof for LAT271-1
+% ------------------------------
+% Version: Vampire 4.4.0 (commit d98a3d53 on 2020-01-14 21:02:12 +0100)
+% Termination reason: Refutation
+
+% Memory used [KB]: 90702
+% Time elapsed: 3.782 s
+% ------------------------------
+% ------------------------------

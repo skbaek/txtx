@@ -1,0 +1,35 @@
+%------------------------------------------------------------------------------
+% File     : LAT267-2 : TPTP v7.3.0. Released v3.2.0.
+% Domain   : Analysis
+% Problem  : Problem about Tarski's fixed point theorem
+% Version  : [Pau06] axioms : Reduced > Especial.
+% English  :
+
+% Refs     : [Pau06] Paulson (2006), Email to G. Sutcliffe
+% Source   : [Pau06]
+% Names    :
+
+% Status   : Unsatisfiable
+% Rating   : 0.00 v3.2.0
+% Syntax   : Number of clauses     :    2 (   0 non-Horn;   2 unit;   2 RR)
+%            Number of atoms       :    2 (   0 equality)
+%            Maximal clause size   :    1 (   1 average)
+%            Number of predicates  :    1 (   0 propositional; 3-3 arity)
+%            Number of functors    :    3 (   3 constant; 0-0 arity)
+%            Number of variables   :    0 (   0 singleton)
+%            Maximal term depth    :    1 (   1 average)
+% SPC      : CNF_UNS_EPR_NEQ_HRN
+
+% Comments : The problems in the [Pau06] collection each have very many axioms,
+%            of which only a small selection are required for the refutation.
+%            The mission is to find those few axioms, after which a refutation
+%            can be quite easily found. This version has only the necessary
+%            axioms.
+%          : tptp2X 
+%------------------------------------------------------------------------------
+cnf(cls_conjecture_1,negated_conjecture,
+    ( c_in(v_x,v_S,t_a) )).
+
+cnf(cls_conjecture_2,negated_conjecture,
+    ( ~ c_in(v_x,v_S,t_a) )).
+%------------------------------------------------------------------------------

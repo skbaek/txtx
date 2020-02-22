@@ -1,0 +1,36 @@
+% Refutation found. Thanks to Tanya!
+% SZS status Unsatisfiable for COL054-1
+% SZS output start Proof for COL054-1
+fof(f21,plain,(
+  $false),
+  inference(equality_resolution,[],[f18])).
+fof(f18,plain,(
+  ( ! [X6] : (response(X6,compose(a,compose(b,X6))) != response(mocking_bird,compose(a,compose(b,X6)))) )),
+  inference(superposition,[],[f4,f8])).
+fof(f8,plain,(
+  ( ! [X2,X3,X1] : (response(mocking_bird,compose(X3,compose(X1,X2))) = response(X3,response(X1,response(X2,compose(X3,compose(X1,X2)))))) )),
+  inference(superposition,[],[f6,f2])).
+fof(f2,axiom,(
+  ( ! [X2,X0,X1] : (response(compose(X1,X0),X2) = response(X1,response(X0,X2))) )),
+  file('COL054-1.tptp',unknown)).
+fof(f6,plain,(
+  ( ! [X0,X1] : (response(mocking_bird,compose(X0,X1)) = response(X0,response(X1,compose(X0,X1)))) )),
+  inference(superposition,[],[f2,f1])).
+fof(f1,axiom,(
+  ( ! [X0] : (response(mocking_bird,X0) = response(X0,X0)) )),
+  file('COL054-1.tptp',unknown)).
+fof(f4,plain,(
+  ( ! [X0] : (response(a,response(b,X0)) != X0) )),
+  inference(equality_resolution,[],[f3])).
+fof(f3,axiom,(
+  ( ! [X0,X1] : (response(b,X0) != X1 | response(a,X1) != X0) )),
+  file('COL054-1.tptp',unknown)).
+% SZS output end Proof for COL054-1
+% ------------------------------
+% Version: Vampire 4.4.0 (commit d98a3d53 on 2020-01-14 21:02:12 +0100)
+% Termination reason: Refutation
+
+% Memory used [KB]: 4861
+% Time elapsed: 0.001 s
+% ------------------------------
+% ------------------------------

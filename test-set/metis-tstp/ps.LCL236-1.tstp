@@ -1,0 +1,136 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% SZS status Unsatisfiable for LCL236-1.tptp
+
+% SZS output start CNFRefutation for LCL236-1.tptp
+cnf(axiom_1_2, axiom, (axiom(or(not(or(A, A)), A)))).
+
+cnf(axiom_1_3, axiom, (axiom(or(not(A), or(B, A))))).
+
+cnf(axiom_1_4, axiom, (axiom(or(not(or(A, B)), or(B, A))))).
+
+cnf(axiom_1_5, axiom, (axiom(or(not(or(A, or(B, C))), or(B, or(A, C)))))).
+
+cnf(rule_1, axiom, (theorem(X) | ~ axiom(X))).
+
+cnf(rule_2, axiom, (theorem(X) | ~ axiom(or(not(Y), X)) | ~ theorem(Y))).
+
+cnf(prove_this, negated_conjecture,
+    (~
+       theorem(or(not(or(not(p), not(q))),
+           not(not(or(not(p), not(q)))))))).
+
+cnf(refute_0_0, plain,
+    (~ axiom(or(not(or(A, B)), or(B, A))) | ~ theorem(or(A, B)) |
+     theorem(or(B, A))),
+    inference(subst, [],
+              [rule_2 :
+               [bind(X, $fot(or(B, A))), bind(Y, $fot(or(A, B)))]])).
+
+cnf(refute_0_1, plain, (~ theorem(or(A, B)) | theorem(or(B, A))),
+    inference(resolve, [$cnf(axiom(or(not(or(A, B)), or(B, A))))],
+              [axiom_1_4, refute_0_0])).
+
+cnf(refute_0_2, plain,
+    (~ theorem(or(not(X_162), X_162)) | theorem(or(X_162, not(X_162)))),
+    inference(subst, [],
+              [refute_0_1 :
+               [bind(A, $fot(not(X_162))), bind(B, $fot(X_162))]])).
+
+cnf(refute_0_3, plain, (axiom(or(not(or(X_23, X_23)), X_23))),
+    inference(subst, [], [axiom_1_2 : [bind(A, $fot(X_23))]])).
+
+cnf(refute_0_4, plain,
+    (~ axiom(or(not(or(X_23, X_23)), X_23)) | ~ theorem(or(X_23, X_23)) |
+     theorem(X_23)),
+    inference(subst, [],
+              [rule_2 :
+               [bind(X, $fot(X_23)), bind(Y, $fot(or(X_23, X_23)))]])).
+
+cnf(refute_0_5, plain, (~ theorem(or(X_23, X_23)) | theorem(X_23)),
+    inference(resolve, [$cnf(axiom(or(not(or(X_23, X_23)), X_23)))],
+              [refute_0_3, refute_0_4])).
+
+cnf(refute_0_6, plain,
+    (~ theorem(or(or(not(X_161), X_161), or(not(X_161), X_161))) |
+     theorem(or(not(X_161), X_161))),
+    inference(subst, [],
+              [refute_0_5 : [bind(X_23, $fot(or(not(X_161), X_161)))]])).
+
+cnf(refute_0_7, plain,
+    (~ axiom(or(not(X_3), or(X_4, X_3))) |
+     theorem(or(not(X_3), or(X_4, X_3)))),
+    inference(subst, [],
+              [rule_1 : [bind(X, $fot(or(not(X_3), or(X_4, X_3))))]])).
+
+cnf(refute_0_8, plain, (axiom(or(not(X_3), or(X_4, X_3)))),
+    inference(subst, [],
+              [axiom_1_3 : [bind(A, $fot(X_3)), bind(B, $fot(X_4))]])).
+
+cnf(refute_0_9, plain, (theorem(or(not(X_3), or(X_4, X_3)))),
+    inference(resolve, [$cnf(axiom(or(not(X_3), or(X_4, X_3))))],
+              [refute_0_8, refute_0_7])).
+
+cnf(refute_0_10, plain, (theorem(or(not(X_159), or(X_158, X_159)))),
+    inference(subst, [],
+              [refute_0_9 :
+               [bind(X_3, $fot(X_159)), bind(X_4, $fot(X_158))]])).
+
+cnf(refute_0_11, plain,
+    (~ axiom(or(not(or(A, or(B, C))), or(B, or(A, C)))) |
+     ~ theorem(or(A, or(B, C))) | theorem(or(B, or(A, C)))),
+    inference(subst, [],
+              [rule_2 :
+               [bind(X, $fot(or(B, or(A, C)))),
+                bind(Y, $fot(or(A, or(B, C))))]])).
+
+cnf(refute_0_12, plain,
+    (~ theorem(or(A, or(B, C))) | theorem(or(B, or(A, C)))),
+    inference(resolve,
+              [$cnf(axiom(or(not(or(A, or(B, C))), or(B, or(A, C)))))],
+              [axiom_1_5, refute_0_11])).
+
+cnf(refute_0_13, plain,
+    (~ theorem(or(not(X_159), or(X_158, X_159))) |
+     theorem(or(X_158, or(not(X_159), X_159)))),
+    inference(subst, [],
+              [refute_0_12 :
+               [bind(A, $fot(not(X_159))), bind(B, $fot(X_158)),
+                bind(C, $fot(X_159))]])).
+
+cnf(refute_0_14, plain, (theorem(or(X_158, or(not(X_159), X_159)))),
+    inference(resolve, [$cnf(theorem(or(not(X_159), or(X_158, X_159))))],
+              [refute_0_10, refute_0_13])).
+
+cnf(refute_0_15, plain,
+    (theorem(or(or(not(X_161), X_161), or(not(X_161), X_161)))),
+    inference(subst, [],
+              [refute_0_14 :
+               [bind(X_158, $fot(or(not(X_161), X_161))),
+                bind(X_159, $fot(X_161))]])).
+
+cnf(refute_0_16, plain, (theorem(or(not(X_161), X_161))),
+    inference(resolve,
+              [$cnf(theorem(or(or(not(X_161), X_161),
+                        or(not(X_161), X_161))))],
+              [refute_0_15, refute_0_6])).
+
+cnf(refute_0_17, plain, (theorem(or(not(X_162), X_162))),
+    inference(subst, [], [refute_0_16 : [bind(X_161, $fot(X_162))]])).
+
+cnf(refute_0_18, plain, (theorem(or(X_162, not(X_162)))),
+    inference(resolve, [$cnf(theorem(or(not(X_162), X_162)))],
+              [refute_0_17, refute_0_2])).
+
+cnf(refute_0_19, plain,
+    (theorem(or(not(or(not(p), not(q))), not(not(or(not(p), not(q))))))),
+    inference(subst, [],
+              [refute_0_18 :
+               [bind(X_162, $fot(not(or(not(p), not(q)))))]])).
+
+cnf(refute_0_20, plain, ($false),
+    inference(resolve,
+              [$cnf(theorem(or(not(or(not(p), not(q))),
+                        not(not(or(not(p), not(q)))))))],
+              [refute_0_19, prove_this])).
+% SZS output end CNFRefutation for LCL236-1.tptp
+

@@ -1,0 +1,96 @@
+% Refutation found. Thanks to Tanya!
+% SZS status Theorem for SWV411+1
+% SZS output start Proof for SWV411+1
+fof(f108,plain,(
+  $false),
+  inference(resolution,[],[f107,f70])).
+fof(f70,plain,(
+  ( ! [X4,X2,X0] : (pair_in_list(insert_slb(X0,pair(X2,X4)),X2,X4)) )),
+  inference(equality_resolution,[],[f69])).
+fof(f69,plain,(
+  ( ! [X4,X2,X0,X1] : (pair_in_list(insert_slb(X0,pair(X1,X4)),X2,X4) | X1 != X2) )),
+  inference(equality_resolution,[],[f57])).
+fof(f57,plain,(
+  ( ! [X4,X2,X0,X3,X1] : (pair_in_list(insert_slb(X0,pair(X1,X3)),X2,X4) | X3 != X4 | X1 != X2) )),
+  inference(cnf_transformation,[],[f36])).
+fof(f36,plain,(
+  ! [X0,X1,X2,X3,X4] : ((pair_in_list(insert_slb(X0,pair(X1,X3)),X2,X4) | ((X3 != X4 | X1 != X2) & ~pair_in_list(X0,X2,X4))) & ((X3 = X4 & X1 = X2) | pair_in_list(X0,X2,X4) | ~pair_in_list(insert_slb(X0,pair(X1,X3)),X2,X4)))),
+  inference(flattening,[],[f35])).
+fof(f35,plain,(
+  ! [X0,X1,X2,X3,X4] : ((pair_in_list(insert_slb(X0,pair(X1,X3)),X2,X4) | ((X3 != X4 | X1 != X2) & ~pair_in_list(X0,X2,X4))) & (((X3 = X4 & X1 = X2) | pair_in_list(X0,X2,X4)) | ~pair_in_list(insert_slb(X0,pair(X1,X3)),X2,X4)))),
+  inference(nnf_transformation,[],[f11])).
+fof(f11,axiom,(
+  ! [X0,X1,X2,X3,X4] : (pair_in_list(insert_slb(X0,pair(X1,X3)),X2,X4) <=> ((X3 = X4 & X1 = X2) | pair_in_list(X0,X2,X4)))),
+  file('SWV411+1.tptp',unknown)).
+fof(f107,plain,(
+  ( ! [X4] : (~pair_in_list(insert_slb(sK0,pair(sK1,sK3)),sK1,X4)) )),
+  inference(backward_demodulation,[],[f105,f67])).
+fof(f67,plain,(
+  ( ! [X4] : (~pair_in_list(insert_slb(sK0,pair(sK2,sK3)),sK1,X4)) )),
+  inference(cnf_transformation,[],[f41])).
+fof(f41,plain,(
+  (! [X4] : ~pair_in_list(insert_slb(sK0,pair(sK2,sK3)),sK1,X4) & contains_slb(insert_slb(sK0,pair(sK2,sK3)),sK1)) & ! [X5] : (pair_in_list(sK0,X5,sK4(X5)) | ~contains_slb(sK0,X5))),
+  inference(skolemisation,[status(esa),new_symbols(skolem,[sK0,sK1,sK2,sK3,sK4])],[f37,f40,f39,f38])).
+fof(f38,plain,(
+  ? [X0] : (? [X1,X2,X3] : (! [X4] : ~pair_in_list(insert_slb(X0,pair(X2,X3)),X1,X4) & contains_slb(insert_slb(X0,pair(X2,X3)),X1)) & ! [X5] : (? [X6] : pair_in_list(X0,X5,X6) | ~contains_slb(X0,X5))) => (? [X3,X2,X1] : (! [X4] : ~pair_in_list(insert_slb(sK0,pair(X2,X3)),X1,X4) & contains_slb(insert_slb(sK0,pair(X2,X3)),X1)) & ! [X5] : (? [X6] : pair_in_list(sK0,X5,X6) | ~contains_slb(sK0,X5)))),
+  introduced(choice_axiom,[])).
+fof(f39,plain,(
+  ? [X3,X2,X1] : (! [X4] : ~pair_in_list(insert_slb(sK0,pair(X2,X3)),X1,X4) & contains_slb(insert_slb(sK0,pair(X2,X3)),X1)) => (! [X4] : ~pair_in_list(insert_slb(sK0,pair(sK2,sK3)),sK1,X4) & contains_slb(insert_slb(sK0,pair(sK2,sK3)),sK1))),
+  introduced(choice_axiom,[])).
+fof(f40,plain,(
+  ! [X5] : (? [X6] : pair_in_list(sK0,X5,X6) => pair_in_list(sK0,X5,sK4(X5)))),
+  introduced(choice_axiom,[])).
+fof(f37,plain,(
+  ? [X0] : (? [X1,X2,X3] : (! [X4] : ~pair_in_list(insert_slb(X0,pair(X2,X3)),X1,X4) & contains_slb(insert_slb(X0,pair(X2,X3)),X1)) & ! [X5] : (? [X6] : pair_in_list(X0,X5,X6) | ~contains_slb(X0,X5)))),
+  inference(rectify,[],[f32])).
+fof(f32,plain,(
+  ? [X0] : (? [X3,X4,X5] : (! [X6] : ~pair_in_list(insert_slb(X0,pair(X4,X5)),X3,X6) & contains_slb(insert_slb(X0,pair(X4,X5)),X3)) & ! [X1] : (? [X2] : pair_in_list(X0,X1,X2) | ~contains_slb(X0,X1)))),
+  inference(ennf_transformation,[],[f20])).
+fof(f20,negated_conjecture,(
+  ~! [X0] : (! [X1] : (contains_slb(X0,X1) => ? [X2] : pair_in_list(X0,X1,X2)) => ! [X3,X4,X5] : (contains_slb(insert_slb(X0,pair(X4,X5)),X3) => ? [X6] : pair_in_list(insert_slb(X0,pair(X4,X5)),X3,X6)))),
+  inference(negated_conjecture,[],[f19])).
+fof(f19,conjecture,(
+  ! [X0] : (! [X1] : (contains_slb(X0,X1) => ? [X2] : pair_in_list(X0,X1,X2)) => ! [X3,X4,X5] : (contains_slb(insert_slb(X0,pair(X4,X5)),X3) => ? [X6] : pair_in_list(insert_slb(X0,pair(X4,X5)),X3,X6)))),
+  file('SWV411+1.tptp',unknown)).
+fof(f105,plain,(
+  sK1 = sK2),
+  inference(subsumption_resolution,[],[f102,f101])).
+fof(f101,plain,(
+  ~contains_slb(sK0,sK1)),
+  inference(resolution,[],[f100,f65])).
+fof(f65,plain,(
+  ( ! [X5] : (pair_in_list(sK0,X5,sK4(X5)) | ~contains_slb(sK0,X5)) )),
+  inference(cnf_transformation,[],[f41])).
+fof(f100,plain,(
+  ( ! [X0] : (~pair_in_list(sK0,sK1,X0)) )),
+  inference(resolution,[],[f56,f67])).
+fof(f56,plain,(
+  ( ! [X4,X2,X0,X3,X1] : (pair_in_list(insert_slb(X0,pair(X1,X3)),X2,X4) | ~pair_in_list(X0,X2,X4)) )),
+  inference(cnf_transformation,[],[f36])).
+fof(f102,plain,(
+  contains_slb(sK0,sK1) | sK1 = sK2),
+  inference(resolution,[],[f50,f66])).
+fof(f66,plain,(
+  contains_slb(insert_slb(sK0,pair(sK2,sK3)),sK1)),
+  inference(cnf_transformation,[],[f41])).
+fof(f50,plain,(
+  ( ! [X2,X0,X3,X1] : (~contains_slb(insert_slb(X0,pair(X1,X3)),X2) | contains_slb(X0,X2) | X1 = X2) )),
+  inference(cnf_transformation,[],[f34])).
+fof(f34,plain,(
+  ! [X0,X1,X2,X3] : ((contains_slb(insert_slb(X0,pair(X1,X3)),X2) | (X1 != X2 & ~contains_slb(X0,X2))) & (X1 = X2 | contains_slb(X0,X2) | ~contains_slb(insert_slb(X0,pair(X1,X3)),X2)))),
+  inference(flattening,[],[f33])).
+fof(f33,plain,(
+  ! [X0,X1,X2,X3] : ((contains_slb(insert_slb(X0,pair(X1,X3)),X2) | (X1 != X2 & ~contains_slb(X0,X2))) & ((X1 = X2 | contains_slb(X0,X2)) | ~contains_slb(insert_slb(X0,pair(X1,X3)),X2)))),
+  inference(nnf_transformation,[],[f9])).
+fof(f9,axiom,(
+  ! [X0,X1,X2,X3] : (contains_slb(insert_slb(X0,pair(X1,X3)),X2) <=> (X1 = X2 | contains_slb(X0,X2)))),
+  file('SWV411+1.tptp',unknown)).
+% SZS output end Proof for SWV411+1
+% ------------------------------
+% Version: Vampire 4.4.0 (commit d98a3d53 on 2020-01-14 21:02:12 +0100)
+% Termination reason: Refutation
+
+% Memory used [KB]: 4861
+% Time elapsed: 0.001 s
+% ------------------------------
+% ------------------------------

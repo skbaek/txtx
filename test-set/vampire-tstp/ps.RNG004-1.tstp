@@ -1,0 +1,234 @@
+% Refutation found. Thanks to Tanya!
+% SZS status Unsatisfiable for RNG004-1
+% SZS output start Proof for RNG004-1
+fof(f561511,plain,(
+  $false),
+  inference(subsumption_resolution,[],[f561510,f20])).
+fof(f20,axiom,(
+  c != d),
+  file('RNG004-1.tptp',unknown)).
+fof(f561510,plain,(
+  c = d),
+  inference(forward_demodulation,[],[f560924,f36])).
+fof(f36,plain,(
+  ( ! [X1] : (add(additive_identity,X1) = X1) )),
+  inference(resolution,[],[f27,f4])).
+fof(f4,axiom,(
+  ( ! [X0,X1] : (sum(X0,X1,add(X0,X1))) )),
+  file('RNG004-1.tptp',unknown)).
+fof(f27,plain,(
+  ( ! [X0,X1] : (~sum(additive_identity,X1,X0) | X0 = X1) )),
+  inference(resolution,[],[f16,f1])).
+fof(f1,axiom,(
+  ( ! [X0] : (sum(additive_identity,X0,X0)) )),
+  file('RNG004-1.tptp',unknown)).
+fof(f16,axiom,(
+  ( ! [X4,X2,X0,X1] : (~sum(X0,X1,X4) | X2 = X4 | ~sum(X0,X1,X2)) )),
+  file('RNG004-1.tptp',unknown)).
+fof(f560924,plain,(
+  d = add(additive_identity,c)),
+  inference(superposition,[],[f3416,f560858])).
+fof(f560858,plain,(
+  additive_identity = add(d,additive_inverse(c))),
+  inference(forward_demodulation,[],[f560857,f5066])).
+fof(f5066,plain,(
+  additive_identity = multiply(additive_inverse(a),additive_identity)),
+  inference(resolution,[],[f5030,f467])).
+fof(f467,plain,(
+  ( ! [X2,X3] : (~sum(X2,X3,X3) | additive_identity = X2) )),
+  inference(resolution,[],[f255,f30])).
+fof(f30,plain,(
+  ( ! [X6,X7] : (~sum(X7,additive_inverse(X7),X6) | additive_identity = X6) )),
+  inference(resolution,[],[f16,f6])).
+fof(f6,axiom,(
+  ( ! [X0] : (sum(X0,additive_inverse(X0),additive_identity)) )),
+  file('RNG004-1.tptp',unknown)).
+fof(f255,plain,(
+  ( ! [X4,X2,X3] : (sum(X2,additive_inverse(X3),X4) | ~sum(X4,X3,X2)) )),
+  inference(resolution,[],[f54,f2])).
+fof(f2,axiom,(
+  ( ! [X0] : (sum(X0,additive_identity,X0)) )),
+  file('RNG004-1.tptp',unknown)).
+fof(f54,plain,(
+  ( ! [X14,X12,X15,X13] : (~sum(X12,additive_identity,X13) | sum(X14,additive_inverse(X15),X13) | ~sum(X12,X15,X14)) )),
+  inference(resolution,[],[f8,f6])).
+fof(f8,axiom,(
+  ( ! [X4,X2,X0,X5,X3,X1] : (~sum(X1,X3,X4) | ~sum(X0,X4,X5) | sum(X2,X3,X5) | ~sum(X0,X1,X2)) )),
+  file('RNG004-1.tptp',unknown)).
+fof(f5030,plain,(
+  sum(multiply(additive_inverse(a),additive_identity),d,d)),
+  inference(resolution,[],[f3624,f3])).
+fof(f3,axiom,(
+  ( ! [X0,X1] : (product(X0,X1,multiply(X0,X1))) )),
+  file('RNG004-1.tptp',unknown)).
+fof(f3624,plain,(
+  ( ! [X0] : (~product(additive_inverse(a),additive_identity,X0) | sum(X0,d,d)) )),
+  inference(subsumption_resolution,[],[f3607,f5])).
+fof(f5,axiom,(
+  ( ! [X0] : (sum(additive_inverse(X0),X0,additive_identity)) )),
+  file('RNG004-1.tptp',unknown)).
+fof(f3607,plain,(
+  ( ! [X0] : (sum(X0,d,d) | ~product(additive_inverse(a),additive_identity,X0) | ~sum(additive_inverse(b),b,additive_identity)) )),
+  inference(resolution,[],[f547,f218])).
+fof(f218,plain,(
+  ( ! [X24,X23] : (sum(additive_identity,X23,additive_inverse(X24)) | ~sum(X23,X24,additive_identity)) )),
+  inference(resolution,[],[f145,f9])).
+fof(f9,axiom,(
+  ( ! [X0,X3,X1] : (~sum(X0,X1,X3) | sum(X1,X0,X3)) )),
+  file('RNG004-1.tptp',unknown)).
+fof(f145,plain,(
+  ( ! [X6,X7] : (sum(X6,additive_identity,additive_inverse(X7)) | ~sum(X6,X7,additive_identity)) )),
+  inference(resolution,[],[f43,f6])).
+fof(f43,plain,(
+  ( ! [X2,X0,X3,X1] : (~sum(X3,X2,X1) | sum(X0,X1,X2) | ~sum(X0,X3,additive_identity)) )),
+  inference(resolution,[],[f7,f1])).
+fof(f7,axiom,(
+  ( ! [X4,X2,X0,X5,X3,X1] : (~sum(X2,X3,X5) | sum(X0,X4,X5) | ~sum(X1,X3,X4) | ~sum(X0,X1,X2)) )),
+  file('RNG004-1.tptp',unknown)).
+fof(f547,plain,(
+  ( ! [X0,X1] : (~sum(X0,additive_inverse(b),additive_inverse(b)) | sum(X1,d,d) | ~product(additive_inverse(a),X0,X1)) )),
+  inference(resolution,[],[f69,f19])).
+fof(f19,axiom,(
+  product(additive_inverse(a),additive_inverse(b),d)),
+  file('RNG004-1.tptp',unknown)).
+fof(f69,plain,(
+  ( ! [X6,X4,X7,X5] : (~product(additive_inverse(a),X7,X5) | ~sum(X6,X7,additive_inverse(b)) | sum(X4,X5,d) | ~product(additive_inverse(a),X6,X4)) )),
+  inference(resolution,[],[f12,f19])).
+fof(f12,axiom,(
+  ( ! [X6,X0,X8,X7,X3,X1,X9] : (~product(X0,X8,X9) | sum(X6,X7,X9) | ~sum(X1,X3,X8) | ~product(X0,X3,X7) | ~product(X0,X1,X6)) )),
+  file('RNG004-1.tptp',unknown)).
+fof(f560857,plain,(
+  multiply(additive_inverse(a),additive_identity) = add(d,additive_inverse(c))),
+  inference(forward_demodulation,[],[f560849,f229079])).
+fof(f229079,plain,(
+  additive_inverse(c) = multiply(additive_inverse(a),b)),
+  inference(forward_demodulation,[],[f228718,f36])).
+fof(f228718,plain,(
+  multiply(additive_inverse(a),b) = add(additive_identity,additive_inverse(c))),
+  inference(superposition,[],[f3954,f228473])).
+fof(f228473,plain,(
+  additive_identity = add(c,multiply(additive_inverse(a),b))),
+  inference(forward_demodulation,[],[f228462,f35543])).
+fof(f35543,plain,(
+  additive_identity = multiply(additive_identity,b)),
+  inference(resolution,[],[f34164,f1])).
+fof(f34164,plain,(
+  ( ! [X5] : (~sum(X5,a,a) | additive_identity = multiply(X5,b)) )),
+  inference(resolution,[],[f32441,f467])).
+fof(f32441,plain,(
+  ( ! [X2] : (sum(multiply(X2,b),c,c) | ~sum(X2,a,a)) )),
+  inference(resolution,[],[f451,f3])).
+fof(f451,plain,(
+  ( ! [X0,X1] : (~product(X0,b,X1) | sum(X1,c,c) | ~sum(X0,a,a)) )),
+  inference(resolution,[],[f84,f18])).
+fof(f18,axiom,(
+  product(a,b,c)),
+  file('RNG004-1.tptp',unknown)).
+fof(f84,plain,(
+  ( ! [X2,X0,X3,X1] : (~product(X3,b,X1) | ~sum(X2,X3,a) | sum(X0,X1,c) | ~product(X2,b,X0)) )),
+  inference(resolution,[],[f14,f18])).
+fof(f14,axiom,(
+  ( ! [X6,X0,X8,X7,X3,X1,X9] : (~product(X8,X0,X9) | sum(X6,X7,X9) | ~sum(X1,X3,X8) | ~product(X3,X0,X7) | ~product(X1,X0,X6)) )),
+  file('RNG004-1.tptp',unknown)).
+fof(f228462,plain,(
+  multiply(additive_identity,b) = add(c,multiply(additive_inverse(a),b))),
+  inference(resolution,[],[f50580,f6])).
+fof(f50580,plain,(
+  ( ! [X37,X38] : (~sum(a,X37,X38) | multiply(X38,b) = add(c,multiply(X37,b))) )),
+  inference(resolution,[],[f29924,f31])).
+fof(f31,plain,(
+  ( ! [X10,X8,X9] : (~sum(X9,X10,X8) | add(X9,X10) = X8) )),
+  inference(resolution,[],[f16,f4])).
+fof(f29924,plain,(
+  ( ! [X37,X38] : (sum(c,multiply(X37,b),multiply(X38,b)) | ~sum(a,X37,X38)) )),
+  inference(resolution,[],[f18,f520])).
+fof(f520,plain,(
+  ( ! [X6,X10,X8,X7,X9] : (~product(X6,X10,X9) | sum(X9,multiply(X7,X10),multiply(X8,X10)) | ~sum(X6,X7,X8)) )),
+  inference(resolution,[],[f86,f3])).
+fof(f86,plain,(
+  ( ! [X12,X10,X8,X13,X11,X9] : (~product(X13,X11,X9) | ~sum(X12,X13,X10) | sum(X8,X9,multiply(X10,X11)) | ~product(X12,X11,X8)) )),
+  inference(resolution,[],[f14,f3])).
+fof(f3954,plain,(
+  ( ! [X31,X32] : (add(add(X31,X32),additive_inverse(X31)) = X32) )),
+  inference(resolution,[],[f3364,f32])).
+fof(f32,plain,(
+  ( ! [X12,X13,X11] : (~sum(X13,X12,X11) | add(X12,X13) = X11) )),
+  inference(resolution,[],[f16,f25])).
+fof(f25,plain,(
+  ( ! [X4,X5] : (sum(X4,X5,add(X5,X4))) )),
+  inference(resolution,[],[f9,f4])).
+fof(f3364,plain,(
+  ( ! [X61,X62] : (sum(additive_inverse(X61),add(X61,X62),X62)) )),
+  inference(resolution,[],[f489,f2324])).
+fof(f2324,plain,(
+  ( ! [X6,X5] : (sum(X5,additive_inverse(add(X6,X5)),additive_inverse(X6))) )),
+  inference(superposition,[],[f2270,f112])).
+fof(f112,plain,(
+  ( ! [X6,X7] : (add(X6,X7) = add(X7,X6)) )),
+  inference(resolution,[],[f31,f25])).
+fof(f2270,plain,(
+  ( ! [X10,X9] : (sum(X9,additive_inverse(add(X9,X10)),additive_inverse(X10))) )),
+  inference(superposition,[],[f4,f1578])).
+fof(f1578,plain,(
+  ( ! [X2,X3] : (additive_inverse(X2) = add(X3,additive_inverse(add(X3,X2)))) )),
+  inference(resolution,[],[f1534,f214])).
+fof(f214,plain,(
+  ( ! [X8,X9] : (~sum(X8,X9,additive_identity) | additive_inverse(X9) = X8) )),
+  inference(resolution,[],[f145,f28])).
+fof(f28,plain,(
+  ( ! [X2,X3] : (~sum(X3,additive_identity,X2) | X2 = X3) )),
+  inference(resolution,[],[f16,f2])).
+fof(f1534,plain,(
+  ( ! [X31,X32] : (sum(add(X31,additive_inverse(add(X31,X32))),X32,additive_identity)) )),
+  inference(forward_demodulation,[],[f1520,f112])).
+fof(f1520,plain,(
+  ( ! [X31,X32] : (sum(add(additive_inverse(add(X31,X32)),X31),X32,additive_identity)) )),
+  inference(resolution,[],[f316,f4])).
+fof(f316,plain,(
+  ( ! [X4,X5,X3] : (~sum(additive_inverse(add(X5,X4)),X5,X3) | sum(X3,X4,additive_identity)) )),
+  inference(resolution,[],[f55,f5])).
+fof(f55,plain,(
+  ( ! [X19,X17,X20,X18,X16] : (~sum(X16,add(X17,X18),X19) | sum(X20,X18,X19) | ~sum(X16,X17,X20)) )),
+  inference(resolution,[],[f8,f4])).
+fof(f489,plain,(
+  ( ! [X4,X2,X3] : (~sum(X4,additive_inverse(X2),X3) | sum(X3,X2,X4)) )),
+  inference(superposition,[],[f255,f173])).
+fof(f173,plain,(
+  ( ! [X6] : (additive_inverse(additive_inverse(X6)) = X6) )),
+  inference(resolution,[],[f160,f28])).
+fof(f160,plain,(
+  ( ! [X0] : (sum(additive_inverse(additive_inverse(X0)),additive_identity,X0)) )),
+  inference(resolution,[],[f144,f5])).
+fof(f144,plain,(
+  ( ! [X4,X5] : (~sum(X4,additive_inverse(X5),additive_identity) | sum(X4,additive_identity,X5)) )),
+  inference(resolution,[],[f43,f5])).
+fof(f560849,plain,(
+  multiply(additive_inverse(a),additive_identity) = add(d,multiply(additive_inverse(a),b))),
+  inference(resolution,[],[f52948,f5])).
+fof(f52948,plain,(
+  ( ! [X37,X38] : (~sum(additive_inverse(b),X37,X38) | multiply(additive_inverse(a),X38) = add(d,multiply(additive_inverse(a),X37))) )),
+  inference(resolution,[],[f3797,f31])).
+fof(f3797,plain,(
+  ( ! [X45,X44] : (sum(d,multiply(additive_inverse(a),X44),multiply(additive_inverse(a),X45)) | ~sum(additive_inverse(b),X44,X45)) )),
+  inference(resolution,[],[f496,f19])).
+fof(f496,plain,(
+  ( ! [X6,X10,X8,X7,X9] : (~product(X10,X6,X9) | sum(X9,multiply(X10,X7),multiply(X10,X8)) | ~sum(X6,X7,X8)) )),
+  inference(resolution,[],[f70,f3])).
+fof(f70,plain,(
+  ( ! [X12,X10,X8,X13,X11,X9] : (~product(X10,X13,X9) | ~sum(X12,X13,X11) | sum(X8,X9,multiply(X10,X11)) | ~product(X10,X12,X8)) )),
+  inference(resolution,[],[f12,f3])).
+fof(f3416,plain,(
+  ( ! [X19,X20] : (add(add(X19,additive_inverse(X20)),X20) = X19) )),
+  inference(resolution,[],[f3357,f31])).
+fof(f3357,plain,(
+  ( ! [X41,X42] : (sum(add(X41,additive_inverse(X42)),X42,X41)) )),
+  inference(resolution,[],[f489,f4])).
+% SZS output end Proof for RNG004-1
+% ------------------------------
+% Version: Vampire 4.4.0 (commit d98a3d53 on 2020-01-14 21:02:12 +0100)
+% Termination reason: Refutation
+
+% Memory used [KB]: 194964
+% Time elapsed: 26.913 s
+% ------------------------------
+% ------------------------------

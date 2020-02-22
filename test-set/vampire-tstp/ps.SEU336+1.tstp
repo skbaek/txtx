@@ -1,0 +1,546 @@
+% Refutation found. Thanks to Tanya!
+% SZS status Theorem for SEU336+1
+% SZS output start Proof for SEU336+1
+fof(f83813,plain,(
+  $false),
+  inference(avatar_sat_refutation,[],[f222,f223,f2540,f6361,f12221,f18179,f18204,f18269,f18271,f18273,f18421,f18820,f19008,f19832,f83809])).
+fof(f83809,plain,(
+  ~spl10_2 | ~spl10_39 | ~spl10_109 | spl10_305),
+  inference(avatar_contradiction_clause,[],[f83808])).
+fof(f83808,plain,(
+  $false | (~spl10_2 | ~spl10_39 | ~spl10_109 | spl10_305)),
+  inference(subsumption_resolution,[],[f83797,f2547])).
+fof(f2547,plain,(
+  in(sK1(sK8,sK9),sK9) | ~spl10_39),
+  inference(avatar_component_clause,[],[f2545])).
+fof(f2545,plain,(
+  spl10_39 <=> in(sK1(sK8,sK9),sK9)),
+  introduced(avatar_definition,[new_symbols(naming,[spl10_39])])).
+fof(f83797,plain,(
+  ~in(sK1(sK8,sK9),sK9) | (~spl10_2 | ~spl10_109 | spl10_305)),
+  inference(resolution,[],[f61933,f18819])).
+fof(f18819,plain,(
+  ~open_subset(subset_complement(the_carrier(sK8),sK1(sK8,sK9)),sK8) | spl10_305),
+  inference(avatar_component_clause,[],[f18817])).
+fof(f18817,plain,(
+  spl10_305 <=> open_subset(subset_complement(the_carrier(sK8),sK1(sK8,sK9)),sK8)),
+  introduced(avatar_definition,[new_symbols(naming,[spl10_305])])).
+fof(f61933,plain,(
+  ( ! [X5] : (open_subset(subset_complement(the_carrier(sK8),X5),sK8) | ~in(X5,sK9)) ) | (~spl10_2 | ~spl10_109)),
+  inference(resolution,[],[f6871,f18387])).
+fof(f18387,plain,(
+  ( ! [X0] : (~in(X0,complements_of_subsets(the_carrier(sK8),sK9)) | open_subset(X0,sK8)) ) | ~spl10_2),
+  inference(subsumption_resolution,[],[f18386,f197])).
+fof(f197,plain,(
+  element(sK9,powerset(powerset(the_carrier(sK8))))),
+  inference(cnf_transformation,[],[f131])).
+fof(f131,plain,(
+  ((~open_subsets(complements_of_subsets(the_carrier(sK8),sK9),sK8) | ~closed_subsets(sK9,sK8)) & (open_subsets(complements_of_subsets(the_carrier(sK8),sK9),sK8) | closed_subsets(sK9,sK8)) & element(sK9,powerset(powerset(the_carrier(sK8))))) & top_str(sK8)),
+  inference(skolemisation,[status(esa),new_symbols(skolem,[sK8,sK9])],[f128,f130,f129])).
+fof(f129,plain,(
+  ? [X0] : (? [X1] : ((~open_subsets(complements_of_subsets(the_carrier(X0),X1),X0) | ~closed_subsets(X1,X0)) & (open_subsets(complements_of_subsets(the_carrier(X0),X1),X0) | closed_subsets(X1,X0)) & element(X1,powerset(powerset(the_carrier(X0))))) & top_str(X0)) => (? [X1] : ((~open_subsets(complements_of_subsets(the_carrier(sK8),X1),sK8) | ~closed_subsets(X1,sK8)) & (open_subsets(complements_of_subsets(the_carrier(sK8),X1),sK8) | closed_subsets(X1,sK8)) & element(X1,powerset(powerset(the_carrier(sK8))))) & top_str(sK8))),
+  introduced(choice_axiom,[])).
+fof(f130,plain,(
+  ? [X1] : ((~open_subsets(complements_of_subsets(the_carrier(sK8),X1),sK8) | ~closed_subsets(X1,sK8)) & (open_subsets(complements_of_subsets(the_carrier(sK8),X1),sK8) | closed_subsets(X1,sK8)) & element(X1,powerset(powerset(the_carrier(sK8))))) => ((~open_subsets(complements_of_subsets(the_carrier(sK8),sK9),sK8) | ~closed_subsets(sK9,sK8)) & (open_subsets(complements_of_subsets(the_carrier(sK8),sK9),sK8) | closed_subsets(sK9,sK8)) & element(sK9,powerset(powerset(the_carrier(sK8)))))),
+  introduced(choice_axiom,[])).
+fof(f128,plain,(
+  ? [X0] : (? [X1] : ((~open_subsets(complements_of_subsets(the_carrier(X0),X1),X0) | ~closed_subsets(X1,X0)) & (open_subsets(complements_of_subsets(the_carrier(X0),X1),X0) | closed_subsets(X1,X0)) & element(X1,powerset(powerset(the_carrier(X0))))) & top_str(X0))),
+  inference(flattening,[],[f127])).
+fof(f127,plain,(
+  ? [X0] : (? [X1] : (((~open_subsets(complements_of_subsets(the_carrier(X0),X1),X0) | ~closed_subsets(X1,X0)) & (open_subsets(complements_of_subsets(the_carrier(X0),X1),X0) | closed_subsets(X1,X0))) & element(X1,powerset(powerset(the_carrier(X0))))) & top_str(X0))),
+  inference(nnf_transformation,[],[f91])).
+fof(f91,plain,(
+  ? [X0] : (? [X1] : ((closed_subsets(X1,X0) <~> open_subsets(complements_of_subsets(the_carrier(X0),X1),X0)) & element(X1,powerset(powerset(the_carrier(X0))))) & top_str(X0))),
+  inference(ennf_transformation,[],[f40])).
+fof(f40,negated_conjecture,(
+  ~! [X0] : (top_str(X0) => ! [X1] : (element(X1,powerset(powerset(the_carrier(X0)))) => (closed_subsets(X1,X0) <=> open_subsets(complements_of_subsets(the_carrier(X0),X1),X0))))),
+  inference(negated_conjecture,[],[f39])).
+fof(f39,conjecture,(
+  ! [X0] : (top_str(X0) => ! [X1] : (element(X1,powerset(powerset(the_carrier(X0)))) => (closed_subsets(X1,X0) <=> open_subsets(complements_of_subsets(the_carrier(X0),X1),X0))))),
+  file('SEU336+1.tptp',unknown)).
+fof(f18386,plain,(
+  ( ! [X0] : (~in(X0,complements_of_subsets(the_carrier(sK8),sK9)) | open_subset(X0,sK8) | ~element(sK9,powerset(powerset(the_carrier(sK8))))) ) | ~spl10_2),
+  inference(subsumption_resolution,[],[f18385,f196])).
+fof(f196,plain,(
+  top_str(sK8)),
+  inference(cnf_transformation,[],[f131])).
+fof(f18385,plain,(
+  ( ! [X0] : (~in(X0,complements_of_subsets(the_carrier(sK8),sK9)) | open_subset(X0,sK8) | ~top_str(sK8) | ~element(sK9,powerset(powerset(the_carrier(sK8))))) ) | ~spl10_2),
+  inference(resolution,[],[f220,f558])).
+fof(f558,plain,(
+  ( ! [X4,X5,X3] : (~open_subsets(complements_of_subsets(the_carrier(X4),X5),X4) | ~in(X3,complements_of_subsets(the_carrier(X4),X5)) | open_subset(X3,X4) | ~top_str(X4) | ~element(X5,powerset(powerset(the_carrier(X4))))) )),
+  inference(subsumption_resolution,[],[f551,f439])).
+fof(f439,plain,(
+  ( ! [X33,X34,X32] : (~element(X32,powerset(powerset(X33))) | element(X34,powerset(X33)) | ~in(X34,complements_of_subsets(X33,X32))) )),
+  inference(resolution,[],[f173,f207])).
+fof(f207,plain,(
+  ( ! [X2,X0,X1] : (~element(X1,powerset(X2)) | element(X0,X2) | ~in(X0,X1)) )),
+  inference(cnf_transformation,[],[f99])).
+fof(f99,plain,(
+  ! [X0,X1,X2] : (element(X0,X2) | ~element(X1,powerset(X2)) | ~in(X0,X1))),
+  inference(flattening,[],[f98])).
+fof(f98,plain,(
+  ! [X0,X1,X2] : (element(X0,X2) | (~element(X1,powerset(X2)) | ~in(X0,X1)))),
+  inference(ennf_transformation,[],[f46])).
+fof(f46,axiom,(
+  ! [X0,X1,X2] : ((element(X1,powerset(X2)) & in(X0,X1)) => element(X0,X2))),
+  file('SEU336+1.tptp',unknown)).
+fof(f173,plain,(
+  ( ! [X0,X1] : (element(complements_of_subsets(X0,X1),powerset(powerset(X0))) | ~element(X1,powerset(powerset(X0)))) )),
+  inference(cnf_transformation,[],[f87])).
+fof(f87,plain,(
+  ! [X0,X1] : (element(complements_of_subsets(X0,X1),powerset(powerset(X0))) | ~element(X1,powerset(powerset(X0))))),
+  inference(ennf_transformation,[],[f23])).
+fof(f23,axiom,(
+  ! [X0,X1] : (element(X1,powerset(powerset(X0))) => element(complements_of_subsets(X0,X1),powerset(powerset(X0))))),
+  file('SEU336+1.tptp',unknown)).
+fof(f551,plain,(
+  ( ! [X4,X5,X3] : (~in(X3,complements_of_subsets(the_carrier(X4),X5)) | ~element(X3,powerset(the_carrier(X4))) | ~open_subsets(complements_of_subsets(the_carrier(X4),X5),X4) | open_subset(X3,X4) | ~top_str(X4) | ~element(X5,powerset(powerset(the_carrier(X4))))) )),
+  inference(resolution,[],[f159,f173])).
+fof(f159,plain,(
+  ( ! [X0,X3,X1] : (~element(X1,powerset(powerset(the_carrier(X0)))) | ~in(X3,X1) | ~element(X3,powerset(the_carrier(X0))) | ~open_subsets(X1,X0) | open_subset(X3,X0) | ~top_str(X0)) )),
+  inference(cnf_transformation,[],[f107])).
+fof(f107,plain,(
+  ! [X0] : (! [X1] : (((open_subsets(X1,X0) | (~open_subset(sK0(X0,X1),X0) & in(sK0(X0,X1),X1) & element(sK0(X0,X1),powerset(the_carrier(X0))))) & (! [X3] : (open_subset(X3,X0) | ~in(X3,X1) | ~element(X3,powerset(the_carrier(X0)))) | ~open_subsets(X1,X0))) | ~element(X1,powerset(powerset(the_carrier(X0))))) | ~top_str(X0))),
+  inference(skolemisation,[status(esa),new_symbols(skolem,[sK0])],[f105,f106])).
+fof(f106,plain,(
+  ! [X1,X0] : (? [X2] : (~open_subset(X2,X0) & in(X2,X1) & element(X2,powerset(the_carrier(X0)))) => (~open_subset(sK0(X0,X1),X0) & in(sK0(X0,X1),X1) & element(sK0(X0,X1),powerset(the_carrier(X0)))))),
+  introduced(choice_axiom,[])).
+fof(f105,plain,(
+  ! [X0] : (! [X1] : (((open_subsets(X1,X0) | ? [X2] : (~open_subset(X2,X0) & in(X2,X1) & element(X2,powerset(the_carrier(X0))))) & (! [X3] : (open_subset(X3,X0) | ~in(X3,X1) | ~element(X3,powerset(the_carrier(X0)))) | ~open_subsets(X1,X0))) | ~element(X1,powerset(powerset(the_carrier(X0))))) | ~top_str(X0))),
+  inference(rectify,[],[f104])).
+fof(f104,plain,(
+  ! [X0] : (! [X1] : (((open_subsets(X1,X0) | ? [X2] : (~open_subset(X2,X0) & in(X2,X1) & element(X2,powerset(the_carrier(X0))))) & (! [X2] : (open_subset(X2,X0) | ~in(X2,X1) | ~element(X2,powerset(the_carrier(X0)))) | ~open_subsets(X1,X0))) | ~element(X1,powerset(powerset(the_carrier(X0))))) | ~top_str(X0))),
+  inference(nnf_transformation,[],[f82])).
+fof(f82,plain,(
+  ! [X0] : (! [X1] : ((open_subsets(X1,X0) <=> ! [X2] : (open_subset(X2,X0) | ~in(X2,X1) | ~element(X2,powerset(the_carrier(X0))))) | ~element(X1,powerset(powerset(the_carrier(X0))))) | ~top_str(X0))),
+  inference(flattening,[],[f81])).
+fof(f81,plain,(
+  ! [X0] : (! [X1] : ((open_subsets(X1,X0) <=> ! [X2] : ((open_subset(X2,X0) | ~in(X2,X1)) | ~element(X2,powerset(the_carrier(X0))))) | ~element(X1,powerset(powerset(the_carrier(X0))))) | ~top_str(X0))),
+  inference(ennf_transformation,[],[f17])).
+fof(f17,axiom,(
+  ! [X0] : (top_str(X0) => ! [X1] : (element(X1,powerset(powerset(the_carrier(X0)))) => (open_subsets(X1,X0) <=> ! [X2] : (element(X2,powerset(the_carrier(X0))) => (in(X2,X1) => open_subset(X2,X0))))))),
+  file('SEU336+1.tptp',unknown)).
+fof(f220,plain,(
+  open_subsets(complements_of_subsets(the_carrier(sK8),sK9),sK8) | ~spl10_2),
+  inference(avatar_component_clause,[],[f219])).
+fof(f219,plain,(
+  spl10_2 <=> open_subsets(complements_of_subsets(the_carrier(sK8),sK9),sK8)),
+  introduced(avatar_definition,[new_symbols(naming,[spl10_2])])).
+fof(f6871,plain,(
+  ( ! [X8] : (in(subset_complement(the_carrier(sK8),X8),complements_of_subsets(the_carrier(sK8),sK9)) | ~in(X8,sK9)) ) | ~spl10_109),
+  inference(avatar_component_clause,[],[f6870])).
+fof(f6870,plain,(
+  spl10_109 <=> ! [X8] : (~in(X8,sK9) | in(subset_complement(the_carrier(sK8),X8),complements_of_subsets(the_carrier(sK8),sK9)))),
+  introduced(avatar_definition,[new_symbols(naming,[spl10_109])])).
+fof(f19832,plain,(
+  spl10_304 | ~spl10_308),
+  inference(avatar_contradiction_clause,[],[f19831])).
+fof(f19831,plain,(
+  $false | (spl10_304 | ~spl10_308)),
+  inference(subsumption_resolution,[],[f19828,f18836])).
+fof(f18836,plain,(
+  element(sK1(sK8,sK9),powerset(the_carrier(sK8))) | ~spl10_308),
+  inference(avatar_component_clause,[],[f18834])).
+fof(f18834,plain,(
+  spl10_308 <=> element(sK1(sK8,sK9),powerset(the_carrier(sK8)))),
+  introduced(avatar_definition,[new_symbols(naming,[spl10_308])])).
+fof(f19828,plain,(
+  ~element(sK1(sK8,sK9),powerset(the_carrier(sK8))) | spl10_304),
+  inference(resolution,[],[f18815,f172])).
+fof(f172,plain,(
+  ( ! [X0,X1] : (element(subset_complement(X0,X1),powerset(X0)) | ~element(X1,powerset(X0))) )),
+  inference(cnf_transformation,[],[f86])).
+fof(f86,plain,(
+  ! [X0,X1] : (element(subset_complement(X0,X1),powerset(X0)) | ~element(X1,powerset(X0)))),
+  inference(ennf_transformation,[],[f22])).
+fof(f22,axiom,(
+  ! [X0,X1] : (element(X1,powerset(X0)) => element(subset_complement(X0,X1),powerset(X0)))),
+  file('SEU336+1.tptp',unknown)).
+fof(f18815,plain,(
+  ~element(subset_complement(the_carrier(sK8),sK1(sK8,sK9)),powerset(the_carrier(sK8))) | spl10_304),
+  inference(avatar_component_clause,[],[f18813])).
+fof(f18813,plain,(
+  spl10_304 <=> element(subset_complement(the_carrier(sK8),sK1(sK8,sK9)),powerset(the_carrier(sK8)))),
+  introduced(avatar_definition,[new_symbols(naming,[spl10_304])])).
+fof(f19008,plain,(
+  spl10_308 | spl10_1 | ~spl10_75),
+  inference(avatar_split_clause,[],[f19007,f4233,f215,f18834])).
+fof(f215,plain,(
+  spl10_1 <=> closed_subsets(sK9,sK8)),
+  introduced(avatar_definition,[new_symbols(naming,[spl10_1])])).
+fof(f4233,plain,(
+  spl10_75 <=> element(subset_complement(powerset(the_carrier(sK8)),sK9),powerset(powerset(the_carrier(sK8))))),
+  introduced(avatar_definition,[new_symbols(naming,[spl10_75])])).
+fof(f19007,plain,(
+  element(sK1(sK8,sK9),powerset(the_carrier(sK8))) | (spl10_1 | ~spl10_75)),
+  inference(subsumption_resolution,[],[f19006,f217])).
+fof(f217,plain,(
+  ~closed_subsets(sK9,sK8) | spl10_1),
+  inference(avatar_component_clause,[],[f215])).
+fof(f19006,plain,(
+  closed_subsets(sK9,sK8) | element(sK1(sK8,sK9),powerset(the_carrier(sK8))) | ~spl10_75),
+  inference(forward_demodulation,[],[f19005,f421])).
+fof(f421,plain,(
+  sK9 = subset_complement(powerset(the_carrier(sK8)),subset_complement(powerset(the_carrier(sK8)),sK9))),
+  inference(resolution,[],[f183,f197])).
+fof(f183,plain,(
+  ( ! [X0,X1] : (~element(X1,powerset(X0)) | subset_complement(X0,subset_complement(X0,X1)) = X1) )),
+  inference(cnf_transformation,[],[f88])).
+fof(f88,plain,(
+  ! [X0,X1] : (subset_complement(X0,subset_complement(X0,X1)) = X1 | ~element(X1,powerset(X0)))),
+  inference(ennf_transformation,[],[f33])).
+fof(f33,axiom,(
+  ! [X0,X1] : (element(X1,powerset(X0)) => subset_complement(X0,subset_complement(X0,X1)) = X1)),
+  file('SEU336+1.tptp',unknown)).
+fof(f19005,plain,(
+  element(sK1(sK8,sK9),powerset(the_carrier(sK8))) | closed_subsets(subset_complement(powerset(the_carrier(sK8)),subset_complement(powerset(the_carrier(sK8)),sK9)),sK8) | ~spl10_75),
+  inference(subsumption_resolution,[],[f19004,f4234])).
+fof(f4234,plain,(
+  element(subset_complement(powerset(the_carrier(sK8)),sK9),powerset(powerset(the_carrier(sK8)))) | ~spl10_75),
+  inference(avatar_component_clause,[],[f4233])).
+fof(f19004,plain,(
+  element(sK1(sK8,sK9),powerset(the_carrier(sK8))) | ~element(subset_complement(powerset(the_carrier(sK8)),sK9),powerset(powerset(the_carrier(sK8)))) | closed_subsets(subset_complement(powerset(the_carrier(sK8)),subset_complement(powerset(the_carrier(sK8)),sK9)),sK8)),
+  inference(subsumption_resolution,[],[f18993,f196])).
+fof(f18993,plain,(
+  element(sK1(sK8,sK9),powerset(the_carrier(sK8))) | ~top_str(sK8) | ~element(subset_complement(powerset(the_carrier(sK8)),sK9),powerset(powerset(the_carrier(sK8)))) | closed_subsets(subset_complement(powerset(the_carrier(sK8)),subset_complement(powerset(the_carrier(sK8)),sK9)),sK8)),
+  inference(superposition,[],[f2898,f421])).
+fof(f2898,plain,(
+  ( ! [X0,X1] : (element(sK1(X0,subset_complement(powerset(the_carrier(X0)),X1)),powerset(the_carrier(X0))) | ~top_str(X0) | ~element(X1,powerset(powerset(the_carrier(X0)))) | closed_subsets(subset_complement(powerset(the_carrier(X0)),X1),X0)) )),
+  inference(duplicate_literal_removal,[],[f2888])).
+fof(f2888,plain,(
+  ( ! [X0,X1] : (closed_subsets(subset_complement(powerset(the_carrier(X0)),X1),X0) | ~top_str(X0) | ~element(X1,powerset(powerset(the_carrier(X0)))) | element(sK1(X0,subset_complement(powerset(the_carrier(X0)),X1)),powerset(the_carrier(X0))) | ~element(X1,powerset(powerset(the_carrier(X0))))) )),
+  inference(resolution,[],[f481,f408])).
+fof(f408,plain,(
+  ( ! [X4,X5,X3] : (~in(X3,subset_complement(X4,X5)) | element(X3,X4) | ~element(X5,powerset(X4))) )),
+  inference(resolution,[],[f207,f172])).
+fof(f481,plain,(
+  ( ! [X4,X5] : (in(sK1(X4,subset_complement(powerset(the_carrier(X4)),X5)),subset_complement(powerset(the_carrier(X4)),X5)) | closed_subsets(subset_complement(powerset(the_carrier(X4)),X5),X4) | ~top_str(X4) | ~element(X5,powerset(powerset(the_carrier(X4))))) )),
+  inference(resolution,[],[f165,f172])).
+fof(f165,plain,(
+  ( ! [X0,X1] : (~element(X1,powerset(powerset(the_carrier(X0)))) | in(sK1(X0,X1),X1) | closed_subsets(X1,X0) | ~top_str(X0)) )),
+  inference(cnf_transformation,[],[f111])).
+fof(f111,plain,(
+  ! [X0] : (! [X1] : (((closed_subsets(X1,X0) | (~closed_subset(sK1(X0,X1),X0) & in(sK1(X0,X1),X1) & element(sK1(X0,X1),powerset(the_carrier(X0))))) & (! [X3] : (closed_subset(X3,X0) | ~in(X3,X1) | ~element(X3,powerset(the_carrier(X0)))) | ~closed_subsets(X1,X0))) | ~element(X1,powerset(powerset(the_carrier(X0))))) | ~top_str(X0))),
+  inference(skolemisation,[status(esa),new_symbols(skolem,[sK1])],[f109,f110])).
+fof(f110,plain,(
+  ! [X1,X0] : (? [X2] : (~closed_subset(X2,X0) & in(X2,X1) & element(X2,powerset(the_carrier(X0)))) => (~closed_subset(sK1(X0,X1),X0) & in(sK1(X0,X1),X1) & element(sK1(X0,X1),powerset(the_carrier(X0)))))),
+  introduced(choice_axiom,[])).
+fof(f109,plain,(
+  ! [X0] : (! [X1] : (((closed_subsets(X1,X0) | ? [X2] : (~closed_subset(X2,X0) & in(X2,X1) & element(X2,powerset(the_carrier(X0))))) & (! [X3] : (closed_subset(X3,X0) | ~in(X3,X1) | ~element(X3,powerset(the_carrier(X0)))) | ~closed_subsets(X1,X0))) | ~element(X1,powerset(powerset(the_carrier(X0))))) | ~top_str(X0))),
+  inference(rectify,[],[f108])).
+fof(f108,plain,(
+  ! [X0] : (! [X1] : (((closed_subsets(X1,X0) | ? [X2] : (~closed_subset(X2,X0) & in(X2,X1) & element(X2,powerset(the_carrier(X0))))) & (! [X2] : (closed_subset(X2,X0) | ~in(X2,X1) | ~element(X2,powerset(the_carrier(X0)))) | ~closed_subsets(X1,X0))) | ~element(X1,powerset(powerset(the_carrier(X0))))) | ~top_str(X0))),
+  inference(nnf_transformation,[],[f84])).
+fof(f84,plain,(
+  ! [X0] : (! [X1] : ((closed_subsets(X1,X0) <=> ! [X2] : (closed_subset(X2,X0) | ~in(X2,X1) | ~element(X2,powerset(the_carrier(X0))))) | ~element(X1,powerset(powerset(the_carrier(X0))))) | ~top_str(X0))),
+  inference(flattening,[],[f83])).
+fof(f83,plain,(
+  ! [X0] : (! [X1] : ((closed_subsets(X1,X0) <=> ! [X2] : ((closed_subset(X2,X0) | ~in(X2,X1)) | ~element(X2,powerset(the_carrier(X0))))) | ~element(X1,powerset(powerset(the_carrier(X0))))) | ~top_str(X0))),
+  inference(ennf_transformation,[],[f18])).
+fof(f18,axiom,(
+  ! [X0] : (top_str(X0) => ! [X1] : (element(X1,powerset(powerset(the_carrier(X0)))) => (closed_subsets(X1,X0) <=> ! [X2] : (element(X2,powerset(the_carrier(X0))) => (in(X2,X1) => closed_subset(X2,X0))))))),
+  file('SEU336+1.tptp',unknown)).
+fof(f18820,plain,(
+  ~spl10_304 | ~spl10_305 | spl10_32 | ~spl10_296),
+  inference(avatar_split_clause,[],[f18811,f18237,f2507,f18817,f18813])).
+fof(f2507,plain,(
+  spl10_32 <=> closed_subset(sK1(sK8,sK9),sK8)),
+  introduced(avatar_definition,[new_symbols(naming,[spl10_32])])).
+fof(f18237,plain,(
+  spl10_296 <=> sK1(sK8,sK9) = subset_complement(the_carrier(sK8),subset_complement(the_carrier(sK8),sK1(sK8,sK9)))),
+  introduced(avatar_definition,[new_symbols(naming,[spl10_296])])).
+fof(f18811,plain,(
+  ~open_subset(subset_complement(the_carrier(sK8),sK1(sK8,sK9)),sK8) | ~element(subset_complement(the_carrier(sK8),sK1(sK8,sK9)),powerset(the_carrier(sK8))) | (spl10_32 | ~spl10_296)),
+  inference(subsumption_resolution,[],[f18810,f196])).
+fof(f18810,plain,(
+  ~open_subset(subset_complement(the_carrier(sK8),sK1(sK8,sK9)),sK8) | ~element(subset_complement(the_carrier(sK8),sK1(sK8,sK9)),powerset(the_carrier(sK8))) | ~top_str(sK8) | (spl10_32 | ~spl10_296)),
+  inference(subsumption_resolution,[],[f18760,f2509])).
+fof(f2509,plain,(
+  ~closed_subset(sK1(sK8,sK9),sK8) | spl10_32),
+  inference(avatar_component_clause,[],[f2507])).
+fof(f18760,plain,(
+  closed_subset(sK1(sK8,sK9),sK8) | ~open_subset(subset_complement(the_carrier(sK8),sK1(sK8,sK9)),sK8) | ~element(subset_complement(the_carrier(sK8),sK1(sK8,sK9)),powerset(the_carrier(sK8))) | ~top_str(sK8) | ~spl10_296),
+  inference(superposition,[],[f204,f18239])).
+fof(f18239,plain,(
+  sK1(sK8,sK9) = subset_complement(the_carrier(sK8),subset_complement(the_carrier(sK8),sK1(sK8,sK9))) | ~spl10_296),
+  inference(avatar_component_clause,[],[f18237])).
+fof(f204,plain,(
+  ( ! [X0,X1] : (closed_subset(subset_complement(the_carrier(X0),X1),X0) | ~open_subset(X1,X0) | ~element(X1,powerset(the_carrier(X0))) | ~top_str(X0)) )),
+  inference(cnf_transformation,[],[f133])).
+fof(f133,plain,(
+  ! [X0] : (! [X1] : (((open_subset(X1,X0) | ~closed_subset(subset_complement(the_carrier(X0),X1),X0)) & (closed_subset(subset_complement(the_carrier(X0),X1),X0) | ~open_subset(X1,X0))) | ~element(X1,powerset(the_carrier(X0)))) | ~top_str(X0))),
+  inference(nnf_transformation,[],[f96])).
+fof(f96,plain,(
+  ! [X0] : (! [X1] : ((open_subset(X1,X0) <=> closed_subset(subset_complement(the_carrier(X0),X1),X0)) | ~element(X1,powerset(the_carrier(X0)))) | ~top_str(X0))),
+  inference(ennf_transformation,[],[f44])).
+fof(f44,axiom,(
+  ! [X0] : (top_str(X0) => ! [X1] : (element(X1,powerset(the_carrier(X0))) => (open_subset(X1,X0) <=> closed_subset(subset_complement(the_carrier(X0),X1),X0))))),
+  file('SEU336+1.tptp',unknown)).
+fof(f18421,plain,(
+  spl10_31),
+  inference(avatar_contradiction_clause,[],[f18420])).
+fof(f18420,plain,(
+  $false | spl10_31),
+  inference(subsumption_resolution,[],[f18418,f197])).
+fof(f18418,plain,(
+  ~element(sK9,powerset(powerset(the_carrier(sK8)))) | spl10_31),
+  inference(resolution,[],[f2505,f173])).
+fof(f2505,plain,(
+  ~element(complements_of_subsets(the_carrier(sK8),sK9),powerset(powerset(the_carrier(sK8)))) | spl10_31),
+  inference(avatar_component_clause,[],[f2503])).
+fof(f2503,plain,(
+  spl10_31 <=> element(complements_of_subsets(the_carrier(sK8),sK9),powerset(powerset(the_carrier(sK8))))),
+  introduced(avatar_definition,[new_symbols(naming,[spl10_31])])).
+fof(f18273,plain,(
+  ~spl10_32 | spl10_1 | ~spl10_75),
+  inference(avatar_split_clause,[],[f18272,f4233,f215,f2507])).
+fof(f18272,plain,(
+  closed_subsets(sK9,sK8) | ~closed_subset(sK1(sK8,sK9),sK8) | ~spl10_75),
+  inference(subsumption_resolution,[],[f2745,f4234])).
+fof(f2745,plain,(
+  closed_subsets(sK9,sK8) | ~closed_subset(sK1(sK8,sK9),sK8) | ~element(subset_complement(powerset(the_carrier(sK8)),sK9),powerset(powerset(the_carrier(sK8))))),
+  inference(forward_demodulation,[],[f2744,f421])).
+fof(f2744,plain,(
+  ~closed_subset(sK1(sK8,sK9),sK8) | closed_subsets(subset_complement(powerset(the_carrier(sK8)),subset_complement(powerset(the_carrier(sK8)),sK9)),sK8) | ~element(subset_complement(powerset(the_carrier(sK8)),sK9),powerset(powerset(the_carrier(sK8))))),
+  inference(subsumption_resolution,[],[f2740,f196])).
+fof(f2740,plain,(
+  ~closed_subset(sK1(sK8,sK9),sK8) | closed_subsets(subset_complement(powerset(the_carrier(sK8)),subset_complement(powerset(the_carrier(sK8)),sK9)),sK8) | ~top_str(sK8) | ~element(subset_complement(powerset(the_carrier(sK8)),sK9),powerset(powerset(the_carrier(sK8))))),
+  inference(superposition,[],[f495,f421])).
+fof(f495,plain,(
+  ( ! [X4,X5] : (~closed_subset(sK1(X4,subset_complement(powerset(the_carrier(X4)),X5)),X4) | closed_subsets(subset_complement(powerset(the_carrier(X4)),X5),X4) | ~top_str(X4) | ~element(X5,powerset(powerset(the_carrier(X4))))) )),
+  inference(resolution,[],[f166,f172])).
+fof(f166,plain,(
+  ( ! [X0,X1] : (~element(X1,powerset(powerset(the_carrier(X0)))) | ~closed_subset(sK1(X0,X1),X0) | closed_subsets(X1,X0) | ~top_str(X0)) )),
+  inference(cnf_transformation,[],[f111])).
+fof(f18271,plain,(
+  spl10_296 | spl10_1),
+  inference(avatar_split_clause,[],[f18270,f215,f18237])).
+fof(f18270,plain,(
+  closed_subsets(sK9,sK8) | sK1(sK8,sK9) = subset_complement(the_carrier(sK8),subset_complement(the_carrier(sK8),sK1(sK8,sK9)))),
+  inference(subsumption_resolution,[],[f2775,f196])).
+fof(f2775,plain,(
+  closed_subsets(sK9,sK8) | ~top_str(sK8) | sK1(sK8,sK9) = subset_complement(the_carrier(sK8),subset_complement(the_carrier(sK8),sK1(sK8,sK9)))),
+  inference(resolution,[],[f544,f197])).
+fof(f544,plain,(
+  ( ! [X30,X31] : (~element(X30,powerset(powerset(the_carrier(X31)))) | closed_subsets(X30,X31) | ~top_str(X31) | sK1(X31,X30) = subset_complement(the_carrier(X31),subset_complement(the_carrier(X31),sK1(X31,X30)))) )),
+  inference(resolution,[],[f164,f183])).
+fof(f164,plain,(
+  ( ! [X0,X1] : (element(sK1(X0,X1),powerset(the_carrier(X0))) | closed_subsets(X1,X0) | ~element(X1,powerset(powerset(the_carrier(X0)))) | ~top_str(X0)) )),
+  inference(cnf_transformation,[],[f111])).
+fof(f18269,plain,(
+  ~spl10_31 | spl10_39 | spl10_1),
+  inference(avatar_split_clause,[],[f2811,f215,f2545,f2503])).
+fof(f2811,plain,(
+  closed_subsets(sK9,sK8) | in(sK1(sK8,sK9),sK9) | ~element(complements_of_subsets(the_carrier(sK8),sK9),powerset(powerset(the_carrier(sK8))))),
+  inference(forward_demodulation,[],[f2810,f449])).
+fof(f449,plain,(
+  sK9 = complements_of_subsets(the_carrier(sK8),complements_of_subsets(the_carrier(sK8),sK9))),
+  inference(resolution,[],[f184,f197])).
+fof(f184,plain,(
+  ( ! [X0,X1] : (~element(X1,powerset(powerset(X0))) | complements_of_subsets(X0,complements_of_subsets(X0,X1)) = X1) )),
+  inference(cnf_transformation,[],[f89])).
+fof(f89,plain,(
+  ! [X0,X1] : (complements_of_subsets(X0,complements_of_subsets(X0,X1)) = X1 | ~element(X1,powerset(powerset(X0))))),
+  inference(ennf_transformation,[],[f34])).
+fof(f34,axiom,(
+  ! [X0,X1] : (element(X1,powerset(powerset(X0))) => complements_of_subsets(X0,complements_of_subsets(X0,X1)) = X1)),
+  file('SEU336+1.tptp',unknown)).
+fof(f2810,plain,(
+  in(sK1(sK8,sK9),sK9) | closed_subsets(complements_of_subsets(the_carrier(sK8),complements_of_subsets(the_carrier(sK8),sK9)),sK8) | ~element(complements_of_subsets(the_carrier(sK8),sK9),powerset(powerset(the_carrier(sK8))))),
+  inference(subsumption_resolution,[],[f2806,f196])).
+fof(f2806,plain,(
+  in(sK1(sK8,sK9),sK9) | closed_subsets(complements_of_subsets(the_carrier(sK8),complements_of_subsets(the_carrier(sK8),sK9)),sK8) | ~top_str(sK8) | ~element(complements_of_subsets(the_carrier(sK8),sK9),powerset(powerset(the_carrier(sK8))))),
+  inference(superposition,[],[f480,f449])).
+fof(f480,plain,(
+  ( ! [X2,X3] : (in(sK1(X2,complements_of_subsets(the_carrier(X2),X3)),complements_of_subsets(the_carrier(X2),X3)) | closed_subsets(complements_of_subsets(the_carrier(X2),X3),X2) | ~top_str(X2) | ~element(X3,powerset(powerset(the_carrier(X2))))) )),
+  inference(resolution,[],[f165,f173])).
+fof(f18204,plain,(
+  spl10_2 | ~spl10_156),
+  inference(avatar_contradiction_clause,[],[f18203])).
+fof(f18203,plain,(
+  $false | (spl10_2 | ~spl10_156)),
+  inference(subsumption_resolution,[],[f18202,f197])).
+fof(f18202,plain,(
+  ~element(sK9,powerset(powerset(the_carrier(sK8)))) | (spl10_2 | ~spl10_156)),
+  inference(subsumption_resolution,[],[f18201,f196])).
+fof(f18201,plain,(
+  ~top_str(sK8) | ~element(sK9,powerset(powerset(the_carrier(sK8)))) | (spl10_2 | ~spl10_156)),
+  inference(subsumption_resolution,[],[f18200,f221])).
+fof(f221,plain,(
+  ~open_subsets(complements_of_subsets(the_carrier(sK8),sK9),sK8) | spl10_2),
+  inference(avatar_component_clause,[],[f219])).
+fof(f18200,plain,(
+  open_subsets(complements_of_subsets(the_carrier(sK8),sK9),sK8) | ~top_str(sK8) | ~element(sK9,powerset(powerset(the_carrier(sK8)))) | ~spl10_156),
+  inference(resolution,[],[f9347,f472])).
+fof(f472,plain,(
+  ( ! [X2,X3] : (~open_subset(sK0(X2,complements_of_subsets(the_carrier(X2),X3)),X2) | open_subsets(complements_of_subsets(the_carrier(X2),X3),X2) | ~top_str(X2) | ~element(X3,powerset(powerset(the_carrier(X2))))) )),
+  inference(resolution,[],[f162,f173])).
+fof(f162,plain,(
+  ( ! [X0,X1] : (~element(X1,powerset(powerset(the_carrier(X0)))) | ~open_subset(sK0(X0,X1),X0) | open_subsets(X1,X0) | ~top_str(X0)) )),
+  inference(cnf_transformation,[],[f107])).
+fof(f9347,plain,(
+  open_subset(sK0(sK8,complements_of_subsets(the_carrier(sK8),sK9)),sK8) | ~spl10_156),
+  inference(avatar_component_clause,[],[f9346])).
+fof(f9346,plain,(
+  spl10_156 <=> open_subset(sK0(sK8,complements_of_subsets(the_carrier(sK8),sK9)),sK8)),
+  introduced(avatar_definition,[new_symbols(naming,[spl10_156])])).
+fof(f18179,plain,(
+  spl10_156 | spl10_2 | ~spl10_38),
+  inference(avatar_split_clause,[],[f18178,f2538,f219,f9346])).
+fof(f2538,plain,(
+  spl10_38 <=> ! [X15] : (~in(X15,sK9) | closed_subset(X15,sK8))),
+  introduced(avatar_definition,[new_symbols(naming,[spl10_38])])).
+fof(f18178,plain,(
+  open_subset(sK0(sK8,complements_of_subsets(the_carrier(sK8),sK9)),sK8) | (spl10_2 | ~spl10_38)),
+  inference(subsumption_resolution,[],[f18177,f196])).
+fof(f18177,plain,(
+  open_subset(sK0(sK8,complements_of_subsets(the_carrier(sK8),sK9)),sK8) | ~top_str(sK8) | (spl10_2 | ~spl10_38)),
+  inference(subsumption_resolution,[],[f18176,f3994])).
+fof(f3994,plain,(
+  element(sK0(sK8,complements_of_subsets(the_carrier(sK8),sK9)),powerset(the_carrier(sK8))) | spl10_2),
+  inference(subsumption_resolution,[],[f3993,f197])).
+fof(f3993,plain,(
+  element(sK0(sK8,complements_of_subsets(the_carrier(sK8),sK9)),powerset(the_carrier(sK8))) | ~element(sK9,powerset(powerset(the_carrier(sK8)))) | spl10_2),
+  inference(subsumption_resolution,[],[f3992,f196])).
+fof(f3992,plain,(
+  element(sK0(sK8,complements_of_subsets(the_carrier(sK8),sK9)),powerset(the_carrier(sK8))) | ~top_str(sK8) | ~element(sK9,powerset(powerset(the_carrier(sK8)))) | spl10_2),
+  inference(subsumption_resolution,[],[f3981,f221])).
+fof(f3981,plain,(
+  element(sK0(sK8,complements_of_subsets(the_carrier(sK8),sK9)),powerset(the_carrier(sK8))) | open_subsets(complements_of_subsets(the_carrier(sK8),sK9),sK8) | ~top_str(sK8) | ~element(sK9,powerset(powerset(the_carrier(sK8))))),
+  inference(resolution,[],[f1383,f453])).
+fof(f453,plain,(
+  ( ! [X2,X3] : (in(sK0(X2,complements_of_subsets(the_carrier(X2),X3)),complements_of_subsets(the_carrier(X2),X3)) | open_subsets(complements_of_subsets(the_carrier(X2),X3),X2) | ~top_str(X2) | ~element(X3,powerset(powerset(the_carrier(X2))))) )),
+  inference(resolution,[],[f161,f173])).
+fof(f161,plain,(
+  ( ! [X0,X1] : (~element(X1,powerset(powerset(the_carrier(X0)))) | in(sK0(X0,X1),X1) | open_subsets(X1,X0) | ~top_str(X0)) )),
+  inference(cnf_transformation,[],[f107])).
+fof(f1383,plain,(
+  ( ! [X21] : (~in(X21,complements_of_subsets(the_carrier(sK8),sK9)) | element(X21,powerset(the_carrier(sK8)))) )),
+  inference(resolution,[],[f439,f197])).
+fof(f18176,plain,(
+  open_subset(sK0(sK8,complements_of_subsets(the_carrier(sK8),sK9)),sK8) | ~element(sK0(sK8,complements_of_subsets(the_carrier(sK8),sK9)),powerset(the_carrier(sK8))) | ~top_str(sK8) | (spl10_2 | ~spl10_38)),
+  inference(resolution,[],[f15103,f205])).
+fof(f205,plain,(
+  ( ! [X0,X1] : (~closed_subset(subset_complement(the_carrier(X0),X1),X0) | open_subset(X1,X0) | ~element(X1,powerset(the_carrier(X0))) | ~top_str(X0)) )),
+  inference(cnf_transformation,[],[f133])).
+fof(f15103,plain,(
+  closed_subset(subset_complement(the_carrier(sK8),sK0(sK8,complements_of_subsets(the_carrier(sK8),sK9))),sK8) | (spl10_2 | ~spl10_38)),
+  inference(resolution,[],[f5315,f2539])).
+fof(f2539,plain,(
+  ( ! [X15] : (~in(X15,sK9) | closed_subset(X15,sK8)) ) | ~spl10_38),
+  inference(avatar_component_clause,[],[f2538])).
+fof(f5315,plain,(
+  in(subset_complement(the_carrier(sK8),sK0(sK8,complements_of_subsets(the_carrier(sK8),sK9))),sK9) | spl10_2),
+  inference(subsumption_resolution,[],[f5314,f197])).
+fof(f5314,plain,(
+  in(subset_complement(the_carrier(sK8),sK0(sK8,complements_of_subsets(the_carrier(sK8),sK9))),sK9) | ~element(sK9,powerset(powerset(the_carrier(sK8)))) | spl10_2),
+  inference(subsumption_resolution,[],[f5313,f196])).
+fof(f5313,plain,(
+  in(subset_complement(the_carrier(sK8),sK0(sK8,complements_of_subsets(the_carrier(sK8),sK9))),sK9) | ~top_str(sK8) | ~element(sK9,powerset(powerset(the_carrier(sK8)))) | spl10_2),
+  inference(subsumption_resolution,[],[f5302,f221])).
+fof(f5302,plain,(
+  in(subset_complement(the_carrier(sK8),sK0(sK8,complements_of_subsets(the_carrier(sK8),sK9))),sK9) | open_subsets(complements_of_subsets(the_carrier(sK8),sK9),sK8) | ~top_str(sK8) | ~element(sK9,powerset(powerset(the_carrier(sK8))))),
+  inference(resolution,[],[f1415,f453])).
+fof(f1415,plain,(
+  ( ! [X21] : (~in(X21,complements_of_subsets(the_carrier(sK8),sK9)) | in(subset_complement(the_carrier(sK8),X21),sK9)) )),
+  inference(resolution,[],[f620,f197])).
+fof(f620,plain,(
+  ( ! [X2,X0,X1] : (~element(X2,powerset(powerset(X1))) | in(subset_complement(X1,X0),X2) | ~in(X0,complements_of_subsets(X1,X2))) )),
+  inference(subsumption_resolution,[],[f619,f439])).
+fof(f619,plain,(
+  ( ! [X2,X0,X1] : (~in(X0,complements_of_subsets(X1,X2)) | ~element(X0,powerset(X1)) | in(subset_complement(X1,X0),X2) | ~element(X2,powerset(powerset(X1)))) )),
+  inference(duplicate_literal_removal,[],[f617])).
+fof(f617,plain,(
+  ( ! [X2,X0,X1] : (~in(X0,complements_of_subsets(X1,X2)) | ~element(X0,powerset(X1)) | in(subset_complement(X1,X0),X2) | ~element(X2,powerset(powerset(X1))) | ~element(X2,powerset(powerset(X1)))) )),
+  inference(resolution,[],[f213,f173])).
+fof(f213,plain,(
+  ( ! [X4,X0,X1] : (~element(complements_of_subsets(X0,X1),powerset(powerset(X0))) | ~in(X4,complements_of_subsets(X0,X1)) | ~element(X4,powerset(X0)) | in(subset_complement(X0,X4),X1) | ~element(X1,powerset(powerset(X0)))) )),
+  inference(equality_resolution,[],[f167])).
+fof(f167,plain,(
+  ( ! [X4,X2,X0,X1] : (in(subset_complement(X0,X4),X1) | ~in(X4,X2) | ~element(X4,powerset(X0)) | complements_of_subsets(X0,X1) != X2 | ~element(X2,powerset(powerset(X0))) | ~element(X1,powerset(powerset(X0)))) )),
+  inference(cnf_transformation,[],[f116])).
+fof(f116,plain,(
+  ! [X0,X1] : (! [X2] : (((complements_of_subsets(X0,X1) = X2 | ((~in(subset_complement(X0,sK2(X0,X1,X2)),X1) | ~in(sK2(X0,X1,X2),X2)) & (in(subset_complement(X0,sK2(X0,X1,X2)),X1) | in(sK2(X0,X1,X2),X2)) & element(sK2(X0,X1,X2),powerset(X0)))) & (! [X4] : (((in(X4,X2) | ~in(subset_complement(X0,X4),X1)) & (in(subset_complement(X0,X4),X1) | ~in(X4,X2))) | ~element(X4,powerset(X0))) | complements_of_subsets(X0,X1) != X2)) | ~element(X2,powerset(powerset(X0)))) | ~element(X1,powerset(powerset(X0))))),
+  inference(skolemisation,[status(esa),new_symbols(skolem,[sK2])],[f114,f115])).
+fof(f115,plain,(
+  ! [X2,X1,X0] : (? [X3] : ((~in(subset_complement(X0,X3),X1) | ~in(X3,X2)) & (in(subset_complement(X0,X3),X1) | in(X3,X2)) & element(X3,powerset(X0))) => ((~in(subset_complement(X0,sK2(X0,X1,X2)),X1) | ~in(sK2(X0,X1,X2),X2)) & (in(subset_complement(X0,sK2(X0,X1,X2)),X1) | in(sK2(X0,X1,X2),X2)) & element(sK2(X0,X1,X2),powerset(X0))))),
+  introduced(choice_axiom,[])).
+fof(f114,plain,(
+  ! [X0,X1] : (! [X2] : (((complements_of_subsets(X0,X1) = X2 | ? [X3] : ((~in(subset_complement(X0,X3),X1) | ~in(X3,X2)) & (in(subset_complement(X0,X3),X1) | in(X3,X2)) & element(X3,powerset(X0)))) & (! [X4] : (((in(X4,X2) | ~in(subset_complement(X0,X4),X1)) & (in(subset_complement(X0,X4),X1) | ~in(X4,X2))) | ~element(X4,powerset(X0))) | complements_of_subsets(X0,X1) != X2)) | ~element(X2,powerset(powerset(X0)))) | ~element(X1,powerset(powerset(X0))))),
+  inference(rectify,[],[f113])).
+fof(f113,plain,(
+  ! [X0,X1] : (! [X2] : (((complements_of_subsets(X0,X1) = X2 | ? [X3] : ((~in(subset_complement(X0,X3),X1) | ~in(X3,X2)) & (in(subset_complement(X0,X3),X1) | in(X3,X2)) & element(X3,powerset(X0)))) & (! [X3] : (((in(X3,X2) | ~in(subset_complement(X0,X3),X1)) & (in(subset_complement(X0,X3),X1) | ~in(X3,X2))) | ~element(X3,powerset(X0))) | complements_of_subsets(X0,X1) != X2)) | ~element(X2,powerset(powerset(X0)))) | ~element(X1,powerset(powerset(X0))))),
+  inference(flattening,[],[f112])).
+fof(f112,plain,(
+  ! [X0,X1] : (! [X2] : (((complements_of_subsets(X0,X1) = X2 | ? [X3] : (((~in(subset_complement(X0,X3),X1) | ~in(X3,X2)) & (in(subset_complement(X0,X3),X1) | in(X3,X2))) & element(X3,powerset(X0)))) & (! [X3] : (((in(X3,X2) | ~in(subset_complement(X0,X3),X1)) & (in(subset_complement(X0,X3),X1) | ~in(X3,X2))) | ~element(X3,powerset(X0))) | complements_of_subsets(X0,X1) != X2)) | ~element(X2,powerset(powerset(X0)))) | ~element(X1,powerset(powerset(X0))))),
+  inference(nnf_transformation,[],[f85])).
+fof(f85,plain,(
+  ! [X0,X1] : (! [X2] : ((complements_of_subsets(X0,X1) = X2 <=> ! [X3] : ((in(X3,X2) <=> in(subset_complement(X0,X3),X1)) | ~element(X3,powerset(X0)))) | ~element(X2,powerset(powerset(X0)))) | ~element(X1,powerset(powerset(X0))))),
+  inference(ennf_transformation,[],[f19])).
+fof(f19,axiom,(
+  ! [X0,X1] : (element(X1,powerset(powerset(X0))) => ! [X2] : (element(X2,powerset(powerset(X0))) => (complements_of_subsets(X0,X1) = X2 <=> ! [X3] : (element(X3,powerset(X0)) => (in(X3,X2) <=> in(subset_complement(X0,X3),X1))))))),
+  file('SEU336+1.tptp',unknown)).
+fof(f12221,plain,(
+  spl10_109),
+  inference(avatar_split_clause,[],[f12220,f6870])).
+fof(f12220,plain,(
+  ( ! [X10] : (~in(X10,sK9) | in(subset_complement(the_carrier(sK8),X10),complements_of_subsets(the_carrier(sK8),sK9))) )),
+  inference(subsumption_resolution,[],[f12207,f197])).
+fof(f12207,plain,(
+  ( ! [X10] : (~in(X10,sK9) | in(subset_complement(the_carrier(sK8),X10),complements_of_subsets(the_carrier(sK8),sK9)) | ~element(sK9,powerset(powerset(the_carrier(sK8))))) )),
+  inference(superposition,[],[f1408,f449])).
+fof(f1408,plain,(
+  ( ! [X4,X5,X3] : (~in(X4,complements_of_subsets(X3,complements_of_subsets(X3,X5))) | in(subset_complement(X3,X4),complements_of_subsets(X3,X5)) | ~element(X5,powerset(powerset(X3)))) )),
+  inference(resolution,[],[f620,f173])).
+fof(f6361,plain,(
+  spl10_75),
+  inference(avatar_contradiction_clause,[],[f6360])).
+fof(f6360,plain,(
+  $false | spl10_75),
+  inference(subsumption_resolution,[],[f6358,f197])).
+fof(f6358,plain,(
+  ~element(sK9,powerset(powerset(the_carrier(sK8)))) | spl10_75),
+  inference(resolution,[],[f4235,f172])).
+fof(f4235,plain,(
+  ~element(subset_complement(powerset(the_carrier(sK8)),sK9),powerset(powerset(the_carrier(sK8)))) | spl10_75),
+  inference(avatar_component_clause,[],[f4233])).
+fof(f2540,plain,(
+  ~spl10_1 | spl10_38),
+  inference(avatar_split_clause,[],[f2536,f2538,f215])).
+fof(f2536,plain,(
+  ( ! [X15] : (~in(X15,sK9) | ~closed_subsets(sK9,sK8) | closed_subset(X15,sK8)) )),
+  inference(subsumption_resolution,[],[f2535,f412])).
+fof(f412,plain,(
+  ( ! [X12] : (element(X12,powerset(the_carrier(sK8))) | ~in(X12,sK9)) )),
+  inference(resolution,[],[f207,f197])).
+fof(f2535,plain,(
+  ( ! [X15] : (~in(X15,sK9) | ~element(X15,powerset(the_carrier(sK8))) | ~closed_subsets(sK9,sK8) | closed_subset(X15,sK8)) )),
+  inference(subsumption_resolution,[],[f572,f196])).
+fof(f572,plain,(
+  ( ! [X15] : (~in(X15,sK9) | ~element(X15,powerset(the_carrier(sK8))) | ~closed_subsets(sK9,sK8) | closed_subset(X15,sK8) | ~top_str(sK8)) )),
+  inference(resolution,[],[f163,f197])).
+fof(f163,plain,(
+  ( ! [X0,X3,X1] : (~element(X1,powerset(powerset(the_carrier(X0)))) | ~in(X3,X1) | ~element(X3,powerset(the_carrier(X0))) | ~closed_subsets(X1,X0) | closed_subset(X3,X0) | ~top_str(X0)) )),
+  inference(cnf_transformation,[],[f111])).
+fof(f223,plain,(
+  spl10_1 | spl10_2),
+  inference(avatar_split_clause,[],[f198,f219,f215])).
+fof(f198,plain,(
+  open_subsets(complements_of_subsets(the_carrier(sK8),sK9),sK8) | closed_subsets(sK9,sK8)),
+  inference(cnf_transformation,[],[f131])).
+fof(f222,plain,(
+  ~spl10_1 | ~spl10_2),
+  inference(avatar_split_clause,[],[f199,f219,f215])).
+fof(f199,plain,(
+  ~open_subsets(complements_of_subsets(the_carrier(sK8),sK9),sK8) | ~closed_subsets(sK9,sK8)),
+  inference(cnf_transformation,[],[f131])).
+% SZS output end Proof for SEU336+1
+% ------------------------------
+% Version: Vampire 4.4.0 (commit d98a3d53 on 2020-01-14 21:02:12 +0100)
+% Termination reason: Refutation
+
+% Memory used [KB]: 106821
+% Time elapsed: 8.882 s
+% ------------------------------
+% ------------------------------
