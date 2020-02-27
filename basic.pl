@@ -592,21 +592,9 @@ remove_once(Goal, [Elem | List], NewList) :-
     NewList = [Elem | Rest]
   ).
   
-fid_osf((Ctx, _, _), FIDs, FID, (OS, SF)) :- 
+fid_osf(CTX, FIDs, FID, (OS, SF)) :- 
   nth0(OS, FIDs, FID),
-  nth0(OS, Ctx, SF).
-
-isf_id_sf(ID + Form, ID, + Form).
-isf_id_sf(ID - Form, ID, - Form).
-
-id_isf(ID, ISF) :- 
-  isf_id_sf(ISF, ID, _).
-
-id_sf_isf(ID, SF, ISF) :- 
-  isf_id_sf(ISF, ID, SF).
-
-goal_fresh_par((Ctx, _), Par) :- 
-  fresh_par(Ctx, Par).
+  nth0(OS, CTX, SF).
 
 fst((X, _), X).
 snd((_, Y), Y).
@@ -793,11 +781,20 @@ trim_consult(FILE) :-
   consult(TEMP),
   delete_file(TEMP).
 
-hyp((fof, TYPE, TF)) :- 
-  fof(_, TYPE, TF).
+hyp_tuple((fof, ID, TYPE, TF)) :- 
+  fof(OID, TYPE, TF), 
+  atom_concat(p, OID, ID).
 
-hyp((cnf, TYPE, TF)) :- 
-  cnf(_, TYPE, TF).
+hyp_tuple((cnf, ID, TYPE, TF)) :- 
+  cnf(OID, TYPE, TF),
+  atom_concat(p, OID, ID).
+
+tuple_hyp((LNG, ID, TYPE, TF), (ID, (+ FORM))) :- 
+  member(TYPE, [axiom, lemma, hypothesis, definition, negated_conjecture]),
+  tf_form(LNG, TF, FORM).
+
+tuple_hyp((LNG, ID, conjecture, TF), (ID, (- FORM))) :- 
+  tf_form(LNG, TF, FORM).
 
 tf_form(fof, TF, FORM) :-
   fof_form([], TF, FORM).
@@ -808,17 +805,10 @@ tf_form(cnf, TF, FORM) :-
   fof_form(VARS, TF, TEMP), 
   add_fas(NUM, TEMP, FORM).
 
-tuple_sf((LNG, TYPE, TF), + FORM) :- 
-  member(TYPE, [axiom, lemma, hypothesis, definition, negated_conjecture]),
-  tf_form(LNG, TF, FORM).
-
-tuple_sf((LNG, conjecture, TF), - FORM) :- 
-  tf_form(LNG, TF, FORM).
-
 tptp_prob(TPTP, PROB) :- 
   trim_consult(TPTP),
-  findall(TUPLE, hyp(TUPLE), TUPLES), 
-  maplist_cut(tuple_sf, TUPLES, PROB).
+  findall(TUPLE, hyp_tuple(TUPLE), TUPLES), 
+  maplist_cut(tuple_hyp, TUPLES, PROB).
 
 put_bytes(_, []).
 
@@ -826,28 +816,82 @@ put_bytes(Stream, [Byte | Bytes]) :-
   put_byte(Stream, Byte),
   put_bytes(Stream, Bytes).
 
-codes_bytes(CDS, BTS, TAIL) :- 
+find_by_key(PAIRS, KEY, VAL) :- 
+  member((KEY, VAL), PAIRS), !.
+
+pairs_key_keyval(PAIRS, KEY, (KEY, VAL)) :- 
+  member((KEY, VAL), PAIRS), !.
+
+% codes_bytes(CDS, BTS, TAIL) :- 
+%   reverse(CDS, REV), 
+%   append([91 | REV], TAIL, BTS).
+% 
+% string_bytes(STR, BYTES, TAIL) :- 
+%   string_codes(STR, CDS), 
+%   codes_bytes(CDS, BYTES, TAIL).
+% 
+% num_bytes(NUM, BTS, TAIL) :- 
+%   number_string(NUM, STR), 
+%   string_bytes(STR, BTS, TAIL). 
+
+% num_bytes(ACC, NUM, BYTES) :- 
+%   NUM < 256 -> BYTES = [NUM | ACC] ;
+%   NEW = div(NUM, 256), 
+%   REM = mod(NUM, 256), 
+%   num_bytes([REM | ACC], NEW, BYTES).
+
+% put_num(STRM, NUM) :- 
+%   num_bytes([], NUM, BYTES), 
+%   put_bytes(STRM, BYTES).
+put_num(STRM, NUM) :- 
+  number_codes(NUM, CDS),
+  put_codes(STRM, CDS),
+  put_char_end(STRM, '#').
+
+put_strings(_, []).
+
+
+put_strings(STRM, [STR | STRS]) :- 
+  put_strings(STRM, STRS),
+  put_string(STRM, STR).
+
+put_atom(STRM, ATOM) :- 
+  atom_codes(ATOM, CDS),
+  put_codes(STRM, CDS).
+
+% put_prolog_term(STRM, PT) :- 
+%   term_string(PT, STR), 
+%   put_string(STRM, STR).
+
+% atom_bytes(ATOM, BTS, TAIL) :- 
+%   atom_string(ATOM, STR), 
+%   string_bytes(STR, BTS, TAIL).
+
+% string_end_bytes(STR, BYTES, TAIL) :- 
+%   string_bytes(STR, BYTES, [93 | TAIL]).
+
+put_codes(STRM, CDS) :- 
   reverse(CDS, REV), 
-  append([91 | REV], TAIL, BTS).
+  put_bytes(STRM, [91 | REV]).
 
-string_bytes(STR, BYTES, TAIL) :- 
+put_string(STRM, STR) :- 
   string_codes(STR, CDS), 
-  codes_bytes(CDS, BYTES, TAIL).
+  put_codes(STRM, CDS).
+  
+put_string_end(STRM, STR) :- 
+  put_string(STRM, STR), 
+  put_end(STRM).
 
-num_bytes(NUM, BTS, TAIL) :- 
-  number_string(NUM, STR), 
-  string_bytes(STR, BTS, TAIL). 
+put_begin(STRM) :-
+  put_byte(STRM, 91).
 
-atom_bytes(ATOM, BTS, TAIL) :- 
-  atom_string(ATOM, STR), 
-  string_bytes(STR, BTS, TAIL).
+put_end(STRM) :-
+  put_byte(STRM, 93).
 
-string_end_bytes(STR, BYTES, TAIL) :- 
-  string_bytes(STR, BYTES, [93 | TAIL]).
-
-% put_string_end(STRM, STR) :- 
-%   put_string(STRM, STR), 
-%   put_byte(STRM, 93).
+put_char_end(STRM, CH) :- 
+  put_begin(STRM),
+  put_char(STRM, CH), 
+  put_end(STRM).
 
 break_unary_form(~ FORM, "~", FORM).
 break_unary_form(! FORM, "!", FORM).
@@ -857,90 +901,140 @@ break_binary_form(FORM_A | FORM_B, FORM_A, "|", FORM_B).
 break_binary_form(FORM_A => FORM_B, FORM_A, "=>", FORM_B).
 break_binary_form(FORM_A <=> FORM_B, FORM_A, "<=>", FORM_B).
 
-terms_bytes([], BYTES, TAIL) :- 
-  string_end_bytes(".", BYTES, TAIL).
+% put_terms(STRM, []) :- 
+%   put_char_end(STRM, '.').
 
-terms_bytes([TERM | TERMS], BYTES, TAIL) :- 
-  terms_bytes(TERMS, BYTES, TEMP0), !, 
-  term_bytes(TERM, TEMP0, TEMP1), !, 
-  string_end_bytes(",", TEMP1, TAIL).
+put_terms(_, []).
+put_terms(STRM, [TERM | TERMS]) :- 
+  put_terms(STRM, TERMS), !, 
+  put_term(STRM, TERM). 
 
-term_bytes(#(NUM), BYTES, TAIL) :- 
-  num_bytes(NUM, BYTES, TEMP), !,
-  string_end_bytes("#", TEMP, TAIL).
+put_term(STRM, #(NUM)) :- 
+  put_num(STRM, NUM), !,
+  put_begin(STRM),
+  put_byte(STRM, 36), 
+  put_end(STRM).
   
-term_bytes(@(NUM), BYTES, TAIL) :- 
-  num_bytes(NUM, BYTES, TEMP), !,
-  string_end_bytes("@", TEMP, TAIL).
+put_term(STRM, @(NUM)) :- 
+  put_num(STRM, NUM), !,
+  put_char_end(STRM, '@').
 
-term_bytes(FUN ^ TERMS, BYTES, TAIL) :- 
-  terms_bytes(TERMS, BYTES, TEMP0), !,
-  atom_bytes(FUN, TEMP0, TEMP1), !,
-  string_end_bytes("^", TEMP1, TAIL).
+put_term(STRM, FUN ^ TERMS) :- 
+  length(TERMS, LTH),
+  put_terms(STRM, TERMS), 
+  put_num(STRM, LTH), 
+  put_atom(STRM, FUN),  
+  put_char_end(STRM, '*').
+  
+%   terms_bytes(TERMS, BYTES, TEMP0), !,
+%   atom_bytes(FUN, TEMP0, TEMP1), !,
+%   string_end_bytes("^", TEMP1, TAIL).
 
-form_bytes(FORM, BYTES, TAIL) :- 
-  break_binary_form(FORM, LFT, CNTV, RGT) -> 
-  ( form_bytes(RGT, BYTES, TEMP0), !,
-    form_bytes(LFT, TEMP0, TEMP1), !,
-    string_end_bytes(CNTV, TEMP1, TAIL) ) ;
-  break_unary_form(FORM, CNTV, SUB) -> 
-  ( form_bytes(SUB, BYTES, TEMP), !,
-    string_end_bytes(CNTV, TEMP, TAIL) ) ;
-  FORM =.. [REL | TERMS], !,
-  terms_bytes(TERMS, BYTES, TEMP0), !,
-  atom_bytes(REL, TEMP0, TEMP1), !,
-  string_end_bytes("^", TEMP1, TAIL).
-
-% put_sf(STRM, - FORM) :- 
-%   put_form(STRM, FORM), 
-%   pur_string_end(STRM, "-").
+% term_bytes(@(NUM), BYTES, TAIL) :- 
+%   num_bytes(NUM, BYTES, TEMP), !,
+%   string_end_bytes("@", TEMP, TAIL).
 % 
-% put_sf(STRM, + FORM) :- 
-%   put_form(STRM, FORM), 
-%   pur_string_end(STRM, "+").
+% term_bytes(FUN ^ TERMS, BYTES, TAIL) :- 
+%   terms_bytes(TERMS, BYTES, TEMP0), !,
+%   atom_bytes(FUN, TEMP0, TEMP1), !,
+%   string_end_bytes("^", TEMP1, TAIL).
+% terms_bytes([], BYTES, TAIL) :- 
+%   string_end_bytes(".", BYTES, TAIL).
 % 
-% put_form(STRM, FORM) :- 
+% terms_bytes([TERM | TERMS], BYTES, TAIL) :- 
+%   terms_bytes(TERMS, BYTES, TEMP0), !, 
+%   term_bytes(TERM, TEMP0, TEMP1), !, 
+%   string_end_bytes(",", TEMP1, TAIL).
+% 
+% term_bytes(#(NUM), BYTES, TAIL) :- 
+%   num_bytes(NUM, BYTES, TEMP), !,
+%   string_end_bytes("#", TEMP, TAIL).
+%   
+% term_bytes(@(NUM), BYTES, TAIL) :- 
+%   num_bytes(NUM, BYTES, TEMP), !,
+%   string_end_bytes("@", TEMP, TAIL).
+% 
+% term_bytes(FUN ^ TERMS, BYTES, TAIL) :- 
+%   terms_bytes(TERMS, BYTES, TEMP0), !,
+%   atom_bytes(FUN, TEMP0, TEMP1), !,
+%   string_end_bytes("^", TEMP1, TAIL).
+
+% form_bytes(FORM, BYTES, TAIL) :- 
 %   break_binary_form(FORM, LFT, CNTV, RGT) -> 
-%   ( put_form(STRM, RGT), 
-%     put_form(STRM, LFT), 
-%     put_string_end(STRM, CNTV) ) ;
+%   ( form_bytes(RGT, BYTES, TEMP0), !,
+%     form_bytes(LFT, TEMP0, TEMP1), !,
+%     string_end_bytes(CNTV, TEMP1, TAIL) ) ;
 %   break_unary_form(FORM, CNTV, SUB) -> 
-%   ( put_form(STRM, SUB), 
-%     put_string_end(STRM, CNTV) ) ;
-%   FORM =.. [REL | TERMS], 
-%   put_terms(STRM, TERMS), 
-%   put_atom(STRM, REL),  
-%   string_end_bytes(^, BYTES, TEMP).
+%   ( form_bytes(SUB, BYTES, TEMP), !,
+%     string_end_bytes(CNTV, TEMP, TAIL) ) ;
+%   FORM =.. [REL | TERMS], !,
+%   terms_bytes(TERMS, BYTES, TEMP0), !,
+%   atom_bytes(REL, TEMP0, TEMP1), !,
+%   string_end_bytes("^", TEMP1, TAIL).
 
-sf_bytes(- FORM, BYTES, TAIL) :- 
-  form_bytes(FORM, BYTES, TEMP), 
-  string_end_bytes("-", TEMP, TAIL).
+put_sf(STRM, - FORM) :- 
+  put_form(STRM, FORM), 
+  put_char_end(STRM, '-').
 
-sf_bytes(+ FORM, BYTES, TAIL) :- 
-  form_bytes(FORM, BYTES, TEMP), 
-  string_end_bytes("+", TEMP, TAIL).
+put_sf(STRM, + FORM) :- 
+  put_form(STRM, FORM), 
+  put_char_end(STRM, '+').
 
-prob_bytes([], BYTES, BYTES).
+put_form(STRM, FORM) :- 
+  FORM = $true -> put_char_end(STRM, 'T') ;
+  FORM = $false -> put_char_end(STRM, 'F') ;
+  break_binary_form(FORM, LFT, CNTV, RGT) -> 
+  ( put_form(STRM, RGT), 
+    put_form(STRM, LFT), 
+    put_string_end(STRM, CNTV) ) ;
+  break_unary_form(FORM, CNTV, SUB) -> 
+  ( put_form(STRM, SUB), 
+    put_string_end(STRM, CNTV) ) ;
+  FORM =.. [REL | TERMS], 
+  length(TERMS, LTH),
+  put_terms(STRM, TERMS), 
+  put_num(STRM, LTH), 
+  put_atom(STRM, REL),  
+  put_char_end(STRM, '^').
 
-prob_bytes([SF | PROB], BYTES, TAIL) :- 
-  prob_bytes(PROB, BYTES, TEMP),
-  sf_bytes(SF, TEMP, TAIL). 
-
-% put_prob(_, []).
+% sf_bytes(- FORM, BYTES, TAIL) :- 
+%   form_bytes(FORM, BYTES, TEMP), 
+%   string_end_bytes("-", TEMP, TAIL).
 % 
-% put_prob(STRM, [SF | PROB]) :- 
-%   put_prob(STRM, PROB), 
-%   put_sf(STRM, SF). 
+% sf_bytes(+ FORM, BYTES, TAIL) :- 
+%   form_bytes(FORM, BYTES, TEMP), 
+%   string_end_bytes("+", TEMP, TAIL).
+% 
+% prob_bytes([], BYTES, BYTES).
+% 
+% prob_bytes([SF | PROB], BYTES, TAIL) :- 
+%   prob_bytes(PROB, BYTES, TEMP),
+%   sf_bytes(SF, TEMP, TAIL). 
+
+put_prob(_, []).
+
+put_prob(STRM, [SF | PROB]) :- 
+  put_prob(STRM, PROB), 
+  put_sf(STRM, SF). 
 
 export_tptp(TPTP, TXTX) :- 
   write("0\n"),
   tptp_prob(TPTP, PROB), 
   write("1\n"),
-  prob_bytes(PROB, BYTES, []),
+  % prob_bytes(PROB, BYTES, []),
   write("2\n"),
   open(TXTX, write, STRM, [encoding(octet)]),
   write("3\n"),
-  put_bytes(STRM, BYTES),
+  put_prob(STRM, PROB),
   write("4\n"),
   close(STRM).
   
+split_at(NUM, LIST, FST, SND) :- 
+  split_at(NUM, [], LIST, FST, SND).
+
+split_at(0, ACC, SND, FST, SND) :-
+   reverse(ACC, FST).
+  
+split_at(NUM, ACC, [ELEM | LIST], FST, SND) :-
+  num_pred(NUM, PRED), 
+  split_at(PRED, [ELEM | ACC], LIST, FST, SND).

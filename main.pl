@@ -2,7 +2,8 @@
 
 :- initialization(main, main).
 
-:- [comp_v, comp_m, verify]. 
+:- [comp_v, verify]. 
+
 
 comp_v_args(['--compile', 'vampire', TPTP, TSTP, TXTX | _], TPTP, TSTP, TXTX).
 comp_m_args(['--compile', 'metis', TPTP, TSTP, TXTX | _], TPTP, TSTP, TXTX).
@@ -21,13 +22,14 @@ to verify that [TXTX file] is a valid proof of [TPTP file]\n
   ).
 
 main(ARGV) :-
+  style_check(-singleton),
   (
     ( ARGV = ['-h'], 
       help_msg ) ;
     ( comp_v_args(ARGV, TPTP, TSTP, TXTX), 
       comp_v(TPTP, TSTP, TXTX) ) ;
-    ( comp_m_args(ARGV, TPTP, TSTP, TXTX), 
-       comp_m(TPTP, TSTP, TXTX) ) ;
+    % ( comp_m_args(ARGV, TPTP, TSTP, TXTX), 
+    %    comp_m(TPTP, TSTP, TXTX) ) ;
     ( verify_args(ARGV, TPTP, TXTX), 
       verify(TPTP, TXTX) ) 
   ).

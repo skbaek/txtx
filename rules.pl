@@ -1,196 +1,262 @@
 :- [basic].
 
-b_a(l, + Form & _, + Form).
-b_a(r, + _ & Form, + Form).
-b_a(l, - Form | _, - Form).
-b_a(r, - _ | Form, - Form).
-b_a(l, - Form => _, + Form).
-b_a(r, - _ => Form, - Form).
-b_a(l, + FormA <=> FormB, + FormA => FormB).
-b_a(r, + FormA <=> FormB, + FormB => FormA).
+b_a(l, + FORM & _, + FORM).
+b_a(r, + _ & FORM, + FORM).
+b_a(l, - FORM | _, - FORM).
+b_a(r, - _ | FORM, - FORM).
+b_a(l, - FORM => _, + FORM).
+b_a(r, - _ => FORM, - FORM).
+b_a(l, + FORM_A <=> FORM_B, + FORM_A => FORM_B).
+b_a(r, + FORM_A <=> FORM_B, + FORM_B => FORM_A).
 
 b_aa(SF, SF0, SF1) :-
   b_a(l, SF, SF0), 
   b_a(r, SF, SF1).
 
-b_b(- FormA & FormB, - FormA, - FormB).
-b_b(+ FormA | FormB, + FormA, + FormB).
-b_b(+ FormA => FormB, - FormA, + FormB).
-b_b(- FormA <=> FormB, - FormA => FormB, - FormB => FormA).
+b_b(- FORM_A & FORM_B, - FORM_A, - FORM_B).
+b_b(+ FORM_A | FORM_B, + FORM_A, + FORM_B).
+b_b(+ FORM_A => FORM_B, - FORM_A, + FORM_B).
+b_b(- FORM_A <=> FORM_B, - FORM_A => FORM_B, - FORM_B => FORM_A).
 
-b_c(Term, + ! Form, + NewForm) :- 
-  subst(Term, Form, NewForm).
-b_c(Term, - ? Form, - NewForm) :- 
-  subst(Term, Form, NewForm).
+b_c(TERM, + ! FORM, + NewFORM) :- 
+  subst(TERM, FORM, NewFORM).
+b_c(TERM, - ? FORM, - NewFORM) :- 
+  subst(TERM, FORM, NewFORM).
 
-b_d(Num, - ! Form,  - NewForm) :-
-  subst(@(Num), Form, NewForm).
-b_d(Num, + ? Form,  + NewForm) :-
-  subst(@(Num), Form, NewForm).
+b_d(NUM, - ! FORM,  - NewFORM) :-
+  subst(@(NUM), FORM, NewFORM).
+b_d(NUM, + ? FORM,  + NewFORM) :-
+  subst(@(NUM), FORM, NewFORM).
 
-b_n(+ ~ Form, - Form).
-b_n(- ~ Form, + Form).
+b_n(+ ~ FORM, - FORM).
+b_n(- ~ FORM, + FORM).
 
-g_a(
-  Dir,
-  Pos,
-  (Ctx, FP, a(Dir, Pos, Prf)), 
-  ([NewSF | Ctx], FP, Prf)
+as(
+  WRT,
+  PID,
+  CID,
+  DIR,
+  (CTX, FP), 
+  ([(CID, SF_N) | CTX], FP)
 ) :- 
-  nth0(Pos, Ctx, SF),
-  b_a(Dir, SF, NewSF).
+  find_by_key(CTX, PID, SF),
+  b_a(DIR, SF, SF_N),
+  (
+    WRT = some(STRM) -> (
+      put_atom(STRM, DIR), 
+      put_atom(STRM, CID),
+      put_atom(STRM, PID), 
+      put_char_end(STRM, 'a')
+    ) ; true
+  ).
 
-g_b(
-  Pos,
-  (Ctx, FP, b(Pos, PrfL, PrfR)), 
-  ([SF_L | Ctx], FP, PrfL),
-  ([SF_R | Ctx], FP, PrfR)
+bs(
+  WRT,
+  PID,
+  CID,
+  (CTX, FP), 
+  ([(CID, SF_L) | CTX], FP),
+  ([(CID, SF_R) | CTX], FP)
 ) :- 
-  nth0(Pos, Ctx, SF),
-  b_b(SF, SF_L, SF_R).
+  find_by_key(CTX, PID, SF),
+  b_b(SF, SF_L, SF_R),
+  (
+    WRT = some(STRM) -> (
+      put_atom(STRM, CID),
+      put_atom(STRM, PID), 
+      put_char_end(STRM, 'b')
+    ) ; true
+  ).
 
-g_c(
-  Term, 
-  Pos, 
-  (Ctx, FP, c(Term, Pos, Prf)), 
-  ([NewSF | Ctx], FP, Prf)
+cs(
+  WRT, 
+  PID, 
+  CID, 
+  TERM, 
+  (CTX, FP), 
+  ([(CID, SF_N) | CTX], FP)
 ) :- 
-  ground(Term), % No logic variables in Term
-  ovar_free_term(Term), % No object variables in Term
-  no_new_par(FP, Term), % No new parameters in Term
-  nth0(Pos, Ctx, SF),
-  b_c(Term, SF, NewSF).
+  ground(TERM), % No logic variables in TERM
+  ovar_free_term(TERM), % No free object variables in TERM
+  no_new_par(FP, TERM), % No new parameters in TERM
+  find_by_key(CTX, PID, SF),
+  b_c(TERM, SF, SF_N), 
+  (
+    WRT = some(STRM) -> (
+      put_term(STRM, TERM),
+      put_atom(STRM, CID),
+      put_atom(STRM, PID), 
+      put_char_end(STRM, 'c')
+    ) ; true
+  ).
 
-g_d(
-  Pos,
-  (Ctx, FP, d(Pos, Prf)), 
-  ([NewSF | Ctx], SuccFP, Prf)
+ds(
+  WRT,
+  PID, 
+  CID, 
+  (CTX, FP), 
+  ([(CID, SF_N) | CTX], SUCC)
 ) :-
-  nth0(Pos, Ctx, SF),
-  SuccFP is FP + 1, 
-  b_d(FP, SF, NewSF).
+  find_by_key(CTX, PID, SF),
+  SUCC is FP + 1, 
+  b_d(FP, SF, SF_N), 
+  (
+    WRT = some(STRM) -> (
+      put_atom(STRM, CID),
+      put_atom(STRM, PID), 
+      put_char_end(STRM, 'd')
+    ) ; true
+  ).
 
-g_f(
-  Form,
-  (Ctx, FP, f(Form, PrfA, PrfB)), 
-  ([- Form | Ctx], FP, PrfA), 
-  ([+ Form | Ctx], FP, PrfB)
+ks(
+  WRT,
+  CID,
+  FORM,
+  (CTX, FP), 
+  ([(CID, (- FORM)) | CTX], FP), 
+  ([(CID, (+ FORM)) | CTX], FP)
 ) :-
-  ground(Form), % No logic variables in Form
-  closed_form(Form), % No free object variables in Form
-  no_new_par(FP, Form). % No new parameters in Form
+  ground(FORM), % No logic variables in Form
+  closed_form(FORM), % No free object variables in Form
+  no_new_par(FP, FORM), % No new parameters in Form
+  (
+    WRT = some(STRM) -> (
+      put_form(STRM, FORM), 
+      put_atom(STRM, CID),
+      put_char_end(STRM, 'k')
+    ) ; true
+  ).
 
-g_h(
+ts(
+  WRT,
+  CID,
   SF, 
-  Jst,
-  (Ctx, FP, h(SF, Jst, Prf)),
-  ([SF | Ctx], FP, Prf)
+  JST,
+  (CTX, FP),
+  ([(CID, SF) | CTX], FP)
 ) :- 
   no_new_par(FP, SF), % No new parameters in SF
-  justified(Ctx, SF, Jst).
+  justified(CTX, SF, JST),
+  (
+    WRT = some(STRM) -> (
+      put_strings(STRM, JST),
+      put_sf(STRM, SF),
+      put_atom(STRM, CID),
+      put_char_end(STRM, 't')
+    ) ; true
+  ).
 
-g_n(
-  Pos, 
-  (Ctx, FP, n(Pos, Prf)), 
-  ([NewSF | Ctx], FP, Prf)
+ns(
+  WRT,
+  PID, 
+  CID, 
+  (CTX, FP),
+  ([(CID, SF_N) | CTX], FP)
 ) :- 
-  nth0(Pos, Ctx, SF),
-  b_n(SF, NewSF).
+  find_by_key(CTX, PID, SF),
+  b_n(SF, SF_N),
+  (
+    WRT = some(STRM) -> (
+      put_atom(STRM, CID),
+      put_atom(STRM, PID), 
+      put_char_end(STRM, 'n')
+    ) ; true
+  ).
  
-g_x(Pdx, Ndx, (Ctx, _, x(Pdx, Ndx))) :-
-  nth0(Pdx, Ctx, + FormA),
-  nth0(Ndx, Ctx, - FormB),
-  FormA == FormB.
+xs(WRT, PID, NID, (CTX, _)) :-
+  find_by_key(CTX, PID, + FORM_A),
+  find_by_key(CTX, NID, - FORM_B),
+  FORM_A == FORM_B, 
+  (
+    WRT = some(STRM) -> (
+      put_atom(STRM, NID),
+      put_atom(STRM, PID),
+      put_char_end(STRM, 'x')
+    ) ; true
+  ).
 
-i_a(
-  Dir, 
-  (OS, SF),
-  (DT, FP, a(Dir, ID, Prf)), 
-  (NewOS, NewSF), 
-  (SuccDT, FP, Prf)
+ap(
+  DIR, 
+  (PID, SF),
+  (a(PID, CID, DIR, PRF), FP, FI), 
+  (CID, SF_N), 
+  (PRF, FP, FI_N)
 ) :- 
-  SuccDT is DT + 1, 
-  NewOS is 0 - SuccDT,
-  ID is DT + OS,
-  b_a(Dir, SF, NewSF).
+  FI_N is FI + 1, 
+  atom_concat(x, FI, CID),
+  b_a(DIR, SF, SF_N).
 
-i_b(
-  (OS, SF), 
-  (DT, FP, b(ID, PrfL, PrfR)), 
-  (NewOS, SF_L),
-  (SuccDT, FP, PrfL),
-  (NewOS, SF_R),
-  (SuccDT, FP, PrfR)
+bp(
+  (PID, SF), 
+  (b(PID, CID, PRF_A, PRF_B), FP, FI), 
+  (CID, SF_L),
+  (PRF_A, FP, FI_N),
+  (CID, SF_R),
+  (PRF_B, FP, FI_N)
 ) :- 
-  SuccDT is DT + 1, 
-  NewOS is 0 - SuccDT,
-  ID is DT + OS,
+  FI_N is FI + 1, 
+  atom_concat(x, FI, CID),
   b_b(SF, SF_L, SF_R). 
 
-i_c(
-  Term, 
-  (OS, SF), 
-  (DT, FP, c(Term, ID, Prf)), 
-  (NewOS, NewSF),
-  (SuccDT, FP, Prf)
+cp(
+  TERM, 
+  (PID, SF), 
+  (c(PID, CID, TERM, PRF), FP, FI), 
+  (CID, SF_N),
+  (PRF, FP, FI_N)
 ) :- 
-  SuccDT is DT + 1, 
-  NewOS is 0 - SuccDT,
-  ID is DT + OS,
-  b_c(Term, SF, NewSF).
+  FI_N is FI + 1, 
+  atom_concat(x, FI, CID),
+  b_c(TERM, SF, SF_N).
 
-i_d(
-  (OS, SF),
-  (DT, FP, d(ID, Prf)), 
-  (NewOS, NewSF),
-  (SuccDT, SuccFP, Prf)
+dp(
+  (PID, SF),
+  (d(PID, CID, PRF), FP, FI), 
+  (CID, SF_N),
+  (PRF, FP_N, FI_N)
 ) :-
-  SuccDT is DT + 1, 
-  NewOS is 0 - SuccDT,
-  ID is DT + OS,
-  SuccFP is FP + 1, 
-  b_d(FP, SF, NewSF).
+  FP_N is FP + 1, 
+  FI_N is FI + 1, 
+  atom_concat(x, FI, CID),
+  b_d(FP, SF, SF_N).
 
-i_f(
-  Form,
-  (DT, FP, f(Form, PrfA, PrfB)), 
-  (NewOS, (- Form)),
-  (SuccDT, FP, PrfA), 
-  (NewOS, (+ Form)),
-  (SuccDT, FP, PrfB)
+kp(
+  FORM,
+  (k(CID, FORM, PRF_A, PRF_B), FP, FI), 
+  (CID, (- FORM)),
+  (PRF_A, FP, FI_N), 
+  (CID, (+ FORM)),
+  (PRF_B, FP, FI_N)
 ) :-
-  SuccDT is DT + 1, 
-  NewOS is 0 - SuccDT.
+  atom_concat(x, FI, CID),
+  FI_N is FI + 1.
 
-i_h(
+tp(
   SF,
-  Jst,
-  (DT, FP, h(SF, Jst, Prf)),
-  (NewOS, SF),
-  (SuccDT, FP, Prf)
+  JST,
+  (t(CID, SF, JST, PRF), FP, FI),
+  (CID, SF),
+  (PRF, FP, FI_N)
 ) :- 
-  SuccDT is DT + 1, 
-  NewOS is 0 - SuccDT.
+  atom_concat(x, FI, CID),
+  FI_N is FI + 1.
 
-i_n(
-  (OS, SF),
-  (DT, FP, n(ID, Prf)), 
-  (NewOS, NewSF),
-  (SuccDT, FP, Prf)
+np(
+  (PID, SF),
+  (n(PID, CID, PRF), FP, FI), 
+  (CID, SF_N),
+  (PRF, FP, FI_N)
 ) :- 
-  SuccDT is DT + 1, 
-  NewOS is 0 - SuccDT,
-  ID is DT + OS,
-  b_n(SF, NewSF).
+  atom_concat(x, FI, CID),
+  FI_N is FI + 1,
+  b_n(SF, SF_N).
 
-i_x(
-  (POS, (+ FormP)), 
-  (NOS, (- FormN)), 
-  (DT, _, x(PID, NID))
+xp(
+  (PID, (+ FORM_P)), 
+  (NID, (- FORM_N)), 
+  (x(PID, NID), _, _)
 ) :-
-  unify_with_occurs_check(FormP, FormN),
-  PID is DT + POS,
-  NID is DT + NOS.
+  unify_with_occurs_check(FORM_P, FORM_N).
 
 type_sf(a, SF) :- 
   b_a(l, SF, _).
@@ -210,43 +276,49 @@ type_sf(n, SF) :-
 type_osf(Type, (_, SF)) :- 
   type_sf(Type, SF).
 
-justified(_, - $false, neg_false). 
-justified(_, + $true, pos_true). 
+justified(_, - $false, ["neg-false"]). 
+justified(_, + $true, ["pos-true"]). 
 
-justified(_, + Form, mono_rel(Rel, Num)) :- 
-  mk_mono_args(Num, ArgsA, ArgsB),
-  AtomA =.. [Rel | ArgsA],
-  AtomB =.. [Rel | ArgsB],
-  mono_body(Num, Form, AtomA <=> AtomB), !.
+justified(_, + FORM, ["mono-rel", REL_STR, NUM_STR]) :- 
+  atom_string(REL, REL_STR),
+  number_string(NUM, NUM_STR),
+  mk_mono_args(NUM, ArgsA, ArgsB),
+  AtomA =.. [REL | ArgsA],
+  AtomB =.. [REL | ArgsB],
+  mono_body(NUM, FORM, AtomA <=> AtomB), !.
 
-justified(_, + Form, mono_fun(Fun, Num)) :- 
-  mk_mono_args(Num, ArgsA, ArgsB),
-  mono_body(Num, Form, (Fun ^ ArgsA) = (Fun ^ ArgsB)), !.
+justified(_, + FORM, ["mono-fun", FUN_STR, NUM_STR]) :- 
+  atom_string(FUN, FUN_STR),
+  number_string(NUM, NUM_STR),
+  mk_mono_args(NUM, ArgsA, ArgsB),
+  mono_body(NUM, FORM, (FUN ^ ArgsA) = (FUN ^ ArgsB)), !.
 
-justified(_, + ((FunA ^ []) = (FunB ^ [])), ne_eval) :- 
-  atom_number(FunA, NumA),
-  atom_number(FunB, NumB),
-  NumA \= NumB.
+justified(_, + ((FUNA ^ []) = (FUNB ^ [])), ["ne-eval"]) :- 
+  atom_number(FUNA, NUMA),
+  atom_number(FUNB, NUMB),
+  NUMA \= NUMB.
 
-justified(_, - ((FunA ^ []) = (FunB ^ [])), ne_eval) :- 
-  atom_number(FunA, NumA),
-  atom_number(FunB, NumB),
-  NumA \= NumB.
+justified(_, - ((FUNA ^ []) = (FUNB ^ [])), ["ne-eval"]) :- 
+  atom_number(FUNA, NUMA),
+  atom_number(FUNB, NUMB),
+  NUMA \= NUMB.
 
-justified(_, + ! (#(0) = #(0)), refl_eq).
-justified(_, + (! ! ((#(1) = #(0)) => (#(0) = #(1)))), symm_eq).
-justified(_, + (! ! ! ((#(2) = #(1)) => ((#(1) = #(0)) => (#(2) = #(0))))), trans_eq).
+justified(_, + ! (#(0) = #(0)), ["refl-eq"]).
+justified(_, + (! ! ((#(1) = #(0)) => (#(0) = #(1)))), ["symm-eq"]).
+justified(_, + (! ! ! ((#(2) = #(1)) => ((#(1) = #(0)) => (#(2) = #(0))))), ["trans-eq"]).
 
-justified(Ctx, + Form, aoc(Skm)) :- 
-  \+ sub_term(Skm, Ctx), 
-  strip_fas(Form, Num, (? Ante) => Cons), 
-  \+ sub_term(Skm, Ante), 
-  mk_skm_term(Skm, Num, SkmTerm),
-  subst(SkmTerm, Ante, NewAnte),
+justified(CTX, + FORM, ["aoc", SKM_STR]) :- 
+  atom_string(SKM, SKM_STR),
+  \+ sub_term(SKM, CTX), 
+  strip_fas(FORM, NUM, (? Ante) => Cons), 
+  \+ sub_term(SKM, Ante), 
+  mk_skm_term(SKM, NUM, SKM_TERM),
+  subst(SKM_TERM, Ante, NewAnte),
   NewAnte == Cons.
 
-justified(Ctx, + Form, def(Prd)) :- 
-  \+ sub_term(Prd, Ctx), 
-  strip_fas(Form, Num, Atom <=> Cons), 
-  \+ sub_term(Prd, Cons), 
-  mk_def_atom(Prd, Num, Atom).
+justified(CTX, + FORM, ["def", PRD_STR]) :- 
+  atom_string(PRD, PRD_STR),
+  \+ sub_term(PRD, CTX), 
+  strip_fas(FORM, NUM, Atom <=> Cons), 
+  \+ sub_term(PRD, Cons), 
+  mk_def_atom(PRD, NUM, Atom).

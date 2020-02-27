@@ -1,0 +1,83 @@
+%------------------------------------------------------------------------------
+% File     : MSC015-1.015 : TPTP v7.3.0. Released v3.5.0.
+% Domain   : Miscellaneous
+% Problem  : Binary counter k=15
+% Version  : Especial.
+% English  : Each instance of the problem asserts
+%              p(0*).                 // p[0]
+%              p(x*01*) -> p(x*10*).  // p[i] -> p[i + 1]
+%              not p(1*).             // not p[2^n - 1]
+%            These problems are unsatisfiable and have exponentially large
+%            propositional resolution refutations, while there is a short
+%            (quadratic) first order refutation.
+
+% Refs     : [NV07a] Navarro (2007), Email to Geoff Sutcliffe
+%            [NV07b] Navarro & Voronkov (2007), Planning with Effectively P
+% Source   : [NV07a]
+% Names    : bincount-k15 [NV07a]
+
+% Status   : Unsatisfiable
+% Rating   : 0.00 v7.3.0, 0.10 v7.2.0, 0.11 v7.1.0, 0.14 v7.0.0, 0.00 v6.4.0, 0.17 v6.3.0, 0.25 v6.2.0, 0.12 v6.1.0, 0.38 v6.0.0, 0.00 v5.0.0, 0.17 v4.1.0, 0.00 v3.5.0
+% Syntax   : Number of clauses     :   17 (   0 non-Horn;   2 unit;  17 RR)
+%            Number of atoms       :   32 (   0 equality)
+%            Maximal clause size   :    2 (   2 average)
+%            Number of predicates  :    1 (   0 propositional; 15-15 arity)
+%            Number of functors    :    2 (   2 constant; 0-0 arity)
+%            Number of variables   :  105 (   0 singleton)
+%            Maximal term depth    :    1 (   1 average)
+% SPC      : CNF_UNS_EPR_NEQ_HRN
+
+% Comments : k >= 23 not solved by any prover in less than 1 hr. (2007)
+%          : tptp2X 
+%------------------------------------------------------------------------------
+cnf(init,axiom,
+    ( p(s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0) )).
+
+cnf(rule1,axiom,
+    ( ~ p(X0,X1,X2,X3,X4,X5,X6,X7,X8,X9,X10,X11,X12,X13,s0) | p(X0,X1,X2,X3,X4,X5,X6,X7,X8,X9,X10,X11,X12,X13,s1) )).
+
+cnf(rule2,axiom,
+    ( ~ p(X0,X1,X2,X3,X4,X5,X6,X7,X8,X9,X10,X11,X12,s0,s1) | p(X0,X1,X2,X3,X4,X5,X6,X7,X8,X9,X10,X11,X12,s1,s0) )).
+
+cnf(rule3,axiom,
+    ( ~ p(X0,X1,X2,X3,X4,X5,X6,X7,X8,X9,X10,X11,s0,s1,s1) | p(X0,X1,X2,X3,X4,X5,X6,X7,X8,X9,X10,X11,s1,s0,s0) )).
+
+cnf(rule4,axiom,
+    ( ~ p(X0,X1,X2,X3,X4,X5,X6,X7,X8,X9,X10,s0,s1,s1,s1) | p(X0,X1,X2,X3,X4,X5,X6,X7,X8,X9,X10,s1,s0,s0,s0) )).
+
+cnf(rule5,axiom,
+    ( ~ p(X0,X1,X2,X3,X4,X5,X6,X7,X8,X9,s0,s1,s1,s1,s1) | p(X0,X1,X2,X3,X4,X5,X6,X7,X8,X9,s1,s0,s0,s0,s0) )).
+
+cnf(rule6,axiom,
+    ( ~ p(X0,X1,X2,X3,X4,X5,X6,X7,X8,s0,s1,s1,s1,s1,s1) | p(X0,X1,X2,X3,X4,X5,X6,X7,X8,s1,s0,s0,s0,s0,s0) )).
+
+cnf(rule7,axiom,
+    ( ~ p(X0,X1,X2,X3,X4,X5,X6,X7,s0,s1,s1,s1,s1,s1,s1) | p(X0,X1,X2,X3,X4,X5,X6,X7,s1,s0,s0,s0,s0,s0,s0) )).
+
+cnf(rule8,axiom,
+    ( ~ p(X0,X1,X2,X3,X4,X5,X6,s0,s1,s1,s1,s1,s1,s1,s1) | p(X0,X1,X2,X3,X4,X5,X6,s1,s0,s0,s0,s0,s0,s0,s0) )).
+
+cnf(rule9,axiom,
+    ( ~ p(X0,X1,X2,X3,X4,X5,s0,s1,s1,s1,s1,s1,s1,s1,s1) | p(X0,X1,X2,X3,X4,X5,s1,s0,s0,s0,s0,s0,s0,s0,s0) )).
+
+cnf(rule10,axiom,
+    ( ~ p(X0,X1,X2,X3,X4,s0,s1,s1,s1,s1,s1,s1,s1,s1,s1) | p(X0,X1,X2,X3,X4,s1,s0,s0,s0,s0,s0,s0,s0,s0,s0) )).
+
+cnf(rule11,axiom,
+    ( ~ p(X0,X1,X2,X3,s0,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1) | p(X0,X1,X2,X3,s1,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0) )).
+
+cnf(rule12,axiom,
+    ( ~ p(X0,X1,X2,s0,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1) | p(X0,X1,X2,s1,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0) )).
+
+cnf(rule13,axiom,
+    ( ~ p(X0,X1,s0,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1) | p(X0,X1,s1,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0) )).
+
+cnf(rule14,axiom,
+    ( ~ p(X0,s0,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1) | p(X0,s1,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0) )).
+
+cnf(rule15,axiom,
+    ( ~ p(s0,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1) | p(s1,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0) )).
+
+cnf(goal,negated_conjecture,
+    ( ~ p(s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1) )).
+%------------------------------------------------------------------------------

@@ -372,11 +372,11 @@ mk_jst_aux(ID, repeat(ID)) :-
   string_codes(ID, [Code | _]), 
   (Code = 48 ; Code = 49).
 
-mk_jst(JstStr, Jst) :- 
+mk_jst(JSTStr, JST) :- 
   (
-    string_split_with(JstStr, " ###", Fst, _) -> 
-    mk_jst_aux(Fst, Jst) ;
-    mk_jst_aux(JstStr, Jst)
+    string_split_with(JSTStr, " ###", Fst, _) -> 
+    mk_jst_aux(Fst, JST) ;
+    mk_jst_aux(JSTStr, JST)
   ).
 
 % wmt_term(#(Num), Num, #(Pred)) :- 

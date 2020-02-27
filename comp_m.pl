@@ -214,8 +214,8 @@ m_simp(PREMS, CONC, DFP) :-
 m_spc([PREM], CONC, DFP) :- 
   mate(PREM, CONC, DFP).
 
-m_add((CID, [], (- Form), cjtr), FIDs, Goal, [CID | FIDs], NewGoal) :- 
-  g_f(Form, Goal, NewGoal, TempGoal), 
+m_add((CID, [], (- Form), cjtr), FIDs, Goal, STRM, [CID | FIDs], NewGoal) :- 
+  g_f(Form, Goal, STRM, NewGoal, TempGoal), 
   goal_dfp(TempGoal, DFP), 
   TempGoal = (CTX, _),
   get_prob(0, [CID | FIDs], CTX, PROB), 
@@ -230,16 +230,15 @@ m_add((CID, [], (+ Form), axm), FIDs, Goal, [CID | FIDs], NewGoal) :-
   exclude(neg_osf, PROB, OSFS),
   pick_pmt(OSFS, (0, (- Form)), DFP).
 
-m_add((CID, PIDs, SF, Tac), FIDs, Goal, [CID | FIDs], NewGoal) :- 
+m_add(STRM, (CID, PIDs, SF, Tac), FIDs, GOAL, [CID | FIDs], N_GOAL) :- 
   \+ member(Tac, [axm, cjtr]),
-  g_f_s(SF, Goal, TempGoal, NewGoal),
+  kgs(some(STRM), SF, GOAL, T_GOAL, N_GOAL),
   invert_sf(SF, ISF),
-  goal_dfp(TempGoal, DFP), 
-  maplist(fid_osf(TempGoal, [CID | FIDs]), PIDs, OSFs),
-  call(Tac, OSFs, (0, ISF), DFP), 
-  DFP = (_, _, Prf), !, 
-  ground_all(Prf),
-  play_prf(Prf, TempGoal).
+  T_GOAL = (CTX, FP), 
+  maplist(fid_osf(CTX, [CID | FIDs]), PIDs, OSFs),
+  call(Tac, OSFs, (0, ISF), (0, FP, PRF)), !, 
+  ground_all(PRF),
+  play_prf(some(STRM), PRF, T_GOAL).
 
 comp_m(TPTP, TSTP, TXTX) :-
   tptp_prob(TPTP, PROB),
