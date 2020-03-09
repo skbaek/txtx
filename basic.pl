@@ -206,6 +206,9 @@ write_file_punct(Filename, Term) :-
   string_concat(TermStr, ".", Str),
   write_file(Filename, Str).
 
+prob_id_hyp(PROB, ID, (ID, SF)) :- 
+  get_assoc(ID, PROB, SF).
+
 molecular(Exp) :- 
   member(Exp, 
     [ (! _), (? _), (~ _), 
@@ -571,6 +574,9 @@ first_syn([ElemA | List], ElemB, Num) :-
     Num is Pred + 1
   ).
 
+swap(GOAL, X, Y, Z) :- 
+  call(GOAL, Y, X, Z).
+
 remove_at(0, [_ | List], List). 
 
 remove_at(Num, [Elem | List], [Elem | Rest]) :- 
@@ -805,10 +811,33 @@ tf_form(cnf, TF, FORM) :-
   fof_form(VARS, TF, TEMP), 
   add_fas(NUM, TEMP, FORM).
 
+% tptp_prob(TPTP, PROB) :- 
+%   trim_consult(TPTP),
+%   findall(TUPLE, hyp_tuple(TUPLE), TUPLES), 
+%   maplist_cut(tuple_hyp, TUPLES, PROB).
+
+add_sign(TYPE, FORM, + FORM) :-
+  member(TYPE, [axiom, lemma, hypothesis, definition, negated_conjecture]).
+
+add_sign(conjecture, FORM, - FORM).
+
+hypothesis((ID, SF)) :- 
+  (
+    cnf(OID, TYPE, TF), LNG = cnf ;
+    fof(OID, TYPE, TF), LNG = fof 
+  ),
+  tf_form(LNG, TF, FORM),
+  atom_concat(p, OID, ID), 
+  add_sign(TYPE, FORM, SF).
+
+add_hyp((ID, SF), PROB_IN, PROB_OUT) :- 
+  put_assoc(ID, PROB_IN, SF, PROB_OUT).
+
 tptp_prob(TPTP, PROB) :- 
   trim_consult(TPTP),
-  findall(TUPLE, hyp_tuple(TUPLE), TUPLES), 
-  maplist_cut(tuple_hyp, TUPLES, PROB).
+  empty_assoc(EMPTY_PROB), 
+  findall(HYP, hypothesis(HYP), HYPS), 
+  foldl(add_hyp, HYPS, EMPTY_PROB, PROB).
 
 put_bytes(_, []).
 
@@ -816,11 +845,11 @@ put_bytes(Stream, [Byte | Bytes]) :-
   put_byte(Stream, Byte),
   put_bytes(Stream, Bytes).
 
-find_by_key(PAIRS, KEY, VAL) :- 
-  member((KEY, VAL), PAIRS), !.
-
-pairs_key_keyval(PAIRS, KEY, (KEY, VAL)) :- 
-  member((KEY, VAL), PAIRS), !.
+% get_assoc(PAIRS, KEY, VAL) :- 
+%   member((KEY, VAL), PAIRS), !.
+% 
+% pairs_key_keyval(PAIRS, KEY, (KEY, VAL)) :- 
+%   member((KEY, VAL), PAIRS), !.
 
 % codes_bytes(CDS, BTS, TAIL) :- 
 %   reverse(CDS, REV), 

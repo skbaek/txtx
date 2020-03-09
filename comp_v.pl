@@ -134,32 +134,32 @@ use_hint(STRM, (CID, [], (- FORM), axm), FI, GOAL, FI_1, GOAL_N) :-
   ks(some(STRM), CID0, (~ FORM), GOAL, GOAL_A, GOAL_B), 
   ns(some(STRM), CID0, CID1, GOAL_A, GOAL_C),
   GOAL_C = (CTX, FP),
-  get_prob(CTX, PROB), 
-  pick_pmt_both(PROB, (CID1, (+ FORM)), (PRF, FP, FI_2)), 
+  get_orig_hyps(CTX, HYPS),
+  pick_pmt_both(HYPS, (CID1, (+ FORM)), (PRF, FP, FI_2)), 
   play_prf(STRM, PRF, GOAL_C), 
   ns(some(STRM), CID0, CID, GOAL_B, GOAL_N).
 
 use_hint(STRM, (CID, [], (+ FORM), axm), FI, GOAL, FI, GOAL_N) :- 
-  ks(some(STRM), CID, FORM, GOAL, GOAL_T, GOAL_N), 
+  ks(some(STRM), CID, FORM, GOAL, GOAL_T, GOAL_N),
   GOAL_T = (CTX, FP),
-  get_prob(CTX, PROB), 
-  pick_pmt_both(PROB, (CID, (- FORM)), (PRF, FP, FI)), 
+  get_orig_hyps(CTX, HYPS),
+  pick_pmt_both(HYPS, (CID, (- FORM)), (PRF, FP, FI)), 
   play_prf(STRM, PRF, GOAL_T).
 
 use_hint(STRM, (CID, PIDS, (+ CONC), TAC), FI, GOAL, FI, GOAL_N) :- 
   \+ member(TAC, [axm, aoc, jst(_)]),
   ks(some(STRM), CID, CONC, GOAL, GOAL_T, GOAL_N), 
   GOAL_T = (CTX, FP), 
-  maplist(pairs_key_keyval(CTX), PIDS, HYPS),
+  maplist(prob_id_hyp(CTX), PIDS, HYPS),
   call(TAC, HYPS, (CID, (- CONC)), (PRF, FP, FI)), !, 
   ground_all(PRF),
   play_prf(STRM, PRF, GOAL_T).
 
-use_hints(STRM, [], FI, GOAL) :- 
-  GOAL = ([(PID, (+ $false)) | _], _), 
-  atom_concat(x, FI, NID),
-  ts(some(STRM), NID, - $false, ["neg-false"], GOAL, GOAL_T),
-  xs(some(STRM), PID, NID, GOAL_T).
+% use_hints(STRM, [], FI, GOAL) :- 
+%   GOAL = ([(PID, (+ $false)) | _], _), 
+%   atom_concat(x, FI, NID),
+%   ts(some(STRM), NID, - $false, ["neg-false"], GOAL, GOAL_T),
+%   xs(some(STRM), PID, NID, GOAL_T).
 
 use_hints(STRM, [HINT | HINTS], FI, GOAL) :-
   timed_call(
@@ -170,7 +170,14 @@ use_hints(STRM, [HINT | HINTS], FI, GOAL) :-
       throw(proof_compilation_failed)
     )
   ), !, 
-  use_hints(STRM, HINTS, FI_T, GOAL_T).
+  (
+    HINTS = [] -> 
+    HINT = (CID, _), 
+    atom_concat(x, FI, NID),
+    ts(some(STRM), NID, - $false, ["neg-false"], GOAL_T, GOAL_F),
+    xs(some(STRM), CID, NID, GOAL_F) ; 
+    use_hints(STRM, HINTS, FI_T, GOAL_T)
+  ).
 
 v_tstp_hints(TSTP, HINTS) :- 
   trim_consult(TSTP),

@@ -1030,9 +1030,19 @@ aoc(OPFs, ONF, DFP) :-
   app_aocs(OPAnte, OPFs, DFP1, NewOPF, DFP2), 
   para(NewOPF, ONCons, DFP2).
 
-get_prob([(ID, SF) | CTX], PROB) :-
-  atom_concat(p, _, ID) -> PROB = [(ID, SF) | CTX] ; 
-  get_prob(CTX, PROB).
+% get_prob([(ID, SF) | CTX], PROB) :-
+%   atom_concat(p, _, ID) -> PROB = [(ID, SF) | CTX] ; 
+%   get_prob(CTX, PROB).
+
+orig_pair(ID - _) :-
+  atom_concat(p, _, ID).
+
+keyval_key_val(K - V, (K, V)).
+
+get_orig_hyps(PROB, ORIGS) :- !,
+  assoc_to_list(PROB, HYPS), 
+  include(orig_pair, HYPS, PAIRS), 
+  maplist_cut(keyval_key_val, PAIRS, ORIGS).
 
 pos_osf((_, (+ _))).
 neg_osf((_, (- _))).

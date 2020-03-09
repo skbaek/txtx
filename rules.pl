@@ -37,10 +37,11 @@ as(
   CID,
   DIR,
   (CTX, FP), 
-  ([(CID, SF_N) | CTX], FP)
+  (CTX_N, FP)
 ) :- 
-  find_by_key(CTX, PID, SF),
+  get_assoc(PID, CTX, SF),
   b_a(DIR, SF, SF_N),
+  put_assoc(CID, CTX, SF_N, CTX_N),
   (
     WRT = some(STRM) -> (
       put_atom(STRM, DIR), 
@@ -55,11 +56,13 @@ bs(
   PID,
   CID,
   (CTX, FP), 
-  ([(CID, SF_L) | CTX], FP),
-  ([(CID, SF_R) | CTX], FP)
+  (CTX_L, FP),
+  (CTX_R, FP)
 ) :- 
-  find_by_key(CTX, PID, SF),
+  get_assoc(PID, CTX, SF),
   b_b(SF, SF_L, SF_R),
+  put_assoc(CID, CTX, SF_L, CTX_L),
+  put_assoc(CID, CTX, SF_R, CTX_R),
   (
     WRT = some(STRM) -> (
       put_atom(STRM, CID),
@@ -74,13 +77,14 @@ cs(
   CID, 
   TERM, 
   (CTX, FP), 
-  ([(CID, SF_N) | CTX], FP)
+  (CTX_N, FP)
 ) :- 
   ground(TERM), % No logic variables in TERM
   ovar_free_term(TERM), % No free object variables in TERM
   no_new_par(FP, TERM), % No new parameters in TERM
-  find_by_key(CTX, PID, SF),
+  get_assoc(PID, CTX, SF),
   b_c(TERM, SF, SF_N), 
+  put_assoc(CID, CTX, SF_N, CTX_N),
   (
     WRT = some(STRM) -> (
       put_term(STRM, TERM),
@@ -95,11 +99,12 @@ ds(
   PID, 
   CID, 
   (CTX, FP), 
-  ([(CID, SF_N) | CTX], SUCC)
+  (CTX_N, SUCC)
 ) :-
-  find_by_key(CTX, PID, SF),
+  get_assoc(PID, CTX, SF),
   SUCC is FP + 1, 
   b_d(FP, SF, SF_N), 
+  put_assoc(CID, CTX, SF_N, CTX_N),
   (
     WRT = some(STRM) -> (
       put_atom(STRM, CID),
@@ -113,12 +118,14 @@ ks(
   CID,
   FORM,
   (CTX, FP), 
-  ([(CID, (- FORM)) | CTX], FP), 
-  ([(CID, (+ FORM)) | CTX], FP)
+  (CTX_L, FP), 
+  (CTX_R, FP)
 ) :-
   ground(FORM), % No logic variables in Form
   closed_form(FORM), % No free object variables in Form
   no_new_par(FP, FORM), % No new parameters in Form
+  put_assoc(CID, CTX, - FORM, CTX_L),
+  put_assoc(CID, CTX, + FORM, CTX_R),
   (
     WRT = some(STRM) -> (
       put_form(STRM, FORM), 
@@ -133,10 +140,11 @@ ts(
   SF, 
   JST,
   (CTX, FP),
-  ([(CID, SF) | CTX], FP)
+  (CTX_N, FP)
 ) :- 
   no_new_par(FP, SF), % No new parameters in SF
   justified(CTX, SF, JST),
+  put_assoc(CID, CTX, SF, CTX_N),
   (
     WRT = some(STRM) -> (
       put_strings(STRM, JST),
@@ -151,10 +159,11 @@ ns(
   PID, 
   CID, 
   (CTX, FP),
-  ([(CID, SF_N) | CTX], FP)
+  (CTX_N, FP)
 ) :- 
-  find_by_key(CTX, PID, SF),
+  get_assoc(PID, CTX, SF),
   b_n(SF, SF_N),
+  put_assoc(CID, CTX, SF_N, CTX_N),
   (
     WRT = some(STRM) -> (
       put_atom(STRM, CID),
@@ -164,8 +173,8 @@ ns(
   ).
  
 xs(WRT, PID, NID, (CTX, _)) :-
-  find_by_key(CTX, PID, + FORM_A),
-  find_by_key(CTX, NID, - FORM_B),
+  get_assoc(PID, CTX, + FORM_A),
+  get_assoc(NID, CTX, - FORM_B),
   FORM_A == FORM_B, 
   (
     WRT = some(STRM) -> (
