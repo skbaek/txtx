@@ -19,14 +19,14 @@ b_b(+ FORM_A => FORM_B, - FORM_A, + FORM_B).
 b_b(- FORM_A <=> FORM_B, - FORM_A => FORM_B, - FORM_B => FORM_A).
 
 b_c(TERM, + ! FORM, + NewFORM) :- 
-  subst(TERM, FORM, NewFORM).
+  subst_form(TERM, FORM, NewFORM).
 b_c(TERM, - ? FORM, - NewFORM) :- 
-  subst(TERM, FORM, NewFORM).
+  subst_form(TERM, FORM, NewFORM).
 
 b_d(NUM, - ! FORM,  - NewFORM) :-
-  subst(@(NUM), FORM, NewFORM).
+  subst_form(@(NUM), FORM, NewFORM).
 b_d(NUM, + ? FORM,  + NewFORM) :-
-  subst(@(NUM), FORM, NewFORM).
+  subst_form(@(NUM), FORM, NewFORM).
 
 b_n(+ ~ FORM, - FORM).
 b_n(- ~ FORM, + FORM).
@@ -285,8 +285,8 @@ type_sf(n, SF) :-
 type_osf(Type, (_, SF)) :- 
   type_sf(Type, SF).
 
-justified(_, - $false, ["neg-false"]). 
-justified(_, + $true, ["pos-true"]). 
+justified(_, - $false, [neg_false]). 
+justified(_, + $true, [pos_true]). 
 
 justified(_, + FORM, ["mono-rel", REL_STR, NUM_STR]) :- 
   atom_string(REL, REL_STR),
@@ -302,19 +302,19 @@ justified(_, + FORM, ["mono-fun", FUN_STR, NUM_STR]) :-
   mk_mono_args(NUM, ArgsA, ArgsB),
   mono_body(NUM, FORM, (FUN ^ ArgsA) = (FUN ^ ArgsB)), !.
 
-justified(_, + ((FUNA ^ []) = (FUNB ^ [])), ["ne-eval"]) :- 
+justified(_, + ((FUNA ^ []) = (FUNB ^ [])), [ne_eval]) :- 
   atom_number(FUNA, NUMA),
   atom_number(FUNB, NUMB),
   NUMA \= NUMB.
 
-justified(_, - ((FUNA ^ []) = (FUNB ^ [])), ["ne-eval"]) :- 
+justified(_, - ((FUNA ^ []) = (FUNB ^ [])), [ne_eval]) :- 
   atom_number(FUNA, NUMA),
   atom_number(FUNB, NUMB),
   NUMA \= NUMB.
 
-justified(_, + ! (#(0) = #(0)), ["refl-eq"]).
-justified(_, + (! ! ((#(1) = #(0)) => (#(0) = #(1)))), ["symm-eq"]).
-justified(_, + (! ! ! ((#(2) = #(1)) => ((#(1) = #(0)) => (#(2) = #(0))))), ["trans-eq"]).
+justified(_, + ! (#(0) = #(0)), [refl_eq]).
+justified(_, + (! ! ((#(1) = #(0)) => (#(0) = #(1)))), [symm_eq]).
+justified(_, + (! ! ! ((#(2) = #(1)) => ((#(1) = #(0)) => (#(2) = #(0))))), [trans_eq]).
 
 justified(CTX, + FORM, ["aoc", SKM_STR]) :- 
   atom_string(SKM, SKM_STR),
@@ -322,7 +322,7 @@ justified(CTX, + FORM, ["aoc", SKM_STR]) :-
   strip_fas(FORM, NUM, (? Ante) => Cons), 
   \+ sub_term(SKM, Ante), 
   mk_skm_term(SKM, NUM, SKM_TERM),
-  subst(SKM_TERM, Ante, NewAnte),
+  subst_form(SKM_TERM, Ante, NewAnte),
   NewAnte == Cons.
 
 justified(CTX, + FORM, ["def", PRD_STR]) :- 

@@ -6,11 +6,11 @@ literal(~ Atom) :-
 literal(Atom) :- 
   \+ molecular(Atom).
 
-pred_def_norm(! Xs : TPTP, ! Xs : NewTPTP) :- 
-  pred_def_norm(TPTP, NewTPTP).
-
-pred_def_norm((TPTP | ~ Atom), (Atom <=> TPTP)).
-pred_def_norm((Atom <=> TPTP), (Atom <=> TPTP)).
+% pred_def_norm(! Xs : TPTP, ! Xs : NewTPTP) :- 
+%   pred_def_norm(TPTP, NewTPTP).
+% 
+% pred_def_norm((TPTP | ~ Atom), (Atom <=> TPTP)).
+% pred_def_norm((Atom <=> TPTP), (Atom <=> TPTP)).
 
 eq(X, X).
 
@@ -18,53 +18,6 @@ ground_all(Term) :-
   term_variables(Term, Vars),
   maplist_cut(eq((c ^ [])), Vars).
 
-aap(OSF, DFP, OSF_L, OSF_R, NewDFP) :- 
-  ap(l, OSF, DFP, OSF_L, TempDFP), 
-  ap(r, OSF, TempDFP, OSF_R, NewDFP). 
-
-abp(OSF_A, OSF_B, DFP, OSF_AL, OSF_BL, DFP_L, OSF_AR, OSF_BR, DFP_R) :- 
-  bp(OSF_B, DFP, OSF_BL, TempDFP_L, OSF_BR, TempDFP_R), 
-  ap(l, OSF_A, TempDFP_L, OSF_AL, DFP_L),
-  ap(r, OSF_A, TempDFP_R, OSF_AR, DFP_R).
-
-abp_cf(OSF_A, OSF_B, DFP, OSF_AR, OSF_BL, DFP_L, OSF_AL, OSF_BR, DFP_R) :- 
-  bp(OSF_B, DFP, OSF_BL, TempDFP_L, OSF_BR, TempDFP_R), 
-  ap(r, OSF_A, TempDFP_L, OSF_AR, DFP_L),
-  ap(l, OSF_A, TempDFP_R, OSF_AL, DFP_R).
-
-abp_sw(OSF0, OSF1, DFP, OSF0A, OSF1A, DFP_A, OSF0B, OSF1B, DFP_B) :- 
-  abp(OSF0, OSF1, DFP, OSF0A, OSF1A, DFP_A, OSF0B, OSF1B, DFP_B) ;
-  abp_cf(OSF0, OSF1, DFP, OSF0A, OSF1A, DFP_A, OSF0B, OSF1B, DFP_B).
-
-bap(OSF0, OSF1, DFP, OSF0A, OSF1A, DFP_A, OSF0B, OSF1B, DFP_B) :- 
-  abp(OSF1, OSF0, DFP, OSF1A, OSF0A, DFP_A, OSF1B, OSF0B, DFP_B). 
-
-bap_cf(OSF0, OSF1, DFP, OSF0A, OSF1A, DFP_A, OSF0B, OSF1B, DFP_B) :- 
-  abp_cf(OSF1, OSF0, DFP, OSF1A, OSF0A, DFP_A, OSF1B, OSF0B, DFP_B). 
-
-bap_sw(OSF0, OSF1, DFP, OSF0A, OSF1A, DFP_A, OSF0B, OSF1B, DFP_B) :- 
-  bap(OSF0, OSF1, DFP, OSF0A, OSF1A, DFP_A, OSF0B, OSF1B, DFP_B) ;
-  bap_cf(OSF0, OSF1, DFP, OSF0A, OSF1A, DFP_A, OSF0B, OSF1B, DFP_B).
-
-kps(+ Form, DFP, ONF, DFP_N, OPF, DFP_P) :- 
-  kp(Form, DFP, ONF, DFP_N, OPF, DFP_P).
-
-kps(- Form, DFP, OPF, DFP_P, ONF, DFP_N) :- 
-  kp(Form, DFP, ONF, DFP_N, OPF, DFP_P).
-
-cdp(OSF_C, OSF_D, DFP, NewOSF_C, NewOSF_D, NewDFP) :- 
-  DFP = (_, FP, _), 
-  dp(OSF_D, DFP, NewOSF_D, TempDFP), 
-  cp(@(FP), OSF_C, TempDFP, NewOSF_C, NewDFP). 
-
-dcp(OSF0, OSF1, DFP, NEW_OSF0, NEW_OSF1, NEW_DFP) :- 
-  cdp(OSF1, OSF0, DFP, NEW_OSF1, NEW_OSF0, NEW_DFP).
-
-% kss(WRT, CID, (+ FORM), GOAL, SUB_GOAL, MAIN_GOAL) :- 
-%   ks(WRT, CID, FORM, GOAL, SUB_GOAL, MAIN_GOAL).
-% 
-% kss(WRT, CID, (- FORM), GOAL, SUB_GOAL, MAIN_GOAL) :- 
-%   ks(WRT, CID, FORM, GOAL, MAIN_GOAL, SUB_GOAL).
 
 play_prf(STRM, a(PID, CID, DIR, PRF), GOAL) :- 
   as(some(STRM), PID, CID, DIR, GOAL, N_GOAL), 
@@ -105,52 +58,15 @@ play_prf(STRM, x(PID, NID), GOAL) :-
 
 
 */
-many(Rules, (ISFs, IPP), IIPPs) :-
-  member(n, Rules), 
-  pluck(ISFs, ISF, Rest), 
-  np(ISF, IPP, NewISF, NewIPP), !,
-  many(Rules, ([NewISF | Rest], NewIPP), IIPPs).
-
-many(Rules, (ISFs, IPP), IIPPs) :-
-  member(a, Rules), 
-  pluck(ISFs, ISF, Rest), 
-  ap(l, ISF, IPP, ISF_L, TempIPP), 
-  ap(r, ISF, TempIPP, ISF_R, NewIPP), !, 
-  many(Rules, ([ISF_R, ISF_L | Rest], NewIPP), IIPPs).
-
-many(Rules, (ISFs, IPP), IIPPs) :-
-  member(d, Rules), 
-  pluck(ISFs, ISF, Rest), 
-  dp(ISF, IPP, NewISF, NewIPP), !,
-  many(Rules, ([NewISF | Rest], NewIPP), IIPPs).
-
-many(Rules, (ISFs, IPP), IIPPs) :-
-  member(c, Rules), 
-  pluck(ISFs, ISF, Rest), 
-  cp(_, ISF, IPP, NewISF, NewIPP), !,
-  many(Rules, ([NewISF | Rest], NewIPP), IIPPs).
-
-many(Rules, (ISFs, IPP), IIPPs) :-
-  member(b, Rules), 
-  pluck(ISFs, ISF, Rest), 
-  bp(ISF, IPP, ISF_L, IPP_L, ISF_R, IPP_R), !, 
-  many(Rules, ([ISF_L | Rest], IPP_L), IIPPsL), !,
-  many(Rules, ([ISF_R | Rest], IPP_R), IIPPsR),
-  append(IIPPsL, IIPPsR, IIPPs). 
-
-many(_, IIPP, [IIPP]).
-
-many_nb(Rules, ISFs, IPP, NewISFs, NewIPP) :-
-  many(Rules, (ISFs, IPP), [(NewISFs, NewIPP)]).
 
 mate_pf(OPF, DFP) :- 
   OPF = (_, (+ $false)),
-  tp(- $false, ["neg-false"], DFP, ONF, NewDFP),
+  tp(- $false, [neg_false], DFP, ONF, NewDFP),
   xp(OPF, ONF, NewDFP).
 
 mate_nt(ONF, DFP) :- 
   ONF = (_, (- $true)),
-  tp(+ $true, ["pos-true"], DFP, OPF, NewDFP),
+  tp(+ $true, [pos_true], DFP, OPF, NewDFP),
   xp(OPF, ONF, NewDFP).
 
 mate_tf(OSF, DFP) :- 
@@ -184,218 +100,8 @@ mate_pn_nu(OPF, ONF, DFP) :-
   unifiable(FORM_A, FORM_B, []), 
   xp(N_OPF, ONF, N_DFP).
 
-rev_dir(OPF, DFP, NewOPF, NewDFP) :- 
-  OPF = (_, (+ (TermA = TermB))), 
-  kp(TermB = TermA, DFP, NewONF, TempDFP, NewOPF, NewDFP), 
-  eq_symm(OPF, NewONF, TempDFP), !. 
- 
-set_dir(OPF, DFP, OPF, DFP).
-set_dir(OPF, DFP, NewOPF, NewDFP) :- 
-  rev_dir(OPF, DFP, NewOPF, NewDFP).
 
 
-
-%%%%%%% Equality Axiom Application %%%%%%% 
-
-% eq_symm(Term, GOAL)
-% --- 
-% GOAL := ... |- PID : Term = Term, ...
-eq_refl(ONF, IPP) :- 
-  ONF = (_, (- (Term = Term))),
-  tp(+ ! (#(0) = #(0)), ["refl-eq"], IPP, ISF0, TempIPP), 
-  cp(Term, ISF0, TempIPP, IPF, NewIPP), 
-  xp(IPF, ONF, NewIPP).
-
-% eq_symm(TermA, TermB, GOAL)
-% --- 
-% GOAL ::= PID : TermA = TermB, ... |- NID : TermB = TermA, ...
-% IPF = PID + TermA = TermB
-% INF = NID - TermB = TermA
-eq_symm(OPF, ONF, DFP) :- 
-  OPF = (_, (+ (TermA = TermB))), 
-  ONF = (_, (- (TermB = TermA))),
-  tp(+ ! ! ((#(1) = #(0)) => (#(0) = #(1))), ["symm-eq"], DFP, ISF0, IPP0), 
-  cp(TermA, ISF0, IPP0, ISF1, IPP1), 
-  cp(TermB, ISF1, IPP1, ISF2, IPP2), 
-  bp(ISF2, IPP2, ISF3, IPP3, ISF4, IPP4), 
-  mate_pn(OPF, ISF3, IPP3), 
-  mate_pn(ISF4, ONF, IPP4). 
-
-eq_symm(OPF, DFP, NewOPF, NewDFP) :- 
-  OPF = (_, (+ TermA = TermB)), 
-  kp(TermB = TermA, DFP, ONF, TempDFP, NewOPF, NewDFP), 
-  eq_symm(OPF, ONF, TempDFP).
-
-% eq_trans(TermA, TermB, TermC, GOAL)
-% --- 
-% GOAL := PID0 : TermA = TermB, PID1 : TermB = TermC, ... |- CID : TermA = TermC, ...
-% IPF0 = PID0 + TermA = TermB
-% IPF1 = PID1 + TermB = TermC
-% INF = NID - TermA = TermC
-eq_trans(IPF0, IPF1, INF, IPP) :- 
-  IPF0 = (_, (+ (TermA = TermB))), !,
-  IPF1 = (_, (+ (TermB = TermC))), !,
-  INF = (_, (- (TermA = TermC))), !,
-  tp(+ ! ! ! ((#(2) = #(1)) => ((#(1) = #(0)) => (#(2) = #(0)))), ["trans-eq"], IPP, Mono0, IPP0),  !,
-  cp(TermA, Mono0, IPP0, Mono1, IPP1), !,
-  cp(TermB, Mono1, IPP1, Mono2, IPP2), !,
-  cp(TermC, Mono2, IPP2, Mono3, IPP3), !,
-  bp(Mono3, IPP3, Mono4, IPP4, Mono5, IPP5), !,
-  mate(IPF0, Mono4, IPP4), !,
-  bp(Mono5, IPP5, Mono6, IPP6, Mono7, IPP7), !,
-  mate(IPF1, Mono6, IPP6), !,
-  mate(INF, Mono7, IPP7), !.
-
-
-
-%%%%%%% Decomposition to Equational GOALs %%%%%%%
-
-intro_eqs(Mono, [], [], DFP, Mono, [], DFP).
-
-intro_eqs(Mono, [TermA | TermsA], [TermB | TermsB], DFP, Iff, [(ONE, SubDFP) | ODFPs], NewDFP) :-
-  cp(TermA, Mono, DFP, MonoA, DFP_A), 
-  cp(TermB, MonoA, DFP_A, MonoAB, DFP_AB), 
-  bp(MonoAB, DFP_AB, ONE, SubDFP, TempMono, TempDFP), 
-  intro_eqs(TempMono, TermsA, TermsB, TempDFP, Iff, ODFPs, NewDFP). 
-
-%break_eq_fun_aux(ONE, Mono, [], [], DFP, []) :- 
-%  mate(ONE, Mono, DFP).
-%
-%break_eq_fun_aux(ONEq, Mono, [TermA | TermsA], [TermB |TermsB], DFP, [(NewONEq, NewDFP) | EDFPs]) :- 
-%  cp(TermA, Mono, DFP, MonoA, DFP_A), 
-%  cp(TermB, MonoA, DFP_A, MonoAB, DFP_AB), 
-%  bp(MonoAB, DFP_AB, NewONEq, NewDFP, TempMono, TempDFP), 
-%  break_eq_fun_aux(ONEq, TempMono, TermsA, TermsB, TempDFP, EDFPs). 
-
-break_eq_fun(OPEs, ONE, DFP, ODFPs) :- 
-  ONE = (_, (- TermA = TermB)),
-  \+ var(TermA),
-  \+ var(TermB),
-  TermA = (Fun ^ TermsA),
-  TermB = (Fun ^ TermsB),
-  length(TermsA, Lth),
-  length(TermsB, Lth),
-  maplist_cut(term_poseq_term(OPEs), TermsA, TermsB),
-  mk_mono_fun(Lth, Fun, MonoForm),
-  atom_string(Fun, FUN_STR),
-  number_codes(Lth, LTH_STR),
-  tp(+ MonoForm, ["mono-fun", FUN_STR, LTH_STR], DFP, Mono, DFP0),
-  intro_eqs(Mono, TermsA, TermsB, DFP0, OPE, ODFPs, DFP1),
-  xp(OPE, ONE, DFP1).
-
-break_eq_rel(Dir, OPEs, OPA, ONA, DFP, ODFPs) :- 
-  OPA = (_, (+ AtomA)),
-  ONA = (_, (- AtomB)),
-  AtomA =.. [Rel | TermsA], 
-  AtomB =.. [Rel | TermsB], 
-  length(TermsA, Lth),
-  length(TermsB, Lth),
-  ( 
-    Dir = l -> 
-    maplist_cut(term_poseq_term(OPEs), TermsA, TermsB) ;
-    maplist_cut(term_poseq_term(OPEs), TermsB, TermsA) 
-  ),
-  mk_mono_rel(Lth, Rel, MonoForm),
-  atom_string(Rel, REL_STR),
-  number_codes(Lth, LTH_STR),
-  tp(+ MonoForm, ["mono-rel", REL_STR, LTH_STR], DFP, Mono, DFP0),
-  ( 
-    (
-      Dir = l, 
-      intro_eqs(Mono, TermsA, TermsB, DFP0, Iff, ODFPs, DFP1),
-      ap(l, Iff, DFP1, Imp, DFP2)
-    ) ;
-    (
-      Dir = r, 
-      intro_eqs(Mono, TermsB, TermsA, DFP0, Iff, ODFPs, DFP1),
-      ap(r, Iff, DFP1, Imp, DFP2)
-    ) 
-  ),
-  bp(Imp, DFP2, OSF_L, DFP_L, OSF_R, DFP_R), 
-  xp(OPA, OSF_L, DFP_L), 
-  xp(OSF_R, ONA, DFP_R). 
-
-
-
-%%%%%%% Substitution Axiom Application %%%%%%%
-
-subst_fun_single(OPE, (ONE, DFP)) :- 
-  subst_fun_single(OPE, ONE, DFP). 
-
-subst_fun_single(OPE, ONE, DFP) :-
-  ONE = (_, (- (TermA = TermB))), 
-  (
-    TermA == TermB -> 
-    eq_refl(ONE, DFP) ;
-    subst_fun_single_0(OPE, ONE, DFP)
-  ).
-
-subst_fun_single_0(OPE, ONE, DFP) :-
-  OPE = (_, (+ FormA)), 
-  ONE = (_, (- FormB)), 
-  (
-    FormA == FormB ->  
-    xp(OPE, ONE, DFP) ;
-    subst_fun_single_1(OPE, ONE, DFP)
-  ).
-
-subst_fun_single_1(_, ONE, DFP) :-
-  ONE = (_, (- (TermA = TermB))), 
-  unify_with_occurs_check(TermA, TermB),
-  eq_refl(ONE, DFP).
-
-subst_fun_single_1(OPE, ONE, DFP) :-
-  xp(OPE, ONE, DFP).
-
-subst_fun_single_1(OPE, ONE, DFP) :-
-  break_eq_fun([OPE], ONE, DFP, ODFPs),
-  maplist(subst_fun_single(OPE), ODFPs). 
-
-subst_fun_multi(OPEs, ONE, DFP, NewOPEs) :-
-  ONE = (_, (- (TermA = TermB))), 
-  (
-    TermA == TermB -> 
-    (eq_refl(ONE, DFP), NewOPEs = OPEs) ;
-    subst_fun_multi_0(OPEs, ONE, DFP, NewOPEs)
-  ).
-
-subst_fun_multi_0(OPEs, ONF, DFP, OPEs) :- 
-  ONF = (_, (- (TermA = TermB))), 
-  unify_with_occurs_check(TermA, TermB),
-  eq_refl(ONF, DFP).
-
-subst_fun_multi_0(OPEs, ONE, DFP, NewOPEs) :-
-  break_eq_fun(OPEs, ONE, DFP, ODFPs),
-  subst_fun_multi_aux(OPEs, ODFPs, NewOPEs). 
-
-subst_fun_multi_0(OPQEs, ONE, DFP, NewOPQEs) :- 
-  ONE = (_, (- (TermA0 = TermC))), 
-  pluck_uniq(OPQEs, OPQE, Rest),
-  many_nb([c], [OPQE], DFP, [OPE], DFP0), 
-  OPE = (_, (+ TermA1 = TermB)),
-  unify_with_occurs_check(TermA0, TermA1), 
-  kp(TermB = TermC, DFP0, NewONE, DFP1, NewOPE, DFP2), 
-  subst_fun_multi(Rest, NewONE, DFP1, NewOPQEs), 
-  eq_trans(OPE, NewOPE, ONE, DFP2).
-
-subst_fun_multi_aux(OPEs, [], OPEs).
-
-subst_fun_multi_aux(OPEs, [(ONE, DFP) | ODFPs], NewOPEs) :-
-  subst_fun_multi(OPEs, ONE, DFP, TempOPEs),
-  subst_fun_multi_aux(TempOPEs, ODFPs, NewOPEs).
-  
-subst_rel_multi(DirA, OSF_L, OPEs, OSF_R, DFP, NewOPEs) :-  
-  orient(OSF_L, OSF_R, DirB, PreOPA, ONA),
-  dir_iff(DirA, DirB, Dir),
-  set_dir(PreOPA, DFP, OPA, TempDFP),
-  break_eq_rel(Dir, OPEs, OPA, ONA, TempDFP, ODFPs),
-  subst_fun_multi_aux(OPEs, ODFPs, NewOPEs). 
-
-subst_rel_single(OSF_L, OPE, OSF_R, DFP) :-  
-  orient(OSF_L, OSF_R, Dir, PreOPA, ONA),
-  set_dir(PreOPA, DFP, OPA, TempDFP),
-  break_eq_rel(Dir, [OPE], OPA, ONA, TempDFP, ODFPs),
-  maplist(subst_fun_single(OPE), ODFPs).
 
 %%%%%%%% Rule-specific tactics %%%%%%%%
 
@@ -659,45 +365,7 @@ is_ose(OSF) :-
 is_ope((_, (+ _ = _))).
 is_one((_, (- _ = _))).
 
-inst_fas(Form, Form) :-
-  Form \= (! _).
-  
-inst_fas(! Form, Body) :-
-  subst(_, Form, TempForm),
-  inst_fas(TempForm, Body).
 
-term_poseq_term(Var, _) :- 
-  var(Var).
-
-term_poseq_term(_, Var) :- 
-  var(Var).
-
-term_poseq_term(TermA, TermB) :- 
-  \+ var(TermA),
-  \+ var(TermB),
-  TermA = @(Num),
-  TermB = @(Num).
-
-term_poseq_term(TermA, TermB) :- 
-  \+ var(TermA),
-  \+ var(TermB),
-  TermA = (Fun ^ TermsA),
-  TermB = (Fun ^ TermsB),
-  length(TermsA, Lth),
-  length(TermsB, Lth).
-
-term_poseq_term(_, TermA, TermB) :- 
-  term_poseq_term(TermA, TermB).
-
-term_poseq_term(OPQEs, TermA, TermB) :- 
-  member((_, (+ QE)), OPQEs), 
-  inst_fas(QE, TermL = TermR), 
-  ( 
-    term_poseq_term(TermA, TermL) ; 
-    term_poseq_term(TermA, TermR) ; 
-    term_poseq_term(TermB, TermR) ; 
-    term_poseq_term(TermB, TermL) 
-  ).
 
 sup(OPF0, OPF1, ONF, DFP) :- 
   many_nb([a, d, n], [ONF], DFP, OSFs, DFP0), 
@@ -758,7 +426,7 @@ der([OPF], ONF, DFP) :-
   OSF0 = (_, (+ TermA = TermB)), 
   format('First term = ~w\n', TermA), 
   format('First term = ~w\n', TermB),
-  tp((- TermA = TermB), ["ne-eval"], DFP1, OSF1, DFP2), 
+  tp((- TermA = TermB), [ne_eval], DFP1, OSF1, DFP2), 
   mate_pn(OSF0, OSF1, DFP2).
 
 opqla_onqla(OPQla, ONQla, DFP) :- 
@@ -1148,12 +816,12 @@ eqr([OPF], ONF, DFP) :-
 
 %goal_dfp((_, FP), (0, FP, PRF)).
 
-get_aocs(Form, Skms, AOCs) :- 
-  strip_fas(Form, Num, Ante => Cons), 
-  mk_vars(Num, RevVars),
-  reverse(RevVars, Vars), 
-  get_aocs_aux(Vars, Ante, Cons, Skms, Forms),
-  maplist_cut(mk_fa(Num), Forms, AOCs).
+% get_aocs(Form, Skms, AOCs) :- 
+%   strip_fas(Form, Num, Ante => Cons), 
+%   mk_vars(Num, RevVars),
+%   reverse(RevVars, Vars), 
+%   get_aocs_aux(Vars, Ante, Cons, Skms, Forms),
+%   maplist_cut(mk_fa(Num), Forms, AOCs).
 
 rtf([IPF], INF, IPP) :- 
   rtf_aux(IPF, INF, IPP).
@@ -1182,12 +850,12 @@ mk_fa(Num, Form, ! NewForm) :-
   num_pred(Num, Pred), 
   mk_fa(Pred, Form, NewForm).
 
-get_aocs_aux(_, Ante, Cons, [], []) :- 
-  para((s0, (+ Ante)), (s1, (- Cons)), (_, 0, 0)).
-
-get_aocs_aux(Vars, ? Ante, Cons, [Skm | Skms], [(? Ante) => NewAnte | AOCs]) :- 
-  subst((Skm ^ Vars), Ante, NewAnte), 
-  get_aocs_aux(Vars, NewAnte, Cons, Skms, AOCs).
+% get_aocs_aux(_, Ante, Cons, [], []) :- 
+%   para((s0, (+ Ante)), (s1, (- Cons)), (_, 0, 0)).
+% 
+% get_aocs_aux(Vars, ? Ante, Cons, [Skm | Skms], [(? Ante) => NewAnte | AOCs]) :- 
+%   subst((Skm ^ Vars), Ante, NewAnte), 
+%   get_aocs_aux(Vars, NewAnte, Cons, Skms, AOCs).
 
 mk_pair(X, Y, (X, Y)).
 
@@ -1219,7 +887,7 @@ aoc_norm(! Form, Num, Skm, ! Norm) :-
   
 aoc_norm((? Ante) => _, Num, Skm, (? Ante) => Cons) :-
   mk_skm_term(Skm, Num, SkmTerm), 
-  subst(SkmTerm, Ante, Cons).
+  subst_form(SkmTerm, Ante, Cons).
 
 pmt_a_aux(OSF, DFP, OSF_L, OSF_R, NEW_DFP) :- 
   \+ imp_osf(OSF), 
@@ -1564,8 +1232,8 @@ conv_conc(del(ID), del(ID)).
 % x : xi (ex falso)
 
 prop_tblx((ISFs, IPP)) :- 
-  tp(+ $true, ["pos-true"], IPP, IPTrue, IPP0),
-  tp(- $false, ["neg-false"], IPP0, INFalse, IPP1),
+  tp(+ $true, [pos_true], IPP, IPTrue, IPP0),
+  tp(- $false, [neg_false], IPP0, INFalse, IPP1),
   pluck(ISFs, ISF, Rest),
   prop_tblx(block, [], ISF, [IPTrue, INFalse | Rest], IPP1), !.
 

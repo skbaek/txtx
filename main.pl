@@ -2,14 +2,32 @@
 
 :- initialization(main, main).
 
-:- [comp_v, verify]. 
+:- [prove, vsol, verify]. 
 
+tstp_sol('vampire', PIDS, TSTP, SOL) :- 
+  vampire_tstp_sol(PIDS, TSTP, SOL).
 
-comp_v_args(['--compile', 'vampire', TPTP, TSTP, TXTX | _], TPTP, TSTP, TXTX).
-comp_m_args(['--compile', 'metis', TPTP, TSTP, TXTX | _], TPTP, TSTP, TXTX).
+main(['-p', PRVR, TPTP, TSTP, TXTX]) :- 
+  style_check(-singleton),
+  tptp_prob(TPTP, PIDS, PROB),
+  tstp_sol(PRVR, PIDS, TSTP, SOL),
+  open(TXTX, write, STRM, [encoding(octet)]),
+  prove(STRM, PRVR, SOL, PROB),
+  close(STRM).
+  
+main(['-v', TPTP, TXTX]) :- 
+  style_check(-singleton),
+  tptp_prob(TPTP, _, PROB),
+  open(TXTX, read, STRM, [encoding(octet)]), 
+  verify(STRM, PROB, 0), 
+  write("Proof verified.\n"),
+  close(STRM).
 
-verify_args(['--verify', TPTP, TXTX | _], TPTP, TXTX).
+% comp_m_args(['--compile', 'metis', TPTP, TSTP, TXTX | _], TPTP, TSTP, TXTX).
+% 
+% verify_args(['--verify', TPTP, TXTX | _], TPTP, TXTX).
 
+/*
 help_msg :-
   write(
 "=========== Usage ==========\n
@@ -33,3 +51,4 @@ main(ARGV) :-
     ( verify_args(ARGV, TPTP, TXTX), 
       verify(TPTP, TXTX) ) 
   ).
+*/

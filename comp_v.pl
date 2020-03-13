@@ -96,25 +96,6 @@ v_cmp_hints(Order, (ID_A, _, _, _), (ID_B, _, _, _)) :-
   atom_number(TEMP_B, NUM_B),
   compare(Order, NUM_A, NUM_B).
 
-% use_hint(STRM, (CID, [], (+ CONC), hyp(JST)), FIDs, GOAL, [CID | FIDs], NEW_GOAL) :- 
-%   ts(some(STRM), + CONC, JST, GOAL, NEW_GOAL).
-
-% use_hint(STRM, (CID, [], (- FORM), cjtr), FIDs, GOAL, [CID | FIDs], NEW_GOAL) :- 
-%   kg(some(STRM), FORM, GOAL, NEW_GOAL, TEMP_GOAL), 
-%   TEMP_GOAL = (CTX, FP),
-%   get_prob(0, [CID | FIDs], CTX, PROB), 
-%   exclude(pos_osf, PROB, OSFS),
-%   pick_pmt_both(OSFS, (0, (+ FORM)), (0, FP, PRF)), 
-%   play_prf(some(STRM), PRF, TEMP_GOAL).
-
-% use_hint(STRM, (CID, [], (+ FORM), axm), FIDs, GOAL, [CID | FIDs], NEW_GOAL) :- 
-%   kg(some(STRM), FORM, GOAL, TEMP_GOAL, NEW_GOAL), 
-%   TEMP_GOAL = (CTX, FP),
-%   get_prob(0, [CID | FIDs], CTX, PROB), 
-%   exclude(neg_osf, PROB, OSFS),
-%   pick_pmt_both(OSFS, (0, (- FORM)), (0, FP, PRF)), 
-%   play_prf(some(STRM), PRF, TEMP_GOAL).
-
 use_hint(STRM, (CID, [], SF, jst(JST)), FI, GOAL, FI, GOAL_N) :- 
   ts(some(STRM), CID, SF, JST, GOAL, GOAL_N).
 
@@ -155,12 +136,6 @@ use_hint(STRM, (CID, PIDS, (+ CONC), TAC), FI, GOAL, FI, GOAL_N) :-
   ground_all(PRF),
   play_prf(STRM, PRF, GOAL_T).
 
-% use_hints(STRM, [], FI, GOAL) :- 
-%   GOAL = ([(PID, (+ $false)) | _], _), 
-%   atom_concat(x, FI, NID),
-%   ts(some(STRM), NID, - $false, ["neg-false"], GOAL, GOAL_T),
-%   xs(some(STRM), PID, NID, GOAL_T).
-
 use_hints(STRM, [HINT | HINTS], FI, GOAL) :-
   timed_call(
     500, 
@@ -174,7 +149,7 @@ use_hints(STRM, [HINT | HINTS], FI, GOAL) :-
     HINTS = [] -> 
     HINT = (CID, _), 
     atom_concat(x, FI, NID),
-    ts(some(STRM), NID, - $false, ["neg-false"], GOAL_T, GOAL_F),
+    ts(some(STRM), NID, - $false, [neg_false], GOAL_T, GOAL_F),
     xs(some(STRM), CID, NID, GOAL_F) ; 
     use_hints(STRM, HINTS, FI_T, GOAL_T)
   ).
