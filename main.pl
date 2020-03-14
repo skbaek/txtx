@@ -2,7 +2,7 @@
 
 :- initialization(main, main).
 
-:- [prove, vsol, verify]. 
+:- [prove, vsol]. 
 
 tstp_sol('vampire', PIDS, TSTP, SOL) :- 
   vampire_tstp_sol(PIDS, TSTP, SOL).
@@ -19,9 +19,12 @@ main(['-v', TPTP, TXTX]) :-
   style_check(-singleton),
   tptp_prob(TPTP, _, PROB),
   open(TXTX, read, STRM, [encoding(octet)]), 
-  verify(STRM, PROB, 0), 
+  % verify(STRM, PROB, 0), 
+  get_prf(STRM, PRF),
+  verify(PROB, 0, PRF),
   write("Proof verified.\n"),
   close(STRM).
+
 
 % comp_m_args(['--compile', 'metis', TPTP, TSTP, TXTX | _], TPTP, TSTP, TXTX).
 % 

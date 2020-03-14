@@ -135,14 +135,17 @@ infer(vampire, [ngt], [PREM], CONC, GOAL) :-
   sp(CONC, GOAL, TEMP, GOAL_T), 
   mate(PREM, TEMP, GOAL_T).
 
-infer(vampire, [dat], [PREM], CONC, GOAL) :- 
-  dat([PREM], [CONC], GOAL).
-
 infer(vampire, [aft], PREMS, CONC, GOAL) :- 
-  aft([CONC | PREMS], GOAL).
+  tableaux([a, f], [CONC | PREMS], GOAL).
+
+infer(vampire, [pft], PREMS, CONC, GOAL) :-
+  tableaux([p, f], [CONC | PREMS], GOAL).
 
 infer(vampire, [daft], [PREM], CONC, GOAL) :- 
-  daft(PREM, CONC, GOAL).
+  tableaux([d, a, f], PREM, CONC, GOAL).
+  
+infer(vampire, [pdaft], [PREM], CONC, GOAL) :-
+  tableaux([p, d, a, f], PREM, CONC, GOAL).
 
 infer(vampire, [gaoc], AOCS, GAOC, GOAL) :- 
   % aoc(OPFs, ONF, DFP) :- 
@@ -150,7 +153,7 @@ infer(vampire, [gaoc], AOCS, GAOC, GOAL) :-
   IMP = (_, (- (_ => _))),
   aap(IMP, GOAL0, ANTE, CONS, GOAL1), 
   apply_aocs(ANTE, AOCS, GOAL1, TEMP, GOAL2), 
-  dat([TEMP], [CONS], GOAL2).
+  tableaux([d, a, f], TEMP, CONS, GOAL2).
   
 infer(vampire, [res], [PYP0, PYP1], NYP, GOAL) :- 
   many_nb([a, d, s], [NYP], GOAL, HYPS, GOAL_T), 
@@ -161,8 +164,7 @@ infer(vampire, [res], [PYP0, PYP1], NYP, GOAL) :-
 
 infer(vampire, [hyp], CTX, HYP, GOAL) :- 
   member(CMP, CTX), 
-  % pmt(CMP, HYP, GOAL).
-  tblx([CMP], [HYP], GOAL).
+  tableaux([d, a, f], CMP, HYP, GOAL).
 
 infer(PRVR, HINTS, CTX, HYP, GOAL) :- 
   write("Inference failed, hints : "), 
@@ -215,6 +217,8 @@ prove(STRM, PRVR, [inf(HINTS, PIDS, CID, + FORM) | SOL], PROB) :-
   get_context(PROB, PIDS, CTX),
   GOAL = (PRF, 0, 0), 
   infer(PRVR, HINTS, CTX, (CID, (- FORM)), GOAL), !, 
+  put_assoc(CID, PROB, - FORM, SUB_PROB),
+  verify(SUB_PROB, 0, PRF),
   put_prf(STRM, PRF), 
   (
     SOL = [] -> 

@@ -5,31 +5,37 @@ id_sid(ID, SID) :-
 
 rul_hint(negated_conjecture, ngt).  
 %rul_hint(cnf_transformation, v_cnf).
-rul_hint(cnf_transformation, dat).
+rul_hint(cnf_transformation, daft).
 rul_hint(superposition, sup).  
 rul_hint(forward_demodulation, fwd).
 rul_hint(backward_demodulation, bwd).
 rul_hint(definition_folding, dff).
 rul_hint(definition_unfolding, dfu).
 % rul_hint(flattening, flt).  
-rul_hint(flattening, dat).  
+rul_hint(flattening, daft).  
 % rul_hint(skolemisation, skm).  
 rul_hint(skolemisation, aft).  
 % rul_hint(ennf_transformation, ennf).  
-rul_hint(ennf_transformation, dat).  
+rul_hint(ennf_transformation, daft).  
 % rul_hint(nnf_transformation, nnf).  
-rul_hint(nnf_transformation, dat).  
+rul_hint(nnf_transformation, daft).  
 rul_hint(resolution, res).
 rul_hint(subsumption_resolution, res).
-rul_hint(avatar_sat_refutation, asr).
+
+% rul_hint(avatar_sat_refutation, asr).
+rul_hint(avatar_sat_refutation, pft).
+
 % rul_hint(avatar_split_clause, spl).
 rul_hint(avatar_split_clause, aft).
-rul_hint(avatar_contradiction_clause, ptblx).
+
+% rul_hint(avatar_contradiction_clause, ptblx).
+rul_hint(avatar_contradiction_clause, pdaft).
+
 rul_hint(avatar_component_clause, daft).
 % rul_hint(avatar_component_clause, acmp).
 rul_hint(factoring, wkn).
 % rul_hint(rectify, rtf).
-rul_hint(rectify, dat).
+rul_hint(rectify, daft).
 rul_hint(equality_resolution, eqr).
 rul_hint(equality_factoring, eqf).
 rul_hint(duplicate_literal_removal, wkn).
@@ -162,8 +168,8 @@ get_aocs(FORM, SKMS, AOCS) :-
   maplist_cut(revert_pars(CNT), FORMS, AOCS).
 
 get_aocs_aux(_, ANTE, CONS, [], []) :- 
-  tblx([(0, (+ ANTE))], [(1, (- CONS))], (_, 0, 0)).
-
+  tableaux([d, a, f], (0, (+ ANTE)), (1, (- CONS)), (_, 0, 2)).
+  
 get_aocs_aux(Vars, ? ANTE, CONS, [SKM | SKMS], [(? ANTE) => NewANTE | AOCS]) :- 
   subst_form((SKM ^ Vars), ANTE, NewANTE), 
   get_aocs_aux(Vars, NewANTE, CONS, SKMS, AOCS).
@@ -179,7 +185,8 @@ reduce_gaocs([INST | INSTS], SOL) :-
     INST = add([gaoc], ID, (+ FORM)) -> 
     get_aocs(FORM, SKMS, AOCS),
     length(SKMS, LTH),
-    range(0, LTH, IDS),
+    range(0, LTH, NUMS),
+    maplist_cut(atom_concat(t), NUMS, IDS),
     maplist_cut(id_skm_aoc_inst, IDS, SKMS, AOCS, ADDS), 
     maplist_cut(mk_del, IDS, DELS),
     append(ADDS, [inf([gaoc], IDS, ID, (+ FORM)) | DELS], PFX) ;
