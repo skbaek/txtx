@@ -16,26 +16,26 @@ rul_hint(flattening, daft).
 % rul_hint(skolemisation, skm).  
 rul_hint(skolemisation, aft).  
 % rul_hint(ennf_transformation, ennf).  
-rul_hint(ennf_transformation, daft).  
+rul_hint(ennf_transformation, mtrx).  
 % rul_hint(nnf_transformation, nnf).  
 rul_hint(nnf_transformation, daft).  
 rul_hint(resolution, res).
 rul_hint(subsumption_resolution, res).
 
 % rul_hint(avatar_sat_refutation, asr).
-rul_hint(avatar_sat_refutation, pft).
+rul_hint(avatar_sat_refutation, pblx).
 
 % rul_hint(avatar_split_clause, spl).
 rul_hint(avatar_split_clause, aft).
 
 % rul_hint(avatar_contradiction_clause, ptblx).
-rul_hint(avatar_contradiction_clause, pdaft).
+rul_hint(avatar_contradiction_clause, pblx).
 
 rul_hint(avatar_component_clause, daft).
 % rul_hint(avatar_component_clause, acmp).
 rul_hint(factoring, wkn).
 % rul_hint(rectify, rtf).
-rul_hint(rectify, daft).
+rul_hint(rectify, mtrx).
 rul_hint(equality_resolution, eqr).
 rul_hint(equality_factoring, eqf).
 rul_hint(duplicate_literal_removal, wkn).
@@ -61,7 +61,7 @@ pred_def_norm((Atom <=> TPTP), (Atom <=> TPTP)).
 vampire_tuple_inst(
   PIDS,
   (ID, conjecture, TF, _),
-  inf([hyp], PIDS, SID, (- FORM))
+  inf([mtrx], PIDS, SID, (- FORM))
 ) :- 
   id_sid(ID, SID), 
   fof_form([], TF, FORM).
@@ -69,7 +69,7 @@ vampire_tuple_inst(
 vampire_tuple_inst(
  PIDS,
  (ID, axiom, TF, _),
- inf([hyp], PIDS, SID, (+ FORM)) 
+ inf([mtrx], PIDS, SID, (+ FORM)) 
 ) :-
   id_sid(ID, SID), 
   fof_form([], TF, FORM).
@@ -168,8 +168,8 @@ get_aocs(FORM, SKMS, AOCS) :-
   maplist_cut(revert_pars(CNT), FORMS, AOCS).
 
 get_aocs_aux(_, ANTE, CONS, [], []) :- 
-  tableaux([d, a, f], (0, (+ ANTE)), (1, (- CONS)), (_, 0, 2)).
-  
+  tblx((0, (+ ANTE)), (1, (- CONS)), (_, 0, 2)).
+
 get_aocs_aux(Vars, ? ANTE, CONS, [SKM | SKMS], [(? ANTE) => NewANTE | AOCS]) :- 
   subst_form((SKM ^ Vars), ANTE, NewANTE), 
   get_aocs_aux(Vars, NewANTE, CONS, SKMS, AOCS).
