@@ -7,6 +7,18 @@
 tstp_sol('vampire', PIDS, TSTP, SOL) :- 
   vampire_tstp_sol(PIDS, TSTP, SOL).
 
+main(['-t', TPTP]) :- 
+  style_check(-singleton),
+  atom_string(TPTP, STR),
+  string_concat("vp/", TEMP, STR), 
+  string_concat(NAME, ".tptp", TEMP), 
+  atomics_to_string(["vs/", NAME, ".tstp"], TSTP),
+  tptp_prob(TPTP, PIDS, PROB),
+  tstp_sol(PRVR, PIDS, TSTP, SOL),
+  open("temp.txtx", write, STRM, [encoding(octet)]),
+  prove(STRM, PRVR, SOL, PROB),
+  close(STRM).
+
 main(['-p', PRVR, TPTP, TSTP, TXTX]) :- 
   style_check(-singleton),
   tptp_prob(TPTP, PIDS, PROB),
@@ -25,6 +37,12 @@ main(['-v', TPTP, TXTX]) :-
   write("Proof verified.\n"),
   close(STRM).
 
+
+% TODO :  
+% - Deletion instructions 
+% - Omit mid-elaboration verification
+% - Implicit function application 
+% - Directional matrix
 
 % comp_m_args(['--compile', 'metis', TPTP, TSTP, TXTX | _], TPTP, TSTP, TXTX).
 % 

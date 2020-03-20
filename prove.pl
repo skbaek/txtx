@@ -87,6 +87,16 @@ sf_form(+ Form, Form).
 sf_form(- Form, Form).
 */
 
+pick_mate(HYPS_A, (HYPS_B, GOAL)) :- 
+  member(HYP_A, HYPS_A), 
+  member(HYP_B, HYPS_B), 
+  mate(HYP_A, HYP_B, GOAL).
+
+pick_pivot(HYPS, HYP, GOAL, HYP_N, GOAL_N) :-
+  many([b, c, s], ([HYP], GOAL), HGS),
+  pluck(HGS, ([HYP_N], GOAL_N), REST), 
+  maplist(pick_mate(HYPS), REST). 
+
 apply_aocs(ANTE, [AOC | AOCS], GOAL_I, CONS, GOAL_O) :-  
   many_nb([c], [AOC], GOAL_I, [IMP], GOAL_T), 
   bp(IMP, GOAL_T, HYP_L, HYP_R, GOAL_L, GOAL_R), 
@@ -105,15 +115,15 @@ form_mgc(FormA, FormB) :-
   unifiable(FormA, FormB, Unif),
   maplist(is_renaming, Unif).
   
-form_mgc(TermA = TermB, FormB) :- 
-  unifiable((TermB = TermA), FormB, Unif),
+form_mgc(TERM_A = TERM_B, FormB) :- 
+  unifiable((TERM_B = TERM_A), FormB, Unif),
   maplist(is_renaming, Unif).
 
 is_renaming((X = Y)) :- 
   var(X), 
   \+ var(Y),
-  Y = @(Num),
-  number(Num).
+  Y = @(NUM),
+  number(NUM).
 
 res_aux(HYPS, ([HYP], GOAL)) :- 
   member(CMP, HYPS), 
@@ -128,57 +138,816 @@ res(PYP0, PYP1, HYPS, GOAL) :-
   mate_pn(HYP0, NPVT, GOAL0), 
   pluck(HGS1, ([HYP1], GOAL1), REST1), 
   mate_pn(PPVT, HYP1, GOAL1), 
-  maplist(res_aux([NPVT | HYPS]), REST0), 
-  maplist(res_aux([PPVT | HYPS]), REST1). 
+  maplist(pick_mate([NPVT | HYPS]), REST0), 
+  maplist(pick_mate([PPVT | HYPS]), REST1). 
 
-infer(vampire, [ngt], [PREM], CONC, GOAL) :- 
+eqr_aux(_, ([HYP], GOAL)) :- 
+  HYP = (_, (- _ = _)),
+  % unify_with_occurs_check(TERM_A, TERM_B),
+  eq_refl(HYP, GOAL).
+
+eqr_aux(HYPS, HG) :- 
+  pick_mate(HYPS, HG).
+
+dfu(DEFS, PREM, CONC, GOAL) :- 
+  many_nb([a, d, s], [CONC], GOAL, HYPS, GOAL_T),
+  many([b, c, s], ([PREM], GOAL_T), HGS),
+  dfu_many(DEFS, HYPS, HGS).
+
+dfu_many([], [], []).
+
+dfu_many(DEFS, HYPS, [HG | HGS]) :- 
+  dfu_one(DEFS, HYPS, HG, DEFS_N, HYPS_N),  
+  dfu_many(DEFS_N, HYPS_N, HGS).
+
+dfu_one(DEFS, HYPS, ([SRC], GOAL), DEFS_N, HYPS_N) :-  
+  pluck(HYPS, TGT, HYPS_N),
+  subst_rel_multi(SRC, DEFS, TGT, GOAL, DEFS_N).
+
+dff(_, HYP0, HYP1, DFP) :-
+  mate(HYP0, HYP1, DFP). 
+
+dff(Defs, HYP0, HYP1, DFP) :- 
+  para_one((HYP0, HYP1, DFP), (NewHYP0, NewHYP1, NewDFP)), !, 
+  dff(Defs, NewHYP0, NewHYP1, NewDFP).
+
+dff(Defs, HYP0, HYP1, DFP) :- 
+  (
+    abp(HYP0, HYP1, DFP, HYP0L, HYP1L, DFP_L, HYP0R, HYP1R, DFP_R) ; 
+    abp(HYP1, HYP0, DFP, HYP1L, HYP0L, DFP_L, HYP1R, HYP0R, DFP_R) 
+  ), !,  
+  dff(Defs, HYP0L, HYP1L, DFP_L),
+  dff(Defs, HYP0R, HYP1R, DFP_R).
+
+dff(Defs, HYP0, HYP1, DFP) :-
+  HYP1 = (_, (+ Atom)), 
+  uatom(Atom), 
+  member(Def, Defs), 
+  many_nb([c], [Def], DFP, [IFF], DFP0), 
+  IFF = (_, (+ Atom <=> _)), !,
+  ap(IFF, l, DFP0, IMP, DFP1), 
+  bp(IMP, DFP1, Ante, Cons, DFP2, DFP3), 
+  mate(HYP1, Ante, DFP2), 
+  dff(Defs, HYP0, Cons, DFP3).
+
+dff(Defs, HYP0, HYP1, DFP) :-
+  HYP1 = (_, (- Atom)), 
+  uatom(Atom), 
+  member(Def, Defs), 
+  many_nb([c], [Def], DFP, [IFF], DFP0), 
+  IFF = (_, (+ Atom <=> _)), !,
+  ap(IFF, r, DFP0, IMP, DFP1), 
+  bp(IMP, DFP1, Ante, Cons, DFP2, DFP3), 
+  mate(HYP1, Cons, DFP3), 
+  dff(Defs, HYP0, Ante, DFP2).
+
+
+
+%%%%%%%%%%%%%%%% SAT SOLVER %%%%%%%%%%%%%%%% 
+
+% cla_nums(ANA, CLA_L | CLA_R, NUMS) :- !, 
+%   cla_nums(ANA, CLA_L, NUMS_L),
+%   cla_nums(ANA, CLA_R, NUMS_R),
+%   append(NUMS_L, NUMS_R, NUMS).
+% 
+% cla_atoms(~ ATOM, [ATOM]) :- !. 
+% 
+% cla_atoms(LIT, [LIT]). 
+
+lit_num(ANA, ~ ATOM, NEG) :- !,
+  get_assoc(ATOM, ANA, NUM), 
+  NEG is (- NUM).
+
+lit_num(ANA, ATOM, NUM) :- !,
+  get_assoc(ATOM, ANA, NUM).
+
+cla_nums(ANA, CH, NUMS) :- 
+  cla_lits(CH, LITS), 
+  maplist_cut(lit_num(ANA), LITS, NUMS). 
+
+cla_lits((_, (+ CF)), LITS) :- 
+  cf_lits(CF, LITS).
+
+cf_lits(CLA_L | CLA_R, LITS) :- !, 
+  cf_lits(CLA_L, LITS_L), 
+  cf_lits(CLA_R, LITS_R), 
+  append(LITS_L, LITS_R, LITS).
+  
+cf_lits(LIT, [LIT]). 
+
+cla_atoms(CH, ATOMS) :- 
+  cla_lits(CH, LITS),
+  maplist_cut(lit_atom, LITS, ATOMS). 
+
+lit_atom(LIT, ATOM) :- 
+  LIT = (~ ATOM) -> true ;
+  LIT = ATOM.
+
+cla_table(CH, TBL_I, TBL_O) :- 
+  cla_atoms(CH, ATOMS), 
+  foldl(atom_table, ATOMS, TBL_I, TBL_O).
+  
+atom_table(ATOM, (NUM_I, ANA_I, NAA_I), TBL_O) :- 
+  get_assoc(ATOM, ANA_I, _) -> 
+  TBL_O = (NUM_I, ANA_I, NAA_I)
+;
+  NUM_O is NUM_I + 1, 
+  put_assoc(ATOM, ANA_I, NUM_I, ANA_O),
+  put_assoc(NUM_I, NAA_I, ATOM, NAA_O),
+  TBL_O = (NUM_O, ANA_O, NAA_O).
+  
+mk_sat_tables(CHS, ANA, NAA) :- 
+  empty_assoc(EMP), 
+  foldl(cla_table, CHS, (1, EMP, EMP), (_, ANA, NAA)).
+  
+cla_ctx(CLA, (NUM_I, CTX_I), (NUM_O, CTX_O)) :- 
+  NUM_O is NUM_I + 1, 
+  put_assoc(NUM_I, CTX_I, CLA, CTX_O).
+
+mk_sat_ctx(CLAS, CTX) :- 
+  empty_assoc(EMP), 
+  foldl(cla_ctx, CLAS, (1, EMP), (_, CTX)).
+  
+string_numbers(STR, NUMS) :- 
+  split_string(STR, " ", "", STRS), 
+  maplist_cut(string_number, STRS, NUMS).
+
+nums_dimacs(NUMS, Str) :- 
+  maplist(number_string, NUMS, Strs),
+  strings_concat_with(" ", Strs, TempStr),
+  string_concat(TempStr, " 0", Str).
+
+num_lit(NAA, NUM, LIT) :- 
+  NUM < 0 -> 
+  NEG is (- NUM), 
+  get_assoc(NEG, NAA, ATOM),
+  LIT = (~ ATOM)
+;
+  get_assoc(NUM, NAA, LIT).
+
+lits_cla([], $false).
+
+lits_cla(Lits, Cla) :- 
+  lits_cla_core(Lits, Cla).
+
+lits_cla_core([Lit], Lit).
+
+lits_cla_core([Lit | Lits], Lit | Cla) :- 
+  lits_cla_core(Lits, Cla).
+
+nums_cla(NAA, NUMS, CLA) :- 
+  maplist_cut(num_lit(NAA), NUMS, LITS),
+  lits_cla(LITS, CLA). 
+
+add_del_inst(ID, [del(ID) | SIS], SIS).
+
+line_sat_insts(_, LINE, SIS_I, SIS_O) :- 
+  split_string(LINE, " ", "", [_, "d" | NUMS]), 
+  append(ID_STRS, ["0"], NUMS), 
+  maplist_cut(number_string, IDS, ID_STRS), 
+  foldl(add_del_inst, IDS, SIS_I, SIS_O).
+
+line_sat_insts(NAA, LINE, [rup(SIDS, SID, CLA) | SIS], SIS) :- 
+  string_numbers(LINE, [SID | NUMS]),
+  append(CLA_NUMS, [0 | REST], NUMS), 
+  nums_cla(NAA, CLA_NUMS, CLA),
+  append(SIDS, [0], REST). 
+  
+file_sat_insts(NAA, FILE, SIS) :-
+  file_strings(FILE, LINES), 
+  foldl(line_sat_insts(NAA), LINES, SIS, []).
+
+nums_maxvar(NUMS, MaxVar) :-
+  maplist_cut(abs, NUMS, Nats),
+  max_list(Nats, MaxVar).
+
+numss_maxvar(NUMSs, MaxVar) :-
+  maplist(nums_maxvar, NUMSs, MaxVars),
+  max_list(MaxVars, MaxVar).
+
+numss_dimacs(NUMSs, DIMACS) :-
+  numss_maxvar(NUMSs, MaxVar), 
+  number_string(MaxVar, MaxVarStr),
+  length(NUMSs, NumCla),
+  number_string(NumCla, NumClaStr),
+  strings_concat(["p cnf ", MaxVarStr, " ", NumClaStr], Str),
+  maplist(nums_dimacs, NUMSs, Strs),
+  strings_concat_with("\n", [Str | Strs], DIMACS).
+
+line_rup(_, LINE, del(SID)) :-
+  split_string(LINE, " ", "", ["d", NUM_STR]),
+  number_string(SID, NUM_STR).
+
+line_rup(NAA, LINE, rup(SIDS, SID, CLA)) :- 
+  string_numbers(LINE, [SID | NUMS]),
+  append(CLA_NUMS, [0 | REST], NUMS), 
+  nums_cla(NAA, CLA_NUMS, CLA),
+  append(SIDS, [0], REST).
+  % maplist_cut(sat_get_cla(CTX), IDS, PREMS).
+
+find_new_unit_aux(SAs, SA) :- 
+  member(CMP, SAs), 
+  complements(CMP, SA).
+
+find_new_unit(CTXSAs, ClaSAs, SA) :- 
+  member(SA, ClaSAs), 
+  delete(ClaSAs, SA, Rest),
+  maplist_cut(find_new_unit_aux(CTXSAs), Rest).
+
+unit_propagate(PREM, (HYPS_I, GOAL_I), ([HYP | HYPS_I], GOAL_O)) :- 
+  many([b, s], ([PREM], GOAL_I), HGS), 
+  pluck(HGS, ([HYP], GOAL_O), REST),
+  maplist_cut(pick_mate(HYPS_I), REST).
+
+get_sat_cla(CTX, SID, CLA) :- 
+  get_assoc(SID, CTX, CLA).
+  
+put_sat_cla(CTX_I, SID, CLA, CTX_O) :- 
+  put_assoc(SID, CTX_I, CLA, CTX_O).
+
+del_sat_cla(CTX_I, SID, CLA, CTX_O) :- 
+  del_assoc(SID, CTX_I, CLA, CTX_O).
+
+use_sat_inst(CTX, del(SID), GOAL, CTX_N, GOAL_N) :-
+  del_sat_cla(CTX, SID, CLA, CTX_N), 
+  wp(CLA, GOAL, GOAL_N). 
+
+use_sat_inst(CTX, rup(SIDS, SID, CLA), GOAL, CTX_N, GOAL_N) :- 
+  fp(CLA, GOAL, NYP, PYP, GOAL_T, GOAL_N), 
+  put_sat_cla(CTX, SID, PYP, CTX_N),
+  many_nb([a, s], [NYP], GOAL_T, HYPS_I, GOAL_I), 
+  maplist_cut(get_sat_cla(CTX), SIDS, PREMS), !,
+  foldl_cut(unit_propagate, PREMS, (HYPS_I, GOAL_I), ([HYP | HYPS_O], GOAL_O)), !,
+  member(CMP, HYPS_O),
+  mate(HYP, CMP, GOAL_O).
+
+use_sat_insts(CTX, [SI | SIS], GOAL) :- 
+  use_sat_inst(CTX, SI, GOAL, CTX_N, GOAL_N), 
+  (
+    SIS = [] -> 
+    SI = rup(_, SID, _), 
+    get_sat_cla(CTX_N, SID, CLA), 
+    use_pf(CLA, GOAL_N)
+  ;
+    use_sat_insts(CTX_N, SIS, GOAL_N)
+  ).
+
+sat(CLAS, GOAL) :-
+  mk_sat_tables(CLAS, ANA, NAA),
+  maplist_cut(cla_nums(ANA), CLAS, NUMSS),
+  numss_dimacs(NUMSS, DIMACS),
+  write_file("temp.cnf", DIMACS), !,
+  shell("cadical -q temp.cnf temp.drat", _), !,
+  shell("drat-trim temp.cnf temp.drat -L temp.lrat", _), !,
+  file_sat_insts(NAA, "temp.lrat", SIS), 
+  mk_sat_ctx(CLAS, CTX), 
+  use_sat_insts(CTX, SIS, GOAL),
+  delete_file("temp.cnf"),
+  delete_file("temp.drat"),
+  delete_file("temp.lrat").
+
+/*
+
+%%%%%%%%%%%%%%%% MATRIX TABLEAUX %%%%%%%%%%%%%%%%
+
+matrixify(VARS, (FI, SF), (FO, a(MAT_L, MAT_R))) :-
+  aab(SF, SF_L, SF_R), !,
+  matrixify(VARS, (FI, SF_L), (FT, MAT_L)),
+  matrixify(VARS, (FT, SF_R), (FO, MAT_R)).
+
+matrixify(VARS, (FI, SF), (FO, b(MAT_L, MAT_R))) :- 
+  bb(SF, SF_L, SF_R), !,
+  matrixify(VARS, (FI, SF_L), (FT, MAT_L)),
+  matrixify(VARS, (FT, SF_R), (FO, MAT_R)).
+
+matrixify(VARS, (FI, SF), (FO, c(VAR, MAT))) :- 
+  cb(VAR, SF, SF_N), !,
+  matrixify([VAR | VARS], (FI, SF_N), (FO, MAT)). 
+
+matrixify(VARS, (FI, SF), (FO, d(SKM, MAT))) :- 
+  type_sf(d, SF), !,
+  atom_concat(skm, FI, SKM), 
+  FT is FI + 1, 
+  SKM_TERM =.. [SKM | VARS],
+  dt(SKM_TERM, SF, SF_N), 
+  matrixify(VARS, (FT, SF_N), (FO, MAT)). 
+
+matrixify(VARS, (FI, SF), (FO, MAT)) :- 
+  sb(SF, SF_N), !,
+  matrixify(VARS, (FI, SF_N), (FO, MAT)). 
+
+matrixify(_, (FI, SA), (FI, SA)) :- 
+  signed_atom(SA).
+
+get_id_gd(MATS, ID, (ID, GD)) :- 
+  get_assoc(ID, MATS, (GD, _)).
+
+startable(a(MAT_L, MAT_R)) :- 
+  startable(MAT_L) ;
+  startable(MAT_R).
+
+startable(b(MAT_L, MAT_R)) :- 
+  startable(MAT_L),
+  startable(MAT_R).
+
+startable(c(_, MAT)) :- startable(MAT).
+startable(d(_, MAT)) :- startable(MAT).
+startable(+ _). 
+
+solve(MATS, ID_GDS) :- 
+  pluck_assoc(ID, MATS, (GD, MAT), REST), 
+  solve(start, 0, REST, [], [], (GD, MAT), _, IDS), 
+  maplist_cut(get_id_gd(MATS), [ID | IDS], ID_GDS).
+
+solve(MODE, FI, MATS, PATH, LEM_I, (a(GD_L, GD_R), a(MAT_L, MAT_R)), LEM_O, IDS) :- !, 
+  FI_N is FI + 1, 
+  atom_concat(t, FI, TID),
+  (
+    put_assoc(TID, MATS, (GD_R, MAT_R), MATS_N), 
+    solve(MODE, FI_N, MATS_N, PATH, LEM_I, (GD_L, MAT_L), LEM_O, IDS) 
+  ;
+    put_assoc(TID, MATS, (GD_L, MAT_L), MATS_N), 
+    solve(MODE, FI_N, MATS_N, PATH, LEM_I, (GD_R, MAT_R), LEM_O, IDS) 
+  ).
+
+solve(start, FI, MATS, PATH, LEM_I, (b(GD_L, GD_R), b(MAT_L, MAT_R)), LEM_O, IDS) :- !,
+  startable(MAT_R),
+  solve(start, FI, MATS, PATH, LEM_I, (GD_L, MAT_L), LEM_T, IDS_L),
+  solve(start, FI, MATS, PATH, LEM_T, (GD_R, MAT_R), LEM_O, IDS_R),
+  union(IDS_L, IDS_R, IDS).
+
+solve(match, FI, MATS, PATH, LEM_I, (b(GD_L, GD_R), b(MAT_L, MAT_R)), LEM_O, IDS) :- !,
+  (
+    solve(match, FI, MATS, PATH, LEM_I, (GD_L, MAT_L), LEM_T, IDS_L),
+    solve(block, FI, MATS, PATH, LEM_T, (GD_R, MAT_R), LEM_O, IDS_R),
+    union(IDS_L, IDS_R, IDS)
+  ;
+    solve(match, FI, MATS, PATH, LEM_I, (GD_R, MAT_R), LEM_T, IDS_R),
+    solve(block, FI, MATS, PATH, LEM_T, (GD_L, MAT_L), LEM_O, IDS_L),
+    union(IDS_L, IDS_R, IDS)
+  ).
+  
+solve(block, FI, MATS, PATH, LEM_I, (b(GD_L, GD_R), b(MAT_L, MAT_R)), LEM_O, IDS) :- !,
+  solve(block, FI, MATS, PATH, LEM_I, (GD_L, MAT_L), LEM_T, IDS_L),
+  solve(block, FI, MATS, PATH, LEM_T, (GD_R, MAT_R), LEM_O, IDS_R),
+  union(IDS_L, IDS_R, IDS).
+
+solve(MODE, FI, MATS, PATH, LEM_I, (c(TERM, GD), c(TERM, MAT)), LEM_O, IDS) :- !,
+  solve(MODE, FI, MATS, PATH, LEM_I, (GD, MAT), LEM_O, IDS). 
+
+solve(MODE, FI, MATS, PATH, LEM_I, (d(SKM, GD), d(SKM, MAT)), LEM_O, IDS) :- !,
+  solve(MODE, FI, MATS, PATH, LEM_I, (GD, MAT), LEM_O, IDS). 
+
+solve(match, _, _, [CMP | _], LEM, (m, SA), LEM, []) :- 
+  connect_sfs(CMP, SA).
+  
+solve(start, FI, MATS, PATH, LEM_I, (GD, SF), LEM_O, IDS) :-
+  pos_atom(SF), 
+  solve(block, FI, MATS, PATH, LEM_I, (GD, SF), LEM_O, IDS).
+
+solve(block, _, _, _, LEM, (c, SF), LEM, []) :-
+  contradiction(SF).
+
+solve(block, _, _, _, LEM, (m, SA), LEM, []) :- 
+  member_syn(SA, LEM), !.
+
+solve(block, _, _, PATH, LEM, (m, SA), LEM, []) :- 
+  member(CMP, PATH),
+  connect_sfs(CMP, SA).
+
+solve(block, FI, MATS, PATH, LEM, (m, SA), [SA | LEM], IDS) :- 
+  \+ member_syn(SA, PATH),
+  pluck_assoc(ID, MATS, (GD, MAT), REST), 
+  (
+    atom_concat(t, _, ID) -> IDS = TEMP ;
+    IDS = [ID | TEMP]
+  ),
+  solve(match, FI, REST, [SA | PATH], LEM, (GD, MAT), _, TEMP). 
+ 
+add_to_ctx(HYPS, (ID, GD), CTX_I, CTX_O) :- 
+  member((ID, SF), HYPS), 
+  put_assoc(ID, CTX_I, (GD, SF), CTX_O).
+
+mtrx_zero((CTX, _, _, GOAL)) :- 
+  gen_mh(CTX, (c, HYP)), 
+  use_lc(HYP, GOAL).
+  
+mtrx_zero((CTX, PATH, _, GOAL)) :- 
+  gen_mh(CTX, (m, HYP)), 
+  member(CMP, PATH), 
+  mate(HYP, CMP, GOAL).
+
+mtrx_one((CTX, PATH, SKMS, GOAL), MS) :- 
+  gen_mh(CTX, (GD, HYP)), 
+  (
+    atomic_hyp(HYP) -> 
+    GD = m,
+    del_mh(HYP, CTX, CTX_N),
+    MS = (CTX_N, [HYP | PATH], SKMS, GOAL)
+  ;
+    sp(HYP, GOAL, HYP_N, GOAL_N) ->
+    del_mh(HYP, CTX, CTX_T),
+    put_mh((GD, HYP_N), CTX_T, CTX_N),
+    MS = (CTX_N, PATH, SKMS, GOAL_N)
+  ;
+    GD = a(GD_L, GD_R) -> 
+    del_mh(HYP, CTX, CTX_T),
+    add_if_not_end(CTX_T, HYP, GOAL, GD_L, l, CTX0, GOAL0),
+    add_if_not_end(CTX0, HYP, GOAL0, GD_R, r, CTX1, GOAL1),
+    MS = (CTX1, PATH, SKMS, GOAL1)
+  ;
+    GD = c(TERM, GD_S) -> 
+    replace_skm(SKMS, TERM, TERM_N), 
+    del_mh(HYP, CTX, CTX_T),
+    cp(HYP, TERM_N, GOAL, HYP_N, GOAL_N), 
+    put_mh((GD_S, HYP_N), CTX_T, CTX_N),
+    MS = (CTX_N, PATH, SKMS, GOAL_N)
+  ;
+    GD = d(SKM, GD_S) -> 
+    del_mh(HYP, CTX, CTX_T),
+    GOAL = (_, FP, _), 
+    put_assoc(SKM, SKMS, FP, SKMS_N), 
+    dp(HYP, GOAL, HYP_N, GOAL_N), 
+    put_mh((GD_S, HYP_N), CTX_T, CTX_N),
+    MS = (CTX_N, PATH, SKMS_N, GOAL_N)
+  ).
+
+replace_skm(SKMS, TERM_I, TERM_O) :- 
+  var(TERM_I) -> false 
+; 
+  TERM_I = (FUN ^ TERMS_I), 
+  (
+    atom_concat(skm, _, FUN) -> 
+    get_assoc(FUN, SKMS, NUM), 
+    TERM_O = @(NUM)
+  ;  
+    maplist_cut(replace_skm(SKMS), TERMS_I, TERMS_O), 
+    TERM_O = (FUN ^ TERMS_O)
+  ).
+
+add_if_not_end(CTX, _, GOAL, e, _, CTX, GOAL) :- !.
+
+add_if_not_end(CTX, HYP, GOAL, GD, DIR, CTX_N, GOAL_N) :- 
+  ap(HYP, DIR, GOAL, HYP_N, GOAL_N), 
+  put_mh((GD, HYP_N), CTX, CTX_N).
+  
+gen_mh(CTX, (GD, ID, SF)) :- 
+  gen_assoc(ID, CTX, (GD, SF)). 
+  
+del_mh((ID, SF), CTX_I, CTX_O) :- 
+  del_assoc(ID, CTX_I, (_, SF), CTX_O).
+
+put_mh((GD, ID, SF), CTX_I, CTX_O) :- 
+  put_assoc(ID, CTX_I, (GD, SF), CTX_O).
+   
+mtrx_two(
+  (CTX, PATH, SKMS, GOAL), 
+  (GD_L, HYP_L), 
+  (CTX_T, PATH, SKMS, GOAL_L), 
+  (GD_R, HYP_R), 
+  (CTX_T, PATH, SKMS, GOAL_R) 
+) :- 
+  gen_mh(CTX, (b(GD_L, GD_R), HYP)), 
+  bp(HYP, GOAL, HYP_L, HYP_R, GOAL_L, GOAL_R),
+  del_mh(HYP, CTX, CTX_T).
+
+mtrx_fcs(
+  (GD, HYP), 
+  (CTX, PATH, SKMS, GOAL)
+) :- 
+  bp(HYP, GOAL, HYP_L, HYP_R, GOAL_L, GOAL_R) -> 
+  GD = b(GD_L, GD_R), 
+  mtrx_fcs((GD_L, HYP_L), (CTX, PATH, SKMS, GOAL_L)), !,
+  mtrx_fcs((GD_R, HYP_R), (CTX, PATH, SKMS, GOAL_R))
+;
+  put_mh((GD, HYP), CTX, CTX_N),
+  mtrx((CTX_N, PATH, SKMS, GOAL)).
+
+mtrx(MS) :- 
+  mtrx_zero(MS) -> true ; 
+  mtrx_one(MS, MS_N) -> mtrx(MS_N) ; 
+  mtrx_two(MS, MH_L, MS_L, MH_R, MS_R),
+  mtrx_fcs(MH_L, MS_L), !, 
+  mtrx_fcs(MH_R, MS_R), !. 
+
+add_mat((ID, SF), (FI, MATS_I), (FO, MATS_O)) :- 
+  matrixify([], (FI, SF), (FO, MAT)), 
+  put_assoc(ID, MATS_I, (_, MAT), MATS_O).
+
+matrixify_all(HYPS, MATS) :- 
+  empty_assoc(EMP), 
+  foldl(add_mat, HYPS, (0, EMP), (_, MATS)).
+
+mtrx(HYPS, GOAL) :- 
+  matrixify_all(HYPS, MATS),
+  solve(MATS, ID_GDS), 
+  term_variables(ID_GDS, VARS),
+  maplist_cut(eq(e), VARS),
+  empty_assoc(EMP), 
+  foldl(add_to_ctx(HYPS), ID_GDS, EMP, CTX), 
+  mtrx((CTX, [], EMP, GOAL)).
+
+*/
+
+replace_skm(SKMS, TERM_I, TERM_O) :- 
+  var(TERM_I) -> false 
+; 
+  TERM_I = (FUN ^ TERMS_I), 
+  (
+    atom_concat(skm, _, FUN) -> 
+    get_assoc(FUN, SKMS, NUM), 
+    TERM_O = @(NUM)
+  ;  
+    maplist_cut(replace_skm(SKMS), TERMS_I, TERMS_O), 
+    TERM_O = (FUN ^ TERMS_O)
+  ).
+
+matrixify(VARS, (FI, SF), (FO, a(MAT_L, MAT_R))) :-
+  aab(SF, SF_L, SF_R), !,
+  matrixify(VARS, (FI, SF_L), (FT, MAT_L)),
+  matrixify(VARS, (FT, SF_R), (FO, MAT_R)).
+
+matrixify(VARS, (FI, SF), (FO, b(MAT_L, MAT_R))) :- 
+  bb(SF, SF_L, SF_R), !,
+  matrixify(VARS, (FI, SF_L), (FT, MAT_L)),
+  matrixify(VARS, (FT, SF_R), (FO, MAT_R)).
+
+matrixify(VARS, (FI, SF), (FO, c(VAR, MAT))) :- 
+  cb(VAR, SF, SF_N), !,
+  matrixify([VAR | VARS], (FI, SF_N), (FO, MAT)). 
+
+matrixify(VARS, (FI, SF), (FO, d(SKM, MAT))) :- 
+  type_sf(d, SF), !,
+  atom_concat(skm, FI, SKM), 
+  FT is FI + 1, 
+  SKM_TERM = (SKM ^ VARS),
+  dt(SKM_TERM, SF, SF_N), 
+  matrixify(VARS, (FT, SF_N), (FO, MAT)). 
+
+matrixify(VARS, (FI, SF), (FO, MAT)) :- 
+  sb(SF, SF_N), !,
+  matrixify(VARS, (FI, SF_N), (FO, MAT)). 
+
+matrixify(_, (FI, SA), (FI, SA)) :- 
+  signed_atom(SA).
+
+add_mat((ID, SF), (FI, [(GD, ID, SF) | CTX], [(GD, MAT) | MATS]), (FO, CTX, MATS)) :- 
+  matrixify([], (FI, SF), (FO, MAT)).
+
+matrixify_all(HYPS, CTX, MATS) :- 
+  foldl(add_mat, HYPS, (0, CTX, MATS), (_, [], [])).
+
+add_to_ctx(HYPS, (ID, GD), CTX_I, CTX_O) :- 
+  member((ID, SF), HYPS), 
+  put_assoc(ID, CTX_I, (GD, SF), CTX_O).
+
+startable(a(MAT_L, MAT_R)) :- 
+  startable(MAT_L) ;
+  startable(MAT_R).
+
+startable(b(MAT_L, MAT_R)) :- 
+  startable(MAT_L),
+  startable(MAT_R).
+
+startable(c(_, MAT)) :- startable(MAT).
+startable(d(_, MAT)) :- startable(MAT).
+startable(+ _). 
+
+solve(MATS) :- 
+  pluck(MATS, (GD, MAT), REST), 
+  solve(start, REST, [], [], (GD, MAT), _).
+
+solve(MODE, MATS, PATH, LEM_I, (a(GD_L, GD_R), a(MAT_L, MAT_R)), LEM_O) :- !, 
+  (
+    solve(MODE, [(GD_R, MAT_R) | MATS], PATH, LEM_I, (GD_L, MAT_L), LEM_O) ;
+    solve(MODE, [(GD_L, MAT_L) | MATS], PATH, LEM_I, (GD_R, MAT_R), LEM_O)
+  ).
+
+solve(start, MATS, PATH, LEM_I, (b(GD_L, GD_R), b(MAT_L, MAT_R)), LEM_O) :- !,
+  startable(MAT_R),
+  solve(start, MATS, PATH, LEM_I, (GD_L, MAT_L), LEM_T),
+  solve(start, MATS, PATH, LEM_T, (GD_R, MAT_R), LEM_O).
+
+solve(match, MATS, PATH, LEM_I, (b(GD_L, GD_R), b(MAT_L, MAT_R)), LEM_O) :- !,
+  (
+    solve(match, MATS, PATH, LEM_I, (GD_L, MAT_L), LEM_T),
+    solve(block, MATS, PATH, LEM_T, (GD_R, MAT_R), LEM_O)
+  ;
+    solve(match, MATS, PATH, LEM_I, (GD_R, MAT_R), LEM_T),
+    solve(block, MATS, PATH, LEM_T, (GD_L, MAT_L), LEM_O)
+  ).
+  
+solve(block, MATS, PATH, LEM_I, (b(GD_L, GD_R), b(MAT_L, MAT_R)), LEM_O) :- !,
+  solve(block, MATS, PATH, LEM_I, (GD_L, MAT_L), LEM_T),
+  solve(block, MATS, PATH, LEM_T, (GD_R, MAT_R), LEM_O).
+
+solve(MODE, MATS, PATH, LEM_I, (c(TERM, GD), c(TERM, MAT)), LEM_O) :- !,
+  solve(MODE, MATS, PATH, LEM_I, (GD, MAT), LEM_O). 
+
+solve(MODE, MATS, PATH, LEM_I, (d(SKM, GD), d(SKM, MAT)), LEM_O) :- !,
+  solve(MODE, MATS, PATH, LEM_I, (GD, MAT), LEM_O). 
+
+solve(match, _, [CMP | _], LEM, (m, SA), LEM) :- 
+  connect_sfs(CMP, SA).
+  
+solve(start, MATS, PATH, LEM_I, (GD, SF), LEM_O) :-
+  pos_atom(SF), 
+  solve(block, MATS, PATH, LEM_I, (GD, SF), LEM_O).
+
+solve(block, _, _, LEM, (c, SF), LEM) :-
+  contradiction(SF).
+
+solve(block, _, _, LEM, (m, SA), LEM) :- 
+  member_syn(SA, LEM), !.
+
+solve(block, _, PATH, LEM, (m, SA), LEM) :- 
+  member(CMP, PATH),
+  connect_sfs(CMP, SA).
+
+solve(block, MATS, PATH, LEM, (m, SA), [SA | LEM]) :- 
+  \+ member_syn(SA, PATH),
+  pluck(MATS, (GD, MAT), REST), 
+  solve(match, REST, [SA | PATH], LEM, (GD, MAT), _). 
+ 
+mtrx_zero((CTX, _, _, GOAL)) :- 
+  member((c, HYP), CTX), 
+  use_lc(HYP, GOAL).
+  
+mtrx_zero((CTX, PATH, _, GOAL)) :- 
+  member((m, HYP), CTX), 
+  member(CMP, PATH), 
+  mate(HYP, CMP, GOAL).
+
+mtrx_one((CTX, PATH, SKMS, GOAL), (REST, PATH, SKMS, GOAL)) :- 
+  pluck(CTX, ((e ^ []), _), REST). 
+
+mtrx_one((CTX, PATH, SKMS, GOAL), (REST, [HYP | PATH], SKMS, GOAL)) :- 
+  pluck(CTX, (m, HYP), REST), 
+  atomic_hyp(HYP).
+
+mtrx_one((CTX, PATH, SKMS, GOAL), ([(GD, HYP_N) | REST], PATH, SKMS, GOAL_N)) :- 
+  pluck(CTX, (GD, HYP), REST), 
+  sp(HYP, GOAL, HYP_N, GOAL_N).
+
+mtrx_one(
+  (CTX, PATH, SKMS, GOAL), 
+  ([(GD_L, HYP_L), (GD_R, HYP_R) | REST], PATH, SKMS, GOAL_N)
+) :- 
+  pluck(CTX, (a(GD_L, GD_R), HYP), REST), 
+  ap(HYP, l, GOAL, HYP_L, GOAL_T), 
+  ap(HYP, r, GOAL_T, HYP_R, GOAL_N). 
+
+mtrx_one(
+  (CTX, PATH, SKMS, GOAL), 
+  ([(GD, HYP_N) | REST], PATH, SKMS, GOAL_N) 
+) :- 
+  pluck(CTX, (c(TERM, GD), HYP), REST), 
+  replace_skm(SKMS, TERM, TERM_N), 
+  cp(HYP, TERM_N, GOAL, HYP_N, GOAL_N).
+
+mtrx_one(
+  (CTX, PATH, SKMS, GOAL), 
+  ([(GD, HYP_N) | REST], PATH, SKMS_N, GOAL_N) 
+) :- 
+  pluck(CTX, (d(SKM, GD), HYP), REST), 
+  GOAL = (_, FP, _), 
+  put_assoc(SKM, SKMS, FP, SKMS_N), 
+  dp(HYP, GOAL, HYP_N, GOAL_N).
+
+mtrx_two(
+  (CTX, PATH, SKMS, GOAL), 
+  (GD_L, HYP_L), 
+  (REST, PATH, SKMS, GOAL_L), 
+  (GD_R, HYP_R), 
+  (REST, PATH, SKMS, GOAL_R) 
+) :- 
+  pluck(CTX, (b(GD_L, GD_R), HYP), REST), 
+  bp(HYP, GOAL, HYP_L, HYP_R, GOAL_L, GOAL_R).
+
+mtrx_fcs(
+  (GD, HYP), 
+  (CTX, PATH, SKMS, GOAL)
+) :- 
+  bp(HYP, GOAL, HYP_L, HYP_R, GOAL_L, GOAL_R) -> 
+  GD = b(GD_L, GD_R), 
+  mtrx_fcs((GD_L, HYP_L), (CTX, PATH, SKMS, GOAL_L)), !,
+  mtrx_fcs((GD_R, HYP_R), (CTX, PATH, SKMS, GOAL_R))
+;
+  mtrx(([(GD, HYP) | CTX], PATH, SKMS, GOAL)).
+
+mtrx(MS) :- 
+  mtrx_zero(MS) -> true ; 
+  mtrx_one(MS, MS_N) -> mtrx(MS_N) ; 
+  mtrx_two(MS, MH_L, MS_L, MH_R, MS_R),
+  mtrx_fcs(MH_L, MS_L), !, 
+  mtrx_fcs(MH_R, MS_R), !. 
+
+mtrx(HYPS, GOAL) :- 
+  matrixify_all(HYPS, CTX, MATS),
+  solve(MATS), 
+  term_variables(CTX, VARS),
+  maplist_cut(eq(e ^ []), VARS),
+  empty_assoc(EMP), 
+  mtrx((CTX, [], EMP, GOAL)).
+
+
+% %%%%%%%%%%%%%%%% DIRECTED MATRIX %%%%%%%%%%%%%%%%
+% 
+% dtrx(HYP_L, HYP_R, GOAL) :- 
+%   dirixify(l, HYP_L, MAT_L),
+%   dirixify(r, HYP_R, MAT_r),
+%   empty_assoc(EMP), 
+%   solve(MATS, ID_GDS), 
+%   term_variables(ID_GDS, VARS),
+%   maplist_cut(eq(e), VARS),
+%   empty_assoc(EMP), 
+%   foldl(add_to_ctx(HYPS), ID_GDS, EMP, CTX), 
+%   mtrx((CTX, [], EMP, GOAL)).
+
+%%%%%%%%%%%%%%%% MAIN PROOF COMPILATION %%%%%%%%%%%%%%%%
+
+infer(vampire, ngt, [PREM], CONC, GOAL) :- 
   sp(CONC, GOAL, TEMP, GOAL_T), 
   mate(PREM, TEMP, GOAL_T).
 
-infer(vampire, [aft], PREMS, CONC, GOAL) :- 
+infer(vampire, aft, PREMS, CONC, GOAL) :- 
   tblx([CONC | PREMS], GOAL).
 
-%infer(vampire, [pft], PREMS, CONC, GOAL) :-
-%  tableaux([p, f], [CONC | PREMS], GOAL).
-
-infer(vampire, [daft], [PREM], CONC, GOAL) :- 
+infer(vampire, daft, [PREM], CONC, GOAL) :- 
   tblx(PREM, CONC, GOAL).
   
-infer(vampire, [pblx], PREMS, CONC, GOAL) :-
-  pblx([CONC | PREMS], GOAL).
+infer(vampire, dff, [PREM | PREMS], CONC, GOAL) :- 
+  sort(PREMS, DEFS),
+  dff(DEFS, PREM, CONC, GOAL).
 
-infer(vampire, [gaoc], AOCS, GAOC, GOAL) :- 
-  % aoc(OPFs, ONF, DFP) :- 
+infer(vampire, dfu, [PREM | PREMS], CONC, GOAL) :- 
+  dfu(PREMS, PREM, CONC, GOAL).
+
+infer(vampire, sat, PREMS, _, GOAL) :-
+  sat(PREMS, GOAL).
+  
+infer(vampire, pblx, PREMS, CONC, GOAL) :-
+  many_nb([a, s], [CONC], GOAL, HYPS, GOAL_T), 
+  append(HYPS, PREMS, CLAS),
+  pblx(CLAS, GOAL_T).
+
+infer(vampire, gaoc, AOCS, GAOC, GOAL) :- 
+  % aoc(PYPs, ONF, GOAL) :- 
   many_nb([d], [GAOC], GOAL, [IMP], GOAL0), 
   IMP = (_, (- (_ => _))),
   aap(IMP, GOAL0, ANTE, CONS, GOAL1), 
   apply_aocs(ANTE, AOCS, GOAL1, TEMP, GOAL2), 
   tblx(TEMP, CONS, GOAL2).
   
-infer(vampire, [res], [PYP0, PYP1], NYP, GOAL) :- 
+infer(vampire, res, [PYP0, PYP1], NYP, GOAL) :- 
   many_nb([a, d, s], [NYP], GOAL, HYPS, GOAL_T), 
   (
     res(PYP0, PYP1, HYPS, GOAL_T) ;
     res(PYP1, PYP0, HYPS, GOAL_T)
   ), !.
 
-infer(vampire, [para], PREMS, CONC, GOAL) :- 
+infer(vampire, eqr, [PREM], CONC, GOAL) :- 
+  many_nb([a, d, s], [CONC], GOAL, HYPS, GOAL0), 
+  many([b, c, s], ([PREM], GOAL0), HGS), !,
+  maplist(eqr_aux(HYPS), HGS).
+
+infer(vampire, (sup, DIR), [PREM_A, PREM_B], CONC, GOAL) :- 
+  orient_dir(PREM_A, PREM_B, DIR, PREM_L, PREM_R),
+  many_nb([a, d, s], [CONC], GOAL, HYPS, GOAL0), 
+  pick_pivot(HYPS, PREM_L, GOAL0, SRC, GOAL1), 
+  pick_pivot(HYPS, PREM_R, GOAL1, PRE_EQN, GOAL2), 
+  PRE_EQN = (_, (+ _ = _)),
+  set_dir(PRE_EQN, GOAL2, EQN, GOAL3),
+  member_rev(TGT, HYPS),
+  subst_rel_single(SRC, EQN, TGT, GOAL3). 
+
+infer(vampire, para, PREMS, CONC, GOAL) :- 
   member(PREM, PREMS),
   para((PREM, CONC, GOAL)).
 
-infer(vampire, [mtrx], PREMS, CONC, GOAL) :- 
+infer(vampire, ptrx, PREMS, CONC, GOAL) :- 
   member(PREM, PREMS),
   mtrx([PREM, CONC], GOAL).
 
-infer(PRVR, HINTS, CTX, HYP, GOAL) :- 
-  write("Inference failed, hints : "), 
-  write(HINTS), nl, nl,
+infer(vampire, mtrx, PREMS, CONC, GOAL) :- 
+  mtrx([CONC | PREMS], GOAL).
+
+infers(PRVR, [TAC | TACS], PREMS, CONC, GOAL) :- 
+  infer(PRVR, TAC, PREMS, CONC, GOAL) -> true ;  
+  infers(PRVR, TACS, PREMS, CONC, GOAL).
+
+report_failure(PRVR, HINTS, PREMS, CONC, GOAL) :- 
+  format("Inference failed, hints : ~w\n\n", HINTS), 
+  write("Inference failed, premises :\n\n"),
+  write_list(PREMS), 
+  format("Inference failed, conclusion : ~w\n\n", CONC), 
+  
   open("debug_trace.pl", write, Stream), 
   write(Stream, ":- [main].\n\n"), 
   format(Stream, '~w.\n\n', debug_prvr(PRVR)), 
   format(Stream, '~w.\n\n', debug_hints(HINTS)), 
-  format(Stream, '~w.\n\n', debug_ctx(CTX)), 
-  format(Stream, '~w.\n\n', debug_hyp(HYP)), 
+  format(Stream, '~w.\n\n', debug_ctx(PREMS)), 
+  format(Stream, '~w.\n\n', debug_hyp(CONC)), 
   format(Stream, '~w.\n\n', debug_goal(GOAL)), 
   close(Stream), 
   throw(inference_failure).
@@ -211,8 +980,17 @@ prove(STRM, PRVR, [inf(HINTS, PIDS, CID, - FORM) | SOL], PROB) :-
   prove(STRM, PRVR, SOL, MAIN_PROB), 
   get_context(PROB, PIDS, CTX),
   GOAL = (PRF, 0, 0),
-  infer(PRVR, HINTS, CTX, (CID, (+ FORM)), GOAL), !, 
-  ground_all(PRF),
+  timed_call(
+    70,
+    infers(PRVR, HINTS, CTX, (CID, (+ FORM)), GOAL), 
+    report_failure(PRVR, HINTS, CTX, (CID, (+ FORM)), GOAL)
+  ), !, 
+  ground_all(c^[], PRF),
+  put_assoc(CID, PROB, + FORM, SUB_PROB),
+  (
+    verify(SUB_PROB, 0, PRF) -> true ;
+    throw(verification_failure)
+  ),
   put_prf(STRM, PRF).
 
 prove(STRM, PRVR, [inf(HINTS, PIDS, CID, + FORM) | SOL], PROB) :- 
@@ -221,10 +999,17 @@ prove(STRM, PRVR, [inf(HINTS, PIDS, CID, + FORM) | SOL], PROB) :-
   put_id(STRM, CID), 
   get_context(PROB, PIDS, CTX),
   GOAL = (PRF, 0, 0), 
-  infer(PRVR, HINTS, CTX, (CID, (- FORM)), GOAL), !, 
+  timed_call(
+    70,
+    infers(PRVR, HINTS, CTX, (CID, (- FORM)), GOAL), 
+    report_failure(PRVR, HINTS, CTX, (CID, (- FORM)), GOAL)
+  ), !,
+  ground_all(c^[], PRF),
   put_assoc(CID, PROB, - FORM, SUB_PROB),
-  verify(SUB_PROB, 0, PRF),
-  ground_all(PRF),
+  (
+    verify(SUB_PROB, 0, PRF) ->  true ; 
+    throw(verification_failure)
+  ),
   put_prf(STRM, PRF), 
   (
     SOL = [] -> 
@@ -822,35 +1607,35 @@ inst_fas(FORM, BODY) :-
 
 mk_mono(0, Cons, Cons).
 
-mk_mono(Num, Cons, ! ! ((#(1) = #(0)) => Mono)) :-
-  num_pred(Num, Pred), 
+mk_mono(NUM, Cons, ! ! ((#(1) = #(0)) => Mono)) :-
+  num_pred(NUM, Pred), 
   mk_mono(Pred, Cons, Mono), !.
 
 mk_mono_args(0, [], []).
 
-mk_mono_args(Num, [#(NumA) | VarsA], [#(NumB) | VarsB]) :-
-  NumA is (Num * 2) - 1, 
-  NumB is (Num * 2) - 2, 
-  Pred is Num - 1,
+mk_mono_args(NUM, [#(NUMA) | VarsA], [#(NUMB) | VarsB]) :-
+  NUMA is (NUM * 2) - 1, 
+  NUMB is (NUM * 2) - 2, 
+  Pred is NUM - 1,
   mk_mono_args(Pred, VarsA, VarsB).
 
-mk_mono_eq(Num, Fun, TERM_A = TERM_B) :- 
-  mk_mono_args(Num, VarsA, VarsB),
+mk_mono_eq(NUM, Fun, TERM_A = TERM_B) :- 
+  mk_mono_args(NUM, VarsA, VarsB),
   TERM_A =.. [Fun | VarsA],
   TERM_B =.. [Fun | VarsB], !.
 
-mk_mono_imp(Num, Rel, AtomA => AtomB) :- 
-  mk_mono_args(Num, VarsA, VarsB),
+mk_mono_imp(NUM, Rel, AtomA => AtomB) :- 
+  mk_mono_args(NUM, VarsA, VarsB),
   AtomA =.. [Rel | VarsA],
   AtomB =.. [Rel | VarsB], !.
 
-mk_mono_fun(Num, Fun, Mono) :- 
-  mk_mono_eq(Num, Fun, Eq), 
-  mk_mono(Num, Eq, Mono), !.
+mk_mono_fun(NUM, Fun, Mono) :- 
+  mk_mono_eq(NUM, Fun, Eq), 
+  mk_mono(NUM, Eq, Mono), !.
 
-mk_mono_rel(Num, Rel, Mono) :- 
-  mk_mono_imp(Num, Rel, Imp), 
-  mk_mono(Num, Imp, Mono).
+mk_mono_rel(NUM, Rel, Mono) :- 
+  mk_mono_imp(NUM, Rel, Imp), 
+  mk_mono(NUM, Imp, Mono).
 
 
 
