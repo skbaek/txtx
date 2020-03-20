@@ -18,7 +18,7 @@ rul_hint(skolemisation, mtrx).
 % rul_hint(ennf_transformation, ennf).  
 rul_hint(ennf_transformation, ptrx).  
 % rul_hint(nnf_transformation, nnf).  
-rul_hint(nnf_transformation, daft).  
+rul_hint(nnf_transformation, ptrx).  
 rul_hint(resolution, res).
 rul_hint(subsumption_resolution, res).
 
@@ -31,7 +31,7 @@ rul_hint(avatar_split_clause, mtrx).
 % rul_hint(avatar_contradiction_clause, ptblx).
 rul_hint(avatar_contradiction_clause, pblx).
 
-rul_hint(avatar_component_clause, daft).
+rul_hint(avatar_component_clause, ptrx).
 % rul_hint(avatar_component_clause, acmp).
 % rul_hint(factoring, wkn).
 rul_hint(factoring, ptrx).
@@ -170,12 +170,12 @@ get_aocs(FORM, SKMS, AOCS) :-
   get_aocs_aux(PARS, ANTE, CONS, SKMS, FORMS),
   maplist_cut(revert_pars(CNT), FORMS, AOCS).
 
-get_aocs_aux(_, ANTE, CONS, [], []) :- 
-  tblx((0, (+ ANTE)), (1, (- CONS)), (_, 0, 2)).
-
-get_aocs_aux(Vars, ? ANTE, CONS, [SKM | SKMS], [(? ANTE) => NewANTE | AOCS]) :- 
+get_aocs_aux(Vars, ? ANTE, CONS, [SKM | SKMS], [(? ANTE) => NewANTE | AOCS]) :- !,
   subst_form((SKM ^ Vars), ANTE, NewANTE), 
   get_aocs_aux(Vars, NewANTE, CONS, SKMS, AOCS).
+
+get_aocs_aux(_, ANTE, CONS, [], []) :- 
+  mtrx([(0, (+ ANTE)), (1, (- CONS))], (_, 0, 2)).
 
 id_skm_aoc_inst(ID, SKM, AOC, add([aoc, SKM], ID, (+ AOC))).
 

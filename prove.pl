@@ -649,206 +649,6 @@ mtrx(HYPS, GOAL) :-
 
 */
 
-replace_skm(SKMS, TERM_I, TERM_O) :- 
-  var(TERM_I) -> false 
-; 
-  TERM_I = (FUN ^ TERMS_I), 
-  (
-    atom_concat(skm, _, FUN) -> 
-    get_assoc(FUN, SKMS, NUM), 
-    TERM_O = @(NUM)
-  ;  
-    maplist_cut(replace_skm(SKMS), TERMS_I, TERMS_O), 
-    TERM_O = (FUN ^ TERMS_O)
-  ).
-
-matrixify(VARS, (FI, SF), (FO, a(MAT_L, MAT_R))) :-
-  aab(SF, SF_L, SF_R), !,
-  matrixify(VARS, (FI, SF_L), (FT, MAT_L)),
-  matrixify(VARS, (FT, SF_R), (FO, MAT_R)).
-
-matrixify(VARS, (FI, SF), (FO, b(MAT_L, MAT_R))) :- 
-  bb(SF, SF_L, SF_R), !,
-  matrixify(VARS, (FI, SF_L), (FT, MAT_L)),
-  matrixify(VARS, (FT, SF_R), (FO, MAT_R)).
-
-matrixify(VARS, (FI, SF), (FO, c(VAR, MAT))) :- 
-  cb(VAR, SF, SF_N), !,
-  matrixify([VAR | VARS], (FI, SF_N), (FO, MAT)). 
-
-matrixify(VARS, (FI, SF), (FO, d(SKM, MAT))) :- 
-  type_sf(d, SF), !,
-  atom_concat(skm, FI, SKM), 
-  FT is FI + 1, 
-  SKM_TERM = (SKM ^ VARS),
-  dt(SKM_TERM, SF, SF_N), 
-  matrixify(VARS, (FT, SF_N), (FO, MAT)). 
-
-matrixify(VARS, (FI, SF), (FO, MAT)) :- 
-  sb(SF, SF_N), !,
-  matrixify(VARS, (FI, SF_N), (FO, MAT)). 
-
-matrixify(_, (FI, SA), (FI, SA)) :- 
-  signed_atom(SA).
-
-add_mat((ID, SF), (FI, [(GD, ID, SF) | CTX], [(GD, MAT) | MATS]), (FO, CTX, MATS)) :- 
-  matrixify([], (FI, SF), (FO, MAT)).
-
-matrixify_all(HYPS, CTX, MATS) :- 
-  foldl(add_mat, HYPS, (0, CTX, MATS), (_, [], [])).
-
-add_to_ctx(HYPS, (ID, GD), CTX_I, CTX_O) :- 
-  member((ID, SF), HYPS), 
-  put_assoc(ID, CTX_I, (GD, SF), CTX_O).
-
-startable(a(MAT_L, MAT_R)) :- 
-  startable(MAT_L) ;
-  startable(MAT_R).
-
-startable(b(MAT_L, MAT_R)) :- 
-  startable(MAT_L),
-  startable(MAT_R).
-
-startable(c(_, MAT)) :- startable(MAT).
-startable(d(_, MAT)) :- startable(MAT).
-startable(+ _). 
-
-solve(MATS) :- 
-  pluck(MATS, (GD, MAT), REST), 
-  solve(start, REST, [], [], (GD, MAT), _).
-
-solve(MODE, MATS, PATH, LEM_I, (a(GD_L, GD_R), a(MAT_L, MAT_R)), LEM_O) :- !, 
-  (
-    solve(MODE, [(GD_R, MAT_R) | MATS], PATH, LEM_I, (GD_L, MAT_L), LEM_O) ;
-    solve(MODE, [(GD_L, MAT_L) | MATS], PATH, LEM_I, (GD_R, MAT_R), LEM_O)
-  ).
-
-solve(start, MATS, PATH, LEM_I, (b(GD_L, GD_R), b(MAT_L, MAT_R)), LEM_O) :- !,
-  startable(MAT_R),
-  solve(start, MATS, PATH, LEM_I, (GD_L, MAT_L), LEM_T),
-  solve(start, MATS, PATH, LEM_T, (GD_R, MAT_R), LEM_O).
-
-solve(match, MATS, PATH, LEM_I, (b(GD_L, GD_R), b(MAT_L, MAT_R)), LEM_O) :- !,
-  (
-    solve(match, MATS, PATH, LEM_I, (GD_L, MAT_L), LEM_T),
-    solve(block, MATS, PATH, LEM_T, (GD_R, MAT_R), LEM_O)
-  ;
-    solve(match, MATS, PATH, LEM_I, (GD_R, MAT_R), LEM_T),
-    solve(block, MATS, PATH, LEM_T, (GD_L, MAT_L), LEM_O)
-  ).
-  
-solve(block, MATS, PATH, LEM_I, (b(GD_L, GD_R), b(MAT_L, MAT_R)), LEM_O) :- !,
-  solve(block, MATS, PATH, LEM_I, (GD_L, MAT_L), LEM_T),
-  solve(block, MATS, PATH, LEM_T, (GD_R, MAT_R), LEM_O).
-
-solve(MODE, MATS, PATH, LEM_I, (c(TERM, GD), c(TERM, MAT)), LEM_O) :- !,
-  solve(MODE, MATS, PATH, LEM_I, (GD, MAT), LEM_O). 
-
-solve(MODE, MATS, PATH, LEM_I, (d(SKM, GD), d(SKM, MAT)), LEM_O) :- !,
-  solve(MODE, MATS, PATH, LEM_I, (GD, MAT), LEM_O). 
-
-solve(match, _, [CMP | _], LEM, (m, SA), LEM) :- 
-  connect_sfs(CMP, SA).
-  
-solve(start, MATS, PATH, LEM_I, (GD, SF), LEM_O) :-
-  pos_atom(SF), 
-  solve(block, MATS, PATH, LEM_I, (GD, SF), LEM_O).
-
-solve(block, _, _, LEM, (c, SF), LEM) :-
-  contradiction(SF).
-
-solve(block, _, _, LEM, (m, SA), LEM) :- 
-  member_syn(SA, LEM), !.
-
-solve(block, _, PATH, LEM, (m, SA), LEM) :- 
-  member(CMP, PATH),
-  connect_sfs(CMP, SA).
-
-solve(block, MATS, PATH, LEM, (m, SA), [SA | LEM]) :- 
-  \+ member_syn(SA, PATH),
-  pluck(MATS, (GD, MAT), REST), 
-  solve(match, REST, [SA | PATH], LEM, (GD, MAT), _). 
- 
-mtrx_zero((CTX, _, _, GOAL)) :- 
-  member((c, HYP), CTX), 
-  use_lc(HYP, GOAL).
-  
-mtrx_zero((CTX, PATH, _, GOAL)) :- 
-  member((m, HYP), CTX), 
-  member(CMP, PATH), 
-  mate(HYP, CMP, GOAL).
-
-mtrx_one((CTX, PATH, SKMS, GOAL), (REST, PATH, SKMS, GOAL)) :- 
-  pluck(CTX, ((e ^ []), _), REST). 
-
-mtrx_one((CTX, PATH, SKMS, GOAL), (REST, [HYP | PATH], SKMS, GOAL)) :- 
-  pluck(CTX, (m, HYP), REST), 
-  atomic_hyp(HYP).
-
-mtrx_one((CTX, PATH, SKMS, GOAL), ([(GD, HYP_N) | REST], PATH, SKMS, GOAL_N)) :- 
-  pluck(CTX, (GD, HYP), REST), 
-  sp(HYP, GOAL, HYP_N, GOAL_N).
-
-mtrx_one(
-  (CTX, PATH, SKMS, GOAL), 
-  ([(GD_L, HYP_L), (GD_R, HYP_R) | REST], PATH, SKMS, GOAL_N)
-) :- 
-  pluck(CTX, (a(GD_L, GD_R), HYP), REST), 
-  ap(HYP, l, GOAL, HYP_L, GOAL_T), 
-  ap(HYP, r, GOAL_T, HYP_R, GOAL_N). 
-
-mtrx_one(
-  (CTX, PATH, SKMS, GOAL), 
-  ([(GD, HYP_N) | REST], PATH, SKMS, GOAL_N) 
-) :- 
-  pluck(CTX, (c(TERM, GD), HYP), REST), 
-  replace_skm(SKMS, TERM, TERM_N), 
-  cp(HYP, TERM_N, GOAL, HYP_N, GOAL_N).
-
-mtrx_one(
-  (CTX, PATH, SKMS, GOAL), 
-  ([(GD, HYP_N) | REST], PATH, SKMS_N, GOAL_N) 
-) :- 
-  pluck(CTX, (d(SKM, GD), HYP), REST), 
-  GOAL = (_, FP, _), 
-  put_assoc(SKM, SKMS, FP, SKMS_N), 
-  dp(HYP, GOAL, HYP_N, GOAL_N).
-
-mtrx_two(
-  (CTX, PATH, SKMS, GOAL), 
-  (GD_L, HYP_L), 
-  (REST, PATH, SKMS, GOAL_L), 
-  (GD_R, HYP_R), 
-  (REST, PATH, SKMS, GOAL_R) 
-) :- 
-  pluck(CTX, (b(GD_L, GD_R), HYP), REST), 
-  bp(HYP, GOAL, HYP_L, HYP_R, GOAL_L, GOAL_R).
-
-mtrx_fcs(
-  (GD, HYP), 
-  (CTX, PATH, SKMS, GOAL)
-) :- 
-  bp(HYP, GOAL, HYP_L, HYP_R, GOAL_L, GOAL_R) -> 
-  GD = b(GD_L, GD_R), 
-  mtrx_fcs((GD_L, HYP_L), (CTX, PATH, SKMS, GOAL_L)), !,
-  mtrx_fcs((GD_R, HYP_R), (CTX, PATH, SKMS, GOAL_R))
-;
-  mtrx(([(GD, HYP) | CTX], PATH, SKMS, GOAL)).
-
-mtrx(MS) :- 
-  mtrx_zero(MS) -> true ; 
-  mtrx_one(MS, MS_N) -> mtrx(MS_N) ; 
-  mtrx_two(MS, MH_L, MS_L, MH_R, MS_R),
-  mtrx_fcs(MH_L, MS_L), !, 
-  mtrx_fcs(MH_R, MS_R), !. 
-
-mtrx(HYPS, GOAL) :- 
-  matrixify_all(HYPS, CTX, MATS),
-  solve(MATS), 
-  term_variables(CTX, VARS),
-  maplist_cut(eq(e ^ []), VARS),
-  empty_assoc(EMP), 
-  mtrx((CTX, [], EMP, GOAL)).
 
 
 % %%%%%%%%%%%%%%%% DIRECTED MATRIX %%%%%%%%%%%%%%%%
@@ -933,11 +733,12 @@ infer(vampire, mtrx, PREMS, CONC, GOAL) :-
   mtrx([CONC | PREMS], GOAL).
 
 infers(PRVR, [TAC | TACS], PREMS, CONC, GOAL) :- 
-  infer(PRVR, TAC, PREMS, CONC, GOAL) -> true ;  
+  (format("Using hint : ~w\n\n", TAC), infer(PRVR, TAC, PREMS, CONC, GOAL)) -> true ;  
   infers(PRVR, TACS, PREMS, CONC, GOAL).
 
 report_failure(PRVR, HINTS, PREMS, CONC, GOAL) :- 
-  format("Inference failed, hints : ~w\n\n", HINTS), 
+  write("Inference failed, hints : "), 
+  write(HINTS), nl, nl,
   write("Inference failed, premises :\n\n"),
   write_list(PREMS), 
   format("Inference failed, conclusion : ~w\n\n", CONC), 
@@ -981,16 +782,16 @@ prove(STRM, PRVR, [inf(HINTS, PIDS, CID, - FORM) | SOL], PROB) :-
   get_context(PROB, PIDS, CTX),
   GOAL = (PRF, 0, 0),
   timed_call(
-    70,
+    1,
     infers(PRVR, HINTS, CTX, (CID, (+ FORM)), GOAL), 
     report_failure(PRVR, HINTS, CTX, (CID, (+ FORM)), GOAL)
   ), !, 
   ground_all(c^[], PRF),
-  put_assoc(CID, PROB, + FORM, SUB_PROB),
-  (
-    verify(SUB_PROB, 0, PRF) -> true ;
-    throw(verification_failure)
-  ),
+  % put_assoc(CID, PROB, + FORM, SUB_PROB),
+  % (
+  %   verify(SUB_PROB, 0, PRF) -> true ;
+  %   throw(verification_failure)
+  % ),
   put_prf(STRM, PRF).
 
 prove(STRM, PRVR, [inf(HINTS, PIDS, CID, + FORM) | SOL], PROB) :- 
@@ -1000,16 +801,16 @@ prove(STRM, PRVR, [inf(HINTS, PIDS, CID, + FORM) | SOL], PROB) :-
   get_context(PROB, PIDS, CTX),
   GOAL = (PRF, 0, 0), 
   timed_call(
-    70,
+    1,
     infers(PRVR, HINTS, CTX, (CID, (- FORM)), GOAL), 
     report_failure(PRVR, HINTS, CTX, (CID, (- FORM)), GOAL)
   ), !,
   ground_all(c^[], PRF),
-  put_assoc(CID, PROB, - FORM, SUB_PROB),
-  (
-    verify(SUB_PROB, 0, PRF) ->  true ; 
-    throw(verification_failure)
-  ),
+  % put_assoc(CID, PROB, - FORM, SUB_PROB),
+  % (
+  %   verify(SUB_PROB, 0, PRF) ->  true ; 
+  %   throw(verification_failure)
+  % ),
   put_prf(STRM, PRF), 
   (
     SOL = [] -> 
