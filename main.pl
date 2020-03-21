@@ -7,6 +7,19 @@
 tstp_sol('vampire', PIDS, TSTP, SOL) :- 
   vampire_tstp_sol(PIDS, TSTP, SOL).
 
+test_all([]).
+test_all([TPTP | TPTPS]) :- 
+  format("Solving problem : ~w\n\n", TPTP),
+  atomic_concat("vp/", TPTP, PATH),
+  main(['-t', PATH]), 
+  format("Verifying proof : ~w\n\n", TPTP),
+  main(['-v', PATH, "temp.txtx"]), 
+  test_all(TPTPS).
+
+main(['-tl']) :- 
+  file_strings("/home/sk/problist", TPTPS), 
+  time(test_all(TPTPS)).
+
 main(['-t', TPTP]) :- 
   style_check(-singleton),
   atom_string(TPTP, STR),
@@ -43,6 +56,7 @@ main(['-v', TPTP, TXTX]) :-
 % - Omit mid-elaboration verification
 % - Implicit function application 
 % - Directional matrix
+% - Streaming verification
 
 % comp_m_args(['--compile', 'metis', TPTP, TSTP, TXTX | _], TPTP, TSTP, TXTX).
 % 

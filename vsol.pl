@@ -3,7 +3,7 @@
 id_sid(ID, SID) :- 
   atom_concat('s', ID, SID).
 
-rul_hint(negated_conjecture, para).  
+rul_hint(negated_conjecture, parac).  
 %rul_hint(cnf_transformation, v_cnf).
 rul_hint(cnf_transformation, ptrx).
 rul_hint(superposition, (sup, l)).  
@@ -46,7 +46,7 @@ rul_hint(unused_predicate_definition_removal, ptrx).
 rul_hint(true_and_false_elimination, tfe).
 rul_hint(distinct_equality_removal, der).
 % rul_hint(pure_predicate_removal, ppr).
-rul_hint(pure_predicate_removal, para).
+rul_hint(pure_predicate_removal, parac).
 rul_hint(choice_axiom, gaoc).
 rul_hint(RUL, _) :- 
   format('RULe not found : ~w', RUL), 
@@ -64,7 +64,7 @@ pred_def_norm((Atom <=> TPTP), (Atom <=> TPTP)).
 vampire_tuple_inst(
   PIDS,
   (ID, conjecture, TF, _),
-  inf([para, ptrx], PIDS, SID, (- FORM))
+  inf([parac, ptrx], PIDS, SID, (- FORM))
 ) :- 
   id_sid(ID, SID), 
   fof_form([], TF, FORM).
@@ -72,7 +72,7 @@ vampire_tuple_inst(
 vampire_tuple_inst(
  PIDS,
  (ID, axiom, TF, _),
- inf([para, ptrx], PIDS, SID, (+ FORM)) 
+ inf([parac, ptrx], PIDS, SID, (+ FORM)) 
 ) :-
   id_sid(ID, SID), 
   fof_form([], TF, FORM).

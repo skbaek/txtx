@@ -18,6 +18,19 @@
 
 %%%%%%%%%%%%%%%% GENERIC %%%%%%%%%%%%%%%% 
   
+random_pluck(LIST, ELEM, REST) :- 
+  random_member(ELEM, LIST), 
+  delete(LIST, ELEM, REST).
+
+random_plucks(NUM, LIST, ELEMS, REST) :- 
+  num_pred(NUM, PRED) -> 
+  ELEMS = [ELEM | TAIL], 
+  random_pluck(LIST, ELEM, TEMP),
+  random_plucks(PRED, TEMP, TAIL, REST) 
+; 
+  ELEMS = [],
+  REST = LIST.
+
 pick_left(([ELEM | LFT], RGT), ELEM, (LFT, RGT)).  
 pick_left(([HEAD | LFT], RGT), ELEM, REST) :- 
   pick_left((LFT, [HEAD | RGT]), ELEM, REST).
@@ -683,45 +696,6 @@ mono_body(NUM, ! ! (#(1) = #(0) => Form), Cons) :-
   num_pred(NUM, Pred),
   mono_body(Pred, Form, Cons).
 
-% hyp_dfd(+ (Dfd <=> Form), Dfd) :- 
-%   \+ sub_term(Dfd, Form). 
-% 
-% break_fas(! FaVarsA : Form, FaVars, Body) :-
-%   break_fas(Form, FaVarsB, Body),
-%   append(FaVarsA, FaVarsB, FaVars), !.
-% 
-% break_fas(Body, [], Body) :-
-%   Body \= ! _. 
-%
-%analyze_forall(! Form, NUM, Body) :-
-%  analyze_forall(Form, Pred, Body),
-%  NUM is Pred + 1. 
-%
-%analyze_forall(Form, 0, Form).
-
-% mk_skolem_arg(FaNUM, Arg) :- 
-%   num_pred(FaNUM, Pred), 
-%   mk_skolem_arg(Pred, Temp), 
-%   append(Temp, [#(Pred)], Arg).
-
-% mk_skolem_arg(0, []).
-% 
-% count_fa(! Form, NUM, Body) :-
-%   count_fa(Form, Pred, Body),
-%   NUM is Pred + 1, !.
-% 
-% count_fa(Form, 0, Form).
-% 
-% count_ex(? Form, NUM, Body) :-
-%   count_fa(Form, Pred, Body),
-%   NUM is Pred + 1, !.
-% 
-% count_ex(Form, 0, Form).
-% 
-% break_aoc(Form, FaNUM, ExNUM, Ante, Cons) :-
-%   count_fa(Form, FaNUM, Temp => Cons), 
-%   count_ex(Temp, ExNUM, Ante). 
-
 maplist_try(_, [], []).
 
 maplist_try(GOAL, [ELEM | LIST], RST) :- 
@@ -1087,7 +1061,6 @@ num_range(NUM, [Pred | NUMs]) :-
 %   var_atom(NUM, X),
 %   SuccNUM is NUM + 1,
 %   fix_variables(SuccNUM, Xs).
-% 
 
 stream_strings(STRM, STRS) :-
   read_line_to_string(STRM, STR), 
@@ -1125,22 +1098,6 @@ foldl_cut(_, [], V, V).
 foldl_cut(GOAL, [ELEM | LIST], V_I, V_O) :- 
   call(GOAL, ELEM, V_I, V_T), !, 
   foldl_cut(GOAL, LIST, V_T, V_O).
-
-% file_strings_core(STRM, STRS) :-
-%   read_line_to_string(STRM, STR), 
-%   (
-%     STR = end_of_file -> 
-%     STRS = [] ;
-%     ( 
-%       STRS = [STR | REST],
-%       file_strings_core(STRM, REST)
-%     )
-%   ).
-% 
-% file_strings(FILE, STRS) :-
-%   open(FILE, read, STRM), 
-%   file_strings_core(STRM, STRS), 
-%   close(STRM).
 
 string_split_with(Str, Sep, Fst, Snd) :- 
   string_concat(Fst, REST, Str), 
@@ -2909,72 +2866,77 @@ verify(PROB, _, x(PID, NID)) :-
 
 %%%%%%%%%%%%%%%% PARALLEL DECOMPOSITION %%%%%%%%%%%%%%%%
   
+para_zero((HYP_A, HYP_B, GOAL)) :- 
+  mate(HYP_A, HYP_B, GOAL).
+
+para_one((HYP_A, HYP_B, GOAL), (HYP_AN, HYP_B, GOAL_N)) :- 
+  sp(HYP_A, GOAL, HYP_AN, GOAL_N). 
+  
+para_one((HYP_A, HYP_B, GOAL), (HYP_A, HYP_BN, GOAL_N)) :- 
+  sp(HYP_B, GOAL, HYP_BN, GOAL_N). 
+  
+para_one((HYP_A, HYP_B, GOAL), (HYP_NA, HYP_NB, GOAL_N)) :- 
+  cdp(HYP_A, HYP_B, GOAL, HYP_NA, HYP_NB, GOAL_N) ;
+  cdp(HYP_B, HYP_A, GOAL, HYP_NB, HYP_NA, GOAL_N).
+
+para_two((HYP_A, HYP_B, GOAL), (HYP_AL, HYP_BL, GOAL_L), (HYP_AR, HYP_BR, GOAL_R)) :- 
+  abp(HYP_A, HYP_B, GOAL, HYP_AL, HYP_BL, GOAL_L, HYP_AR, HYP_BR, GOAL_R) ; 
+  abp(HYP_B, HYP_A, GOAL, HYP_BL, HYP_AL, GOAL_L, HYP_BR, HYP_AR, GOAL_R).
+
+
+
+%%%%%%%%%%%%%%%% PARALLEL CLAUSAL DECOMPOSITION %%%%%%%%%%%%%%%%
+
 imp_hyp(HYP) :- 
   hyp_form(HYP, FORM),
   member(FORM, [(_ => _), (_ <=> _)]).
 
-para_a_aux(HYP, GOAL, HYP_L, HYP_R, NEW_GOAL) :- 
+para_cla_a_aux(HYP, GOAL, HYP_L, HYP_R, NEW_GOAL) :- 
   \+ imp_hyp(HYP), 
   ap(HYP, l, GOAL, HYP_L, TEMP_GOAL),
   ap(HYP, r, TEMP_GOAL, HYP_R, NEW_GOAL).
 
-para_a(HYP, GOAL, HYPS, GOAL_N) :- 
-  para_a_aux(HYP, GOAL, HYP_L, HYP_R, GOAL0) -> 
+para_cla_a(HYP, GOAL, HYPS, GOAL_N) :- 
+  para_cla_a_aux(HYP, GOAL, HYP_L, HYP_R, GOAL0) -> 
   (
-    para_a(HYP_L, GOAL0, HYPS_L, GOAL1),
-    para_a(HYP_R, GOAL1, HYPS_R, GOAL_N), 
+    para_cla_a(HYP_L, GOAL0, HYPS_L, GOAL1),
+    para_cla_a(HYP_R, GOAL1, HYPS_R, GOAL_N), 
     append(HYPS_L, HYPS_R, HYPS)
   ) ;
   (HYPS = [HYP], GOAL_N = GOAL).
 
-para_b(HYP, GOAL, HGS) :- 
+para_cla_b(HYP, GOAL, HGS) :- 
   (
     \+ imp_hyp(HYP),
     bp(HYP, GOAL, HYP_L, HYP_R, GOAL_L, GOAL_R)
   ) -> 
   (
-    para_b(HYP_L, GOAL_L, HGS_L),
-    para_b(HYP_R, GOAL_R, HGS_R),
+    para_cla_b(HYP_L, GOAL_L, HGS_L),
+    para_cla_b(HYP_R, GOAL_R, HGS_R),
     append(HGS_L, HGS_R, HGS)
   ) ;
   HGS = [([HYP], GOAL)].
 
-para_zero((HYP_A, HYP_B, GOAL)) :- 
-  mate_pn(HYP_A, HYP_B, GOAL).
-
-para_one((HYP_A, HYP_B, GOAL), (HYP_AN, HYP_B, GOAL_N)) :- 
-  sp(HYP_A, GOAL, HYP_AN, GOAL_N). 
-  
-para_one((HYP_A, HYP_B, GOAL), (HYP_NA, HYP_NB, GOAL_N)) :- 
-  cdp(HYP_A, HYP_B, GOAL, HYP_NA, HYP_NB, GOAL_N).
-
-para_two((HYP_A, HYP_B, GOAL), (HYP_AL, HYP_BL, GOAL_L), (HYP_AR, HYP_BR, GOAL_R)) :- 
+para_cla_two((HYP_A, HYP_B, GOAL), (HYP_AL, HYP_BL, GOAL_L), (HYP_AR, HYP_BR, GOAL_R)) :- 
   (imp_hyp(HYP_A) ; imp_hyp(HYP_B)),
   abp(HYP_A, HYP_B, GOAL, HYP_AL, HYP_BL, GOAL_L, HYP_AR, HYP_BR, GOAL_R).
 
-para_many((HYP_A, HYP_B, GOAL), HYPS, HGS) :- 
+para_cla_many((HYP_A, HYP_B, GOAL), HYPS, HGS) :- 
   \+ imp_hyp(HYP_A),
   \+ imp_hyp(HYP_B),
   type_hyp(a, HYP_A),
-  para_a(HYP_A, GOAL, HYPS, GOAL_T), !,  
-  para_b(HYP_B, GOAL_T, HGS).
+  para_cla_a(HYP_A, GOAL, HYPS, GOAL_T), !,  
+  para_cla_b(HYP_B, GOAL_T, HGS).
 
-para(H2G) :- 
-  (
-    H2G_T = H2G ; 
-    H2G = (HYP_A, HYP_B, GOAL),
-    H2G_T = (HYP_B, HYP_A, GOAL)
-  ),
-  (
-    para_zero(H2G_T) -> true ;
-    para_one(H2G_T, H2G_N) -> para(H2G_N) ;
-    para_two(H2G_T, H2G_L, H2G_R) -> para(H2G_L), !, para(H2G_R) ;
-    para_many(H2G_T, HS, HGS) -> para_aux(HS, HGS)
-  ), !.
+para_cla(H2G) :- 
+  para_zero(H2G) -> true ;
+  para_one(H2G, H2G_N) -> para_cla(H2G_N) ;
+  para_cla_two(H2G, H2G_L, H2G_R) -> para_cla(H2G_L), !, para_cla(H2G_R) ;
+  para_cla_many(H2G, HS, HGS) -> para_cla_aux(HS, HGS).
 
-para_aux(_, []).
+para_cla_aux(_, []).
 
-para_aux(HYPS, [([HYP], GOAL) | HGS]) :- 
+para_cla_aux(HYPS, [([HYP], GOAL) | HGS]) :- 
   pluck(HYPS, CMP, REST), 
-  para((HYP, CMP, GOAL)), !,
-  para_aux(REST, HGS).
+  para_cla((HYP, CMP, GOAL)), !,
+  para_cla_aux(REST, HGS).

@@ -131,10 +131,6 @@ bench(PROVER, CAT, ID) :-
     )
   ), !.
 
-random_pluck(LIST, ELEM, REST) :- 
-  random_member(ELEM, LIST), 
-  delete(LIST, ELEM, REST).
-
 theorem_or_unsat(CAT, ID) :- 
   atomics_to_string(["/home/sk/programs/TPTP/Problems/", CAT, "/", CAT, ID, ".p"], FILE), 
   file_strings(FILE, STRS),

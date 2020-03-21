@@ -171,13 +171,10 @@ dff(Defs, HYP0, HYP1, DFP) :-
   para_one((HYP0, HYP1, DFP), (NewHYP0, NewHYP1, NewDFP)), !, 
   dff(Defs, NewHYP0, NewHYP1, NewDFP).
 
-dff(Defs, HYP0, HYP1, DFP) :- 
-  (
-    abp(HYP0, HYP1, DFP, HYP0L, HYP1L, DFP_L, HYP0R, HYP1R, DFP_R) ; 
-    abp(HYP1, HYP0, DFP, HYP1L, HYP0L, DFP_L, HYP1R, HYP0R, DFP_R) 
-  ), !,  
-  dff(Defs, HYP0L, HYP1L, DFP_L),
-  dff(Defs, HYP0R, HYP1R, DFP_R).
+dff(Defs, HYP0, HYP1, GOAL) :- 
+  para_two((HYP0, HYP1, GOAL), (HYP0L, HYP1L, GOAL_L), (HYP0R, HYP1R, GOAL_R)), 
+  dff(Defs, HYP0L, HYP1L, GOAL_L),
+  dff(Defs, HYP0R, HYP1R, GOAL_R).
 
 dff(Defs, HYP0, HYP1, DFP) :-
   HYP1 = (_, (+ Atom)), 
@@ -721,9 +718,9 @@ infer(vampire, (sup, DIR), [PREM_A, PREM_B], CONC, GOAL) :-
   member_rev(TGT, HYPS),
   subst_rel_single(SRC, EQN, TGT, GOAL3). 
 
-infer(vampire, para, PREMS, CONC, GOAL) :- 
+infer(vampire, parac, PREMS, CONC, GOAL) :- 
   member(PREM, PREMS),
-  para((PREM, CONC, GOAL)).
+  para_cla((PREM, CONC, GOAL)).
 
 infer(vampire, ptrx, PREMS, CONC, GOAL) :- 
   member(PREM, PREMS),
@@ -733,15 +730,15 @@ infer(vampire, mtrx, PREMS, CONC, GOAL) :-
   mtrx([CONC | PREMS], GOAL).
 
 infers(PRVR, [TAC | TACS], PREMS, CONC, GOAL) :- 
-  (format("Using hint : ~w\n\n", TAC), infer(PRVR, TAC, PREMS, CONC, GOAL)) -> true ;  
+  infer(PRVR, TAC, PREMS, CONC, GOAL) -> true ;  
   infers(PRVR, TACS, PREMS, CONC, GOAL).
 
 report_failure(PRVR, HINTS, PREMS, CONC, GOAL) :- 
-  write("Inference failed, hints : "), 
+  write("\nInference failed, hints : "), 
   write(HINTS), nl, nl,
-  write("Inference failed, premises :\n\n"),
+  write("\nInference failed, premises :\n\n"),
   write_list(PREMS), 
-  format("Inference failed, conclusion : ~w\n\n", CONC), 
+  format("\nInference failed, conclusion : ~w\n\n", CONC), 
   
   open("debug_trace.pl", write, Stream), 
   write(Stream, ":- [main].\n\n"), 
@@ -782,7 +779,7 @@ prove(STRM, PRVR, [inf(HINTS, PIDS, CID, - FORM) | SOL], PROB) :-
   get_context(PROB, PIDS, CTX),
   GOAL = (PRF, 0, 0),
   timed_call(
-    1,
+    5,
     infers(PRVR, HINTS, CTX, (CID, (+ FORM)), GOAL), 
     report_failure(PRVR, HINTS, CTX, (CID, (+ FORM)), GOAL)
   ), !, 
@@ -801,7 +798,7 @@ prove(STRM, PRVR, [inf(HINTS, PIDS, CID, + FORM) | SOL], PROB) :-
   get_context(PROB, PIDS, CTX),
   GOAL = (PRF, 0, 0), 
   timed_call(
-    1,
+    5,
     infers(PRVR, HINTS, CTX, (CID, (- FORM)), GOAL), 
     report_failure(PRVR, HINTS, CTX, (CID, (- FORM)), GOAL)
   ), !,
