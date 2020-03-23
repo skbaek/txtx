@@ -1185,6 +1185,28 @@ no_fv_term(CNT, TERM) :-
   TERM =.. [_ | TERMS],
   maplist_cut(no_fv_term(CNT), TERMS).
 
+no_fv_form(_, $true).
+no_fv_form(_, $false). 
+no_fv_form(NUM, ~ FORM) :- !, 
+  no_fv_form(NUM, FORM). 
+no_fv_form(NUM, FORM) :- 
+  FORM =.. [QTF, SUB], 
+  qtf(QTF), !,
+  SUCC is NUM + 1,
+  no_fv_form(SUCC, SUB).
+no_fv_form(NUM, FORM) :- 
+  FORM =.. [BCT, FORM_A, FORM_B],
+  bct(BCT), !,
+  no_fv_form(NUM, FORM_A),
+  no_fv_form(NUM, FORM_B).
+no_fv_form(NUM, FORM) :- 
+  FORM =.. [_ | TERMS],
+  maplist_cut(no_fv_term(NUM), TERMS).
+
+no_fv_sf(CNT, SF) :- 
+  sf_form(SF, FORM),
+  no_fv_form(CNT, FORM).
+
 no_fp_term(_, VAR) :- var(VAR), !, false.
 no_fp_term(_, #(_)) :- !.
 no_fp_term(FP, @(NUM)) :- !, NUM < FP.
@@ -1198,13 +1220,11 @@ no_fp_form(FP, FORM) :-
   FORM =.. [UCT, SUB], 
   uct(UCT), !,
   no_fp_form(FP, SUB).
-
 no_fp_form(FP, FORM) :- 
   FORM =.. [BCT, FORM_A, FORM_B],
   bct(BCT), !,
   no_fp_form(FP, FORM_A),
   no_fp_form(FP, FORM_B).
-
 no_fp_form(FP, FORM) :- 
   FORM =.. [_ | TERMS],
   maplist_cut(no_fp_term(FP), TERMS).
@@ -1575,15 +1595,6 @@ intro_eqs(MONO, [TERM_A | TERMS_A], [TERM_B | TERMS_B], GOAL, Iff, [(ONE, SubGOA
   bp(MONOAB, GOAL_AB, ONE, TempMONO, SubGOAL, GOAL_T), 
   intro_eqs(TempMONO, TERMS_A, TERMS_B, GOAL_T, Iff, HGS, GOAL_N). 
 
-%break_eq_fun_aux(ONE, MONO, [], [], GOAL, []) :- 
-%  mate(ONE, MONO, GOAL).
-%
-%break_eq_fun_aux(ONEq, MONO, [TERM_A | TERMS_A], [TERM_B |TERMS_B], GOAL, [(NewONEq, GOAL_N) | EGOALs]) :- 
-%  cp(TERM_A, MONO, GOAL, MONOA, GOAL_A), 
-%  cp(TERM_B, MONOA, GOAL_A, MONOAB, GOAL_AB), 
-%  bp(MONOAB, GOAL_AB, NewONEq, TempMONO, GOAL_N, GOAL_T), 
-%  break_eq_fun_aux(ONEq, TempMONO, TERMS_A, TERMS_B, GOAL_T, EGOALs). 
-
 break_eq_fun(OPEs, ONE, GOAL, HGS) :- 
   ONE = (_, (- TERM_A = TERM_B)),
   \+ var(TERM_A),
@@ -1780,295 +1791,6 @@ connect_forms(TERM_A = TERM_B, FORM) :-
   unify_with_occurs_check(TERM_B = TERM_A, FORM).
 
 
-/*
-
-%%%%%%%%%%%%%%%% DT (DIRECTED TABLEAUX)  %%%%%%%%%%%%%%%%
-
-% 0 : invertible steps
-% 1 : atom processing (close if possible)
-% 2 : non-invertible steps
-
-
-pick_la(TS, LA, N_TS) :- 
-  TS = (TERMS, LAS, LFC, RFS, RAS, GOAL), 
-  pluck(LFC, LA, REST), 
-  is_osa(LA),
-  N_TS = (TERMS, LAS, REST, RFS, RAS, GOAL).
-
-pick_ra(TS, RA, N_TS) :- 
-  TS = (TERMS, LAS, LFC, RFS, RAS, GOAL), 
-  pluck(RFS, RA, REST),
-  is_osa(RA),
-  N_TS = (TERMS, LAS, LFC, REST, RAS, GOAL).
-
-inv_step(HYPS, GOAL, [HYP_A, HYP_B | REST], N_GOAL) :- 
-  pluck(HYPS, HYP, REST),
-  aap(HYP, GOAL, HYP_A, HYP_B, N_GOAL).
-
-inv_step(HYPS, GOAL, [N_HYP | REST], N_GOAL) :- 
-  pluck(HYPS, HYP, REST),
-  (
-    sp(HYP, GOAL, N_HYP, N_GOAL) ;
-    dp(HYP, GOAL, N_HYP, N_GOAL)
-  ).
-
-inv_step(
-  (TERMS, LAS, LFC, RFS, RAS, GOAL), 
-  (TERMS, LAS, N_LFC, RFS, RAS, N_GOAL)
-) :- 
-  inv_step(LFC, GOAL, N_LFC, N_GOAL).
-
-inv_step(
-  (TERMS, LAS, LFC, RFS, RAS, GOAL), 
-  (TERMS, LAS, LFC, N_RFS, RAS, N_GOAL)
-) :- 
-  inv_step(RFS, GOAL, N_RFS, N_GOAL).
-
-pick_mate_nu(
-  (_, _, LFS, _, RAS, GOAL) 
-) :- 
-  member(LA, LFS), 
-  is_osa(LA), 
-  member(RA, RAS), 
-  mate_nu(LA, RA, GOAL).
-
-pick_mate_nu(
-  (_, LAS, _, RFS, _, GOAL) 
-) :- 
-  member(RA, RFS), 
-  is_osa(RA), 
-  member(LA, LAS), 
-  mate_nu(LA, RA, GOAL).
-
-tblx0(TS) :- 
-  inv_step(TS, N_TS) -> tblx0(N_TS) ;
-  pick_mate_nu(TS) -> true ;
-  tblx1(TS).
-
-tblx1(TS) :- 
-  pick_la(TS, LA, N_TS) -> tblx1(l, LA, N_TS) ; 
-  pick_ra(TS, RA, N_TS) -> tblx1(r, RA, N_TS) ; 
-  tblx2(TS).
-
-tblx1(l, LA, TS) :- 
-  TS = (INSTS, _, _, _, RAS, GOAL), 
-  member(RA, RAS), 
-  mate(LA, RA, GOAL), 
-  maplist_cut(check_inst, INSTS).
-
-tblx1(l, LA, TS) :- 
-  TS = (TERMS, LAS, LFS, RFS, RAS, GOAL), 
-  tblx0((TERMS, [LA | LAS], LFS, RFS, RAS, GOAL)). 
-
-tblx1(r, RA, TS) :- 
-  TS = (INSTS, LAS, _, _, _, GOAL), 
-  member(LA, LAS), 
-  mate(LA, RA, GOAL),
-  maplist_cut(check_inst, INSTS).
-
-tblx1(r, RA, TS) :- 
-  TS = (TERMS, LAS, LFS, RFS, RAS, GOAL), 
-  tblx0((TERMS, LAS, LFS, RFS, [RA | RAS], GOAL)). 
-
-tblx2((TERMS, LAS, LFS, RFS, RAS, GOAL)) :- 
-  pluck(LFS, LF, REST),
-  bp(LF, GOAL, LF0, LF1, GOAL0, GOAL1), 
-  tblx0((TERMS, LAS, [LF0 | REST], RFS, RAS, GOAL0)), 
-  tblx0((TERMS, LAS, [LF1 | REST], RFS, RAS, GOAL1)). 
-
-tblx2((TERMS, LAS, LFS, RFS, RAS, GOAL)) :- 
-  pluck(RFS, RF, REST),
-  bp(RF, GOAL, RF0, RF1, GOAL0, GOAL1), 
-  tblx0((TERMS, LAS, LFS, [RF0 | REST], RAS, GOAL0)), 
-  tblx0((TERMS, LAS, LFS, [RF1 | REST], RAS, GOAL1)). 
-
-tblx2((INSTS, LAS, LFS, RFS, RAS, GOAL)) :- 
-  GOAL = (_, FP, _),
-  pluck(LFS, LF, REST),
-  cp(LF, TERM, GOAL, N_LF, N_GOAL), 
-  tblx0(([(TERM, FP) | INSTS], LAS, [N_LF | REST], RFS, RAS, N_GOAL)). 
-
-tblx2((INSTS, LAS, LFS, RFS, RAS, GOAL)) :- 
-  GOAL = (_, FP, _),
-  pluck(RFS, RF, REST),
-  cp(RF, TERM, GOAL, N_RF, N_GOAL), 
-  tblx0(([(TERM, FP) | INSTS], LAS, LFS, [N_RF | REST], RAS, N_GOAL)).
-
-tblx(HYPS_A, HYPS_B, GOAL) :- 
-  tblx0(([], [], HYPS_A, HYPS_B, [], GOAL)). 
-
-%%%%%%%%%%%%%%%% AFT (AFFINE FOCUSED TABLEAUX) %%%%%%%%%%%%%%%%
-
-focusable((_, SF)) :- 
-  type_sf(b, SF) ;
-  type_sf(c, SF) ;
-  neg_atom(SF).
-
-later(LVL, (TS, _)) :- LVL < TS.
-
-pick_hyp_from_ctx(CTX, (ID, SF)) :- 
-  gen_assoc(ID, CTX, (_, SF)).
-
-del_hyp_from_ctx(CTX_I, (ID, SF), CTX_O) :- 
-  del_assoc(ID, CTX_I, (_, SF), CTX_O).
-  
-add_tm_hyp_to_ctx(TM, (ID, SF), CTX_I, CTX_O) :- 
-  put_assoc(ID, CTX_I, (TM, SF), CTX_O).
-
-pick_new_hyp_from_ctx(CTX, HYP) :- 
-  pick_new_hyp_from_ctx(CTX, [], HYP).
-
-pick_new_hyp_from_ctx(CTX, ACC, HYP) :- 
-  pick_hyp_from_ctx(CTX, (ID, SF)), 
-  \+ member_syn(SF, ACC), !, 
-  (
-    HYP = (ID, SF) ; 
-    pick_new_hyp_from_ctx(CTX, [SF | ACC], HYP)
-  ).
-
-aft_inv(TM, CTX, GOAL, CTX_N, GOAL_N) :- 
-  pick_hyp_from_ctx(CTX, HYP), 
-  aap(HYP, GOAL, HYP_L, HYP_R, GOAL_N),
-  del_hyp_from_ctx(CTX, HYP, CTX_0),
-  add_tm_hyp_to_ctx(TM, HYP_L, CTX_0, CTX_1),
-  add_tm_hyp_to_ctx(TM, HYP_R, CTX_1, CTX_N).
-
-aft_inv(TM, CTX, GOAL, CTX_N, GOAL_N) :- 
-  pick_hyp_from_ctx(CTX, HYP), 
-  (
-    sp(HYP, GOAL, HYP_N, GOAL_N) ;
-    dp(HYP, GOAL, HYP_N, GOAL_N)
-  ), 
-  del_hyp_from_ctx(CTX, HYP, CTX_T),
-  add_tm_hyp_to_ctx(TM, HYP_N, CTX_T, CTX_N).
-
-aft(CTX, VAL, TM, GOAL, UU) :- 
-  aft_inv(TM, CTX, GOAL, CTX_N, GOAL_N), !, 
-  aft(CTX_N, VAL, TM, GOAL_N, UU).
-
-aft(CTX, VAL, LVL, GOAL, UU) :- 
-  pick_new_hyp_from_ctx(CTX, HYP),
-  focusable(HYP),
-  del_hyp_from_ctx(CTX, HYP, REST),
-  aft(REST, HYP, VAL, LVL, GOAL, UU).
-  
-aft(CTX, HYP, VAL, TM, GOAL, UU) :- 
-  \+ focusable(HYP),
-  add_tm_hyp_to_ctx(TM, HYP, CTX, CTX_N),
-  aft(CTX_N, VAL, TM, GOAL, UU).
-
-aft(CTX, HYP, VAL, _, GOAL, UU) :- 
-  HYP = (_, NA),
-  neg_atom(NA), !, 
-  pick_new_hyp_from_ctx(CTX, CMP),
-  mate(HYP, CMP, GOAL), 
-  maplist_cut(check_inst, VAL), 
-  del_hyp_from_ctx(CTX, CMP, UU).
-
-% dat((LAC, LFC, RFC, RAS), VAL, LVL, GOAL, UU) :- 
-aft(CTX, HYP, VAL, TM, GOAL, UU) :- 
-  bp(HYP, GOAL, HYP_L, HYP_R, GOAL_L, GOAL_R), 
-  TM_N is TM + 1,
-  aft(CTX, HYP_L, VAL, TM_N, GOAL_L, UU_T), 
-  exclude_assoc(later(TM), UU_T, CTX_N), 
-  aft(CTX_N, HYP_R, VAL, TM_N, GOAL_R, UU). 
-
-% dat((LAC, LFC, RFC, RAC), VAL, TM, GOAL, UU) :- 
-aft(CTX, HYP, VAL, TM, GOAL, UU) :- 
-  GOAL = (_, FP, _),
-  cp(HYP, TERM, GOAL, HYP_N, GOAL_N), 
-  aft(CTX, HYP_N, [(TERM, FP) | VAL], TM, GOAL_N, UU). 
-  
-
-
-%%%%%%%%%%%%%%%% DAFT (DIRECTED AFFINE FOCUSED TABLEAUX) %%%%%%%%%%%%%%%%
-
-daft_focusable((_, _, SF)) :- 
-  type_sf(b, SF) ;
-  type_sf(c, SF) ;
-  neg_atom(SF).
-
-daft_later(TM, (_, TM_H, _)) :- TM < TM_H.
-
-daft_gen(CTX, (DIR, ID, SF)) :- 
-  gen_assoc(ID, CTX, (DIR, _, SF)).
-
-daft_del(CTX_I, (ID, SF), CTX_O) :- 
-  del_assoc(ID, CTX_I, (_, _, SF), CTX_O).
-  
-daft_add(DIR, TM, (ID, SF), CTX_I, CTX_O) :- 
-  put_assoc(ID, CTX_I, (DIR, TM, SF), CTX_O).
-
-daft_gen_new(CTX, DH) :- 
-  daft_gen_new(CTX, [], DH).
-
-daft_gen_new(CTX, ACC, DH) :- 
-  daft_gen(CTX, DH_N), 
-  \+ member_syn(DH_N, ACC), !, 
-  (
-    DH = DH_N ;
-    daft_gen_new(CTX, [DH_N | ACC], DH)
-  ).
-
-daft_inv(TM, CTX, GOAL, CTX_N, GOAL_N) :- 
-  daft_gen(CTX, (DIR, HYP)), 
-  aap(HYP, GOAL, HYP_L, HYP_R, GOAL_N),
-  daft_del(CTX, HYP, CTX_0),
-  daft_add(DIR, TM, HYP_L, CTX_0, CTX_1),
-  daft_add(DIR, TM, HYP_R, CTX_1, CTX_N).
-
-daft_inv(TM, CTX, GOAL, CTX_N, GOAL_N) :- 
-  daft_gen(CTX, (DIR, HYP)), 
-  (
-    sp(HYP, GOAL, HYP_N, GOAL_N) ;
-    dp(HYP, GOAL, HYP_N, GOAL_N)
-  ), 
-  daft_del(CTX, HYP, CTX_T),
-  daft_add(DIR, TM, HYP_N, CTX_T, CTX_N).
-
-daft(CTX, VAL, TM, GOAL, UU) :- 
-  daft_inv(TM, CTX, GOAL, CTX_N, GOAL_N), !, 
-  daft(CTX_N, VAL, TM, GOAL_N, UU).
-
-daft(CTX, VAL, LVL, GOAL, UU) :- 
-  daft_gen(CTX, (DIR, HYP)),
-  focusable(HYP),
-  daft_del(CTX, HYP, REST),
-  daft(REST, (DIR, HYP), VAL, LVL, GOAL, UU).
-  
-daft(CTX, (DIR, HYP), VAL, TM, GOAL, UU) :- 
-  \+ focusable(HYP),
-  daft_add(DIR, TM, HYP, CTX, CTX_N),
-  daft(CTX_N, VAL, TM, GOAL, UU).
-
-daft(CTX, (DIR_A, HYP), VAL, _, GOAL, UU) :- 
-  HYP = (_, NA),
-  neg_atom(NA), !, 
-  daft_gen_new(CTX, (DIR_B, CMP)),
-  DIR_A \= DIR_B,
-  mate(HYP, CMP, GOAL), 
-  maplist_cut(check_inst, VAL), 
-  daft_del(CTX, CMP, UU).
-
-daft(CTX, (DIR, HYP), VAL, TM, GOAL, UU) :- 
-  bp(HYP, GOAL, HYP_L, HYP_R, GOAL_L, GOAL_R), 
-  TM_N is TM + 1,
-  daft(CTX, (DIR, HYP_L), VAL, TM_N, GOAL_L, UU_T), 
-  exclude_assoc(daft_later(TM), UU_T, CTX_N), 
-  daft(CTX_N, (DIR, HYP_R), VAL, TM_N, GOAL_R, UU). 
-
-daft(CTX, (DIR, HYP), VAL, TM, GOAL, UU) :- 
-  GOAL = (_, FP, _),
-  cp(HYP, TERM, GOAL, HYP_N, GOAL_N), 
-  daft(CTX, (DIR, HYP_N), [(TERM, FP) | VAL], TM, GOAL_N, UU). 
-  
-daft(HYP_L, HYP_R, GOAL) :- 
-  empty_assoc(EMP),
-  daft_add(l, 0, HYP_L, EMP, CTX_T),
-  daft_add(r, 0, HYP_R, CTX_T, CTX),
-  daft(CTX, [], 0, GOAL, _). 
-
-*/
 
 %%%%%%%%%%%%%%%% TABLEAUX PREDICATES %%%%%%%%%%%%%%%%
 
@@ -2484,163 +2206,6 @@ mtrx(HYPS, GOAL) :-
   mtrx((CTX, EMP, EMP, GOAL)).
 
 
-/*
-%%%%%%%%%%%%%%%% DAT (DIRECTED AFFINE TABLEAUX) %%%%%%%%%%%%%%%%
-
-% dat((LAS, LFS, RFC, RAS), VAL, LVL, GOAL, UU)
-
-% F vs. A : any formula vs. atomic & checked
-% 1 : non-invertible, atomic steps (closure if possible)
-% 2 : non-invertible, non-atomic steps 
-
-has_future_timestamp(LVL, (TS, _)) :- LVL =< TS.
-
-exclude_future_timestamp(
-  LVL,
-  (LAS_I, LFC_I, RFC_I, LAC_I),
-  (LAS_O, LFC_O, RFC_O, LAC_O)
-) :- 
-  exclude(has_future_timestamp(LVL), LAS_I, LAS_O), 
-  exclude(has_future_timestamp(LVL), LFC_I, LFC_O), 
-  exclude(has_future_timestamp(LVL), RFC_I, RFC_O), 
-  exclude(has_future_timestamp(LVL), LAC_I, LAC_O).
-
-mk_pair(X, Y, (X, Y)).
-
-dat_inv_aux(LVL, THS, GOAL, [(LVL, HYP_A), (LVL, HYP_B) | REST], GOAL_N) :- 
-  pluck(THS, (_, HYP), REST),
-  aap(HYP, GOAL, HYP_A, HYP_B, GOAL_N).
-
-dat_inv_aux(LVL, THS, GOAL, [(LVL, HYP_N) | REST], GOAL_N) :- 
-  pluck(THS, (_, HYP), REST),
-  (
-    sp(HYP, GOAL, HYP_N, GOAL_N) ;
-    dp(HYP, GOAL, HYP_N, GOAL_N)
-  ).
-
-dat_inv(
-  LVL,
-  (LAS, LFC, RFC, LAC), 
-  GOAL, 
-  (LAS, LFC_N, RFC, LAC), 
-  GOAL_N
-) :- 
-  dat_inv_aux(LVL, LFC, GOAL, LFC_N, GOAL_N).
-
-dat_inv(
-  LVL,
-  (LAS, LFC, RFC, LAC), 
-  GOAL, 
-  (LAS, LFC, RFC_N, LAC), 
-  GOAL_N
-) :- 
-  dat_inv_aux(LVL, RFC, GOAL, RFC_N, GOAL_N).
-
-dat(HYPS_A, HYPS_B, GOAL) :- 
-  maplist_cut(mk_pair(0), HYPS_A, THS_A),
-  maplist_cut(mk_pair(0), HYPS_B, THS_B),
-  dat(([], THS_A, THS_B, []), [], 0, GOAL, _). 
-
-dat(CTX, VAL, LVL, GOAL, UU) :-  
-  dat_inv(LVL, CTX, GOAL, CTX_N, GOAL_N), !, 
-  LVL_N is LVL + 1,
-  dat(CTX_N, VAL, LVL_N, GOAL_N, UU).
-
-dat(CTX, VAL, LVL, GOAL, UU) :- 
-  CTX = (LAC, LFC, RFC, RAC), 
-  pluck(LFC, (TS, LA), LFC_REST),
-  is_osa(LA), !, 
-  (
-    pluck_unique(RAC, (_, RA), RAC_REST),
-    mate(LA, RA, GOAL), 
-    maplist_cut(check_inst, VAL), 
-    UU = (LAC, LFC_REST, RFC, RAC_REST) 
-  ;
-    CTX_N = ([(TS, LA) | LAC], LFC_REST, RFC, RAC), 
-    dat(CTX_N, VAL, LVL, GOAL, UU) 
-  ).
-
-dat(CTX, VAL, LVL, GOAL, UU) :- 
-  CTX = (LAC, LFC, RFC, RAC), 
-  pluck(RFC, (TS, RA), RFC_REST),
-  is_osa(RA), !, 
-  (
-    pluck_unique(LAC, (_, LA), LAC_REST),
-    mate(LA, RA, GOAL), 
-    maplist_cut(check_inst, VAL), 
-    UU = (LAC_REST, LFC, RFC_REST, RAC) 
-  ;
-    CTX_N = (LAC, LFC, RFC_REST, [(TS, RA) | RAC]), 
-    dat(CTX_N, VAL, LVL, GOAL, UU) 
-  ).
-
-dat((LAC, LFC, RFC, RAS), VAL, LVL, GOAL, UU) :- 
-  pluck_unique(LFC, (_, LF), REST),
-  bp(LF, GOAL, LF0, LF1, GOAL0, GOAL1), 
-  LVL_N is LVL + 1,
-  dat(
-    (LAC, [(LVL, LF0) | REST], RFC, RAS), 
-    VAL, 
-    LVL_N, 
-    GOAL0, 
-    UU_T
-  ), 
-  exclude_future_timestamp(
-    LVL, 
-    UU_T, 
-    (LAC_N, LFC_N, RFC_N, RAS_N)
-  ),
-  dat(
-    (LAC_N, [(LVL, LF1) | LFC_N], RFC_N, RAS_N), 
-    VAL, 
-    LVL_N,
-    GOAL1, 
-    UU
-  ). 
-
-dat((LAC, LFC, RFC, RAS), VAL, LVL, GOAL, UU) :- 
-  pluck_unique(RFC, (_, RF), REST),
-  bp(RF, GOAL, RF0, RF1, GOAL0, GOAL1), 
-  LVL_N is LVL + 1,
-  dat(
-    (LAC, LFC, [(LVL, RF0) | REST], RAS), 
-    VAL, 
-    LVL_N, 
-    GOAL0, 
-    UU_T
-  ), 
-  exclude_future_timestamp(
-    LVL, 
-    UU_T, 
-    (LAC_N, LFC_N, RFC_N, RAS_N)
-  ),
-  dat(
-    (LAC_N, LFC_N, [(LVL, RF1) | RFC_N], RAS_N), 
-    VAL, 
-    LVL_N,
-    GOAL1, 
-    UU
-  ). 
-
-dat((LAC, LFC, RFC, RAC), VAL, LVL, GOAL, UU) :- 
-  GOAL = (_, FP, _),
-  pluck_unique(LFC, (_, LF), REST),
-  cp(LF, TERM, GOAL, LF_N, GOAL_N), 
-  LVL_N is LVL + 1,
-  dat((LAC, [(LVL, LF_N) | REST], RFC, RAC), [(TERM, FP) | VAL], LVL_N, GOAL_N, UU).
-  
-dat((LAC, LFC, RFC, RAC), VAL, LVL, GOAL, UU) :- 
-  GOAL = (_, FP, _),
-  pluck_unique(RFC, (_, RF), REST),
-  cp(RF, TERM, GOAL, RF_N, GOAL_N), 
-  LVL_N is LVL + 1,
-  dat((LAC, LFC, [(LVL, RF_N) | REST], RAC), [(TERM, FP) | VAL], LVL_N, GOAL_N, UU).
-
-*/
-
-
-
-
 
 %%%%%%%% GET %%%%%%%%
 
@@ -2807,15 +2372,15 @@ get_prf(STRM, PRF) :-
 verify(PROB, FP, a(PID, DIR, CID, PRF)) :- 
   get_assoc(PID, PROB, PREM),
   ab(DIR, PREM, CONC), 
-  put_assoc(CID, PROB, CONC, PROB_N),
+  put_assoc(CID, PROB, CONC, PROB_N), !,
   verify(PROB_N, FP, PRF).
 
 verify(PROB, FP, b(PID, CID, PRF_L, PRF_R)) :- 
   get_assoc(PID, PROB, PREM),
   bb(PREM, CONC_L, CONC_R),
   put_assoc(CID, PROB, CONC_L, PROB_L),
-  put_assoc(CID, PROB, CONC_R, PROB_R),
-  verify(PROB_L, FP, PRF_L), 
+  put_assoc(CID, PROB, CONC_R, PROB_R), !,
+  verify(PROB_L, FP, PRF_L), !,
   verify(PROB_R, FP, PRF_R).
 
 verify(PROB, FP, c(PID, TERM, CID, PRF)) :- 
@@ -2824,36 +2389,40 @@ verify(PROB, FP, c(PID, TERM, CID, PRF)) :-
   no_fp_term(FP, TERM),
   get_assoc(PID, PROB, PREM),
   cb(TERM, PREM, CONC), 
-  put_assoc(CID, PROB, CONC, PROB_N),
+  put_assoc(CID, PROB, CONC, PROB_N), !,
   verify(PROB_N, FP, PRF).
 
 verify(PROB, FP, d(PID, CID, PRF)) :- 
   get_assoc(PID, PROB, PREM),
   db(FP, PREM, CONC), 
   put_assoc(CID, PROB, CONC, PROB_N),
-  FP_N is FP + 1,
+  FP_N is FP + 1, !,
   verify(PROB_N, FP_N, PRF).
 
 verify(PROB, FP, f(FORM, CID, PRF_L, PRF_R)) :- 
-  put_assoc(CID, PROB, (- FORM), PROB_L),
+  ground(FORM), % No logic variables in Form
+  no_fv_form(0, FORM), % No free object variables in Form
+  no_fp_form(FP, FORM), % No new parameters in Form
+  put_assoc(CID, PROB, (- FORM), PROB_L), !,
   verify(PROB_L, FP, PRF_L),
-  put_assoc(CID, PROB, (+ FORM), PROB_R),
+  put_assoc(CID, PROB, (+ FORM), PROB_R), !,
   verify(PROB_R, FP, PRF_R).
 
 verify(PROB, FP, s(PID, CID, PRF)) :- 
   get_assoc(PID, PROB, PREM),
   sb(PREM, CONC), 
-  put_assoc(CID, PROB, CONC, PROB_N),
+  put_assoc(CID, PROB, CONC, PROB_N), !,
   verify(PROB_N, FP, PRF).
 
 verify(PROB, FP, t(SF, JST, CID, PRF)) :- 
-  no_fp_sf(FP, SF), % No new parameters in SF
+  no_fv_sf(0, SF),  
+  no_fp_sf(FP, SF), 
   justified(PROB, SF, JST),
-  put_assoc(CID, PROB, SF, PROB_N),
+  put_assoc(CID, PROB, SF, PROB_N), !,
   verify(PROB_N, FP, PRF).
     
 verify(PROB, FP, w(PID, PRF)) :- 
-  del_assoc(PID, PROB, _, PROB_N),
+  del_assoc(PID, PROB, _, PROB_N), !,
   verify(PROB_N, FP, PRF).
 
 verify(PROB, _, x(PID, NID)) :- 
