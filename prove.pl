@@ -764,6 +764,10 @@ prove(STRM, PRVR, [del(PID) | SOL], PROB) :-
 
 prove(STRM, PRVR, [add(JST, CID, CONC) | SOL], PROB) :- 
   put_char(STRM, 'T'), 
+  % write("Justification : "), write(JST), nl,
+  % format("Adding axiom : ~w\n", CONC),
+  % justified(PROB, CONC, JST),
+  % write("Justified.\n\n"),
   put_sf(STRM, CONC), 
   put_atoms(STRM, JST),
   put_id(STRM, CID), 
@@ -783,12 +787,12 @@ prove(STRM, PRVR, [inf(HINTS, PIDS, CID, - FORM) | SOL], PROB) :-
     infers(PRVR, HINTS, CTX, (CID, (+ FORM)), GOAL), 
     report_failure(PRVR, HINTS, CTX, (CID, (+ FORM)), GOAL)
   ), !, 
-  ground_all(c^[], PRF),
-  % put_assoc(CID, PROB, + FORM, SUB_PROB),
-  % (
-  %   verify(SUB_PROB, 0, PRF) -> true ;
-  %   throw(verification_failure)
-  % ),
+  ground_all(c, PRF),
+  put_assoc(CID, PROB, + FORM, SUB_PROB),
+  (
+    verify(SUB_PROB, 0, PRF) -> true ;
+    throw(verification_failure)
+  ),
   put_prf(STRM, PRF).
 
 prove(STRM, PRVR, [inf(HINTS, PIDS, CID, + FORM) | SOL], PROB) :- 
@@ -802,12 +806,12 @@ prove(STRM, PRVR, [inf(HINTS, PIDS, CID, + FORM) | SOL], PROB) :-
     infers(PRVR, HINTS, CTX, (CID, (- FORM)), GOAL), 
     report_failure(PRVR, HINTS, CTX, (CID, (- FORM)), GOAL)
   ), !,
-  ground_all(c^[], PRF),
-  % put_assoc(CID, PROB, - FORM, SUB_PROB),
-  % (
-  %   verify(SUB_PROB, 0, PRF) ->  true ; 
-  %   throw(verification_failure)
-  % ),
+  ground_all(c, PRF),
+  put_assoc(CID, PROB, - FORM, SUB_PROB),
+  (
+    verify(SUB_PROB, 0, PRF) ->  true ; 
+    throw(verification_failure)
+  ),
   put_prf(STRM, PRF), 
   (
     SOL = [] -> 

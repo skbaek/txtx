@@ -44,11 +44,13 @@ main(['-v', TPTP, TXTX]) :-
   style_check(-singleton),
   tptp_prob(TPTP, _, PROB),
   open(TXTX, read, STRM, [encoding(octet)]), 
+  format("New Stream : ~w\n", STRM),
   % verify(STRM, PROB, 0), 
   get_prf(STRM, PRF),
   verify(PROB, 0, PRF),
   write("Proof verified.\n"),
-  close(STRM).
+  close(STRM),
+  format("Stream closed : ~w\n", STRM).
 
 
 % TODO :  

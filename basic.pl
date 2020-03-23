@@ -8,7 +8,6 @@
 :- op(1100, xfy, '~|'). % negated disjunction
 :- op(1000, xfy, &).    % conjunction
 :- op(1000, xfy, ~&).   % negated conjunction
-:- op(950,  xfy, ^).    % function application
 :- op(500,   fy, ~).    % negation
 :- op(500,  xfy, :).
 :- op(499,   fy, !).     % universal quantifier
@@ -43,12 +42,12 @@ pick(BL, ELEM, REST) :-
   pick_left(BL, ELEM, REST) ;
   pick_right(BL, ELEM, REST).
   
-timed_call(Time, Goal, ALT_GOAL) :- 
+timed_call(Time, GOAL, ALT_GOAL) :- 
   catch(
     call_with_time_limit(
       Time, 
       (
-        call(Goal) -> 
+        call(GOAL) -> 
         true 
       ;
         write("Premature failure in timed call.\n"),
@@ -194,28 +193,6 @@ subst_form(NUM, TERM, FORM, FORM_N) :-
 subst_form(TERM, FORM, FORM_N) :- 
   subst_form(0, TERM, FORM, FORM_N).
 
-% subst(Term, Form, NewForm) :- 
-%   map_var_form(subst_aux(Term), 0, Form, NewForm).
-% 
-% subst_aux(Term, NUM, NUM, NewTerm) :- 
-%   map_var_term(incr_idx(NUM), Term, NewTerm).
-% 
-% subst_aux(_, Tgt, NUM, #(NUM)) :-
-%   NUM < Tgt.
-% 
-% subst_aux(_, Tgt, NUM, #(Pred)) :- 
-%   Tgt < NUM,
-%   Pred is NUM - 1.
-
-closed_form(Form) :- 
-  map_var_form(closed_form_aux, 0, Form, _).
-
-closed_form_aux(Depth, Idx, _) :-
-  Idx < Depth.
-
-ovar_free_term(Term) :- 
-  map_var_term(alwyas_fail, Term, _).
-
 ab(l, + FORM & _, + FORM).
 ab(r, + _ & FORM, + FORM).
 ab(l, - FORM | _, - FORM).
@@ -336,35 +313,35 @@ xp(
 justified(_, - $false, [neg_false]). 
 justified(_, + $true, [pos_true]). 
 
-justified(_, + FORM, [mono_rel, REL_STR, NUM_STR]) :- 
-  atom_string(REL, REL_STR),
-  number_string(NUM, NUM_STR),
-  mk_mono_args(NUM, ArgsA, ArgsB),
-  ATOM_A =.. [REL | ArgsA],
-  ATOM_B =.. [REL | ArgsB],
-  mono_body(NUM, FORM, ATOM_A <=> ATOM_B), !.
+justified(_, + FORM, [mono_rel, REL, NUM_ATOM]) :- 
+  atom_number(NUM_ATOM, NUM),
+  mk_mono_args(NUM, ARGS_A, ARGS_B),
+  ATOM_A =.. [REL | ARGS_A],
+  ATOM_B =.. [REL | ARGS_B],
+  mono_body(NUM, FORM, ATOM_A => ATOM_B), !.
 
-justified(_, + FORM, [mono_fun, FUN_STR, NUM_STR]) :- 
-  atom_string(FUN, FUN_STR),
-  number_string(NUM, NUM_STR),
-  mk_mono_args(NUM, ArgsA, ArgsB),
-  mono_body(NUM, FORM, (FUN ^ ArgsA) = (FUN ^ ArgsB)), !.
+justified(_, + FORM, [mono_fun, FUN, NUM_ATOM]) :- 
+  atom_number(NUM_ATOM, NUM),
+  mk_mono_args(NUM, ARGS_A, ARGS_B),
+  TERM_A =.. [FUN | ARGS_A],
+  TERM_B =.. [FUN | ARGS_B],
+  mono_body(NUM, FORM, TERM_A = TERM_B), !.
 
-justified(_, + ((FUNA ^ []) = (FUNB ^ [])), [ne_eval]) :- 
-  atom_number(FUNA, NUMA),
-  atom_number(FUNB, NUMB),
-  NUMA \= NUMB.
-
-justified(_, - ((FUNA ^ []) = (FUNB ^ [])), [ne_eval]) :- 
-  atom_number(FUNA, NUMA),
-  atom_number(FUNB, NUMB),
-  NUMA \= NUMB.
+% justified(_, + ((FUNA ^ []) = (FUNB ^ [])), [ne_eval]) :- 
+%   atom_number(FUNA, NUMA),
+%   atom_number(FUNB, NUMB),
+%   NUMA \= NUMB.
+% 
+% justified(_, - ((FUNA ^ []) = (FUNB ^ [])), [ne_eval]) :- 
+%   atom_number(FUNA, NUMA),
+%   atom_number(FUNB, NUMB),
+%   NUMA \= NUMB.
 
 justified(_, + ! (#(0) = #(0)), [refl_eq]).
 justified(_, + (! ! ((#(1) = #(0)) => (#(0) = #(1)))), [symm_eq]).
 justified(_, + (! ! ! ((#(2) = #(1)) => ((#(1) = #(0)) => (#(2) = #(0))))), [trans_eq]).
 
-justified(CTX, + FORM, ["aoc", SKM_STR]) :- 
+justified(CTX, + FORM, [aoc, SKM_STR]) :- 
   atom_string(SKM, SKM_STR),
   \+ sub_term(SKM, CTX), 
   strip_fas(FORM, NUM, (? Ante) => Cons), 
@@ -373,7 +350,7 @@ justified(CTX, + FORM, ["aoc", SKM_STR]) :-
   subst_form(SKM_TERM, Ante, NewAnte),
   NewAnte == Cons.
 
-justified(CTX, + FORM, ["def", PRD_STR]) :- 
+justified(CTX, + FORM, [def, PRD_STR]) :- 
   atom_string(PRD, PRD_STR),
   \+ sub_term(PRD, CTX), 
   strip_fas(FORM, NUM, Atom <=> Cons), 
@@ -465,6 +442,10 @@ cdp(HYP_C, HYP_D, GOAL, HYP_N_C, HYP_N_D, GOAL_N) :-
   dp(HYP_D, GOAL, HYP_N_D, GOAL_T), 
   cp(HYP_C, @(FP), GOAL_T, HYP_N_C, GOAL_N). 
 
+cdp_lax(HYP_C, HYP_D, GOAL, HYP_N_C, HYP_N_D, GOAL_N) :- 
+  dp(HYP_D, GOAL, HYP_N_D, GOAL_T), 
+  cp(HYP_C, _, GOAL_T, HYP_N_C, GOAL_N). 
+  
 % dcp(HYP0, HYP1, GOAL, NEW_HYP0, NEW_HYP1, NEW_GOAL) :- 
 %   cdp(HYP1, HYP0, GOAL, NEW_HYP1, NEW_HYP0, NEW_GOAL).
 
@@ -488,14 +469,14 @@ mark(NUM) :-
 
 repeat(0, _).
 
-repeat(NUM, Goal) :- 
+repeat(NUM, GOAL) :- 
   0 < NUM, 
   Pred is NUM - 1, 
-  call(Goal),
-  repeat(Pred, Goal).
+  call(GOAL),
+  repeat(Pred, GOAL).
 
-write_break(NUM, Term) :-
-  write(Term),
+write_break(NUM, TERM) :-
+  write(TERM),
   repeat(NUM, write("\n")).
 
 write_list(_, []).
@@ -547,19 +528,19 @@ write_list_file(Target, List) :-
   write_list(Stream, List),
   close(Stream).
 
-write_file(Target, Term) :-
+write_file(Target, TERM) :-
   open(Target, write, Stream),
-  write(Stream, Term),
+  write(Stream, TERM),
   close(Stream).
 
-pick(Goal, [Elem | Rem], Elem, Rem) :- 
-  call(Goal, Elem), !.
+pick(GOAL, [Elem | Rem], Elem, Rem) :- 
+  call(GOAL, Elem), !.
 
-pick(Goal, [ElemA | List], ElemB, [ElemA | Rem]) :- 
-  pick(Goal, List, ElemB, Rem).
+pick(GOAL, [ElemA | List], ElemB, [ElemA | Rem]) :- 
+  pick(GOAL, List, ElemB, Rem).
 
-find(Goal, List, Elem) :- 
-  pick(Goal, List, Elem, _).
+find(GOAL, List, Elem) :- 
+  pick(GOAL, List, Elem, _).
 
 pluck_uniq(List, Elem, REST) :- 
   pluck_uniq([], List, Elem, REST).
@@ -587,25 +568,25 @@ list_prod([], _, _, []).
 list_prod(ListA, ListB, Prod) :-
   list_prod(ListA, ListB, ListB, Prod).
 
-first(Goal, [Elem | _], Result) :-
-  call(Goal, Elem, Result), !.
+first(GOAL, [Elem | _], Result) :-
+  call(GOAL, Elem, Result), !.
 
-first(Goal, [_ | List], Result) :-
-  first(Goal, List, Result).
+first(GOAL, [_ | List], Result) :-
+  first(GOAL, List, Result).
 
 collect(_, [], []).
 
-collect(Goal, [Elem | List], Results) :-
-  call(Goal, Elem, Result) -> 
-  ( collect(Goal, List, TempResults),
+collect(GOAL, [Elem | List], Results) :-
+  call(GOAL, Elem, Result) -> 
+  ( collect(GOAL, List, TempResults),
     Results = [Result | TempResults] ) ; 
-  collect(Goal, List, Results).
+  collect(GOAL, List, Results).
 
-any(Goal, [Elem | _]) :-
-  call(Goal, Elem).
+any(GOAL, [Elem | _]) :-
+  call(GOAL, Elem).
 
-any(Goal, [_ | List]) :-
-  any(Goal, List).
+any(GOAL, [_ | List]) :-
+  any(GOAL, List).
 
 list_br_str(List, Str) :-
   maplist(term_string, List, Strs), 
@@ -626,8 +607,8 @@ num_pred(NUM, Pred) :-
 unneg(~ Atom, Atom) :- !.
 unneg(Atom, Atom).
 
-write_file_punct(Filename, Term) :- 
-  term_string(Term, TermStr),
+write_file_punct(Filename, TERM) :- 
+  term_string(TERM, TermStr),
   string_concat(TermStr, ".", Str),
   write_file(Filename, Str).
 
@@ -711,82 +692,84 @@ maplist_try(GOAL, [ELEM | LIST], RST) :-
 
 maplist_cut(_, []).
 
-maplist_cut(Goal, [Elem | List]) :- 
-  call(Goal, Elem), !, 
-  maplist_cut(Goal, List). 
+maplist_cut(GOAL, [Elem | List]) :- 
+  call(GOAL, Elem), !, 
+  maplist_cut(GOAL, List). 
 
 maplist_cut(_, [], []).
 
-maplist_cut(Goal, [ElemA | ListA], [ElemB | ListB]) :- 
-  call(Goal, ElemA, ElemB), !, 
-  maplist_cut(Goal, ListA, ListB). 
+maplist_cut(GOAL, [ElemA | ListA], [ElemB | ListB]) :- 
+  call(GOAL, ElemA, ElemB), !, 
+  maplist_cut(GOAL, ListA, ListB). 
 
 maplist_cut(_, [], [], []).
 
-maplist_cut(Goal, [ElemA | ListA], [ElemB | ListB], [ElemC | ListC]) :- 
-  call(Goal, ElemA, ElemB, ElemC), !, 
-  maplist_cut(Goal, ListA, ListB, ListC). 
+maplist_cut(GOAL, [ElemA | ListA], [ElemB | ListB], [ElemC | ListC]) :- 
+  call(GOAL, ElemA, ElemB, ElemC), !, 
+  maplist_cut(GOAL, ListA, ListB, ListC). 
 
 maplist_cut(_, [], [], [], []).
 
-maplist_cut(Goal, [ElemA | ListA], [ElemB | ListB], [ElemC | ListC], [ElemD | ListD]) :- 
-  call(Goal, ElemA, ElemB, ElemC, ElemD), !, 
-  maplist_cut(Goal, ListA, ListB, ListC, ListD). 
+maplist_cut(GOAL, [ElemA | ListA], [ElemB | ListB], [ElemC | ListC], [ElemD | ListD]) :- 
+  call(GOAL, ElemA, ElemB, ElemC, ElemD), !, 
+  maplist_cut(GOAL, ListA, ListB, ListC, ListD). 
 
 maplist_idx(_, _, []).
 
-maplist_idx(Goal, NUM, [Elem | List]) :- 
-  call(Goal, NUM, Elem), 
+maplist_idx(GOAL, NUM, [Elem | List]) :- 
+  call(GOAL, NUM, Elem), 
   Succ is NUM + 1,
-  maplist_idx(Goal, Succ, List).
+  maplist_idx(GOAL, Succ, List).
 
 maplist_idx(_, _, [], []).
 
-maplist_idx(Goal, NUM, [ElemA | ListA], [ElemB | ListB]) :- 
-  call(Goal, NUM, ElemA, ElemB), 
+maplist_idx(GOAL, NUM, [ElemA | ListA], [ElemB | ListB]) :- 
+  call(GOAL, NUM, ElemA, ElemB), 
   Succ is NUM + 1,
-  maplist_idx(Goal, Succ, ListA, ListB).
+  maplist_idx(GOAL, Succ, ListA, ListB).
 
 mk_pars(0, []).  
 
-mk_pars(NUM, [@(Pred) | Vars]) :- 
+mk_pars(NUM, [@(Pred) | VARS]) :- 
   num_pred(NUM, Pred),
-  mk_pars(Pred, Vars). 
+  mk_pars(Pred, VARS). 
 
-mk_vars(0, []).  
+mk_var(NUM, #(NUM)).
 
-mk_vars(NUM, [#(Pred) | Vars]) :- 
-  num_pred(NUM, Pred),
-  mk_vars(Pred, Vars). 
+mk_vars(NUM, VARS) :-
+  range(0, NUM, NUMS), 
+  maplist_cut(mk_var, NUMS, VARS).
 
-mk_skm_term(Skm, NUM, Skm ^ RevVars) :-
-  mk_vars(NUM, Vars), 
-  reverse(Vars, RevVars).
+mk_skm_term(SKM, NUM, SKM_TERM) :-
+  mk_vars(NUM, VARS), 
+  SKM_TERM =.. [SKM | VARS].
 
 mk_def_atom(Prd, NUM, Atom) :-
-  mk_vars(NUM, Vars),
-  Atom =.. [Prd | Vars].
+  mk_vars(NUM, VARS),
+  Atom =.. [Prd | VARS].
 
 /* MONOtonicity */
 
 mk_mono_args(0, [], []).
 
-mk_mono_args(NUM, [#(NUMA) | VarsA], [#(NUMB) | VarsB]) :-
+mk_mono_args(NUM, [#(NUMA) | VARSA], [#(NUMB) | VARSB]) :-
   NUMA is (NUM * 2) - 1, 
   NUMB is (NUM * 2) - 2, 
   Pred is NUM - 1,
-  mk_mono_args(Pred, VarsA, VarsB).
+  mk_mono_args(Pred, VARSA, VARSB).
 
-mk_mono_eq(NUM, Fun, (Fun ^ VarsA) = (Fun ^ VarsB)) :- 
-  mk_mono_args(NUM, VarsA, VarsB).
+mk_mono_eq(NUM, FUN, TERM_A = TERM_B) :- 
+  mk_mono_args(NUM, VARS_A, VARS_B),
+  TERM_A =.. [FUN | VARS_A],
+  TERM_B =.. [FUN | VARS_B].
 
 mk_mono_imp(NUM, REL, ATOM_A => ATOM_B) :- 
   mk_mono_args(NUM, VarsA, VarsB),
   ATOM_A =.. [REL | VarsA],
   ATOM_B =.. [REL | VarsB], !.
 
-mk_mono_fun(NUM, Fun, MONO) :- 
-  mk_mono_eq(NUM, Fun, Eq), 
+mk_mono_fun(NUM, FUN, MONO) :- 
+  mk_mono_eq(NUM, FUN, Eq), 
   mk_mono(NUM, Eq, MONO), !.
 
 mk_mono_rel(NUM, REL, MONO) :- 
@@ -844,13 +827,13 @@ fresh_par(Var, _) :-
   write("Error : cannot compute fresh parameter for a logic variable\n"),
   throw(unexpected_logic_variable).
 
-fresh_par(Term, Succ) :- 
-  Term = @(NUM),
+fresh_par(TERM, Succ) :- 
+  TERM = @(NUM),
   Succ is NUM + 1.
 
-fresh_par(Term, 0) :- 
-  Term \= @(_),
-  atomic(Term).
+fresh_par(TERM, 0) :- 
+  TERM \= @(_),
+  atomic(TERM).
 
 fresh_par(Exp, Par) :- 
   Exp \= @(_),
@@ -904,61 +887,63 @@ map_form(GOAL, DTH, FORM_I, FORM_O) :-
   FORM_I =.. [REL | TERMS_I], 
   maplist_cut(call(GOAL, DTH), TERMS_I, TERMS_O),
   FORM_O =.. [REL | TERMS_O]. 
-
-map_var_form(Goal, NUM, ! Form, ! NewForm) :- 
+/*
+map_var_form(GOAL, NUM, ! Form, ! NewForm) :- 
   Succ is NUM + 1,
-  map_var_form(Goal, Succ, Form, NewForm).
+  map_var_form(GOAL, Succ, Form, NewForm).
 
-map_var_form(Goal, NUM, ? Form, ? NewForm) :- 
+map_var_form(GOAL, NUM, ? Form, ? NewForm) :- 
   Succ is NUM + 1,
-  map_var_form(Goal, Succ, Form, NewForm).
+  map_var_form(GOAL, Succ, Form, NewForm).
 
-map_var_form(Goal, NUM, FormA & FormB, NewFormA & NewFormB) :- 
-  map_var_form(Goal, NUM, FormA, NewFormA),
-  map_var_form(Goal, NUM, FormB, NewFormB).
+map_var_form(GOAL, NUM, FormA & FormB, NewFormA & NewFormB) :- 
+  map_var_form(GOAL, NUM, FormA, NewFormA),
+  map_var_form(GOAL, NUM, FormB, NewFormB).
 
-map_var_form(Goal, NUM, FormA | FormB, NewFormA | NewFormB) :- 
-  map_var_form(Goal, NUM, FormA, NewFormA),
-  map_var_form(Goal, NUM, FormB, NewFormB).
+map_var_form(GOAL, NUM, FormA | FormB, NewFormA | NewFormB) :- 
+  map_var_form(GOAL, NUM, FormA, NewFormA),
+  map_var_form(GOAL, NUM, FormB, NewFormB).
 
-map_var_form(Goal, NUM, FormA => FormB, NewFormA => NewFormB) :- 
-  map_var_form(Goal, NUM, FormA, NewFormA),
-  map_var_form(Goal, NUM, FormB, NewFormB).
+map_var_form(GOAL, NUM, FormA => FormB, NewFormA => NewFormB) :- 
+  map_var_form(GOAL, NUM, FormA, NewFormA),
+  map_var_form(GOAL, NUM, FormB, NewFormB).
 
-map_var_form(Goal, NUM, FormA <=> FormB, NewFormA <=> NewFormB) :- 
-  map_var_form(Goal, NUM, FormA, NewFormA),
-  map_var_form(Goal, NUM, FormB, NewFormB).
+map_var_form(GOAL, NUM, FormA <=> FormB, NewFormA <=> NewFormB) :- 
+  map_var_form(GOAL, NUM, FormA, NewFormA),
+  map_var_form(GOAL, NUM, FormB, NewFormB).
 
-map_var_form(Goal, NUM, ~ Form, ~ NewForm) :- 
-  map_var_form(Goal, NUM, Form, NewForm).
+map_var_form(GOAL, NUM, ~ Form, ~ NewForm) :- 
+  map_var_form(GOAL, NUM, Form, NewForm).
 
 map_var_form(_, _, $true, $true).
 map_var_form(_, _, $false, $false).
 
-map_var_form(Goal, NUM, Atom, NewAtom) :- 
+map_var_form(GOAL, NUM, Atom, NewAtom) :- 
   \+ molecular(Atom),
   Atom \= $true,
   Atom \= $false,
   Atom =.. [REL | TERMS_],  
-  maplist(map_var_term(call(Goal, NUM)), TERMS_, NewTERMS_),
+  maplist(map_var_term(call(GOAL, NUM)), TERMS_, NewTERMS_),
   NewAtom =.. [REL | NewTERMS_].
 
 map_var_term(_, Var, Var) :- 
   var(Var). 
 
-map_var_term(Goal, Term, Rst) :- 
-  \+ var(Term),
-  Term = #(NUM),
-  call(Goal, NUM, Rst). 
+map_var_term(GOAL, TERM, Rst) :- 
+  \+ var(TERM),
+  TERM = #(NUM),
+  call(GOAL, NUM, Rst). 
 
-map_var_term(_, Term, @(NUM)) :- 
-  \+ var(Term),
-  Term = @(NUM).
+map_var_term(_, TERM, @(NUM)) :- 
+  \+ var(TERM),
+  TERM = @(NUM).
 
-map_var_term(Goal, Term, Fun ^ NewTERMS) :- 
-  \+ var(Term),
-  Term = (Fun ^ TERMS),  
-  maplist(map_var_term(Goal), TERMS, NewTERMS).
+map_var_term(GOAL, TERM_I, TERM_O) :- 
+  \+ var(TERM_I),
+  TERM_I =.. [FUN | TERMS_I],  
+  maplist(map_var_term(GOAL), TERMS_I, TERMS_O), 
+  TERM_O =.. [FUN | TERMS_O].  
+  */
 
 orient_dir(OPF, ONF, l, OPF, ONF).
 orient_dir(ONF, OPF, r, OPF, ONF).
@@ -1018,11 +1003,11 @@ remove_once_syn([ElemA | List], ElemB, [ElemA | REST]) :-
   ElemA \== ElemB,
   remove_once_syn(List, ElemB, REST).
 
-remove_once(Goal, [Elem | List], NewList) :- 
-  call(Goal, Elem) -> 
+remove_once(GOAL, [Elem | List], NewList) :- 
+  call(GOAL, Elem) -> 
   NewList = List ; 
   (
-    remove_once(Goal, List, REST), 
+    remove_once(GOAL, List, REST), 
     NewList = [Elem | REST]
   ).
   
@@ -1112,74 +1097,69 @@ invert_sf(- FORM, + FORM).
 fof_form(_, $true, $true).
 fof_form(_, $false, $false).
 
-fof_form(Vars, ~ TPTP, ~ Form) :- !, 
- fof_form(Vars, TPTP, Form).
+fof_form(VARS, ~ TPTP, ~ Form) :- !, 
+ fof_form(VARS, TPTP, Form).
 
-fof_form(Vars, ! [Var] : TPTP, ! Form)  :- !,
-  fof_form([Var | Vars], TPTP, Form).
+fof_form(VARS, ! [Var] : TPTP, ! Form)  :- !,
+  fof_form([Var | VARS], TPTP, Form).
 
-fof_form(Vars, ! [Var | Rem] : TPTP, ! Form)  :- !,
-  fof_form([Var | Vars], ! Rem : TPTP, Form).
+fof_form(VARS, ! [Var | Rem] : TPTP, ! Form)  :- !,
+  fof_form([Var | VARS], ! Rem : TPTP, Form).
 
-fof_form(Vars, ? [Var] : TPTP, ? Form)  :- !,
-  fof_form([Var | Vars], TPTP, Form).
+fof_form(VARS, ? [Var] : TPTP, ? Form)  :- !,
+  fof_form([Var | VARS], TPTP, Form).
 
-fof_form(Vars, ? [Var | Rem] : TPTP, ? Form)  :- !,
-  fof_form([Var | Vars], ? Rem : TPTP, Form).
+fof_form(VARS, ? [Var | Rem] : TPTP, ? Form)  :- !,
+  fof_form([Var | VARS], ? Rem : TPTP, Form).
 
-% fof_form(Vars, ~~~TPTP, Form) :-
-%   fof_form(Vars, ~ ~ ~ TPTP, Form), !.
+fof_form(VARS, (TPTP_A \= TPTP_B), FORM) :- !, 
+  fof_form(VARS, ~ (TPTP_A = TPTP_B), FORM). 
 
-% fof_form(Vars, ~~TPTP, Form) :- 
-%   fof_form(Vars, ~ ~ TPTP, Form), !.
+fof_form(VARS, TPTP_A & TPTP_B, FormA & FormB) :- !,
+  fof_form(VARS, TPTP_A, FormA), 
+  fof_form(VARS, TPTP_B, FormB).
 
-fof_form(Vars, (TPTP_A \= TPTP_B), FORM) :- !, 
-  fof_form(Vars, ~ (TPTP_A = TPTP_B), FORM). 
+fof_form(VARS, TPTP_A | TPTP_B, FormA | FormB) :- !,
+  fof_form(VARS, TPTP_A, FormA),
+  fof_form(VARS, TPTP_B, FormB).
 
-fof_form(Vars, TPTP_A & TPTP_B, FormA & FormB) :- !,
-  fof_form(Vars, TPTP_A, FormA), 
-  fof_form(Vars, TPTP_B, FormB).
+fof_form(VARS, TPTP_A => TPTP_B, FormA => FormB) :- !,
+  fof_form(VARS, TPTP_A, FormA), 
+  fof_form(VARS, TPTP_B, FormB).
 
-fof_form(Vars, TPTP_A | TPTP_B, FormA | FormB) :- !,
-  fof_form(Vars, TPTP_A, FormA),
-  fof_form(Vars, TPTP_B, FormB).
+fof_form(VARS, TPTP_A <=> TPTP_B, FormA <=> FormB) :- !,
+  fof_form(VARS, TPTP_A, FormA),
+  fof_form(VARS, TPTP_B, FormB).
 
-fof_form(Vars, TPTP_A => TPTP_B, FormA => FormB) :- !,
-  fof_form(Vars, TPTP_A, FormA), 
-  fof_form(Vars, TPTP_B, FormB).
+fof_form(VARS, TF_A '~|' TF_B, ~ (FORM_A | FORM_B)) :- !,
+  fof_form(VARS, TF_A, FORM_A),
+  fof_form(VARS, TF_B, FORM_B).
 
-fof_form(Vars, TPTP_A <=> TPTP_B, FormA <=> FormB) :- !,
-  fof_form(Vars, TPTP_A, FormA),
-  fof_form(Vars, TPTP_B, FormB).
+fof_form(VARS, TF_A ~& TF_B, ~ (FORM_A & FORM_B)) :- !,
+  fof_form(VARS, TF_A, FORM_A),
+  fof_form(VARS, TF_B, FORM_B).
 
-fof_form(Vars, TF_A '~|' TF_B, ~ (FORM_A | FORM_B)) :- !,
-  fof_form(Vars, TF_A, FORM_A),
-  fof_form(Vars, TF_B, FORM_B).
+fof_form(VARS, TF_A <= TF_B, FORM_B => FORM_A) :- !,
+  fof_form(VARS, TF_A, FORM_A),
+  fof_form(VARS, TF_B, FORM_B).
 
-fof_form(Vars, TF_A ~& TF_B, ~ (FORM_A & FORM_B)) :- !,
-  fof_form(Vars, TF_A, FORM_A),
-  fof_form(Vars, TF_B, FORM_B).
+fof_form(VARS, TPTP_A <~> TPTP_B, ~ (FormA <=> FormB)) :- !,
+  fof_form(VARS, TPTP_A, FormA),
+  fof_form(VARS, TPTP_B, FormB).
 
-fof_form(Vars, TF_A <= TF_B, FORM_B => FORM_A) :- !,
-  fof_form(Vars, TF_A, FORM_A),
-  fof_form(Vars, TF_B, FORM_B).
-
-fof_form(Vars, TPTP_A <~> TPTP_B, ~ (FormA <=> FormB)) :- !,
-  fof_form(Vars, TPTP_A, FormA),
-  fof_form(Vars, TPTP_B, FormB).
-
-fof_form(Vars, TPTP, Form) :- 
+fof_form(VARS, TPTP, Form) :- 
   TPTP =.. [REL | TPTPs], 
-  maplist_cut(tptp_term(Vars), TPTPs, TERMS),
+  maplist_cut(tt_term(VARS), TPTPs, TERMS),
   Form =.. [REL | TERMS], !.
 
-tptp_term(Vars, Var, #(NUM)) :- 
+tt_term(VARS, Var, #(NUM)) :- 
   var(Var),
-  where(Var, Vars, NUM), !.
+  where(Var, VARS, NUM), !.
 
-tptp_term(Vars, TPTP, Fun ^ TERMS) :- 
-  TPTP =.. [Fun | TPTPs], 
-  maplist_cut(tptp_term(Vars), TPTPs, TERMS), !.
+tt_term(VARS, TT, TERM) :- 
+  TT =.. [FUN | TTS], 
+  maplist_cut(tt_term(VARS), TTS, TERMS), !,
+  TERM =.. [FUN | TERMS].
 
 trim_ops(Src, Tgt) :- 
   read_line_to_string(Src, Line), 
@@ -1201,16 +1181,37 @@ trim_ops(Src, Tgt) :-
 no_fv_term(_, VAR) :- var(VAR), !, false.
 no_fv_term(CNT, #(NUM)) :- !, NUM < CNT.
 no_fv_term(_, @(_)) :- !.
-no_fv_term(CNT, _ ^ TERMS) :- 
+no_fv_term(CNT, TERM) :- 
+  TERM =.. [_ | TERMS],
   maplist_cut(no_fv_term(CNT), TERMS).
 
 no_fp_term(_, VAR) :- var(VAR), !, false.
 no_fp_term(_, #(_)) :- !.
 no_fp_term(FP, @(NUM)) :- !, NUM < FP.
-no_fp_term(FP, _ ^ TERMS) :- 
+no_fp_term(FP, TERM) :- 
+  TERM =.. [_ | TERMS],
   maplist_cut(no_fp_term(FP), TERMS).
-% no_fp_term(CNT, #(NUM)) :- 
-%   NUM < CNT.
+
+no_fp_form(_, $true).
+no_fp_form(_, $false). 
+no_fp_form(FP, FORM) :- 
+  FORM =.. [UCT, SUB], 
+  uct(UCT), !,
+  no_fp_form(FP, SUB).
+
+no_fp_form(FP, FORM) :- 
+  FORM =.. [BCT, FORM_A, FORM_B],
+  bct(BCT), !,
+  no_fp_form(FP, FORM_A),
+  no_fp_form(FP, FORM_B).
+
+no_fp_form(FP, FORM) :- 
+  FORM =.. [_ | TERMS],
+  maplist_cut(no_fp_term(FP), TERMS).
+
+no_fp_sf(FP, SF) :- 
+  sf_form(SF, FORM),
+  no_fp_form(FP, FORM).
 
 trim_consult(FILE) :- 
   dynamic(cnf/3),
@@ -1373,15 +1374,11 @@ put_id(STRM, ID) :-
   
 put_term(STRM, #(NUM)) :- !, put_char(STRM, '#'), put_num(STRM, NUM).
 put_term(STRM, @(NUM)) :- !, put_char(STRM, '@'), put_num(STRM, NUM).
-put_term(STRM, FUN ^ TERMS) :- 
-   put_char(STRM, '^'), 
-   put_atom(STRM, FUN), 
-   put_terms(STRM, TERMS). 
-% put_term(STRM, TERM) :- 
-%   TERM =.. [FUN | TERMS], 
-%   put_char(STRM, '^'), 
-%   put_atom(STRM, FUN), 
-%   put_terms(STRM, TERMS). 
+put_term(STRM, TERM) :- 
+  TERM =.. [FUN | TERMS],
+  put_char(STRM, '^'), 
+  put_atom(STRM, FUN), 
+  put_terms(STRM, TERMS). 
 
 put_terms(STRM, TERMS) :- 
   put_list(STRM, put_term, TERMS).
@@ -1500,8 +1497,8 @@ term_poseq_term(TERM_A, TERM_B) :-
 term_poseq_term(TERM_A, TERM_B) :- 
   \+ var(TERM_A),
   \+ var(TERM_B),
-  TERM_A = (Fun ^ TERMS_A),
-  TERM_B = (Fun ^ TERMS_B),
+  TERM_A =.. [FUN | TERMS_A],
+  TERM_B =.. [FUN | TERMS_B],
   length(TERMS_A, LTH),
   length(TERMS_B, LTH).
 
@@ -1518,20 +1515,19 @@ term_poseq_term(OPQEs, TERM_A, TERM_B) :-
     term_poseq_term(TERM_B, TERM_L) 
   ).
 
-% eq_symm(TERM_, GOAL)
+% eq_refl(CONC, GOAL)
 % --- 
-% GOAL := ... |- PID : Term = Term, ...
-eq_refl(ONF, GOAL) :- 
-  ONF = (_, (- (Term = Term))),
+% GOAL := ... |- CONC : TERM = TERM, ...
+eq_refl(CONC, GOAL) :- 
   tp(+ ! (#(0) = #(0)), [refl_eq], GOAL, HYP0, GOAL_T), 
-  cp(HYP0, Term, GOAL_T, IPF, GOAL_N), 
-  xp(IPF, ONF, GOAL_N).
+  cp(HYP0, _, GOAL_T, HYP1, GOAL_N), 
+  xp(HYP1, CONC, GOAL_N).
 
-% eq_symm(TermA, TermB, GOAL)
+% eq_symm(TERMA, TERMB, GOAL)
 % --- 
-% GOAL ::= PID : TermA = TermB, ... |- NID : TermB = TermA, ...
-% IPF = PID + TermA = TermB
-% INF = NID - TermB = TermA
+% GOAL ::= PID : TERMA = TERMB, ... |- NID : TERMB = TERMA, ...
+% IPF = PID + TERMA = TERMB
+% INF = NID - TERMB = TERMA
 eq_symm(OPF, ONF, GOAL) :- 
   OPF = (_, (+ (TERM_A = TERM_B))), 
   ONF = (_, (- (TERM_B = TERM_A))),
@@ -1592,14 +1588,14 @@ break_eq_fun(OPEs, ONE, GOAL, HGS) :-
   ONE = (_, (- TERM_A = TERM_B)),
   \+ var(TERM_A),
   \+ var(TERM_B),
-  TERM_A = (Fun ^ TERMS_A),
-  TERM_B = (Fun ^ TERMS_B),
+  TERM_A =.. [FUN | TERMS_A],
+  TERM_B =.. [FUN | TERMS_B],
   length(TERMS_A, LTH),
   length(TERMS_B, LTH),
   maplist_cut(term_poseq_term(OPEs), TERMS_A, TERMS_B),
-  mk_mono_fun(LTH, Fun, MONOForm),
+  mk_mono_fun(LTH, FUN, MONOForm),
   atom_number(LTH_ATOM, LTH),
-  tp(+ MONOForm, [mono_fun, Fun, LTH_ATOM], GOAL, MONO, GOAL0),
+  tp(+ MONOForm, [mono_fun, FUN, LTH_ATOM], GOAL, MONO, GOAL0),
   intro_eqs(MONO, TERMS_A, TERMS_B, GOAL0, OPE, HGS, GOAL1),
   xp(OPE, ONE, GOAL1).
 
@@ -2276,14 +2272,14 @@ pblx(match, CTX, PATH, [([SA], GOAL) | SGS]) :-
 replace_skm(SKMS, TERM_I, TERM_O) :- 
   var(TERM_I) -> false 
 ; 
-  TERM_I = (FUN ^ TERMS_I), 
+  TERM_I =.. [FUN | TERMS_I], 
   (
     atom_concat(skm, _, FUN) -> 
     get_assoc(FUN, SKMS, NUM), 
     TERM_O = @(NUM)
   ;  
     maplist_cut(replace_skm(SKMS), TERMS_I, TERMS_O), 
-    TERM_O = (FUN ^ TERMS_O)
+    TERM_O =.. [FUN | TERMS_O]
   ).
 
 matrixify(VARS, (FI, SF), (FO, a(MAT_L, MAT_R))) :-
@@ -2304,7 +2300,7 @@ matrixify(VARS, (FI, SF), (FO, d(SKM, MAT))) :-
   type_sf(d, SF), !,
   atom_concat(skm, FI, SKM), 
   FT is FI + 1, 
-  SKM_TERM = (SKM ^ VARS),
+  SKM_TERM =.. [SKM | VARS],
   dt(SKM_TERM, SF, SF_N), 
   matrixify(VARS, (FT, SF_N), (FO, MAT)). 
 
@@ -2414,7 +2410,7 @@ mtrx_zero((CTX, PATH, _, GOAL)) :-
   mate(HYP, CMP, GOAL).
 
 mtrx_one((CTX, PATH, SKMS, GOAL), (REST, PATH, SKMS, GOAL)) :- 
-  pluck(CTX, ((e ^ []), _), REST). 
+  pluck(CTX, (e, _), REST). 
 
 mtrx_one((CTX, PATH_I, SKMS, GOAL), (REST, PATH_O, SKMS, GOAL)) :- 
   pluck(CTX, (m, HYP), REST), 
@@ -2483,7 +2479,7 @@ mtrx(HYPS, GOAL) :-
   matrixify_all(HYPS, CTX, MATS),
   solve(MATS), 
   term_variables(CTX, VARS),
-  maplist_cut(eq(e ^ []), VARS),
+  maplist_cut(eq(e), VARS),
   empty_assoc(EMP), !, 
   mtrx((CTX, EMP, EMP, GOAL)).
 
@@ -2698,9 +2694,10 @@ get_term(STRM, TERM) :-
 
 get_term(STRM, '#', #(NUM)) :- get_num(STRM, NUM).
 get_term(STRM, '@', @(NUM)) :- get_num(STRM, NUM).
-get_term(STRM, '^', FUN ^ TERMS) :- 
-   get_atom(STRM, FUN), 
-   get_terms(STRM, TERMS).
+get_term(STRM, '^', TERM) :- 
+  get_atom(STRM, FUN), 
+  get_terms(STRM, TERMS),
+  TERM =.. [FUN | TERMS].
 
 get_terms(STRM, TERMS) :- 
   get_list(STRM, get_term, TERMS).
@@ -2849,7 +2846,9 @@ verify(PROB, FP, s(PID, CID, PRF)) :-
   put_assoc(CID, PROB, CONC, PROB_N),
   verify(PROB_N, FP, PRF).
 
-verify(PROB, FP, t(SF, _, CID, PRF)) :- 
+verify(PROB, FP, t(SF, JST, CID, PRF)) :- 
+  no_fp_sf(FP, SF), % No new parameters in SF
+  justified(PROB, SF, JST),
   put_assoc(CID, PROB, SF, PROB_N),
   verify(PROB_N, FP, PRF).
     
@@ -2882,6 +2881,16 @@ para_one((HYP_A, HYP_B, GOAL), (HYP_NA, HYP_NB, GOAL_N)) :-
 para_two((HYP_A, HYP_B, GOAL), (HYP_AL, HYP_BL, GOAL_L), (HYP_AR, HYP_BR, GOAL_R)) :- 
   abp(HYP_A, HYP_B, GOAL, HYP_AL, HYP_BL, GOAL_L, HYP_AR, HYP_BR, GOAL_R) ; 
   abp(HYP_B, HYP_A, GOAL, HYP_BL, HYP_AL, GOAL_L, HYP_BR, HYP_AR, GOAL_R).
+
+para_one_lax((HYP_A, HYP_B, GOAL), (HYP_AN, HYP_B, GOAL_N)) :- 
+  sp(HYP_A, GOAL, HYP_AN, GOAL_N). 
+  
+para_one_lax((HYP_A, HYP_B, GOAL), (HYP_A, HYP_BN, GOAL_N)) :- 
+  sp(HYP_B, GOAL, HYP_BN, GOAL_N). 
+  
+para_one_lax((HYP_A, HYP_B, GOAL), (HYP_NA, HYP_NB, GOAL_N)) :- 
+  cdp_lax(HYP_A, HYP_B, GOAL, HYP_NA, HYP_NB, GOAL_N) ;
+  cdp_lax(HYP_B, HYP_A, GOAL, HYP_NB, HYP_NA, GOAL_N).
 
 
 
@@ -2919,14 +2928,23 @@ para_cla_b(HYP, GOAL, HGS) :-
 
 para_cla_two((HYP_A, HYP_B, GOAL), (HYP_AL, HYP_BL, GOAL_L), (HYP_AR, HYP_BR, GOAL_R)) :- 
   (imp_hyp(HYP_A) ; imp_hyp(HYP_B)),
-  abp(HYP_A, HYP_B, GOAL, HYP_AL, HYP_BL, GOAL_L, HYP_AR, HYP_BR, GOAL_R).
+  (
+    abp(HYP_A, HYP_B, GOAL, HYP_AL, HYP_BL, GOAL_L, HYP_AR, HYP_BR, GOAL_R) ;
+    abp(HYP_B, HYP_A, GOAL, HYP_BL, HYP_AL, GOAL_L, HYP_BR, HYP_AR, GOAL_R) 
+  ).
 
 para_cla_many((HYP_A, HYP_B, GOAL), HYPS, HGS) :- 
   \+ imp_hyp(HYP_A),
   \+ imp_hyp(HYP_B),
-  type_hyp(a, HYP_A),
-  para_cla_a(HYP_A, GOAL, HYPS, GOAL_T), !,  
-  para_cla_b(HYP_B, GOAL_T, HGS).
+  (
+    type_hyp(a, HYP_A),
+    para_cla_a(HYP_A, GOAL, HYPS, GOAL_T), 
+    para_cla_b(HYP_B, GOAL_T, HGS)
+  ;
+    type_hyp(a, HYP_B),
+    para_cla_a(HYP_B, GOAL, HYPS, GOAL_T), 
+    para_cla_b(HYP_A, GOAL_T, HGS)
+  ).
 
 para_cla(H2G) :- 
   para_zero(H2G) -> true ;

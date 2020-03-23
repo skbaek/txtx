@@ -116,35 +116,12 @@ vampire_tuple_inst(
   maplist_cut(id_sid, IDS, SIDS),
   fof_form([], TF, FORM).
 
-
-% v_tuple_hint_1((FID, FIDS, TF, cjtr), (ID, IDs, (- FORM), axm)) :- 
-%   fid_id(FID, ID), 
-%   maplist_cut(fid_id, FIDS, IDs), 
-%   fof_form([], TF, FORM).
-% 
-% v_tuple_hint_1((FID, FIDS, TF, TAC), (ID, IDs, (+ FORM), TAC)) :- 
-%   TAC \= cjtr,
-%   fid_id(FID, ID), 
-%   maplist_cut(fid_id, FIDS, IDs), 
-%   fof_form([], TF, FORM).
-% 
-% v_tuple_hint(TUPLE, HINT) :- 
-%   v_tuple_hint_0(TUPLE, TEMP),
-%   v_tuple_hint_1(TEMP, HINT).
-
 vampire_cmp_hints(ORD, (ID_A, _, _, _), (ID_B, _, _, _)) :- 
   atom_concat('f', TEMP_A, ID_A),
   atom_number(TEMP_A, NUM_A),
   atom_concat('f', TEMP_B, ID_B),
   atom_number(TEMP_B, NUM_B),
   compare(ORD, NUM_A, NUM_B).
-    
-% v_cmp_hints(Order, (ID_A, _, _, _), (ID_B, _, _, _)) :- 
-%   atom_concat('sf', TEMP_A, ID_A),
-%   atom_number(TEMP_A, NUM_A),
-%   atom_concat('sf', TEMP_B, ID_B),
-%   atom_number(TEMP_B, NUM_B),
-%   compare(Order, NUM_A, NUM_B).
 
 insert_dels(X, X).
 
@@ -164,18 +141,29 @@ revert_pars(CNT, FORM, AOC) :-
   map_form(revert_pars_term, NUM, FORM, TEMP), 
   add_fas(CNT, TEMP, AOC).
 
+get_fun(TERM, FUN) :-
+  TERM =.. [FUN | _].
+
 get_aocs(FORM, SKMS, AOCS) :- 
   inst_with_pars(0, FORM, CNT, ANTE => CONS), 
   mk_pars(CNT, PARS),
-  get_aocs_aux(PARS, ANTE, CONS, SKMS, FORMS),
+  get_aocs_aux(PARS, CNT, ANTE, CONS, SKM_TERMS, FORMS),
+  maplist_cut(get_fun, SKM_TERMS, SKMS),
   maplist_cut(revert_pars(CNT), FORMS, AOCS).
 
-get_aocs_aux(Vars, ? ANTE, CONS, [SKM | SKMS], [(? ANTE) => NewANTE | AOCS]) :- !,
-  subst_form((SKM ^ Vars), ANTE, NewANTE), 
-  get_aocs_aux(Vars, NewANTE, CONS, SKMS, AOCS).
+get_aocs_aux(ARGS, FP, ? ANTE, CONS, [TERM | TERMS], [(? ANTE) => ANTE_O | AOCS]) :- !,
+  subst_form(TERM, ANTE, ANTE_O), 
+  get_aocs_aux(ARGS, FP, ANTE_O, CONS, TERMS, AOCS).
 
-get_aocs_aux(_, ANTE, CONS, [], []) :- 
-  mtrx([(0, (+ ANTE)), (1, (- CONS))], (_, 0, 2)).
+get_aocs_aux(_, FP, ANTE, CONS, [], []) :- 
+  para_aoc(((0, (+ ANTE)), (1, (- CONS)), (_, FP, 2))).
+
+para_aoc(TRP) :- 
+  para_zero(TRP) -> true ; 
+  para_one_lax(TRP, TRP_N) -> para_aoc(TRP_N) ; 
+  para_two(TRP, TRP_L, TRP_R), 
+  para_aoc(TRP_L),
+  para_aoc(TRP_R).
 
 id_skm_aoc_inst(ID, SKM, AOC, add([aoc, SKM], ID, (+ AOC))).
 
@@ -186,6 +174,7 @@ reduce_gaocs([], []).
 reduce_gaocs([INST | INSTS], SOL) :- 
   (
     INST = add([gaoc], ID, (+ FORM)) -> 
+    write("GCA detected\n"),
     get_aocs(FORM, SKMS, AOCS),
     length(SKMS, LTH),
     range(0, LTH, NUMS),
