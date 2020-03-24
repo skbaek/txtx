@@ -529,21 +529,230 @@ mtrx(HYPS, GOAL) :-
 
 
 
-% %%%%%%%%%%%%%%%% DIRECTED MATRIX %%%%%%%%%%%%%%%%
-% 
-% dtrx(HYP_L, HYP_R, GOAL) :- 
-%   dirixify(l, HYP_L, MAT_L),
-%   dirixify(r, HYP_R, MAT_r),
-%   empty_assoc(EMP), 
-%   solve(MATS, ID_GDS), 
-%   term_variables(ID_GDS, VARS),
-%   maplist_cut(eq(e), VARS),
-%   empty_assoc(EMP), 
-%   foldl(add_to_ctx(HYPS), ID_GDS, EMP, CTX), 
-%   mtrx((CTX, [], EMP, GOAL)).
+%%%%%%%%%%%%%%%% DIRECTED MATRIX %%%%%%%%%%%%%%%%
+
+member_dsf((DIR, SF), DSFS) :- 
+  set_dir(SF, SF_N), 
+  member_syn((DIR, SF_N), DSFS).
+
+ditrixify(DIR, VARS, (FI, SF), (FO, a(DIT_L, DIT_R))) :-
+  aab(SF, SF_L, SF_R), !,
+  ditrixify(DIR, VARS, (FI, SF_L), (FT, DIT_L)),
+  ditrixify(DIR, VARS, (FT, SF_R), (FO, DIT_R)).
+
+ditrixify(DIR, VARS, (FI, SF), (FO, b(DIT_L, DIT_R))) :- 
+  bb(SF, SF_L, SF_R), !,
+  ditrixify(DIR, VARS, (FI, SF_L), (FT, DIT_L)),
+  ditrixify(DIR, VARS, (FT, SF_R), (FO, DIT_R)).
+
+ditrixify(DIR, VARS, (FI, SF), (FO, c(VAR, DIT))) :- 
+  cb(VAR, SF, SF_N), !,
+  ditrixify(DIR, [VAR | VARS], (FI, SF_N), (FO, DIT)). 
+
+ditrixify(DIR, VARS, (FI, SF), (FO, d(SKM, DIT))) :- 
+  type_sf(d, SF), !,
+  atom_concat(skm, FI, SKM), 
+  FT is FI + 1, 
+  SKM_TERM =.. [SKM | VARS],
+  dt(SKM_TERM, SF, SF_N), 
+  ditrixify(DIR, VARS, (FT, SF_N), (FO, DIT)). 
+
+ditrixify(DIR, VARS, (FI, SF), (FO, DIT)) :- 
+  sb(SF, SF_N), !,
+  ditrixify(DIR, VARS, (FI, SF_N), (FO, DIT)). 
+
+ditrixify(DIR, _, (FI, SA), (FI, (DIR, SA))) :- 
+  signed_atom(SA).
+
+dtrx_startable(a(MAT_L, MAT_R)) :- 
+  dtrx_startable(MAT_L) ;
+  dtrx_startable(MAT_R).
+
+dtrx_startable(b(MAT_L, MAT_R)) :- 
+  dtrx_startable(MAT_L),
+  dtrx_startable(MAT_R).
+
+dtrx_startable(c(_, MAT)) :- dtrx_startable(MAT).
+dtrx_startable(d(_, MAT)) :- dtrx_startable(MAT).
+dtrx_startable((_, (+ _))). 
+
+dtrx_solve(DITS) :- 
+  pluck(DITS, (GD, DIT), REST), 
+  dtrx_solve(start, REST, [], [], (GD, DIT), _).
+
+dtrx_solve(MODE, DITS, PATH, LEM_I, (a(GD_L, GD_R), a(DIT_L, DIT_R)), LEM_I) :- !, 
+  (
+    dtrx_solve(MODE, [(GD_R, DIT_R) | DITS], PATH, LEM_I, (GD_L, DIT_L), _) ;
+    dtrx_solve(MODE, [(GD_L, DIT_L) | DITS], PATH, LEM_I, (GD_R, DIT_R), _)
+  ).
+
+dtrx_solve(start, DITS, PATH, LEM_I, (b(GD_L, GD_R), b(DIT_L, DIT_R)), LEM_O) :- !,
+  dtrx_startable(DIT_R),
+  dtrx_solve(start, DITS, PATH, LEM_I, (GD_L, DIT_L), LEM_T),
+  dtrx_solve(start, DITS, PATH, LEM_T, (GD_R, DIT_R), LEM_O).
+
+dtrx_solve(match, DITS, PATH, LEM_I, (b(GD_L, GD_R), b(DIT_L, DIT_R)), LEM_O) :- !,
+  (
+    dtrx_solve(match, DITS, PATH, LEM_I, (GD_L, DIT_L), LEM_T),
+    dtrx_solve(block, DITS, PATH, LEM_T, (GD_R, DIT_R), LEM_O)
+  ;
+    dtrx_solve(match, DITS, PATH, LEM_I, (GD_R, DIT_R), LEM_T),
+    dtrx_solve(block, DITS, PATH, LEM_T, (GD_L, DIT_L), LEM_O)
+  ).
+  
+dtrx_solve(block, DITS, PATH, LEM_I, (b(GD_L, GD_R), b(DIT_L, DIT_R)), LEM_O) :- !,
+  dtrx_solve(block, DITS, PATH, LEM_I, (GD_L, DIT_L), LEM_T),
+  dtrx_solve(block, DITS, PATH, LEM_T, (GD_R, DIT_R), LEM_O).
+
+dtrx_solve(MODE, DITS, PATH, LEM_I, (c(TERM, GD), c(TERM, DIT)), LEM_O) :- !,
+  dtrx_solve(MODE, DITS, PATH, LEM_I, (GD, DIT), LEM_O). 
+
+dtrx_solve(MODE, DITS, PATH, LEM_I, (d(SKM, GD), d(SKM, DIT)), LEM_O) :- !,
+  dtrx_solve(MODE, DITS, PATH, LEM_I, (GD, DIT), LEM_O). 
+
+dtrx_solve(match, _, [CMP | _], LEM, (DIR, (DIR, SA)), LEM) :- 
+  connect_dsfs(CMP, (DIR, SA)).
+  
+dtrx_solve(start, DITS, PATH, LEM_I, (GD, (DIR, SF)), LEM_O) :-
+  pos_atom(SF), 
+  dtrx_solve(block, DITS, PATH, LEM_I, (GD, (DIR, SF)), LEM_O).
+
+dtrx_solve(block, _, _, LEM, (c, (_, SF)), LEM) :-
+  contradiction(SF).
+
+dtrx_solve(block, _, _, LEM, (DIR, (DIR, SA)), LEM) :- 
+  member_dsf((DIR, SA), LEM), !.
+
+dtrx_solve(block, _, PATH, LEM, (DIR, (DIR, SA)), LEM) :- 
+  member(CMP, PATH),
+  connect_dsfs(CMP, (DIR, SA)).
+
+dtrx_solve(block, DITS, PATH, LEM, (DIR, (DIR, SA)), [(DIR, SA) | LEM]) :- 
+  \+ member_dsf((DIR, SA), PATH),
+  pluck(DITS, (GD, DIT), REST), 
+  dtrx_solve(match, REST, [(DIR, SA) | PATH], LEM, (GD, DIT), _). 
+ 
+flip(l, r).
+flip(r, l).
+
+dtrx_zero((CTX, _, _, GOAL)) :- 
+  member((c, HYP), CTX), 
+  use_lc(HYP, GOAL).
+  
+dtrx_zero((CTX, PATH, _, GOAL)) :- 
+  member((DIR, HYP), CTX), 
+  flip(DIR, FLP), 
+  HYP = (_, SA_A),
+  complements(SA_A, SA_T),
+  set_dir(SA_T, SA_B),
+  get_assoc((FLP, SA_B), PATH, ID),
+  mate(HYP, (ID, SA_B), GOAL).
+
+dtrx_one((CTX, PATH, SKMS, GOAL), (REST, PATH, SKMS, GOAL)) :- 
+  pluck(CTX, (e, _), REST). 
+
+dtrx_one((CTX, PATH_I, SKMS, GOAL), (REST, PATH_O, SKMS, GOAL)) :- 
+  pluck(CTX, (DIR, HYP), REST), 
+  flip(DIR, _),
+  atomic_hyp(HYP),
+  HYP = (ID, SA), 
+  put_assoc((DIR, SA), PATH_I, ID, PATH_O).
+
+dtrx_one((CTX, PATH, SKMS, GOAL), ([(GD, HYP_N) | REST], PATH, SKMS, GOAL_N)) :- 
+  pluck(CTX, (GD, HYP), REST), 
+  sp(HYP, GOAL, HYP_N, GOAL_N).
+
+dtrx_one(
+  (CTX, PATH, SKMS, GOAL), 
+  ([(GD_L, HYP_L), (GD_R, HYP_R) | REST], PATH, SKMS, GOAL_N)
+) :- 
+  pluck(CTX, (a(GD_L, GD_R), HYP), REST), 
+  ap(HYP, l, GOAL, HYP_L, GOAL_T), 
+  ap(HYP, r, GOAL_T, HYP_R, GOAL_N). 
+
+dtrx_one(
+  (CTX, PATH, SKMS, GOAL), 
+  ([(GD, HYP_N) | REST], PATH, SKMS, GOAL_N) 
+) :- 
+  pluck(CTX, (c(TERM, GD), HYP), REST), 
+  replace_skm(SKMS, TERM, TERM_N), 
+  cp(HYP, TERM_N, GOAL, HYP_N, GOAL_N).
+
+dtrx_one(
+  (CTX, PATH, SKMS, GOAL), 
+  ([(GD, HYP_N) | REST], PATH, SKMS_N, GOAL_N) 
+) :- 
+  pluck(CTX, (d(SKM, GD), HYP), REST), 
+  GOAL = (_, FP, _), 
+  put_assoc(SKM, SKMS, FP, SKMS_N), 
+  dp(HYP, GOAL, HYP_N, GOAL_N).
+
+dtrx_two(
+  (CTX, PATH, SKMS, GOAL), 
+  (GD_L, HYP_L), 
+  (REST, PATH, SKMS, GOAL_L), 
+  (GD_R, HYP_R), 
+  (REST, PATH, SKMS, GOAL_R) 
+) :- 
+  pluck(CTX, (b(GD_L, GD_R), HYP), REST), 
+  bp(HYP, GOAL, HYP_L, HYP_R, GOAL_L, GOAL_R).
+
+dtrx_fcs(
+  (GD, HYP), 
+  (CTX, PATH, SKMS, GOAL)
+) :- 
+  bp(HYP, GOAL, HYP_L, HYP_R, GOAL_L, GOAL_R) -> 
+  GD = b(GD_L, GD_R), 
+  dtrx_fcs((GD_L, HYP_L), (CTX, PATH, SKMS, GOAL_L)), !,
+  dtrx_fcs((GD_R, HYP_R), (CTX, PATH, SKMS, GOAL_R))
+;
+  dtrx(([(GD, HYP) | CTX], PATH, SKMS, GOAL)).
+
+dtrx(MS) :- 
+  dtrx_zero(MS) -> true ; 
+  dtrx_one(MS, MS_N) -> dtrx(MS_N) ; 
+  dtrx_two(MS, MH_L, MS_L, MH_R, MS_R), !,
+  dtrx_fcs(MH_L, MS_L), !, 
+  dtrx_fcs(MH_R, MS_R), !. 
+  
+dtrx(HYP_L, HYP_R, GOAL) :- 
+  write("CALLING DTRX\n\n"),
+  hyp_sf(HYP_L, SF_L),
+  hyp_sf(HYP_R, SF_R),
+  ditrixify(l, [], (0, SF_L), (TEMP, DIT_L)),
+  ditrixify(r, [], (TEMP, SF_R), (_, DIT_R)),
+  dtrx_solve([(GD_L, DIT_L), (GD_R, DIT_R)]), 
+  write("DTRX SOLUTION FOUND\n\n"),
+  term_variables((GD_L, GD_R), VARS),
+  maplist_cut(eq(e), VARS),
+  empty_assoc(EMP), 
+  dtrx(([(GD_L, HYP_L), (GD_R, HYP_R)], EMP, EMP, GOAL)).
+
+skm(AOCS, H2G) :- 
+  para_zero(H2G) -> true 
+;
+  para_one(H2G, H2G_N), 
+  skm(AOCS, H2G_N) 
+;
+  para_two(H2G, H2G_L, H2G_R),
+  skm(AOCS, H2G_L), 
+  skm(AOCS, H2G_R)
+;
+  H2G = (PREM, CONC, GOAL),
+  pluck(AOCS, AOC, REST),
+  many_nb([c], [AOC], GOAL, [HYP], GOAL_T), 
+  % TempOSF = (_, (+ _ => _)),
+  bp(HYP, GOAL_T, HYP_L, HYP_R, GOAL_L, GOAL_R), 
+  xp(PREM, HYP_L, GOAL_L),
+  skm(REST, (HYP_R, CONC, GOAL_R)).
+
+
 
 %%%%%%%%%%%%%%%% MAIN PROOF COMPILATION %%%%%%%%%%%%%%%%
 
+infer(vampire, skm, [PREM | AOCS], CONC, GOAL) :- 
+  skm(AOCS, (PREM, CONC, GOAL)).
+  
 infer(vampire, ngt, [PREM], CONC, GOAL) :- 
   sp(CONC, GOAL, TEMP, GOAL_T), 
   mate(PREM, TEMP, GOAL_T).
@@ -575,7 +784,8 @@ infer(vampire, gaoc, AOCS, GAOC, GOAL) :-
   IMP = (_, (- (_ => _))),
   aap(IMP, GOAL0, ANTE, CONS, GOAL1), 
   apply_aocs(ANTE, AOCS, GOAL1, TEMP, GOAL2), 
-  tblx(TEMP, CONS, GOAL2).
+  write("final phase"),
+  paral((TEMP, CONS, GOAL2)).
   
 infer(vampire, res, [PYP0, PYP1], NYP, GOAL) :- 
   many_nb([a, d, s], [NYP], GOAL, HYPS, GOAL_T), 
@@ -599,13 +809,25 @@ infer(vampire, (sup, DIR), [PREM_A, PREM_B], CONC, GOAL) :-
   member_rev(TGT, HYPS),
   subst_rel_single(SRC, EQN, TGT, GOAL3). 
 
+infer(vampire, para, PREMS, CONC, GOAL) :- 
+  member(PREM, PREMS),
+  para((PREM, CONC, GOAL)).
+
+infer(vampire, paras, PREMS, CONC, GOAL) :- 
+  member(PREM, PREMS),
+  paras((PREM, CONC, GOAL)).
+
+infer(vampire, paral, PREMS, CONC, GOAL) :- 
+  member(PREM, PREMS),
+  paral((PREM, CONC, GOAL)).
+
 infer(vampire, parac, PREMS, CONC, GOAL) :- 
   member(PREM, PREMS),
-  para_cla((PREM, CONC, GOAL)).
+  parac((PREM, CONC, GOAL)).
 
-infer(vampire, ptrx, PREMS, CONC, GOAL) :- 
+infer(vampire, dtrx, PREMS, CONC, GOAL) :- 
   member(PREM, PREMS),
-  mtrx([PREM, CONC], GOAL).
+  dtrx(PREM, CONC, GOAL).
 
 infer(vampire, mtrx, PREMS, CONC, GOAL) :- 
   mtrx([CONC | PREMS], GOAL).

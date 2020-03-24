@@ -402,10 +402,15 @@ aap(HYP, GOAL, HYP_L, HYP_R, GOAL_N) :-
   ap(HYP, l, GOAL, HYP_L, GOAL_T), 
   ap(HYP, r, GOAL_T, HYP_R, GOAL_N). 
 
-abp(HYP_A, HYP_B, GOAL, HYP_AL, HYP_BL, GOAL_L, HYP_AR, HYP_BR, GOAL_R) :- 
+abpl(HYP_A, HYP_B, GOAL, HYP_AL, HYP_BL, GOAL_L, HYP_AR, HYP_BR, GOAL_R) :- 
   bp(HYP_B, GOAL, HYP_BL, HYP_BR, GOAL_TL, GOAL_TR), 
   ap(HYP_A, l, GOAL_TL, HYP_AL, GOAL_L),
   ap(HYP_A, r, GOAL_TR, HYP_AR, GOAL_R).
+
+abpr(HYP_A, HYP_B, GOAL, HYP_AR, HYP_BL, GOAL_L, HYP_AL, HYP_BR, GOAL_R) :- 
+  bp(HYP_B, GOAL, HYP_BL, HYP_BR, GOAL_TL, GOAL_TR), 
+  ap(HYP_A, r, GOAL_TL, HYP_AR, GOAL_L),
+  ap(HYP_A, l, GOAL_TR, HYP_AL, GOAL_R).
 
 % bap(HYP0, HYP1, GOAL, HYP0A, HYP1A, GOAL_A, HYP0B, HYP1B, GOAL_B) :- 
 %   abp(HYP1, HYP0, GOAL, HYP1A, HYP0A, GOAL_A, HYP1B, HYP0B, GOAL_B). 
@@ -1778,6 +1783,16 @@ mate_pn_nu(OPF, ONF, GOAL) :-
   unifiable(FORM_A, FORM_B, []), 
   xp(N_OPF, ONF, N_GOAL).
 
+sf_sign_form(+ FORM, '+', FORM).
+sf_sign_form(- FORM, '-', FORM).
+
+connect_dsfs((DIR_A, SF_A), (DIR_B, SF_B)) :- 
+  sf_sign_form(SF_A, SIGN_A, FORM_A),
+  sf_sign_form(SF_B, SIGN_B, FORM_B),
+  DIR_A \= DIR_B,
+  SIGN_A \= SIGN_B,
+  connect_forms(FORM_A, FORM_B).
+
 connect_sfs(+ FORM_A, - FORM_B) :- 
   connect_forms(FORM_A, FORM_B).
   
@@ -2230,8 +2245,34 @@ para_one((HYP_A, HYP_B, GOAL), (HYP_NA, HYP_NB, GOAL_N)) :-
   cdp(HYP_B, HYP_A, GOAL, HYP_NB, HYP_NA, GOAL_N).
 
 para_two((HYP_A, HYP_B, GOAL), (HYP_AL, HYP_BL, GOAL_L), (HYP_AR, HYP_BR, GOAL_R)) :- 
-  abp(HYP_A, HYP_B, GOAL, HYP_AL, HYP_BL, GOAL_L, HYP_AR, HYP_BR, GOAL_R) ; 
-  abp(HYP_B, HYP_A, GOAL, HYP_BL, HYP_AL, GOAL_L, HYP_BR, HYP_AR, GOAL_R).
+  abpl(HYP_A, HYP_B, GOAL, HYP_AL, HYP_BL, GOAL_L, HYP_AR, HYP_BR, GOAL_R) ; 
+  abpl(HYP_B, HYP_A, GOAL, HYP_BL, HYP_AL, GOAL_L, HYP_BR, HYP_AR, GOAL_R).
+
+para(H2G) :- 
+  para_zero(H2G) -> true ;
+  para_one(H2G, H2G_N) -> para(H2G_N) ;
+  para_two(H2G, H2G_L, H2G_R) ->
+  para(H2G_L), !, 
+  para(H2G_R).
+
+
+
+%%%%%%%%%%%%%%%% PARALLEL SWITCH DECOMPOSITION %%%%%%%%%%%%%%%%
+
+paras_two((HYP_A, HYP_B, GOAL), (HYP_AL, HYP_BL, GOAL_L), (HYP_AR, HYP_BR, GOAL_R)) :- 
+  abpl(HYP_A, HYP_B, GOAL, HYP_AL, HYP_BL, GOAL_L, HYP_AR, HYP_BR, GOAL_R) ; 
+  abpr(HYP_A, HYP_B, GOAL, HYP_AL, HYP_BL, GOAL_L, HYP_AR, HYP_BR, GOAL_R) ; 
+  abpl(HYP_B, HYP_A, GOAL, HYP_BL, HYP_AL, GOAL_L, HYP_BR, HYP_AR, GOAL_R) ;
+  abpr(HYP_B, HYP_A, GOAL, HYP_BL, HYP_AL, GOAL_L, HYP_BR, HYP_AR, GOAL_R).
+
+paras(H2G) :- 
+  para_zero(H2G) -> true ;
+  para_one(H2G, H2G_N) -> paras(H2G_N) ;
+  paras_two(H2G, H2G_L, H2G_R),
+  paras(H2G_L),  
+  paras(H2G_R).
+
+%%%%%%%%%%%%%%%% PARALLEL LAX DECOMPOSITION %%%%%%%%%%%%%%%%
 
 para_one_lax((HYP_A, HYP_B, GOAL), (HYP_AN, HYP_B, GOAL_N)) :- 
   sp(HYP_A, GOAL, HYP_AN, GOAL_N). 
@@ -2243,6 +2284,13 @@ para_one_lax((HYP_A, HYP_B, GOAL), (HYP_NA, HYP_NB, GOAL_N)) :-
   cdp_lax(HYP_A, HYP_B, GOAL, HYP_NA, HYP_NB, GOAL_N) ;
   cdp_lax(HYP_B, HYP_A, GOAL, HYP_NB, HYP_NA, GOAL_N).
 
+paral(H2G) :- 
+  para_zero(H2G) -> true ;
+  para_one_lax(H2G, H2G_N) -> paral(H2G_N) ;
+  para_two(H2G, H2G_L, H2G_R) ->
+  paral(H2G_L), !, 
+  paral(H2G_R).
+
 
 
 %%%%%%%%%%%%%%%% PARALLEL CLAUSAL DECOMPOSITION %%%%%%%%%%%%%%%%
@@ -2251,61 +2299,61 @@ imp_hyp(HYP) :-
   hyp_form(HYP, FORM),
   member(FORM, [(_ => _), (_ <=> _)]).
 
-para_cla_a_aux(HYP, GOAL, HYP_L, HYP_R, NEW_GOAL) :- 
+parac_a_aux(HYP, GOAL, HYP_L, HYP_R, NEW_GOAL) :- 
   \+ imp_hyp(HYP), 
   ap(HYP, l, GOAL, HYP_L, TEMP_GOAL),
   ap(HYP, r, TEMP_GOAL, HYP_R, NEW_GOAL).
 
-para_cla_a(HYP, GOAL, HYPS, GOAL_N) :- 
-  para_cla_a_aux(HYP, GOAL, HYP_L, HYP_R, GOAL0) -> 
+parac_a(HYP, GOAL, HYPS, GOAL_N) :- 
+  parac_a_aux(HYP, GOAL, HYP_L, HYP_R, GOAL0) -> 
   (
-    para_cla_a(HYP_L, GOAL0, HYPS_L, GOAL1),
-    para_cla_a(HYP_R, GOAL1, HYPS_R, GOAL_N), 
+    parac_a(HYP_L, GOAL0, HYPS_L, GOAL1),
+    parac_a(HYP_R, GOAL1, HYPS_R, GOAL_N), 
     append(HYPS_L, HYPS_R, HYPS)
   ) ;
   (HYPS = [HYP], GOAL_N = GOAL).
 
-para_cla_b(HYP, GOAL, HGS) :- 
+parac_b(HYP, GOAL, HGS) :- 
   (
     \+ imp_hyp(HYP),
     bp(HYP, GOAL, HYP_L, HYP_R, GOAL_L, GOAL_R)
   ) -> 
   (
-    para_cla_b(HYP_L, GOAL_L, HGS_L),
-    para_cla_b(HYP_R, GOAL_R, HGS_R),
+    parac_b(HYP_L, GOAL_L, HGS_L),
+    parac_b(HYP_R, GOAL_R, HGS_R),
     append(HGS_L, HGS_R, HGS)
   ) ;
   HGS = [([HYP], GOAL)].
 
-para_cla_two((HYP_A, HYP_B, GOAL), (HYP_AL, HYP_BL, GOAL_L), (HYP_AR, HYP_BR, GOAL_R)) :- 
+parac_two((HYP_A, HYP_B, GOAL), (HYP_AL, HYP_BL, GOAL_L), (HYP_AR, HYP_BR, GOAL_R)) :- 
   (imp_hyp(HYP_A) ; imp_hyp(HYP_B)),
   (
-    abp(HYP_A, HYP_B, GOAL, HYP_AL, HYP_BL, GOAL_L, HYP_AR, HYP_BR, GOAL_R) ;
-    abp(HYP_B, HYP_A, GOAL, HYP_BL, HYP_AL, GOAL_L, HYP_BR, HYP_AR, GOAL_R) 
+    abpl(HYP_A, HYP_B, GOAL, HYP_AL, HYP_BL, GOAL_L, HYP_AR, HYP_BR, GOAL_R) ;
+    abpl(HYP_B, HYP_A, GOAL, HYP_BL, HYP_AL, GOAL_L, HYP_BR, HYP_AR, GOAL_R) 
   ).
 
-para_cla_many((HYP_A, HYP_B, GOAL), HYPS, HGS) :- 
+parac_many((HYP_A, HYP_B, GOAL), HYPS, HGS) :- 
   \+ imp_hyp(HYP_A),
   \+ imp_hyp(HYP_B),
   (
     type_hyp(a, HYP_A),
-    para_cla_a(HYP_A, GOAL, HYPS, GOAL_T), 
-    para_cla_b(HYP_B, GOAL_T, HGS)
+    parac_a(HYP_A, GOAL, HYPS, GOAL_T), 
+    parac_b(HYP_B, GOAL_T, HGS)
   ;
     type_hyp(a, HYP_B),
-    para_cla_a(HYP_B, GOAL, HYPS, GOAL_T), 
-    para_cla_b(HYP_A, GOAL_T, HGS)
+    parac_a(HYP_B, GOAL, HYPS, GOAL_T), 
+    parac_b(HYP_A, GOAL_T, HGS)
   ).
 
-para_cla(H2G) :- 
+parac(H2G) :- 
   para_zero(H2G) -> true ;
-  para_one(H2G, H2G_N) -> para_cla(H2G_N) ;
-  para_cla_two(H2G, H2G_L, H2G_R) -> para_cla(H2G_L), !, para_cla(H2G_R) ;
-  para_cla_many(H2G, HS, HGS) -> para_cla_aux(HS, HGS).
+  para_one(H2G, H2G_N) -> parac(H2G_N) ;
+  parac_two(H2G, H2G_L, H2G_R) -> parac(H2G_L), !, parac(H2G_R) ;
+  parac_many(H2G, HS, HGS) -> parac_aux(HS, HGS).
 
-para_cla_aux(_, []).
+parac_aux(_, []).
 
-para_cla_aux(HYPS, [([HYP], GOAL) | HGS]) :- 
+parac_aux(HYPS, [([HYP], GOAL) | HGS]) :- 
   pluck(HYPS, CMP, REST), 
-  para_cla((HYP, CMP, GOAL)), !,
-  para_cla_aux(REST, HGS).
+  parac((HYP, CMP, GOAL)), !,
+  parac_aux(REST, HGS).

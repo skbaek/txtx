@@ -5,20 +5,20 @@ id_sid(ID, SID) :-
 
 rul_hint(negated_conjecture, parac).  
 %rul_hint(cnf_transformation, v_cnf).
-rul_hint(cnf_transformation, ptrx).
+rul_hint(cnf_transformation, dtrx).
 rul_hint(superposition, (sup, l)).  
 rul_hint(forward_demodulation, (sup, l)).
 rul_hint(backward_demodulation, (sup, r)).
 rul_hint(definition_folding, dff).
 rul_hint(definition_unfolding, dfu).
 % rul_hint(flattening, flt).  
-rul_hint(flattening, ptrx).  
+rul_hint(flattening, parac).  
 % rul_hint(skolemisation, skm).  
-rul_hint(skolemisation, mtrx).  
+rul_hint(skolemisation, skm).  
 % rul_hint(ennf_transformation, ennf).  
-rul_hint(ennf_transformation, ptrx).  
+rul_hint(ennf_transformation, paras).  
 % rul_hint(nnf_transformation, nnf).  
-rul_hint(nnf_transformation, ptrx).  
+rul_hint(nnf_transformation, dtrx).  
 rul_hint(resolution, res).
 rul_hint(subsumption_resolution, res).
 
@@ -31,18 +31,18 @@ rul_hint(avatar_split_clause, mtrx).
 % rul_hint(avatar_contradiction_clause, ptblx).
 rul_hint(avatar_contradiction_clause, pblx).
 
-rul_hint(avatar_component_clause, ptrx).
+rul_hint(avatar_component_clause, dtrx).
 % rul_hint(avatar_component_clause, acmp).
 % rul_hint(factoring, wkn).
-rul_hint(factoring, ptrx).
+rul_hint(factoring, dtrx).
 % rul_hint(rectify, rtf).
-rul_hint(rectify, ptrx).
+rul_hint(rectify, paral).
 rul_hint(equality_resolution, eqr).
 rul_hint(equality_factoring, eqf).
 % rul_hint(duplicate_literal_removal, wkn).
-rul_hint(duplicate_literal_removal, ptrx).
+rul_hint(duplicate_literal_removal, dtrx).
 rul_hint(trivial_inequality_removal, eqr).
-rul_hint(unused_predicate_definition_removal, ptrx).
+rul_hint(unused_predicate_definition_removal, dtrx).
 rul_hint(true_and_false_elimination, tfe).
 rul_hint(distinct_equality_removal, der).
 % rul_hint(pure_predicate_removal, ppr).
@@ -64,7 +64,7 @@ pred_def_norm((Atom <=> TPTP), (Atom <=> TPTP)).
 vampire_tuple_inst(
   PIDS,
   (ID, conjecture, TF, _),
-  inf([parac, ptrx], PIDS, SID, (- FORM))
+  inf([parac, dtrx], PIDS, SID, (- FORM))
 ) :- 
   id_sid(ID, SID), 
   fof_form([], TF, FORM).
@@ -72,7 +72,7 @@ vampire_tuple_inst(
 vampire_tuple_inst(
  PIDS,
  (ID, axiom, TF, _),
- inf([parac, ptrx], PIDS, SID, (+ FORM)) 
+ inf([parac, dtrx], PIDS, SID, (+ FORM)) 
 ) :-
   id_sid(ID, SID), 
   fof_form([], TF, FORM).
