@@ -33,6 +33,7 @@ main(['-t', TPTP]) :-
   close(STRM).
 
 main(['-p', PRVR, TPTP, TSTP, TXTX]) :- 
+  set_prolog_flag(stack_limit, 2_147_483_648),
   style_check(-singleton),
   tptp_prob(TPTP, PIDS, PROB),
   tstp_sol(PRVR, PIDS, TSTP, SOL),

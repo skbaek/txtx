@@ -18,7 +18,7 @@ rul_hint(skolemisation, skm).
 % rul_hint(ennf_transformation, ennf).  
 rul_hint(ennf_transformation, paras).  
 % rul_hint(nnf_transformation, nnf).  
-rul_hint(nnf_transformation, dtrx).  
+rul_hint(nnf_transformation, parad).  
 rul_hint(resolution, res).
 rul_hint(subsumption_resolution, res).
 
@@ -42,7 +42,7 @@ rul_hint(equality_factoring, eqf).
 % rul_hint(duplicate_literal_removal, wkn).
 rul_hint(duplicate_literal_removal, dtrx).
 rul_hint(trivial_inequality_removal, eqr).
-rul_hint(unused_predicate_definition_removal, dtrx).
+rul_hint(unused_predicate_definition_removal, updr).
 rul_hint(true_and_false_elimination, tfe).
 rul_hint(distinct_equality_removal, der).
 % rul_hint(pure_predicate_removal, ppr).
@@ -174,7 +174,6 @@ reduce_gaocs([], []).
 reduce_gaocs([INST | INSTS], SOL) :- 
   (
     INST = add([gaoc], ID, (+ FORM)) -> 
-    write("GCA detected\n"),
     get_aocs(FORM, SKMS, AOCS),
     length(SKMS, LTH),
     range(0, LTH, NUMS),

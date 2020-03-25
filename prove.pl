@@ -376,6 +376,7 @@ startable(b(MAT_L, MAT_R)) :-
 startable(c(_, MAT)) :- startable(MAT).
 startable(d(_, MAT)) :- startable(MAT).
 startable(+ _). 
+startable(SF) :- lc(SF). 
 
 mem_mod_symm(SF, SFS) :- 
   set_dir(SF, SF_N), 
@@ -575,6 +576,7 @@ dtrx_startable(b(MAT_L, MAT_R)) :-
 dtrx_startable(c(_, MAT)) :- dtrx_startable(MAT).
 dtrx_startable(d(_, MAT)) :- dtrx_startable(MAT).
 dtrx_startable((_, (+ _))). 
+dtrx_startable((_, SF)) :- lc(SF). 
 
 dtrx_solve(DITS) :- 
   pluck(DITS, (GD, DIT), REST), 
@@ -716,13 +718,11 @@ dtrx(MS) :-
   dtrx_fcs(MH_R, MS_R), !. 
   
 dtrx(HYP_L, HYP_R, GOAL) :- 
-  write("CALLING DTRX\n\n"),
   hyp_sf(HYP_L, SF_L),
   hyp_sf(HYP_R, SF_R),
   ditrixify(l, [], (0, SF_L), (TEMP, DIT_L)),
   ditrixify(r, [], (TEMP, SF_R), (_, DIT_R)),
   dtrx_solve([(GD_L, DIT_L), (GD_R, DIT_R)]), 
-  write("DTRX SOLUTION FOUND\n\n"),
   term_variables((GD_L, GD_R), VARS),
   maplist_cut(eq(e), VARS),
   empty_assoc(EMP), 
@@ -731,7 +731,7 @@ dtrx(HYP_L, HYP_R, GOAL) :-
 skm(AOCS, H2G) :- 
   para_zero(H2G) -> true 
 ;
-  para_one(H2G, H2G_N), 
+  para_one_lax(H2G, H2G_N), 
   skm(AOCS, H2G_N) 
 ;
   para_two(H2G, H2G_L, H2G_R),
@@ -745,6 +745,98 @@ skm(AOCS, H2G) :-
   bp(HYP, GOAL_T, HYP_L, HYP_R, GOAL_L, GOAL_R), 
   xp(PREM, HYP_L, GOAL_L),
   skm(REST, (HYP_R, CONC, GOAL_R)).
+
+
+
+%%%%%%%%%%%%%%%% PROPOSITIONAL CONNECTION TABLEAUX %%%%%%%%%%%%%%%%
+
+% pick_cla(CTX, (ID, SF)) :- 
+%   gen_assoc(ID, CTX, SF).
+% 
+% del_cla(CTX_I, (ID, SF), CTX_O) :- 
+%   del_assoc(ID, CTX_I, SF, CTX_O).
+%   
+% add_cla((ID, SF), CTX_I, CTX_O) :- 
+%   put_assoc(ID, CTX_I, SF, CTX_O).
+% 
+% pluck_cla(CTX_I, CLA, CTX_O) :- 
+%   pick_cla(CTX_I, CLA),
+%   del_cla(CTX_I, CLA, CTX_O). 
+
+startable_hyp((_, SF)) :- 
+  startable_sf(SF).
+
+startable_sf(SF) :- 
+  sb(SF, SF_N) -> startable_sf(SF_N) ;
+  lc(SF) ; 
+  pos_atom(SF) ; 
+  aab(SF, SF_L, SF_R) -> 
+  (startable_sf(SF_L) ; startable_sf(SF_R)) ;
+  bb(SF, SF_L, SF_R) -> 
+  startable_sf(SF_L),
+  startable_sf(SF_R). 
+  
+path_redundant(HYP, PATH) :- 
+  hyp_sf(HYP, SF),
+  set_dir(SF, SF_N),
+  member((_, SF_N), PATH).
+
+pblx(HYPS, GOAL) :- 
+  pluck(HYPS, HYP, REST), 
+  pblx(start, REST, [], HYP, GOAL).
+
+pblx(MODE, HYPS, PATH, HYP, GOAL) :- 
+  sp(HYP, GOAL, HYP_N, GOAL_N), !, 
+  pblx(MODE, HYPS, PATH, HYP_N, GOAL_N).
+  
+pblx(MODE, HYPS, PATH, HYP, GOAL) :- 
+  aap(HYP, GOAL, HYP_L, HYP_R, GOAL_N), !, 
+  (
+    pblx(MODE, [HYP_R | HYPS], PATH, HYP_L, GOAL_N) ;
+    pblx(MODE, [HYP_L | HYPS], PATH, HYP_R, GOAL_N)
+  ).
+
+pblx(start, HYPS, PATH, HYP, GOAL) :- 
+  fbpl(HYP, GOAL, HYP_L, HYP_R, GOAL_L, GOAL_R), !, 
+  startable_hyp(HYP_R),
+  pblx(start, HYPS, PATH, HYP_L, GOAL_L),
+  pblx(block, [HYP_L | HYPS], PATH, HYP_R, GOAL_R).
+
+pblx(match, HYPS, PATH, HYP, GOAL) :- 
+  fbpl(HYP, GOAL, HYP_L, HYP_R, GOAL_L, GOAL_R), !, 
+  (
+    pblx(match, HYPS, PATH, HYP_L, GOAL_L),
+    pblx(block, [HYP_L | HYPS], PATH, HYP_R, GOAL_R)
+  ;
+    pblx(match, [HYP_L | HYPS], PATH, HYP_R, GOAL_R),
+    pblx(block, HYPS, PATH, HYP_L, GOAL_L)
+  ).
+  
+pblx(block, HYPS, PATH, HYP, GOAL) :- 
+  fbpl(HYP, GOAL, HYP_L, HYP_R, GOAL_L, GOAL_R), !, 
+  pblx(block, HYPS, PATH, HYP_L, GOAL_L),
+  pblx(block, [HYP_L | HYPS], PATH, HYP_R, GOAL_R).
+
+pblx(start, HYPS, PATH, HYP, GOAL) :-
+  hyp_sf(HYP, SF), 
+  pos_atom(SF), 
+  pblx(block, HYPS, PATH, HYP, GOAL).
+
+pblx(match, _, [CMP | _], HYP, GOAL) :- 
+  mate(HYP, CMP, GOAL).
+  
+pblx(block, _, _, HYP, GOAL) :-
+  use_lc(HYP, GOAL).
+
+pblx(block, _, PATH, HYP, GOAL) :- 
+  member(CMP, PATH),
+  mate(HYP, CMP, GOAL).
+
+pblx(block, HYPS, PATH, HYP, GOAL) :- 
+  \+ path_redundant(HYP, PATH),
+  pluck(HYPS, HYP_N, REST), 
+  pblx(match, REST, [HYP | PATH], HYP_N, GOAL). 
+ 
 
 
 
@@ -774,17 +866,15 @@ infer(vampire, sat, PREMS, _, GOAL) :-
   sat(PREMS, GOAL).
   
 infer(vampire, pblx, PREMS, CONC, GOAL) :-
-  many_nb([a, s], [CONC], GOAL, HYPS, GOAL_T), 
-  append(HYPS, PREMS, CLAS),
-  pblx(CLAS, GOAL_T).
+  % many_nb([a, s], [CONC], GOAL, HYPS, GOAL_T), 
+  % append(HYPS, PREMS, CLAS),
+  pblx([CONC | PREMS], GOAL).
 
 infer(vampire, gaoc, AOCS, GAOC, GOAL) :- 
-  % aoc(PYPs, ONF, GOAL) :- 
   many_nb([d], [GAOC], GOAL, [IMP], GOAL0), 
   IMP = (_, (- (_ => _))),
   aap(IMP, GOAL0, ANTE, CONS, GOAL1), 
   apply_aocs(ANTE, AOCS, GOAL1, TEMP, GOAL2), 
-  write("final phase"),
   paral((TEMP, CONS, GOAL2)).
   
 infer(vampire, res, [PYP0, PYP1], NYP, GOAL) :- 
@@ -798,6 +888,12 @@ infer(vampire, eqr, [PREM], CONC, GOAL) :-
   many_nb([a, d, s], [CONC], GOAL, HYPS, GOAL0), 
   many([b, c, s], ([PREM], GOAL0), HGS), !,
   maplist(eqr_aux(HYPS), HGS).
+
+infer(vampire, updr, [PREM], CONC, GOAL) :- 
+  many_nb([d], [CONC], GOAL, [CONC_N], GOAL0),
+  many_nb([c], [PREM], GOAL0, [PREM_N], GOAL1),
+  ap(PREM_N, r, GOAL1, PREM_R, GOAL2), 
+  mate(PREM_R, CONC_N, GOAL2).
 
 infer(vampire, (sup, DIR), [PREM_A, PREM_B], CONC, GOAL) :- 
   orient_dir(PREM_A, PREM_B, DIR, PREM_L, PREM_R),
@@ -820,6 +916,10 @@ infer(vampire, paras, PREMS, CONC, GOAL) :-
 infer(vampire, paral, PREMS, CONC, GOAL) :- 
   member(PREM, PREMS),
   paral((PREM, CONC, GOAL)).
+
+infer(vampire, parad, PREMS, CONC, GOAL) :- 
+  member(PREM, PREMS),
+  parad((PREM, CONC, GOAL)).
 
 infer(vampire, parac, PREMS, CONC, GOAL) :- 
   member(PREM, PREMS),
@@ -869,6 +969,7 @@ prove(STRM, PRVR, [add(JST, CID, CONC) | SOL], PROB) :-
   put_char(STRM, 'T'), 
   % write("Justification : "), write(JST), nl,
   % format("Adding axiom : ~w\n", CONC),
+  % format("With context : ~w\n", PROB),
   % justified(PROB, CONC, JST),
   % write("Justified.\n\n"),
   put_sf(STRM, CONC), 
@@ -886,7 +987,7 @@ prove(STRM, PRVR, [inf(HINTS, PIDS, CID, - FORM) | SOL], PROB) :-
   get_context(PROB, PIDS, CTX),
   GOAL = (PRF, 0, 0),
   timed_call(
-    5,
+    500,
     infers(PRVR, HINTS, CTX, (CID, (+ FORM)), GOAL), 
     report_failure(PRVR, HINTS, CTX, (CID, (+ FORM)), GOAL)
   ), !, 
@@ -905,7 +1006,7 @@ prove(STRM, PRVR, [inf(HINTS, PIDS, CID, + FORM) | SOL], PROB) :-
   get_context(PROB, PIDS, CTX),
   GOAL = (PRF, 0, 0), 
   timed_call(
-    5,
+    500,
     infers(PRVR, HINTS, CTX, (CID, (- FORM)), GOAL), 
     report_failure(PRVR, HINTS, CTX, (CID, (- FORM)), GOAL)
   ), !,

@@ -1,1 +1,0 @@
-proof(f(~q,x(2,0),f(q,x(4,0),f($false,f(q,x(2,0),n(3,x(1,0))),h((- $false),neg_false,x(1,0)))))).
