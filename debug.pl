@@ -6,4 +6,7 @@ debug :-
   debug_ctx(CTX), 
   debug_hyp(HYP), 
   debug_goal(GOAL), 
+  % debug_prob(PROB), 
+  % debug_prf(PRF), 
   infers(PRVR, HINTS, CTX, HYP, GOAL).
+  % verify(PROB, 0, PRF).

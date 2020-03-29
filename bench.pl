@@ -2,7 +2,7 @@
 
 :- initialization(main, main).
 :- use_module(library(shell)).
-:- [comp_v, comp_m, verify].
+:- [solve, prove, check].
 
 path_cat_id(Path, Cat, ID) :- 
   atom_codes(Path, Codes0), 
@@ -57,10 +57,16 @@ call_tptp2x(CAT, ID) :-
   shell("rm -r temp", _).
 
 call_compiler(vampire, TPTP, TSTP, TXTX) :- 
-  comp_v(TPTP, TSTP, TXTX).
+  set_prolog_flag(stack_limit, 2_147_483_648),
+  style_check(-singleton),
+  tptp_prob(TPTP, PIDS, PROB),
+  solve(PRVR, PIDS, TSTP, SOL),
+  open(TXTX, write, STRM, [encoding(octet)]),
+  prove(STRM, none, PRVR, SOL, PROB),
+  close(STRM).
 
-call_compiler(metis, TPTP, TSTP, TXTX) :- 
-  comp_m(TPTP, TSTP, TXTX).
+% call_compiler(metis, TPTP, TSTP, TXTX) :- 
+%   comp_m(TPTP, TSTP, TXTX).
 
 call_prover(vampire, TPTP, TSTP) :- 
   atomic_list_concat(["vampire_rel --proof tptp ", TPTP, " > ", TSTP], CMD),  
@@ -101,7 +107,7 @@ bench(PROVER, CAT, ID) :-
         (
           msg("Compilation successful, verifying proof"),
           (
-            verify(TPTP, TXTX) -> 
+            verify(TPTP, TXTX) ->
             ( 
               msg("Verification successful, saving files"),
               mv_concat(TPTP, [PROVER, "-tptp/ps.", TPTP]),
