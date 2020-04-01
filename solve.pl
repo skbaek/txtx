@@ -208,17 +208,20 @@ reduce_gaocs([INST | INSTS], SOL) :-
   reduce_gaocs(INSTS, SFX),
   append(PFX, SFX, SOL). 
 
-
-id_tup(ID, (fof, ID, ROLE, TF, none, none)) :- fof(ID, ROLE, TF).
-id_tup(ID, (fof, ID, ROLE, TF, SRC, none)) :- fof(ID, ROLE, TF, SRC).
-id_tup(ID, (fof, ID, ROLE, TF, SRC, ANT)) :- fof(ID, ROLE, TF, SRC, ANT).
-id_tup(ID, (cnf, ID, ROLE, TF, none, none)) :- cnf(ID, ROLE, TF).
-id_tup(ID, (cnf, ID, ROLE, TF, SRC, none)) :- cnf(ID, ROLE, TF, SRC).
-id_tup(ID, (cnf, ID, ROLE, TF, SRC, ANT)) :- cnf(ID, ROLE, TF, SRC, ANT).
+ % tuplizefof(ID, ROLE, TF) (fof, ID, ROLE, TF, none, none)) :- .
+ % tuplizecnf(ID, ROLE, TF, SRC, ANT)cnf(ID, ROLE, TF, SRC)cnf(ID, ROLE, TF)fof(ID, ROLE, TF, SRC, ANT)fof(ID, ROLE, TF, SRC), (fof, ID, ROLE, TF, SRC, none))  :- .
+ % tuplizecnf(ID, ROLE, TF, SRC, ANT)cnf(ID, ROLE, TF, SRC)cnf(ID, ROLE, TF)fof(ID, ROLE, TF, SRC, ANT)fof(ID, ROLE, TF, SRC), (fof, ID, ROLE, TF, SRC, ANT))   :- .
+ % tuplizecnf(ID, ROLE, TF, SRC, ANT)cnf(ID, ROLE, TF, SRC)cnf(ID, ROLE, TF)fof(ID, ROLE, TF, SRC, ANT)fof(ID, ROLE, TF, SRC), (cnf, ID, ROLE, TF, none, none)) :- .
+ % tuplizecnf(ID, ROLE, TF, SRC, ANT)cnf(ID, ROLE, TF, SRC)cnf(ID, ROLE, TF)fof(ID, ROLE, TF, SRC, ANT)fof(ID, ROLE, TF, SRC), (cnf, ID, ROLE, TF, SRC, none))  :- .
+ % tuplizecnf(ID, ROLE, TF, SRC, ANT)cnf(ID, ROLE, TF, SRC)cnf(ID, ROLE, TF)fof(ID, ROLE, TF, SRC, ANT)fof(ID, ROLE, TF, SRC), (cnf, ID, ROLE, TF, SRC, ANT))   :- .
 
 e_rul_pred(assume_negation, an).
 e_rul_pred(split_conjunct, sc).
 e_rul_pred(fof_nnf, fn).
+e_rul_pred(variable_rename, vr).
+e_rul_pred(skolemizse, sk).
+e_rul_pred(shift_quantors, sq).
+e_rul_pred(distribute, ds).
 e_rul_pred(RUL, RUL) :- 
   member(RUL, [rw, ef, sr, pm, er, cn]).
 
@@ -248,14 +251,18 @@ e_ant_ids_nst(
   e_ant_ids_nst(ANT_B, IDS_B, NST_B), 
   union(IDS_A, IDS_B, IDS).
 
+tuplize(TERM, (LNG, ID, TYPE, TF, ANT)) :- 
+  TERM =.. [LNG, ID, TYPE, TF, ANT] ;
+  TERM =.. [LNG, ID, TYPE, TF, ANT, ['proof']].
+
 e_tup_inst(
-  (_, _, TYPE, _, file(_, _), none),
+  (_, _, TYPE, _, file(_, _)),
   none
 ) :- 
   axiomatic(TYPE).
 
 e_tup_inst(
-  (LNG, CID, TYPE, TF, PID, none),
+  (LNG, CID, TYPE, TF, PID),
   some(inf([parac, dtrx], [PID], CID, (+ FORM)))
 ) :- 
   axiomatic(TYPE),
@@ -263,14 +270,14 @@ e_tup_inst(
   tf_form(LNG, TF, FORM).
   
 e_tup_inst(
-  (LNG, ID, _, TF, ANT, _),
+  (LNG, ID, _, TF, ANT),
   some(inf([nst(NST)], IDS, ID, (+ FORM)))
 ) :- 
   tf_form(LNG, TF, FORM), 
   e_ant_ids_nst(ANT, IDS, NST).
 
 e_tup_inst(
-  (LNG, CID, _, TF, ANT, _),
+  (LNG, CID, _, TF, ANT),
   some(inf([dtrx], [PID], CID, (+ FORM)))
 ) :- 
   tf_form(LNG, TF, FORM), 
@@ -340,18 +347,19 @@ sorted_ids(TSTP, IDS) :-
   maplist_try(string_id, STRS, IDS).
 
 solve('e', _, TSTP, SOL) :- 
-  trim_consult(TSTP),
-  sorted_ids(TSTP, IDS), 
-  maplist_cut(id_tup, IDS, TUPS), 
+  trim_read(TSTP, TEMP), 
+  maplist_cut(tuplize, TEMP, TUPS),
+  % sorted_ids(TSTP, IDS), 
+  % maplist_cut(id_tup, IDS, TUPS), 
   maplist_opt(e_tup_inst, TUPS, SOL),
   true.
 
-solve('metis', PIDS, TSTP, SOL) :- 
-  trim_consult(TSTP),
-  sorted_ids(TSTP, IDS), 
-  maplist_cut(id_tup, IDS, TUPS), 
-  maplist_cut(metis_tuple_inst(PIDS), TUPS, SOL),
-  true.
+% solve('metis', PIDS, TSTP, SOL) :- 
+%   trim_consult(TSTP),
+%   sorted_ids(TSTP, IDS), 
+%   maplist_cut(id_tup, IDS, TUPS), 
+%   maplist_cut(metis_tuple_inst(PIDS), TUPS, SOL),
+%   true.
 
 solve('vampire', PIDS, TSTP, SOL) :- 
   trim_consult(TSTP),

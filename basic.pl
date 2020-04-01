@@ -507,7 +507,6 @@ write_list(Stream, [Elem | List]) :-
   write_list(Stream, List).
 
 write_list([]).
-
 write_list([Elem | List]) :- 
   format('~w\n', Elem),
   write_list(List).
@@ -1085,11 +1084,10 @@ stream_strings(STRM, STRS) :-
   read_line_to_string(STRM, STR), 
   (
     STR = end_of_file -> 
-    STRS = [] ;
-    ( 
-      STRS = [STR | REST],
-      stream_strings(STRM, REST)
-    )
+    STRS = [] 
+  ;
+    STRS = [STR | REST],
+    stream_strings(STRM, REST)
   ).
 
 file_strings(FILE, STRS) :-
@@ -1211,11 +1209,10 @@ trim_ops(Src, Tgt) :-
     ) -> trim_ops(Src, Tgt) 
   ;
     re_replace("!="/g, "\\=", LINE, LINE0), 
-    re_replace("~\\?"/g, "~ ?", LINE0, LINE1), 
-    re_replace("~\\!"/g, "~ !", LINE1, LINE2), 
-    re_replace("~~~"/g, "~ ~ ~", LINE2, LINE3), 
-    % re_replace("~~"/g, "~ ~", LINE3, LINE4), 
-    re_replace("(&|=>|~)~"/g, "$1 ~", LINE3, LINE_F),
+    re_replace("~~~"/g, "~ ~ ~", LINE0, LINE1), 
+    % re_replace("~\\?"/g, "~ ?", LINE0, LINE1), 
+    % re_replace("~\\!"/g, "~ !", LINE1, LINE2), 
+    re_replace("(~|&|=>|<=>)(~|\\!|\\?)"/g, "$1 $2", LINE1, LINE_F),
     write(Tgt, LINE_F), 
     write(Tgt, "\n"), 
     trim_ops(Src, Tgt)
@@ -1252,6 +1249,37 @@ vac_qtf(HYP) :-
   qtf(QTF),
   no_bv_form(0, SUB).
 
+fv_inc_term(_, VAR) :- var(VAR), !, false.
+fv_inc_term(CNT, #(NUM), #(NEW)) :- !,
+  NUM < CNT -> 
+  NEW = NUM ;
+  NEW is NUM + 1.
+fv_inc_term(_, @(NUM), @(NUM)) :- !.
+fv_inc_term(CNT, TERM_I, TERM_O) :- 
+  TERM_I =.. [FUN | TERMS_I],
+  maplist_cut(fv_inc_term(CNT), TERMS_I, TERMS_O), 
+  TERM_O =.. [FUN | TERMS_O].
+
+fv_inc_form(_, FORM, FORM) :- log_const(FORM), !.
+fv_inc_form(NUM, ~ FORM_I, ~ FORM_O) :- !, 
+  fv_inc_form(NUM, FORM_I, FORM_O). 
+fv_inc_form(NUM, FORM_I, FORM_O) :- 
+  FORM_I =.. [QTF, SUB_I], 
+  qtf(QTF), !,
+  SUCC is NUM + 1,
+  fv_inc_form(SUCC, SUB_I, SUB_O), 
+  FORM_O =.. [QTF, SUB_O]. 
+fv_inc_form(NUM, FORM_I, FORM_O) :- 
+  FORM_I =.. [BCT, FORM_IA, FORM_IB],
+  bct(BCT), !,
+  fv_inc_form(NUM, FORM_IA, FORM_OA),
+  fv_inc_form(NUM, FORM_IB, FORM_OB), 
+  FORM_O =.. [BCT, FORM_OA, FORM_OB].
+fv_inc_form(NUM, FORM_I, FORM_O) :- 
+  FORM_I =.. [REL | TERMS_I],
+  maplist_cut(fv_inc_term(NUM), TERMS_I, TERMS_O),
+  FORM_O =.. [REL | TERMS_O].
+
 no_fv_term(_, VAR) :- var(VAR), !, false.
 no_fv_term(CNT, #(NUM)) :- !, NUM < CNT.
 no_fv_term(_, @(_)) :- !.
@@ -1259,8 +1287,7 @@ no_fv_term(CNT, TERM) :-
   TERM =.. [_ | TERMS],
   maplist_cut(no_fv_term(CNT), TERMS).
 
-no_fv_form(_, $true).
-no_fv_form(_, $false). 
+no_fv_form(_, FORM) :- log_const(FORM), !.
 no_fv_form(NUM, ~ FORM) :- !, 
   no_fv_form(NUM, FORM). 
 no_fv_form(NUM, FORM) :- 
@@ -1307,14 +1334,64 @@ no_fp_sf(FP, SF) :-
   sf_form(SF, FORM),
   no_fp_form(FP, FORM).
 
+pnf_bct(BCT, ! FORM_A, FORM_B, ! NORM) :- 
+  fv_inc_form(0, FORM_B, FORM_N), 
+  pnf_bct(BCT, FORM_A, FORM_N, NORM).
+pnf_bct(BCT, ? FORM_A, FORM_B, ? NORM) :- 
+  fv_inc_form(0, FORM_B, FORM_N), 
+  pnf_bct(BCT, FORM_A, FORM_N, NORM).
+pnf_bct(BCT, FORM_A, ! FORM_B, ! NORM) :- 
+  fv_inc_form(0, FORM_A, FORM_N), 
+  pnf_bct(BCT, FORM_N, FORM_B, NORM).
+pnf_bct(BCT, FORM_A, ? FORM_B, ? NORM) :- 
+  fv_inc_form(0, FORM_A, FORM_N), 
+  pnf_bct(BCT, FORM_N, FORM_B, NORM).
+
+pnf_not(! FORM, ? NORM) :- !, pnf_not(FORM, NORM).
+pnf_not(? FORM, ! NORM) :- !, pnf_not(FORM, NORM).
+pnf_not(FORM, ~ FORM). 
+
+pnf(FORM, FORM) :- log_const(FORM), !.
+pnf(~ FORM, NORM) :- !, 
+  pnf(FORM, TEMP), 
+  pnf_not(TEMP, NORM).
+pnf(FORM, NORM)  :- 
+  FORM =.. [BCT, FORM_A, FORM_B],
+  bct(BCT), !, 
+  pnf(FORM_A, NORM_A), 
+  pnf(FORM_B, NORM_B), 
+  pnf_bct(BCT, NORM_A, NORM_B, NORM).
+pnf(FORM, NORM) :- 
+  FORM =.. [QTF, SUB_FORM], 
+  qtf(QTF), !,
+  pnf(SUB_FORM, SUB_NORM), 
+  NORM =.. [QTF, SUB_NORM]. 
+pnf(FORM, FORM). 
+
 nnf(FORM_A & FORM_B,  NORM_A & NORM_B)  :- !, nnf(FORM_A, NORM_A), nnf(FORM_B, NORM_B).
 nnf(FORM_A | FORM_B,  NORM_A | NORM_B)  :- !, nnf(FORM_A, NORM_A), nnf(FORM_B, NORM_B).
 nnf(FORM_A => FORM_B, NORM_A => NORM_B) :- !, nnf(FORM_A, NORM_A), nnf(FORM_B, NORM_B).
+nnf(FORM_A <=> FORM_B, NORM_A & NORM_B) :- !, nnf(FORM_A => FORM_B, NORM_A), nnf(FORM_B => FORM_A, NORM_B).
+nnf(! FORM, ! NORM) :- !, nnf(FORM, NORM).
+nnf(? FORM, ? NORM) :- !, nnf(FORM, NORM).
 nnf(~ ~ FORM, NORM) :- !, nnf(FORM, NORM).
 nnf(~ (FORM_A & FORM_B),  NORM_A | NORM_B) :- !, nnf(~ FORM_A, NORM_A), nnf(~ FORM_B, NORM_B).
 nnf(~ (FORM_A | FORM_B),  NORM_A & NORM_B) :- !, nnf(~ FORM_A, NORM_A), nnf(~ FORM_B, NORM_B).
 nnf(~ (FORM_A => FORM_B), NORM_A & NORM_B) :- !, nnf(FORM_A, NORM_A), nnf(~ FORM_B, NORM_B).
+nnf(~ ! FORM, ? NORM) :- !, nnf(~ FORM, NORM).
+nnf(~ ? FORM, ! NORM) :- !, nnf(~ FORM, NORM).
+ % nnf(~ (FORM_A <=> FORM_B), _).
 nnf(FORM, FORM).
+
+trim_read(FILE, TERMS) :- 
+  open(FILE, read, SRC), 
+  atomic_concat(FILE, ".temp", TEMP),
+  open(TEMP, write, TGT), 
+  trim_ops(SRC, TGT), 
+  close(SRC),
+  close(TGT),
+  read_file_to_terms(TEMP, TERMS, []),
+  delete_file(TEMP).
 
 trim_consult(FILE) :- 
   dynamic(cnf/3),
