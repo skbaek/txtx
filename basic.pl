@@ -17,6 +17,8 @@
 
 %%%%%%%%%%%%%%%% GENERIC %%%%%%%%%%%%%%%% 
   
+syneq(X, Y) :- X == Y.
+
 random_pluck(LIST, ELEM, REST) :- 
   random_member(ELEM, LIST), 
   delete(LIST, ELEM, REST).
@@ -1548,6 +1550,11 @@ upnf(! FORM, ! NORM) :- !,
   upnf(FORM, NORM).
 upnf(FORM, FORM). 
 
+has_exists(? _).
+has_exists(! FORM) :- has_exists(FORM).
+has_exists(FORM_A & FORM_B) :- has_exists(FORM_A) ; has_exists(FORM_B).
+has_exists(FORM_A | FORM_B) :- has_exists(FORM_A) ; has_exists(FORM_B).
+
 has_qtf(! _).
 has_qtf(? _).
 has_qtf(~ FORM) :- has_qtf(FORM).
@@ -2701,7 +2708,11 @@ iff_conv((HYP_A, HYP_B, GOAL), (HYP_N, HYP_B, GOAL_N)) :-
   fps(SF_N, GOAL, HYP_T, HYP_N, GOAL_T, GOAL_N),
   pblx(p, [HYP_A, HYP_T], GOAL_T).
 
-
+e_iff_conv((HYP_A, HYP_B, GOAL), (HYP_N, HYP_B, GOAL_N)) :- 
+  hyp_sf(HYP_A, - (FORM_A <=> FORM_B)),
+  FORM = ((~ FORM_A | ~ FORM_B) & (FORM_A | FORM_B)),
+  fp(FORM, GOAL, HYP_T, HYP_N, GOAL_T, GOAL_N),
+  pblx(p, [HYP_A, HYP_T], GOAL_T).
 
 %%%%%%%%%%%%%%%% PARALLEL DECOMPOSITION PREDICATES %%%%%%%%%%%%%%%%
   
@@ -2836,6 +2847,10 @@ parad(H2G) :-
 
 %%%%%%%%%%%%%%%% NEGATION NORMALIZATION %%%%%%%%%%%%%%%%
 
+a_para((HYP_A, HYP_B, GOAL), (HYP_AN, HYP_B, GOAL_N)) :- 
+  ap(HYP_A, l, GOAL, HYP_AN, GOAL_N) ;
+  ap(HYP_A, r, GOAL, HYP_AN, GOAL_N).
+
 parad_a((HYP_A, HYP_B, GOAL), (HYP_AN, HYP_B, GOAL_N)) :- 
   ap(HYP_A, l, GOAL, HYP_AN, GOAL_N) ;
   ap(HYP_A, r, GOAL, HYP_AN, GOAL_N).
@@ -2855,13 +2870,6 @@ parad_a((HYP_A, HYP_B, GOAL), (HYP_A, HYP_BN, GOAL_N)) :-
 %  vppr(H2G_L),  
 %  vppr(H2G_R).
 
-scj(H2G) :- 
-  para_m(H2G) -> true ;
-  para_s(H2G, H2G_N) -> scj(H2G_N) ;
-  parad_a(H2G, H2G_N),
-  scj(H2G_N).
-  
-  
 fnnf(H2G) :- 
   para_m(H2G) -> true ;
   para_s(H2G, H2G_N) -> fnnf(H2G_N) ;
@@ -2877,8 +2885,10 @@ fnnf(H2G) :-
     imp_hyp(PREM),
     parad_a(H2G, H2G_N),
     fnnf(H2G_N)
+  ;  
+    e_iff_conv(H2G, H2G_N), 
+    fnnf(H2G_N)
   ).
-
 
   
 vnnf(H2G) :- 

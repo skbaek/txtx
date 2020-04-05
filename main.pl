@@ -34,10 +34,10 @@ main(['-p', PRVR, TPTP, TSTP, TXTX]) :-
   style_check(-singleton),
   pose(TPTP, PIDS, PROB),
   solve(PRVR, PIDS, TSTP, SOL),
+  write_list(SOL),
   open(TXTX, write, STRM, [encoding(octet)]),
   prove(STRM, none, PRVR, SOL, PROB),
   close(STRM).
-  % write_list(SOL).
   
 main(['-v', TPTP, TXTX]) :- 
   check(TPTP, TXTX).

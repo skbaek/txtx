@@ -307,14 +307,18 @@ skolemize(FAS, ? FORM, SKM, AOC, NORM) :-
 
 last_id([inf(_,  _, ID, _) | _], ID).
 
-% unroll_hint(HINT, FI_T, PID, SF, FI_O, CID, PFX),
-
-unroll_hint(
-  skm(SKM, AOC), FI_I, PID, SF, FI_O, t(FI_T), 
-  [inf([skm], [PID, t(FI_I)], t(FI_T), SF), add([aoc, SKM], t(FI_I), (+ AOC))]
-) :- !, 
+pairs_insts(FI, [], FI, [], []).
+pairs_insts(FI_I, [(SKM, AOC) | PAIRS], FI_O, [t(FI_I) | IDS], [add([aoc, SKM], t(FI_I), (+ AOC)) | INSTS]) :- 
   FI_T is FI_I + 1, 
-  FI_O is FI_T + 1.
+  pairs_insts(FI_T, PAIRS, FI_O, IDS, INSTS).
+  
+unroll_hint(
+  skm(PAIRS), FI_I, PID, SF, FI_O, t(FI_T), 
+  [inf([skm], [PID | IDS], t(FI_T), SF) | INSTS]
+) :- !, 
+  pairs_insts(FI_I, PAIRS, FI_T, IDS, REV_INSTS),
+  FI_O is FI_T + 1,
+  reverse(REV_INSTS, INSTS).
 
 unroll_hint(
   HINT, FI_I, PID, SF, FI_O, t(FI_I), 
@@ -367,15 +371,16 @@ conjunct(FORM, CONJ) :-
   close_lvs(PERM, CONJ).
 
 conjunct_core(FORM_A & FORM_B, NORM) :- !, 
-  conjunct_core(FORM_A, NORM) ;
-  conjunct_core(FORM_B, NORM).
+  (
+    conjunct_core(FORM_A, NORM) ;
+    conjunct_core(FORM_B, NORM)
+  ).
 conjunct_core(FORM, FORM).
 
 tree_conc(ntr(_, SF), SF).
 tree_conc(utr(_, _, SF), SF).
 tree_conc(btr(_, _, _, SF), SF).
 
-mk_root(FAS, skolemize, + FORM, skm(SKM, AOC), + NORM) :- skolemize(FAS, FORM, SKM, AOC, NORM).
 mk_root(_, assume_negation, - FORM, ngt, + ~ FORM).
 mk_root(_, shift_quantors, + FORM, upnf, + NORM) :- upnf(FORM, NORM).
 mk_root(_, fof_nnf, + FORM, fnnf, + NORM) :- fnnf([], FORM, NORM).
@@ -384,6 +389,15 @@ mk_root(_, fof_simplification, + FORM, rnm, + FORM).
 mk_root(_, split_conjunct, + FORM, scj, + NORM) :- conjunct(FORM, NORM).
 mk_root(_, cn, + FORM, paratf, + NORM) :- bool_norm(FORM, NORM).
 mk_root(_, distribute, + FORM, dist, + NORM) :- distribute(FORM, NORM).
+
+% mk_root(FAS, skolemize, + FORM, skm(SKM, AOC), + NORM) :- skolemize(FAS, FORM, SKM, AOC, NORM).
+mk_root(FAS, skolemize, + FORM, skm(PAIRS), + NORM) :- 
+  skolemize_many(FAS, FORM, PAIRS, NORM).
+
+skolemize_many(_, FORM, [], FORM) :- \+ has_exists(FORM).
+skolemize_many(FAS, FORM, [(SKM, AOC) | HINTS], NORM) :- 
+  skolemize(FAS, FORM, SKM, AOC, TEMP), 
+  skolemize_many(FAS, TEMP, HINTS, NORM).
 
 mk_root(_, pm, + FORM_A, + FORM_B, (sup, l), + FORM) :- 
   inst_fas(FORM_A, BODY_A),
@@ -396,7 +410,7 @@ mk_root(_, pm, + FORM_A, + FORM_B, (sup, l), + FORM) :-
   mk_cf(LITS, BODY_N),
   close_lvs(BODY_N, FORM).
 
-mk_root(_, rw, + FORM_A, + FORM_B, rwe, + FORM) :- 
+mk_root(_, rw, + FORM_A, + FORM_B, dfu, + FORM) :- 
   inst_fas(FORM_A, BODY_A),
   inst_fas(FORM_B, BODY_B),
   erient_form(BODY_B, LHS = RHS), 
@@ -413,7 +427,9 @@ mk_root(_, RUL, + FORM_A, + FORM_B, res, + FORM) :-
   pluck(LITS_L, ~ ATOM_L, REST_L),
   pluck(LITS_R, ATOM_R, REST_R),
   unify_atom(ATOM_L, ATOM_R),
-  append(REST_L, REST_R, LITS),
+  exclude('=='(~ ATOM_L), REST_L, FILT_L), 
+  exclude('=='(ATOM_R), REST_R, FILT_R), 
+  append(FILT_L, FILT_R, LITS),
   mk_cf(LITS, CF),
   close_lvs(CF, FORM).
   

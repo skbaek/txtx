@@ -800,6 +800,17 @@ rwa(AYP, TRP) :-
     mate(AYP, PREM, GOAL) 
   ).
 
+pmt((PREM, CONC, GOAL)) :- 
+  many_nb([a, s], [CONC], GOAL, HYPS, GOAL_T), 
+  many([b, s], ([PREM], GOAL_T), HGS), 
+  maplist(pick_mate(HYPS), HGS).
+
+scj(H2G) :- 
+  pmt(H2G) -> true ;
+  para_s(H2G, H2G_N) -> scj(H2G_N) ;
+  a_para(H2G, H2G_N),
+  scj(H2G_N).
+  
 /*
 
 pmt(PREM, CONC, GOAL) :- 
@@ -1023,6 +1034,11 @@ infer(vampire, spl, [PREM | PREMS], CONC, GOAL) :-
   append(HYPS0, HYPS1, HYPS),
   pblx(q, [PREM | HYPS], GOAL1).
   
+infer(e, dist, [PREM], CONC, GOAL) :- 
+  many_nb([d], [CONC], GOAL, [HYP_C], GOAL0), 
+  many_nb([c], [PREM], GOAL0, [HYP_P], GOAL1), 
+  pblx(p, [HYP_P, HYP_C], GOAL1).
+
 infer(_, para, PREMS, CONC, GOAL) :- 
   member(PREM, PREMS),
   para((PREM, CONC, GOAL)).
