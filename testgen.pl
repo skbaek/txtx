@@ -125,10 +125,13 @@ main :-
   set_prolog_flag(stack_limit, 4_294_967_296),
   msg("Generating paths"),
   rec_dir_files("/home/sk/programs/TPTP/Problems", ALL), 
-  include_cut(is_fol_thm, ALL, PATHS), !, 
-  % append(_, ['/home/sk/programs/TPTP/Problems/CSR/CSR061+6.p' | REST], TEMP),
-  % PATHS = (['/home/sk/programs/TPTP/Problems/CSR/CSR061+6.p' | REST]),
-  maplist_cut(prob_ext, PATHS).
+  include_cut(is_fol_thm, ALL, TEMP), !, 
+  append(_, ['/home/sk/programs/TPTP/Problems/CSR/CSR065+6.p' | REST], TEMP),
+  PATHS = (['/home/sk/programs/TPTP/Problems/CSR/CSR065+6.p' | REST]),
+  length(PATHS, LTH),
+  format("REM : ~w\n\n", LTH).
+  
+  % maplist_cut(prob_ext, PATHS).
   
   % atom_number(NUM_ATOM, NUM),
   % msg("Enter bench loop"),

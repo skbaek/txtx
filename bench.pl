@@ -59,7 +59,7 @@ call_tptp2x(CAT, ID) :-
 call_compiler(vampire, TPTP, TSTP, TXTX) :- 
   set_prolog_flag(stack_limit, 2_147_483_648),
   style_check(-singleton),
-  tptp_prob(TPTP, PIDS, PROB),
+  pose(TPTP, PIDS, PROB),
   solve(PRVR, PIDS, TSTP, SOL),
   open(TXTX, write, STRM, [encoding(octet)]),
   prove(STRM, none, PRVR, SOL, PROB),
@@ -67,6 +67,23 @@ call_compiler(vampire, TPTP, TSTP, TXTX) :-
 
 % call_compiler(metis, TPTP, TSTP, TXTX) :- 
 %   comp_m(TPTP, TSTP, TXTX).
+
+e_check(STRM) :- 
+  read_line_to_string(STRM, LINE), 
+  (
+    LINE = "# Proof found!" -> true  
+  ;
+    LINE = end_of_file -> false  
+  ;
+    e_check(STRM) 
+  ).
+  
+call_prover(e, TPTP, TSTP) :- 
+  atomic_list_concat(["eprover --cpu-limit=60 -p ", TPTP, " > ", TSTP], CMD), 
+  shell(CMD, _), 
+  open(TSTP, read, STRM), 
+  e_check(STRM), 
+  close(STRM).
 
 call_prover(vampire, TPTP, TSTP) :- 
   atomic_list_concat(["vampire_rel --proof tptp ", TPTP, " > ", TSTP], CMD),  
@@ -89,100 +106,40 @@ mv_concat(FILE, LIST) :-
   atomic_list_concat(LIST, PATH),
   mv(FILE, PATH).
 
-bench(PROVER, CAT, ID) :- 
-  atomics_to_string([CAT, ID, ".tptp"], TPTP),
-  atomics_to_string([CAT, ID, ".tstp"], TSTP),
-  atomics_to_string([CAT, ID, ".txtx"], TXTX),
-
-  msg("Extracting problem from TPTP library"),
-  call_tptp2x(CAT, ID), 
-
-  msg('Begin ~w proof search', PROVER),
+gen_sol(PROVER, TPTP) :- 
+  string_concat(TEMP, ".tptp", TPTP),
+  string_concat("./p/", NAME, TEMP),
+  msg('Problem chosen = ~w', [NAME]),
+  atomics_to_string(["./", PROVER, "s/", NAME, ".tstp"], TSTP),
+  msg("Begin proof search with ~w", PROVER),
   (
     call_prover(PROVER, TPTP, TSTP) -> 
+    msg("Proof search successful.")
+  ;
     (
-      msg("Search successful, begin TSTP > TXTX compilation"),
-      (
-        call_compiler(PROVER, TPTP, TSTP, TXTX) -> 
-        (
-          msg("Compilation successful, verifying proof"),
-          (
-            verify(TPTP, TXTX) ->
-            ( 
-              msg("Verification successful, saving files"),
-              mv_concat(TPTP, [PROVER, "-tptp/ps.", TPTP]),
-              mv_concat(TSTP, [PROVER, "-tstp/ps.", TSTP]),
-              mv_concat(TXTX, [PROVER, "-txtx/ps.", TXTX])
-            ) ; 
-            ( 
-              msg("Verification failed, saving files"),
-              mv_concat(TPTP, [PROVER, "-tptp/vf.", TPTP]),
-              mv_concat(TSTP, [PROVER, "-tstp/vf.", TSTP]),
-              mv_concat(TXTX, [PROVER, "-txtx/vf.", TXTX])
-            )
-          )
-        ) ;
-        (
-          msg("Compilation failed, saving files"),
-          mv_concat(TPTP, [PROVER, "-tptp/cf.", TPTP]),
-          mv_concat(TSTP, [PROVER, "-tstp/cf.", TSTP])
-        )
-      )
-    ) ; 
-    (
-      msg("Search failed, deleting files"),
-      delete_file(TPTP),
+      msg("Proof search failed, deleting solution file"),
       delete_file(TSTP),
       false
     )
-  ), !.
-
-theorem_or_unsat(CAT, ID) :- 
-  atomics_to_string(["/home/sk/programs/TPTP/Problems/", CAT, "/", CAT, ID, ".p"], FILE), 
-  file_strings(FILE, STRS),
-  member(STR, STRS), 
-  split_string(STR, ":", " %", ["Status", STAT_STR]), 
-  member(STAT_STR, ["Theorem", "Unsatisfiable"]).
-
-choose_prob(PATHS, CAT, ID, REST) :- 
-  random_pluck(PATHS, PATH, TEMP), 
-  path_cat_id(PATH, RDM_CAT, RDM_ID), 
-  (
-    theorem_or_unsat(RDM_CAT, RDM_ID) ->
-    (
-      msg("Found theorem/unsat"),
-      CAT = RDM_CAT, 
-      ID = RDM_ID,
-      REST = TEMP
-    ) ; 
-    (
-      msg("Not theorem/unsat. Skipping..."),
-      choose_prob(TEMP, CAT, ID, REST)
-    )
   ).
 
-bench_loop(_, 0, _).
-
-bench_loop(PROVER, NUM, PATHS) :- 
+gen_sols(_, 0, _).
+gen_sols(PROVER, NUM, PATHS) :- 
   msg('Starting bench : ~w more problems to go', NUM),
   num_pred(NUM, PRED), 
   msg("Choosing random problem"), 
-  % random_pluck(PATHS, PATH, REST), 
+  random_pluck(PATHS, PATH, REST), 
   % path_cat_id(PATH, CAT, ID), 
-  choose_prob(PATHS, CAT, ID, REST),
-  msg('Problem chosen = ~w~w', [CAT, ID]),
+  % choose_prob(PATHS, CAT, ID, REST),
   (
-    bench(PROVER, CAT, ID) ->
-    bench_loop(PROVER, PRED, REST) ; 
-    bench_loop(PROVER, NUM, PATHS)  
+    gen_sol(PROVER, PATH) ->
+    gen_sols(PROVER, PRED, REST) ; 
+    gen_sols(PROVER, NUM, REST)  
   ).
 
 main([PROVER, NUM_ATOM]) :- 
-  set_prolog_flag(stack_limit, 2_147_483_648),
-  msg("Setting up bench session, generating paths"),
-  rec_dir_files("/home/sk/programs/TPTP/Problems", ALL_PATHS), 
-  include(is_fol_prob, ALL_PATHS, PATHS),
+  rec_dir_files("./p/", PATHS), 
   atom_number(NUM_ATOM, NUM),
-  msg("Enter bench loop"),
-  bench_loop(PROVER, NUM, PATHS), 
-  msg("Exit bench loop").
+  msg("Enter gen loop"),
+  gen_sols(PROVER, NUM, PATHS), 
+  msg("Exit gen loop").
