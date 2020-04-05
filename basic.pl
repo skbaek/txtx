@@ -636,6 +636,13 @@ pluck_uniq(Acc, [Elem | List], Elem, REST) :-
 pluck_uniq(Acc, [Elem | List], Pick, REST) :- 
   pluck_uniq([Elem | Acc], List, Pick, REST).
 
+pluck(0, LIST, [], LIST) :- !.
+pluck(NUM, [ELEM | LIST], [ELEM | ELEMS], REST) :- 
+  num_pred(NUM, PRED), 
+  pluck(PRED, LIST, ELEMS, REST).
+pluck(NUM, [ELEM | LIST], ELEMS, [ELEM | REST]) :- 
+  pluck(NUM, LIST, ELEMS, REST).
+
 pluck([Elem | Rem], Elem, Rem).
 
 pluck([ElemA | List], ElemB, [ElemA | Rem]) :- 
@@ -795,7 +802,8 @@ ovs(FORM, OVS) :-
   ovs(FORM_B, BND_B),
   union(BND_A, BND_B, OVS).
 ovs(FORM, OVS) :- 
-  findall(NUM, sub_term(#(NUM), FORM), OVS). 
+  findall(NUM, sub_term(#(NUM), FORM), TEMP), 
+  sort(TEMP, OVS).
   
 ov_bound(~ FORM, BND) :- !, ov_bound(FORM, BND).
 ov_bound(FORM, BND) :- 

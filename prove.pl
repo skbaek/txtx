@@ -996,6 +996,11 @@ infer(PRVR, res, [PYP0, PYP1], NYP, GOAL) :-
     res(PYP1, PYP0, HYPS, GOAL_T)
   ), !.
 
+infer(_, pmt, [PREM], CONC, GOAL) :- 
+  many_nb([a, d, s], [CONC], GOAL, HYPS, GOAL_T), 
+  many([b, c, s], ([PREM], GOAL_T), HGS), 
+  maplist(pick_mate(HYPS), HGS).
+
 infer(vampire, eqf, [PREM], CONC, GOAL) :- 
   many_nb([a, d, s], [CONC], GOAL, HYPS, GOAL_T), 
   pluck(HYPS, HYP, REST), 

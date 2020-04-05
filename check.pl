@@ -1,68 +1,67 @@
 :- [basic].
 
-/*
-verify(PROB, FP, a(PID, DIR, CID, PRF)) :- 
+check(PROB, FP, a(PID, DIR, CID, PRF)) :- 
   get_assoc(PID, PROB, PREM),
   ab(DIR, PREM, CONC), 
   put_assoc(CID, PROB, CONC, PROB_N), !,
-  verify(PROB_N, FP, PRF).
+  check(PROB_N, FP, PRF).
 
-verify(PROB, FP, b(PID, CID, PRF_L, PRF_R)) :- 
+check(PROB, FP, b(PID, CID, PRF_L, PRF_R)) :- 
   get_assoc(PID, PROB, PREM),
   bb(PREM, CONC_L, CONC_R),
   put_assoc(CID, PROB, CONC_L, PROB_L),
   put_assoc(CID, PROB, CONC_R, PROB_R), !,
-  verify(PROB_L, FP, PRF_L), !,
-  verify(PROB_R, FP, PRF_R).
+  check(PROB_L, FP, PRF_L), !,
+  check(PROB_R, FP, PRF_R).
 
-verify(PROB, FP, c(PID, TERM, CID, PRF)) :- 
+check(PROB, FP, c(PID, TERM, CID, PRF)) :- 
   ground(TERM),
   no_fv_term(0, TERM),
   no_fp_term(FP, TERM),
   get_assoc(PID, PROB, PREM),
   cb(TERM, PREM, CONC), 
   put_assoc(CID, PROB, CONC, PROB_N), !,
-  verify(PROB_N, FP, PRF).
+  check(PROB_N, FP, PRF).
 
-verify(PROB, FP, d(PID, CID, PRF)) :- 
+check(PROB, FP, d(PID, CID, PRF)) :- 
   get_assoc(PID, PROB, PREM),
   db(FP, PREM, CONC), 
   put_assoc(CID, PROB, CONC, PROB_N),
   FP_N is FP + 1, !,
-  verify(PROB_N, FP_N, PRF).
+  check(PROB_N, FP_N, PRF).
 
-verify(PROB, FP, f(FORM, CID, PRF_L, PRF_R)) :- 
+check(PROB, FP, f(FORM, CID, PRF_L, PRF_R)) :- 
   ground(FORM), % No logic variables in Form
   no_fv_form(0, FORM), % No free object variables in Form
   no_fp_form(FP, FORM), % No new parameters in Form
   put_assoc(CID, PROB, (- FORM), PROB_L), !,
-  verify(PROB_L, FP, PRF_L),
+  check(PROB_L, FP, PRF_L),
   put_assoc(CID, PROB, (+ FORM), PROB_R), !,
-  verify(PROB_R, FP, PRF_R).
+  check(PROB_R, FP, PRF_R).
 
-verify(PROB, FP, s(PID, CID, PRF)) :- 
+check(PROB, FP, s(PID, CID, PRF)) :- 
   get_assoc(PID, PROB, PREM),
   sb(PREM, CONC), 
   put_assoc(CID, PROB, CONC, PROB_N), !,
-  verify(PROB_N, FP, PRF).
+  check(PROB_N, FP, PRF).
 
-verify(PROB, FP, t(SF, JST, CID, PRF)) :- 
+check(PROB, FP, t(SF, JST, CID, PRF)) :- 
   no_fv_sf(0, SF),  
   no_fp_sf(FP, SF), 
   justified(PROB, SF, JST),
   put_assoc(CID, PROB, SF, PROB_N), !,
-  verify(PROB_N, FP, PRF).
+  check(PROB_N, FP, PRF).
     
-verify(PROB, FP, w(PID, PRF)) :- 
+check(PROB, FP, w(PID, PRF)) :- 
   del_assoc(PID, PROB, _, PROB_N), !,
-  verify(PROB_N, FP, PRF).
+  check(PROB_N, FP, PRF).
 
-verify(PROB, _, x(PID, NID)) :- 
+check(PROB, _, x(PID, NID)) :- 
   get_assoc(PID, PROB, + FORM_P),
   get_assoc(NID, PROB, - FORM_N),
   FORM_P == FORM_N.
 
-*/
+/*
 check(STRM, PROB, FP) :- 
   get_char(STRM, CH), 
   (
@@ -147,14 +146,15 @@ check(STRM, PROB, FP) :-
     get_assoc(NID, PROB, - FORM_N),
     FORM_P == FORM_N
   ).
+*/
   
 check(TPTP, TXTX) :- 
   style_check(-singleton),
   pose(TPTP, _, PROB),
   open(TXTX, read, STRM, [encoding(octet)]), 
-  % get_prf(STRM, PRF),
-  % verify(PROB, 0, PRF),
-  check(STRM, PROB, 0),
+  get_prf(STRM, PRF),
+  check(PROB, 0, PRF),
+  % check(STRM, PROB, 0),
   write("Proof verified.\n"),
   close(STRM).
 

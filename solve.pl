@@ -232,24 +232,33 @@ mk_rw_form(LHS, RHS, ~ FORM, ~ RW) :- !,
   mk_rw_form(LHS, RHS, FORM, RW).
 
 mk_rw_form(LHS, RHS, (FORM_L | FORM_R), (RW_L | RW_R)) :- !,
-  mk_rw_form(LHS, RHS, FORM_L, RW_L),
-  mk_rw_form(LHS, RHS, FORM_R, RW_R).
+  (
+    mk_rw_form(LHS, RHS, FORM_L, RW_L),
+    FORM_R = RW_R
+  ;
+    mk_rw_form(LHS, RHS, FORM_R, RW_R),
+    FORM_L = RW_L
+  ).
 
 mk_rw_form(LHS, RHS, FORM_I, FORM_O) :- 
   FORM_I =.. [REL | TERMS_I], 
-  maplist(mk_rw_term(LHS, RHS), TERMS_I, TERMS_O), 
+  mk_rw_terms(LHS, RHS, TERMS_I, TERMS_O), 
   FORM_O =.. [REL | TERMS_O]. 
 
+mk_rw_terms(LHS, RHS, [TERM_I | TERMS_I], [TERM_O | TERMS_O]) :-  
+  mk_rw_term(LHS, RHS, TERM_I, TERM_O),
+  TERMS_I = TERMS_O 
+;
+  TERM_I = TERM_O, 
+  mk_rw_terms(LHS, RHS, TERMS_I, TERMS_O).
+
 mk_rw_term(LHS, RHS, TERM_I, TERM_O) :- 
-  LHS == TERM_I -> RHS = TERM_O 
-; 
   unify_with_occurs_check(LHS, TERM_I),
   unify_with_occurs_check(RHS, TERM_O)
 ; 
-  var(TERM_I) -> TERM_I = TERM_O 
-;
+  \+ var(TERM_I),
   TERM_I =.. [FUN | TERMS_I], 
-  maplist(mk_rw_term(LHS, RHS), TERMS_I, TERMS_O), 
+  mk_rw_terms(LHS, RHS, TERMS_I, TERMS_O), 
   TERM_O =.. [FUN | TERMS_O]. 
 
 mk_cf([], $false).
@@ -364,6 +373,14 @@ perm_cla(CLA_I, CLA_O) :-
   permutation(LITS, PERM), 
   mk_cf(PERM, CLA_O).
 
+eq_resolve(FORM_I, FORM_O) :- 
+  inst_fas(FORM_I, BODY_I), 
+  cf_lits(BODY_I, LITS),
+  pluck(LITS, ~ (LHS = RHS), REST), 
+  unify_with_occurs_check(LHS, RHS), 
+  mk_cf(REST, BODY_O),
+  close_lvs(BODY_O, FORM_O).
+  
 conjunct(FORM, CONJ) :- 
   inst_fas(FORM, BODY), 
   conjunct_core(BODY, TEMP), 
@@ -389,6 +406,14 @@ mk_root(_, fof_simplification, + FORM, rnm, + FORM).
 mk_root(_, split_conjunct, + FORM, scj, + NORM) :- conjunct(FORM, NORM).
 mk_root(_, cn, + FORM, paratf, + NORM) :- bool_norm(FORM, NORM).
 mk_root(_, distribute, + FORM, dist, + NORM) :- distribute(FORM, NORM).
+mk_root(_, er, + FORM, eqr, + NORM) :- eq_resolve(FORM, NORM).
+mk_root(_, ef, + FORM_I, pmt, + FORM_O) :- 
+  inst_fas(FORM_I, BODY_I),
+  cf_lits(BODY_I, LITS), 
+  pluck(2, LITS, [LIT_A, LIT_B], REST),
+  unify_with_occurs_check(LIT_A, LIT_B), 
+  mk_cf([LIT_A | REST], BODY_O), 
+  close_lvs(BODY_O, FORM_O).
 
 % mk_root(FAS, skolemize, + FORM, skm(SKM, AOC), + NORM) :- skolemize(FAS, FORM, SKM, AOC, NORM).
 mk_root(FAS, skolemize, + FORM, skm(PAIRS), + NORM) :- 
@@ -401,19 +426,22 @@ skolemize_many(FAS, FORM, [(SKM, AOC) | HINTS], NORM) :-
 
 mk_root(_, pm, + FORM_A, + FORM_B, (sup, l), + FORM) :- 
   inst_fas(FORM_A, BODY_A),
-  cf_lits(BODY_A, [LIT_A | LITS_A]), 
+  cf_lits(BODY_A, LITS_A), 
+  pluck(LITS_A, LIT_A, REST_A),
   inst_fas(FORM_B, BODY_B),
-  cf_lits(BODY_B, [LIT_B | LITS_B]), 
+  % cf_lits(BODY_B, [LIT_B | LITS_B]), 
+  cf_lits(BODY_B, LITS_B), 
+  pluck(LITS_B, LIT_B, REST_B),
   erient_form(LIT_B, LHS = RHS), 
   mk_rw_form(LHS, RHS, LIT_A, LIT_N), 
-  append([LIT_N | LITS_A], LITS_B, LITS),
+  append([LIT_N | REST_A], REST_B, LITS),
   mk_cf(LITS, BODY_N),
   close_lvs(BODY_N, FORM).
 
 mk_root(_, rw, + FORM_A, + FORM_B, dfu, + FORM) :- 
   inst_fas(FORM_A, BODY_A),
   inst_fas(FORM_B, BODY_B),
-  erient_form(BODY_B, LHS = RHS), 
+  BODY_B = (LHS = RHS), %erient_form(BODY_B, LHS = RHS), 
   mk_rw_form(LHS, RHS, BODY_A, BODY_N), 
   close_lvs(BODY_N, FORM).
 
@@ -495,7 +523,7 @@ cperm_aux([LIT | LITS_A], LITS_B) :-
     LIT = $false ;
     LIT = (~ $true) ; 
     LIT = (~ TERM = TERM) ; 
-    erient_form(LIT, EQV),
+    erient_lit(LIT, EQV),
     member(EQV, LITS_B)
   ), 
   cperm_aux(LITS_A, LITS_B).
